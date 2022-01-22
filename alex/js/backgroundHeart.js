@@ -7,7 +7,7 @@ class BackgroundHeart {
     this.speed = speed
     this.dir = random()
     // this.text = random([''])
-    this.text = 'Alex'
+    this.text = 'pwp'
     this.color = color(floor(random(100, 255)), 0, 0)
   }
 
