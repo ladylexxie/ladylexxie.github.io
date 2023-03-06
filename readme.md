@@ -5,3 +5,4 @@
 | Version                                                    | Forge Version |
 | ---------------------------------------------------------- | ------------- |
 | [1.19.2](https://ladylexxie.github.io/forge-javadocs/1.19.2/) | 43.2.6        |
+| [1.16.5](https://ladylexxie.github.io/forge-javadocs/1.16.5/) | 36.2.39       |
