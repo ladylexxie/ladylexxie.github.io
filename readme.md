@@ -1,7 +1,9 @@
 ### Choose your loader's version:
 
-| Version  | Forge Version                                                  | Fabric Version                                                 |
-| :------: | :------------------------------------------------------------: | :------------------------------------------------------------: |
-| 1.19.2   | [43.2.6](https://ladylexxie.github.io/forge-javadocs/1.19.2/)  | [0.75.1](https://ladylexxie.github.io/fabric-javadocs/1.19.2/) |
-| 1.18.2   | [40.2.1](https://ladylexxie.github.io/forge-javadocs/1.18.2/)  |                                                                |
-| 1.16.5   | [36.2.39](https://ladylexxie.github.io/forge-javadocs/1.16.5/) |                                                                |
+| Minecraft  | Forge                                                          | Fabric                                                              |
+| :--------: | :------------------------------------------------------------: | :-----------------------------------------------------------------: |
+| 1.19.4     |                                                                | [0.75.3](https://maven.fabricmc.net/docs/fabric-api-0.75.3+1.19.4/){:target="_blank" rel="noopener"} |
+| 1.19.3     |                                                                | [0.75.1](https://ladylexxie.github.io/fabric-javadocs/1.19.2/){:target="_blank" rel="noopener"} |
+| 1.19.2     | [43.2.6](https://ladylexxie.github.io/forge-javadocs/1.19.2/){:target="_blank" rel="noopener"}  | [0.75.1](https://ladylexxie.github.io/fabric-javadocs/1.19.2/){:target="_blank" rel="noopener"} |
+| 1.18.2     | [40.2.1](https://ladylexxie.github.io/forge-javadocs/1.18.2/){:target="_blank" rel="noopener"}  | [0.75.1](https://ladylexxie.github.io/fabric-javadocs/1.19.2/){:target="_blank" rel="noopener"} |
+| 1.16.5     | [36.2.39](https://ladylexxie.github.io/forge-javadocs/1.16.5/){:target="_blank" rel="noopener"} | [0.75.1](https://ladylexxie.github.io/fabric-javadocs/1.19.2/){:target="_blank" rel="noopener"} |
