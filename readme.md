@@ -1,6 +1,6 @@
 ### Choose your loader's version:
 
-| Minecraft | Forge                                                                                           | Fabric                                                                                               |
+| Minecraft |                                              Forge                                              |                                                Fabric                                                |
 | :-------: | :---------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------: |
 | 1.19.4    | [45.0.1](https://ladylexxie.github.io/forge-javadocs/1.19.4/){:target="_blank" rel="noopener"}  | [0.75.3](https://maven.fabricmc.net/docs/fabric-api-0.75.3+1.19.4/){:target="_blank" rel="noopener"} |
 | 1.19.3    | [44.1.23](https://ladylexxie.github.io/forge-javadocs/1.19.3/){:target="_blank" rel="noopener"} | [0.75.1](https://maven.fabricmc.net/docs/fabric-api-0.75.1+1.19.3/){:target="_blank" rel="noopener"} |
