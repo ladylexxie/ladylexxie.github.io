@@ -95,7 +95,7 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-first even-row-color"><code>(package private) static class&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="SimpleCookingRecipeBuilder.Result.html" class="type-name-link" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder.Result</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
@@ -113,6 +113,12 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <div class="col-first even-row-color"><code>private final <a href="../../advancements/Advancement.Builder.html" title="class in net.minecraft.advancements">Advancement.Builder</a></code></div>
 <div class="col-second even-row-color"><code><a href="#advancement" class="member-name-link">advancement</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#bookCategory" class="member-name-link">bookCategory</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a></code></div>
+<div class="col-second even-row-color"><code><a href="#category" class="member-name-link">category</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#cookingTime" class="member-name-link">cookingTime</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
@@ -128,7 +134,7 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <div class="col-first odd-row-color"><code>private final <a href="../../world/item/Item.html" title="class in net.minecraft.world.item">Item</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#result" class="member-name-link">result</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private final <a href="../../world/item/crafting/SimpleCookingSerializer.html" title="class in net.minecraft.world.item.crafting">SimpleCookingSerializer</a>&lt;?&gt;</code></div>
+<div class="col-first even-row-color"><code>private final <a href="../../world/item/crafting/RecipeSerializer.html" title="interface in net.minecraft.world.item.crafting">RecipeSerializer</a>&lt;? extends <a href="../../world/item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#serializer" class="member-name-link">serializer</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
@@ -147,11 +153,13 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.ItemLike,net.minecraft.world.item.crafting.Ingredient,float,int,net.minecraft.world.item.crafting.SimpleCookingSerializer)" class="member-name-link">SimpleCookingRecipeBuilder</a><wbr>(<a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_126243_,
- <a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_126244_,
- float&nbsp;p_126245_,
- int&nbsp;p_126246_,
- <a href="../../world/item/crafting/SimpleCookingSerializer.html" title="class in net.minecraft.world.item.crafting">SimpleCookingSerializer</a>&lt;?&gt;&nbsp;p_126247_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.item.crafting.CookingBookCategory,net.minecraft.world.level.ItemLike,net.minecraft.world.item.crafting.Ingredient,float,int,net.minecraft.world.item.crafting.RecipeSerializer)" class="member-name-link">SimpleCookingRecipeBuilder</a><wbr>(<a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_251345_,
+ <a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a>&nbsp;p_251607_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_252112_,
+ <a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_250362_,
+ float&nbsp;p_251204_,
+ int&nbsp;p_250189_,
+ <a href="../../world/item/crafting/RecipeSerializer.html" title="interface in net.minecraft.world.item.crafting">RecipeSerializer</a>&lt;? extends <a href="../../world/item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;&nbsp;p_249915_)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -168,53 +176,68 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#blasting(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int)" class="member-name-link">blasting</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_126268_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_126269_,
- float&nbsp;p_126270_,
- int&nbsp;p_126271_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#blasting(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int)" class="member-name-link">blasting</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_252115_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_249421_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_251247_,
+ float&nbsp;p_250383_,
+ int&nbsp;p_250476_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#campfireCooking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int)" class="member-name-link">campfireCooking</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_176785_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_176786_,
- float&nbsp;p_176787_,
- int&nbsp;p_176788_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#campfireCooking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int)" class="member-name-link">campfireCooking</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_249393_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_249372_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_251516_,
+ float&nbsp;p_252321_,
+ int&nbsp;p_251916_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#cooking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int,net.minecraft.world.item.crafting.SimpleCookingSerializer)" class="member-name-link">cooking</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_126249_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_126250_,
- float&nbsp;p_126251_,
- int&nbsp;p_126252_,
- <a href="../../world/item/crafting/SimpleCookingSerializer.html" title="class in net.minecraft.world.item.crafting">SimpleCookingSerializer</a>&lt;?&gt;&nbsp;p_126253_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#determineBlastingRecipeCategory(net.minecraft.world.level.ItemLike)" class="member-name-link">determineBlastingRecipeCategory</a><wbr>(<a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_249047_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#determineRecipeCategory(net.minecraft.world.item.crafting.RecipeSerializer,net.minecraft.world.level.ItemLike)" class="member-name-link">determineRecipeCategory</a><wbr>(<a href="../../world/item/crafting/RecipeSerializer.html" title="interface in net.minecraft.world.item.crafting">RecipeSerializer</a>&lt;? extends <a href="../../world/item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;&nbsp;p_251261_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_249582_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#determineSmeltingRecipeCategory(net.minecraft.world.level.ItemLike)" class="member-name-link">determineSmeltingRecipeCategory</a><wbr>(<a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_251938_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#ensureValid(net.minecraft.resources.ResourceLocation)" class="member-name-link">ensureValid</a><wbr>(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_126266_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/item/Item.html" title="class in net.minecraft.world.item">Item</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResult()" class="member-name-link">getResult</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#group(java.lang.String)" class="member-name-link">group</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_176795_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#save(java.util.function.Consumer,net.minecraft.resources.ResourceLocation)" class="member-name-link">save</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="FinishedRecipe.html" title="interface in net.minecraft.data.recipes">FinishedRecipe</a>&gt;&nbsp;p_126263_,
- <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_126264_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#smelting(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int)" class="member-name-link">smelting</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_126273_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_126274_,
- float&nbsp;p_126275_,
- int&nbsp;p_126276_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#smoking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int)" class="member-name-link">smoking</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_176797_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_176798_,
- float&nbsp;p_176799_,
- int&nbsp;p_176800_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#generic(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int,net.minecraft.world.item.crafting.RecipeSerializer)" class="member-name-link">generic</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_250999_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_248815_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_249766_,
+ float&nbsp;p_251320_,
+ int&nbsp;p_248693_,
+ <a href="../../world/item/crafting/RecipeSerializer.html" title="interface in net.minecraft.world.item.crafting">RecipeSerializer</a>&lt;? extends <a href="../../world/item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;&nbsp;p_250921_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#unlockedBy(java.lang.String,net.minecraft.advancements.CriterionTriggerInstance)" class="member-name-link">unlockedBy</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_126255_,
- <a href="../../advancements/CriterionTriggerInstance.html" title="interface in net.minecraft.advancements">CriterionTriggerInstance</a>&nbsp;p_126256_)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/item/Item.html" title="class in net.minecraft.world.item">Item</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResult()" class="member-name-link">getResult</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#group(java.lang.String)" class="member-name-link">group</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_176795_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#save(java.util.function.Consumer,net.minecraft.resources.ResourceLocation)" class="member-name-link">save</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="FinishedRecipe.html" title="interface in net.minecraft.data.recipes">FinishedRecipe</a>&gt;&nbsp;p_126263_,
+ <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_126264_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#smelting(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int)" class="member-name-link">smelting</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_249223_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_251240_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_249551_,
+ float&nbsp;p_249452_,
+ int&nbsp;p_250496_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#smoking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int)" class="member-name-link">smoking</a><wbr>(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_248930_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_250319_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_250377_,
+ float&nbsp;p_252329_,
+ int&nbsp;p_250482_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#unlockedBy(java.lang.String,net.minecraft.advancements.CriterionTriggerInstance)" class="member-name-link">unlockedBy</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_126255_,
+ <a href="../../advancements/CriterionTriggerInstance.html" title="interface in net.minecraft.advancements">CriterionTriggerInstance</a>&nbsp;p_126256_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -235,6 +258,18 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <section class="field-details" id="field-detail">
 <h2>Field Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="category">
+<h3>category</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a></span>&nbsp;<span class="element-name">category</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="bookCategory">
+<h3>bookCategory</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a></span>&nbsp;<span class="element-name">bookCategory</span></div>
+</section>
+</li>
 <li>
 <section class="detail" id="result">
 <h3>result</h3>
@@ -275,7 +310,7 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <li>
 <section class="detail" id="serializer">
 <h3>serializer</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/item/crafting/SimpleCookingSerializer.html" title="class in net.minecraft.world.item.crafting">SimpleCookingSerializer</a>&lt;?&gt;</span>&nbsp;<span class="element-name">serializer</span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/item/crafting/RecipeSerializer.html" title="interface in net.minecraft.world.item.crafting">RecipeSerializer</a>&lt;? extends <a href="../../world/item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;</span>&nbsp;<span class="element-name">serializer</span></div>
 </section>
 </li>
 </ul>
@@ -287,13 +322,15 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(net.minecraft.world.level.ItemLike,net.minecraft.world.item.crafting.Ingredient,float,int,net.minecraft.world.item.crafting.SimpleCookingSerializer)">
+<section class="detail" id="&lt;init&gt;(net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.item.crafting.CookingBookCategory,net.minecraft.world.level.ItemLike,net.minecraft.world.item.crafting.Ingredient,float,int,net.minecraft.world.item.crafting.RecipeSerializer)">
 <h3>SimpleCookingRecipeBuilder</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">SimpleCookingRecipeBuilder</span><wbr><span class="parameters">(<a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_126243_,
- <a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_126244_,
- float&nbsp;p_126245_,
- int&nbsp;p_126246_,
- <a href="../../world/item/crafting/SimpleCookingSerializer.html" title="class in net.minecraft.world.item.crafting">SimpleCookingSerializer</a>&lt;?&gt;&nbsp;p_126247_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">SimpleCookingRecipeBuilder</span><wbr><span class="parameters">(<a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_251345_,
+ <a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a>&nbsp;p_251607_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_252112_,
+ <a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_250362_,
+ float&nbsp;p_251204_,
+ int&nbsp;p_250189_,
+ <a href="../../world/item/crafting/RecipeSerializer.html" title="interface in net.minecraft.world.item.crafting">RecipeSerializer</a>&lt;? extends <a href="../../world/item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;&nbsp;p_249915_)</span></div>
 </section>
 </li>
 </ul>
@@ -305,49 +342,54 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="cooking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int,net.minecraft.world.item.crafting.SimpleCookingSerializer)">
-<h3>cooking</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">cooking</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_126249_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_126250_,
- float&nbsp;p_126251_,
- int&nbsp;p_126252_,
- <a href="../../world/item/crafting/SimpleCookingSerializer.html" title="class in net.minecraft.world.item.crafting">SimpleCookingSerializer</a>&lt;?&gt;&nbsp;p_126253_)</span></div>
+<section class="detail" id="generic(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int,net.minecraft.world.item.crafting.RecipeSerializer)">
+<h3>generic</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">generic</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_250999_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_248815_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_249766_,
+ float&nbsp;p_251320_,
+ int&nbsp;p_248693_,
+ <a href="../../world/item/crafting/RecipeSerializer.html" title="interface in net.minecraft.world.item.crafting">RecipeSerializer</a>&lt;? extends <a href="../../world/item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;&nbsp;p_250921_)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="campfireCooking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int)">
+<section class="detail" id="campfireCooking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int)">
 <h3>campfireCooking</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">campfireCooking</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_176785_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_176786_,
- float&nbsp;p_176787_,
- int&nbsp;p_176788_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">campfireCooking</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_249393_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_249372_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_251516_,
+ float&nbsp;p_252321_,
+ int&nbsp;p_251916_)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="blasting(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int)">
+<section class="detail" id="blasting(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int)">
 <h3>blasting</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">blasting</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_126268_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_126269_,
- float&nbsp;p_126270_,
- int&nbsp;p_126271_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">blasting</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_252115_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_249421_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_251247_,
+ float&nbsp;p_250383_,
+ int&nbsp;p_250476_)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="smelting(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int)">
+<section class="detail" id="smelting(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int)">
 <h3>smelting</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">smelting</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_126273_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_126274_,
- float&nbsp;p_126275_,
- int&nbsp;p_126276_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">smelting</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_249223_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_251240_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_249551_,
+ float&nbsp;p_249452_,
+ int&nbsp;p_250496_)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="smoking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.world.level.ItemLike,float,int)">
+<section class="detail" id="smoking(net.minecraft.world.item.crafting.Ingredient,net.minecraft.data.recipes.RecipeCategory,net.minecraft.world.level.ItemLike,float,int)">
 <h3>smoking</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">smoking</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_176797_,
- <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_176798_,
- float&nbsp;p_176799_,
- int&nbsp;p_176800_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SimpleCookingRecipeBuilder.html" title="class in net.minecraft.data.recipes">SimpleCookingRecipeBuilder</a></span>&nbsp;<span class="element-name">smoking</span><wbr><span class="parameters">(<a href="../../world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a>&nbsp;p_248930_,
+ <a href="RecipeCategory.html" title="enum class in net.minecraft.data.recipes">RecipeCategory</a>&nbsp;p_250319_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_250377_,
+ float&nbsp;p_252329_,
+ int&nbsp;p_250482_)</span></div>
 </section>
 </li>
 <li>
@@ -391,6 +433,25 @@ implements <a href="RecipeBuilder.html" title="interface in net.minecraft.data.r
 <dt>Specified by:</dt>
 <dd><code><a href="RecipeBuilder.html#save(java.util.function.Consumer,net.minecraft.resources.ResourceLocation)">save</a></code>&nbsp;in interface&nbsp;<code><a href="RecipeBuilder.html" title="interface in net.minecraft.data.recipes">RecipeBuilder</a></code></dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="determineSmeltingRecipeCategory(net.minecraft.world.level.ItemLike)">
+<h3>determineSmeltingRecipeCategory</h3>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a></span>&nbsp;<span class="element-name">determineSmeltingRecipeCategory</span><wbr><span class="parameters">(<a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_251938_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="determineBlastingRecipeCategory(net.minecraft.world.level.ItemLike)">
+<h3>determineBlastingRecipeCategory</h3>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a></span>&nbsp;<span class="element-name">determineBlastingRecipeCategory</span><wbr><span class="parameters">(<a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_249047_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="determineRecipeCategory(net.minecraft.world.item.crafting.RecipeSerializer,net.minecraft.world.level.ItemLike)">
+<h3>determineRecipeCategory</h3>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../world/item/crafting/CookingBookCategory.html" title="enum class in net.minecraft.world.item.crafting">CookingBookCategory</a></span>&nbsp;<span class="element-name">determineRecipeCategory</span><wbr><span class="parameters">(<a href="../../world/item/crafting/RecipeSerializer.html" title="interface in net.minecraft.world.item.crafting">RecipeSerializer</a>&lt;? extends <a href="../../world/item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;&nbsp;p_251261_,
+ <a href="../../world/level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_249582_)</span></div>
 </section>
 </li>
 <li>

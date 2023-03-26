@@ -95,13 +95,13 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="VibrationListener.ReceivingEvent.html" class="type-name-link" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationListener.ReceivingEvent</a></code></div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="VibrationListener.VibrationListenerConfig.html" class="type-name-link" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="VibrationListener.VibrationListenerConfig.html" class="type-name-link" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 </div>
+<div class="inherited-list">
+<h2 id="nested-classes-inherited-from-class-net.minecraft.world.level.gameevent.GameEventListener">Nested classes/interfaces inherited from interface&nbsp;net.minecraft.world.level.gameevent.<a href="../GameEventListener.html" title="interface in net.minecraft.world.level.gameevent">GameEventListener</a></h2>
+<code><a href="../GameEventListener.DeliveryMode.html" title="enum class in net.minecraft.world.level.gameevent">GameEventListener.DeliveryMode</a></code></div>
 </section>
 </li>
 <!-- =========== FIELD SUMMARY =========== -->
@@ -116,21 +116,24 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 <div class="col-first even-row-color"><code>protected final <a href="VibrationListener.VibrationListenerConfig.html" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a></code></div>
 <div class="col-second even-row-color"><code><a href="#config" class="member-name-link">config</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final int</code></div>
-<div class="col-second odd-row-color"><code><a href="#listenerRange" class="member-name-link">listenerRange</a></code></div>
+<div class="col-first odd-row-color"><code>protected <a href="VibrationInfo.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationInfo</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#currentVibration" class="member-name-link">currentVibration</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected final <a href="../PositionSource.html" title="interface in net.minecraft.world.level.gameevent">PositionSource</a></code></div>
-<div class="col-second even-row-color"><code><a href="#listenerSource" class="member-name-link">listenerSource</a></code></div>
+<div class="col-first even-row-color"><code>protected final int</code></div>
+<div class="col-second even-row-color"><code><a href="#listenerRange" class="member-name-link">listenerRange</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected float</code></div>
-<div class="col-second odd-row-color"><code><a href="#receivingDistance" class="member-name-link">receivingDistance</a></code></div>
+<div class="col-first odd-row-color"><code>protected final <a href="../PositionSource.html" title="interface in net.minecraft.world.level.gameevent">PositionSource</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#listenerSource" class="member-name-link">listenerSource</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected <a href="VibrationListener.ReceivingEvent.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationListener.ReceivingEvent</a></code></div>
-<div class="col-second even-row-color"><code><a href="#receivingEvent" class="member-name-link">receivingEvent</a></code></div>
+<div class="col-first even-row-color"><code>private final <a href="VibrationSelector.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationSelector</a></code></div>
+<div class="col-second even-row-color"><code><a href="#selectionStrategy" class="member-name-link">selectionStrategy</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected int</code></div>
 <div class="col-second odd-row-color"><code><a href="#travelTimeInTicks" class="member-name-link">travelTimeInTicks</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final it.unimi.dsi.fastutil.objects.Object2IntMap&lt;<a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#VIBRATION_FREQUENCY_FOR_EVENT" class="member-name-link">VIBRATION_FREQUENCY_FOR_EVENT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -139,16 +142,23 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 <section class="constructor-summary" id="constructor-summary">
 <h2>Constructor Summary</h2>
 <div class="caption"><span>Constructors</span></div>
-<div class="summary-table two-column-summary">
-<div class="table-header col-first">Constructor</div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.gameevent.PositionSource,int,net.minecraft.world.level.gameevent.vibrations.VibrationListener.VibrationListenerConfig,net.minecraft.world.level.gameevent.vibrations.VibrationListener.ReceivingEvent,float,int)" class="member-name-link">VibrationListener</a><wbr>(<a href="../PositionSource.html" title="interface in net.minecraft.world.level.gameevent">PositionSource</a>&nbsp;p_223760_,
- int&nbsp;p_223761_,
- <a href="VibrationListener.VibrationListenerConfig.html" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a>&nbsp;p_223762_,
- <a href="VibrationListener.ReceivingEvent.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationListener.ReceivingEvent</a>&nbsp;p_223763_,
- float&nbsp;p_223764_,
- int&nbsp;p_223765_)</code></div>
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.gameevent.PositionSource,int,net.minecraft.world.level.gameevent.vibrations.VibrationListener.VibrationListenerConfig)" class="member-name-link">VibrationListener</a><wbr>(<a href="../PositionSource.html" title="interface in net.minecraft.world.level.gameevent">PositionSource</a>&nbsp;p_248645_,
+ int&nbsp;p_250290_,
+ <a href="VibrationListener.VibrationListenerConfig.html" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a>&nbsp;p_249414_)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private </code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.gameevent.PositionSource,int,net.minecraft.world.level.gameevent.vibrations.VibrationListener.VibrationListenerConfig,net.minecraft.world.level.gameevent.vibrations.VibrationInfo,net.minecraft.world.level.gameevent.vibrations.VibrationSelector,int)" class="member-name-link">VibrationListener</a><wbr>(<a href="../PositionSource.html" title="interface in net.minecraft.world.level.gameevent">PositionSource</a>&nbsp;p_252286_,
+ int&nbsp;p_249404_,
+ <a href="VibrationListener.VibrationListenerConfig.html" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a>&nbsp;p_251761_,
+ <a href="VibrationInfo.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationInfo</a>&nbsp;p_250360_,
+ <a href="VibrationSelector.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationSelector</a>&nbsp;p_250234_,
+ int&nbsp;p_248651_)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -166,6 +176,15 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.mojang.serialization.Codec&lt;<a href="VibrationListener.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationListener</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#codec(net.minecraft.world.level.gameevent.vibrations.VibrationListener.VibrationListenerConfig)" class="member-name-link">codec</a><wbr>(<a href="VibrationListener.VibrationListenerConfig.html" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a>&nbsp;p_223782_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceGameEvent(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent,net.minecraft.world.level.gameevent.GameEvent.Context,net.minecraft.world.phys.Vec3)" class="member-name-link">forceGameEvent</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_250726_,
+ <a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_251544_,
+ <a href="../GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;p_250365_,
+ <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_249607_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGameEventFrequency(net.minecraft.world.level.gameevent.GameEvent)" class="member-name-link">getGameEventFrequency</a><wbr>(<a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_252168_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getListenerRadius()" class="member-name-link">getListenerRadius</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -173,20 +192,22 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getListenerSource()" class="member-name-link">getListenerSource</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleGameEvent(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent.Message)" class="member-name-link">handleGameEvent</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_223767_,
- <a href="../GameEvent.Message.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Message</a>&nbsp;p_223768_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleGameEvent(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent,net.minecraft.world.level.gameevent.GameEvent.Context,net.minecraft.world.phys.Vec3)" class="member-name-link">handleGameEvent</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_251930_,
+ <a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_250161_,
+ <a href="../GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;p_251443_,
+ <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_250045_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isOccluded(net.minecraft.world.level.Level,net.minecraft.world.phys.Vec3,net.minecraft.world.phys.Vec3)" class="member-name-link">isOccluded</a><wbr>(<a href="../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_223776_,
  <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_223777_,
  <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_223778_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#scheduleSignal(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent,net.minecraft.world.level.gameevent.GameEvent.Context,net.minecraft.world.phys.Vec3,net.minecraft.world.phys.Vec3)" class="member-name-link">scheduleSignal</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_223770_,
- <a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_223771_,
- <a href="../GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;p_223772_,
- <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_223773_,
- <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_223774_)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#scheduleVibration(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent,net.minecraft.world.level.gameevent.GameEvent.Context,net.minecraft.world.phys.Vec3,net.minecraft.world.phys.Vec3)" class="member-name-link">scheduleVibration</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_250210_,
+ <a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_251063_,
+ <a href="../GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;p_249354_,
+ <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_250310_,
+ <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_249553_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick(net.minecraft.world.level.Level)" class="member-name-link">tick</a><wbr>(<a href="../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_157899_)</code></div>
@@ -199,7 +220,7 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-net.minecraft.world.level.gameevent.GameEventListener">Methods inherited from interface&nbsp;net.minecraft.world.level.gameevent.<a href="../GameEventListener.html" title="interface in net.minecraft.world.level.gameevent">GameEventListener</a></h3>
-<code><a href="../GameEventListener.html#handleEventsImmediately()">handleEventsImmediately</a></code></div>
+<code><a href="../GameEventListener.html#getDeliveryMode()">getDeliveryMode</a></code></div>
 </section>
 </li>
 </ul>
@@ -211,6 +232,12 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 <section class="field-details" id="field-detail">
 <h2>Field Details</h2>
 <ul class="member-list">
+<li>
+<section class="detail" id="VIBRATION_FREQUENCY_FOR_EVENT">
+<h3>VIBRATION_FREQUENCY_FOR_EVENT</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.objects.Object2IntMap&lt;<a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&gt;</span>&nbsp;<span class="element-name">VIBRATION_FREQUENCY_FOR_EVENT</span></div>
+</section>
+</li>
 <li>
 <section class="detail" id="listenerSource">
 <h3>listenerSource</h3>
@@ -230,22 +257,22 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 </section>
 </li>
 <li>
-<section class="detail" id="receivingEvent">
-<h3>receivingEvent</h3>
+<section class="detail" id="currentVibration">
+<h3>currentVibration</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="VibrationListener.ReceivingEvent.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationListener.ReceivingEvent</a></span>&nbsp;<span class="element-name">receivingEvent</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="receivingDistance">
-<h3>receivingDistance</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">receivingDistance</span></div>
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="VibrationInfo.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationInfo</a></span>&nbsp;<span class="element-name">currentVibration</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="travelTimeInTicks">
 <h3>travelTimeInTicks</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">travelTimeInTicks</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="selectionStrategy">
+<h3>selectionStrategy</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="VibrationSelector.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationSelector</a></span>&nbsp;<span class="element-name">selectionStrategy</span></div>
 </section>
 </li>
 </ul>
@@ -257,15 +284,23 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(net.minecraft.world.level.gameevent.PositionSource,int,net.minecraft.world.level.gameevent.vibrations.VibrationListener.VibrationListenerConfig,net.minecraft.world.level.gameevent.vibrations.VibrationListener.ReceivingEvent,float,int)">
+<section class="detail" id="&lt;init&gt;(net.minecraft.world.level.gameevent.PositionSource,int,net.minecraft.world.level.gameevent.vibrations.VibrationListener.VibrationListenerConfig,net.minecraft.world.level.gameevent.vibrations.VibrationInfo,net.minecraft.world.level.gameevent.vibrations.VibrationSelector,int)">
 <h3>VibrationListener</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">VibrationListener</span><wbr><span class="parameters">(<a href="../PositionSource.html" title="interface in net.minecraft.world.level.gameevent">PositionSource</a>&nbsp;p_223760_,
- int&nbsp;p_223761_,
- <a href="VibrationListener.VibrationListenerConfig.html" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a>&nbsp;p_223762_,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">VibrationListener</span><wbr><span class="parameters">(<a href="../PositionSource.html" title="interface in net.minecraft.world.level.gameevent">PositionSource</a>&nbsp;p_252286_,
+ int&nbsp;p_249404_,
+ <a href="VibrationListener.VibrationListenerConfig.html" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a>&nbsp;p_251761_,
  @Nullable
- <a href="VibrationListener.ReceivingEvent.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationListener.ReceivingEvent</a>&nbsp;p_223763_,
- float&nbsp;p_223764_,
- int&nbsp;p_223765_)</span></div>
+ <a href="VibrationInfo.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationInfo</a>&nbsp;p_250360_,
+ <a href="VibrationSelector.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationSelector</a>&nbsp;p_250234_,
+ int&nbsp;p_248651_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.world.level.gameevent.PositionSource,int,net.minecraft.world.level.gameevent.vibrations.VibrationListener.VibrationListenerConfig)">
+<h3>VibrationListener</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">VibrationListener</span><wbr><span class="parameters">(<a href="../PositionSource.html" title="interface in net.minecraft.world.level.gameevent">PositionSource</a>&nbsp;p_248645_,
+ int&nbsp;p_250290_,
+ <a href="VibrationListener.VibrationListenerConfig.html" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a>&nbsp;p_249414_)</span></div>
 </section>
 </li>
 </ul>
@@ -280,6 +315,12 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 <section class="detail" id="codec(net.minecraft.world.level.gameevent.vibrations.VibrationListener.VibrationListenerConfig)">
 <h3>codec</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">com.mojang.serialization.Codec&lt;<a href="VibrationListener.html" title="class in net.minecraft.world.level.gameevent.vibrations">VibrationListener</a>&gt;</span>&nbsp;<span class="element-name">codec</span><wbr><span class="parameters">(<a href="VibrationListener.VibrationListenerConfig.html" title="interface in net.minecraft.world.level.gameevent.vibrations">VibrationListener.VibrationListenerConfig</a>&nbsp;p_223782_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getGameEventFrequency(net.minecraft.world.level.gameevent.GameEvent)">
+<h3>getGameEventFrequency</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getGameEventFrequency</span><wbr><span class="parameters">(<a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_252168_)</span></div>
 </section>
 </li>
 <li>
@@ -309,24 +350,35 @@ implements <a href="../GameEventListener.html" title="interface in net.minecraft
 </section>
 </li>
 <li>
-<section class="detail" id="handleGameEvent(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent.Message)">
+<section class="detail" id="handleGameEvent(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent,net.minecraft.world.level.gameevent.GameEvent.Context,net.minecraft.world.phys.Vec3)">
 <h3>handleGameEvent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">handleGameEvent</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_223767_,
- <a href="../GameEvent.Message.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Message</a>&nbsp;p_223768_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">handleGameEvent</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_251930_,
+ <a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_250161_,
+ <a href="../GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;p_251443_,
+ <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_250045_)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../GameEventListener.html#handleGameEvent(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent.Message)">handleGameEvent</a></code>&nbsp;in interface&nbsp;<code><a href="../GameEventListener.html" title="interface in net.minecraft.world.level.gameevent">GameEventListener</a></code></dd>
+<dd><code><a href="../GameEventListener.html#handleGameEvent(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent,net.minecraft.world.level.gameevent.GameEvent.Context,net.minecraft.world.phys.Vec3)">handleGameEvent</a></code>&nbsp;in interface&nbsp;<code><a href="../GameEventListener.html" title="interface in net.minecraft.world.level.gameevent">GameEventListener</a></code></dd>
 </dl>
 </section>
 </li>
 <li>
-<section class="detail" id="scheduleSignal(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent,net.minecraft.world.level.gameevent.GameEvent.Context,net.minecraft.world.phys.Vec3,net.minecraft.world.phys.Vec3)">
-<h3>scheduleSignal</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">scheduleSignal</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_223770_,
- <a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_223771_,
- <a href="../GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;p_223772_,
- <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_223773_,
- <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_223774_)</span></div>
+<section class="detail" id="forceGameEvent(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent,net.minecraft.world.level.gameevent.GameEvent.Context,net.minecraft.world.phys.Vec3)">
+<h3>forceGameEvent</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">forceGameEvent</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_250726_,
+ <a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_251544_,
+ <a href="../GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;p_250365_,
+ <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_249607_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="scheduleVibration(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.gameevent.GameEvent,net.minecraft.world.level.gameevent.GameEvent.Context,net.minecraft.world.phys.Vec3,net.minecraft.world.phys.Vec3)">
+<h3>scheduleVibration</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">scheduleVibration</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_250210_,
+ <a href="../GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&nbsp;p_251063_,
+ <a href="../GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;p_249354_,
+ <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_250310_,
+ <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_249553_)</span></div>
 </section>
 </li>
 <li>

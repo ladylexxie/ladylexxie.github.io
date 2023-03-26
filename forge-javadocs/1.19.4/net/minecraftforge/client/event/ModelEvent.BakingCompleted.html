@@ -92,7 +92,9 @@ loadScripts(document, 'script');</script>
 <span class="extends-implements">extends <a href="ModelEvent.html" title="class in net.minecraftforge.client.event">ModelEvent</a>
 implements <a href="../../fml/event/IModBusEvent.html" title="interface in net.minecraftforge.fml.event">IModBusEvent</a></span></div>
 <div class="block">Fired when the <a href="../../../minecraft/client/resources/model/ModelManager.html" title="class in net.minecraft.client.resources.model"><code>ModelManager</code></a> is notified of the resource manager reloading.
- Called after model registry is set up, but before it's passed to <a href="../../../minecraft/client/renderer/block/BlockModelShaper.html" title="class in net.minecraft.client.renderer.block"><code>BlockModelShaper</code></a>.
+ Called after the model registry is set up and cached in the <a href="../../../minecraft/client/renderer/block/BlockModelShaper.html" title="class in net.minecraft.client.renderer.block"><code>BlockModelShaper</code></a>.<br>
+ The model registry given by this event is unmodifiable. To modify the model registry, use
+ <a href="ModelEvent.ModifyBakingResult.html" title="class in net.minecraftforge.client.event"><code>ModelEvent.ModifyBakingResult</code></a> instead.
 
  <p>This event is not cancellable, and does not have a result.</p>
 
@@ -107,7 +109,7 @@ implements <a href="../../fml/event/IModBusEvent.html" title="interface in net.m
 <h2>Nested Class Summary</h2>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraftforge.client.event.ModelEvent">Nested classes/interfaces inherited from class&nbsp;net.minecraftforge.client.event.<a href="ModelEvent.html" title="class in net.minecraftforge.client.event">ModelEvent</a></h2>
-<code><a href="ModelEvent.BakingCompleted.html" title="class in net.minecraftforge.client.event">ModelEvent.BakingCompleted</a>, <a href="ModelEvent.RegisterAdditional.html" title="class in net.minecraftforge.client.event">ModelEvent.RegisterAdditional</a>, <a href="ModelEvent.RegisterGeometryLoaders.html" title="class in net.minecraftforge.client.event">ModelEvent.RegisterGeometryLoaders</a></code></div>
+<code><a href="ModelEvent.BakingCompleted.html" title="class in net.minecraftforge.client.event">ModelEvent.BakingCompleted</a>, <a href="ModelEvent.ModifyBakingResult.html" title="class in net.minecraftforge.client.event">ModelEvent.ModifyBakingResult</a>, <a href="ModelEvent.RegisterAdditional.html" title="class in net.minecraftforge.client.event">ModelEvent.RegisterAdditional</a>, <a href="ModelEvent.RegisterGeometryLoaders.html" title="class in net.minecraftforge.client.event">ModelEvent.RegisterGeometryLoaders</a></code></div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraftforge.eventbus.api.Event">Nested classes/interfaces inherited from class&nbsp;net.minecraftforge.eventbus.api.Event</h2>
 <code>net.minecraftforge.eventbus.api.Event.HasResult, net.minecraftforge.eventbus.api.Event.Result</code></div>
@@ -248,7 +250,7 @@ implements <a href="../../fml/event/IModBusEvent.html" title="interface in net.m
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>,<wbr><a href="../../../minecraft/client/resources/model/BakedModel.html" title="interface in net.minecraft.client.resources.model">BakedModel</a>&gt;</span>&nbsp;<span class="element-name">getModels</span>()</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the modifiable registry map of models and their model names</dd>
+<dd>an unmodifiable view of the registry map of models and their model names</dd>
 </dl>
 </section>
 </li>

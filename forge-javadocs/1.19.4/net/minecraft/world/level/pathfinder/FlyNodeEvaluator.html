@@ -94,8 +94,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private final it.unimi.dsi.fastutil.longs.Long2ObjectMap&lt;<a href="BlockPathTypes.html" title="enum class in net.minecraft.world.level.pathfinder">BlockPathTypes</a>&gt;</code></div>
-<div class="col-second even-row-color"><code><a href="#pathTypeByPosCache" class="member-name-link">pathTypeByPosCache</a></code></div>
+<div class="col-first even-row-color"><code>private static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#MAX_START_NODE_CANDIDATES" class="member-name-link">MAX_START_NODE_CANDIDATES</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final it.unimi.dsi.fastutil.longs.Long2ObjectMap&lt;<a href="BlockPathTypes.html" title="enum class in net.minecraft.world.level.pathfinder">BlockPathTypes</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#pathTypeByPosCache" class="member-name-link">pathTypeByPosCache</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final float</code></div>
+<div class="col-second even-row-color"><code><a href="#SMALL_MOB_INFLATED_START_NODE_BOUNDING_BOX" class="member-name-link">SMALL_MOB_INFLATED_START_NODE_BOUNDING_BOX</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="inherited-list">
@@ -103,7 +109,7 @@ loadScripts(document, 'script');</script>
 <code><a href="WalkNodeEvaluator.html#oldWaterCost">oldWaterCost</a>, <a href="WalkNodeEvaluator.html#SPACE_BETWEEN_WALL_POSTS">SPACE_BETWEEN_WALL_POSTS</a></code></div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-net.minecraft.world.level.pathfinder.NodeEvaluator">Fields inherited from class&nbsp;net.minecraft.world.level.pathfinder.<a href="NodeEvaluator.html" title="class in net.minecraft.world.level.pathfinder">NodeEvaluator</a></h3>
-<code><a href="NodeEvaluator.html#canFloat">canFloat</a>, <a href="NodeEvaluator.html#canOpenDoors">canOpenDoors</a>, <a href="NodeEvaluator.html#canPassDoors">canPassDoors</a>, <a href="NodeEvaluator.html#entityDepth">entityDepth</a>, <a href="NodeEvaluator.html#entityHeight">entityHeight</a>, <a href="NodeEvaluator.html#entityWidth">entityWidth</a>, <a href="NodeEvaluator.html#level">level</a>, <a href="NodeEvaluator.html#mob">mob</a>, <a href="NodeEvaluator.html#nodes">nodes</a></code></div>
+<code><a href="NodeEvaluator.html#canFloat">canFloat</a>, <a href="NodeEvaluator.html#canOpenDoors">canOpenDoors</a>, <a href="NodeEvaluator.html#canPassDoors">canPassDoors</a>, <a href="NodeEvaluator.html#canWalkOverFences">canWalkOverFences</a>, <a href="NodeEvaluator.html#entityDepth">entityDepth</a>, <a href="NodeEvaluator.html#entityHeight">entityHeight</a>, <a href="NodeEvaluator.html#entityWidth">entityWidth</a>, <a href="NodeEvaluator.html#level">level</a>, <a href="NodeEvaluator.html#mob">mob</a>, <a href="NodeEvaluator.html#nodes">nodes</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -130,8 +136,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#done()" class="member-name-link">done</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canStartAt(net.minecraft.core.BlockPos)" class="member-name-link">canStartAt</a><wbr>(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_262645_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#done()" class="member-name-link">done</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findAcceptedNode(int,int,int)" class="member-name-link">findAcceptedNode</a><wbr>(int&nbsp;p_262970_,
+ int&nbsp;p_263018_,
+ int&nbsp;p_262947_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BlockPathTypes.html" title="enum class in net.minecraft.world.level.pathfinder">BlockPathTypes</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockPathType(net.minecraft.world.level.BlockGetter,int,int,int)" class="member-name-link">getBlockPathType</a><wbr>(<a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_77245_,
@@ -140,16 +154,11 @@ loadScripts(document, 'script');</script>
  int&nbsp;p_77248_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BlockPathTypes.html" title="enum class in net.minecraft.world.level.pathfinder">BlockPathTypes</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockPathType(net.minecraft.world.level.BlockGetter,int,int,int,net.minecraft.world.entity.Mob,int,int,int,boolean,boolean)" class="member-name-link">getBlockPathType</a><wbr>(<a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_77250_,
- int&nbsp;p_77251_,
- int&nbsp;p_77252_,
- int&nbsp;p_77253_,
- <a href="../../entity/Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_77254_,
- int&nbsp;p_77255_,
- int&nbsp;p_77256_,
- int&nbsp;p_77257_,
- boolean&nbsp;p_77258_,
- boolean&nbsp;p_77259_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockPathType(net.minecraft.world.level.BlockGetter,int,int,int,net.minecraft.world.entity.Mob)" class="member-name-link">getBlockPathType</a><wbr>(<a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_265753_,
+ int&nbsp;p_265243_,
+ int&nbsp;p_265376_,
+ int&nbsp;p_265253_,
+ <a href="../../entity/Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_265367_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="BlockPathTypes.html" title="enum class in net.minecraft.world.level.pathfinder">BlockPathTypes</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCachedBlockPathType(int,int,int)" class="member-name-link">getCachedBlockPathType</a><wbr>(int&nbsp;p_164694_,
@@ -165,19 +174,17 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNeighbors(net.minecraft.world.level.pathfinder.Node%5B%5D,net.minecraft.world.level.pathfinder.Node)" class="member-name-link">getNeighbors</a><wbr>(<a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a>[]&nbsp;p_77266_,
  <a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a>&nbsp;p_77267_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNode(int,int,int)" class="member-name-link">getNode</a><wbr>(int&nbsp;p_77233_,
- int&nbsp;p_77234_,
- int&nbsp;p_77235_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStart()" class="member-name-link">getStart</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasMalus(net.minecraft.world.level.pathfinder.Node)" class="member-name-link">hasMalus</a><wbr>(<a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a>&nbsp;p_77264_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStart()" class="member-name-link">getStart</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isOpen(net.minecraft.world.level.pathfinder.Node)" class="member-name-link">isOpen</a><wbr>(<a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a>&nbsp;p_77270_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasMalus(net.minecraft.world.level.pathfinder.Node)" class="member-name-link">hasMalus</a><wbr>(<a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a>&nbsp;p_77264_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isOpen(net.minecraft.world.level.pathfinder.Node)" class="member-name-link">isOpen</a><wbr>(<a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a>&nbsp;p_77270_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#iteratePathfindingStartNodeCandidatePositions(net.minecraft.world.entity.Mob)" class="member-name-link">iteratePathfindingStartNodeCandidatePositions</a><wbr>(<a href="../../entity/Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_263108_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepare(net.minecraft.world.level.PathNavigationRegion,net.minecraft.world.entity.Mob)" class="member-name-link">prepare</a><wbr>(<a href="../PathNavigationRegion.html" title="class in net.minecraft.world.level">PathNavigationRegion</a>&nbsp;p_77261_,
@@ -188,10 +195,10 @@ loadScripts(document, 'script');</script>
 </div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-net.minecraft.world.level.pathfinder.WalkNodeEvaluator">Methods inherited from class&nbsp;net.minecraft.world.level.pathfinder.<a href="WalkNodeEvaluator.html" title="class in net.minecraft.world.level.pathfinder">WalkNodeEvaluator</a></h3>
-<code><a href="WalkNodeEvaluator.html#checkNeighbourBlocks(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos.MutableBlockPos,net.minecraft.world.level.pathfinder.BlockPathTypes)">checkNeighbourBlocks</a>, <a href="WalkNodeEvaluator.html#evaluateBlockPathType(net.minecraft.world.level.BlockGetter,boolean,boolean,net.minecraft.core.BlockPos,net.minecraft.world.level.pathfinder.BlockPathTypes)">evaluateBlockPathType</a>, <a href="WalkNodeEvaluator.html#findAcceptedNode(int,int,int,int,double,net.minecraft.core.Direction,net.minecraft.world.level.pathfinder.BlockPathTypes)">findAcceptedNode</a>, <a href="WalkNodeEvaluator.html#getBlockPathTypeRaw(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)">getBlockPathTypeRaw</a>, <a href="WalkNodeEvaluator.html#getBlockPathTypes(net.minecraft.world.level.BlockGetter,int,int,int,int,int,int,boolean,boolean,java.util.EnumSet,net.minecraft.world.level.pathfinder.BlockPathTypes,net.minecraft.core.BlockPos)">getBlockPathTypes</a>, <a href="WalkNodeEvaluator.html#getBlockPathTypeStatic(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos.MutableBlockPos)">getBlockPathTypeStatic</a>, <a href="WalkNodeEvaluator.html#getCachedBlockType(net.minecraft.world.entity.Mob,int,int,int)">getCachedBlockType</a>, <a href="WalkNodeEvaluator.html#getFloorLevel(net.minecraft.core.BlockPos)">getFloorLevel</a>, <a href="WalkNodeEvaluator.html#getFloorLevel(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)">getFloorLevel</a>, <a href="WalkNodeEvaluator.html#getStartNode(net.minecraft.core.BlockPos)">getStartNode</a>, <a href="WalkNodeEvaluator.html#isAmphibious()">isAmphibious</a>, <a href="WalkNodeEvaluator.html#isBurningBlock(net.minecraft.world.level.block.state.BlockState)">isBurningBlock</a>, <a href="WalkNodeEvaluator.html#isDiagonalValid(net.minecraft.world.level.pathfinder.Node,net.minecraft.world.level.pathfinder.Node,net.minecraft.world.level.pathfinder.Node,net.minecraft.world.level.pathfinder.Node)">isDiagonalValid</a>, <a href="WalkNodeEvaluator.html#isNeighborValid(net.minecraft.world.level.pathfinder.Node,net.minecraft.world.level.pathfinder.Node)">isNeighborValid</a></code></div>
+<code><a href="WalkNodeEvaluator.html#checkNeighbourBlocks(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos.MutableBlockPos,net.minecraft.world.level.pathfinder.BlockPathTypes)">checkNeighbourBlocks</a>, <a href="WalkNodeEvaluator.html#evaluateBlockPathType(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.pathfinder.BlockPathTypes)">evaluateBlockPathType</a>, <a href="WalkNodeEvaluator.html#findAcceptedNode(int,int,int,int,double,net.minecraft.core.Direction,net.minecraft.world.level.pathfinder.BlockPathTypes)">findAcceptedNode</a>, <a href="WalkNodeEvaluator.html#getBlockPathType(net.minecraft.world.entity.Mob,net.minecraft.core.BlockPos)">getBlockPathType</a>, <a href="WalkNodeEvaluator.html#getBlockPathTypeRaw(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)">getBlockPathTypeRaw</a>, <a href="WalkNodeEvaluator.html#getBlockPathTypes(net.minecraft.world.level.BlockGetter,int,int,int,java.util.EnumSet,net.minecraft.world.level.pathfinder.BlockPathTypes,net.minecraft.core.BlockPos)">getBlockPathTypes</a>, <a href="WalkNodeEvaluator.html#getBlockPathTypeStatic(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos.MutableBlockPos)">getBlockPathTypeStatic</a>, <a href="WalkNodeEvaluator.html#getCachedBlockType(net.minecraft.world.entity.Mob,int,int,int)">getCachedBlockType</a>, <a href="WalkNodeEvaluator.html#getFloorLevel(net.minecraft.core.BlockPos)">getFloorLevel</a>, <a href="WalkNodeEvaluator.html#getFloorLevel(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)">getFloorLevel</a>, <a href="WalkNodeEvaluator.html#getStartNode(net.minecraft.core.BlockPos)">getStartNode</a>, <a href="WalkNodeEvaluator.html#isAmphibious()">isAmphibious</a>, <a href="WalkNodeEvaluator.html#isBurningBlock(net.minecraft.world.level.block.state.BlockState)">isBurningBlock</a>, <a href="WalkNodeEvaluator.html#isDiagonalValid(net.minecraft.world.level.pathfinder.Node,net.minecraft.world.level.pathfinder.Node,net.minecraft.world.level.pathfinder.Node,net.minecraft.world.level.pathfinder.Node)">isDiagonalValid</a>, <a href="WalkNodeEvaluator.html#isNeighborValid(net.minecraft.world.level.pathfinder.Node,net.minecraft.world.level.pathfinder.Node)">isNeighborValid</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-net.minecraft.world.level.pathfinder.NodeEvaluator">Methods inherited from class&nbsp;net.minecraft.world.level.pathfinder.<a href="NodeEvaluator.html" title="class in net.minecraft.world.level.pathfinder">NodeEvaluator</a></h3>
-<code><a href="NodeEvaluator.html#canFloat()">canFloat</a>, <a href="NodeEvaluator.html#canOpenDoors()">canOpenDoors</a>, <a href="NodeEvaluator.html#canPassDoors()">canPassDoors</a>, <a href="NodeEvaluator.html#getNode(net.minecraft.core.BlockPos)">getNode</a>, <a href="NodeEvaluator.html#getTargetFromNode(net.minecraft.world.level.pathfinder.Node)">getTargetFromNode</a>, <a href="NodeEvaluator.html#setCanFloat(boolean)">setCanFloat</a>, <a href="NodeEvaluator.html#setCanOpenDoors(boolean)">setCanOpenDoors</a>, <a href="NodeEvaluator.html#setCanPassDoors(boolean)">setCanPassDoors</a></code></div>
+<code><a href="NodeEvaluator.html#canFloat()">canFloat</a>, <a href="NodeEvaluator.html#canOpenDoors()">canOpenDoors</a>, <a href="NodeEvaluator.html#canPassDoors()">canPassDoors</a>, <a href="NodeEvaluator.html#canWalkOverFences()">canWalkOverFences</a>, <a href="NodeEvaluator.html#getNode(int,int,int)">getNode</a>, <a href="NodeEvaluator.html#getNode(net.minecraft.core.BlockPos)">getNode</a>, <a href="NodeEvaluator.html#getTargetFromNode(net.minecraft.world.level.pathfinder.Node)">getTargetFromNode</a>, <a href="NodeEvaluator.html#setCanFloat(boolean)">setCanFloat</a>, <a href="NodeEvaluator.html#setCanOpenDoors(boolean)">setCanOpenDoors</a>, <a href="NodeEvaluator.html#setCanPassDoors(boolean)">setCanPassDoors</a>, <a href="NodeEvaluator.html#setCanWalkOverFences(boolean)">setCanWalkOverFences</a></code></div>
 <div class="inherited-list">
 <h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;java.lang.<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></h3>
 <code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
@@ -210,6 +217,34 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="pathTypeByPosCache">
 <h3>pathTypeByPosCache</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.longs.Long2ObjectMap&lt;<a href="BlockPathTypes.html" title="enum class in net.minecraft.world.level.pathfinder">BlockPathTypes</a>&gt;</span>&nbsp;<span class="element-name">pathTypeByPosCache</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="SMALL_MOB_INFLATED_START_NODE_BOUNDING_BOX">
+<h3>SMALL_MOB_INFLATED_START_NODE_BOUNDING_BOX</h3>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">SMALL_MOB_INFLATED_START_NODE_BOUNDING_BOX</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.world.level.pathfinder.FlyNodeEvaluator.SMALL_MOB_INFLATED_START_NODE_BOUNDING_BOX">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="MAX_START_NODE_CANDIDATES">
+<h3>MAX_START_NODE_CANDIDATES</h3>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">MAX_START_NODE_CANDIDATES</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.world.level.pathfinder.FlyNodeEvaluator.MAX_START_NODE_CANDIDATES">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
 </section>
 </li>
 </ul>
@@ -258,11 +293,20 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getStart()">
 <h3>getStart</h3>
-<div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a></span>&nbsp;<span class="element-name">getStart</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a></span>&nbsp;<span class="element-name">getStart</span>()</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="WalkNodeEvaluator.html#getStart()">getStart</a></code>&nbsp;in class&nbsp;<code><a href="WalkNodeEvaluator.html" title="class in net.minecraft.world.level.pathfinder">WalkNodeEvaluator</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="canStartAt(net.minecraft.core.BlockPos)">
+<h3>canStartAt</h3>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canStartAt</span><wbr><span class="parameters">(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_262645_)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="WalkNodeEvaluator.html#canStartAt(net.minecraft.core.BlockPos)">canStartAt</a></code>&nbsp;in class&nbsp;<code><a href="WalkNodeEvaluator.html" title="class in net.minecraft.world.level.pathfinder">WalkNodeEvaluator</a></code></dd>
 </dl>
 </section>
 </li>
@@ -304,16 +348,12 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getNode(int,int,int)">
-<h3>getNode</h3>
+<section class="detail" id="findAcceptedNode(int,int,int)">
+<h3>findAcceptedNode</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a></span>&nbsp;<span class="element-name">getNode</span><wbr><span class="parameters">(int&nbsp;p_77233_,
- int&nbsp;p_77234_,
- int&nbsp;p_77235_)</span></div>
-<dl class="notes">
-<dt>Overrides:</dt>
-<dd><code><a href="NodeEvaluator.html#getNode(int,int,int)">getNode</a></code>&nbsp;in class&nbsp;<code><a href="NodeEvaluator.html" title="class in net.minecraft.world.level.pathfinder">NodeEvaluator</a></code></dd>
-</dl>
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="Node.html" title="class in net.minecraft.world.level.pathfinder">Node</a></span>&nbsp;<span class="element-name">findAcceptedNode</span><wbr><span class="parameters">(int&nbsp;p_262970_,
+ int&nbsp;p_263018_,
+ int&nbsp;p_262947_)</span></div>
 </section>
 </li>
 <li>
@@ -325,21 +365,16 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="getBlockPathType(net.minecraft.world.level.BlockGetter,int,int,int,net.minecraft.world.entity.Mob,int,int,int,boolean,boolean)">
+<section class="detail" id="getBlockPathType(net.minecraft.world.level.BlockGetter,int,int,int,net.minecraft.world.entity.Mob)">
 <h3>getBlockPathType</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BlockPathTypes.html" title="enum class in net.minecraft.world.level.pathfinder">BlockPathTypes</a></span>&nbsp;<span class="element-name">getBlockPathType</span><wbr><span class="parameters">(<a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_77250_,
- int&nbsp;p_77251_,
- int&nbsp;p_77252_,
- int&nbsp;p_77253_,
- <a href="../../entity/Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_77254_,
- int&nbsp;p_77255_,
- int&nbsp;p_77256_,
- int&nbsp;p_77257_,
- boolean&nbsp;p_77258_,
- boolean&nbsp;p_77259_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BlockPathTypes.html" title="enum class in net.minecraft.world.level.pathfinder">BlockPathTypes</a></span>&nbsp;<span class="element-name">getBlockPathType</span><wbr><span class="parameters">(<a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_265753_,
+ int&nbsp;p_265243_,
+ int&nbsp;p_265376_,
+ int&nbsp;p_265253_,
+ <a href="../../entity/Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_265367_)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
-<dd><code><a href="WalkNodeEvaluator.html#getBlockPathType(net.minecraft.world.level.BlockGetter,int,int,int,net.minecraft.world.entity.Mob,int,int,int,boolean,boolean)">getBlockPathType</a></code>&nbsp;in class&nbsp;<code><a href="WalkNodeEvaluator.html" title="class in net.minecraft.world.level.pathfinder">WalkNodeEvaluator</a></code></dd>
+<dd><code><a href="WalkNodeEvaluator.html#getBlockPathType(net.minecraft.world.level.BlockGetter,int,int,int,net.minecraft.world.entity.Mob)">getBlockPathType</a></code>&nbsp;in class&nbsp;<code><a href="WalkNodeEvaluator.html" title="class in net.minecraft.world.level.pathfinder">WalkNodeEvaluator</a></code></dd>
 </dl>
 </section>
 </li>
@@ -354,6 +389,12 @@ loadScripts(document, 'script');</script>
 <dt>Overrides:</dt>
 <dd><code><a href="WalkNodeEvaluator.html#getBlockPathType(net.minecraft.world.level.BlockGetter,int,int,int)">getBlockPathType</a></code>&nbsp;in class&nbsp;<code><a href="WalkNodeEvaluator.html" title="class in net.minecraft.world.level.pathfinder">WalkNodeEvaluator</a></code></dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="iteratePathfindingStartNodeCandidatePositions(net.minecraft.world.entity.Mob)">
+<h3>iteratePathfindingStartNodeCandidatePositions</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;</span>&nbsp;<span class="element-name">iteratePathfindingStartNodeCandidatePositions</span><wbr><span class="parameters">(<a href="../../entity/Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_263108_)</span></div>
 </section>
 </li>
 </ul>

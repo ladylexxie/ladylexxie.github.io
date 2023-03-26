@@ -79,6 +79,10 @@ loadScripts(document, 'script');</script>
 <dt>All Implemented Interfaces:</dt>
 <dd><code><a href="BlockEntityRenderer.html" title="interface in net.minecraft.client.renderer.blockentity">BlockEntityRenderer</a>&lt;<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&gt;</code></dd>
 </dl>
+<dl class="notes">
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="HangingSignRenderer.html" title="class in net.minecraft.client.renderer.blockentity">HangingSignRenderer</a></code></dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">SignRenderer</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
@@ -115,12 +119,6 @@ implements <a href="BlockEntityRenderer.html" title="interface in net.minecraft.
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private final <a href="../../gui/Font.html" title="class in net.minecraft.client.gui">Font</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#font" class="member-name-link">font</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private static final int</code></div>
-<div class="col-second even-row-color"><code><a href="#LINE_HEIGHT" class="member-name-link">LINE_HEIGHT</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static final int</code></div>
-<div class="col-second odd-row-color"><code><a href="#MAX_LINE_WIDTH" class="member-name-link">MAX_LINE_WIDTH</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#OUTLINE_RENDER_DISTANCE" class="member-name-link">OUTLINE_RENDER_DISTANCE</a></code></div>
@@ -165,23 +163,49 @@ implements <a href="BlockEntityRenderer.html" title="interface in net.minecraft.
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createSignModel(net.minecraft.client.model.geom.EntityModelSet,net.minecraft.world.level.block.state.properties.WoodType)" class="member-name-link">createSignModel</a><wbr>(<a href="../../model/geom/EntityModelSet.html" title="class in net.minecraft.client.model.geom">EntityModelSet</a>&nbsp;p_173647_,
  <a href="../../../world/level/block/state/properties/WoodType.html" title="class in net.minecraft.world.level.block.state.properties">WoodType</a>&nbsp;p_173648_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>(package private) static int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getDarkColor(net.minecraft.world.level.block.entity.SignBlockEntity)" class="member-name-link">getDarkColor</a><wbr>(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_173640_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../../world/level/block/state/properties/WoodType.html" title="class in net.minecraft.world.level.block.state.properties">WoodType</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getWoodType(net.minecraft.world.level.block.Block)" class="member-name-link">getWoodType</a><wbr>(<a href="../../../world/level/block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&nbsp;p_173638_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isOutlineVisible(net.minecraft.world.level.block.entity.SignBlockEntity,int)" class="member-name-link">isOutlineVisible</a><wbr>(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_173642_,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="../../resources/model/Material.html" title="class in net.minecraft.client.resources.model">Material</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSignMaterial(net.minecraft.world.level.block.state.properties.WoodType)" class="member-name-link">getSignMaterial</a><wbr>(<a href="../../../world/level/block/state/properties/WoodType.html" title="class in net.minecraft.world.level.block.state.properties">WoodType</a>&nbsp;p_251961_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="../../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTextOffset(float)" class="member-name-link">getTextOffset</a><wbr>(float&nbsp;p_248916_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>(package private) static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isOutlineVisible(net.minecraft.world.level.block.entity.SignBlockEntity,int)" class="member-name-link">isOutlineVisible</a><wbr>(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_173642_,
  int&nbsp;p_173643_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#render(net.minecraft.world.level.block.entity.SignBlockEntity,float,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,int)" class="member-name-link">render</a><wbr>(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_112497_,
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#render(net.minecraft.world.level.block.entity.SignBlockEntity,float,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,int)" class="member-name-link">render</a><wbr>(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_112497_,
  float&nbsp;p_112498_,
  <a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_112499_,
  <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_112500_,
  int&nbsp;p_112501_,
  int&nbsp;p_112502_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderSign(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,int,float,net.minecraft.world.level.block.state.properties.WoodType,net.minecraft.client.model.Model)" class="member-name-link">renderSign</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_248726_,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_248896_,
+ int&nbsp;p_249365_,
+ int&nbsp;p_249267_,
+ float&nbsp;p_249454_,
+ <a href="../../../world/level/block/state/properties/WoodType.html" title="class in net.minecraft.world.level.block.state.properties">WoodType</a>&nbsp;p_249724_,
+ <a href="../../model/Model.html" title="class in net.minecraft.client.model">Model</a>&nbsp;p_250100_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderSignModel(com.mojang.blaze3d.vertex.PoseStack,int,int,net.minecraft.client.model.Model,com.mojang.blaze3d.vertex.VertexConsumer)" class="member-name-link">renderSignModel</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_250252_,
+ int&nbsp;p_249399_,
+ int&nbsp;p_249042_,
+ <a href="../../model/Model.html" title="class in net.minecraft.client.model">Model</a>&nbsp;p_250082_,
+ <a href="../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_251093_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderSignText(net.minecraft.world.level.block.entity.SignBlockEntity,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,float)" class="member-name-link">renderSignText</a><wbr>(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_250524_,
+ <a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_251442_,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_249729_,
+ int&nbsp;p_248845_,
+ float&nbsp;p_249971_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -203,34 +227,6 @@ implements <a href="BlockEntityRenderer.html" title="interface in net.minecraft.
 <section class="field-details" id="field-detail">
 <h2>Field Details</h2>
 <ul class="member-list">
-<li>
-<section class="detail" id="MAX_LINE_WIDTH">
-<h3>MAX_LINE_WIDTH</h3>
-<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">MAX_LINE_WIDTH</span></div>
-<dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="see-list">
-<li><a href="../../../../../constant-values.html#net.minecraft.client.renderer.blockentity.SignRenderer.MAX_LINE_WIDTH">Constant Field Values</a></li>
-</ul>
-</dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="LINE_HEIGHT">
-<h3>LINE_HEIGHT</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">LINE_HEIGHT</span></div>
-<dl class="notes">
-<dt>See Also:</dt>
-<dd>
-<ul class="see-list">
-<li><a href="../../../../../constant-values.html#net.minecraft.client.renderer.blockentity.SignRenderer.LINE_HEIGHT">Constant Field Values</a></li>
-</ul>
-</dd>
-</dl>
-</section>
-</li>
 <li>
 <section class="detail" id="STICK">
 <h3>STICK</h3>
@@ -315,22 +311,60 @@ implements <a href="BlockEntityRenderer.html" title="interface in net.minecraft.
 </section>
 </li>
 <li>
+<section class="detail" id="renderSign(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,int,float,net.minecraft.world.level.block.state.properties.WoodType,net.minecraft.client.model.Model)">
+<h3>renderSign</h3>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">renderSign</span><wbr><span class="parameters">(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_248726_,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_248896_,
+ int&nbsp;p_249365_,
+ int&nbsp;p_249267_,
+ float&nbsp;p_249454_,
+ <a href="../../../world/level/block/state/properties/WoodType.html" title="class in net.minecraft.world.level.block.state.properties">WoodType</a>&nbsp;p_249724_,
+ <a href="../../model/Model.html" title="class in net.minecraft.client.model">Model</a>&nbsp;p_250100_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderSignModel(com.mojang.blaze3d.vertex.PoseStack,int,int,net.minecraft.client.model.Model,com.mojang.blaze3d.vertex.VertexConsumer)">
+<h3>renderSignModel</h3>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">renderSignModel</span><wbr><span class="parameters">(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_250252_,
+ int&nbsp;p_249399_,
+ int&nbsp;p_249042_,
+ <a href="../../model/Model.html" title="class in net.minecraft.client.model">Model</a>&nbsp;p_250082_,
+ <a href="../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_251093_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSignMaterial(net.minecraft.world.level.block.state.properties.WoodType)">
+<h3>getSignMaterial</h3>
+<div class="member-signature"><span class="return-type"><a href="../../resources/model/Material.html" title="class in net.minecraft.client.resources.model">Material</a></span>&nbsp;<span class="element-name">getSignMaterial</span><wbr><span class="parameters">(<a href="../../../world/level/block/state/properties/WoodType.html" title="class in net.minecraft.world.level.block.state.properties">WoodType</a>&nbsp;p_251961_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderSignText(net.minecraft.world.level.block.entity.SignBlockEntity,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,float)">
+<h3>renderSignText</h3>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">renderSignText</span><wbr><span class="parameters">(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_250524_,
+ <a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_251442_,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_249729_,
+ int&nbsp;p_248845_,
+ float&nbsp;p_249971_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getTextOffset(float)">
+<h3>getTextOffset</h3>
+<div class="member-signature"><span class="return-type"><a href="../../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></span>&nbsp;<span class="element-name">getTextOffset</span><wbr><span class="parameters">(float&nbsp;p_248916_)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="isOutlineVisible(net.minecraft.world.level.block.entity.SignBlockEntity,int)">
 <h3>isOutlineVisible</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isOutlineVisible</span><wbr><span class="parameters">(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_173642_,
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isOutlineVisible</span><wbr><span class="parameters">(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_173642_,
  int&nbsp;p_173643_)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getDarkColor(net.minecraft.world.level.block.entity.SignBlockEntity)">
 <h3>getDarkColor</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getDarkColor</span><wbr><span class="parameters">(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_173640_)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="getWoodType(net.minecraft.world.level.block.Block)">
-<h3>getWoodType</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../../world/level/block/state/properties/WoodType.html" title="class in net.minecraft.world.level.block.state.properties">WoodType</a></span>&nbsp;<span class="element-name">getWoodType</span><wbr><span class="parameters">(<a href="../../../world/level/block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&nbsp;p_173638_)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getDarkColor</span><wbr><span class="parameters">(<a href="../../../world/level/block/entity/SignBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SignBlockEntity</a>&nbsp;p_173640_)</span></div>
 </section>
 </li>
 <li>

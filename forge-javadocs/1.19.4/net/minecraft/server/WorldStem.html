@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">WorldStem</span>(<a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a>&nbsp;resourceManager, <a href="ReloadableServerResources.html" title="class in net.minecraft.server">ReloadableServerResources</a>&nbsp;dataPackResources, <a href="../core/RegistryAccess.Frozen.html" title="interface in net.minecraft.core">RegistryAccess.Frozen</a>&nbsp;registryAccess, <a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData)
+<div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">WorldStem</span>(<a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a>&nbsp;resourceManager, <a href="ReloadableServerResources.html" title="class in net.minecraft.server">ReloadableServerResources</a>&nbsp;dataPackResources, <a href="../core/LayeredRegistryAccess.html" title="class in net.minecraft.core">LayeredRegistryAccess</a>&lt;<a href="RegistryLayer.html" title="enum class in net.minecraft.server">RegistryLayer</a>&gt;&nbsp;registries, <a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a>
 implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></span></div>
 </section>
@@ -102,10 +102,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-last even-row-color">
 <div class="block">The field for the <code>dataPackResources</code> record component.</div>
 </div>
-<div class="col-first odd-row-color"><code>private final <a href="../core/RegistryAccess.Frozen.html" title="interface in net.minecraft.core">RegistryAccess.Frozen</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#registryAccess" class="member-name-link">registryAccess</a></code></div>
+<div class="col-first odd-row-color"><code>private final <a href="../core/LayeredRegistryAccess.html" title="class in net.minecraft.core">LayeredRegistryAccess</a>&lt;<a href="RegistryLayer.html" title="enum class in net.minecraft.server">RegistryLayer</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#registries" class="member-name-link">registries</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block">The field for the <code>registryAccess</code> record component.</div>
+<div class="block">The field for the <code>registries</code> record component.</div>
 </div>
 <div class="col-first even-row-color"><code>private final <a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a></code></div>
 <div class="col-second even-row-color"><code><a href="#resourceManager" class="member-name-link">resourceManager</a></code></div>
@@ -128,9 +128,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.packs.resources.CloseableResourceManager,net.minecraft.server.ReloadableServerResources,net.minecraft.core.RegistryAccess.Frozen,net.minecraft.world.level.storage.WorldData)" class="member-name-link">WorldStem</a><wbr>(<a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a>&nbsp;resourceManager,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.packs.resources.CloseableResourceManager,net.minecraft.server.ReloadableServerResources,net.minecraft.core.LayeredRegistryAccess,net.minecraft.world.level.storage.WorldData)" class="member-name-link">WorldStem</a><wbr>(<a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a>&nbsp;resourceManager,
  <a href="ReloadableServerResources.html" title="class in net.minecraft.server">ReloadableServerResources</a>&nbsp;dataPackResources,
- <a href="../core/RegistryAccess.Frozen.html" title="interface in net.minecraft.core">RegistryAccess.Frozen</a>&nbsp;registryAccess,
+ <a href="../core/LayeredRegistryAccess.html" title="class in net.minecraft.core">LayeredRegistryAccess</a>&lt;<a href="RegistryLayer.html" title="enum class in net.minecraft.server">RegistryLayer</a>&gt;&nbsp;registries,
  <a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates an instance of a <code>WorldStem</code> record class.</div>
@@ -143,7 +143,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="method-summary" id="method-summary">
 <h2>Method Summary</h2>
 <div id="method-summary-table">
-<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
 <div id="method-summary-table.tabpanel" role="tabpanel">
 <div class="summary-table three-column-summary" aria-labelledby="method-summary-table-tab0">
 <div class="table-header col-first">Modifier and Type</div>
@@ -167,30 +167,24 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a hash code value for this object.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="WorldStem.html" title="class in net.minecraft.server">WorldStem</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#load(net.minecraft.server.WorldLoader.InitConfig,net.minecraft.server.WorldLoader.WorldDataSupplier,java.util.concurrent.Executor,java.util.concurrent.Executor)" class="member-name-link">load</a><wbr>(<a href="WorldLoader.InitConfig.html" title="class in net.minecraft.server">WorldLoader.InitConfig</a>&nbsp;p_214416_,
- <a href="WorldLoader.WorldDataSupplier.html" title="interface in net.minecraft.server">WorldLoader.WorldDataSupplier</a>&lt;<a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&gt;&nbsp;p_214417_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_214418_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_214419_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../core/RegistryAccess.Frozen.html" title="interface in net.minecraft.core">RegistryAccess.Frozen</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#registryAccess()" class="member-name-link">registryAccess</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>registryAccess</code> record component.</div>
-</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resourceManager()" class="member-name-link">resourceManager</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../core/LayeredRegistryAccess.html" title="class in net.minecraft.core">LayeredRegistryAccess</a>&lt;<a href="RegistryLayer.html" title="enum class in net.minecraft.server">RegistryLayer</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#registries()" class="member-name-link">registries</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the value of the <code>registries</code> record component.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resourceManager()" class="member-name-link">resourceManager</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>resourceManager</code> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a string representation of this record class.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#worldData()" class="member-name-link">worldData</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#worldData()" class="member-name-link">worldData</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>worldData</code> record component.</div>
 </div>
 </div>
@@ -225,10 +219,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </section>
 </li>
 <li>
-<section class="detail" id="registryAccess">
-<h3>registryAccess</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../core/RegistryAccess.Frozen.html" title="interface in net.minecraft.core">RegistryAccess.Frozen</a></span>&nbsp;<span class="element-name">registryAccess</span></div>
-<div class="block">The field for the <code>registryAccess</code> record component.</div>
+<section class="detail" id="registries">
+<h3>registries</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../core/LayeredRegistryAccess.html" title="class in net.minecraft.core">LayeredRegistryAccess</a>&lt;<a href="RegistryLayer.html" title="enum class in net.minecraft.server">RegistryLayer</a>&gt;</span>&nbsp;<span class="element-name">registries</span></div>
+<div class="block">The field for the <code>registries</code> record component.</div>
 </section>
 </li>
 <li>
@@ -247,18 +241,18 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(net.minecraft.server.packs.resources.CloseableResourceManager,net.minecraft.server.ReloadableServerResources,net.minecraft.core.RegistryAccess.Frozen,net.minecraft.world.level.storage.WorldData)">
+<section class="detail" id="&lt;init&gt;(net.minecraft.server.packs.resources.CloseableResourceManager,net.minecraft.server.ReloadableServerResources,net.minecraft.core.LayeredRegistryAccess,net.minecraft.world.level.storage.WorldData)">
 <h3>WorldStem</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">WorldStem</span><wbr><span class="parameters">(<a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a>&nbsp;resourceManager,
  <a href="ReloadableServerResources.html" title="class in net.minecraft.server">ReloadableServerResources</a>&nbsp;dataPackResources,
- <a href="../core/RegistryAccess.Frozen.html" title="interface in net.minecraft.core">RegistryAccess.Frozen</a>&nbsp;registryAccess,
+ <a href="../core/LayeredRegistryAccess.html" title="class in net.minecraft.core">LayeredRegistryAccess</a>&lt;<a href="RegistryLayer.html" title="enum class in net.minecraft.server">RegistryLayer</a>&gt;&nbsp;registries,
  <a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData)</span></div>
 <div class="block">Creates an instance of a <code>WorldStem</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>resourceManager</code> - the value for the <code>resourceManager</code> record component</dd>
 <dd><code>dataPackResources</code> - the value for the <code>dataPackResources</code> record component</dd>
-<dd><code>registryAccess</code> - the value for the <code>registryAccess</code> record component</dd>
+<dd><code>registries</code> - the value for the <code>registries</code> record component</dd>
 <dd><code>worldData</code> - the value for the <code>worldData</code> record component</dd>
 </dl>
 </section>
@@ -271,15 +265,6 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
-<li>
-<section class="detail" id="load(net.minecraft.server.WorldLoader.InitConfig,net.minecraft.server.WorldLoader.WorldDataSupplier,java.util.concurrent.Executor,java.util.concurrent.Executor)">
-<h3>load</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="WorldStem.html" title="class in net.minecraft.server">WorldStem</a>&gt;</span>&nbsp;<span class="element-name">load</span><wbr><span class="parameters">(<a href="WorldLoader.InitConfig.html" title="class in net.minecraft.server">WorldLoader.InitConfig</a>&nbsp;p_214416_,
- <a href="WorldLoader.WorldDataSupplier.html" title="interface in net.minecraft.server">WorldLoader.WorldDataSupplier</a>&lt;<a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&gt;&nbsp;p_214417_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_214418_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_214419_)</span></div>
-</section>
-</li>
 <li>
 <section class="detail" id="close()">
 <h3>close</h3>
@@ -354,13 +339,13 @@ implements <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </section>
 </li>
 <li>
-<section class="detail" id="registryAccess()">
-<h3>registryAccess</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../core/RegistryAccess.Frozen.html" title="interface in net.minecraft.core">RegistryAccess.Frozen</a></span>&nbsp;<span class="element-name">registryAccess</span>()</div>
-<div class="block">Returns the value of the <code>registryAccess</code> record component.</div>
+<section class="detail" id="registries()">
+<h3>registries</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../core/LayeredRegistryAccess.html" title="class in net.minecraft.core">LayeredRegistryAccess</a>&lt;<a href="RegistryLayer.html" title="enum class in net.minecraft.server">RegistryLayer</a>&gt;</span>&nbsp;<span class="element-name">registries</span>()</div>
+<div class="block">Returns the value of the <code>registries</code> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>registryAccess</code> record component</dd>
+<dd>the value of the <code>registries</code> record component</dd>
 </dl>
 </section>
 </li>

@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 <dd><a href="WorldLoader.html" title="class in net.minecraft.server">WorldLoader</a></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public static record </span><span class="element-name type-name-label">WorldLoader.PackConfig</span>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository, <a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a>&nbsp;initialDataPacks, boolean&nbsp;safeMode)
+<div class="type-signature"><span class="modifiers">public static record </span><span class="element-name type-name-label">WorldLoader.PackConfig</span>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository, <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;initialDataConfig, boolean&nbsp;safeMode, boolean&nbsp;initMode)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
 </section>
 <section class="summary">
@@ -96,19 +96,24 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private final <a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a></code></div>
-<div class="col-second even-row-color"><code><a href="#initialDataPacks" class="member-name-link">initialDataPacks</a></code></div>
+<div class="col-first even-row-color"><code>private final <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></code></div>
+<div class="col-second even-row-color"><code><a href="#initialDataConfig" class="member-name-link">initialDataConfig</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">The field for the <code>initialDataPacks</code> record component.</div>
+<div class="block">The field for the <code>initialDataConfig</code> record component.</div>
 </div>
-<div class="col-first odd-row-color"><code>private final <a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#packRepository" class="member-name-link">packRepository</a></code></div>
+<div class="col-first odd-row-color"><code>private final boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#initMode" class="member-name-link">initMode</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">The field for the <code>initMode</code> record component.</div>
+</div>
+<div class="col-first even-row-color"><code>private final <a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a></code></div>
+<div class="col-second even-row-color"><code><a href="#packRepository" class="member-name-link">packRepository</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">The field for the <code>packRepository</code> record component.</div>
 </div>
-<div class="col-first even-row-color"><code>private final boolean</code></div>
-<div class="col-second even-row-color"><code><a href="#safeMode" class="member-name-link">safeMode</a></code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>private final boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#safeMode" class="member-name-link">safeMode</a></code></div>
+<div class="col-last odd-row-color">
 <div class="block">The field for the <code>safeMode</code> record component.</div>
 </div>
 </div>
@@ -122,9 +127,10 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.DataPackConfig,boolean)" class="member-name-link">PackConfig</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
- <a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a>&nbsp;initialDataPacks,
- boolean&nbsp;safeMode)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.WorldDataConfiguration,boolean,boolean)" class="member-name-link">PackConfig</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;initialDataConfig,
+ boolean&nbsp;safeMode,
+ boolean&nbsp;initMode)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Creates an instance of a <code>PackConfig</code> record class.</div>
 </div>
@@ -142,7 +148,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.mojang.datafixers.util.Pair&lt;<a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a>,<wbr><a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a>&gt;</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.mojang.datafixers.util.Pair&lt;<a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>,<wbr><a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createResourceManager()" class="member-name-link">createResourceManager</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
@@ -155,24 +161,29 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a hash code value for this object.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initialDataPacks()" class="member-name-link">initialDataPacks</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initialDataConfig()" class="member-name-link">initialDataConfig</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>initialDataPacks</code> record component.</div>
+<div class="block">Returns the value of the <code>initialDataConfig</code> record component.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#packRepository()" class="member-name-link">packRepository</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initMode()" class="member-name-link">initMode</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the value of the <code>initMode</code> record component.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#packRepository()" class="member-name-link">packRepository</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>packRepository</code> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#safeMode()" class="member-name-link">safeMode</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#safeMode()" class="member-name-link">safeMode</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>safeMode</code> record component.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a string representation of this record class.</div>
 </div>
 </div>
@@ -200,10 +211,10 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="initialDataPacks">
-<h3>initialDataPacks</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a></span>&nbsp;<span class="element-name">initialDataPacks</span></div>
-<div class="block">The field for the <code>initialDataPacks</code> record component.</div>
+<section class="detail" id="initialDataConfig">
+<h3>initialDataConfig</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></span>&nbsp;<span class="element-name">initialDataConfig</span></div>
+<div class="block">The field for the <code>initialDataConfig</code> record component.</div>
 </section>
 </li>
 <li>
@@ -211,6 +222,13 @@ loadScripts(document, 'script');</script>
 <h3>safeMode</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">safeMode</span></div>
 <div class="block">The field for the <code>safeMode</code> record component.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initMode">
+<h3>initMode</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">initMode</span></div>
+<div class="block">The field for the <code>initMode</code> record component.</div>
 </section>
 </li>
 </ul>
@@ -222,17 +240,19 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.DataPackConfig,boolean)">
+<section class="detail" id="&lt;init&gt;(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.WorldDataConfiguration,boolean,boolean)">
 <h3>PackConfig</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PackConfig</span><wbr><span class="parameters">(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
- <a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a>&nbsp;initialDataPacks,
- boolean&nbsp;safeMode)</span></div>
+ <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;initialDataConfig,
+ boolean&nbsp;safeMode,
+ boolean&nbsp;initMode)</span></div>
 <div class="block">Creates an instance of a <code>PackConfig</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>packRepository</code> - the value for the <code>packRepository</code> record component</dd>
-<dd><code>initialDataPacks</code> - the value for the <code>initialDataPacks</code> record component</dd>
+<dd><code>initialDataConfig</code> - the value for the <code>initialDataConfig</code> record component</dd>
 <dd><code>safeMode</code> - the value for the <code>safeMode</code> record component</dd>
+<dd><code>initMode</code> - the value for the <code>initMode</code> record component</dd>
 </dl>
 </section>
 </li>
@@ -247,7 +267,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createResourceManager()">
 <h3>createResourceManager</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.mojang.datafixers.util.Pair&lt;<a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a>,<wbr><a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a>&gt;</span>&nbsp;<span class="element-name">createResourceManager</span>()</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.mojang.datafixers.util.Pair&lt;<a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>,<wbr><a href="packs/resources/CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a>&gt;</span>&nbsp;<span class="element-name">createResourceManager</span>()</div>
 </section>
 </li>
 <li>
@@ -303,13 +323,13 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="initialDataPacks()">
-<h3>initialDataPacks</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a></span>&nbsp;<span class="element-name">initialDataPacks</span>()</div>
-<div class="block">Returns the value of the <code>initialDataPacks</code> record component.</div>
+<section class="detail" id="initialDataConfig()">
+<h3>initialDataConfig</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></span>&nbsp;<span class="element-name">initialDataConfig</span>()</div>
+<div class="block">Returns the value of the <code>initialDataConfig</code> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>initialDataPacks</code> record component</dd>
+<dd>the value of the <code>initialDataConfig</code> record component</dd>
 </dl>
 </section>
 </li>
@@ -321,6 +341,17 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>the value of the <code>safeMode</code> record component</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="initMode()">
+<h3>initMode</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">initMode</span>()</div>
+<div class="block">Returns the value of the <code>initMode</code> record component.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the value of the <code>initMode</code> record component</dd>
 </dl>
 </section>
 </li>

@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 <dd><a href="FallbackResourceManager.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager</a></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">static record </span><span class="element-name type-name-label">FallbackResourceManager.EntryStack</span>(<a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;metadataLocation, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.SinglePackResourceThunkSupplier.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.SinglePackResourceThunkSupplier</a>&gt;&nbsp;entries)
+<div class="type-signature"><span class="modifiers">static record </span><span class="element-name type-name-label">FallbackResourceManager.EntryStack</span>(<a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;fileLocation, <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;metadataLocation, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.ResourceWithSource.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.ResourceWithSource</a>&gt;&nbsp;fileSources, <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>,<wbr><a href="IoSupplier.html" title="interface in net.minecraft.server.packs.resources">IoSupplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&gt;&gt;&nbsp;metaSources)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a></span></div>
 </section>
 <section class="summary">
@@ -96,15 +96,25 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.SinglePackResourceThunkSupplier.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.SinglePackResourceThunkSupplier</a>&gt;</code></div>
-<div class="col-second even-row-color"><code><a href="#entries" class="member-name-link">entries</a></code></div>
+<div class="col-first even-row-color"><code>private final <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></code></div>
+<div class="col-second even-row-color"><code><a href="#fileLocation" class="member-name-link">fileLocation</a></code></div>
 <div class="col-last even-row-color">
-<div class="block">The field for the <code>entries</code> record component.</div>
+<div class="block">The field for the <code>fileLocation</code> record component.</div>
 </div>
-<div class="col-first odd-row-color"><code>private final <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#metadataLocation" class="member-name-link">metadataLocation</a></code></div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.ResourceWithSource.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.ResourceWithSource</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#fileSources" class="member-name-link">fileSources</a></code></div>
 <div class="col-last odd-row-color">
+<div class="block">The field for the <code>fileSources</code> record component.</div>
+</div>
+<div class="col-first even-row-color"><code>private final <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></code></div>
+<div class="col-second even-row-color"><code><a href="#metadataLocation" class="member-name-link">metadataLocation</a></code></div>
+<div class="col-last even-row-color">
 <div class="block">The field for the <code>metadataLocation</code> record component.</div>
+</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>,<wbr><a href="IoSupplier.html" title="interface in net.minecraft.server.packs.resources">IoSupplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#metaSources" class="member-name-link">metaSources</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">The field for the <code>metaSources</code> record component.</div>
 </div>
 </div>
 </section>
@@ -117,9 +127,13 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.resources.ResourceLocation,java.util.List)" class="member-name-link">EntryStack</a><wbr>(<a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;metadataLocation,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.SinglePackResourceThunkSupplier.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.SinglePackResourceThunkSupplier</a>&gt;&nbsp;entries)</code></div>
-<div class="col-last even-row-color">
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.resources.ResourceLocation)" class="member-name-link">EntryStack</a><wbr>(<a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_251350_)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.resources.ResourceLocation,net.minecraft.resources.ResourceLocation,java.util.List,java.util.Map)" class="member-name-link">EntryStack</a><wbr>(<a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;fileLocation,
+ <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;metadataLocation,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.ResourceWithSource.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.ResourceWithSource</a>&gt;&nbsp;fileSources,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>,<wbr><a href="IoSupplier.html" title="interface in net.minecraft.server.packs.resources">IoSupplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&gt;&gt;&nbsp;metaSources)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Creates an instance of a <code>EntryStack</code> record class.</div>
 </div>
 </div>
@@ -136,18 +150,20 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createThunks()" class="member-name-link">createThunks</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.SinglePackResourceThunkSupplier.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.SinglePackResourceThunkSupplier</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#entries()" class="member-name-link">entries</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Returns the value of the <code>entries</code> record component.</div>
-</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Indicates whether some other object is "equal to" this one.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fileLocation()" class="member-name-link">fileLocation</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the value of the <code>fileLocation</code> record component.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.ResourceWithSource.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.ResourceWithSource</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fileSources()" class="member-name-link">fileSources</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the value of the <code>fileSources</code> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
@@ -159,9 +175,14 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>metadataLocation</code> record component.</div>
 </div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>,<wbr><a href="IoSupplier.html" title="interface in net.minecraft.server.packs.resources">IoSupplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#metaSources()" class="member-name-link">metaSources</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the value of the <code>metaSources</code> record component.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a string representation of this record class.</div>
 </div>
 </div>
@@ -182,6 +203,13 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
+<section class="detail" id="fileLocation">
+<h3>fileLocation</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></span>&nbsp;<span class="element-name">fileLocation</span></div>
+<div class="block">The field for the <code>fileLocation</code> record component.</div>
+</section>
+</li>
+<li>
 <section class="detail" id="metadataLocation">
 <h3>metadataLocation</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></span>&nbsp;<span class="element-name">metadataLocation</span></div>
@@ -189,10 +217,17 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="entries">
-<h3>entries</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.SinglePackResourceThunkSupplier.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.SinglePackResourceThunkSupplier</a>&gt;</span>&nbsp;<span class="element-name">entries</span></div>
-<div class="block">The field for the <code>entries</code> record component.</div>
+<section class="detail" id="fileSources">
+<h3>fileSources</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.ResourceWithSource.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.ResourceWithSource</a>&gt;</span>&nbsp;<span class="element-name">fileSources</span></div>
+<div class="block">The field for the <code>fileSources</code> record component.</div>
+</section>
+</li>
+<li>
+<section class="detail" id="metaSources">
+<h3>metaSources</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>,<wbr><a href="IoSupplier.html" title="interface in net.minecraft.server.packs.resources">IoSupplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&gt;&gt;</span>&nbsp;<span class="element-name">metaSources</span></div>
+<div class="block">The field for the <code>metaSources</code> record component.</div>
 </section>
 </li>
 </ul>
@@ -204,15 +239,25 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(net.minecraft.resources.ResourceLocation,java.util.List)">
+<section class="detail" id="&lt;init&gt;(net.minecraft.resources.ResourceLocation)">
 <h3>EntryStack</h3>
-<div class="member-signature"><span class="element-name">EntryStack</span><wbr><span class="parameters">(<a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;metadataLocation,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.SinglePackResourceThunkSupplier.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.SinglePackResourceThunkSupplier</a>&gt;&nbsp;entries)</span></div>
+<div class="member-signature"><span class="element-name">EntryStack</span><wbr><span class="parameters">(<a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_251350_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.resources.ResourceLocation,net.minecraft.resources.ResourceLocation,java.util.List,java.util.Map)">
+<h3>EntryStack</h3>
+<div class="member-signature"><span class="element-name">EntryStack</span><wbr><span class="parameters">(<a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;fileLocation,
+ <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;metadataLocation,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.ResourceWithSource.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.ResourceWithSource</a>&gt;&nbsp;fileSources,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>,<wbr><a href="IoSupplier.html" title="interface in net.minecraft.server.packs.resources">IoSupplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&gt;&gt;&nbsp;metaSources)</span></div>
 <div class="block">Creates an instance of a <code>EntryStack</code> record class.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
+<dd><code>fileLocation</code> - the value for the <code>fileLocation</code> record component</dd>
 <dd><code>metadataLocation</code> - the value for the <code>metadataLocation</code> record component</dd>
-<dd><code>entries</code> - the value for the <code>entries</code> record component</dd>
+<dd><code>fileSources</code> - the value for the <code>fileSources</code> record component</dd>
+<dd><code>metaSources</code> - the value for the <code>metaSources</code> record component</dd>
 </dl>
 </section>
 </li>
@@ -224,12 +269,6 @@ loadScripts(document, 'script');</script>
 <section class="method-details" id="method-detail">
 <h2>Method Details</h2>
 <ul class="member-list">
-<li>
-<section class="detail" id="createThunks()">
-<h3>createThunks</h3>
-<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;</span>&nbsp;<span class="element-name">createThunks</span>()</div>
-</section>
-</li>
 <li>
 <section class="detail" id="toString()">
 <h3>toString</h3>
@@ -272,6 +311,17 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="fileLocation()">
+<h3>fileLocation</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></span>&nbsp;<span class="element-name">fileLocation</span>()</div>
+<div class="block">Returns the value of the <code>fileLocation</code> record component.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the value of the <code>fileLocation</code> record component</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="metadataLocation()">
 <h3>metadataLocation</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></span>&nbsp;<span class="element-name">metadataLocation</span>()</div>
@@ -283,13 +333,24 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="entries()">
-<h3>entries</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.SinglePackResourceThunkSupplier.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.SinglePackResourceThunkSupplier</a>&gt;</span>&nbsp;<span class="element-name">entries</span>()</div>
-<div class="block">Returns the value of the <code>entries</code> record component.</div>
+<section class="detail" id="fileSources()">
+<h3>fileSources</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FallbackResourceManager.ResourceWithSource.html" title="class in net.minecraft.server.packs.resources">FallbackResourceManager.ResourceWithSource</a>&gt;</span>&nbsp;<span class="element-name">fileSources</span>()</div>
+<div class="block">Returns the value of the <code>fileSources</code> record component.</div>
 <dl class="notes">
 <dt>Returns:</dt>
-<dd>the value of the <code>entries</code> record component</dd>
+<dd>the value of the <code>fileSources</code> record component</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="metaSources()">
+<h3>metaSources</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>,<wbr><a href="IoSupplier.html" title="interface in net.minecraft.server.packs.resources">IoSupplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&gt;&gt;</span>&nbsp;<span class="element-name">metaSources</span>()</div>
+<div class="block">Returns the value of the <code>metaSources</code> record component.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the value of the <code>metaSources</code> record component</dd>
 </dl>
 </section>
 </li>

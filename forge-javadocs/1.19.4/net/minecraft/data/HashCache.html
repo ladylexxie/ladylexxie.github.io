@@ -90,12 +90,21 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Class</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>(package private) static class&nbsp;</code></div>
+<div class="col-first even-row-color"><code>(package private) class&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="HashCache.CacheUpdater.html" class="type-name-link" title="class in net.minecraft.data">HashCache.CacheUpdater</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>(package private) static final record&nbsp;</code></div>
 <div class="col-second odd-row-color"><code><a href="HashCache.ProviderCache.html" class="type-name-link" title="class in net.minecraft.data">HashCache.ProviderCache</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>(package private) static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="HashCache.ProviderCacheBuilder.html" class="type-name-link" title="class in net.minecraft.data">HashCache.ProviderCacheBuilder</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="HashCache.UpdateFunction.html" class="type-name-link" title="interface in net.minecraft.data">HashCache.UpdateFunction</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="HashCache.UpdateResult.html" class="type-name-link" title="class in net.minecraft.data">HashCache.UpdateResult</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -114,11 +123,11 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;</code></div>
 <div class="col-second odd-row-color"><code><a href="#cachePaths" class="member-name-link">cachePaths</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>,<wbr><a href="HashCache.CacheUpdater.html" title="class in net.minecraft.data">HashCache.CacheUpdater</a>&gt;</code></div>
-<div class="col-second even-row-color"><code><a href="#cachesToWrite" class="member-name-link">cachesToWrite</a></code></div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="HashCache.ProviderCache.html" title="class in net.minecraft.data">HashCache.ProviderCache</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#caches" class="member-name-link">caches</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>,<wbr><a href="HashCache.ProviderCache.html" title="class in net.minecraft.data">HashCache.ProviderCache</a>&gt;</code></div>
-<div class="col-second odd-row-color"><code><a href="#existingCaches" class="member-name-link">existingCaches</a></code></div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#cachesToWrite" class="member-name-link">cachesToWrite</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#HEADER_MARKER" class="member-name-link">HEADER_MARKER</a></code></div>
@@ -129,11 +138,17 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>(package private) static final org.slf4j.Logger</code></div>
 <div class="col-second even-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#rootDir" class="member-name-link">rootDir</a></code></div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="HashCache.ProviderCache.html" title="class in net.minecraft.data">HashCache.ProviderCache</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#originalCaches" class="member-name-link">originalCaches</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color"><code><a href="#versionId" class="member-name-link">versionId</a></code></div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color"><code><a href="#rootDir" class="member-name-link">rootDir</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#versionId" class="member-name-link">versionId</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private int</code></div>
+<div class="col-second even-row-color"><code><a href="#writes" class="member-name-link">writes</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -146,8 +161,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.nio.file.Path,java.util.List,net.minecraft.WorldVersion)" class="member-name-link">HashCache</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_236087_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;&nbsp;p_236088_,
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.nio.file.Path,java.util.Collection,net.minecraft.WorldVersion)" class="member-name-link">HashCache</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_236087_,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_253748_,
  <a href="../WorldVersion.html" title="interface in net.minecraft">WorldVersion</a>&nbsp;p_236089_)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
@@ -164,22 +179,26 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getProviderCachePath(net.minecraft.data.DataProvider)" class="member-name-link">getProviderCachePath</a><wbr>(<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&nbsp;p_236110_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CachedOutput.html" title="interface in net.minecraft.data">CachedOutput</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUpdater(net.minecraft.data.DataProvider)" class="member-name-link">getUpdater</a><wbr>(<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&nbsp;p_236108_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#purgeStaleAndWrite()" class="member-name-link">purgeStaleAndWrite</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#applyUpdate(net.minecraft.data.HashCache.UpdateResult)" class="member-name-link">applyUpdate</a><wbr>(<a href="HashCache.UpdateResult.html" title="class in net.minecraft.data">HashCache.UpdateResult</a>&nbsp;p_253725_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="HashCache.ProviderCache.html" title="class in net.minecraft.data">HashCache.ProviderCache</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readCache(java.nio.file.Path,java.nio.file.Path)" class="member-name-link">readCache</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_236093_,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="HashCache.UpdateResult.html" title="class in net.minecraft.data">HashCache.UpdateResult</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#generateUpdate(java.lang.String,net.minecraft.data.HashCache.UpdateFunction)" class="member-name-link">generateUpdate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_253944_,
+ <a href="HashCache.UpdateFunction.html" title="interface in net.minecraft.data">HashCache.UpdateFunction</a>&nbsp;p_254321_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getProviderCachePath(java.lang.String)" class="member-name-link">getProviderCachePath</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_254395_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#purgeStaleAndWrite()" class="member-name-link">purgeStaleAndWrite</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="HashCache.ProviderCache.html" title="class in net.minecraft.data">HashCache.ProviderCache</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readCache(java.nio.file.Path,java.nio.file.Path)" class="member-name-link">readCache</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_236093_,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_236094_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldRunInThisVersion(net.minecraft.data.DataProvider)" class="member-name-link">shouldRunInThisVersion</a><wbr>(<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&nbsp;p_236091_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldRunInThisVersion(java.lang.String)" class="member-name-link">shouldRunInThisVersion</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_254319_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -236,15 +255,21 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="existingCaches">
-<h3>existingCaches</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>,<wbr><a href="HashCache.ProviderCache.html" title="class in net.minecraft.data">HashCache.ProviderCache</a>&gt;</span>&nbsp;<span class="element-name">existingCaches</span></div>
+<section class="detail" id="caches">
+<h3>caches</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="HashCache.ProviderCache.html" title="class in net.minecraft.data">HashCache.ProviderCache</a>&gt;</span>&nbsp;<span class="element-name">caches</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="originalCaches">
+<h3>originalCaches</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="HashCache.ProviderCache.html" title="class in net.minecraft.data">HashCache.ProviderCache</a>&gt;</span>&nbsp;<span class="element-name">originalCaches</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="cachesToWrite">
 <h3>cachesToWrite</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>,<wbr><a href="HashCache.CacheUpdater.html" title="class in net.minecraft.data">HashCache.CacheUpdater</a>&gt;</span>&nbsp;<span class="element-name">cachesToWrite</span></div>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">cachesToWrite</span></div>
 </section>
 </li>
 <li>
@@ -259,6 +284,12 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">initialCount</span></div>
 </section>
 </li>
+<li>
+<section class="detail" id="writes">
+<h3>writes</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">writes</span></div>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -268,10 +299,10 @@ loadScripts(document, 'script');</script>
 <h2>Constructor Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="&lt;init&gt;(java.nio.file.Path,java.util.List,net.minecraft.WorldVersion)">
+<section class="detail" id="&lt;init&gt;(java.nio.file.Path,java.util.Collection,net.minecraft.WorldVersion)">
 <h3>HashCache</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">HashCache</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_236087_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;&nbsp;p_236088_,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_253748_,
  <a href="../WorldVersion.html" title="interface in net.minecraft">WorldVersion</a>&nbsp;p_236089_)</span>
           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
@@ -289,9 +320,9 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="getProviderCachePath(net.minecraft.data.DataProvider)">
+<section class="detail" id="getProviderCachePath(java.lang.String)">
 <h3>getProviderCachePath</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getProviderCachePath</span><wbr><span class="parameters">(<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&nbsp;p_236110_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getProviderCachePath</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_254395_)</span></div>
 </section>
 </li>
 <li>
@@ -302,15 +333,22 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="shouldRunInThisVersion(net.minecraft.data.DataProvider)">
+<section class="detail" id="shouldRunInThisVersion(java.lang.String)">
 <h3>shouldRunInThisVersion</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldRunInThisVersion</span><wbr><span class="parameters">(<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&nbsp;p_236091_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldRunInThisVersion</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_254319_)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="getUpdater(net.minecraft.data.DataProvider)">
-<h3>getUpdater</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CachedOutput.html" title="interface in net.minecraft.data">CachedOutput</a></span>&nbsp;<span class="element-name">getUpdater</span><wbr><span class="parameters">(<a href="DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&nbsp;p_236108_)</span></div>
+<section class="detail" id="generateUpdate(java.lang.String,net.minecraft.data.HashCache.UpdateFunction)">
+<h3>generateUpdate</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="HashCache.UpdateResult.html" title="class in net.minecraft.data">HashCache.UpdateResult</a>&gt;</span>&nbsp;<span class="element-name">generateUpdate</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_253944_,
+ <a href="HashCache.UpdateFunction.html" title="interface in net.minecraft.data">HashCache.UpdateFunction</a>&nbsp;p_254321_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="applyUpdate(net.minecraft.data.HashCache.UpdateResult)">
+<h3>applyUpdate</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">applyUpdate</span><wbr><span class="parameters">(<a href="HashCache.UpdateResult.html" title="class in net.minecraft.data">HashCache.UpdateResult</a>&nbsp;p_253725_)</span></div>
 </section>
 </li>
 <li>

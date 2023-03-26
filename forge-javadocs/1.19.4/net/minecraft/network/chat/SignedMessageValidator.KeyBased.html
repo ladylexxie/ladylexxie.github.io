@@ -96,7 +96,7 @@ implements <a href="SignedMessageValidator.html" title="interface in net.minecra
 <h2>Nested Class Summary</h2>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraft.network.chat.SignedMessageValidator">Nested classes/interfaces inherited from interface&nbsp;net.minecraft.network.chat.<a href="SignedMessageValidator.html" title="interface in net.minecraft.network.chat">SignedMessageValidator</a></h2>
-<code><a href="SignedMessageValidator.KeyBased.html" title="class in net.minecraft.network.chat">SignedMessageValidator.KeyBased</a>, <a href="SignedMessageValidator.State.html" title="enum class in net.minecraft.network.chat">SignedMessageValidator.State</a>, <a href="SignedMessageValidator.Unsigned.html" title="class in net.minecraft.network.chat">SignedMessageValidator.Unsigned</a></code></div>
+<code><a href="SignedMessageValidator.KeyBased.html" title="class in net.minecraft.network.chat">SignedMessageValidator.KeyBased</a></code></div>
 </section>
 </li>
 <!-- =========== FIELD SUMMARY =========== -->
@@ -109,15 +109,18 @@ implements <a href="SignedMessageValidator.html" title="interface in net.minecra
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private boolean</code></div>
-<div class="col-second even-row-color"><code><a href="#isChainConsistent" class="member-name-link">isChainConsistent</a></code></div>
+<div class="col-second even-row-color"><code><a href="#isChainValid" class="member-name-link">isChainValid</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#lastSignature" class="member-name-link">lastSignature</a></code></div>
+<div class="col-first odd-row-color"><code>private <a href="PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#lastMessage" class="member-name-link">lastMessage</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private final <a href="../../util/SignatureValidator.html" title="interface in net.minecraft.util">SignatureValidator</a></code></div>
 <div class="col-second even-row-color"><code><a href="#validator" class="member-name-link">validator</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.network.chat.SignedMessageValidator">Fields inherited from interface&nbsp;net.minecraft.network.chat.<a href="SignedMessageValidator.html" title="interface in net.minecraft.network.chat">SignedMessageValidator</a></h3>
+<code><a href="SignedMessageValidator.html#ACCEPT_UNSIGNED">ACCEPT_UNSIGNED</a>, <a href="SignedMessageValidator.html#REJECT_ALL">REJECT_ALL</a></code></div>
 </section>
 </li>
 <!-- ======== CONSTRUCTOR SUMMARY ======== -->
@@ -144,31 +147,12 @@ implements <a href="SignedMessageValidator.html" title="interface in net.minecra
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="SignedMessageValidator.State.html" title="enum class in net.minecraft.network.chat">SignedMessageValidator.State</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateAndValidate(net.minecraft.network.chat.SignedMessageHeader,net.minecraft.network.chat.MessageSignature,byte%5B%5D,boolean)" class="member-name-link">updateAndValidate</a><wbr>(<a href="SignedMessageHeader.html" title="class in net.minecraft.network.chat">SignedMessageHeader</a>&nbsp;p_243211_,
- <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_243274_,
- byte[]&nbsp;p_243209_,
- boolean&nbsp;p_243324_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateAndValidate(net.minecraft.network.chat.PlayerChatMessage)" class="member-name-link">updateAndValidate</a><wbr>(<a href="PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_251182_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateChain(net.minecraft.network.chat.SignedMessageHeader,net.minecraft.network.chat.MessageSignature,boolean)" class="member-name-link">validateChain</a><wbr>(<a href="SignedMessageHeader.html" title="class in net.minecraft.network.chat">SignedMessageHeader</a>&nbsp;p_243280_,
- <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_243215_,
- boolean&nbsp;p_243312_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateChain(net.minecraft.network.chat.PlayerChatMessage)" class="member-name-link">validateChain</a><wbr>(<a href="PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_250412_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateContents(net.minecraft.network.chat.SignedMessageHeader,net.minecraft.network.chat.MessageSignature,byte%5B%5D,boolean)" class="member-name-link">validateContents</a><wbr>(<a href="SignedMessageHeader.html" title="class in net.minecraft.network.chat">SignedMessageHeader</a>&nbsp;p_243269_,
- <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_243259_,
- byte[]&nbsp;p_243265_,
- boolean&nbsp;p_243221_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SignedMessageValidator.State.html" title="enum class in net.minecraft.network.chat">SignedMessageValidator.State</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateHeader(net.minecraft.network.chat.SignedMessageHeader,net.minecraft.network.chat.MessageSignature,byte%5B%5D)" class="member-name-link">validateHeader</a><wbr>(<a href="SignedMessageHeader.html" title="class in net.minecraft.network.chat">SignedMessageHeader</a>&nbsp;p_242886_,
- <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_242853_,
- byte[]&nbsp;p_242869_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="SignedMessageValidator.State.html" title="enum class in net.minecraft.network.chat">SignedMessageValidator.State</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateMessage(net.minecraft.network.chat.PlayerChatMessage)" class="member-name-link">validateMessage</a><wbr>(<a href="PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_242943_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -193,16 +177,16 @@ implements <a href="SignedMessageValidator.html" title="interface in net.minecra
 </section>
 </li>
 <li>
-<section class="detail" id="lastSignature">
-<h3>lastSignature</h3>
+<section class="detail" id="lastMessage">
+<h3>lastMessage</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a></span>&nbsp;<span class="element-name">lastSignature</span></div>
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a></span>&nbsp;<span class="element-name">lastMessage</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="isChainConsistent">
-<h3>isChainConsistent</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isChainConsistent</span></div>
+<section class="detail" id="isChainValid">
+<h3>isChainValid</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isChainValid</span></div>
 </section>
 </li>
 </ul>
@@ -228,50 +212,18 @@ implements <a href="SignedMessageValidator.html" title="interface in net.minecra
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="validateChain(net.minecraft.network.chat.SignedMessageHeader,net.minecraft.network.chat.MessageSignature,boolean)">
+<section class="detail" id="validateChain(net.minecraft.network.chat.PlayerChatMessage)">
 <h3>validateChain</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">validateChain</span><wbr><span class="parameters">(<a href="SignedMessageHeader.html" title="class in net.minecraft.network.chat">SignedMessageHeader</a>&nbsp;p_243280_,
- <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_243215_,
- boolean&nbsp;p_243312_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">validateChain</span><wbr><span class="parameters">(<a href="PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_250412_)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="validateContents(net.minecraft.network.chat.SignedMessageHeader,net.minecraft.network.chat.MessageSignature,byte[],boolean)">
-<h3>validateContents</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">validateContents</span><wbr><span class="parameters">(<a href="SignedMessageHeader.html" title="class in net.minecraft.network.chat">SignedMessageHeader</a>&nbsp;p_243269_,
- <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_243259_,
- byte[]&nbsp;p_243265_,
- boolean&nbsp;p_243221_)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="updateAndValidate(net.minecraft.network.chat.SignedMessageHeader,net.minecraft.network.chat.MessageSignature,byte[],boolean)">
+<section class="detail" id="updateAndValidate(net.minecraft.network.chat.PlayerChatMessage)">
 <h3>updateAndValidate</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="SignedMessageValidator.State.html" title="enum class in net.minecraft.network.chat">SignedMessageValidator.State</a></span>&nbsp;<span class="element-name">updateAndValidate</span><wbr><span class="parameters">(<a href="SignedMessageHeader.html" title="class in net.minecraft.network.chat">SignedMessageHeader</a>&nbsp;p_243211_,
- <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_243274_,
- byte[]&nbsp;p_243209_,
- boolean&nbsp;p_243324_)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="validateHeader(net.minecraft.network.chat.SignedMessageHeader,net.minecraft.network.chat.MessageSignature,byte[])">
-<h3>validateHeader</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SignedMessageValidator.State.html" title="enum class in net.minecraft.network.chat">SignedMessageValidator.State</a></span>&nbsp;<span class="element-name">validateHeader</span><wbr><span class="parameters">(<a href="SignedMessageHeader.html" title="class in net.minecraft.network.chat">SignedMessageHeader</a>&nbsp;p_242886_,
- <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_242853_,
- byte[]&nbsp;p_242869_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">updateAndValidate</span><wbr><span class="parameters">(<a href="PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_251182_)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="SignedMessageValidator.html#validateHeader(net.minecraft.network.chat.SignedMessageHeader,net.minecraft.network.chat.MessageSignature,byte%5B%5D)">validateHeader</a></code>&nbsp;in interface&nbsp;<code><a href="SignedMessageValidator.html" title="interface in net.minecraft.network.chat">SignedMessageValidator</a></code></dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="validateMessage(net.minecraft.network.chat.PlayerChatMessage)">
-<h3>validateMessage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="SignedMessageValidator.State.html" title="enum class in net.minecraft.network.chat">SignedMessageValidator.State</a></span>&nbsp;<span class="element-name">validateMessage</span><wbr><span class="parameters">(<a href="PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_242943_)</span></div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="SignedMessageValidator.html#validateMessage(net.minecraft.network.chat.PlayerChatMessage)">validateMessage</a></code>&nbsp;in interface&nbsp;<code><a href="SignedMessageValidator.html" title="interface in net.minecraft.network.chat">SignedMessageValidator</a></code></dd>
+<dd><code><a href="SignedMessageValidator.html#updateAndValidate(net.minecraft.network.chat.PlayerChatMessage)">updateAndValidate</a></code>&nbsp;in interface&nbsp;<code><a href="SignedMessageValidator.html" title="interface in net.minecraft.network.chat">SignedMessageValidator</a></code></dd>
 </dl>
 </section>
 </li>

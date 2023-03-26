@@ -44,7 +44,7 @@ loadScripts(document, 'script');</script>
 <div>
 <ul class="sub-nav-list">
 <li>Summary:&nbsp;</li>
-<li>Nested&nbsp;|&nbsp;</li>
+<li><a href="#nested-class-summary">Nested</a>&nbsp;|&nbsp;</li>
 <li><a href="#field-summary">Field</a>&nbsp;|&nbsp;</li>
 <li><a href="#constructor-summary">Constr</a>&nbsp;|&nbsp;</li>
 <li><a href="#method-summary">Method</a></li>
@@ -81,6 +81,21 @@ loadScripts(document, 'script');</script>
 </section>
 <section class="summary">
 <ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="LastSeenMessagesTracker.Update.html" class="type-name-link" title="class in net.minecraft.network.chat">LastSeenMessagesTracker.Update</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
 <!-- =========== FIELD SUMMARY =========== -->
 <li>
 <section class="field-summary" id="field-summary">
@@ -90,15 +105,18 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private <a href="LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a></code></div>
-<div class="col-second even-row-color"><code><a href="#result" class="member-name-link">result</a></code></div>
+<div class="col-first even-row-color"><code>private <a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a></code></div>
+<div class="col-second even-row-color"><code><a href="#lastTrackedMessage" class="member-name-link">lastTrackedMessage</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private int</code></div>
-<div class="col-second odd-row-color"><code><a href="#size" class="member-name-link">size</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#offset" class="member-name-link">offset</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private final <a href="LastSeenMessages.Entry.html" title="class in net.minecraft.network.chat">LastSeenMessages.Entry</a>[]</code></div>
-<div class="col-second even-row-color"><code><a href="#status" class="member-name-link">status</a></code></div>
+<div class="col-first even-row-color"><code>private int</code></div>
+<div class="col-second even-row-color"><code><a href="#tail" class="member-name-link">tail</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="LastSeenTrackedEntry.html" title="class in net.minecraft.network.chat">LastSeenTrackedEntry</a>[]</code></div>
+<div class="col-second odd-row-color"><code><a href="#trackedMessages" class="member-name-link">trackedMessages</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -126,11 +144,24 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get()" class="member-name-link">get</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEntry(net.minecraft.network.chat.LastSeenTrackedEntry)" class="member-name-link">addEntry</a><wbr>(<a href="LastSeenTrackedEntry.html" title="class in net.minecraft.network.chat">LastSeenTrackedEntry</a>&nbsp;p_250255_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#push(net.minecraft.network.chat.LastSeenMessages.Entry)" class="member-name-link">push</a><wbr>(<a href="LastSeenMessages.Entry.html" title="class in net.minecraft.network.chat">LastSeenMessages.Entry</a>&nbsp;p_242466_)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addPending(net.minecraft.network.chat.MessageSignature,boolean)" class="member-name-link">addPending</a><wbr>(<a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_248926_,
+ boolean&nbsp;p_250312_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="LastSeenMessagesTracker.Update.html" title="class in net.minecraft.network.chat">LastSeenMessagesTracker.Update</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#generateAndApplyUpdate()" class="member-name-link">generateAndApplyUpdate</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAndClearOffset()" class="member-name-link">getAndClearOffset</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#ignorePending(net.minecraft.network.chat.MessageSignature)" class="member-name-link">ignorePending</a><wbr>(<a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_251020_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#offset()" class="member-name-link">offset</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -150,21 +181,28 @@ loadScripts(document, 'script');</script>
 <h2>Field Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="status">
-<h3>status</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="LastSeenMessages.Entry.html" title="class in net.minecraft.network.chat">LastSeenMessages.Entry</a>[]</span>&nbsp;<span class="element-name">status</span></div>
+<section class="detail" id="trackedMessages">
+<h3>trackedMessages</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="LastSeenTrackedEntry.html" title="class in net.minecraft.network.chat">LastSeenTrackedEntry</a>[]</span>&nbsp;<span class="element-name">trackedMessages</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="size">
-<h3>size</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">size</span></div>
+<section class="detail" id="tail">
+<h3>tail</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">tail</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="result">
-<h3>result</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a></span>&nbsp;<span class="element-name">result</span></div>
+<section class="detail" id="offset">
+<h3>offset</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">offset</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="lastTrackedMessage">
+<h3>lastTrackedMessage</h3>
+<div class="member-signature"><span class="annotations">@Nullable
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a></span>&nbsp;<span class="element-name">lastTrackedMessage</span></div>
 </section>
 </li>
 </ul>
@@ -190,15 +228,41 @@ loadScripts(document, 'script');</script>
 <h2>Method Details</h2>
 <ul class="member-list">
 <li>
-<section class="detail" id="push(net.minecraft.network.chat.LastSeenMessages.Entry)">
-<h3>push</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">push</span><wbr><span class="parameters">(<a href="LastSeenMessages.Entry.html" title="class in net.minecraft.network.chat">LastSeenMessages.Entry</a>&nbsp;p_242466_)</span></div>
+<section class="detail" id="addPending(net.minecraft.network.chat.MessageSignature,boolean)">
+<h3>addPending</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">addPending</span><wbr><span class="parameters">(<a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_248926_,
+ boolean&nbsp;p_250312_)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="get()">
-<h3>get</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a></span>&nbsp;<span class="element-name">get</span>()</div>
+<section class="detail" id="addEntry(net.minecraft.network.chat.LastSeenTrackedEntry)">
+<h3>addEntry</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addEntry</span><wbr><span class="parameters">(@Nullable
+ <a href="LastSeenTrackedEntry.html" title="class in net.minecraft.network.chat">LastSeenTrackedEntry</a>&nbsp;p_250255_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="ignorePending(net.minecraft.network.chat.MessageSignature)">
+<h3>ignorePending</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">ignorePending</span><wbr><span class="parameters">(<a href="MessageSignature.html" title="class in net.minecraft.network.chat">MessageSignature</a>&nbsp;p_251020_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAndClearOffset()">
+<h3>getAndClearOffset</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getAndClearOffset</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="generateAndApplyUpdate()">
+<h3>generateAndApplyUpdate</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="LastSeenMessagesTracker.Update.html" title="class in net.minecraft.network.chat">LastSeenMessagesTracker.Update</a></span>&nbsp;<span class="element-name">generateAndApplyUpdate</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="offset()">
+<h3>offset</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">offset</span>()</div>
 </section>
 </li>
 </ul>

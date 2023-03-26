@@ -111,23 +111,29 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private boolean</code></div>
-<div class="col-second even-row-color"><code><a href="#isMovingMouth" class="member-name-link">isMovingMouth</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#mainThreadExecutor" class="member-name-link">mainThreadExecutor</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private int</code></div>
-<div class="col-second even-row-color"><code><a href="#mouthTickCount" class="member-name-link">mouthTickCount</a></code></div>
+<div class="col-second even-row-color"><code><a href="#animationTickCount" class="member-name-link">animationTickCount</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private com.mojang.authlib.GameProfile</code></div>
-<div class="col-second odd-row-color"><code><a href="#owner" class="member-name-link">owner</a></code></div>
+<div class="col-first odd-row-color"><code>private boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#isAnimating" class="member-name-link">isAnimating</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private static <a href="../../../../server/players/GameProfileCache.html" title="class in net.minecraft.server.players">GameProfileCache</a></code></div>
-<div class="col-second even-row-color"><code><a href="#profileCache" class="member-name-link">profileCache</a></code></div>
+<div class="col-first even-row-color"><code>private static <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a></code></div>
+<div class="col-second even-row-color"><code><a href="#mainThreadExecutor" class="member-name-link">mainThreadExecutor</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private static com.mojang.authlib.minecraft.MinecraftSessionService</code></div>
-<div class="col-second odd-row-color"><code><a href="#sessionService" class="member-name-link">sessionService</a></code></div>
+<div class="col-first odd-row-color"><code>private <a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#noteBlockSound" class="member-name-link">noteBlockSound</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private com.mojang.authlib.GameProfile</code></div>
+<div class="col-second even-row-color"><code><a href="#owner" class="member-name-link">owner</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static <a href="../../../../server/players/GameProfileCache.html" title="class in net.minecraft.server.players">GameProfileCache</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#profileCache" class="member-name-link">profileCache</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static com.mojang.authlib.minecraft.MinecraftSessionService</code></div>
+<div class="col-second even-row-color"><code><a href="#sessionService" class="member-name-link">sessionService</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TAG_NOTE_BLOCK_SOUND" class="member-name-link">TAG_NOTE_BLOCK_SOUND</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#TAG_SKULL_OWNER" class="member-name-link">TAG_SKULL_OWNER</a></code></div>
@@ -167,46 +173,49 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#animation(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.SkullBlockEntity)" class="member-name-link">animation</a><wbr>(<a href="../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_261710_,
+ <a href="../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_262153_,
+ <a href="../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_262021_,
+ <a href="SkullBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SkullBlockEntity</a>&nbsp;p_261594_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#dragonHeadAnimation(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.SkullBlockEntity)" class="member-name-link">dragonHeadAnimation</a><wbr>(<a href="../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_155734_,
- <a href="../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_155735_,
- <a href="../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_155736_,
- <a href="SkullBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SkullBlockEntity</a>&nbsp;p_155737_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMouthAnimation(float)" class="member-name-link">getMouthAnimation</a><wbr>(float&nbsp;p_59763_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAnimation(float)" class="member-name-link">getAnimation</a><wbr>(float&nbsp;p_262053_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.mojang.authlib.GameProfile</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOwnerProfile()" class="member-name-link">getOwnerProfile</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNoteBlockSound()" class="member-name-link">getNoteBlockSound</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../network/protocol/game/ClientboundBlockEntityDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockEntityDataPacket</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUpdatePacket()" class="member-name-link">getUpdatePacket</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.mojang.authlib.GameProfile</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOwnerProfile()" class="member-name-link">getOwnerProfile</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUpdateTag()" class="member-name-link">getUpdateTag</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../network/protocol/game/ClientboundBlockEntityDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockEntityDataPacket</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUpdatePacket()" class="member-name-link">getUpdatePacket</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#load(net.minecraft.nbt.CompoundTag)" class="member-name-link">load</a><wbr>(<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_155745_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUpdateTag()" class="member-name-link">getUpdateTag</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#saveAdditional(net.minecraft.nbt.CompoundTag)" class="member-name-link">saveAdditional</a><wbr>(<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_187518_)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#load(net.minecraft.nbt.CompoundTag)" class="member-name-link">load</a><wbr>(<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_155745_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOwner(com.mojang.authlib.GameProfile)" class="member-name-link">setOwner</a><wbr>(com.mojang.authlib.GameProfile&nbsp;p_59770_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#saveAdditional(net.minecraft.nbt.CompoundTag)" class="member-name-link">saveAdditional</a><wbr>(<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_187518_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setup(net.minecraft.server.Services,java.util.concurrent.Executor)" class="member-name-link">setup</a><wbr>(<a href="../../../../server/Services.html" title="class in net.minecraft.server">Services</a>&nbsp;p_222886_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_222887_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOwner(com.mojang.authlib.GameProfile)" class="member-name-link">setOwner</a><wbr>(com.mojang.authlib.GameProfile&nbsp;p_59770_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#updateGameprofile(com.mojang.authlib.GameProfile,java.util.function.Consumer)" class="member-name-link">updateGameprofile</a><wbr>(com.mojang.authlib.GameProfile&nbsp;p_155739_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;com.mojang.authlib.GameProfile&gt;&nbsp;p_155740_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setup(net.minecraft.server.Services,java.util.concurrent.Executor)" class="member-name-link">setup</a><wbr>(<a href="../../../../server/Services.html" title="class in net.minecraft.server">Services</a>&nbsp;p_222886_,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_222887_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateOwnerProfile()" class="member-name-link">updateOwnerProfile</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#updateGameprofile(com.mojang.authlib.GameProfile,java.util.function.Consumer)" class="member-name-link">updateGameprofile</a><wbr>(com.mojang.authlib.GameProfile&nbsp;p_155739_,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;com.mojang.authlib.GameProfile&gt;&nbsp;p_155740_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateOwnerProfile()" class="member-name-link">updateOwnerProfile</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -251,6 +260,20 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
+<section class="detail" id="TAG_NOTE_BLOCK_SOUND">
+<h3>TAG_NOTE_BLOCK_SOUND</h3>
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">TAG_NOTE_BLOCK_SOUND</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list">
+<li><a href="../../../../../../constant-values.html#net.minecraft.world.level.block.entity.SkullBlockEntity.TAG_NOTE_BLOCK_SOUND">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</section>
+</li>
+<li>
 <section class="detail" id="profileCache">
 <h3>profileCache</h3>
 <div class="member-signature"><span class="annotations">@Nullable
@@ -279,15 +302,22 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="mouthTickCount">
-<h3>mouthTickCount</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">mouthTickCount</span></div>
+<section class="detail" id="noteBlockSound">
+<h3>noteBlockSound</h3>
+<div class="member-signature"><span class="annotations">@Nullable
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></span>&nbsp;<span class="element-name">noteBlockSound</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="isMovingMouth">
-<h3>isMovingMouth</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isMovingMouth</span></div>
+<section class="detail" id="animationTickCount">
+<h3>animationTickCount</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">animationTickCount</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="isAnimating">
+<h3>isAnimating</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAnimating</span></div>
 </section>
 </li>
 </ul>
@@ -347,18 +377,18 @@ loadScripts(document, 'script');</script>
 </section>
 </li>
 <li>
-<section class="detail" id="dragonHeadAnimation(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.SkullBlockEntity)">
-<h3>dragonHeadAnimation</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dragonHeadAnimation</span><wbr><span class="parameters">(<a href="../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_155734_,
- <a href="../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_155735_,
- <a href="../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_155736_,
- <a href="SkullBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SkullBlockEntity</a>&nbsp;p_155737_)</span></div>
+<section class="detail" id="animation(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.SkullBlockEntity)">
+<h3>animation</h3>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">animation</span><wbr><span class="parameters">(<a href="../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_261710_,
+ <a href="../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_262153_,
+ <a href="../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_262021_,
+ <a href="SkullBlockEntity.html" title="class in net.minecraft.world.level.block.entity">SkullBlockEntity</a>&nbsp;p_261594_)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="getMouthAnimation(float)">
-<h3>getMouthAnimation</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getMouthAnimation</span><wbr><span class="parameters">(float&nbsp;p_59763_)</span></div>
+<section class="detail" id="getAnimation(float)">
+<h3>getAnimation</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getAnimation</span><wbr><span class="parameters">(float&nbsp;p_262053_)</span></div>
 </section>
 </li>
 <li>
@@ -366,6 +396,13 @@ loadScripts(document, 'script');</script>
 <h3>getOwnerProfile</h3>
 <div class="member-signature"><span class="annotations">@Nullable
 </span><span class="modifiers">public</span>&nbsp;<span class="return-type">com.mojang.authlib.GameProfile</span>&nbsp;<span class="element-name">getOwnerProfile</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getNoteBlockSound()">
+<h3>getNoteBlockSound</h3>
+<div class="member-signature"><span class="annotations">@Nullable
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></span>&nbsp;<span class="element-name">getNoteBlockSound</span>()</div>
 </section>
 </li>
 <li>

@@ -257,22 +257,6 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color class-summary class-summary-tab2">&nbsp;</div>
 <div class="col-first odd-row-color class-summary class-summary-tab2"><a href="LivingSetAttackTargetEvent.html" title="class in net.minecraftforge.event.entity.living">LivingSetAttackTargetEvent</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">Deprecated, for removal: This API element is subject to removal in a future version.</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="LivingSpawnEvent.html" title="class in net.minecraftforge.event.entity.living">LivingSpawnEvent</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
-<div class="block">This event is fired whenever a <a href="../../../../minecraft/world/entity/Mob.html" title="class in net.minecraft.world.entity"><code>Mob</code></a> should do something spawn-related.</div>
-</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="LivingSpawnEvent.AllowDespawn.html" title="class in net.minecraftforge.event.entity.living">LivingSpawnEvent.AllowDespawn</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
-<div class="block">This event is fired for a <a href="../../../../minecraft/world/entity/Mob.html" title="class in net.minecraft.world.entity"><code>Mob</code></a> that can despawn <i>each mob tick</i>.</div>
-</div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="LivingSpawnEvent.CheckSpawn.html" title="class in net.minecraftforge.event.entity.living">LivingSpawnEvent.CheckSpawn</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
-<div class="block">This event is fired before a <a href="../../../../minecraft/world/entity/Mob.html" title="class in net.minecraft.world.entity"><code>Mob</code></a> spawns.</div>
-</div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="LivingSpawnEvent.SpecialSpawn.html" title="class in net.minecraftforge.event.entity.living">LivingSpawnEvent.SpecialSpawn</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
-<div class="block">This event is fired whenever a <a href="../../../../minecraft/world/entity/Mob.html" title="class in net.minecraft.world.entity"><code>Mob</code></a> is set to be spawned, to allow for mod-specific initializers.</div>
-</div>
 <div class="col-first even-row-color class-summary class-summary-tab2"><a href="LivingUseTotemEvent.html" title="class in net.minecraftforge.event.entity.living">LivingUseTotemEvent</a></div>
 <div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Fired when an Entity attempts to use a totem to prevent its death.</div>
@@ -299,24 +283,40 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">This Event is fired when a <a href="../../../../minecraft/world/effect/MobEffect.html" title="class in net.minecraft.world.effect"><code>MobEffect</code></a> is about to get removed from an Entity.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="PotionColorCalculationEvent.html" title="class in net.minecraftforge.event.entity.living">PotionColorCalculationEvent</a></div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="MobSpawnEvent.html" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent</a></div>
 <div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">The subclasses of this event are fired whenever a mob performs a spawning-related action.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="MobSpawnEvent.AllowDespawn.html" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent.AllowDespawn</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="block">This event is fired from <a href="../../../../minecraft/world/entity/Mob.html#checkDespawn()"><code>Mob.checkDespawn()</code></a>.<br>
+ It fires once per tick per mob that is attempting to despawn.<br>
+ It is not fired if the mob is persistent (meaning it may not despawn).<br></div>
+</div>
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="MobSpawnEvent.FinalizeSpawn.html" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent.FinalizeSpawn</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="block">This event is fired before <a href="../../../../minecraft/world/entity/Mob.html#finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.DifficultyInstance,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.entity.SpawnGroupData,net.minecraft.nbt.CompoundTag)"><code>Mob.finalizeSpawn(ServerLevelAccessor, DifficultyInstance, MobSpawnType, SpawnGroupData, CompoundTag)</code></a> is called.<br>
+ This allows mods to control mob initialization.<br>
+ In vanilla code, this event is injected by a transformer and not via patch, so calls cannot be traced via call hierarchy.</div>
+</div>
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="PotionColorCalculationEvent.html" title="class in net.minecraftforge.event.entity.living">PotionColorCalculationEvent</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">Fires after Potion Color Calculation.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ShieldBlockEvent.html" title="class in net.minecraftforge.event.entity.living">ShieldBlockEvent</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ShieldBlockEvent.html" title="class in net.minecraftforge.event.entity.living">ShieldBlockEvent</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">The ShieldBlockEvent is fired when an entity successfully blocks with a shield.<br>
  Cancelling this event will have the same impact as if the shield was not eligible to block.<br>
  The damage blocked cannot be set lower than zero or greater than the original value.<br>
  Note: The shield item stack "should" be available from <a href="../../../../minecraft/world/entity/LivingEntity.html#getUseItem()"><code>LivingEntity.getUseItem()</code></a>
  at least for players.</div>
 </div>
-<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ZombieEvent.html" title="class in net.minecraftforge.event.entity.living">ZombieEvent</a></div>
-<div class="col-last odd-row-color class-summary class-summary-tab2">
+<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ZombieEvent.html" title="class in net.minecraftforge.event.entity.living">ZombieEvent</a></div>
+<div class="col-last even-row-color class-summary class-summary-tab2">
 <div class="block">ZombieEvent is fired whenever a zombie is spawned for aid.</div>
 </div>
-<div class="col-first even-row-color class-summary class-summary-tab2"><a href="ZombieEvent.SummonAidEvent.html" title="class in net.minecraftforge.event.entity.living">ZombieEvent.SummonAidEvent</a></div>
-<div class="col-last even-row-color class-summary class-summary-tab2">
+<div class="col-first odd-row-color class-summary class-summary-tab2"><a href="ZombieEvent.SummonAidEvent.html" title="class in net.minecraftforge.event.entity.living">ZombieEvent.SummonAidEvent</a></div>
+<div class="col-last odd-row-color class-summary class-summary-tab2">
 <div class="block">SummonAidEvent is fired when a Zombie Entity is summoned.</div>
 </div>
 </div>

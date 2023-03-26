@@ -132,14 +132,14 @@ implements <a href="ServerPlayerConnection.html" title="interface in net.minecra
 <div class="col-first odd-row-color"><code>private int</code></div>
 <div class="col-second odd-row-color"><code><a href="#awaitingTeleportTime" class="member-name-link">awaitingTeleportTime</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private final <a href="../../util/FutureChain.html" title="class in net.minecraft.util">FutureChain</a></code></div>
-<div class="col-second even-row-color"><code><a href="#chatMessageChain" class="member-name-link">chatMessageChain</a></code></div>
+<div class="col-first even-row-color"><code>private static final <a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CHAT_VALIDATION_FAILED" class="member-name-link">CHAT_VALIDATION_FAILED</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private final <a href="../../network/chat/ChatPreviewCache.html" title="class in net.minecraft.network.chat">ChatPreviewCache</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#chatPreviewCache" class="member-name-link">chatPreviewCache</a></code></div>
+<div class="col-first odd-row-color"><code>private final <a href="../../util/FutureChain.html" title="class in net.minecraft.util">FutureChain</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#chatMessageChain" class="member-name-link">chatMessageChain</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>private final <a href="../../network/chat/ChatPreviewThrottler.html" title="class in net.minecraft.network.chat">ChatPreviewThrottler</a></code></div>
-<div class="col-second even-row-color"><code><a href="#chatPreviewThrottler" class="member-name-link">chatPreviewThrottler</a></code></div>
+<div class="col-first even-row-color"><code>private <a href="../../network/chat/RemoteChatSession.html" title="class in net.minecraft.network.chat">RemoteChatSession</a></code></div>
+<div class="col-second even-row-color"><code><a href="#chatSession" class="member-name-link">chatSession</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private int</code></div>
 <div class="col-second odd-row-color"><code><a href="#chatSpamTickCount" class="member-name-link">chatSpamTickCount</a></code></div>
@@ -190,7 +190,7 @@ implements <a href="ServerPlayerConnection.html" title="interface in net.minecra
 <div class="col-second even-row-color"><code><a href="#lastGoodZ" class="member-name-link">lastGoodZ</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private final <a href="../../network/chat/LastSeenMessagesValidator.html" title="class in net.minecraft.network.chat">LastSeenMessagesValidator</a></code></div>
-<div class="col-second odd-row-color"><code><a href="#lastSeenMessagesValidator" class="member-name-link">lastSeenMessagesValidator</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#lastSeenMessages" class="member-name-link">lastSeenMessages</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a></code></div>
 <div class="col-second even-row-color"><code><a href="#lastVehicle" class="member-name-link">lastVehicle</a></code></div>
@@ -206,11 +206,11 @@ implements <a href="ServerPlayerConnection.html" title="interface in net.minecra
 <div class="col-last odd-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
-<div class="col-first even-row-color"><code>private static final int</code></div>
-<div class="col-second even-row-color"><code><a href="#NO_BLOCK_UPDATES_TO_ACK" class="member-name-link">NO_BLOCK_UPDATES_TO_ACK</a></code></div>
+<div class="col-first even-row-color"><code>private final <a href="../../network/chat/MessageSignatureCache.html" title="class in net.minecraft.network.chat">MessageSignatureCache</a></code></div>
+<div class="col-second even-row-color"><code><a href="#messageSignatureCache" class="member-name-link">messageSignatureCache</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private static final int</code></div>
-<div class="col-second odd-row-color"><code><a href="#PENDING_MESSAGE_DISCONNECT_THRESHOLD" class="member-name-link">PENDING_MESSAGE_DISCONNECT_THRESHOLD</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#NO_BLOCK_UPDATES_TO_ACK" class="member-name-link">NO_BLOCK_UPDATES_TO_ACK</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code><a href="../level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a></code></div>
 <div class="col-second even-row-color"><code><a href="#player" class="member-name-link">player</a></code></div>
@@ -221,30 +221,33 @@ implements <a href="ServerPlayerConnection.html" title="interface in net.minecra
 <div class="col-first even-row-color"><code>private final <a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></div>
 <div class="col-second even-row-color"><code><a href="#server" class="member-name-link">server</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private final <a href="../../network/chat/SignedMessageChain.Decoder.html" title="interface in net.minecraft.network.chat">SignedMessageChain.Decoder</a></code></div>
+<div class="col-first odd-row-color"><code>private <a href="../../network/chat/SignedMessageChain.Decoder.html" title="interface in net.minecraft.network.chat">SignedMessageChain.Decoder</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#signedMessageDecoder" class="member-name-link">signedMessageDecoder</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private int</code></div>
 <div class="col-second even-row-color"><code><a href="#tickCount" class="member-name-link">tickCount</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>private double</code></div>
-<div class="col-second odd-row-color"><code><a href="#vehicleFirstGoodX" class="member-name-link">vehicleFirstGoodX</a></code></div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#TRACKED_MESSAGE_DISCONNECT_THRESHOLD" class="member-name-link">TRACKED_MESSAGE_DISCONNECT_THRESHOLD</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private double</code></div>
-<div class="col-second even-row-color"><code><a href="#vehicleFirstGoodY" class="member-name-link">vehicleFirstGoodY</a></code></div>
+<div class="col-second even-row-color"><code><a href="#vehicleFirstGoodX" class="member-name-link">vehicleFirstGoodX</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private double</code></div>
-<div class="col-second odd-row-color"><code><a href="#vehicleFirstGoodZ" class="member-name-link">vehicleFirstGoodZ</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#vehicleFirstGoodY" class="member-name-link">vehicleFirstGoodY</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private double</code></div>
-<div class="col-second even-row-color"><code><a href="#vehicleLastGoodX" class="member-name-link">vehicleLastGoodX</a></code></div>
+<div class="col-second even-row-color"><code><a href="#vehicleFirstGoodZ" class="member-name-link">vehicleFirstGoodZ</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private double</code></div>
-<div class="col-second odd-row-color"><code><a href="#vehicleLastGoodY" class="member-name-link">vehicleLastGoodY</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#vehicleLastGoodX" class="member-name-link">vehicleLastGoodX</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private double</code></div>
-<div class="col-second even-row-color"><code><a href="#vehicleLastGoodZ" class="member-name-link">vehicleLastGoodZ</a></code></div>
+<div class="col-second even-row-color"><code><a href="#vehicleLastGoodY" class="member-name-link">vehicleLastGoodY</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private double</code></div>
+<div class="col-second odd-row-color"><code><a href="#vehicleLastGoodZ" class="member-name-link">vehicleLastGoodZ</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -290,8 +293,9 @@ implements <a href="ServerPlayerConnection.html" title="interface in net.minecra
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#clampVertical(double)" class="member-name-link">clampVertical</a><wbr>(double&nbsp;p_143654_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#collectSignedArguments(net.minecraft.network.protocol.game.ServerboundChatCommandPacket,net.minecraft.network.chat.PreviewableCommand)" class="member-name-link">collectSignedArguments</a><wbr>(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_242876_,
- <a href="../../network/chat/PreviewableCommand.html" title="class in net.minecraft.network.chat">PreviewableCommand</a>&lt;?&gt;&nbsp;p_242848_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#collectSignedArguments(net.minecraft.network.protocol.game.ServerboundChatCommandPacket,net.minecraft.network.chat.SignableCommand,net.minecraft.network.chat.LastSeenMessages)" class="member-name-link">collectSignedArguments</a><wbr>(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_249441_,
+ <a href="../../network/chat/SignableCommand.html" title="class in net.minecraft.network.chat">SignableCommand</a>&lt;?&gt;&nbsp;p_250039_,
+ <a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&nbsp;p_249207_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#containsInvalidValues(double,double,double,float,float)" class="member-name-link">containsInvalidValues</a><wbr>(double&nbsp;p_143664_,
@@ -306,102 +310,92 @@ implements <a href="ServerPlayerConnection.html" title="interface in net.minecra
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#disconnect(net.minecraft.network.chat.Component)" class="member-name-link">disconnect</a><wbr>(<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_9943_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dismount(double,double,double,float,float)" class="member-name-link">dismount</a><wbr>(double&nbsp;p_143612_,
- double&nbsp;p_143613_,
- double&nbsp;p_143614_,
- float&nbsp;p_143615_,
- float&nbsp;p_143616_)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#filterTextPacket(java.lang.String)" class="member-name-link">filterTextPacket</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_243213_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#filterTextPacket(java.lang.String)" class="member-name-link">filterTextPacket</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_243213_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#filterTextPacket(java.util.List)" class="member-name-link">filterTextPacket</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_243258_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#filterTextPacket(java.util.List)" class="member-name-link">filterTextPacket</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_243258_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private &lt;T,<wbr>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private &lt;T,<wbr>
 R&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;R&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#filterTextPacket(T,java.util.function.BiFunction)" class="member-name-link">filterTextPacket</a><wbr>(T&nbsp;p_243240_,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#filterTextPacket(T,java.util.function.BiFunction)" class="member-name-link">filterTextPacket</a><wbr>(T&nbsp;p_243240_,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;<a href="TextFilter.html" title="interface in net.minecraft.server.network">TextFilter</a>,<wbr>T,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;R&gt;&gt;&nbsp;p_243271_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../network/Connection.html" title="class in net.minecraft.network">Connection</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getConnection()" class="member-name-link">getConnection</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPlayer()" class="member-name-link">getPlayer</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPreviewedArgument(net.minecraft.commands.CommandSourceStack,net.minecraft.network.chat.PreviewableCommand)" class="member-name-link">getPreviewedArgument</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_242862_,
- <a href="../../network/chat/PreviewableCommand.html" title="class in net.minecraft.network.chat">PreviewableCommand</a>&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;p_242851_)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRemoteAddress()" class="member-name-link">getRemoteAddress</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../../network/chat/ChatMessageContent.html" title="class in net.minecraft.network.chat">ChatMessageContent</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSignedContent(net.minecraft.network.protocol.game.ServerboundChatPacket)" class="member-name-link">getSignedContent</a><wbr>(<a href="../../network/protocol/game/ServerboundChatPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPacket</a>&nbsp;p_242906_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSignedMessage(net.minecraft.network.protocol.game.ServerboundChatPacket)" class="member-name-link">getSignedMessage</a><wbr>(<a href="../../network/protocol/game/ServerboundChatPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPacket</a>&nbsp;p_242875_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleAcceptTeleportPacket(net.minecraft.network.protocol.game.ServerboundAcceptTeleportationPacket)" class="member-name-link">handleAcceptTeleportPacket</a><wbr>(<a href="../../network/protocol/game/ServerboundAcceptTeleportationPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundAcceptTeleportationPacket</a>&nbsp;p_9835_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSignedMessage(net.minecraft.network.protocol.game.ServerboundChatPacket,net.minecraft.network.chat.LastSeenMessages)" class="member-name-link">getSignedMessage</a><wbr>(<a href="../../network/protocol/game/ServerboundChatPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPacket</a>&nbsp;p_251061_,
+ <a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&nbsp;p_250566_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleAnimate(net.minecraft.network.protocol.game.ServerboundSwingPacket)" class="member-name-link">handleAnimate</a><wbr>(<a href="../../network/protocol/game/ServerboundSwingPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundSwingPacket</a>&nbsp;p_9926_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleAcceptTeleportPacket(net.minecraft.network.protocol.game.ServerboundAcceptTeleportationPacket)" class="member-name-link">handleAcceptTeleportPacket</a><wbr>(<a href="../../network/protocol/game/ServerboundAcceptTeleportationPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundAcceptTeleportationPacket</a>&nbsp;p_9835_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleBlockEntityTagQuery(net.minecraft.network.protocol.game.ServerboundBlockEntityTagQuery)" class="member-name-link">handleBlockEntityTagQuery</a><wbr>(<a href="../../network/protocol/game/ServerboundBlockEntityTagQuery.html" title="class in net.minecraft.network.protocol.game">ServerboundBlockEntityTagQuery</a>&nbsp;p_9837_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleAnimate(net.minecraft.network.protocol.game.ServerboundSwingPacket)" class="member-name-link">handleAnimate</a><wbr>(<a href="../../network/protocol/game/ServerboundSwingPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundSwingPacket</a>&nbsp;p_9926_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChangeDifficulty(net.minecraft.network.protocol.game.ServerboundChangeDifficultyPacket)" class="member-name-link">handleChangeDifficulty</a><wbr>(<a href="../../network/protocol/game/ServerboundChangeDifficultyPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChangeDifficultyPacket</a>&nbsp;p_9839_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleBlockEntityTagQuery(net.minecraft.network.protocol.game.ServerboundBlockEntityTagQuery)" class="member-name-link">handleBlockEntityTagQuery</a><wbr>(<a href="../../network/protocol/game/ServerboundBlockEntityTagQuery.html" title="class in net.minecraft.network.protocol.game">ServerboundBlockEntityTagQuery</a>&nbsp;p_9837_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChat(net.minecraft.network.protocol.game.ServerboundChatPacket)" class="member-name-link">handleChat</a><wbr>(<a href="../../network/protocol/game/ServerboundChatPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPacket</a>&nbsp;p_9841_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChangeDifficulty(net.minecraft.network.protocol.game.ServerboundChangeDifficultyPacket)" class="member-name-link">handleChangeDifficulty</a><wbr>(<a href="../../network/protocol/game/ServerboundChangeDifficultyPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChangeDifficultyPacket</a>&nbsp;p_9839_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChatAck(net.minecraft.network.protocol.game.ServerboundChatAckPacket)" class="member-name-link">handleChatAck</a><wbr>(<a href="../../network/protocol/game/ServerboundChatAckPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatAckPacket</a>&nbsp;p_242387_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChat(net.minecraft.network.protocol.game.ServerboundChatPacket)" class="member-name-link">handleChat</a><wbr>(<a href="../../network/protocol/game/ServerboundChatPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPacket</a>&nbsp;p_9841_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChatCommand(net.minecraft.network.protocol.game.ServerboundChatCommandPacket)" class="member-name-link">handleChatCommand</a><wbr>(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_215225_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChatAck(net.minecraft.network.protocol.game.ServerboundChatAckPacket)" class="member-name-link">handleChatAck</a><wbr>(<a href="../../network/protocol/game/ServerboundChatAckPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatAckPacket</a>&nbsp;p_242387_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChatPreview(net.minecraft.network.protocol.game.ServerboundChatPreviewPacket)" class="member-name-link">handleChatPreview</a><wbr>(<a href="../../network/protocol/game/ServerboundChatPreviewPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPreviewPacket</a>&nbsp;p_215230_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChatCommand(net.minecraft.network.protocol.game.ServerboundChatCommandPacket)" class="member-name-link">handleChatCommand</a><wbr>(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_215225_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleClientCommand(net.minecraft.network.protocol.game.ServerboundClientCommandPacket)" class="member-name-link">handleClientCommand</a><wbr>(<a href="../../network/protocol/game/ServerboundClientCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundClientCommandPacket</a>&nbsp;p_9843_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleChatSessionUpdate(net.minecraft.network.protocol.game.ServerboundChatSessionUpdatePacket)" class="member-name-link">handleChatSessionUpdate</a><wbr>(<a href="../../network/protocol/game/ServerboundChatSessionUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatSessionUpdatePacket</a>&nbsp;p_253950_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleClientInformation(net.minecraft.network.protocol.game.ServerboundClientInformationPacket)" class="member-name-link">handleClientInformation</a><wbr>(<a href="../../network/protocol/game/ServerboundClientInformationPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundClientInformationPacket</a>&nbsp;p_9845_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleClientCommand(net.minecraft.network.protocol.game.ServerboundClientCommandPacket)" class="member-name-link">handleClientCommand</a><wbr>(<a href="../../network/protocol/game/ServerboundClientCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundClientCommandPacket</a>&nbsp;p_9843_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleContainerButtonClick(net.minecraft.network.protocol.game.ServerboundContainerButtonClickPacket)" class="member-name-link">handleContainerButtonClick</a><wbr>(<a href="../../network/protocol/game/ServerboundContainerButtonClickPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundContainerButtonClickPacket</a>&nbsp;p_9854_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleClientInformation(net.minecraft.network.protocol.game.ServerboundClientInformationPacket)" class="member-name-link">handleClientInformation</a><wbr>(<a href="../../network/protocol/game/ServerboundClientInformationPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundClientInformationPacket</a>&nbsp;p_9845_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleContainerClick(net.minecraft.network.protocol.game.ServerboundContainerClickPacket)" class="member-name-link">handleContainerClick</a><wbr>(<a href="../../network/protocol/game/ServerboundContainerClickPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundContainerClickPacket</a>&nbsp;p_9856_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleContainerButtonClick(net.minecraft.network.protocol.game.ServerboundContainerButtonClickPacket)" class="member-name-link">handleContainerButtonClick</a><wbr>(<a href="../../network/protocol/game/ServerboundContainerButtonClickPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundContainerButtonClickPacket</a>&nbsp;p_9854_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleContainerClose(net.minecraft.network.protocol.game.ServerboundContainerClosePacket)" class="member-name-link">handleContainerClose</a><wbr>(<a href="../../network/protocol/game/ServerboundContainerClosePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundContainerClosePacket</a>&nbsp;p_9858_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleContainerClick(net.minecraft.network.protocol.game.ServerboundContainerClickPacket)" class="member-name-link">handleContainerClick</a><wbr>(<a href="../../network/protocol/game/ServerboundContainerClickPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundContainerClickPacket</a>&nbsp;p_9856_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleCustomCommandSuggestions(net.minecraft.network.protocol.game.ServerboundCommandSuggestionPacket)" class="member-name-link">handleCustomCommandSuggestions</a><wbr>(<a href="../../network/protocol/game/ServerboundCommandSuggestionPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundCommandSuggestionPacket</a>&nbsp;p_9847_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleContainerClose(net.minecraft.network.protocol.game.ServerboundContainerClosePacket)" class="member-name-link">handleContainerClose</a><wbr>(<a href="../../network/protocol/game/ServerboundContainerClosePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundContainerClosePacket</a>&nbsp;p_9858_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleCustomPayload(net.minecraft.network.protocol.game.ServerboundCustomPayloadPacket)" class="member-name-link">handleCustomPayload</a><wbr>(<a href="../../network/protocol/game/ServerboundCustomPayloadPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundCustomPayloadPacket</a>&nbsp;p_9860_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleCustomCommandSuggestions(net.minecraft.network.protocol.game.ServerboundCommandSuggestionPacket)" class="member-name-link">handleCustomCommandSuggestions</a><wbr>(<a href="../../network/protocol/game/ServerboundCommandSuggestionPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundCommandSuggestionPacket</a>&nbsp;p_9847_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEditBook(net.minecraft.network.protocol.game.ServerboundEditBookPacket)" class="member-name-link">handleEditBook</a><wbr>(<a href="../../network/protocol/game/ServerboundEditBookPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundEditBookPacket</a>&nbsp;p_9862_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleCustomPayload(net.minecraft.network.protocol.game.ServerboundCustomPayloadPacket)" class="member-name-link">handleCustomPayload</a><wbr>(<a href="../../network/protocol/game/ServerboundCustomPayloadPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundCustomPayloadPacket</a>&nbsp;p_9860_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEntityTagQuery(net.minecraft.network.protocol.game.ServerboundEntityTagQuery)" class="member-name-link">handleEntityTagQuery</a><wbr>(<a href="../../network/protocol/game/ServerboundEntityTagQuery.html" title="class in net.minecraft.network.protocol.game">ServerboundEntityTagQuery</a>&nbsp;p_9864_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEditBook(net.minecraft.network.protocol.game.ServerboundEditBookPacket)" class="member-name-link">handleEditBook</a><wbr>(<a href="../../network/protocol/game/ServerboundEditBookPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundEditBookPacket</a>&nbsp;p_9862_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleInteract(net.minecraft.network.protocol.game.ServerboundInteractPacket)" class="member-name-link">handleInteract</a><wbr>(<a href="../../network/protocol/game/ServerboundInteractPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundInteractPacket</a>&nbsp;p_9866_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleEntityTagQuery(net.minecraft.network.protocol.game.ServerboundEntityTagQuery)" class="member-name-link">handleEntityTagQuery</a><wbr>(<a href="../../network/protocol/game/ServerboundEntityTagQuery.html" title="class in net.minecraft.network.protocol.game">ServerboundEntityTagQuery</a>&nbsp;p_9864_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleJigsawGenerate(net.minecraft.network.protocol.game.ServerboundJigsawGeneratePacket)" class="member-name-link">handleJigsawGenerate</a><wbr>(<a href="../../network/protocol/game/ServerboundJigsawGeneratePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundJigsawGeneratePacket</a>&nbsp;p_9868_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleInteract(net.minecraft.network.protocol.game.ServerboundInteractPacket)" class="member-name-link">handleInteract</a><wbr>(<a href="../../network/protocol/game/ServerboundInteractPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundInteractPacket</a>&nbsp;p_9866_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleKeepAlive(net.minecraft.network.protocol.game.ServerboundKeepAlivePacket)" class="member-name-link">handleKeepAlive</a><wbr>(<a href="../../network/protocol/game/ServerboundKeepAlivePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundKeepAlivePacket</a>&nbsp;p_9870_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleJigsawGenerate(net.minecraft.network.protocol.game.ServerboundJigsawGeneratePacket)" class="member-name-link">handleJigsawGenerate</a><wbr>(<a href="../../network/protocol/game/ServerboundJigsawGeneratePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundJigsawGeneratePacket</a>&nbsp;p_9868_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleLockDifficulty(net.minecraft.network.protocol.game.ServerboundLockDifficultyPacket)" class="member-name-link">handleLockDifficulty</a><wbr>(<a href="../../network/protocol/game/ServerboundLockDifficultyPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundLockDifficultyPacket</a>&nbsp;p_9872_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleKeepAlive(net.minecraft.network.protocol.game.ServerboundKeepAlivePacket)" class="member-name-link">handleKeepAlive</a><wbr>(<a href="../../network/protocol/game/ServerboundKeepAlivePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundKeepAlivePacket</a>&nbsp;p_9870_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleLockDifficulty(net.minecraft.network.protocol.game.ServerboundLockDifficultyPacket)" class="member-name-link">handleLockDifficulty</a><wbr>(<a href="../../network/protocol/game/ServerboundLockDifficultyPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundLockDifficultyPacket</a>&nbsp;p_9872_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleMessageDecodeFailure(net.minecraft.network.chat.SignedMessageChain.DecodeException)" class="member-name-link">handleMessageDecodeFailure</a><wbr>(<a href="../../network/chat/SignedMessageChain.DecodeException.html" title="class in net.minecraft.network.chat">SignedMessageChain.DecodeException</a>&nbsp;p_252068_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleMovePlayer(net.minecraft.network.protocol.game.ServerboundMovePlayerPacket)" class="member-name-link">handleMovePlayer</a><wbr>(<a href="../../network/protocol/game/ServerboundMovePlayerPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundMovePlayerPacket</a>&nbsp;p_9874_)</code></div>
@@ -475,124 +469,108 @@ R&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleSignUpdate(net.minecraft.network.protocol.game.ServerboundSignUpdatePacket)" class="member-name-link">handleSignUpdate</a><wbr>(<a href="../../network/protocol/game/ServerboundSignUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundSignUpdatePacket</a>&nbsp;p_9921_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handlesPreviewRequests()" class="member-name-link">handlesPreviewRequests</a>()</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleTeleportToEntityPacket(net.minecraft.network.protocol.game.ServerboundTeleportToEntityPacket)" class="member-name-link">handleTeleportToEntityPacket</a><wbr>(<a href="../../network/protocol/game/ServerboundTeleportToEntityPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundTeleportToEntityPacket</a>&nbsp;p_9928_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleTeleportToEntityPacket(net.minecraft.network.protocol.game.ServerboundTeleportToEntityPacket)" class="member-name-link">handleTeleportToEntityPacket</a><wbr>(<a href="../../network/protocol/game/ServerboundTeleportToEntityPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundTeleportToEntityPacket</a>&nbsp;p_9928_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleUseItem(net.minecraft.network.protocol.game.ServerboundUseItemPacket)" class="member-name-link">handleUseItem</a><wbr>(<a href="../../network/protocol/game/ServerboundUseItemPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundUseItemPacket</a>&nbsp;p_9932_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleUseItem(net.minecraft.network.protocol.game.ServerboundUseItemPacket)" class="member-name-link">handleUseItem</a><wbr>(<a href="../../network/protocol/game/ServerboundUseItemPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundUseItemPacket</a>&nbsp;p_9932_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleUseItemOn(net.minecraft.network.protocol.game.ServerboundUseItemOnPacket)" class="member-name-link">handleUseItemOn</a><wbr>(<a href="../../network/protocol/game/ServerboundUseItemOnPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundUseItemOnPacket</a>&nbsp;p_9930_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleUseItemOn(net.minecraft.network.protocol.game.ServerboundUseItemOnPacket)" class="member-name-link">handleUseItemOn</a><wbr>(<a href="../../network/protocol/game/ServerboundUseItemOnPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundUseItemOnPacket</a>&nbsp;p_9930_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isAcceptingMessages()" class="member-name-link">isAcceptingMessages</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleValidationFailure(java.util.Set)" class="member-name-link">handleValidationFailure</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../network/chat/LastSeenMessagesValidator.ErrorCondition.html" title="enum class in net.minecraft.network.chat">LastSeenMessagesValidator.ErrorCondition</a>&gt;&nbsp;p_242382_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isChatMessageIllegal(java.lang.String)" class="member-name-link">isChatMessageIllegal</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_215215_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isPlayerCollidingWithAnythingNew(net.minecraft.world.level.LevelReader,net.minecraft.world.phys.AABB)" class="member-name-link">isPlayerCollidingWithAnythingNew</a><wbr>(<a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;p_9796_,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isChatMessageIllegal(java.lang.String)" class="member-name-link">isChatMessageIllegal</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_215215_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isPlayerCollidingWithAnythingNew(net.minecraft.world.level.LevelReader,net.minecraft.world.phys.AABB)" class="member-name-link">isPlayerCollidingWithAnythingNew</a><wbr>(<a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;p_9796_,
  <a href="../../world/phys/AABB.html" title="class in net.minecraft.world.phys">AABB</a>&nbsp;p_9797_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSingleplayerOwner()" class="member-name-link">isSingleplayerOwner</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSingleplayerOwner()" class="member-name-link">isSingleplayerOwner</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#noBlocksAround(net.minecraft.world.entity.Entity)" class="member-name-link">noBlocksAround</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_9794_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onDisconnect(net.minecraft.network.chat.Component)" class="member-name-link">onDisconnect</a><wbr>(<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_9825_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private com.mojang.brigadier.ParseResults&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parseCommand(java.lang.String)" class="member-name-link">parseCommand</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_242938_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#performChatCommand(net.minecraft.network.protocol.game.ServerboundChatCommandPacket)" class="member-name-link">performChatCommand</a><wbr>(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_242859_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryChatPreview(java.lang.String)" class="member-name-link">queryChatPreview</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_215247_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryCommandPreview(java.lang.String)" class="member-name-link">queryCommandPreview</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_215249_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queryPreview(java.lang.String)" class="member-name-link">queryPreview</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_215235_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetPosition()" class="member-name-link">resetPosition</a>()</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#noBlocksAround(net.minecraft.world.entity.Entity)" class="member-name-link">noBlocksAround</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_9794_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#send(net.minecraft.network.protocol.Packet)" class="member-name-link">send</a><wbr>(<a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;p_9830_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onDisconnect(net.minecraft.network.chat.Component)" class="member-name-link">onDisconnect</a><wbr>(<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_9825_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#send(net.minecraft.network.protocol.Packet,net.minecraft.network.PacketSendListener)" class="member-name-link">send</a><wbr>(<a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;p_243227_,
- <a href="../../network/PacketSendListener.html" title="interface in net.minecraft.network">PacketSendListener</a>&nbsp;p_243273_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private com.mojang.brigadier.ParseResults&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parseCommand(java.lang.String)" class="member-name-link">parseCommand</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_242938_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendPreviewResponse(int,net.minecraft.network.chat.Component)" class="member-name-link">sendPreviewResponse</a><wbr>(int&nbsp;p_238389_,
- <a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_238390_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#performChatCommand(net.minecraft.network.protocol.game.ServerboundChatCommandPacket,net.minecraft.network.chat.LastSeenMessages)" class="member-name-link">performChatCommand</a><wbr>(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_251139_,
+ <a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&nbsp;p_250484_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetPlayerChatState(net.minecraft.network.chat.RemoteChatSession)" class="member-name-link">resetPlayerChatState</a><wbr>(<a href="../../network/chat/RemoteChatSession.html" title="class in net.minecraft.network.chat">RemoteChatSession</a>&nbsp;p_253823_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetPosition()" class="member-name-link">resetPosition</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#send(net.minecraft.network.protocol.Packet)" class="member-name-link">send</a><wbr>(<a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;p_9830_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#send(net.minecraft.network.protocol.Packet,net.minecraft.network.PacketSendListener)" class="member-name-link">send</a><wbr>(<a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;p_243227_,
+ <a href="../../network/PacketSendListener.html" title="interface in net.minecraft.network">PacketSendListener</a>&nbsp;p_243273_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendDisguisedChatMessage(net.minecraft.network.chat.Component,net.minecraft.network.chat.ChatType.Bound)" class="member-name-link">sendDisguisedChatMessage</a><wbr>(<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_251804_,
+ <a href="../../network/chat/ChatType.Bound.html" title="class in net.minecraft.network.chat">ChatType.Bound</a>&nbsp;p_250040_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendPlayerChatMessage(net.minecraft.network.chat.PlayerChatMessage,net.minecraft.network.chat.ChatType.Bound)" class="member-name-link">sendPlayerChatMessage</a><wbr>(<a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_250321_,
+ <a href="../../network/chat/ChatType.Bound.html" title="class in net.minecraft.network.chat">ChatType.Bound</a>&nbsp;p_250910_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#signBook(net.minecraft.server.network.FilteredText,java.util.List,int)" class="member-name-link">signBook</a><wbr>(<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&nbsp;p_215209_,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;&nbsp;p_215210_,
  int&nbsp;p_215211_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../network/chat/SignedMessageChain.Decoder.html" title="interface in net.minecraft.network.chat">SignedMessageChain.Decoder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#signedMessageDecoder()" class="member-name-link">signedMessageDecoder</a>()</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#teleport(double,double,double,float,float)" class="member-name-link">teleport</a><wbr>(double&nbsp;p_9775_,
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#teleport(double,double,double,float,float)" class="member-name-link">teleport</a><wbr>(double&nbsp;p_9775_,
  double&nbsp;p_9776_,
  double&nbsp;p_9777_,
  float&nbsp;p_9778_,
  float&nbsp;p_9779_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#teleport(double,double,double,float,float,java.util.Set)" class="member-name-link">teleport</a><wbr>(double&nbsp;p_9781_,
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#teleport(double,double,double,float,float,java.util.Set)" class="member-name-link">teleport</a><wbr>(double&nbsp;p_9781_,
  double&nbsp;p_9782_,
  double&nbsp;p_9783_,
  float&nbsp;p_9784_,
  float&nbsp;p_9785_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../network/protocol/game/ClientboundPlayerPositionPacket.RelativeArgument.html" title="enum class in net.minecraft.network.protocol.game">ClientboundPlayerPositionPacket.RelativeArgument</a>&gt;&nbsp;p_9786_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#teleport(double,double,double,float,float,java.util.Set,boolean)" class="member-name-link">teleport</a><wbr>(double&nbsp;p_143618_,
- double&nbsp;p_143619_,
- double&nbsp;p_143620_,
- float&nbsp;p_143621_,
- float&nbsp;p_143622_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../network/protocol/game/ClientboundPlayerPositionPacket.RelativeArgument.html" title="enum class in net.minecraft.network.protocol.game">ClientboundPlayerPositionPacket.RelativeArgument</a>&gt;&nbsp;p_143623_,
- boolean&nbsp;p_143624_)</code></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../world/entity/RelativeMovement.html" title="enum class in net.minecraft.world.entity">RelativeMovement</a>&gt;&nbsp;p_9786_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick()" class="member-name-link">tick</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tryHandleChat(java.lang.String,java.time.Instant,net.minecraft.network.chat.LastSeenMessages.Update)" class="member-name-link">tryHandleChat</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_242372_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a>&nbsp;p_242311_,
- <a href="../../network/chat/LastSeenMessages.Update.html" title="class in net.minecraft.network.chat">LastSeenMessages.Update</a>&nbsp;p_242217_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tryHandleChat(java.lang.String,java.time.Instant,net.minecraft.network.chat.LastSeenMessages.Update)" class="member-name-link">tryHandleChat</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_251364_,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a>&nbsp;p_248959_,
+ <a href="../../network/chat/LastSeenMessages.Update.html" title="class in net.minecraft.network.chat">LastSeenMessages.Update</a>&nbsp;p_249613_)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#unpackAndApplyLastSeen(net.minecraft.network.chat.LastSeenMessages.Update)" class="member-name-link">unpackAndApplyLastSeen</a><wbr>(<a href="../../network/chat/LastSeenMessages.Update.html" title="class in net.minecraft.network.chat">LastSeenMessages.Update</a>&nbsp;p_249673_)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateBookContents(java.util.List,int)" class="member-name-link">updateBookContents</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;&nbsp;p_9813_,
+ int&nbsp;p_9814_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateBookContents(java.util.List,int)" class="member-name-link">updateBookContents</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;&nbsp;p_9813_,
- int&nbsp;p_9814_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateBookPages(java.util.List,java.util.function.UnaryOperator,net.minecraft.world.item.ItemStack)" class="member-name-link">updateBookPages</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;&nbsp;p_143635_,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateBookPages(java.util.List,java.util.function.UnaryOperator,net.minecraft.world.item.ItemStack)" class="member-name-link">updateBookPages</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;&nbsp;p_143635_,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_143636_,
  <a href="../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_143637_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateChatOrder(java.time.Instant)" class="member-name-link">updateChatOrder</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a>&nbsp;p_215237_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateSignText(net.minecraft.network.protocol.game.ServerboundSignUpdatePacket,java.util.List)" class="member-name-link">updateSignText</a><wbr>(<a href="../../network/protocol/game/ServerboundSignUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundSignUpdatePacket</a>&nbsp;p_9923_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;&nbsp;p_9924_)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateChatOrder(java.time.Instant)" class="member-name-link">updateChatOrder</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a>&nbsp;p_215237_)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#verifyChatMessage(net.minecraft.network.chat.PlayerChatMessage)" class="member-name-link">verifyChatMessage</a><wbr>(<a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_242942_)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateSignText(net.minecraft.network.protocol.game.ServerboundSignUpdatePacket,java.util.List)" class="member-name-link">updateSignText</a><wbr>(<a href="../../network/protocol/game/ServerboundSignUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundSignUpdatePacket</a>&nbsp;p_9923_,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FilteredText.html" title="class in net.minecraft.server.network">FilteredText</a>&gt;&nbsp;p_9924_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#wasBlockPlacementAttempt(net.minecraft.server.level.ServerPlayer,net.minecraft.world.item.ItemStack)" class="member-name-link">wasBlockPlacementAttempt</a><wbr>(<a href="../level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_9791_,
@@ -671,17 +649,23 @@ R&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </section>
 </li>
 <li>
-<section class="detail" id="PENDING_MESSAGE_DISCONNECT_THRESHOLD">
-<h3>PENDING_MESSAGE_DISCONNECT_THRESHOLD</h3>
-<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">PENDING_MESSAGE_DISCONNECT_THRESHOLD</span></div>
+<section class="detail" id="TRACKED_MESSAGE_DISCONNECT_THRESHOLD">
+<h3>TRACKED_MESSAGE_DISCONNECT_THRESHOLD</h3>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">TRACKED_MESSAGE_DISCONNECT_THRESHOLD</span></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="see-list">
-<li><a href="../../../../constant-values.html#net.minecraft.server.network.ServerGamePacketListenerImpl.PENDING_MESSAGE_DISCONNECT_THRESHOLD">Constant Field Values</a></li>
+<li><a href="../../../../constant-values.html#net.minecraft.server.network.ServerGamePacketListenerImpl.TRACKED_MESSAGE_DISCONNECT_THRESHOLD">Constant Field Values</a></li>
 </ul>
 </dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="CHAT_VALIDATION_FAILED">
+<h3>CHAT_VALIDATION_FAILED</h3>
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a></span>&nbsp;<span class="element-name">CHAT_VALIDATION_FAILED</span></div>
 </section>
 </li>
 <li>
@@ -879,33 +863,34 @@ R&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </section>
 </li>
 <li>
-<section class="detail" id="chatPreviewCache">
-<h3>chatPreviewCache</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../network/chat/ChatPreviewCache.html" title="class in net.minecraft.network.chat">ChatPreviewCache</a></span>&nbsp;<span class="element-name">chatPreviewCache</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="chatPreviewThrottler">
-<h3>chatPreviewThrottler</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../network/chat/ChatPreviewThrottler.html" title="class in net.minecraft.network.chat">ChatPreviewThrottler</a></span>&nbsp;<span class="element-name">chatPreviewThrottler</span></div>
-</section>
-</li>
-<li>
 <section class="detail" id="lastChatTimeStamp">
 <h3>lastChatTimeStamp</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/atomic/AtomicReference.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicReference</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a>&gt;</span>&nbsp;<span class="element-name">lastChatTimeStamp</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="signedMessageDecoder">
-<h3>signedMessageDecoder</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../network/chat/SignedMessageChain.Decoder.html" title="interface in net.minecraft.network.chat">SignedMessageChain.Decoder</a></span>&nbsp;<span class="element-name">signedMessageDecoder</span></div>
+<section class="detail" id="chatSession">
+<h3>chatSession</h3>
+<div class="member-signature"><span class="annotations">@Nullable
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../network/chat/RemoteChatSession.html" title="class in net.minecraft.network.chat">RemoteChatSession</a></span>&nbsp;<span class="element-name">chatSession</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="lastSeenMessagesValidator">
-<h3>lastSeenMessagesValidator</h3>
-<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../network/chat/LastSeenMessagesValidator.html" title="class in net.minecraft.network.chat">LastSeenMessagesValidator</a></span>&nbsp;<span class="element-name">lastSeenMessagesValidator</span></div>
+<section class="detail" id="signedMessageDecoder">
+<h3>signedMessageDecoder</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../network/chat/SignedMessageChain.Decoder.html" title="interface in net.minecraft.network.chat">SignedMessageChain.Decoder</a></span>&nbsp;<span class="element-name">signedMessageDecoder</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="lastSeenMessages">
+<h3>lastSeenMessages</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../network/chat/LastSeenMessagesValidator.html" title="class in net.minecraft.network.chat">LastSeenMessagesValidator</a></span>&nbsp;<span class="element-name">lastSeenMessages</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="messageSignatureCache">
+<h3>messageSignatureCache</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../network/chat/MessageSignatureCache.html" title="class in net.minecraft.network.chat">MessageSignatureCache</a></span>&nbsp;<span class="element-name">messageSignatureCache</span></div>
 </section>
 </li>
 <li>
@@ -955,12 +940,12 @@ R&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base
 </section>
 </li>
 <li>
-<section class="detail" id="getConnection()">
-<h3>getConnection</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../network/Connection.html" title="class in net.minecraft.network">Connection</a></span>&nbsp;<span class="element-name">getConnection</span>()</div>
+<section class="detail" id="isAcceptingMessages()">
+<h3>isAcceptingMessages</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAcceptingMessages</span>()</div>
 <dl class="notes">
 <dt>Specified by:</dt>
-<dd><code><a href="../../network/PacketListener.html#getConnection()">getConnection</a></code>&nbsp;in interface&nbsp;<code><a href="../../network/PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></code></dd>
+<dd><code><a href="../../network/PacketListener.html#isAcceptingMessages()">isAcceptingMessages</a></code>&nbsp;in interface&nbsp;<code><a href="../../network/PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></code></dd>
 </dl>
 </section>
 </li>
@@ -1255,16 +1240,6 @@ R&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
 </section>
 </li>
 <li>
-<section class="detail" id="dismount(double,double,double,float,float)">
-<h3>dismount</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dismount</span><wbr><span class="parameters">(double&nbsp;p_143612_,
- double&nbsp;p_143613_,
- double&nbsp;p_143614_,
- float&nbsp;p_143615_,
- float&nbsp;p_143616_)</span></div>
-</section>
-</li>
-<li>
 <section class="detail" id="teleport(double,double,double,float,float)">
 <h3>teleport</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">teleport</span><wbr><span class="parameters">(double&nbsp;p_9775_,
@@ -1282,19 +1257,7 @@ R&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
  double&nbsp;p_9783_,
  float&nbsp;p_9784_,
  float&nbsp;p_9785_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../network/protocol/game/ClientboundPlayerPositionPacket.RelativeArgument.html" title="enum class in net.minecraft.network.protocol.game">ClientboundPlayerPositionPacket.RelativeArgument</a>&gt;&nbsp;p_9786_)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="teleport(double,double,double,float,float,java.util.Set,boolean)">
-<h3>teleport</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">teleport</span><wbr><span class="parameters">(double&nbsp;p_143618_,
- double&nbsp;p_143619_,
- double&nbsp;p_143620_,
- float&nbsp;p_143621_,
- float&nbsp;p_143622_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../network/protocol/game/ClientboundPlayerPositionPacket.RelativeArgument.html" title="enum class in net.minecraft.network.protocol.game">ClientboundPlayerPositionPacket.RelativeArgument</a>&gt;&nbsp;p_143623_,
- boolean&nbsp;p_143624_)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../world/entity/RelativeMovement.html" title="enum class in net.minecraft.world.entity">RelativeMovement</a>&gt;&nbsp;p_9786_)</span></div>
 </section>
 </li>
 <li>
@@ -1439,16 +1402,29 @@ R&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
 </section>
 </li>
 <li>
-<section class="detail" id="performChatCommand(net.minecraft.network.protocol.game.ServerboundChatCommandPacket)">
+<section class="detail" id="performChatCommand(net.minecraft.network.protocol.game.ServerboundChatCommandPacket,net.minecraft.network.chat.LastSeenMessages)">
 <h3>performChatCommand</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">performChatCommand</span><wbr><span class="parameters">(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_242859_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">performChatCommand</span><wbr><span class="parameters">(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_251139_,
+ <a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&nbsp;p_250484_)</span></div>
 </section>
 </li>
 <li>
-<section class="detail" id="collectSignedArguments(net.minecraft.network.protocol.game.ServerboundChatCommandPacket,net.minecraft.network.chat.PreviewableCommand)">
+<section class="detail" id="handleMessageDecodeFailure(net.minecraft.network.chat.SignedMessageChain.DecodeException)">
+<h3>handleMessageDecodeFailure</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleMessageDecodeFailure</span><wbr><span class="parameters">(<a href="../../network/chat/SignedMessageChain.DecodeException.html" title="class in net.minecraft.network.chat">SignedMessageChain.DecodeException</a>&nbsp;p_252068_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="collectSignedArguments(net.minecraft.network.protocol.game.ServerboundChatCommandPacket,net.minecraft.network.chat.SignableCommand,net.minecraft.network.chat.LastSeenMessages)">
 <h3>collectSignedArguments</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&gt;</span>&nbsp;<span class="element-name">collectSignedArguments</span><wbr><span class="parameters">(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_242876_,
- <a href="../../network/chat/PreviewableCommand.html" title="class in net.minecraft.network.chat">PreviewableCommand</a>&lt;?&gt;&nbsp;p_242848_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&gt;</span>&nbsp;<span class="element-name">collectSignedArguments</span><wbr><span class="parameters">(<a href="../../network/protocol/game/ServerboundChatCommandPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatCommandPacket</a>&nbsp;p_249441_,
+ <a href="../../network/chat/SignableCommand.html" title="class in net.minecraft.network.chat">SignableCommand</a>&lt;?&gt;&nbsp;p_250039_,
+ <a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&nbsp;p_249207_)</span>
+                                                      throws <span class="exceptions"><a href="../../network/chat/SignedMessageChain.DecodeException.html" title="class in net.minecraft.network.chat">SignedMessageChain.DecodeException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="../../network/chat/SignedMessageChain.DecodeException.html" title="class in net.minecraft.network.chat">SignedMessageChain.DecodeException</a></code></dd>
+</dl>
 </section>
 </li>
 <li>
@@ -1460,9 +1436,15 @@ R&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
 <li>
 <section class="detail" id="tryHandleChat(java.lang.String,java.time.Instant,net.minecraft.network.chat.LastSeenMessages.Update)">
 <h3>tryHandleChat</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">tryHandleChat</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_242372_,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a>&nbsp;p_242311_,
- <a href="../../network/chat/LastSeenMessages.Update.html" title="class in net.minecraft.network.chat">LastSeenMessages.Update</a>&nbsp;p_242217_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&gt;</span>&nbsp;<span class="element-name">tryHandleChat</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_251364_,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a>&nbsp;p_248959_,
+ <a href="../../network/chat/LastSeenMessages.Update.html" title="class in net.minecraft.network.chat">LastSeenMessages.Update</a>&nbsp;p_249613_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="unpackAndApplyLastSeen(net.minecraft.network.chat.LastSeenMessages.Update)">
+<h3>unpackAndApplyLastSeen</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&gt;</span>&nbsp;<span class="element-name">unpackAndApplyLastSeen</span><wbr><span class="parameters">(<a href="../../network/chat/LastSeenMessages.Update.html" title="class in net.minecraft.network.chat">LastSeenMessages.Update</a>&nbsp;p_249673_)</span></div>
 </section>
 </li>
 <li>
@@ -1478,15 +1460,15 @@ R&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
 </section>
 </li>
 <li>
-<section class="detail" id="getSignedMessage(net.minecraft.network.protocol.game.ServerboundChatPacket)">
+<section class="detail" id="getSignedMessage(net.minecraft.network.protocol.game.ServerboundChatPacket,net.minecraft.network.chat.LastSeenMessages)">
 <h3>getSignedMessage</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a></span>&nbsp;<span class="element-name">getSignedMessage</span><wbr><span class="parameters">(<a href="../../network/protocol/game/ServerboundChatPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPacket</a>&nbsp;p_242875_)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="getSignedContent(net.minecraft.network.protocol.game.ServerboundChatPacket)">
-<h3>getSignedContent</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../network/chat/ChatMessageContent.html" title="class in net.minecraft.network.chat">ChatMessageContent</a></span>&nbsp;<span class="element-name">getSignedContent</span><wbr><span class="parameters">(<a href="../../network/protocol/game/ServerboundChatPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPacket</a>&nbsp;p_242906_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a></span>&nbsp;<span class="element-name">getSignedMessage</span><wbr><span class="parameters">(<a href="../../network/protocol/game/ServerboundChatPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPacket</a>&nbsp;p_251061_,
+ <a href="../../network/chat/LastSeenMessages.html" title="class in net.minecraft.network.chat">LastSeenMessages</a>&nbsp;p_250566_)</span>
+                                    throws <span class="exceptions"><a href="../../network/chat/SignedMessageChain.DecodeException.html" title="class in net.minecraft.network.chat">SignedMessageChain.DecodeException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="../../network/chat/SignedMessageChain.DecodeException.html" title="class in net.minecraft.network.chat">SignedMessageChain.DecodeException</a></code></dd>
+</dl>
 </section>
 </li>
 <li>
@@ -1496,63 +1478,9 @@ R&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
 </section>
 </li>
 <li>
-<section class="detail" id="verifyChatMessage(net.minecraft.network.chat.PlayerChatMessage)">
-<h3>verifyChatMessage</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">verifyChatMessage</span><wbr><span class="parameters">(<a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_242942_)</span></div>
-</section>
-</li>
-<li>
 <section class="detail" id="detectRateSpam()">
 <h3>detectRateSpam</h3>
 <div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">detectRateSpam</span>()</div>
-</section>
-</li>
-<li>
-<section class="detail" id="handleChatPreview(net.minecraft.network.protocol.game.ServerboundChatPreviewPacket)">
-<h3>handleChatPreview</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleChatPreview</span><wbr><span class="parameters">(<a href="../../network/protocol/game/ServerboundChatPreviewPacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatPreviewPacket</a>&nbsp;p_215230_)</span></div>
-<dl class="notes">
-<dt>Specified by:</dt>
-<dd><code><a href="../../network/protocol/game/ServerGamePacketListener.html#handleChatPreview(net.minecraft.network.protocol.game.ServerboundChatPreviewPacket)">handleChatPreview</a></code>&nbsp;in interface&nbsp;<code><a href="../../network/protocol/game/ServerGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ServerGamePacketListener</a></code></dd>
-</dl>
-</section>
-</li>
-<li>
-<section class="detail" id="handlesPreviewRequests()">
-<h3>handlesPreviewRequests</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">handlesPreviewRequests</span>()</div>
-</section>
-</li>
-<li>
-<section class="detail" id="sendPreviewResponse(int,net.minecraft.network.chat.Component)">
-<h3>sendPreviewResponse</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendPreviewResponse</span><wbr><span class="parameters">(int&nbsp;p_238389_,
- <a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_238390_)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="queryPreview(java.lang.String)">
-<h3>queryPreview</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&gt;</span>&nbsp;<span class="element-name">queryPreview</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_215235_)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="queryChatPreview(java.lang.String)">
-<h3>queryChatPreview</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&gt;</span>&nbsp;<span class="element-name">queryChatPreview</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_215247_)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="queryCommandPreview(java.lang.String)">
-<h3>queryCommandPreview</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&gt;</span>&nbsp;<span class="element-name">queryCommandPreview</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_215249_)</span></div>
-</section>
-</li>
-<li>
-<section class="detail" id="getPreviewedArgument(net.minecraft.commands.CommandSourceStack,net.minecraft.network.chat.PreviewableCommand)">
-<h3>getPreviewedArgument</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&gt;</span>&nbsp;<span class="element-name">getPreviewedArgument</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_242862_,
- <a href="../../network/chat/PreviewableCommand.html" title="class in net.minecraft.network.chat">PreviewableCommand</a>&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;p_242851_)</span></div>
 </section>
 </li>
 <li>
@@ -1563,12 +1491,6 @@ R&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
 <dt>Specified by:</dt>
 <dd><code><a href="../../network/protocol/game/ServerGamePacketListener.html#handleChatAck(net.minecraft.network.protocol.game.ServerboundChatAckPacket)">handleChatAck</a></code>&nbsp;in interface&nbsp;<code><a href="../../network/protocol/game/ServerGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ServerGamePacketListener</a></code></dd>
 </dl>
-</section>
-</li>
-<li>
-<section class="detail" id="handleValidationFailure(java.util.Set)">
-<h3>handleValidationFailure</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleValidationFailure</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../network/chat/LastSeenMessagesValidator.ErrorCondition.html" title="enum class in net.minecraft.network.chat">LastSeenMessagesValidator.ErrorCondition</a>&gt;&nbsp;p_242382_)</span></div>
 </section>
 </li>
 <li>
@@ -1592,15 +1514,29 @@ R&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
 </section>
 </li>
 <li>
-<section class="detail" id="signedMessageDecoder()">
-<h3>signedMessageDecoder</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../network/chat/SignedMessageChain.Decoder.html" title="interface in net.minecraft.network.chat">SignedMessageChain.Decoder</a></span>&nbsp;<span class="element-name">signedMessageDecoder</span>()</div>
-</section>
-</li>
-<li>
 <section class="detail" id="addPendingMessage(net.minecraft.network.chat.PlayerChatMessage)">
 <h3>addPendingMessage</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addPendingMessage</span><wbr><span class="parameters">(<a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_242439_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="sendPlayerChatMessage(net.minecraft.network.chat.PlayerChatMessage,net.minecraft.network.chat.ChatType.Bound)">
+<h3>sendPlayerChatMessage</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendPlayerChatMessage</span><wbr><span class="parameters">(<a href="../../network/chat/PlayerChatMessage.html" title="class in net.minecraft.network.chat">PlayerChatMessage</a>&nbsp;p_250321_,
+ <a href="../../network/chat/ChatType.Bound.html" title="class in net.minecraft.network.chat">ChatType.Bound</a>&nbsp;p_250910_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="sendDisguisedChatMessage(net.minecraft.network.chat.Component,net.minecraft.network.chat.ChatType.Bound)">
+<h3>sendDisguisedChatMessage</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendDisguisedChatMessage</span><wbr><span class="parameters">(<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_251804_,
+ <a href="../../network/chat/ChatType.Bound.html" title="class in net.minecraft.network.chat">ChatType.Bound</a>&nbsp;p_250040_)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="getRemoteAddress()">
+<h3>getRemoteAddress</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a></span>&nbsp;<span class="element-name">getRemoteAddress</span>()</div>
 </section>
 </li>
 <li>
@@ -1748,6 +1684,22 @@ R&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/
 <dt>Specified by:</dt>
 <dd><code><a href="../../network/protocol/game/ServerGamePacketListener.html#handleLockDifficulty(net.minecraft.network.protocol.game.ServerboundLockDifficultyPacket)">handleLockDifficulty</a></code>&nbsp;in interface&nbsp;<code><a href="../../network/protocol/game/ServerGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ServerGamePacketListener</a></code></dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="handleChatSessionUpdate(net.minecraft.network.protocol.game.ServerboundChatSessionUpdatePacket)">
+<h3>handleChatSessionUpdate</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleChatSessionUpdate</span><wbr><span class="parameters">(<a href="../../network/protocol/game/ServerboundChatSessionUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ServerboundChatSessionUpdatePacket</a>&nbsp;p_253950_)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../network/protocol/game/ServerGamePacketListener.html#handleChatSessionUpdate(net.minecraft.network.protocol.game.ServerboundChatSessionUpdatePacket)">handleChatSessionUpdate</a></code>&nbsp;in interface&nbsp;<code><a href="../../network/protocol/game/ServerGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ServerGamePacketListener</a></code></dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="resetPlayerChatState(net.minecraft.network.chat.RemoteChatSession)">
+<h3>resetPlayerChatState</h3>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resetPlayerChatState</span><wbr><span class="parameters">(<a href="../../network/chat/RemoteChatSession.html" title="class in net.minecraft.network.chat">RemoteChatSession</a>&nbsp;p_253823_)</span></div>
 </section>
 </li>
 <li>
