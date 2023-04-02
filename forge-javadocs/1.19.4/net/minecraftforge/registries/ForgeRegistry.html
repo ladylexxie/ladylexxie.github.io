@@ -80,7 +80,8 @@ loadScripts(document, 'script');</script>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;V&gt;</code>, <code><a href="IForgeRegistry.html" title="interface in net.minecraftforge.registries">IForgeRegistry</a>&lt;V&gt;</code>, <code><a href="IForgeRegistryInternal.html" title="interface in net.minecraftforge.registries">IForgeRegistryInternal</a>&lt;V&gt;</code>, <code><a href="IForgeRegistryModifiable.html" title="interface in net.minecraftforge.registries">IForgeRegistryModifiable</a>&lt;V&gt;</code></dd>
 </dl>
 <hr>
-<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ForgeRegistry&lt;V&gt;</span>
+<div class="type-signature"><span class="annotations">@Internal
+</span><span class="modifiers">public class </span><span class="element-name type-name-label">ForgeRegistry&lt;V&gt;</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="IForgeRegistryInternal.html" title="interface in net.minecraftforge.registries">IForgeRegistryInternal</a>&lt;V&gt;, <a href="IForgeRegistryModifiable.html" title="interface in net.minecraftforge.registries">IForgeRegistryModifiable</a>&lt;V&gt;</span></div>
 </section>
@@ -273,10 +274,12 @@ implements <a href="IForgeRegistryInternal.html" title="interface in net.minecra
  <a href="ForgeRegistry.html" title="type parameter in ForgeRegistry">V</a>&nbsp;value,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;owner)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addAlias(net.minecraft.resources.ResourceLocation,net.minecraft.resources.ResourceLocation)" class="member-name-link">addAlias</a><wbr>(<a href="../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;from,
- <a href="../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;to)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addAlias(net.minecraft.resources.ResourceLocation,net.minecraft.resources.ResourceLocation)" class="member-name-link">addAlias</a><wbr>(<a href="../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;src,
+ <a href="../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;dst)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Adds an alias that maps from the name specified by <code>src</code> to the name specified by <code>dst</code>.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addDummy(net.minecraft.resources.ResourceLocation)" class="member-name-link">addDummy</a><wbr>(<a href="../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;key)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -1172,8 +1175,17 @@ implements <a href="IForgeRegistryInternal.html" title="interface in net.minecra
 <li>
 <section class="detail" id="addAlias(net.minecraft.resources.ResourceLocation,net.minecraft.resources.ResourceLocation)">
 <h3>addAlias</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">addAlias</span><wbr><span class="parameters">(<a href="../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;from,
- <a href="../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;to)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addAlias</span><wbr><span class="parameters">(<a href="../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;src,
+ <a href="../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;dst)</span></div>
+<div class="block">Adds an alias that maps from the name specified by <code>src</code> to the name specified by <code>dst</code>.<p>
+ Any registry lookups that target the first name will resolve as the second name, if the first name is not present.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>src</code> - The source registry name to alias from.</dd>
+<dd><code>dst</code> - The target registry name to alias to.
+ 
+ TODO: Add as public API in IForgeRegistry and DeferredRegister.</dd>
+</dl>
 </section>
 </li>
 <li>
