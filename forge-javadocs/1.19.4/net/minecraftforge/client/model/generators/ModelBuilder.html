@@ -119,8 +119,11 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color"><code><a href="ModelBuilder.FaceRotation.html" class="type-name-link" title="enum class in net.minecraftforge.client.model.generators">ModelBuilder.FaceRotation</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>class&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="ModelBuilder.TransformsBuilder.html" class="type-name-link" title="class in net.minecraftforge.client.model.generators">ModelBuilder.TransformsBuilder</a></code></div>
+<div class="col-second even-row-color"><code><a href="ModelBuilder.RootTransformsBuilder.html" class="type-name-link" title="class in net.minecraftforge.client.model.generators">ModelBuilder.RootTransformsBuilder</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="ModelBuilder.TransformsBuilder.html" class="type-name-link" title="class in net.minecraftforge.client.model.generators">ModelBuilder.TransformsBuilder</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraftforge.client.model.generators.ModelFile">Nested classes/interfaces inherited from class&nbsp;net.minecraftforge.client.model.generators.<a href="ModelFile.html" title="class in net.minecraftforge.client.model.generators">ModelFile</a></h2>
@@ -157,12 +160,15 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>protected <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#renderType" class="member-name-link">renderType</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second odd-row-color"><code><a href="#textures" class="member-name-link">textures</a></code></div>
+<div class="col-first odd-row-color"><code>private final <a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a>&gt;.<a href="ModelBuilder.RootTransformsBuilder.html" title="class in net.minecraftforge.client.model.generators">RootTransformsBuilder</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#rootTransforms" class="member-name-link">rootTransforms</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>protected final <a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a>&gt;.<a href="ModelBuilder.TransformsBuilder.html" title="class in net.minecraftforge.client.model.generators">TransformsBuilder</a></code></div>
-<div class="col-second even-row-color"><code><a href="#transforms" class="member-name-link">transforms</a></code></div>
+<div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#textures" class="member-name-link">textures</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected final <a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a>&gt;.<a href="ModelBuilder.TransformsBuilder.html" title="class in net.minecraftforge.client.model.generators">TransformsBuilder</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#transforms" class="member-name-link">transforms</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-net.minecraftforge.client.model.generators.ModelFile">Fields inherited from class&nbsp;net.minecraftforge.client.model.generators.<a href="ModelFile.html" title="class in net.minecraftforge.client.model.generators">ModelFile</a></h3>
@@ -238,36 +244,39 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the render type for this model.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#self()" class="member-name-link">self</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a>&gt;.<a href="ModelBuilder.RootTransformsBuilder.html" title="class in net.minecraftforge.client.model.generators">RootTransformsBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rootTransforms()" class="member-name-link">rootTransforms</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Number.html" title="class or interface in java.lang" class="external-link">Number</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serializeFloat(float)" class="member-name-link">serializeFloat</a><wbr>(float&nbsp;f)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#self()" class="member-name-link">self</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serializeLocOrKey(java.lang.String)" class="member-name-link">serializeLocOrKey</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tex)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Number.html" title="class or interface in java.lang" class="external-link">Number</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serializeFloat(float)" class="member-name-link">serializeFloat</a><wbr>(float&nbsp;f)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private com.google.gson.JsonArray</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serializeVector3f(org.joml.Vector3f)" class="member-name-link">serializeVector3f</a><wbr>(org.joml.Vector3f&nbsp;vec)</code></div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serializeLocOrKey(java.lang.String)" class="member-name-link">serializeLocOrKey</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;tex)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#texture(java.lang.String,java.lang.String)" class="member-name-link">texture</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
- <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;texture)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Set the texture for a given dictionary key.</div>
-</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private com.google.gson.JsonArray</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serializeVector3f(org.joml.Vector3f)" class="member-name-link">serializeVector3f</a><wbr>(org.joml.Vector3f&nbsp;vec)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#texture(java.lang.String,net.minecraft.resources.ResourceLocation)" class="member-name-link">texture</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
- <a href="../../../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;texture)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#texture(java.lang.String,java.lang.String)" class="member-name-link">texture</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;texture)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Set the texture for a given dictionary key.</div>
 </div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.gson.JsonObject</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toJson()" class="member-name-link">toJson</a>()</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a>&gt;.<a href="ModelBuilder.TransformsBuilder.html" title="class in net.minecraftforge.client.model.generators">TransformsBuilder</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#transforms()" class="member-name-link">transforms</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#texture(java.lang.String,net.minecraft.resources.ResourceLocation)" class="member-name-link">texture</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="../../../../minecraft/resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;texture)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set the texture for a given dictionary key.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.google.gson.JsonObject</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toJson()" class="member-name-link">toJson</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a>&gt;.<a href="ModelBuilder.TransformsBuilder.html" title="class in net.minecraftforge.client.model.generators">TransformsBuilder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#transforms()" class="member-name-link">transforms</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -341,6 +350,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="customLoader">
 <h3>customLoader</h3>
 <div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="CustomLoaderBuilder.html" title="class in net.minecraftforge.client.model.generators">CustomLoaderBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a> extends <a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">customLoader</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="rootTransforms">
+<h3>rootTransforms</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a> extends <a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a>&gt;&gt;.<a href="ModelBuilder.RootTransformsBuilder.html" title="class in net.minecraftforge.client.model.generators">RootTransformsBuilder</a></span>&nbsp;<span class="element-name">rootTransforms</span></div>
 </section>
 </li>
 </ul>
@@ -533,6 +548,12 @@ loadScripts(document, 'script');</script>
 <dt>Returns:</dt>
 <dd>the custom loader builder</dd>
 </dl>
+</section>
+</li>
+<li>
+<section class="detail" id="rootTransforms()">
+<h3>rootTransforms</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ModelBuilder.html" title="class in net.minecraftforge.client.model.generators">ModelBuilder</a>&lt;<a href="ModelBuilder.html" title="type parameter in ModelBuilder">T</a>&gt;.<a href="ModelBuilder.RootTransformsBuilder.html" title="class in net.minecraftforge.client.model.generators">RootTransformsBuilder</a></span>&nbsp;<span class="element-name">rootTransforms</span>()</div>
 </section>
 </li>
 <li>
