@@ -10,7 +10,7 @@
 <link rel="stylesheet" type="text/css" href="../../../../../script-dir/jquery-ui.min.css" title="Style">
 <link rel="stylesheet" type="text/css" href="../../../../../jquery-ui.overrides.css" title="Style">
 <script type="text/javascript" src="../../../../../script.js"></script>
-<script type="text/javascript" src="../../../../../script-dir/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../../../../../script-dir/jquery-3.6.1.min.js"></script>
 <script type="text/javascript" src="../../../../../script-dir/jquery-ui.min.js"></script>
 </head>
 <body class="class-declaration-page">
@@ -88,14 +88,22 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public static class </span><span class="element-name type-name-label">MobSpawnEvent.FinalizeSpawn</span>
 <span class="extends-implements">extends <a href="MobSpawnEvent.html" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent</a></span></div>
-<div class="block">This event is fired before <a href="../../../../minecraft/world/entity/Mob.html#finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.DifficultyInstance,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.entity.SpawnGroupData,net.minecraft.nbt.CompoundTag)"><code>Mob.finalizeSpawn(ServerLevelAccessor, DifficultyInstance, MobSpawnType, SpawnGroupData, CompoundTag)</code></a> is called.<br>
+<div class="block">This event is fired before <a href="../../../../minecraft/world/entity/Mob.html#finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.DifficultyInstance,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.entity.SpawnGroupData,net.minecraft.nbt.CompoundTag)"><code>Mob.finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor, net.minecraft.world.DifficultyInstance, net.minecraft.world.entity.MobSpawnType, net.minecraft.world.entity.SpawnGroupData, net.minecraft.nbt.CompoundTag)</code></a> is called.<br>
  This allows mods to control mob initialization.<br>
- In vanilla code, this event is injected by a transformer and not via patch, so calls cannot be traced via call hierarchy.
+ In vanilla code, this event is injected by a transformer and not via patch, so calls cannot be traced via call hierarchy (it is not source-visible).
  <p>
  Canceling this event will result in <a href="../../../../minecraft/world/entity/Mob.html#finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.DifficultyInstance,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.entity.SpawnGroupData,net.minecraft.nbt.CompoundTag)"><code>Mob.finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor, net.minecraft.world.DifficultyInstance, net.minecraft.world.entity.MobSpawnType, net.minecraft.world.entity.SpawnGroupData, net.minecraft.nbt.CompoundTag)</code></a> not being called, and the returned value always being null, instead of propagating the SpawnGroupData.<br>
- The entity will still be spawned. If you want to prevent the spawn, use <code>FinalizeSpawn#cancelSpawn()</code>
+ The entity will still be spawned. If you want to prevent the spawn, use <a href="#setSpawnCancelled(boolean)"><code>setSpawnCancelled(boolean)</code></a>, which will cause Forge to prevent the spawn.
  <p>
  This event is fired on <a href="../../../common/MinecraftForge.html#EVENT_BUS"><code>MinecraftForge.EVENT_BUS</code></a>, and is only fired on the logical server.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="see-list-long">
+<li><a href="../../ForgeEventFactory.html#onFinalizeSpawn(net.minecraft.world.entity.Mob,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.DifficultyInstance,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.entity.SpawnGroupData,net.minecraft.nbt.CompoundTag)"><code>ForgeEventFactory.onFinalizeSpawn(net.minecraft.world.entity.Mob, net.minecraft.world.level.ServerLevelAccessor, net.minecraft.world.DifficultyInstance, net.minecraft.world.entity.MobSpawnType, net.minecraft.world.entity.SpawnGroupData, net.minecraft.nbt.CompoundTag)</code></a></li>
+</ul>
+</dd>
+</dl>
 </section>
 <section class="summary">
 <ul class="summary-list">
