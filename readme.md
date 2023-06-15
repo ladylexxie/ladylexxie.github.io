@@ -2,7 +2,8 @@
 
 | Minecraft | Forge                                                          | Fabric API                                                          |
 | :-------: | :------------------------------------------------------------: | :-----------------------------------------------------------------: |
-| 1.20      | [46.0.12](https://ladylexxie.github.io/forge-javadocs/1.20/)   | [0.83.0](https://maven.fabricmc.net/docs/fabric-api-0.83.0+1.20/)   |
+| 1.20.1    | [47.0.01](https://ladylexxie.github.io/forge-javadocs/1.20.1/) | [0.83.1](https://maven.fabricmc.net/docs/fabric-api-0.83.1+1.20.1/) |
+| 1.20      | [46.0.14](https://ladylexxie.github.io/forge-javadocs/1.20/)   | [0.83.0](https://maven.fabricmc.net/docs/fabric-api-0.83.0+1.20/)   |
 | 1.19.4    | [45.1.0](https://ladylexxie.github.io/forge-javadocs/1.19.4/)  | [0.83.0](https://maven.fabricmc.net/docs/fabric-api-0.83.0+1.19.4/) |
 | 1.19.3    | [44.1.23](https://ladylexxie.github.io/forge-javadocs/1.19.3/) | [0.76.1](https://maven.fabricmc.net/docs/fabric-api-0.76.1+1.19.3/) |
 | 1.19.2    | [43.2.14](https://ladylexxie.github.io/forge-javadocs/1.19.2/) | [0.76.0](https://maven.fabricmc.net/docs/fabric-api-0.76.0+1.19.2/) |
