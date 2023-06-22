@@ -642,8 +642,17 @@ loadScripts(document, 'script');</script>
  <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;origin,
  <a href="../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#render(com.mojang.blaze3d.vertex.VertexConsumer,net.minecraftforge.client.model.lighting.QuadLighter,net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">render</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;vertexConsumer,
+<div class="col-first odd-row-color"><code>protected static int</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">QuadLighter.</span><code><a href="../../../../minecraftforge/client/model/lighting/QuadLighter.html#getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">getLightColor</a><wbr>(<a href="../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Note: This method is subtly different than <a href="../../../client/renderer/LevelRenderer.html#getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos)"><code>LevelRenderer.getLightColor(BlockAndTintGetter, BlockState, BlockPos)</code></a>
+ as it only uses the state for querying if the state has emissive rendering but instead looks up the state at the given position for checking the
+ light emission.</div>
+</div>
+<div class="col-first even-row-color"><code>static boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#render(com.mojang.blaze3d.vertex.VertexConsumer,net.minecraftforge.client.model.lighting.QuadLighter,net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">render</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;vertexConsumer,
  <a href="../../../../minecraftforge/client/model/lighting/QuadLighter.html" title="class in net.minecraftforge.client.model.lighting">QuadLighter</a>&nbsp;lighter,
  <a href="../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
  <a href="../../../client/resources/model/BakedModel.html" title="interface in net.minecraft.client.resources.model">BakedModel</a>&nbsp;model,
@@ -656,14 +665,28 @@ loadScripts(document, 'script');</script>
  int&nbsp;packedOverlay,
  <a href="../../../../minecraftforge/client/model/data/ModelData.html" title="class in net.minecraftforge.client.model.data">ModelData</a>&nbsp;modelData,
  <a href="../../../client/renderer/RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>final void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">QuadLighter.</span><code><a href="../../../../minecraftforge/client/model/lighting/QuadLighter.html#setup(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">setup</a><wbr>(<a href="../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>final void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">QuadLighter.</span><code><a href="../../../../minecraftforge/client/model/lighting/QuadLighter.html#setup(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">setup</a><wbr>(<a href="../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
  <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#tesselateWithAO(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">tesselateWithAO</a><wbr>(<a href="../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+ <a href="../../../client/resources/model/BakedModel.html" title="interface in net.minecraft.client.resources.model">BakedModel</a>&nbsp;model,
+ <a href="../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;vertexConsumer,
+ boolean&nbsp;checkSides,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;rand,
+ long&nbsp;seed,
+ int&nbsp;packedOverlay,
+ <a href="../../../../minecraftforge/client/model/data/ModelData.html" title="class in net.minecraftforge.client.model.data">ModelData</a>&nbsp;modelData,
+ <a href="../../../client/renderer/RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#tesselateWithAO(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">tesselateWithAO</a><wbr>(<a href="../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+<div class="col-second odd-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#tesselateWithoutAO(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">tesselateWithoutAO</a><wbr>(<a href="../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
  <a href="../../../client/resources/model/BakedModel.html" title="interface in net.minecraft.client.resources.model">BakedModel</a>&nbsp;model,
  <a href="../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
@@ -676,20 +699,6 @@ loadScripts(document, 'script');</script>
  <a href="../../../../minecraftforge/client/model/data/ModelData.html" title="class in net.minecraftforge.client.model.data">ModelData</a>&nbsp;modelData,
  <a href="../../../client/renderer/RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#tesselateWithoutAO(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">tesselateWithoutAO</a><wbr>(<a href="../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
- <a href="../../../client/resources/model/BakedModel.html" title="interface in net.minecraft.client.resources.model">BakedModel</a>&nbsp;model,
- <a href="../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
- <a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
- <a href="../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;vertexConsumer,
- boolean&nbsp;checkSides,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;rand,
- long&nbsp;seed,
- int&nbsp;packedOverlay,
- <a href="../../../../minecraftforge/client/model/data/ModelData.html" title="class in net.minecraftforge.client.model.data">ModelData</a>&nbsp;modelData,
- <a href="../../../client/renderer/RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>

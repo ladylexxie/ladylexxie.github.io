@@ -19589,8 +19589,17 @@ loadScripts(document, 'script');</script>
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;origin,
  <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>static boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#render(com.mojang.blaze3d.vertex.VertexConsumer,net.minecraftforge.client.model.lighting.QuadLighter,net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">render</a><wbr>(<a href="../../../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;vertexConsumer,
+<div class="col-first odd-row-color"><code>protected static int</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">QuadLighter.</span><code><a href="../../../../../../minecraftforge/client/model/lighting/QuadLighter.html#getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">getLightColor</a><wbr>(<a href="../../../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Note: This method is subtly different than <a href="../../../../../client/renderer/LevelRenderer.html#getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos)"><code>LevelRenderer.getLightColor(BlockAndTintGetter, BlockState, BlockPos)</code></a>
+ as it only uses the state for querying if the state has emissive rendering but instead looks up the state at the given position for checking the
+ light emission.</div>
+</div>
+<div class="col-first even-row-color"><code>static boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#render(com.mojang.blaze3d.vertex.VertexConsumer,net.minecraftforge.client.model.lighting.QuadLighter,net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">render</a><wbr>(<a href="../../../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;vertexConsumer,
  <a href="../../../../../../minecraftforge/client/model/lighting/QuadLighter.html" title="class in net.minecraftforge.client.model.lighting">QuadLighter</a>&nbsp;lighter,
  <a href="../../../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
  <a href="../../../../../client/resources/model/BakedModel.html" title="interface in net.minecraft.client.resources.model">BakedModel</a>&nbsp;model,
@@ -19603,14 +19612,28 @@ loadScripts(document, 'script');</script>
  int&nbsp;packedOverlay,
  <a href="../../../../../../minecraftforge/client/model/data/ModelData.html" title="class in net.minecraftforge.client.model.data">ModelData</a>&nbsp;modelData,
  <a href="../../../../../client/renderer/RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>final void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">QuadLighter.</span><code><a href="../../../../../../minecraftforge/client/model/lighting/QuadLighter.html#setup(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">setup</a><wbr>(<a href="../../../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>final void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">QuadLighter.</span><code><a href="../../../../../../minecraftforge/client/model/lighting/QuadLighter.html#setup(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">setup</a><wbr>(<a href="../../../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#tesselateWithAO(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">tesselateWithAO</a><wbr>(<a href="../../../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+ <a href="../../../../../client/resources/model/BakedModel.html" title="interface in net.minecraft.client.resources.model">BakedModel</a>&nbsp;model,
+ <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;vertexConsumer,
+ boolean&nbsp;checkSides,
+ <a href="../../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;rand,
+ long&nbsp;seed,
+ int&nbsp;packedOverlay,
+ <a href="../../../../../../minecraftforge/client/model/data/ModelData.html" title="class in net.minecraftforge.client.model.data">ModelData</a>&nbsp;modelData,
+ <a href="../../../../../client/renderer/RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#tesselateWithAO(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">tesselateWithAO</a><wbr>(<a href="../../../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+<div class="col-second odd-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#tesselateWithoutAO(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">tesselateWithoutAO</a><wbr>(<a href="../../../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
  <a href="../../../../../client/resources/model/BakedModel.html" title="interface in net.minecraft.client.resources.model">BakedModel</a>&nbsp;model,
  <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
@@ -19623,20 +19646,6 @@ loadScripts(document, 'script');</script>
  <a href="../../../../../../minecraftforge/client/model/data/ModelData.html" title="class in net.minecraftforge.client.model.data">ModelData</a>&nbsp;modelData,
  <a href="../../../../../client/renderer/RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
-<div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ForgeModelBlockRenderer.</span><code><a href="../../../../../../minecraftforge/client/model/lighting/ForgeModelBlockRenderer.html#tesselateWithoutAO(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.client.resources.model.BakedModel,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,boolean,net.minecraft.util.RandomSource,long,int,net.minecraftforge.client.model.data.ModelData,net.minecraft.client.renderer.RenderType)" class="member-name-link">tesselateWithoutAO</a><wbr>(<a href="../../../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
- <a href="../../../../../client/resources/model/BakedModel.html" title="interface in net.minecraft.client.resources.model">BakedModel</a>&nbsp;model,
- <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
- <a href="../../../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
- <a href="../../../../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;vertexConsumer,
- boolean&nbsp;checkSides,
- <a href="../../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;rand,
- long&nbsp;seed,
- int&nbsp;packedOverlay,
- <a href="../../../../../../minecraftforge/client/model/data/ModelData.html" title="class in net.minecraftforge.client.model.data">ModelData</a>&nbsp;modelData,
- <a href="../../../../../client/renderer/RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -20088,294 +20097,299 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">State sensitive variant of <a href="../../BucketPickup.html#getPickupSound()"><code>BucketPickup.getPickupSound()</code></a>.</div>
 </div>
-<div class="col-first even-row-color"><code><a href="../properties/RailShape.html" title="enum class in net.minecraft.world.level.block.state.properties">RailShape</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBaseRailBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBaseRailBlock.html#getRailDirection(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.entity.vehicle.AbstractMinecart)" class="member-name-link">getRailDirection</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default @Nullable <a href="../../../material/PushReaction.html" title="enum class in net.minecraft.world.level.material">PushReaction</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getPistonPushReaction(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">getPistonPushReaction</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Returns the reaction of the block when pushed or pulled by a piston.</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="../properties/RailShape.html" title="enum class in net.minecraft.world.level.block.state.properties">RailShape</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBaseRailBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBaseRailBlock.html#getRailDirection(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.entity.vehicle.AbstractMinecart)" class="member-name-link">getRailDirection</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  @Nullable <a href="../../../../entity/vehicle/AbstractMinecart.html" title="class in net.minecraft.world.entity.vehicle">AbstractMinecart</a>&nbsp;cart)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Return the rail's direction.</div>
 </div>
-<div class="col-first odd-row-color"><code>default float</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBaseRailBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBaseRailBlock.html#getRailMaxSpeed(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.entity.vehicle.AbstractMinecart)" class="member-name-link">getRailMaxSpeed</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default float</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBaseRailBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBaseRailBlock.html#getRailMaxSpeed(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.entity.vehicle.AbstractMinecart)" class="member-name-link">getRailMaxSpeed</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../entity/vehicle/AbstractMinecart.html" title="class in net.minecraft.world.entity.vehicle">AbstractMinecart</a>&nbsp;cart)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Returns the max speed of the rail at the specified position.</div>
 </div>
-<div class="col-first even-row-color"><code>default <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getRespawnPosition(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.entity.EntityType,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,float,net.minecraft.world.entity.LivingEntity)" class="member-name-link">getRespawnPosition</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&gt;</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getRespawnPosition(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.entity.EntityType,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,float,net.minecraft.world.entity.LivingEntity)" class="member-name-link">getRespawnPosition</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../../entity/EntityType.html" title="class in net.minecraft.world.entity">EntityType</a>&lt;?&gt;&nbsp;type,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;levelReader,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  float&nbsp;orientation,
  @Nullable <a href="../../../../entity/LivingEntity.html" title="class in net.minecraft.world.entity">LivingEntity</a>&nbsp;entity)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Returns the position that the entity is moved to upon
  respawning at this block.</div>
 </div>
-<div class="col-first odd-row-color"><code>default <a href="../../SoundType.html" title="class in net.minecraft.world.level.block">SoundType</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getSoundType(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.entity.Entity)" class="member-name-link">getSoundType</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default <a href="../../SoundType.html" title="class in net.minecraft.world.level.block">SoundType</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getSoundType(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.entity.Entity)" class="member-name-link">getSoundType</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  @Nullable <a href="../../../../entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Sensitive version of getSoundType</div>
 </div>
-<div class="col-first even-row-color"><code>default <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getStateAtViewpoint(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.phys.Vec3)" class="member-name-link">getStateAtViewpoint</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getStateAtViewpoint(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.phys.Vec3)" class="member-name-link">getStateAtViewpoint</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;viewpoint)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Used to determine the state 'viewed' by an entity (see
  <a href="../../../../../client/Camera.html#getBlockAtCamera()"><code>Camera.getBlockAtCamera()</code></a>).</div>
 </div>
-<div class="col-first odd-row-color"><code>default @Nullable <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getToolModifiedState(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.item.context.UseOnContext,net.minecraftforge.common.ToolAction,boolean)" class="member-name-link">getToolModifiedState</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default @Nullable <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getToolModifiedState(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.item.context.UseOnContext,net.minecraftforge.common.ToolAction,boolean)" class="member-name-link">getToolModifiedState</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../../item/context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&nbsp;context,
  <a href="../../../../../../minecraftforge/common/ToolAction.html" title="class in net.minecraftforge.common">ToolAction</a>&nbsp;toolAction,
  boolean&nbsp;simulate)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Returns the state that this block should transform into when right-clicked by a tool.</div>
 </div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getWeakChanges(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos)" class="member-name-link">getWeakChanges</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#getWeakChanges(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos)" class="member-name-link">getWeakChanges</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">If this block should be notified of weak changes.</div>
 </div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#hidesNeighborFace(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction)" class="member-name-link">hidesNeighborFace</a><wbr>(<a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#hidesNeighborFace(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction)" class="member-name-link">hidesNeighborFace</a><wbr>(<a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;neighborState,
  <a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;dir)</code></div>
-<div class="col-last odd-row-color">
-<div class="block">Whether this block hides the neighbors face pointed towards by the given direction.</div>
-</div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlockState.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlockState.html#hidesNeighborFace(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction)" class="member-name-link">hidesNeighborFace</a><wbr>(<a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
- <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;neighborState,
- <a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;dir)</code></div>
 <div class="col-last even-row-color">
 <div class="block">Whether this block hides the neighbors face pointed towards by the given direction.</div>
 </div>
 <div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isBed(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.entity.Entity)" class="member-name-link">isBed</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlockState.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlockState.html#hidesNeighborFace(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction)" class="member-name-link">hidesNeighborFace</a><wbr>(<a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;neighborState,
+ <a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;dir)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Whether this block hides the neighbors face pointed towards by the given direction.</div>
+</div>
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isBed(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.entity.Entity)" class="member-name-link">isBed</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  @Nullable <a href="../../../../entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;player)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Determines if this block is classified as a Bed, Allowing
  players to sleep in it, though the block has to specifically
  perform the sleeping functionality in it's activated event.</div>
 </div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isBurning(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">isBurning</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isBurning(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">isBurning</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Determines if this block should set fire and deal fire damage
  to entities coming into contact with it.</div>
 </div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isConduitFrame(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)" class="member-name-link">isConduitFrame</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isConduitFrame(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)" class="member-name-link">isConduitFrame</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;conduit)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Determines if this block can be used as the frame of a conduit.</div>
 </div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeItem.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeItem.html#isCorrectToolForDrops(net.minecraft.world.item.ItemStack,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isCorrectToolForDrops</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+<div class="col-first odd-row-color"><code>default boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeItem.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeItem.html#isCorrectToolForDrops(net.minecraft.world.item.ItemStack,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isCorrectToolForDrops</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
  <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">ItemStack sensitive version of <a href="../../../../item/Item.html#isCorrectToolForDrops(net.minecraft.world.level.block.state.BlockState)"><code>Item.isCorrectToolForDrops(BlockState)</code></a></div>
 </div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isFertile(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">isFertile</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isFertile(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">isFertile</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Checks if this soil is fertile, typically this means that growth rates
  of plants on this soil will be slightly sped up.</div>
 </div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isFireSource(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.core.Direction)" class="member-name-link">isFireSource</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isFireSource(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.core.Direction)" class="member-name-link">isFireSource</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Currently only called by fire when it is on top of this block.</div>
 </div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isFlammable(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.core.Direction)" class="member-name-link">isFlammable</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isFlammable(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.core.Direction)" class="member-name-link">isFlammable</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Called when fire is updating, checks if a block face can catch fire.</div>
 </div>
-<div class="col-first even-row-color"><code>boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBaseRailBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBaseRailBlock.html#isFlexibleRail(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">isFlexibleRail</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBaseRailBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBaseRailBlock.html#isFlexibleRail(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">isFlexibleRail</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Return true if the rail can make corners.</div>
 </div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isLadder(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.entity.LivingEntity)" class="member-name-link">isLadder</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isLadder(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.entity.LivingEntity)" class="member-name-link">isLadder</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../entity/LivingEntity.html" title="class in net.minecraft.world.entity">LivingEntity</a>&nbsp;entity)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Checks if a player or entity can use this block to 'climb' like a ladder.</div>
 </div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isPortalFrame(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">isPortalFrame</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isPortalFrame(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">isPortalFrame</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Determines if this block can be used as part of a frame of a nether portal.</div>
 </div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isScaffolding(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.entity.LivingEntity)" class="member-name-link">isScaffolding</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isScaffolding(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.entity.LivingEntity)" class="member-name-link">isScaffolding</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../entity/LivingEntity.html" title="class in net.minecraft.world.entity">LivingEntity</a>&nbsp;entity)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Checks if a player or entity handles movement on this block like scaffolding.</div>
 </div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isSlimeBlock(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isSlimeBlock</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isStickyBlock(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isStickyBlock</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isSlimeBlock(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isSlimeBlock</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isValidSpawn(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.entity.SpawnPlacements.Type,net.minecraft.world.entity.EntityType)" class="member-name-link">isValidSpawn</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isStickyBlock(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isStickyBlock</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>default boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#isValidSpawn(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.entity.SpawnPlacements.Type,net.minecraft.world.entity.EntityType)" class="member-name-link">isValidSpawn</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../entity/SpawnPlacements.Type.html" title="enum class in net.minecraft.world.entity">SpawnPlacements.Type</a>&nbsp;type,
  <a href="../../../../entity/EntityType.html" title="class in net.minecraft.world.entity">EntityType</a>&lt;?&gt;&nbsp;entityType)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Determines if a specified mob type can spawn on this block, returning false will
  prevent any mob from spawning on the block.</div>
 </div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#makesOpenTrapdoorAboveClimbable(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">makesOpenTrapdoorAboveClimbable</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#makesOpenTrapdoorAboveClimbable(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">makesOpenTrapdoorAboveClimbable</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;trapdoorState)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Checks if this block makes an open trapdoor above it climbable.</div>
 </div>
-<div class="col-first even-row-color"><code>default void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onBlockExploded(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.Explosion)" class="member-name-link">onBlockExploded</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onBlockExploded(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.Explosion)" class="member-name-link">onBlockExploded</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../Explosion.html" title="class in net.minecraft.world.level">Explosion</a>&nbsp;explosion)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Called when the block is destroyed by an explosion.</div>
 </div>
-<div class="col-first odd-row-color"><code>default void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onBlockStateChange(net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">onBlockStateChange</a><wbr>(<a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
+<div class="col-first even-row-color"><code>default void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onBlockStateChange(net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">onBlockStateChange</a><wbr>(<a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;oldState,
  <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;newState)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Called after the <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state"><code>BlockState</code></a> at the given <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core"><code>BlockPos</code></a> was changed and neighbors were updated.</div>
+</div>
+<div class="col-first odd-row-color"><code>default void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlockState.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlockState.html#onBlockStateChange(net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">onBlockStateChange</a><wbr>(<a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;oldState)</code></div>
 <div class="col-last odd-row-color">
 <div class="block">Called after the <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state"><code>BlockState</code></a> at the given <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core"><code>BlockPos</code></a> was changed and neighbors were updated.</div>
 </div>
 <div class="col-first even-row-color"><code>default void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlockState.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlockState.html#onBlockStateChange(net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">onBlockStateChange</a><wbr>(<a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
- <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;oldState)</code></div>
-<div class="col-last even-row-color">
-<div class="block">Called after the <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state"><code>BlockState</code></a> at the given <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core"><code>BlockPos</code></a> was changed and neighbors were updated.</div>
-</div>
-<div class="col-first odd-row-color"><code>default void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onCaughtFire(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.core.Direction,net.minecraft.world.entity.LivingEntity)" class="member-name-link">onCaughtFire</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onCaughtFire(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.core.Direction,net.minecraft.world.entity.LivingEntity)" class="member-name-link">onCaughtFire</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  @Nullable <a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction,
  @Nullable <a href="../../../../entity/LivingEntity.html" title="class in net.minecraft.world.entity">LivingEntity</a>&nbsp;igniter)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">If the block is flammable, this is called when it gets lit on fire.</div>
 </div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onDestroyedByPlayer(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.entity.player.Player,boolean,net.minecraft.world.level.material.FluidState)" class="member-name-link">onDestroyedByPlayer</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onDestroyedByPlayer(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.entity.player.Player,boolean,net.minecraft.world.level.material.FluidState)" class="member-name-link">onDestroyedByPlayer</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
  boolean&nbsp;willHarvest,
  <a href="../../../material/FluidState.html" title="class in net.minecraft.world.level.material">FluidState</a>&nbsp;fluid)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Called when a player removes a block.</div>
 </div>
-<div class="col-first odd-row-color"><code>default void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBaseRailBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBaseRailBlock.html#onMinecartPass(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.entity.vehicle.AbstractMinecart)" class="member-name-link">onMinecartPass</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBaseRailBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBaseRailBlock.html#onMinecartPass(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.entity.vehicle.AbstractMinecart)" class="member-name-link">onMinecartPass</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../entity/vehicle/AbstractMinecart.html" title="class in net.minecraft.world.entity.vehicle">AbstractMinecart</a>&nbsp;cart)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">This function is called by any minecart that passes over this rail.</div>
 </div>
-<div class="col-first even-row-color"><code>default void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onNeighborChange(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)" class="member-name-link">onNeighborChange</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default void</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onNeighborChange(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)" class="member-name-link">onNeighborChange</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;neighbor)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Called when a tile entity on a side of this block changes is created or is destroyed.</div>
 </div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onTreeGrow(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,java.util.function.BiConsumer,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration)" class="member-name-link">onTreeGrow</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#onTreeGrow(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelReader,java.util.function.BiConsumer,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.levelgen.feature.configurations.TreeConfiguration)" class="member-name-link">onTreeGrow</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
  <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>,<wbr><a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;placeFunction,
  <a href="../../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;randomSource,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../levelgen/feature/configurations/TreeConfiguration.html" title="class in net.minecraft.world.level.levelgen.feature.configurations">TreeConfiguration</a>&nbsp;config)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Called when a tree grows on top of this block and tries to set it to dirt by the trunk placer.</div>
 </div>
-<div class="col-first even-row-color"><code>default <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#rotate(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.world.level.block.Rotation)" class="member-name-link">rotate</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default <a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#rotate(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.world.level.block.Rotation)" class="member-name-link">rotate</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../Rotation.html" title="enum class in net.minecraft.world.level.block">Rotation</a>&nbsp;direction)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
-<div class="col-first odd-row-color"><code>default void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#setBedOccupied(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.entity.LivingEntity,boolean)" class="member-name-link">setBedOccupied</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>default void</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#setBedOccupied(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.entity.LivingEntity,boolean)" class="member-name-link">setBedOccupied</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../entity/LivingEntity.html" title="class in net.minecraft.world.entity">LivingEntity</a>&nbsp;sleeper,
  boolean&nbsp;occupied)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Called when a user either starts or stops sleeping in the bed.</div>
 </div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#shouldCheckWeakPower(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.SignalGetter,net.minecraft.core.BlockPos,net.minecraft.core.Direction)" class="member-name-link">shouldCheckWeakPower</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first odd-row-color"><code>default boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#shouldCheckWeakPower(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.SignalGetter,net.minecraft.core.BlockPos,net.minecraft.core.Direction)" class="member-name-link">shouldCheckWeakPower</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../SignalGetter.html" title="interface in net.minecraft.world.level">SignalGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;side)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Called to determine whether to allow the block to handle its own indirect power rather than using the default rules.</div>
 </div>
-<div class="col-first odd-row-color"><code>default boolean</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#shouldDisplayFluidOverlay(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.material.FluidState)" class="member-name-link">shouldDisplayFluidOverlay</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+<div class="col-first even-row-color"><code>default boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#shouldDisplayFluidOverlay(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.material.FluidState)" class="member-name-link">shouldDisplayFluidOverlay</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
  <a href="../../../BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
  <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../material/FluidState.html" title="class in net.minecraft.world.level.material">FluidState</a>&nbsp;fluidState)</code></div>
-<div class="col-last odd-row-color">
+<div class="col-last even-row-color">
 <div class="block">Called to determine whether this block should use the fluid overlay texture or flowing texture when it is placed under the fluid.</div>
 </div>
-<div class="col-first even-row-color"><code>default boolean</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#supportsExternalFaceHiding(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">supportsExternalFaceHiding</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
-<div class="col-last even-row-color">
+<div class="col-first odd-row-color"><code>default boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">IForgeBlock.</span><code><a href="../../../../../../minecraftforge/common/extensions/IForgeBlock.html#supportsExternalFaceHiding(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">supportsExternalFaceHiding</a><wbr>(<a href="../BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
+<div class="col-last odd-row-color">
 <div class="block">Whether this block allows a neighboring block to hide the face of this block it touches.</div>
 </div>
 </div>
