@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-<title>Uses of Package net.minecraftforge.event.entity.living (forge 1.20)</title>
+<title>Uses of Package net.minecraftforge.event.entity.living (forge 1.20.1)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="use: package: net.minecraftforge.event.entity.living">
@@ -113,8 +113,12 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">
 <div class="block">LivingKnockBackEvent is fired when a living entity is about to be knocked back.</div>
 </div>
-<div class="col-first odd-row-color"><a href="class-use/ShieldBlockEvent.html#net.minecraftforge.common">ShieldBlockEvent</a></div>
+<div class="col-first odd-row-color"><a href="class-use/LivingSwapItemsEvent.Hands.html#net.minecraftforge.common">LivingSwapItemsEvent.Hands</a></div>
 <div class="col-last odd-row-color">
+<div class="block">This event is fired when a living entity is about to swap the items in their main and offhand.</div>
+</div>
+<div class="col-first even-row-color"><a href="class-use/ShieldBlockEvent.html#net.minecraftforge.common">ShieldBlockEvent</a></div>
+<div class="col-last even-row-color">
 <div class="block">The ShieldBlockEvent is fired when an entity successfully blocks with a shield.<br>
  Cancelling this event will have the same impact as if the shield was not eligible to block.<br>
  The damage blocked cannot be set lower than zero or greater than the original value.<br>
@@ -176,6 +180,27 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">
 <div class="block">This event is fired when a living entity attempts to get a projectile with the
  <a href="../../../../minecraft/world/entity/LivingEntity.html#getProjectile(net.minecraft.world.item.ItemStack)"><code>LivingEntity.getProjectile(ItemStack)</code></a> method.</div>
+</div>
+<div class="col-first even-row-color"><a href="class-use/LivingMakeBrainEvent.html#net.minecraftforge.debug.entity.living">LivingMakeBrainEvent</a></div>
+<div class="col-last even-row-color">
+<div class="block">LivingMakeBrainEvent is fired whenever a new <a href="../../../../minecraft/world/entity/ai/Brain.html" title="class in net.minecraft.world.entity.ai"><code>Brain</code></a> instance is created using <a href="../../../../minecraft/world/entity/LivingEntity.html#makeBrain(com.mojang.serialization.Dynamic)"><code>LivingEntity.makeBrain(Dynamic)</code></a>.<br>
+ <br>
+ To access the internal <a href="../../../common/util/BrainBuilder.html" title="class in net.minecraftforge.common.util"><code>BrainBuilder</code></a>, call <a href="LivingMakeBrainEvent.html#getTypedBrainBuilder(E)"><code>LivingMakeBrainEvent.getTypedBrainBuilder(LivingEntity)</code></a> using the downcasted <a href="../../../../minecraft/world/entity/LivingEntity.html" title="class in net.minecraft.world.entity"><code>LivingEntity</code></a> obtained from <a href="LivingEvent.html#getEntity()"><code>LivingEvent.getEntity()</code></a>.<br>
+ <br>
+ The BrainBuilder will initially contain all the state found in the original Brain instance.<br>
+ <br>
+ After this event is posted, a fresh Brain instance will be created using the encapsulated state found in the BrainBuilder
+ and replace the previously created Brain instance for the entity.<br>
+ <br>
+ This event is fired via the <a href="../../../common/ForgeHooks.html#onLivingMakeBrain(net.minecraft.world.entity.LivingEntity,net.minecraft.world.entity.ai.Brain,com.mojang.serialization.Dynamic)"><code>ForgeHooks.onLivingMakeBrain(LivingEntity, Brain, Dynamic)</code></a>.<br>
+ <br>
+ This event is not <code>Cancelable</code>.<br>
+ <br>
+ This event does not have a result.</div>
+</div>
+<div class="col-first odd-row-color"><a href="class-use/LivingSwapItemsEvent.Hands.html#net.minecraftforge.debug.entity.living">LivingSwapItemsEvent.Hands</a></div>
+<div class="col-last odd-row-color">
+<div class="block">This event is fired when a living entity is about to swap the items in their main and offhand.</div>
 </div>
 </div>
 </section>
@@ -260,16 +285,19 @@ loadScripts(document, 'script');</script>
  <br>
  All children of this event are fired on the <a href="../../../common/MinecraftForge.html#EVENT_BUS"><code>MinecraftForge.EVENT_BUS</code></a>.<br></div>
 </div>
-<div class="col-first odd-row-color"><a href="class-use/MobEffectEvent.html#net.minecraftforge.event.entity.living">MobEffectEvent</a></div>
-<div class="col-last odd-row-color">
+<div class="col-first odd-row-color"><a href="class-use/LivingSwapItemsEvent.html#net.minecraftforge.event.entity.living">LivingSwapItemsEvent</a></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><a href="class-use/MobEffectEvent.html#net.minecraftforge.event.entity.living">MobEffectEvent</a></div>
+<div class="col-last even-row-color">
 <div class="block">This event is fired when an interaction between a <a href="../../../../minecraft/world/entity/LivingEntity.html" title="class in net.minecraft.world.entity"><code>LivingEntity</code></a> and <a href="../../../../minecraft/world/effect/MobEffectInstance.html" title="class in net.minecraft.world.effect"><code>MobEffectInstance</code></a> happens.</div>
 </div>
-<div class="col-first even-row-color"><a href="class-use/MobSpawnEvent.html#net.minecraftforge.event.entity.living">MobSpawnEvent</a></div>
-<div class="col-last even-row-color">
-<div class="block">The subclasses of this event are fired whenever a mob performs a spawning-related action.</div>
-</div>
-<div class="col-first odd-row-color"><a href="class-use/ZombieEvent.html#net.minecraftforge.event.entity.living">ZombieEvent</a></div>
+<div class="col-first odd-row-color"><a href="class-use/MobSpawnEvent.html#net.minecraftforge.event.entity.living">MobSpawnEvent</a></div>
 <div class="col-last odd-row-color">
+<div class="block">This class holds all events relating to the entire flow of mob spawns.<br>
+ Currently, the events have the following flow for any given mob spawn:</div>
+</div>
+<div class="col-first even-row-color"><a href="class-use/ZombieEvent.html#net.minecraftforge.event.entity.living">ZombieEvent</a></div>
+<div class="col-last even-row-color">
 <div class="block">ZombieEvent is fired whenever a zombie is spawned for aid.</div>
 </div>
 </div>

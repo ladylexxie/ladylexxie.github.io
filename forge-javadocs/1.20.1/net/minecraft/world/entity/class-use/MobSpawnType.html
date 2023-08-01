@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-<title>Uses of Enum Class net.minecraft.world.entity.MobSpawnType (forge 1.20)</title>
+<title>Uses of Enum Class net.minecraft.world.entity.MobSpawnType (forge 1.20.1)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="use: package: net.minecraft.world.entity, enum: MobSpawnType">
@@ -907,14 +907,41 @@ the order they are declared.</div>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>static @Nullable <a href="../SpawnGroupData.html" title="interface in net.minecraft.world.entity">SpawnGroupData</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ForgeEventFactory.</span><code><a href="../../../../minecraftforge/event/ForgeEventFactory.html#onFinalizeSpawn(net.minecraft.world.entity.Mob,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.DifficultyInstance,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.entity.SpawnGroupData,net.minecraft.nbt.CompoundTag)" class="member-name-link">onFinalizeSpawn</a><wbr>(<a href="../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob,
+<div class="col-first even-row-color"><code>static boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ForgeEventFactory.</span><code><a href="../../../../minecraftforge/event/ForgeEventFactory.html#checkSpawnPlacements(net.minecraft.world.entity.EntityType,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.entity.MobSpawnType,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource,boolean)" class="member-name-link">checkSpawnPlacements</a><wbr>(<a href="../EntityType.html" title="class in net.minecraft.world.entity">EntityType</a>&lt;?&gt;&nbsp;entityType,
+ <a href="../../level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;level,
+ <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a>&nbsp;spawnType,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ boolean&nbsp;defaultResult)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Internal, should only be called via <a href="../SpawnPlacements.html#checkSpawnRules(net.minecraft.world.entity.EntityType,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.entity.MobSpawnType,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)"><code>SpawnPlacements.checkSpawnRules(net.minecraft.world.entity.EntityType&lt;T&gt;, net.minecraft.world.level.ServerLevelAccessor, net.minecraft.world.entity.MobSpawnType, net.minecraft.core.BlockPos, net.minecraft.util.RandomSource)</code></a>.</div>
+</div>
+<div class="col-first odd-row-color"><code>static boolean</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ForgeEventFactory.</span><code><a href="../../../../minecraftforge/event/ForgeEventFactory.html#checkSpawnPosition(net.minecraft.world.entity.Mob,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.entity.MobSpawnType)" class="member-name-link">checkSpawnPosition</a><wbr>(<a href="../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob,
+ <a href="../../level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;level,
+ <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a>&nbsp;spawnType)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Checks if the current position of the passed mob is valid for spawning, by firing <a href="../../../../minecraftforge/event/entity/living/MobSpawnEvent.PositionCheck.html" title="class in net.minecraftforge.event.entity.living"><code>MobSpawnEvent.PositionCheck</code></a>.<br>
+ The default check is to perform the logical and of <a href="../Mob.html#checkSpawnRules(net.minecraft.world.level.LevelAccessor,net.minecraft.world.entity.MobSpawnType)"><code>Mob.checkSpawnRules(net.minecraft.world.level.LevelAccessor, net.minecraft.world.entity.MobSpawnType)</code></a> and <a href="../Mob.html#checkSpawnObstruction(net.minecraft.world.level.LevelReader)"><code>Mob.checkSpawnObstruction(net.minecraft.world.level.LevelReader)</code></a>.<br></div>
+</div>
+<div class="col-first even-row-color"><code>static boolean</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ForgeEventFactory.</span><code><a href="../../../../minecraftforge/event/ForgeEventFactory.html#checkSpawnPositionSpawner(net.minecraft.world.entity.Mob,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.level.SpawnData,net.minecraft.world.level.BaseSpawner)" class="member-name-link">checkSpawnPositionSpawner</a><wbr>(<a href="../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob,
+ <a href="../../level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;level,
+ <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a>&nbsp;spawnType,
+ <a href="../../level/SpawnData.html" title="class in net.minecraft.world.level">SpawnData</a>&nbsp;spawnData,
+ <a href="../../level/BaseSpawner.html" title="class in net.minecraft.world.level">BaseSpawner</a>&nbsp;spawner)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Specialized variant of <a href="../../../../minecraftforge/event/ForgeEventFactory.html#checkSpawnPosition(net.minecraft.world.entity.Mob,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.entity.MobSpawnType)"><code>ForgeEventFactory.checkSpawnPosition(net.minecraft.world.entity.Mob, net.minecraft.world.level.ServerLevelAccessor, net.minecraft.world.entity.MobSpawnType)</code></a> for spawners, as they have slightly different checks.</div>
+</div>
+<div class="col-first odd-row-color"><code>static @Nullable <a href="../SpawnGroupData.html" title="interface in net.minecraft.world.entity">SpawnGroupData</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ForgeEventFactory.</span><code><a href="../../../../minecraftforge/event/ForgeEventFactory.html#onFinalizeSpawn(net.minecraft.world.entity.Mob,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.DifficultyInstance,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.entity.SpawnGroupData,net.minecraft.nbt.CompoundTag)" class="member-name-link">onFinalizeSpawn</a><wbr>(<a href="../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob,
  <a href="../../level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;level,
  <a href="../../DifficultyInstance.html" title="class in net.minecraft.world">DifficultyInstance</a>&nbsp;difficulty,
  <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a>&nbsp;spawnType,
  @Nullable <a href="../SpawnGroupData.html" title="interface in net.minecraft.world.entity">SpawnGroupData</a>&nbsp;spawnData,
  @Nullable <a href="../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;spawnTag)</code></div>
-<div class="col-last even-row-color">
+<div class="col-last odd-row-color">
 <div class="block">Vanilla calls to <a href="../Mob.html#finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.DifficultyInstance,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.entity.SpawnGroupData,net.minecraft.nbt.CompoundTag)"><code>Mob.finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor, net.minecraft.world.DifficultyInstance, net.minecraft.world.entity.MobSpawnType, net.minecraft.world.entity.SpawnGroupData, net.minecraft.nbt.CompoundTag)</code></a> are replaced with calls to this method via coremod.<br>
  Mods should call this method in place of calling <a href="../Mob.html#finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.DifficultyInstance,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.entity.SpawnGroupData,net.minecraft.nbt.CompoundTag)"><code>Mob.finalizeSpawn(net.minecraft.world.level.ServerLevelAccessor, net.minecraft.world.DifficultyInstance, net.minecraft.world.entity.MobSpawnType, net.minecraft.world.entity.SpawnGroupData, net.minecraft.nbt.CompoundTag)</code></a>.</div>
 </div>
@@ -932,6 +959,12 @@ the order they are declared.</div>
 <div class="col-first even-row-color"><code>private final <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">MobSpawnEvent.FinalizeSpawn.</span><code><a href="../../../../minecraftforge/event/entity/living/MobSpawnEvent.FinalizeSpawn.html#spawnType" class="member-name-link">spawnType</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MobSpawnEvent.PositionCheck.</span><code><a href="../../../../minecraftforge/event/entity/living/MobSpawnEvent.PositionCheck.html#spawnType" class="member-name-link">spawnType</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MobSpawnEvent.SpawnPlacementCheck.</span><code><a href="../../../../minecraftforge/event/entity/living/MobSpawnEvent.SpawnPlacementCheck.html#spawnType" class="member-name-link">spawnType</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../../../../minecraftforge/event/entity/living/package-summary.html">net.minecraftforge.event.entity.living</a> that return <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a></span></div>
 <div class="summary-table three-column-summary">
@@ -942,6 +975,16 @@ the order they are declared.</div>
 <div class="col-second even-row-color"><span class="type-name-label">MobSpawnEvent.FinalizeSpawn.</span><code><a href="../../../../minecraftforge/event/entity/living/MobSpawnEvent.FinalizeSpawn.html#getSpawnType()" class="member-name-link">getSpawnType</a>()</code></div>
 <div class="col-last even-row-color">
 <div class="block">Retrieves the type of mob spawn that happened (the event that caused the spawn).</div>
+</div>
+<div class="col-first odd-row-color"><code><a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a></code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">MobSpawnEvent.PositionCheck.</span><code><a href="../../../../minecraftforge/event/entity/living/MobSpawnEvent.PositionCheck.html#getSpawnType()" class="member-name-link">getSpawnType</a>()</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Retrieves the type of mob spawn that is happening.</div>
+</div>
+<div class="col-first even-row-color"><code><a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a></code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MobSpawnEvent.SpawnPlacementCheck.</span><code><a href="../../../../minecraftforge/event/entity/living/MobSpawnEvent.SpawnPlacementCheck.html#getSpawnType()" class="member-name-link">getSpawnType</a>()</code></div>
+<div class="col-last even-row-color">
+<div class="block">Retrieves the type of mob spawn that is happening.</div>
 </div>
 </div>
 <div class="caption"><span>Constructors in <a href="../../../../minecraftforge/event/entity/living/package-summary.html">net.minecraftforge.event.entity.living</a> with parameters of type <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a></span></div>
@@ -961,6 +1004,22 @@ the order they are declared.</div>
  @Nullable <a href="../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;spawnTag,
  @Nullable <a href="../../level/BaseSpawner.html" title="class in net.minecraft.world.level">BaseSpawner</a>&nbsp;spawner)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="../../../../minecraftforge/event/entity/living/MobSpawnEvent.PositionCheck.html#%3Cinit%3E(net.minecraft.world.entity.Mob,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.entity.MobSpawnType,net.minecraft.world.level.BaseSpawner)" class="member-name-link">PositionCheck</a><wbr>(<a href="../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob,
+ <a href="../../level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;level,
+ <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a>&nbsp;spawnType,
+ @Nullable <a href="../../level/BaseSpawner.html" title="class in net.minecraft.world.level">BaseSpawner</a>&nbsp;spawner)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="../../../../minecraftforge/event/entity/living/MobSpawnEvent.SpawnPlacementCheck.html#%3Cinit%3E(net.minecraft.world.entity.EntityType,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.entity.MobSpawnType,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource,boolean)" class="member-name-link">SpawnPlacementCheck</a><wbr>(<a href="../EntityType.html" title="class in net.minecraft.world.entity">EntityType</a>&lt;?&gt;&nbsp;entityType,
+ <a href="../../level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;level,
+ <a href="../MobSpawnType.html" title="enum class in net.minecraft.world.entity">MobSpawnType</a>&nbsp;spawnType,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ boolean&nbsp;defaultResult)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Internal.</div>
+</div>
 </div>
 </section>
 </li>

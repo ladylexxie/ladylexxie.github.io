@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-<title>PlayerInteractEvent.LeftClickBlock (forge 1.20)</title>
+<title>PlayerInteractEvent.LeftClickBlock (forge 1.20.1)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="declaration: package: net.minecraftforge.event.entity.player, class: PlayerInteractEvent, class: LeftClickBlock">
@@ -97,6 +97,9 @@ loadScripts(document, 'script');</script>
  Canceling the event will cause none of the above noted methods to be called.
  There are various results to this event, see the getters below.
 
+ This event is fired at various points during left clicking on blocks, at both the start and end on the server, and at the start and while held down on the client.
+ Use <a href="#getAction()"><code>getAction()</code></a> to check which type of action triggered this event.
+
  Note that if the event is canceled and the player holds down left mouse, the event will continue to fire.
  This is due to how vanilla calls the left click handler methods.
 
@@ -109,6 +112,15 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="nested-class-summary" id="nested-class-summary">
 <h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="PlayerInteractEvent.LeftClickBlock.Action.html" class="type-name-link" title="enum class in net.minecraftforge.event.entity.player">PlayerInteractEvent.LeftClickBlock.Action</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraftforge.event.entity.player.PlayerInteractEvent">Nested classes/interfaces inherited from class&nbsp;net.minecraftforge.event.entity.player.<a href="PlayerInteractEvent.html" title="class in net.minecraftforge.event.entity.player">PlayerInteractEvent</a></h2>
 <code><a href="PlayerInteractEvent.EntityInteract.html" title="class in net.minecraftforge.event.entity.player">PlayerInteractEvent.EntityInteract</a>, <a href="PlayerInteractEvent.EntityInteractSpecific.html" title="class in net.minecraftforge.event.entity.player">PlayerInteractEvent.EntityInteractSpecific</a>, <a href="PlayerInteractEvent.LeftClickBlock.html" title="class in net.minecraftforge.event.entity.player">PlayerInteractEvent.LeftClickBlock</a>, <a href="PlayerInteractEvent.LeftClickEmpty.html" title="class in net.minecraftforge.event.entity.player">PlayerInteractEvent.LeftClickEmpty</a>, <a href="PlayerInteractEvent.RightClickBlock.html" title="class in net.minecraftforge.event.entity.player">PlayerInteractEvent.RightClickBlock</a>, <a href="PlayerInteractEvent.RightClickEmpty.html" title="class in net.minecraftforge.event.entity.player">PlayerInteractEvent.RightClickEmpty</a>, <a href="PlayerInteractEvent.RightClickItem.html" title="class in net.minecraftforge.event.entity.player">PlayerInteractEvent.RightClickItem</a></code></div>
@@ -120,7 +132,7 @@ loadScripts(document, 'script');</script>
 <code><a href="../living/LivingEvent.LivingJumpEvent.html" title="class in net.minecraftforge.event.entity.living">LivingEvent.LivingJumpEvent</a>, <a href="../living/LivingEvent.LivingTickEvent.html" title="class in net.minecraftforge.event.entity.living">LivingEvent.LivingTickEvent</a>, <a href="../living/LivingEvent.LivingVisibilityEvent.html" title="class in net.minecraftforge.event.entity.living">LivingEvent.LivingVisibilityEvent</a></code></div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraftforge.event.entity.EntityEvent">Nested classes/interfaces inherited from class&nbsp;net.minecraftforge.event.entity.<a href="../EntityEvent.html" title="class in net.minecraftforge.event.entity">EntityEvent</a></h2>
-<code><a href="../EntityEvent.EnteringSection.html" title="class in net.minecraftforge.event.entity">EntityEvent.EnteringSection</a>, <a href="../EntityEvent.EntityConstructing.html" title="class in net.minecraftforge.event.entity">EntityEvent.EntityConstructing</a>, <a href="../EntityEvent.Size.html" title="class in net.minecraftforge.event.entity">EntityEvent.Size</a></code></div>
+<code><a href="../EntityEvent.EnteringSection.html" title="class in net.minecraftforge.event.entity">EntityEvent.EnteringSection</a>, <a href="../EntityEvent.EntityConstructing.html" title="class in net.minecraftforge.event.entity">EntityEvent.EntityConstructing</a>, <a href="../EntityEvent.EyeHeight.html" title="class in net.minecraftforge.event.entity">EntityEvent.EyeHeight</a>, <a href="../EntityEvent.Size.html" title="class in net.minecraftforge.event.entity">EntityEvent.Size</a></code></div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraftforge.eventbus.api.Event">Nested classes/interfaces inherited from class&nbsp;net.minecraftforge.eventbus.api.Event</h2>
 <code>net.minecraftforge.eventbus.api.Event.HasResult, net.minecraftforge.eventbus.api.Event.Result</code></div>
@@ -135,12 +147,15 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Field</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color"><code>private net.minecraftforge.eventbus.api.Event.Result</code></div>
-<div class="col-second even-row-color"><code><a href="#useBlock" class="member-name-link">useBlock</a></code></div>
+<div class="col-first even-row-color"><code>private final <a href="PlayerInteractEvent.LeftClickBlock.Action.html" title="enum class in net.minecraftforge.event.entity.player">PlayerInteractEvent.LeftClickBlock.Action</a></code></div>
+<div class="col-second even-row-color"><code><a href="#action" class="member-name-link">action</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private net.minecraftforge.eventbus.api.Event.Result</code></div>
-<div class="col-second odd-row-color"><code><a href="#useItem" class="member-name-link">useItem</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#useBlock" class="member-name-link">useBlock</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private net.minecraftforge.eventbus.api.Event.Result</code></div>
+<div class="col-second even-row-color"><code><a href="#useItem" class="member-name-link">useItem</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -155,7 +170,14 @@ loadScripts(document, 'script');</script>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.entity.player.Player,net.minecraft.core.BlockPos,net.minecraft.core.Direction)" class="member-name-link">LeftClickBlock</a><wbr>(<a href="../../../../minecraft/world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
  <a href="../../../../minecraft/core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../minecraft/core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;face)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.entity.player.Player,net.minecraft.core.BlockPos,net.minecraft.core.Direction,net.minecraftforge.event.entity.player.PlayerInteractEvent.LeftClickBlock.Action)" class="member-name-link">LeftClickBlock</a><wbr>(<a href="../../../../minecraft/world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
+ <a href="../../../../minecraft/core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../../minecraft/core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;face,
+ <a href="PlayerInteractEvent.LeftClickBlock.Action.html" title="enum class in net.minecraftforge.event.entity.player">PlayerInteractEvent.LeftClickBlock.Action</a>&nbsp;action)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -170,21 +192,24 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>net.minecraftforge.eventbus.api.Event.Result</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUseBlock()" class="member-name-link">getUseBlock</a>()</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@NotNull <a href="PlayerInteractEvent.LeftClickBlock.Action.html" title="enum class in net.minecraftforge.event.entity.player">PlayerInteractEvent.LeftClickBlock.Action</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAction()" class="member-name-link">getAction</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>net.minecraftforge.eventbus.api.Event.Result</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUseItem()" class="member-name-link">getUseItem</a>()</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUseBlock()" class="member-name-link">getUseBlock</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCanceled(boolean)" class="member-name-link">setCanceled</a><wbr>(boolean&nbsp;canceled)</code></div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>net.minecraftforge.eventbus.api.Event.Result</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUseItem()" class="member-name-link">getUseItem</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUseBlock(net.minecraftforge.eventbus.api.Event.Result)" class="member-name-link">setUseBlock</a><wbr>(net.minecraftforge.eventbus.api.Event.Result&nbsp;triggerBlock)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCanceled(boolean)" class="member-name-link">setCanceled</a><wbr>(boolean&nbsp;canceled)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUseItem(net.minecraftforge.eventbus.api.Event.Result)" class="member-name-link">setUseItem</a><wbr>(net.minecraftforge.eventbus.api.Event.Result&nbsp;triggerItem)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUseBlock(net.minecraftforge.eventbus.api.Event.Result)" class="member-name-link">setUseBlock</a><wbr>(net.minecraftforge.eventbus.api.Event.Result&nbsp;triggerBlock)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUseItem(net.minecraftforge.eventbus.api.Event.Result)" class="member-name-link">setUseItem</a><wbr>(net.minecraftforge.eventbus.api.Event.Result&nbsp;triggerItem)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
 </div>
@@ -223,6 +248,12 @@ loadScripts(document, 'script');</script>
 <div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">net.minecraftforge.eventbus.api.Event.Result</span>&nbsp;<span class="element-name">useItem</span></div>
 </section>
 </li>
+<li>
+<section class="detail" id="action">
+<h3>action</h3>
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="PlayerInteractEvent.LeftClickBlock.Action.html" title="enum class in net.minecraftforge.event.entity.player">PlayerInteractEvent.LeftClickBlock.Action</a></span>&nbsp;<span class="element-name">action</span></div>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -234,9 +265,22 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.entity.player.Player,net.minecraft.core.BlockPos,net.minecraft.core.Direction)">
 <h3>LeftClickBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LeftClickBlock</span><wbr><span class="parameters">(<a href="../../../../minecraft/world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#since()" title="class or interface in java.lang" class="external-link">since</a>="1.20.1",
+            <a href="https://docs.oracle.com/en/java/javase/17/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name">LeftClickBlock</span><wbr><span class="parameters">(<a href="../../../../minecraft/world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
  <a href="../../../../minecraft/core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
  <a href="../../../../minecraft/core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;face)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.world.entity.player.Player,net.minecraft.core.BlockPos,net.minecraft.core.Direction,net.minecraftforge.event.entity.player.PlayerInteractEvent.LeftClickBlock.Action)">
+<h3>LeftClickBlock</h3>
+<div class="member-signature"><span class="annotations">@Internal
+</span><span class="modifiers">public</span>&nbsp;<span class="element-name">LeftClickBlock</span><wbr><span class="parameters">(<a href="../../../../minecraft/world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
+ <a href="../../../../minecraft/core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../../minecraft/core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;face,
+ <a href="PlayerInteractEvent.LeftClickBlock.Action.html" title="enum class in net.minecraftforge.event.entity.player">PlayerInteractEvent.LeftClickBlock.Action</a>&nbsp;action)</span></div>
 </section>
 </li>
 </ul>
@@ -264,6 +308,17 @@ loadScripts(document, 'script');</script>
 <dl class="notes">
 <dt>Returns:</dt>
 <dd>If the block should be attempted to be mined with the current item. Changing this has no effect in creative mode</dd>
+</dl>
+</section>
+</li>
+<li>
+<section class="detail" id="getAction()">
+<h3>getAction</h3>
+<div class="member-signature"><span class="annotations">@NotNull
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">@NotNull <a href="PlayerInteractEvent.LeftClickBlock.Action.html" title="enum class in net.minecraftforge.event.entity.player">PlayerInteractEvent.LeftClickBlock.Action</a></span>&nbsp;<span class="element-name">getAction</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>The action type for this interaction. Will never be null.</dd>
 </dl>
 </section>
 </li>

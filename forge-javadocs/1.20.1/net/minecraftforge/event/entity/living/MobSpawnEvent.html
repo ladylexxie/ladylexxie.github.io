@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
 <head>
-<title>MobSpawnEvent (forge 1.20)</title>
+<title>MobSpawnEvent (forge 1.20.1)</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta name="description" content="declaration: package: net.minecraftforge.event.entity.living, class: MobSpawnEvent">
@@ -81,12 +81,20 @@ loadScripts(document, 'script');</script>
 <section class="class-description" id="class-description">
 <dl class="notes">
 <dt>Direct Known Subclasses:</dt>
-<dd><code><a href="MobSpawnEvent.AllowDespawn.html" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent.AllowDespawn</a></code>, <code><a href="MobSpawnEvent.FinalizeSpawn.html" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent.FinalizeSpawn</a></code></dd>
+<dd><code><a href="MobSpawnEvent.AllowDespawn.html" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent.AllowDespawn</a></code>, <code><a href="MobSpawnEvent.FinalizeSpawn.html" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent.FinalizeSpawn</a></code>, <code><a href="MobSpawnEvent.PositionCheck.html" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent.PositionCheck</a></code></dd>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">MobSpawnEvent</span>
 <span class="extends-implements">extends <a href="../EntityEvent.html" title="class in net.minecraftforge.event.entity">EntityEvent</a></span></div>
-<div class="block">The subclasses of this event are fired whenever a mob performs a spawning-related action.</div>
+<div class="block">This class holds all events relating to the entire flow of mob spawns.<br>
+ Currently, the events have the following flow for any given mob spawn:
+ <p>
+ Before the spawn is attempted <a href="MobSpawnEvent.SpawnPlacementCheck.html" title="class in net.minecraftforge.event.entity.living"><code>MobSpawnEvent.SpawnPlacementCheck</code></a> is fired, to determine if the spawn may occur based on mob-specific rules.<br>
+ After the entity is created <a href="MobSpawnEvent.PositionCheck.html" title="class in net.minecraftforge.event.entity.living"><code>MobSpawnEvent.PositionCheck</code></a> is fired, to determine if the selected position is legal for the entity.<br>
+ If both checks succeeded, <a href="MobSpawnEvent.FinalizeSpawn.html" title="class in net.minecraftforge.event.entity.living"><code>MobSpawnEvent.FinalizeSpawn</code></a> is fired, which performs initialization on the newly-spawned entity.<br>
+ Finally, if the spawn was not cancelled via <a href="MobSpawnEvent.FinalizeSpawn.html#setSpawnCancelled(boolean)"><code>MobSpawnEvent.FinalizeSpawn.setSpawnCancelled(boolean)</code></a>, then <code>EntityJoinLevelEvent</code> is fired as the entity enters the world.
+ <p>
+ <a href="MobSpawnEvent.AllowDespawn.html" title="class in net.minecraftforge.event.entity.living"><code>MobSpawnEvent.AllowDespawn</code></a> is not related to the mob spawn event flow, as it fires when a despawn is attempted.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -113,10 +121,29 @@ loadScripts(document, 'script');</script>
  This allows mods to control mob initialization.<br>
  In vanilla code, this event is injected by a transformer and not via patch, so calls cannot be traced via call hierarchy (it is not source-visible).</div>
 </div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="MobSpawnEvent.PositionCheck.html" class="type-name-link" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent.PositionCheck</a></code></div>
+<div class="col-last even-row-color">
+<div class="block">This event is fired when a mob checks for a valid spawn position, after <a href="../../../../minecraft/world/entity/SpawnPlacements.html#checkSpawnRules(net.minecraft.world.entity.EntityType,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.entity.MobSpawnType,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)"><code>SpawnPlacements.checkSpawnRules(net.minecraft.world.entity.EntityType&lt;T&gt;, net.minecraft.world.level.ServerLevelAccessor, net.minecraft.world.entity.MobSpawnType, net.minecraft.core.BlockPos, net.minecraft.util.RandomSource)</code></a> has been evaluated.<br>
+ Conditions validated here include the following:
+ 
+ Obstruction - mobs inside blocks or fluids.
+ Pathfinding - if the spawn block is valid for pathfinding.
+ Sea Level - Ocelots check if the position is above sea level.
+ Spawn Block - Ocelots check if the below block is grass or leaves.
+ </div>
+</div>
+<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="MobSpawnEvent.SpawnPlacementCheck.html" class="type-name-link" title="class in net.minecraftforge.event.entity.living">MobSpawnEvent.SpawnPlacementCheck</a></code></div>
+<div class="col-last odd-row-color">
+<div class="block">This event is fired <a href="../../../../minecraft/world/entity/SpawnPlacements.html#checkSpawnRules(net.minecraft.world.entity.EntityType,net.minecraft.world.level.ServerLevelAccessor,net.minecraft.world.entity.MobSpawnType,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)">when Spawn Placements (aka Spawn Rules) are checked</a>, before a mob attempts to spawn.<br>
+ Spawn Placement checks include light levels, slime chunks, grass blocks for animals, and others in the same vein.<br>
+ The purpose of this event is to permit runtime changes to any or all spawn placement logic without having to wrap the placement for each entity.</div>
+</div>
 </div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraftforge.event.entity.EntityEvent">Nested classes/interfaces inherited from class&nbsp;net.minecraftforge.event.entity.<a href="../EntityEvent.html" title="class in net.minecraftforge.event.entity">EntityEvent</a></h2>
-<code><a href="../EntityEvent.EnteringSection.html" title="class in net.minecraftforge.event.entity">EntityEvent.EnteringSection</a>, <a href="../EntityEvent.EntityConstructing.html" title="class in net.minecraftforge.event.entity">EntityEvent.EntityConstructing</a>, <a href="../EntityEvent.Size.html" title="class in net.minecraftforge.event.entity">EntityEvent.Size</a></code></div>
+<code><a href="../EntityEvent.EnteringSection.html" title="class in net.minecraftforge.event.entity">EntityEvent.EnteringSection</a>, <a href="../EntityEvent.EntityConstructing.html" title="class in net.minecraftforge.event.entity">EntityEvent.EntityConstructing</a>, <a href="../EntityEvent.EyeHeight.html" title="class in net.minecraftforge.event.entity">EntityEvent.EyeHeight</a>, <a href="../EntityEvent.Size.html" title="class in net.minecraftforge.event.entity">EntityEvent.Size</a></code></div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraftforge.eventbus.api.Event">Nested classes/interfaces inherited from class&nbsp;net.minecraftforge.eventbus.api.Event</h2>
 <code>net.minecraftforge.eventbus.api.Event.HasResult, net.minecraftforge.eventbus.api.Event.Result</code></div>
@@ -151,9 +178,11 @@ loadScripts(document, 'script');</script>
 <section class="constructor-summary" id="constructor-summary">
 <h2>Constructor Summary</h2>
 <div class="caption"><span>Constructors</span></div>
-<div class="summary-table two-column-summary">
-<div class="table-header col-first">Constructor</div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>protected </code></div>
 <div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.entity.Mob,net.minecraft.world.level.ServerLevelAccessor,double,double,double)" class="member-name-link">MobSpawnEvent</a><wbr>(<a href="../../../../minecraft/world/entity/Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob,
  <a href="../../../../minecraft/world/level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;level,
  double&nbsp;x,
@@ -245,7 +274,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.entity.Mob,net.minecraft.world.level.ServerLevelAccessor,double,double,double)">
 <h3>MobSpawnEvent</h3>
 <div class="member-signature"><span class="annotations">@Internal
-</span><span class="modifiers">public</span>&nbsp;<span class="element-name">MobSpawnEvent</span><wbr><span class="parameters">(<a href="../../../../minecraft/world/entity/Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob,
+</span><span class="modifiers">protected</span>&nbsp;<span class="element-name">MobSpawnEvent</span><wbr><span class="parameters">(<a href="../../../../minecraft/world/entity/Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob,
  <a href="../../../../minecraft/world/level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;level,
  double&nbsp;x,
  double&nbsp;y,
