@@ -8,5 +8,6 @@
 | 1.18.2    | [40.2.10](https://ladylexxie.github.io/forge-javadocs/1.18.2/) | [0.76.0](https://maven.fabricmc.net/docs/fabric-api-0.76.0+1.18.2/) |
 | 1.16.5    | [36.2.39](https://ladylexxie.github.io/forge-javadocs/1.16.5/) | [0.42.0](https://maven.fabricmc.net/docs/fabric-api-0.42.0+1.16/)   |
 
-| Updated 01/08/23 |
-| :--------------: |
+|   | Updated 01/08/23 |   |
+|:-:| :--------------: |:-:|
+|   |                  |   |
