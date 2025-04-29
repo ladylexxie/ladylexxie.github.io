@@ -168,11 +168,11 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.block.state.BlockBehaviour.Properties,net.minecraft.core.Direction,net.minecraft.world.phys.shapes.VoxelShape,boolean,double)" class="member-name-link">GrowingPlantHeadBlock</a><wbr>(<a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;p_53928_,
- <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_53929_,
- <a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;p_53930_,
- boolean&nbsp;p_53931_,
- double&nbsp;p_53932_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.block.state.BlockBehaviour.Properties,net.minecraft.core.Direction,net.minecraft.world.phys.shapes.VoxelShape,boolean,double)" class="member-name-link">GrowingPlantHeadBlock</a><wbr>(<a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;properties,
+ <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;growthDirection,
+ <a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;shape,
+ boolean&nbsp;scheduleFluidTicks,
+ double&nbsp;growPerTickProbability)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -189,71 +189,75 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#canGrowInto(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">canGrowInto</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_53968_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#canGrowInto(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">canGrowInto</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract com.mojang.serialization.MapCodec<wbr>&lt;? extends <a href="GrowingPlantHeadBlock.html" title="class in net.minecraft.world.level.block">GrowingPlantHeadBlock</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#codec()" class="member-name-link">codec</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder)" class="member-name-link">createBlockStateDefinition</a><wbr>(<a href="state/StateDefinition.Builder.html" title="class in net.minecraft.world.level.block.state">StateDefinition.Builder</a>&lt;<a href="Block.html" title="class in net.minecraft.world.level.block">Block</a>,<wbr><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;p_53958_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder)" class="member-name-link">createBlockStateDefinition</a><wbr>(<a href="state/StateDefinition.Builder.html" title="class in net.minecraft.world.level.block.state">StateDefinition.Builder</a>&lt;<a href="Block.html" title="class in net.minecraft.world.level.block">Block</a>,<wbr><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;builder)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBlocksToGrowWhenBonemealed(net.minecraft.util.RandomSource)" class="member-name-link">getBlocksToGrowWhenBonemealed</a><wbr>(<a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221341_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getBlocksToGrowWhenBonemealed(net.minecraft.util.RandomSource)" class="member-name-link">getBlocksToGrowWhenBonemealed</a><wbr>(<a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGrowIntoState(net.minecraft.world.level.block.state.BlockState,net.minecraft.util.RandomSource)" class="member-name-link">getGrowIntoState</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221347_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221348_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGrowIntoState(net.minecraft.world.level.block.state.BlockState,net.minecraft.util.RandomSource)" class="member-name-link">getGrowIntoState</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="GrowingPlantHeadBlock.html" title="class in net.minecraft.world.level.block">GrowingPlantHeadBlock</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHeadBlock()" class="member-name-link">getHeadBlock</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxAgeState(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">getMaxAgeState</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_187439_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxAgeState(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">getMaxAgeState</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStateForPlacement(net.minecraft.world.level.LevelAccessor)" class="member-name-link">getStateForPlacement</a><wbr>(<a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;p_53949_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStateForPlacement(net.minecraft.world.level.LevelAccessor)" class="member-name-link">getStateForPlacement</a><wbr>(<a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;level)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBonemealSuccess(net.minecraft.world.level.Level,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isBonemealSuccess</a><wbr>(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_221343_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221344_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_221345_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221346_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBonemealSuccess(net.minecraft.world.level.Level,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isBonemealSuccess</a><wbr>(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isMaxAge(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isMaxAge</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_187441_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isMaxAge(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isMaxAge</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isRandomlyTicking(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isRandomlyTicking</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_53961_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isRandomlyTicking(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isRandomlyTicking</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isValidBonemealTarget(net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isValidBonemealTarget</a><wbr>(<a href="../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;p_255931_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_256046_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_256550_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isValidBonemealTarget(net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">isValidBonemealTarget</a><wbr>(<a href="../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#performBonemeal(net.minecraft.server.level.ServerLevel,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">performBonemeal</a><wbr>(<a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_221337_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221338_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_221339_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221340_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#performBonemeal(net.minecraft.server.level.ServerLevel,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">performBonemeal</a><wbr>(<a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#randomTick(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)" class="member-name-link">randomTick</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221350_,
- <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_221351_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_221352_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221353_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#randomTick(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)" class="member-name-link">randomTick</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Performs a random tick on a block.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateBodyAfterConvertedFromHead(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">updateBodyAfterConvertedFromHead</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153329_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153330_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateBodyAfterConvertedFromHead(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">updateBodyAfterConvertedFromHead</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;head,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;body)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)" class="member-name-link">updateShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_53951_,
- <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_53952_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_53953_,
- <a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;p_53954_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_53955_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_53956_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)" class="member-name-link">updateShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;facing,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;facingState,
+ <a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;currentPos,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;facingPos)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Update the provided state given the provided neighbor direction and neighbor state, returning a new state.</div>
+</div>
 </div>
 </div>
 </div>
@@ -326,11 +330,11 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.block.state.BlockBehaviour.Properties,net.minecraft.core.Direction,net.minecraft.world.phys.shapes.VoxelShape,boolean,double)">
 <h3>GrowingPlantHeadBlock</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">GrowingPlantHeadBlock</span><wbr><span class="parameters">(<a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;p_53928_,
- <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_53929_,
- <a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;p_53930_,
- boolean&nbsp;p_53931_,
- double&nbsp;p_53932_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">GrowingPlantHeadBlock</span><wbr><span class="parameters">(<a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;properties,
+ <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;growthDirection,
+ <a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;shape,
+ boolean&nbsp;scheduleFluidTicks,
+ double&nbsp;growPerTickProbability)</span></div>
 </section>
 </li>
 </ul>
@@ -354,7 +358,7 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="getStateForPlacement(net.minecraft.world.level.LevelAccessor)">
 <h3>getStateForPlacement</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getStateForPlacement</span><wbr><span class="parameters">(<a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;p_53949_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getStateForPlacement</span><wbr><span class="parameters">(<a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;level)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="GrowingPlantBlock.html#getStateForPlacement(net.minecraft.world.level.LevelAccessor)">getStateForPlacement</a></code>&nbsp;in class&nbsp;<code><a href="GrowingPlantBlock.html" title="class in net.minecraft.world.level.block">GrowingPlantBlock</a></code></dd>
@@ -364,7 +368,7 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="isRandomlyTicking(net.minecraft.world.level.block.state.BlockState)">
 <h3>isRandomlyTicking</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isRandomlyTicking</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_53961_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isRandomlyTicking</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#isRandomlyTicking(net.minecraft.world.level.block.state.BlockState)">isRandomlyTicking</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -374,10 +378,11 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="randomTick(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)">
 <h3>randomTick</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">randomTick</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221350_,
- <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_221351_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_221352_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221353_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">randomTick</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
+<div class="block">Performs a random tick on a block.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#randomTick(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)">randomTick</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -387,38 +392,41 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="getGrowIntoState(net.minecraft.world.level.block.state.BlockState,net.minecraft.util.RandomSource)">
 <h3>getGrowIntoState</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getGrowIntoState</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221347_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221348_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getGrowIntoState</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMaxAgeState(net.minecraft.world.level.block.state.BlockState)">
 <h3>getMaxAgeState</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getMaxAgeState</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_187439_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getMaxAgeState</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isMaxAge(net.minecraft.world.level.block.state.BlockState)">
 <h3>isMaxAge</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isMaxAge</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_187441_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isMaxAge</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateBodyAfterConvertedFromHead(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState)">
 <h3>updateBodyAfterConvertedFromHead</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">updateBodyAfterConvertedFromHead</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153329_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153330_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">updateBodyAfterConvertedFromHead</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;head,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;body)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)">
 <h3>updateShape</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">updateShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_53951_,
- <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_53952_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_53953_,
- <a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;p_53954_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_53955_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_53956_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">updateShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;facing,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;facingState,
+ <a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;currentPos,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;facingPos)</span></div>
+<div class="block">Update the provided state given the provided neighbor direction and neighbor state, returning a new state.
+ For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately returns its solidified counterpart.
+ Note that this method should ideally consider only the specific direction passed in.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#updateShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)">updateShape</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -428,7 +436,7 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder)">
 <h3>createBlockStateDefinition</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createBlockStateDefinition</span><wbr><span class="parameters">(<a href="state/StateDefinition.Builder.html" title="class in net.minecraft.world.level.block.state">StateDefinition.Builder</a>&lt;<a href="Block.html" title="class in net.minecraft.world.level.block">Block</a>,<wbr><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;p_53958_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createBlockStateDefinition</span><wbr><span class="parameters">(<a href="state/StateDefinition.Builder.html" title="class in net.minecraft.world.level.block.state">StateDefinition.Builder</a>&lt;<a href="Block.html" title="class in net.minecraft.world.level.block">Block</a>,<wbr><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;builder)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Block.html#createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder)">createBlockStateDefinition</a></code>&nbsp;in class&nbsp;<code><a href="Block.html" title="class in net.minecraft.world.level.block">Block</a></code></dd>
@@ -438,9 +446,9 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="isValidBonemealTarget(net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)">
 <h3>isValidBonemealTarget</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isValidBonemealTarget</span><wbr><span class="parameters">(<a href="../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;p_255931_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_256046_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_256550_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isValidBonemealTarget</span><wbr><span class="parameters">(<a href="../LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="BonemealableBlock.html#isValidBonemealTarget(net.minecraft.world.level.LevelReader,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)">isValidBonemealTarget</a></code>&nbsp;in interface&nbsp;<code><a href="BonemealableBlock.html" title="interface in net.minecraft.world.level.block">BonemealableBlock</a></code></dd>
@@ -450,10 +458,10 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="isBonemealSuccess(net.minecraft.world.level.Level,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)">
 <h3>isBonemealSuccess</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBonemealSuccess</span><wbr><span class="parameters">(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_221343_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221344_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_221345_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221346_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isBonemealSuccess</span><wbr><span class="parameters">(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="BonemealableBlock.html#isBonemealSuccess(net.minecraft.world.level.Level,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)">isBonemealSuccess</a></code>&nbsp;in interface&nbsp;<code><a href="BonemealableBlock.html" title="interface in net.minecraft.world.level.block">BonemealableBlock</a></code></dd>
@@ -463,10 +471,10 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="performBonemeal(net.minecraft.server.level.ServerLevel,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)">
 <h3>performBonemeal</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">performBonemeal</span><wbr><span class="parameters">(<a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_221337_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221338_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_221339_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221340_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">performBonemeal</span><wbr><span class="parameters">(<a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="BonemealableBlock.html#performBonemeal(net.minecraft.server.level.ServerLevel,net.minecraft.util.RandomSource,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)">performBonemeal</a></code>&nbsp;in interface&nbsp;<code><a href="BonemealableBlock.html" title="interface in net.minecraft.world.level.block">BonemealableBlock</a></code></dd>
@@ -476,13 +484,13 @@ implements <a href="BonemealableBlock.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="getBlocksToGrowWhenBonemealed(net.minecraft.util.RandomSource)">
 <h3>getBlocksToGrowWhenBonemealed</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getBlocksToGrowWhenBonemealed</span><wbr><span class="parameters">(<a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_221341_)</span></div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getBlocksToGrowWhenBonemealed</span><wbr><span class="parameters">(<a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="canGrowInto(net.minecraft.world.level.block.state.BlockState)">
 <h3>canGrowInto</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canGrowInto</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_53968_)</span></div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canGrowInto</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 </section>
 </li>
 <li>

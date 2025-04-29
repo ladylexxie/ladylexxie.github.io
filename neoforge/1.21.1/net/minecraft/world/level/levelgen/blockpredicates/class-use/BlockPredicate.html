@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">FeatureUtils.</span><code><a href="../../../../../data/worldgen/features/FeatureUtils.html#simplePatchPredicate(java.util.List)" class="member-name-link">simplePatchPredicate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;p_195009_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">FeatureUtils.</span><code><a href="../../../../../data/worldgen/features/FeatureUtils.html#simplePatchPredicate(java.util.List)" class="member-name-link">simplePatchPredicate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;blocks)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -97,9 +97,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static &lt;FC extends <a href="../../feature/configurations/FeatureConfiguration.html" title="interface in net.minecraft.world.level.levelgen.feature.configurations">FeatureConfiguration</a>,<wbr>
 F extends <a href="../../feature/Feature.html" title="class in net.minecraft.world.level.levelgen.feature">Feature</a>&lt;FC&gt;&gt;<br><a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a><wbr>&lt;<a href="../../placement/PlacedFeature.html" title="class in net.minecraft.world.level.levelgen.placement">PlacedFeature</a>&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">PlacementUtils.</span><code><a href="../../../../../data/worldgen/placement/PlacementUtils.html#filtered(F,FC,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">filtered</a><wbr>(F&nbsp;p_206499_,
- FC&nbsp;p_206500_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_206501_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">PlacementUtils.</span><code><a href="../../../../../data/worldgen/placement/PlacementUtils.html#filtered(F,FC,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">filtered</a><wbr>(F&nbsp;feature,
+ FC&nbsp;config,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -263,8 +263,8 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private static &lt;P extends <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;<br><a href="../BlockPredicateType.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicateType</a><wbr>&lt;P&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicateType.</span><code><a href="../BlockPredicateType.html#register(java.lang.String,com.mojang.serialization.MapCodec)" class="member-name-link">register</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_190450_,
- com.mojang.serialization.MapCodec&lt;P&gt;&nbsp;p_338619_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicateType.</span><code><a href="../BlockPredicateType.html#register(java.lang.String,com.mojang.serialization.MapCodec)" class="member-name-link">register</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ com.mojang.serialization.MapCodec&lt;P&gt;&nbsp;codec)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">net.minecraft.world.level.levelgen.blockpredicates</a> that return <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></span></div>
@@ -273,100 +273,100 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(java.util.List)" class="member-name-link">allOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;p_190413_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(java.util.List)" class="member-name-link">allOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;predicates)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate...)" class="member-name-link">allOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>...&nbsp;p_190418_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate...)" class="member-name-link">allOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>...&nbsp;predicates)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">allOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190405_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190406_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">allOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate1,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate2)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#alwaysTrue()" class="member-name-link">alwaysTrue</a>()</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(java.util.List)" class="member-name-link">anyOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;p_190426_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(java.util.List)" class="member-name-link">anyOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;predicates)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate...)" class="member-name-link">anyOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>...&nbsp;p_190431_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate...)" class="member-name-link">anyOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>...&nbsp;predicates)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">anyOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190421_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190422_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">anyOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate1,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate2)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#hasSturdyFace(net.minecraft.core.Direction)" class="member-name-link">hasSturdyFace</a><wbr>(<a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_198914_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#hasSturdyFace(net.minecraft.core.Direction)" class="member-name-link">hasSturdyFace</a><wbr>(<a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#hasSturdyFace(net.minecraft.core.Vec3i,net.minecraft.core.Direction)" class="member-name-link">hasSturdyFace</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_198309_,
- <a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_198310_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#hasSturdyFace(net.minecraft.core.Vec3i,net.minecraft.core.Direction)" class="member-name-link">hasSturdyFace</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset,
+ <a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#insideWorld(net.minecraft.core.Vec3i)" class="member-name-link">insideWorld</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_190434_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#insideWorld(net.minecraft.core.Vec3i)" class="member-name-link">insideWorld</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesBlocks(java.util.List)" class="member-name-link">matchesBlocks</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;p_198312_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesBlocks(java.util.List)" class="member-name-link">matchesBlocks</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;blocks)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesBlocks(net.minecraft.core.Vec3i,java.util.List)" class="member-name-link">matchesBlocks</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_224772_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;p_224773_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesBlocks(net.minecraft.core.Vec3i,java.util.List)" class="member-name-link">matchesBlocks</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;blocks)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesBlocks(net.minecraft.core.Vec3i,net.minecraft.world.level.block.Block...)" class="member-name-link">matchesBlocks</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_224775_,
- <a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>...&nbsp;p_224776_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesBlocks(net.minecraft.core.Vec3i,net.minecraft.world.level.block.Block...)" class="member-name-link">matchesBlocks</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset,
+ <a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>...&nbsp;blocks)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesBlocks(net.minecraft.world.level.block.Block...)" class="member-name-link">matchesBlocks</a><wbr>(<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>...&nbsp;p_224781_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesBlocks(net.minecraft.world.level.block.Block...)" class="member-name-link">matchesBlocks</a><wbr>(<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>...&nbsp;blocks)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesFluids(net.minecraft.core.Vec3i,java.util.List)" class="member-name-link">matchesFluids</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_224785_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>&gt;&nbsp;p_224786_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesFluids(net.minecraft.core.Vec3i,java.util.List)" class="member-name-link">matchesFluids</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>&gt;&nbsp;fluids)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesFluids(net.minecraft.core.Vec3i,net.minecraft.world.level.material.Fluid...)" class="member-name-link">matchesFluids</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_224778_,
- <a href="../../../material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>...&nbsp;p_224779_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesFluids(net.minecraft.core.Vec3i,net.minecraft.world.level.material.Fluid...)" class="member-name-link">matchesFluids</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset,
+ <a href="../../../material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>...&nbsp;fluids)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesFluids(net.minecraft.world.level.material.Fluid...)" class="member-name-link">matchesFluids</a><wbr>(<a href="../../../material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>...&nbsp;p_224783_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesFluids(net.minecraft.world.level.material.Fluid...)" class="member-name-link">matchesFluids</a><wbr>(<a href="../../../material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>...&nbsp;fluids)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesTag(net.minecraft.core.Vec3i,net.minecraft.tags.TagKey)" class="member-name-link">matchesTag</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_224769_,
- <a href="../../../../../tags/TagKey.html" title="class in net.minecraft.tags">TagKey</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;p_224770_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesTag(net.minecraft.core.Vec3i,net.minecraft.tags.TagKey)" class="member-name-link">matchesTag</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset,
+ <a href="../../../../../tags/TagKey.html" title="class in net.minecraft.tags">TagKey</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;tag)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesTag(net.minecraft.tags.TagKey)" class="member-name-link">matchesTag</a><wbr>(<a href="../../../../../tags/TagKey.html" title="class in net.minecraft.tags">TagKey</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;p_204678_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#matchesTag(net.minecraft.tags.TagKey)" class="member-name-link">matchesTag</a><wbr>(<a href="../../../../../tags/TagKey.html" title="class in net.minecraft.tags">TagKey</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;tag)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#noFluid()" class="member-name-link">noFluid</a>()</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#noFluid(net.minecraft.core.Vec3i)" class="member-name-link">noFluid</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_249383_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#noFluid(net.minecraft.core.Vec3i)" class="member-name-link">noFluid</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#not(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">not</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190403_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#not(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">not</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#replaceable()" class="member-name-link">replaceable</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#replaceable(net.minecraft.core.Vec3i)" class="member-name-link">replaceable</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_190411_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#replaceable(net.minecraft.core.Vec3i)" class="member-name-link">replaceable</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#solid()" class="member-name-link">solid</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#solid(net.minecraft.core.Vec3i)" class="member-name-link">solid</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_190424_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#solid(net.minecraft.core.Vec3i)" class="member-name-link">solid</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#unobstructed()" class="member-name-link">unobstructed</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#unobstructed(net.minecraft.core.Vec3i)" class="member-name-link">unobstructed</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_345358_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#unobstructed(net.minecraft.core.Vec3i)" class="member-name-link">unobstructed</a><wbr>(<a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#wouldSurvive(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Vec3i)" class="member-name-link">wouldSurvive</a><wbr>(<a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_190400_,
- <a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_190401_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#wouldSurvive(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Vec3i)" class="member-name-link">wouldSurvive</a><wbr>(<a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../../../core/Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;offset)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">net.minecraft.world.level.levelgen.blockpredicates</a> with parameters of type <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></span></div>
@@ -375,21 +375,21 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate...)" class="member-name-link">allOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>...&nbsp;p_190418_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate...)" class="member-name-link">allOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>...&nbsp;predicates)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">allOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190405_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190406_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">allOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate1,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate2)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate...)" class="member-name-link">anyOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>...&nbsp;p_190431_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate...)" class="member-name-link">anyOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>...&nbsp;predicates)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">anyOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190421_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190422_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">anyOf</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate1,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate2)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#not(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">not</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190403_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#not(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">not</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Method parameters in <a href="../package-summary.html">net.minecraft.world.level.levelgen.blockpredicates</a> with type arguments of type <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></span></div>
@@ -398,13 +398,13 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(java.util.List)" class="member-name-link">allOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;p_190413_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#allOf(java.util.List)" class="member-name-link">allOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;predicates)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(java.util.List)" class="member-name-link">anyOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;p_190426_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockPredicate.</span><code><a href="../BlockPredicate.html#anyOf(java.util.List)" class="member-name-link">anyOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;predicates)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static &lt;T extends <a href="../CombiningPredicate.html" title="class in net.minecraft.world.level.levelgen.blockpredicates">CombiningPredicate</a>&gt;<br>com.mojang.serialization.MapCodec<wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CombiningPredicate.</span><code><a href="../CombiningPredicate.html#codec(java.util.function.Function)" class="member-name-link">codec</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;,<wbr>T&gt;&nbsp;p_190459_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CombiningPredicate.</span><code><a href="../CombiningPredicate.html#codec(java.util.function.Function)" class="member-name-link">codec</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;,<wbr>T&gt;&nbsp;factory)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../package-summary.html">net.minecraft.world.level.levelgen.blockpredicates</a> with parameters of type <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></span></div>
@@ -413,7 +413,7 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../NotPredicate.html#%3Cinit%3E(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">NotPredicate</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_190509_)</code></div>
+<div class="col-second even-row-color"><code><a href="../NotPredicate.html#%3Cinit%3E(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">NotPredicate</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructor parameters in <a href="../package-summary.html">net.minecraft.world.level.levelgen.blockpredicates</a> with type arguments of type <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></span></div>
@@ -422,13 +422,13 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../AllOfPredicate.html#%3Cinit%3E(java.util.List)" class="member-name-link">AllOfPredicate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;p_190373_)</code></div>
+<div class="col-second even-row-color"><code><a href="../AllOfPredicate.html#%3Cinit%3E(java.util.List)" class="member-name-link">AllOfPredicate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;predicates)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&nbsp;</code></div>
 <div class="col-second odd-row-color"><code><a href="../AnyOfPredicate.html#%3Cinit%3E(java.util.List)" class="member-name-link">AnyOfPredicate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;p_190384_)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-second even-row-color"><code><a href="../CombiningPredicate.html#%3Cinit%3E(java.util.List)" class="member-name-link">CombiningPredicate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;p_190455_)</code></div>
+<div class="col-second even-row-color"><code><a href="../CombiningPredicate.html#%3Cinit%3E(java.util.List)" class="member-name-link">CombiningPredicate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&gt;&nbsp;predicates)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -451,12 +451,12 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../../feature/HugeFungusConfiguration.html#%3Cinit%3E(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,boolean)" class="member-name-link">HugeFungusConfiguration</a><wbr>(<a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_285423_,
- <a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_285075_,
- <a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_285050_,
- <a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_285067_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_284983_,
- boolean&nbsp;p_285285_)</code></div>
+<div class="col-second even-row-color"><code><a href="../../feature/HugeFungusConfiguration.html#%3Cinit%3E(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,boolean)" class="member-name-link">HugeFungusConfiguration</a><wbr>(<a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;validBaseState,
+ <a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;stemState,
+ <a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;hatState,
+ <a href="../../../block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;decorState,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;replaceableBlocks,
+ boolean&nbsp;planted)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -521,19 +521,19 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="block">Creates an instance of a <code>DiskConfiguration</code> record class.</div>
 </div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../../feature/configurations/RootSystemConfiguration.html#%3Cinit%3E(net.minecraft.core.Holder,int,int,net.minecraft.tags.TagKey,net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider,int,int,int,int,net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider,int,int,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">RootSystemConfiguration</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../placement/PlacedFeature.html" title="class in net.minecraft.world.level.levelgen.placement">PlacedFeature</a>&gt;&nbsp;p_204824_,
- int&nbsp;p_204825_,
- int&nbsp;p_204826_,
- <a href="../../../../../tags/TagKey.html" title="class in net.minecraft.tags">TagKey</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;p_204827_,
- <a href="../../feature/stateproviders/BlockStateProvider.html" title="class in net.minecraft.world.level.levelgen.feature.stateproviders">BlockStateProvider</a>&nbsp;p_204828_,
- int&nbsp;p_204829_,
- int&nbsp;p_204830_,
- int&nbsp;p_204831_,
- int&nbsp;p_204832_,
- <a href="../../feature/stateproviders/BlockStateProvider.html" title="class in net.minecraft.world.level.levelgen.feature.stateproviders">BlockStateProvider</a>&nbsp;p_204833_,
- int&nbsp;p_204834_,
- int&nbsp;p_204835_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_204836_)</code></div>
+<div class="col-second even-row-color"><code><a href="../../feature/configurations/RootSystemConfiguration.html#%3Cinit%3E(net.minecraft.core.Holder,int,int,net.minecraft.tags.TagKey,net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider,int,int,int,int,net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider,int,int,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">RootSystemConfiguration</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../placement/PlacedFeature.html" title="class in net.minecraft.world.level.levelgen.placement">PlacedFeature</a>&gt;&nbsp;treeFeature,
+ int&nbsp;requiredVerticalSpaceForTree,
+ int&nbsp;rootRadius,
+ <a href="../../../../../tags/TagKey.html" title="class in net.minecraft.tags">TagKey</a>&lt;<a href="../../../block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&nbsp;rootReplaceable,
+ <a href="../../feature/stateproviders/BlockStateProvider.html" title="class in net.minecraft.world.level.levelgen.feature.stateproviders">BlockStateProvider</a>&nbsp;rootStateProvider,
+ int&nbsp;rootPlacementAttempts,
+ int&nbsp;rootColumnMaxHeight,
+ int&nbsp;hangingRootRadius,
+ int&nbsp;hangingRootsVerticalSpawn,
+ <a href="../../feature/stateproviders/BlockStateProvider.html" title="class in net.minecraft.world.level.levelgen.feature.stateproviders">BlockStateProvider</a>&nbsp;hangingRootStateProvider,
+ int&nbsp;hangingRootPlacementAttempts,
+ int&nbsp;allowedVerticalWaterForTree,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;allowedTreePosition)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -601,18 +601,18 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../../placement/BlockPredicateFilter.html" title="class in net.minecraft.world.level.levelgen.placement">BlockPredicateFilter</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockPredicateFilter.</span><code><a href="../../placement/BlockPredicateFilter.html#forPredicate(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">forPredicate</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_191577_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockPredicateFilter.</span><code><a href="../../placement/BlockPredicateFilter.html#forPredicate(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">forPredicate</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../../placement/EnvironmentScanPlacement.html" title="class in net.minecraft.world.level.levelgen.placement">EnvironmentScanPlacement</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EnvironmentScanPlacement.</span><code><a href="../../placement/EnvironmentScanPlacement.html#scanningFor(net.minecraft.core.Direction,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,int)" class="member-name-link">scanningFor</a><wbr>(<a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_191654_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_191655_,
- int&nbsp;p_191656_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EnvironmentScanPlacement.</span><code><a href="../../placement/EnvironmentScanPlacement.html#scanningFor(net.minecraft.core.Direction,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,int)" class="member-name-link">scanningFor</a><wbr>(<a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;directionOfSearch,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;targetCondition,
+ int&nbsp;maxSteps)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static <a href="../../placement/EnvironmentScanPlacement.html" title="class in net.minecraft.world.level.levelgen.placement">EnvironmentScanPlacement</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EnvironmentScanPlacement.</span><code><a href="../../placement/EnvironmentScanPlacement.html#scanningFor(net.minecraft.core.Direction,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,int)" class="member-name-link">scanningFor</a><wbr>(<a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_191658_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_191659_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_191660_,
- int&nbsp;p_191661_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EnvironmentScanPlacement.</span><code><a href="../../placement/EnvironmentScanPlacement.html#scanningFor(net.minecraft.core.Direction,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,int)" class="member-name-link">scanningFor</a><wbr>(<a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;directionOfSearch,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;targetCondition,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;allowedSearchCondition,
+ int&nbsp;maxSteps)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../../placement/package-summary.html">net.minecraft.world.level.levelgen.placement</a> with parameters of type <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a></span></div>
@@ -621,13 +621,13 @@ F extends <a href="../../feature/Feature.html" title="class in net.minecraft.wor
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-second even-row-color"><code><a href="../../placement/BlockPredicateFilter.html#%3Cinit%3E(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">BlockPredicateFilter</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_191573_)</code></div>
+<div class="col-second even-row-color"><code><a href="../../placement/BlockPredicateFilter.html#%3Cinit%3E(net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate)" class="member-name-link">BlockPredicateFilter</a><wbr>(<a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;predicate)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private </code></div>
-<div class="col-second odd-row-color"><code><a href="../../placement/EnvironmentScanPlacement.html#%3Cinit%3E(net.minecraft.core.Direction,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,int)" class="member-name-link">EnvironmentScanPlacement</a><wbr>(<a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_191645_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_191646_,
- <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;p_191647_,
- int&nbsp;p_191648_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../../placement/EnvironmentScanPlacement.html#%3Cinit%3E(net.minecraft.core.Direction,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,net.minecraft.world.level.levelgen.blockpredicates.BlockPredicate,int)" class="member-name-link">EnvironmentScanPlacement</a><wbr>(<a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;directionOfSearch,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;targetCondition,
+ <a href="../BlockPredicate.html" title="interface in net.minecraft.world.level.levelgen.blockpredicates">BlockPredicate</a>&nbsp;allowedSearchCondition,
+ int&nbsp;maxSteps)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>

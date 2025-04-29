@@ -161,16 +161,18 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns a hash code value for this object.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="MessageArgument.Message.html" title="class in net.minecraft.commands.arguments">MessageArgument.Message</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseText(com.mojang.brigadier.StringReader,boolean)" class="member-name-link">parseText</a><wbr>(com.mojang.brigadier.StringReader&nbsp;p_96847_,
- boolean&nbsp;p_96848_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseText(com.mojang.brigadier.StringReader,boolean)" class="member-name-link">parseText</a><wbr>(com.mojang.brigadier.StringReader&nbsp;reader,
+ boolean&nbsp;allowSelectors)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Parses a message.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="MessageArgument.Part.html" title="class in net.minecraft.commands.arguments">MessageArgument.Part</a>[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parts()" class="member-name-link">parts</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns the value of the <code>parts</code> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolveComponent(net.minecraft.commands.CommandSourceStack)" class="member-name-link">resolveComponent</a><wbr>(<a href="../CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_232197_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resolveComponent(net.minecraft.commands.CommandSourceStack)" class="member-name-link">resolveComponent</a><wbr>(<a href="../CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#text()" class="member-name-link">text</a>()</code></div>
@@ -178,9 +180,11 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns the value of the <code>text</code> record component.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toComponent(net.minecraft.commands.CommandSourceStack,boolean)" class="member-name-link">toComponent</a><wbr>(<a href="../CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_96850_,
- boolean&nbsp;p_96851_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toComponent(net.minecraft.commands.CommandSourceStack,boolean)" class="member-name-link">toComponent</a><wbr>(<a href="../CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ boolean&nbsp;allowSelectors)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Converts this message into a text component, replacing any selectors in the text with the actual evaluated selector.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
@@ -249,7 +253,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="resolveComponent(net.minecraft.commands.CommandSourceStack)">
 <h3>resolveComponent</h3>
-<div class="member-signature"><span class="return-type"><a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a></span>&nbsp;<span class="element-name">resolveComponent</span><wbr><span class="parameters">(<a href="../CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_232197_)</span>
+<div class="member-signature"><span class="return-type"><a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a></span>&nbsp;<span class="element-name">resolveComponent</span><wbr><span class="parameters">(<a href="../CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</span>
                     throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -260,9 +264,10 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="toComponent(net.minecraft.commands.CommandSourceStack,boolean)">
 <h3>toComponent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a></span>&nbsp;<span class="element-name">toComponent</span><wbr><span class="parameters">(<a href="../CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_96850_,
- boolean&nbsp;p_96851_)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a></span>&nbsp;<span class="element-name">toComponent</span><wbr><span class="parameters">(<a href="../CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ boolean&nbsp;allowSelectors)</span>
                       throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
+<div class="block">Converts this message into a text component, replacing any selectors in the text with the actual evaluated selector.</div>
 <dl class="notes">
 <dt>Throws:</dt>
 <dd><code>com.mojang.brigadier.exceptions.CommandSyntaxException</code></dd>
@@ -272,9 +277,10 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="parseText(com.mojang.brigadier.StringReader,boolean)">
 <h3>parseText</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="MessageArgument.Message.html" title="class in net.minecraft.commands.arguments">MessageArgument.Message</a></span>&nbsp;<span class="element-name">parseText</span><wbr><span class="parameters">(com.mojang.brigadier.StringReader&nbsp;p_96847_,
- boolean&nbsp;p_96848_)</span>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="MessageArgument.Message.html" title="class in net.minecraft.commands.arguments">MessageArgument.Message</a></span>&nbsp;<span class="element-name">parseText</span><wbr><span class="parameters">(com.mojang.brigadier.StringReader&nbsp;reader,
+ boolean&nbsp;allowSelectors)</span>
                                          throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
+<div class="block">Parses a message. The algorithm for this is simply to run through and look for selectors, ignoring any invalid selectors in the text (since players may type e.g. "[@]").</div>
 <dl class="notes">
 <dt>Throws:</dt>
 <dd><code>com.mojang.brigadier.exceptions.CommandSyntaxException</code></dd>

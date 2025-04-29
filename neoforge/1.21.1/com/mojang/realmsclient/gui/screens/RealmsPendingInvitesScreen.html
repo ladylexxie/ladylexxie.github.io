@@ -200,8 +200,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.gui.screens.Screen,net.minecraft.network.chat.Component)" class="member-name-link">RealmsPendingInvitesScreen</a><wbr>(<a href="../../../../../net/minecraft/client/gui/screens/Screen.html" title="class in net.minecraft.client.gui.screens">Screen</a>&nbsp;p_279260_,
- <a href="../../../../../net/minecraft/network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_279122_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.gui.screens.Screen,net.minecraft.network.chat.Component)" class="member-name-link">RealmsPendingInvitesScreen</a><wbr>(<a href="../../../../../net/minecraft/client/gui/screens/Screen.html" title="class in net.minecraft.client.gui.screens">Screen</a>&nbsp;lastScreen,
+ <a href="../../../../../net/minecraft/network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;title)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -218,8 +218,8 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleInvitation(int,boolean)" class="member-name-link">handleInvitation</a><wbr>(int&nbsp;p_294942_,
- boolean&nbsp;p_294885_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleInvitation(int,boolean)" class="member-name-link">handleInvitation</a><wbr>(int&nbsp;index,
+ boolean&nbsp;shouldAccept)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#init()" class="member-name-link">init</a>()</code></div>
@@ -228,15 +228,15 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onClose()" class="member-name-link">onClose</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#render(net.minecraft.client.gui.GuiGraphics,int,int,float)" class="member-name-link">render</a><wbr>(<a href="../../../../../net/minecraft/client/gui/GuiGraphics.html" title="class in net.minecraft.client.gui">GuiGraphics</a>&nbsp;p_282787_,
- int&nbsp;p_88900_,
- int&nbsp;p_88901_,
- float&nbsp;p_88902_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#render(net.minecraft.client.gui.GuiGraphics,int,int,float)" class="member-name-link">render</a><wbr>(<a href="../../../../../net/minecraft/client/gui/GuiGraphics.html" title="class in net.minecraft.client.gui">GuiGraphics</a>&nbsp;guiGraphics,
+ int&nbsp;mouseX,
+ int&nbsp;mouseY,
+ float&nbsp;partialTick)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
-<div class="block">Neo: mixins targeting this method won't fire for container screens as <a href="../../../../../net/minecraft/client/gui/screens/inventory/AbstractContainerScreen.html#render(net.minecraft.client.gui.GuiGraphics,int,int,float)"><code>AbstractContainerScreen.render(net.minecraft.client.gui.GuiGraphics, int, int, float)</code></a> replicates this method in place of a super call to insert an event</div>
+<div class="block">Renders the graphical user interface (GUI) element.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAcceptAndRejectButtonBeVisible(int)" class="member-name-link">shouldAcceptAndRejectButtonBeVisible</a><wbr>(int&nbsp;p_88963_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAcceptAndRejectButtonBeVisible(int)" class="member-name-link">shouldAcceptAndRejectButtonBeVisible</a><wbr>(int&nbsp;selectedInvite)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateButtonStates()" class="member-name-link">updateButtonStates</a>()</code></div>
@@ -378,8 +378,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.client.gui.screens.Screen,net.minecraft.network.chat.Component)">
 <h3>RealmsPendingInvitesScreen</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RealmsPendingInvitesScreen</span><wbr><span class="parameters">(<a href="../../../../../net/minecraft/client/gui/screens/Screen.html" title="class in net.minecraft.client.gui.screens">Screen</a>&nbsp;p_279260_,
- <a href="../../../../../net/minecraft/network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_279122_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RealmsPendingInvitesScreen</span><wbr><span class="parameters">(<a href="../../../../../net/minecraft/client/gui/screens/Screen.html" title="class in net.minecraft.client.gui.screens">Screen</a>&nbsp;lastScreen,
+ <a href="../../../../../net/minecraft/network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;title)</span></div>
 </section>
 </li>
 </ul>
@@ -413,24 +413,28 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="handleInvitation(int,boolean)">
 <h3>handleInvitation</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleInvitation</span><wbr><span class="parameters">(int&nbsp;p_294942_,
- boolean&nbsp;p_294885_)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleInvitation</span><wbr><span class="parameters">(int&nbsp;index,
+ boolean&nbsp;shouldAccept)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="render(net.minecraft.client.gui.GuiGraphics,int,int,float)">
 <h3>render</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">render</span><wbr><span class="parameters">(<a href="../../../../../net/minecraft/client/gui/GuiGraphics.html" title="class in net.minecraft.client.gui">GuiGraphics</a>&nbsp;p_282787_,
- int&nbsp;p_88900_,
- int&nbsp;p_88901_,
- float&nbsp;p_88902_)</span></div>
-<div class="block"><span class="description-from-type-label">Description copied from class:&nbsp;<code><a href="../../../../../net/minecraft/client/gui/screens/Screen.html#render(net.minecraft.client.gui.GuiGraphics,int,int,float)">Screen</a></code></span></div>
-<div class="block">Neo: mixins targeting this method won't fire for container screens as <a href="../../../../../net/minecraft/client/gui/screens/inventory/AbstractContainerScreen.html#render(net.minecraft.client.gui.GuiGraphics,int,int,float)"><code>AbstractContainerScreen.render(net.minecraft.client.gui.GuiGraphics, int, int, float)</code></a> replicates this method in place of a super call to insert an event</div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">render</span><wbr><span class="parameters">(<a href="../../../../../net/minecraft/client/gui/GuiGraphics.html" title="class in net.minecraft.client.gui">GuiGraphics</a>&nbsp;guiGraphics,
+ int&nbsp;mouseX,
+ int&nbsp;mouseY,
+ float&nbsp;partialTick)</span></div>
+<div class="block">Renders the graphical user interface (GUI) element.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../../../../net/minecraft/client/gui/components/Renderable.html#render(net.minecraft.client.gui.GuiGraphics,int,int,float)">render</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../../net/minecraft/client/gui/components/Renderable.html" title="interface in net.minecraft.client.gui.components">Renderable</a></code></dd>
 <dt>Overrides:</dt>
 <dd><code><a href="../../../../../net/minecraft/client/gui/screens/Screen.html#render(net.minecraft.client.gui.GuiGraphics,int,int,float)">render</a></code>&nbsp;in class&nbsp;<code><a href="../../../../../net/minecraft/client/gui/screens/Screen.html" title="class in net.minecraft.client.gui.screens">Screen</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>guiGraphics</code> - the GuiGraphics object used for rendering.</dd>
+<dd><code>mouseX</code> - the x-coordinate of the mouse cursor.</dd>
+<dd><code>mouseY</code> - the y-coordinate of the mouse cursor.</dd>
+<dd><code>partialTick</code> - the partial tick time.</dd>
 </dl>
 </section>
 </li>
@@ -443,7 +447,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="shouldAcceptAndRejectButtonBeVisible(int)">
 <h3>shouldAcceptAndRejectButtonBeVisible</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldAcceptAndRejectButtonBeVisible</span><wbr><span class="parameters">(int&nbsp;p_88963_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldAcceptAndRejectButtonBeVisible</span><wbr><span class="parameters">(int&nbsp;selectedInvite)</span></div>
 </section>
 </li>
 </ul>

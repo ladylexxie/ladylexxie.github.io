@@ -132,7 +132,7 @@ implements <a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in 
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Minecraft)" class="member-name-link">StructureRenderer</a><wbr>(<a href="../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;p_113680_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Minecraft)" class="member-name-link">StructureRenderer</a><wbr>(<a href="../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -149,19 +149,19 @@ implements <a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in 
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addBoundingBox(net.minecraft.world.level.levelgen.structure.BoundingBox,java.util.List,net.minecraft.resources.ResourceKey)" class="member-name-link">addBoundingBox</a><wbr>(<a href="../../../world/level/levelgen/structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;p_113683_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../network/protocol/common/custom/StructuresDebugPayload.PieceInfo.html" title="class in net.minecraft.network.protocol.common.custom">StructuresDebugPayload.PieceInfo</a>&gt;&nbsp;p_113684_,
- <a href="../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;p_295656_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addBoundingBox(net.minecraft.world.level.levelgen.structure.BoundingBox,java.util.List,net.minecraft.resources.ResourceKey)" class="member-name-link">addBoundingBox</a><wbr>(<a href="../../../world/level/levelgen/structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;boundingBox,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../network/protocol/common/custom/StructuresDebugPayload.PieceInfo.html" title="class in net.minecraft.network.protocol.common.custom">StructuresDebugPayload.PieceInfo</a>&gt;&nbsp;pieces,
+ <a href="../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;dimension)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#render(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,double,double,double)" class="member-name-link">render</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_113688_,
- <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_113689_,
- double&nbsp;p_113690_,
- double&nbsp;p_113691_,
- double&nbsp;p_113692_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#render(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,double,double,double)" class="member-name-link">render</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -223,7 +223,7 @@ implements <a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in 
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.client.Minecraft)">
 <h3>StructureRenderer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">StructureRenderer</span><wbr><span class="parameters">(<a href="../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;p_113680_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">StructureRenderer</span><wbr><span class="parameters">(<a href="../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft)</span></div>
 </section>
 </li>
 </ul>
@@ -237,11 +237,11 @@ implements <a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in 
 <li>
 <section class="detail" id="render(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,double,double,double)">
 <h3>render</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">render</span><wbr><span class="parameters">(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_113688_,
- <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_113689_,
- double&nbsp;p_113690_,
- double&nbsp;p_113691_,
- double&nbsp;p_113692_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">render</span><wbr><span class="parameters">(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="DebugRenderer.SimpleDebugRenderer.html#render(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,double,double,double)">render</a></code>&nbsp;in interface&nbsp;<code><a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in net.minecraft.client.renderer.debug">DebugRenderer.SimpleDebugRenderer</a></code></dd>
@@ -251,9 +251,9 @@ implements <a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in 
 <li>
 <section class="detail" id="addBoundingBox(net.minecraft.world.level.levelgen.structure.BoundingBox,java.util.List,net.minecraft.resources.ResourceKey)">
 <h3>addBoundingBox</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addBoundingBox</span><wbr><span class="parameters">(<a href="../../../world/level/levelgen/structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;p_113683_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../network/protocol/common/custom/StructuresDebugPayload.PieceInfo.html" title="class in net.minecraft.network.protocol.common.custom">StructuresDebugPayload.PieceInfo</a>&gt;&nbsp;p_113684_,
- <a href="../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;p_295656_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addBoundingBox</span><wbr><span class="parameters">(<a href="../../../world/level/levelgen/structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;boundingBox,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../network/protocol/common/custom/StructuresDebugPayload.PieceInfo.html" title="class in net.minecraft.network.protocol.common.custom">StructuresDebugPayload.PieceInfo</a>&gt;&nbsp;pieces,
+ <a href="../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;dimension)</span></div>
 </section>
 </li>
 <li>

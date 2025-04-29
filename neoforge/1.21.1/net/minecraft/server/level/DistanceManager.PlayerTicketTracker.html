@@ -142,7 +142,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int)" class="member-name-link">PlayerTicketTracker</a><wbr>(int&nbsp;p_140910_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int)" class="member-name-link">PlayerTicketTracker</a><wbr>(int&nbsp;maxDistance)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -159,24 +159,36 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#haveTicketFor(int)" class="member-name-link">haveTicketFor</a><wbr>(int&nbsp;p_140933_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#haveTicketFor(int)" class="member-name-link">haveTicketFor</a><wbr>(int&nbsp;level)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onLevelChange(long,int,boolean,boolean)" class="member-name-link">onLevelChange</a><wbr>(long&nbsp;p_140919_,
- int&nbsp;p_140920_,
- boolean&nbsp;p_140921_,
- boolean&nbsp;p_140922_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onLevelChange(long,int,boolean,boolean)" class="member-name-link">onLevelChange</a><wbr>(long&nbsp;chunkPos,
+ int&nbsp;level,
+ boolean&nbsp;hadTicket,
+ boolean&nbsp;hasTicket)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onLevelChange(long,int,int)" class="member-name-link">onLevelChange</a><wbr>(long&nbsp;p_140915_,
- int&nbsp;p_140916_,
- int&nbsp;p_140917_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onLevelChange(long,int,int)" class="member-name-link">onLevelChange</a><wbr>(long&nbsp;chunkPos,
+ int&nbsp;oldLevel,
+ int&nbsp;newLevel)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Called after 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>PlayerChunkTracker#setLevel(long, int)</code></pre>
+</details>
+ puts/removes chunk into/from 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>#chunksInRange</code></pre>
+</details>
+.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#runAllUpdates()" class="member-name-link">runAllUpdates</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateViewDistance(int)" class="member-name-link">updateViewDistance</a><wbr>(int&nbsp;p_140913_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateViewDistance(int)" class="member-name-link">updateViewDistance</a><wbr>(int&nbsp;viewDistance)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -233,7 +245,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(int)">
 <h3>PlayerTicketTracker</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">PlayerTicketTracker</span><wbr><span class="parameters">(int&nbsp;p_140910_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">PlayerTicketTracker</span><wbr><span class="parameters">(int&nbsp;maxDistance)</span></div>
 </section>
 </li>
 </ul>
@@ -247,28 +259,47 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="onLevelChange(long,int,int)">
 <h3>onLevelChange</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onLevelChange</span><wbr><span class="parameters">(long&nbsp;p_140915_,
- int&nbsp;p_140916_,
- int&nbsp;p_140917_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onLevelChange</span><wbr><span class="parameters">(long&nbsp;chunkPos,
+ int&nbsp;oldLevel,
+ int&nbsp;newLevel)</span></div>
+<div class="block">Called after 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>PlayerChunkTracker#setLevel(long, int)</code></pre>
+</details>
+ puts/removes chunk into/from 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>#chunksInRange</code></pre>
+</details>
+.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="DistanceManager.FixedPlayerDistanceChunkTracker.html#onLevelChange(long,int,int)">onLevelChange</a></code>&nbsp;in class&nbsp;<code><a href="DistanceManager.FixedPlayerDistanceChunkTracker.html" title="class in net.minecraft.server.level">DistanceManager.FixedPlayerDistanceChunkTracker</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>oldLevel</code> - Previous level of the chunk if it was smaller than 
+<details class="invalid-tag">
+<summary>invalid @link</summary>
+<pre>{@link #</pre>
+</details>
+
+                 range}, <code>range + 2</code> otherwise.</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="updateViewDistance(int)">
 <h3>updateViewDistance</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateViewDistance</span><wbr><span class="parameters">(int&nbsp;p_140913_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateViewDistance</span><wbr><span class="parameters">(int&nbsp;viewDistance)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="onLevelChange(long,int,boolean,boolean)">
 <h3>onLevelChange</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onLevelChange</span><wbr><span class="parameters">(long&nbsp;p_140919_,
- int&nbsp;p_140920_,
- boolean&nbsp;p_140921_,
- boolean&nbsp;p_140922_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onLevelChange</span><wbr><span class="parameters">(long&nbsp;chunkPos,
+ int&nbsp;level,
+ boolean&nbsp;hadTicket,
+ boolean&nbsp;hasTicket)</span></div>
 </section>
 </li>
 <li>
@@ -284,7 +315,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="haveTicketFor(int)">
 <h3>haveTicketFor</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">haveTicketFor</span><wbr><span class="parameters">(int&nbsp;p_140933_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">haveTicketFor</span><wbr><span class="parameters">(int&nbsp;level)</span></div>
 </section>
 </li>
 </ul>

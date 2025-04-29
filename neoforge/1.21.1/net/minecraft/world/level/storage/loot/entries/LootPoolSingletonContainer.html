@@ -102,6 +102,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">LootPoolSingletonContainer</span>
 <span class="extends-implements">extends <a href="LootPoolEntryContainer.html" title="class in net.minecraft.world.level.storage.loot.entries">LootPoolEntryContainer</a></span></div>
+<div class="block">A LootPoolEntryContainer that expands into a single LootPoolEntry.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -152,13 +153,19 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#functions" class="member-name-link">functions</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Functions that are ran on the entry.</div>
+</div>
 <div class="col-first odd-row-color"><code>protected final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#quality" class="member-name-link">quality</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">The quality of the entry.</div>
+</div>
 <div class="col-first even-row-color"><code>protected final int</code></div>
 <div class="col-second even-row-color"><code><a href="#weight" class="member-name-link">weight</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">The weight of the entry.</div>
+</div>
 </div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-net.minecraft.world.level.storage.loot.entries.LootPoolEntryContainer">Fields inherited from class&nbsp;net.minecraft.world.level.storage.loot.entries.<a href="LootPoolEntryContainer.html" title="class in net.minecraft.world.level.storage.loot.entries">LootPoolEntryContainer</a></h3>
@@ -178,10 +185,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,int,java.util.List,java.util.List)" class="member-name-link">LootPoolSingletonContainer</a><wbr>(int&nbsp;p_79681_,
- int&nbsp;p_79682_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_298562_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;&nbsp;p_299276_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,int,java.util.List,java.util.List)" class="member-name-link">LootPoolSingletonContainer</a><wbr>(int&nbsp;weight,
+ int&nbsp;quality,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;conditions,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;&nbsp;functions)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -198,21 +205,25 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#createItemStack(java.util.function.Consumer,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">createItemStack</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;p_79691_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_79692_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#createItemStack(java.util.function.Consumer,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">createItemStack</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;stackConsumer,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Generate the loot stacks of this entry.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#expand(net.minecraft.world.level.storage.loot.LootContext,java.util.function.Consumer)" class="member-name-link">expand</a><wbr>(<a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_79694_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="LootPoolEntry.html" title="interface in net.minecraft.world.level.storage.loot.entries">LootPoolEntry</a>&gt;&nbsp;p_79695_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#expand(net.minecraft.world.level.storage.loot.LootContext,java.util.function.Consumer)" class="member-name-link">expand</a><wbr>(<a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="LootPoolEntry.html" title="interface in net.minecraft.world.level.storage.loot.entries">LootPoolEntry</a>&gt;&nbsp;entryConsumer)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Expand this loot pool entry container by calling <code>entryConsumer</code> with any applicable entries</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootPoolSingletonContainer.Builder.html" title="class in net.minecraft.world.level.storage.loot.entries">LootPoolSingletonContainer.Builder</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#simpleBuilder(net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer.EntryConstructor)" class="member-name-link">simpleBuilder</a><wbr>(<a href="LootPoolSingletonContainer.EntryConstructor.html" title="interface in net.minecraft.world.level.storage.loot.entries">LootPoolSingletonContainer.EntryConstructor</a>&nbsp;p_79688_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#simpleBuilder(net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer.EntryConstructor)" class="member-name-link">simpleBuilder</a><wbr>(<a href="LootPoolSingletonContainer.EntryConstructor.html" title="interface in net.minecraft.world.level.storage.loot.entries">LootPoolSingletonContainer.EntryConstructor</a>&nbsp;entryBuilder)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static &lt;T extends <a href="LootPoolSingletonContainer.html" title="class in net.minecraft.world.level.storage.loot.entries">LootPoolSingletonContainer</a>&gt;<br>com.mojang.datafixers.Products.P4<wbr>&lt;com.mojang.serialization.codecs.RecordCodecBuilder.Mu&lt;T&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#singletonFields(com.mojang.serialization.codecs.RecordCodecBuilder.Instance)" class="member-name-link">singletonFields</a><wbr>(com.mojang.serialization.codecs.RecordCodecBuilder.Instance&lt;T&gt;&nbsp;p_299239_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#singletonFields(com.mojang.serialization.codecs.RecordCodecBuilder.Instance)" class="member-name-link">singletonFields</a><wbr>(com.mojang.serialization.codecs.RecordCodecBuilder.Instance&lt;T&gt;&nbsp;instance)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validate(net.minecraft.world.level.storage.loot.ValidationContext)" class="member-name-link">validate</a><wbr>(<a href="../ValidationContext.html" title="class in net.minecraft.world.level.storage.loot">ValidationContext</a>&nbsp;p_79686_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validate(net.minecraft.world.level.storage.loot.ValidationContext)" class="member-name-link">validate</a><wbr>(<a href="../ValidationContext.html" title="class in net.minecraft.world.level.storage.loot">ValidationContext</a>&nbsp;validationContext)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -269,18 +280,21 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="weight">
 <h3>weight</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">weight</span></div>
+<div class="block">The weight of the entry.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="quality">
 <h3>quality</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">quality</span></div>
+<div class="block">The quality of the entry.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="functions">
 <h3>functions</h3>
 <div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;</span>&nbsp;<span class="element-name">functions</span></div>
+<div class="block">Functions that are ran on the entry.</div>
 </section>
 </li>
 <li>
@@ -306,10 +320,10 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(int,int,java.util.List,java.util.List)">
 <h3>LootPoolSingletonContainer</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">LootPoolSingletonContainer</span><wbr><span class="parameters">(int&nbsp;p_79681_,
- int&nbsp;p_79682_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_298562_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;&nbsp;p_299276_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">LootPoolSingletonContainer</span><wbr><span class="parameters">(int&nbsp;weight,
+ int&nbsp;quality,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;conditions,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;&nbsp;functions)</span></div>
 </section>
 </li>
 </ul>
@@ -324,13 +338,13 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="singletonFields(com.mojang.serialization.codecs.RecordCodecBuilder.Instance)">
 <h3>singletonFields</h3>
 <div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="LootPoolSingletonContainer.html" title="class in net.minecraft.world.level.storage.loot.entries">LootPoolSingletonContainer</a>&gt;</span>
-<span class="return-type">com.mojang.datafixers.Products.P4&lt;com.mojang.serialization.codecs.RecordCodecBuilder.Mu&lt;T&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;&gt;</span>&nbsp;<span class="element-name">singletonFields</span><wbr><span class="parameters">(com.mojang.serialization.codecs.RecordCodecBuilder.Instance&lt;T&gt;&nbsp;p_299239_)</span></div>
+<span class="return-type">com.mojang.datafixers.Products.P4&lt;com.mojang.serialization.codecs.RecordCodecBuilder.Mu&lt;T&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;&gt;</span>&nbsp;<span class="element-name">singletonFields</span><wbr><span class="parameters">(com.mojang.serialization.codecs.RecordCodecBuilder.Instance&lt;T&gt;&nbsp;instance)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="validate(net.minecraft.world.level.storage.loot.ValidationContext)">
 <h3>validate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">validate</span><wbr><span class="parameters">(<a href="../ValidationContext.html" title="class in net.minecraft.world.level.storage.loot">ValidationContext</a>&nbsp;p_79686_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">validate</span><wbr><span class="parameters">(<a href="../ValidationContext.html" title="class in net.minecraft.world.level.storage.loot">ValidationContext</a>&nbsp;validationContext)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="LootPoolEntryContainer.html#validate(net.minecraft.world.level.storage.loot.ValidationContext)">validate</a></code>&nbsp;in class&nbsp;<code><a href="LootPoolEntryContainer.html" title="class in net.minecraft.world.level.storage.loot.entries">LootPoolEntryContainer</a></code></dd>
@@ -340,21 +354,28 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createItemStack(java.util.function.Consumer,net.minecraft.world.level.storage.loot.LootContext)">
 <h3>createItemStack</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createItemStack</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;p_79691_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_79692_)</span></div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createItemStack</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;stackConsumer,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext)</span></div>
+<div class="block">Generate the loot stacks of this entry.
+ Contrary to the method name this method does not always generate one stack, it can also generate zero or multiple stacks.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="expand(net.minecraft.world.level.storage.loot.LootContext,java.util.function.Consumer)">
 <h3>expand</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">expand</span><wbr><span class="parameters">(<a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_79694_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="LootPoolEntry.html" title="interface in net.minecraft.world.level.storage.loot.entries">LootPoolEntry</a>&gt;&nbsp;p_79695_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">expand</span><wbr><span class="parameters">(<a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="LootPoolEntry.html" title="interface in net.minecraft.world.level.storage.loot.entries">LootPoolEntry</a>&gt;&nbsp;entryConsumer)</span></div>
+<div class="block">Expand this loot pool entry container by calling <code>entryConsumer</code> with any applicable entries</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>whether this loot pool entry container successfully expanded or not</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="simpleBuilder(net.minecraft.world.level.storage.loot.entries.LootPoolSingletonContainer.EntryConstructor)">
 <h3>simpleBuilder</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootPoolSingletonContainer.Builder.html" title="class in net.minecraft.world.level.storage.loot.entries">LootPoolSingletonContainer.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">simpleBuilder</span><wbr><span class="parameters">(<a href="LootPoolSingletonContainer.EntryConstructor.html" title="interface in net.minecraft.world.level.storage.loot.entries">LootPoolSingletonContainer.EntryConstructor</a>&nbsp;p_79688_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootPoolSingletonContainer.Builder.html" title="class in net.minecraft.world.level.storage.loot.entries">LootPoolSingletonContainer.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">simpleBuilder</span><wbr><span class="parameters">(<a href="LootPoolSingletonContainer.EntryConstructor.html" title="interface in net.minecraft.world.level.storage.loot.entries">LootPoolSingletonContainer.EntryConstructor</a>&nbsp;entryBuilder)</span></div>
 </section>
 </li>
 </ul>

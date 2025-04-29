@@ -202,7 +202,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><span class="type-name-label">EntityDataSerializer.</span><code><a href="../EntityDataSerializer.html#forValueType(net.minecraft.network.codec.StreamCodec)" class="member-name-link">forValueType</a><wbr>(<a href="../../codec/StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super <a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>,<wbr>T&gt;&nbsp;p_319946_)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EntityDataSerializers.</span><code><a href="../EntityDataSerializers.html#getSerializer(int)" class="member-name-link">getSerializer</a><wbr>(int&nbsp;p_135049_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EntityDataSerializers.</span><code><a href="../EntityDataSerializers.html#getSerializer(int)" class="member-name-link">getSerializer</a><wbr>(int&nbsp;id)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code><a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a><wbr>&lt;<a href="../EntityDataAccessor.html" title="type parameter in EntityDataAccessor">T</a>&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">EntityDataAccessor.</span><code><a href="../EntityDataAccessor.html#serializer()" class="member-name-link">serializer</a>()</code></div>
@@ -221,22 +221,26 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static &lt;T&gt;&nbsp;<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#defineId(java.lang.Class,net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">defineId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="../SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&gt;&nbsp;p_135354_,
- <a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;p_135355_)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#defineId(java.lang.Class,net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">defineId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="../SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&gt;&nbsp;clazz,
+ <a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;serializer)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Register a piece of data to be kept in sync for an entity class.</div>
+</div>
 <div class="col-first odd-row-color"><code>static int</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EntityDataSerializers.</span><code><a href="../EntityDataSerializers.html#getSerializedId(net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">getSerializedId</a><wbr>(<a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;?&gt;&nbsp;p_135053_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EntityDataSerializers.</span><code><a href="../EntityDataSerializers.html#getSerializedId(net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">getSerializedId</a><wbr>(<a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;?&gt;&nbsp;serializer)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private static &lt;T&gt;&nbsp;<a href="../SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.DataValue.</span><code><a href="../SynchedEntityData.DataValue.html#read(net.minecraft.network.RegistryFriendlyByteBuf,int,net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">read</a><wbr>(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;p_320893_,
- int&nbsp;p_253899_,
- <a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;p_254222_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.DataValue.</span><code><a href="../SynchedEntityData.DataValue.html#read(net.minecraft.network.RegistryFriendlyByteBuf,int,net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">read</a><wbr>(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;buffer,
+ int&nbsp;id,
+ <a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;serializer)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EntityDataSerializers.</span><code><a href="../EntityDataSerializers.html#registerSerializer(net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">registerSerializer</a><wbr>(<a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;?&gt;&nbsp;p_135051_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EntityDataSerializers.</span><code><a href="../EntityDataSerializers.html#registerSerializer(net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">registerSerializer</a><wbr>(<a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;?&gt;&nbsp;serializer)</code></div>
 <div class="col-last odd-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span>
-<div class="deprecation-comment">NeoForge: Use <a href="../../../../neoforged/neoforge/registries/NeoForgeRegistries.html#ENTITY_DATA_SERIALIZERS"><code>NeoForgeRegistries.ENTITY_DATA_SERIALIZERS</code></a> instead</div>
+<div class="deprecation-comment">NeoForge: Use <span class="invalid-tag">invalid input: '{@link
+             net.neoforged.neoforge.registries.NeoForgeRegistries#'</span>
+             ENTITY_DATA_SERIALIZERS} instead</div>
 </div>
 </div>
 </div>

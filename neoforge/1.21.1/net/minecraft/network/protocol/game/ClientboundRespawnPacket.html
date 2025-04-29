@@ -184,15 +184,17 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <div class="block">Indicates whether some other object is "equal to" this one.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handle(net.minecraft.network.protocol.game.ClientGamePacketListener)" class="member-name-link">handle</a><wbr>(<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&nbsp;p_132951_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handle(net.minecraft.network.protocol.game.ClientGamePacketListener)" class="member-name-link">handle</a><wbr>(<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&nbsp;handler)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Passes this Packet on to the NetHandler for processing.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
 <div class="block">Returns a hash code value for this object.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldKeep(byte)" class="member-name-link">shouldKeep</a><wbr>(byte&nbsp;p_263573_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldKeep(byte)" class="member-name-link">shouldKeep</a><wbr>(byte&nbsp;data)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -203,7 +205,7 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type()" class="member-name-link">type</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.network.RegistryFriendlyByteBuf)" class="member-name-link">write</a><wbr>(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;p_321615_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.network.RegistryFriendlyByteBuf)" class="member-name-link">write</a><wbr>(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;buffer)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -325,7 +327,7 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <li>
 <section class="detail" id="write(net.minecraft.network.RegistryFriendlyByteBuf)">
 <h3>write</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;p_321615_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;buffer)</span></div>
 </section>
 </li>
 <li>
@@ -341,7 +343,8 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <li>
 <section class="detail" id="handle(net.minecraft.network.protocol.game.ClientGamePacketListener)">
 <h3>handle</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handle</span><wbr><span class="parameters">(<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&nbsp;p_132951_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handle</span><wbr><span class="parameters">(<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&nbsp;handler)</span></div>
+<div class="block">Passes this Packet on to the NetHandler for processing.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../Packet.html#handle(T)">handle</a></code>&nbsp;in interface&nbsp;<code><a href="../Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&gt;</code></dd>
@@ -351,7 +354,7 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <li>
 <section class="detail" id="shouldKeep(byte)">
 <h3>shouldKeep</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldKeep</span><wbr><span class="parameters">(byte&nbsp;p_263573_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldKeep</span><wbr><span class="parameters">(byte&nbsp;data)</span></div>
 </section>
 </li>
 <li>

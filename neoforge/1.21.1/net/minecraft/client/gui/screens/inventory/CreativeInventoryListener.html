@@ -123,7 +123,7 @@ implements <a href="../../../../world/inventory/ContainerListener.html" title="i
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Minecraft)" class="member-name-link">CreativeInventoryListener</a><wbr>(<a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;p_98492_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Minecraft)" class="member-name-link">CreativeInventoryListener</a><wbr>(<a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -140,15 +140,17 @@ implements <a href="../../../../world/inventory/ContainerListener.html" title="i
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dataChanged(net.minecraft.world.inventory.AbstractContainerMenu,int,int)" class="member-name-link">dataChanged</a><wbr>(<a href="../../../../world/inventory/AbstractContainerMenu.html" title="class in net.minecraft.world.inventory">AbstractContainerMenu</a>&nbsp;p_169732_,
- int&nbsp;p_169733_,
- int&nbsp;p_169734_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dataChanged(net.minecraft.world.inventory.AbstractContainerMenu,int,int)" class="member-name-link">dataChanged</a><wbr>(<a href="../../../../world/inventory/AbstractContainerMenu.html" title="class in net.minecraft.world.inventory">AbstractContainerMenu</a>&nbsp;containerMenu,
+ int&nbsp;dataSlotIndex,
+ int&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#slotChanged(net.minecraft.world.inventory.AbstractContainerMenu,int,net.minecraft.world.item.ItemStack)" class="member-name-link">slotChanged</a><wbr>(<a href="../../../../world/inventory/AbstractContainerMenu.html" title="class in net.minecraft.world.inventory">AbstractContainerMenu</a>&nbsp;p_98498_,
- int&nbsp;p_98499_,
- <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_98500_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#slotChanged(net.minecraft.world.inventory.AbstractContainerMenu,int,net.minecraft.world.item.ItemStack)" class="member-name-link">slotChanged</a><wbr>(<a href="../../../../world/inventory/AbstractContainerMenu.html" title="class in net.minecraft.world.inventory">AbstractContainerMenu</a>&nbsp;containerToSend,
+ int&nbsp;slotInd,
+ <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sends the contents of an inventory slot to the client-side Container.</div>
+</div>
 </div>
 </div>
 </div>
@@ -183,7 +185,7 @@ implements <a href="../../../../world/inventory/ContainerListener.html" title="i
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.client.Minecraft)">
 <h3>CreativeInventoryListener</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">CreativeInventoryListener</span><wbr><span class="parameters">(<a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;p_98492_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">CreativeInventoryListener</span><wbr><span class="parameters">(<a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft)</span></div>
 </section>
 </li>
 </ul>
@@ -197,9 +199,10 @@ implements <a href="../../../../world/inventory/ContainerListener.html" title="i
 <li>
 <section class="detail" id="slotChanged(net.minecraft.world.inventory.AbstractContainerMenu,int,net.minecraft.world.item.ItemStack)">
 <h3>slotChanged</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">slotChanged</span><wbr><span class="parameters">(<a href="../../../../world/inventory/AbstractContainerMenu.html" title="class in net.minecraft.world.inventory">AbstractContainerMenu</a>&nbsp;p_98498_,
- int&nbsp;p_98499_,
- <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_98500_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">slotChanged</span><wbr><span class="parameters">(<a href="../../../../world/inventory/AbstractContainerMenu.html" title="class in net.minecraft.world.inventory">AbstractContainerMenu</a>&nbsp;containerToSend,
+ int&nbsp;slotInd,
+ <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</span></div>
+<div class="block">Sends the contents of an inventory slot to the client-side Container. This doesn't have to match the actual contents of that slot.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../../../world/inventory/ContainerListener.html#slotChanged(net.minecraft.world.inventory.AbstractContainerMenu,int,net.minecraft.world.item.ItemStack)">slotChanged</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../world/inventory/ContainerListener.html" title="interface in net.minecraft.world.inventory">ContainerListener</a></code></dd>
@@ -209,9 +212,9 @@ implements <a href="../../../../world/inventory/ContainerListener.html" title="i
 <li>
 <section class="detail" id="dataChanged(net.minecraft.world.inventory.AbstractContainerMenu,int,int)">
 <h3>dataChanged</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dataChanged</span><wbr><span class="parameters">(<a href="../../../../world/inventory/AbstractContainerMenu.html" title="class in net.minecraft.world.inventory">AbstractContainerMenu</a>&nbsp;p_169732_,
- int&nbsp;p_169733_,
- int&nbsp;p_169734_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dataChanged</span><wbr><span class="parameters">(<a href="../../../../world/inventory/AbstractContainerMenu.html" title="class in net.minecraft.world.inventory">AbstractContainerMenu</a>&nbsp;containerMenu,
+ int&nbsp;dataSlotIndex,
+ int&nbsp;value)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../../../world/inventory/ContainerListener.html#dataChanged(net.minecraft.world.inventory.AbstractContainerMenu,int,int)">dataChanged</a></code>&nbsp;in interface&nbsp;<code><a href="../../../../world/inventory/ContainerListener.html" title="interface in net.minecraft.world.inventory">ContainerListener</a></code></dd>

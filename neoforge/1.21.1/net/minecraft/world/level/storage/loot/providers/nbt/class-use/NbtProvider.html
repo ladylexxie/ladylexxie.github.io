@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../../../functions/CopyCustomDataFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">CopyCustomDataFunction.Builder</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CopyCustomDataFunction.</span><code><a href="../../../functions/CopyCustomDataFunction.html#copyData(net.minecraft.world.level.storage.loot.providers.nbt.NbtProvider)" class="member-name-link">copyData</a><wbr>(<a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a>&nbsp;p_330285_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CopyCustomDataFunction.</span><code><a href="../../../functions/CopyCustomDataFunction.html#copyData(net.minecraft.world.level.storage.loot.providers.nbt.NbtProvider)" class="member-name-link">copyData</a><wbr>(<a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a>&nbsp;source)</code></div>
 <div class="col-last even-row-color">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
@@ -93,12 +93,12 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>(package private)</code></div>
-<div class="col-second even-row-color"><code><a href="../../../functions/CopyCustomDataFunction.Builder.html#%3Cinit%3E(net.minecraft.world.level.storage.loot.providers.nbt.NbtProvider)" class="member-name-link">Builder</a><wbr>(<a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a>&nbsp;p_331441_)</code></div>
+<div class="col-second even-row-color"><code><a href="../../../functions/CopyCustomDataFunction.Builder.html#%3Cinit%3E(net.minecraft.world.level.storage.loot.providers.nbt.NbtProvider)" class="member-name-link">Builder</a><wbr>(<a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a>&nbsp;source)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>(package private)</code></div>
-<div class="col-second odd-row-color"><code><a href="../../../functions/CopyCustomDataFunction.html#%3Cinit%3E(java.util.List,net.minecraft.world.level.storage.loot.providers.nbt.NbtProvider,java.util.List)" class="member-name-link">CopyCustomDataFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_330826_,
- <a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a>&nbsp;p_331866_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../functions/CopyCustomDataFunction.CopyOperation.html" title="class in net.minecraft.world.level.storage.loot.functions">CopyCustomDataFunction.CopyOperation</a>&gt;&nbsp;p_332090_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../../../functions/CopyCustomDataFunction.html#%3Cinit%3E(java.util.List,net.minecraft.world.level.storage.loot.providers.nbt.NbtProvider,java.util.List)" class="member-name-link">CopyCustomDataFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;conditions,
+ <a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a>&nbsp;source,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../functions/CopyCustomDataFunction.CopyOperation.html" title="class in net.minecraft.world.level.storage.loot.functions">CopyCustomDataFunction.CopyOperation</a>&gt;&nbsp;operations)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -113,10 +113,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>class&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="../ContextNbtProvider.html" class="type-name-link" title="class in net.minecraft.world.level.storage.loot.providers.nbt">ContextNbtProvider</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">A NbtProvider that provides either the <a href="../../../parameters/LootContextParams.html#BLOCK_ENTITY">block entity</a>'s NBT data or an entity's NBT data based on an <a href="../../../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot"><code>LootContext.EntityTarget</code></a>.</div>
+</div>
 <div class="col-first odd-row-color"><code>final record&nbsp;</code></div>
 <div class="col-second odd-row-color"><code><a href="../StorageNbtProvider.html" class="type-name-link" title="class in net.minecraft.world.level.storage.loot.providers.nbt">StorageNbtProvider</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">An NbtProvider that provides NBT data from a named 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>CommandStorage</code></pre>
+</details>
+.</div>
+</div>
 </div>
 <div class="caption"><span>Fields in <a href="../package-summary.html">net.minecraft.world.level.storage.loot.providers.nbt</a> with type parameters of type <a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a></span></div>
 <div class="summary-table three-column-summary">
@@ -141,7 +150,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ContextNbtProvider.</span><code><a href="../ContextNbtProvider.html#forContextEntity(net.minecraft.world.level.storage.loot.LootContext.EntityTarget)" class="member-name-link">forContextEntity</a><wbr>(<a href="../../../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;p_165571_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ContextNbtProvider.</span><code><a href="../ContextNbtProvider.html#forContextEntity(net.minecraft.world.level.storage.loot.LootContext.EntityTarget)" class="member-name-link">forContextEntity</a><wbr>(<a href="../../../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;entityTarget)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">net.minecraft.world.level.storage.loot.providers.nbt</a> that return types with arguments of type <a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a></span></div>
@@ -161,8 +170,8 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private static <a href="../LootNbtProviderType.html" title="class in net.minecraft.world.level.storage.loot.providers.nbt">LootNbtProviderType</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">NbtProviders.</span><code><a href="../NbtProviders.html#register(java.lang.String,com.mojang.serialization.MapCodec)" class="member-name-link">register</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_165629_,
- com.mojang.serialization.MapCodec&lt;? extends <a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a>&gt;&nbsp;p_338777_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">NbtProviders.</span><code><a href="../NbtProviders.html#register(java.lang.String,com.mojang.serialization.MapCodec)" class="member-name-link">register</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ com.mojang.serialization.MapCodec&lt;? extends <a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a>&gt;&nbsp;codec)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructor parameters in <a href="../package-summary.html">net.minecraft.world.level.storage.loot.providers.nbt</a> with type arguments of type <a href="../NbtProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.nbt">NbtProvider</a></span></div>

@@ -145,10 +145,14 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#profilesByName" class="member-name-link">profilesByName</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">A map between player usernames and</div>
+</div>
 <div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>,<wbr><a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</code></div>
 <div class="col-second odd-row-color"><code><a href="#profilesByUUID" class="member-name-link">profilesByUUID</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">A map between and</div>
+</div>
 <div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;&gt;&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#requests" class="member-name-link">requests</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -166,8 +170,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mojang.authlib.GameProfileRepository,java.io.File)" class="member-name-link">GameProfileCache</a><wbr>(com.mojang.authlib.GameProfileRepository&nbsp;p_10974_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/File.html" title="class or interface in java.io" class="external-link">File</a>&nbsp;p_10975_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mojang.authlib.GameProfileRepository,java.io.File)" class="member-name-link">GameProfileCache</a><wbr>(com.mojang.authlib.GameProfileRepository&nbsp;profileRepository,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/File.html" title="class or interface in java.io" class="external-link">File</a>&nbsp;file)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -184,8 +188,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#add(com.mojang.authlib.GameProfile)" class="member-name-link">add</a><wbr>(com.mojang.authlib.GameProfile&nbsp;p_10992_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#add(com.mojang.authlib.GameProfile)" class="member-name-link">add</a><wbr>(com.mojang.authlib.GameProfile&nbsp;gameProfile)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Add an entry to this cache</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearExecutor()" class="member-name-link">clearExecutor</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -193,52 +199,54 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createDateFormat()" class="member-name-link">createDateFormat</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;com.mojang.authlib.GameProfile&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createUnknownProfile(java.lang.String)" class="member-name-link">createUnknownProfile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_304714_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createUnknownProfile(java.lang.String)" class="member-name-link">createUnknownProfile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;profileName)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;com.mojang.authlib.GameProfile&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(java.lang.String)" class="member-name-link">get</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_10997_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(java.lang.String)" class="member-name-link">get</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get a player's GameProfile given their username.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;com.mojang.authlib.GameProfile&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(java.util.UUID)" class="member-name-link">get</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;p_11003_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(java.util.UUID)" class="member-name-link">get</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;uuid)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAsync(java.lang.String)" class="member-name-link">getAsync</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_143968_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAsync(java.lang.String)" class="member-name-link">getAsync</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private long</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNextOperation()" class="member-name-link">getNextOperation</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTopMRUProfiles(int)" class="member-name-link">getTopMRUProfiles</a><wbr>(int&nbsp;p_10978_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTopMRUProfiles(int)" class="member-name-link">getTopMRUProfiles</a><wbr>(int&nbsp;limit)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#load()" class="member-name-link">load</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;com.mojang.authlib.GameProfile&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#lookupGameProfile(com.mojang.authlib.GameProfileRepository,java.lang.String)" class="member-name-link">lookupGameProfile</a><wbr>(com.mojang.authlib.GameProfileRepository&nbsp;p_10994_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_10995_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#lookupGameProfile(com.mojang.authlib.GameProfileRepository,java.lang.String)" class="member-name-link">lookupGameProfile</a><wbr>(com.mojang.authlib.GameProfileRepository&nbsp;profileRepo,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readGameProfile(com.google.gson.JsonElement,java.text.DateFormat)" class="member-name-link">readGameProfile</a><wbr>(com.google.gson.JsonElement&nbsp;p_10989_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DateFormat.html" title="class or interface in java.text" class="external-link">DateFormat</a>&nbsp;p_10990_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readGameProfile(com.google.gson.JsonElement,java.text.DateFormat)" class="member-name-link">readGameProfile</a><wbr>(com.google.gson.JsonElement&nbsp;json,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DateFormat.html" title="class or interface in java.text" class="external-link">DateFormat</a>&nbsp;dateFormat)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#safeAdd(net.minecraft.server.players.GameProfileCache.GameProfileInfo)" class="member-name-link">safeAdd</a><wbr>(<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&nbsp;p_10980_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#safeAdd(net.minecraft.server.players.GameProfileCache.GameProfileInfo)" class="member-name-link">safeAdd</a><wbr>(<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&nbsp;profile)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#save()" class="member-name-link">save</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setExecutor(java.util.concurrent.Executor)" class="member-name-link">setExecutor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_143975_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setExecutor(java.util.concurrent.Executor)" class="member-name-link">setExecutor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;exectutor)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setUsesAuthentication(boolean)" class="member-name-link">setUsesAuthentication</a><wbr>(boolean&nbsp;p_11005_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setUsesAuthentication(boolean)" class="member-name-link">setUsesAuthentication</a><wbr>(boolean&nbsp;onlineMode)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#usesAuthentication()" class="member-name-link">usesAuthentication</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static com.google.gson.JsonElement</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeGameProfile(net.minecraft.server.players.GameProfileCache.GameProfileInfo,java.text.DateFormat)" class="member-name-link">writeGameProfile</a><wbr>(<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&nbsp;p_10982_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DateFormat.html" title="class or interface in java.text" class="external-link">DateFormat</a>&nbsp;p_10983_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeGameProfile(net.minecraft.server.players.GameProfileCache.GameProfileInfo,java.text.DateFormat)" class="member-name-link">writeGameProfile</a><wbr>(<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&nbsp;profileInfo,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DateFormat.html" title="class or interface in java.text" class="external-link">DateFormat</a>&nbsp;dateFormat)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -301,12 +309,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="profilesByName">
 <h3>profilesByName</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</span>&nbsp;<span class="element-name">profilesByName</span></div>
+<div class="block">A map between player usernames and</div>
 </section>
 </li>
 <li>
 <section class="detail" id="profilesByUUID">
 <h3>profilesByUUID</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>,<wbr><a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</span>&nbsp;<span class="element-name">profilesByUUID</span></div>
+<div class="block">A map between and</div>
 </section>
 </li>
 <li>
@@ -357,8 +367,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(com.mojang.authlib.GameProfileRepository,java.io.File)">
 <h3>GameProfileCache</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">GameProfileCache</span><wbr><span class="parameters">(com.mojang.authlib.GameProfileRepository&nbsp;p_10974_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/File.html" title="class or interface in java.io" class="external-link">File</a>&nbsp;p_10975_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">GameProfileCache</span><wbr><span class="parameters">(com.mojang.authlib.GameProfileRepository&nbsp;profileRepository,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/File.html" title="class or interface in java.io" class="external-link">File</a>&nbsp;file)</span></div>
 </section>
 </li>
 </ul>
@@ -372,26 +382,26 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="safeAdd(net.minecraft.server.players.GameProfileCache.GameProfileInfo)">
 <h3>safeAdd</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">safeAdd</span><wbr><span class="parameters">(<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&nbsp;p_10980_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">safeAdd</span><wbr><span class="parameters">(<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&nbsp;profile)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="lookupGameProfile(com.mojang.authlib.GameProfileRepository,java.lang.String)">
 <h3>lookupGameProfile</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;</span>&nbsp;<span class="element-name">lookupGameProfile</span><wbr><span class="parameters">(com.mojang.authlib.GameProfileRepository&nbsp;p_10994_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_10995_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;</span>&nbsp;<span class="element-name">lookupGameProfile</span><wbr><span class="parameters">(com.mojang.authlib.GameProfileRepository&nbsp;profileRepo,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createUnknownProfile(java.lang.String)">
 <h3>createUnknownProfile</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;</span>&nbsp;<span class="element-name">createUnknownProfile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_304714_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;</span>&nbsp;<span class="element-name">createUnknownProfile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;profileName)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setUsesAuthentication(boolean)">
 <h3>setUsesAuthentication</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setUsesAuthentication</span><wbr><span class="parameters">(boolean&nbsp;p_11005_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setUsesAuthentication</span><wbr><span class="parameters">(boolean&nbsp;onlineMode)</span></div>
 </section>
 </li>
 <li>
@@ -403,7 +413,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="add(com.mojang.authlib.GameProfile)">
 <h3>add</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">add</span><wbr><span class="parameters">(com.mojang.authlib.GameProfile&nbsp;p_10992_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">add</span><wbr><span class="parameters">(com.mojang.authlib.GameProfile&nbsp;gameProfile)</span></div>
+<div class="block">Add an entry to this cache</div>
 </section>
 </li>
 <li>
@@ -415,25 +426,30 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="get(java.lang.String)">
 <h3>get</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_10997_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<div class="block">Get a player's GameProfile given their username. Mojang's servers will be contacted if the entry is not cached locally.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getAsync(java.lang.String)">
 <h3>getAsync</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;&gt;</span>&nbsp;<span class="element-name">getAsync</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_143968_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;&gt;</span>&nbsp;<span class="element-name">getAsync</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="get(java.util.UUID)">
 <h3>get</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;p_11003_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;com.mojang.authlib.GameProfile&gt;</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;uuid)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>uuid</code> - Get a player's <code>GameProfile</code> given their UUID</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="setExecutor(java.util.concurrent.Executor)">
 <h3>setExecutor</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setExecutor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_143975_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setExecutor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;exectutor)</span></div>
 </section>
 </li>
 <li>
@@ -463,21 +479,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getTopMRUProfiles(int)">
 <h3>getTopMRUProfiles</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a>&lt;<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</span>&nbsp;<span class="element-name">getTopMRUProfiles</span><wbr><span class="parameters">(int&nbsp;p_10978_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a>&lt;<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</span>&nbsp;<span class="element-name">getTopMRUProfiles</span><wbr><span class="parameters">(int&nbsp;limit)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="writeGameProfile(net.minecraft.server.players.GameProfileCache.GameProfileInfo,java.text.DateFormat)">
 <h3>writeGameProfile</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">com.google.gson.JsonElement</span>&nbsp;<span class="element-name">writeGameProfile</span><wbr><span class="parameters">(<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&nbsp;p_10982_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DateFormat.html" title="class or interface in java.text" class="external-link">DateFormat</a>&nbsp;p_10983_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">com.google.gson.JsonElement</span>&nbsp;<span class="element-name">writeGameProfile</span><wbr><span class="parameters">(<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&nbsp;profileInfo,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DateFormat.html" title="class or interface in java.text" class="external-link">DateFormat</a>&nbsp;dateFormat)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="readGameProfile(com.google.gson.JsonElement,java.text.DateFormat)">
 <h3>readGameProfile</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</span>&nbsp;<span class="element-name">readGameProfile</span><wbr><span class="parameters">(com.google.gson.JsonElement&nbsp;p_10989_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DateFormat.html" title="class or interface in java.text" class="external-link">DateFormat</a>&nbsp;p_10990_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="GameProfileCache.GameProfileInfo.html" title="class in net.minecraft.server.players">GameProfileCache.GameProfileInfo</a>&gt;</span>&nbsp;<span class="element-name">readGameProfile</span><wbr><span class="parameters">(com.google.gson.JsonElement&nbsp;json,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/text/DateFormat.html" title="class or interface in java.text" class="external-link">DateFormat</a>&nbsp;dateFormat)</span></div>
 </section>
 </li>
 </ul>

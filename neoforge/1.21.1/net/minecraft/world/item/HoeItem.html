@@ -171,18 +171,20 @@ loadScripts(document, 'script');</script>
 <div class="block">Queries if an item can perform the given action.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a><wbr>&lt;<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#changeIntoState(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">changeIntoState</a><wbr>(<a href="../level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_150859_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#changeIntoState(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">changeIntoState</a><wbr>(<a href="../level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a><wbr>&lt;<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#changeIntoStateAndDropItem(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.ItemLike)" class="member-name-link">changeIntoStateAndDropItem</a><wbr>(<a href="../level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_150850_,
- <a href="../level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_150851_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#changeIntoStateAndDropItem(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.ItemLike)" class="member-name-link">changeIntoStateAndDropItem</a><wbr>(<a href="../level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;itemToDrop)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#onlyIfAirAbove(net.minecraft.world.item.context.UseOnContext)" class="member-name-link">onlyIfAirAbove</a><wbr>(<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&nbsp;p_150857_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#onlyIfAirAbove(net.minecraft.world.item.context.UseOnContext)" class="member-name-link">onlyIfAirAbove</a><wbr>(<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&nbsp;context)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../InteractionResult.html" title="enum class in net.minecraft.world">InteractionResult</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#useOn(net.minecraft.world.item.context.UseOnContext)" class="member-name-link">useOn</a><wbr>(<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&nbsp;p_41341_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#useOn(net.minecraft.world.item.context.UseOnContext)" class="member-name-link">useOn</a><wbr>(<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&nbsp;context)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Called when this item is used when targeting a Block</div>
+</div>
 </div>
 </div>
 </div>
@@ -253,7 +255,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="useOn(net.minecraft.world.item.context.UseOnContext)">
 <h3>useOn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../InteractionResult.html" title="enum class in net.minecraft.world">InteractionResult</a></span>&nbsp;<span class="element-name">useOn</span><wbr><span class="parameters">(<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&nbsp;p_41341_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../InteractionResult.html" title="enum class in net.minecraft.world">InteractionResult</a></span>&nbsp;<span class="element-name">useOn</span><wbr><span class="parameters">(<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&nbsp;context)</span></div>
+<div class="block">Called when this item is used when targeting a Block</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Item.html#useOn(net.minecraft.world.item.context.UseOnContext)">useOn</a></code>&nbsp;in class&nbsp;<code><a href="Item.html" title="class in net.minecraft.world.item">Item</a></code></dd>
@@ -263,20 +266,20 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="changeIntoState(net.minecraft.world.level.block.state.BlockState)">
 <h3>changeIntoState</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&gt;</span>&nbsp;<span class="element-name">changeIntoState</span><wbr><span class="parameters">(<a href="../level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_150859_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&gt;</span>&nbsp;<span class="element-name">changeIntoState</span><wbr><span class="parameters">(<a href="../level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="changeIntoStateAndDropItem(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.ItemLike)">
 <h3>changeIntoStateAndDropItem</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&gt;</span>&nbsp;<span class="element-name">changeIntoStateAndDropItem</span><wbr><span class="parameters">(<a href="../level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_150850_,
- <a href="../level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;p_150851_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&gt;</span>&nbsp;<span class="element-name">changeIntoStateAndDropItem</span><wbr><span class="parameters">(<a href="../level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../level/ItemLike.html" title="interface in net.minecraft.world.level">ItemLike</a>&nbsp;itemToDrop)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="onlyIfAirAbove(net.minecraft.world.item.context.UseOnContext)">
 <h3>onlyIfAirAbove</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">onlyIfAirAbove</span><wbr><span class="parameters">(<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&nbsp;p_150857_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">onlyIfAirAbove</span><wbr><span class="parameters">(<a href="context/UseOnContext.html" title="class in net.minecraft.world.item.context">UseOnContext</a>&nbsp;context)</span></div>
 </section>
 </li>
 <li>

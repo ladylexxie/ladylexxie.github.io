@@ -92,6 +92,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">LootContext</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">LootContext stores various context information for loot generation.
+ This includes the Level as well as any known <a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters"><code>LootContextParam</code></a>s.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -109,7 +111,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static enum&nbsp;</code></div>
 <div class="col-second odd-row-color"><code><a href="LootContext.EntityTarget.html" class="type-name-link" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Represents a type of entity that can be looked up in a <a href="LootContext.html" title="class in net.minecraft.world.level.storage.loot"><code>LootContext</code></a> using a <a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters"><code>LootContextParam</code></a>.</div>
+</div>
 <div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="LootContext.VisitedEntry.html" class="type-name-link" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;<a href="LootContext.VisitedEntry.html" title="type parameter in LootContext.VisitedEntry">T</a>&gt;</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -153,14 +157,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>(package private)</code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.storage.loot.LootParams,net.minecraft.util.RandomSource,net.minecraft.core.HolderGetter.Provider)" class="member-name-link">LootContext</a><wbr>(<a href="LootParams.html" title="class in net.minecraft.world.level.storage.loot">LootParams</a>&nbsp;p_287722_,
- <a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_287702_,
- <a href="../../../../core/HolderGetter.Provider.html" title="interface in net.minecraft.core">HolderGetter.Provider</a>&nbsp;p_335850_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.storage.loot.LootParams,net.minecraft.util.RandomSource,net.minecraft.core.HolderGetter.Provider)" class="member-name-link">LootContext</a><wbr>(<a href="LootParams.html" title="class in net.minecraft.world.level.storage.loot">LootParams</a>&nbsp;params,
+ <a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../../../core/HolderGetter.Provider.html" title="interface in net.minecraft.core">HolderGetter.Provider</a>&nbsp;lootDataResolver)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private </code></div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.storage.loot.LootParams,net.minecraft.util.RandomSource,net.minecraft.core.HolderGetter.Provider,net.minecraft.resources.ResourceLocation)" class="member-name-link">LootContext</a><wbr>(<a href="LootParams.html" title="class in net.minecraft.world.level.storage.loot">LootParams</a>&nbsp;p_287722_,
- <a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_287702_,
- <a href="../../../../core/HolderGetter.Provider.html" title="interface in net.minecraft.core">HolderGetter.Provider</a>&nbsp;p_287619_,
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.storage.loot.LootParams,net.minecraft.util.RandomSource,net.minecraft.core.HolderGetter.Provider,net.minecraft.resources.ResourceLocation)" class="member-name-link">LootContext</a><wbr>(<a href="LootParams.html" title="class in net.minecraft.world.level.storage.loot">LootParams</a>&nbsp;params,
+ <a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../../../core/HolderGetter.Provider.html" title="interface in net.minecraft.core">HolderGetter.Provider</a>&nbsp;lootDataResolver,
  <a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;queriedLootTableId)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
@@ -178,17 +182,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addDynamicDrops(net.minecraft.resources.ResourceLocation,java.util.function.Consumer)" class="member-name-link">addDynamicDrops</a><wbr>(<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_78943_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;p_78944_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addDynamicDrops(net.minecraft.resources.ResourceLocation,java.util.function.Consumer)" class="member-name-link">addDynamicDrops</a><wbr>(<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;consumer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Add the dynamic drops for the given dynamic drops name to the given consumer.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a><wbr>&lt;<a href="functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createVisitedEntry(net.minecraft.world.level.storage.loot.functions.LootItemFunction)" class="member-name-link">createVisitedEntry</a><wbr>(<a href="functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&nbsp;p_279163_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createVisitedEntry(net.minecraft.world.level.storage.loot.functions.LootItemFunction)" class="member-name-link">createVisitedEntry</a><wbr>(<a href="functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&nbsp;modifier)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a><wbr>&lt;<a href="LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createVisitedEntry(net.minecraft.world.level.storage.loot.LootTable)" class="member-name-link">createVisitedEntry</a><wbr>(<a href="LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&nbsp;p_279327_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createVisitedEntry(net.minecraft.world.level.storage.loot.LootTable)" class="member-name-link">createVisitedEntry</a><wbr>(<a href="LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&nbsp;lootTable)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a><wbr>&lt;<a href="predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createVisitedEntry(net.minecraft.world.level.storage.loot.predicates.LootItemCondition)" class="member-name-link">createVisitedEntry</a><wbr>(<a href="predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&nbsp;p_279250_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createVisitedEntry(net.minecraft.world.level.storage.loot.predicates.LootItemCondition)" class="member-name-link">createVisitedEntry</a><wbr>(<a href="predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&nbsp;predicate)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLevel()" class="member-name-link">getLevel</a>()</code></div>
@@ -197,11 +203,15 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLuck()" class="member-name-link">getLuck</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;T</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParam(net.minecraft.world.level.storage.loot.parameters.LootContextParam)" class="member-name-link">getParam</a><wbr>(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;T&gt;&nbsp;p_165125_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParam(net.minecraft.world.level.storage.loot.parameters.LootContextParam)" class="member-name-link">getParam</a><wbr>(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;T&gt;&nbsp;param)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the value of the given parameter.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;T</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParamOrNull(net.minecraft.world.level.storage.loot.parameters.LootContextParam)" class="member-name-link">getParamOrNull</a><wbr>(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;T&gt;&nbsp;p_78954_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParamOrNull(net.minecraft.world.level.storage.loot.parameters.LootContextParam)" class="member-name-link">getParamOrNull</a><wbr>(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;T&gt;&nbsp;parameter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the value of the given parameter if it is present in this context, null otherwise.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getQueriedLootTableId()" class="member-name-link">getQueriedLootTableId</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -212,16 +222,18 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResolver()" class="member-name-link">getResolver</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasParam(net.minecraft.world.level.storage.loot.parameters.LootContextParam)" class="member-name-link">hasParam</a><wbr>(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;?&gt;&nbsp;p_78937_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasParam(net.minecraft.world.level.storage.loot.parameters.LootContextParam)" class="member-name-link">hasParam</a><wbr>(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;?&gt;&nbsp;parameter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Check whether the given parameter is present in this context.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasVisitedElement(net.minecraft.world.level.storage.loot.LootContext.VisitedEntry)" class="member-name-link">hasVisitedElement</a><wbr>(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;p_279182_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasVisitedElement(net.minecraft.world.level.storage.loot.LootContext.VisitedEntry)" class="member-name-link">hasVisitedElement</a><wbr>(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;element)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#popVisitedElement(net.minecraft.world.level.storage.loot.LootContext.VisitedEntry)" class="member-name-link">popVisitedElement</a><wbr>(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;p_279198_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#popVisitedElement(net.minecraft.world.level.storage.loot.LootContext.VisitedEntry)" class="member-name-link">popVisitedElement</a><wbr>(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;element)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pushVisitedElement(net.minecraft.world.level.storage.loot.LootContext.VisitedEntry)" class="member-name-link">pushVisitedElement</a><wbr>(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;p_279152_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pushVisitedElement(net.minecraft.world.level.storage.loot.LootContext.VisitedEntry)" class="member-name-link">pushVisitedElement</a><wbr>(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;element)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setQueriedLootTableId(net.minecraft.resources.ResourceLocation)" class="member-name-link">setQueriedLootTableId</a><wbr>(@Nullable <a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;queriedLootTableId)</code></div>
@@ -285,17 +297,17 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.storage.loot.LootParams,net.minecraft.util.RandomSource,net.minecraft.core.HolderGetter.Provider)">
 <h3>LootContext</h3>
-<div class="member-signature"><span class="element-name">LootContext</span><wbr><span class="parameters">(<a href="LootParams.html" title="class in net.minecraft.world.level.storage.loot">LootParams</a>&nbsp;p_287722_,
- <a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_287702_,
- <a href="../../../../core/HolderGetter.Provider.html" title="interface in net.minecraft.core">HolderGetter.Provider</a>&nbsp;p_335850_)</span></div>
+<div class="member-signature"><span class="element-name">LootContext</span><wbr><span class="parameters">(<a href="LootParams.html" title="class in net.minecraft.world.level.storage.loot">LootParams</a>&nbsp;params,
+ <a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../../../core/HolderGetter.Provider.html" title="interface in net.minecraft.core">HolderGetter.Provider</a>&nbsp;lootDataResolver)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.storage.loot.LootParams,net.minecraft.util.RandomSource,net.minecraft.core.HolderGetter.Provider,net.minecraft.resources.ResourceLocation)">
 <h3>LootContext</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">LootContext</span><wbr><span class="parameters">(<a href="LootParams.html" title="class in net.minecraft.world.level.storage.loot">LootParams</a>&nbsp;p_287722_,
- <a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_287702_,
- <a href="../../../../core/HolderGetter.Provider.html" title="interface in net.minecraft.core">HolderGetter.Provider</a>&nbsp;p_287619_,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">LootContext</span><wbr><span class="parameters">(<a href="LootParams.html" title="class in net.minecraft.world.level.storage.loot">LootParams</a>&nbsp;params,
+ <a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../../../core/HolderGetter.Provider.html" title="interface in net.minecraft.core">HolderGetter.Provider</a>&nbsp;lootDataResolver,
  <a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;queriedLootTableId)</span></div>
 </section>
 </li>
@@ -310,45 +322,63 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="hasParam(net.minecraft.world.level.storage.loot.parameters.LootContextParam)">
 <h3>hasParam</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasParam</span><wbr><span class="parameters">(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;?&gt;&nbsp;p_78937_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasParam</span><wbr><span class="parameters">(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;?&gt;&nbsp;parameter)</span></div>
+<div class="block">Check whether the given parameter is present in this context.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getParam(net.minecraft.world.level.storage.loot.parameters.LootContextParam)">
 <h3>getParam</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">getParam</span><wbr><span class="parameters">(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;T&gt;&nbsp;p_165125_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">getParam</span><wbr><span class="parameters">(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;T&gt;&nbsp;param)</span></div>
+<div class="block">Get the value of the given parameter.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="addDynamicDrops(net.minecraft.resources.ResourceLocation,java.util.function.Consumer)">
 <h3>addDynamicDrops</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addDynamicDrops</span><wbr><span class="parameters">(<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_78943_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;p_78944_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addDynamicDrops</span><wbr><span class="parameters">(<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;consumer)</span></div>
+<div class="block">Add the dynamic drops for the given dynamic drops name to the given consumer.
+ If no dynamic drops provider for the given name has been registered to this LootContext, nothing is generated.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li>
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>DynamicDrops</code></pre>
+</details>
+</li>
+</ul>
+</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getParamOrNull(net.minecraft.world.level.storage.loot.parameters.LootContextParam)">
 <h3>getParamOrNull</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">getParamOrNull</span><wbr><span class="parameters">(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;T&gt;&nbsp;p_78954_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">getParamOrNull</span><wbr><span class="parameters">(<a href="parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;T&gt;&nbsp;parameter)</span></div>
+<div class="block">Get the value of the given parameter if it is present in this context, null otherwise.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="hasVisitedElement(net.minecraft.world.level.storage.loot.LootContext.VisitedEntry)">
 <h3>hasVisitedElement</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasVisitedElement</span><wbr><span class="parameters">(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;p_279182_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasVisitedElement</span><wbr><span class="parameters">(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;element)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="pushVisitedElement(net.minecraft.world.level.storage.loot.LootContext.VisitedEntry)">
 <h3>pushVisitedElement</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">pushVisitedElement</span><wbr><span class="parameters">(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;p_279152_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">pushVisitedElement</span><wbr><span class="parameters">(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;element)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="popVisitedElement(net.minecraft.world.level.storage.loot.LootContext.VisitedEntry)">
 <h3>popVisitedElement</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">popVisitedElement</span><wbr><span class="parameters">(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;p_279198_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">popVisitedElement</span><wbr><span class="parameters">(<a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;?&gt;&nbsp;element)</span></div>
 </section>
 </li>
 <li>
@@ -378,19 +408,19 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="createVisitedEntry(net.minecraft.world.level.storage.loot.LootTable)">
 <h3>createVisitedEntry</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;<a href="LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&gt;</span>&nbsp;<span class="element-name">createVisitedEntry</span><wbr><span class="parameters">(<a href="LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&nbsp;p_279327_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;<a href="LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&gt;</span>&nbsp;<span class="element-name">createVisitedEntry</span><wbr><span class="parameters">(<a href="LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&nbsp;lootTable)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createVisitedEntry(net.minecraft.world.level.storage.loot.predicates.LootItemCondition)">
 <h3>createVisitedEntry</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;<a href="predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;</span>&nbsp;<span class="element-name">createVisitedEntry</span><wbr><span class="parameters">(<a href="predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&nbsp;p_279250_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;<a href="predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;</span>&nbsp;<span class="element-name">createVisitedEntry</span><wbr><span class="parameters">(<a href="predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&nbsp;predicate)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createVisitedEntry(net.minecraft.world.level.storage.loot.functions.LootItemFunction)">
 <h3>createVisitedEntry</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;<a href="functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;</span>&nbsp;<span class="element-name">createVisitedEntry</span><wbr><span class="parameters">(<a href="functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&nbsp;p_279163_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootContext.VisitedEntry.html" title="class in net.minecraft.world.level.storage.loot">LootContext.VisitedEntry</a>&lt;<a href="functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&gt;</span>&nbsp;<span class="element-name">createVisitedEntry</span><wbr><span class="parameters">(<a href="functions/LootItemFunction.html" title="interface in net.minecraft.world.level.storage.loot.functions">LootItemFunction</a>&nbsp;modifier)</span></div>
 </section>
 </li>
 <li>

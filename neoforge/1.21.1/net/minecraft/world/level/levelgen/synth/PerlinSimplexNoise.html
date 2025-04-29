@@ -92,6 +92,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">PerlinSimplexNoise</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">This class generates multiple octaves of simplex noise. Each individual octave is an instance of <a href="SimplexNoise.html" title="class in net.minecraft.world.level.levelgen.synth"><code>SimplexNoise</code></a>.
+ Mojang uses the term 'Perlin' to describe octaves or fBm (Fractal Brownian Motion) noise and this class does not actually generate Perlin noise.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -126,12 +128,12 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.RandomSource,it.unimi.dsi.fastutil.ints.IntSortedSet)" class="member-name-link">PerlinSimplexNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230543_,
- it.unimi.dsi.fastutil.ints.IntSortedSet&nbsp;p_230544_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.RandomSource,it.unimi.dsi.fastutil.ints.IntSortedSet)" class="member-name-link">PerlinSimplexNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ it.unimi.dsi.fastutil.ints.IntSortedSet&nbsp;octaves)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&nbsp;</code></div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.RandomSource,java.util.List)" class="member-name-link">PerlinSimplexNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230546_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;p_230547_)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.RandomSource,java.util.List)" class="member-name-link">PerlinSimplexNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;octaves)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -148,9 +150,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue(double,double,boolean)" class="member-name-link">getValue</a><wbr>(double&nbsp;p_75450_,
- double&nbsp;p_75451_,
- boolean&nbsp;p_75452_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue(double,double,boolean)" class="member-name-link">getValue</a><wbr>(double&nbsp;x,
+ double&nbsp;y,
+ boolean&nbsp;useNoiseOffsets)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -198,15 +200,15 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.util.RandomSource,java.util.List)">
 <h3>PerlinSimplexNoise</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PerlinSimplexNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230546_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;p_230547_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PerlinSimplexNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;octaves)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.util.RandomSource,it.unimi.dsi.fastutil.ints.IntSortedSet)">
 <h3>PerlinSimplexNoise</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">PerlinSimplexNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230543_,
- it.unimi.dsi.fastutil.ints.IntSortedSet&nbsp;p_230544_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">PerlinSimplexNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ it.unimi.dsi.fastutil.ints.IntSortedSet&nbsp;octaves)</span></div>
 </section>
 </li>
 </ul>
@@ -220,9 +222,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getValue(double,double,boolean)">
 <h3>getValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(double&nbsp;p_75450_,
- double&nbsp;p_75451_,
- boolean&nbsp;p_75452_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(double&nbsp;x,
+ double&nbsp;y,
+ boolean&nbsp;useNoiseOffsets)</span></div>
 </section>
 </li>
 </ul>

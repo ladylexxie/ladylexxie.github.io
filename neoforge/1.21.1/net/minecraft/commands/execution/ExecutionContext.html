@@ -153,9 +153,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,int,net.minecraft.util.profiling.ProfilerFiller)" class="member-name-link">ExecutionContext</a><wbr>(int&nbsp;p_306012_,
- int&nbsp;p_306180_,
- <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;p_306142_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,int,net.minecraft.util.profiling.ProfilerFiller)" class="member-name-link">ExecutionContext</a><wbr>(int&nbsp;commandLimit,
+ int&nbsp;forkLimit,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -175,17 +175,17 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;T extends <a href="../ExecutionCommandSource.html" title="interface in net.minecraft.commands">ExecutionCommandSource</a>&lt;T&gt;&gt;<br><a href="Frame.html" title="class in net.minecraft.commands.execution">Frame</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createTopFrame(net.minecraft.commands.execution.ExecutionContext,net.minecraft.commands.CommandResultCallback)" class="member-name-link">createTopFrame</a><wbr>(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;p_309594_,
- <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;p_309689_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createTopFrame(net.minecraft.commands.execution.ExecutionContext,net.minecraft.commands.CommandResultCallback)" class="member-name-link">createTopFrame</a><wbr>(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;executionContext,
+ <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;returnValueConsumer)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#discardAtDepthOrHigher(int)" class="member-name-link">discardAtDepthOrHigher</a><wbr>(int&nbsp;p_306290_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#discardAtDepthOrHigher(int)" class="member-name-link">discardAtDepthOrHigher</a><wbr>(int&nbsp;depth)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forkLimit()" class="member-name-link">forkLimit</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Frame.FrameControl.html" title="interface in net.minecraft.commands.execution">Frame.FrameControl</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#frameControlForDepth(int)" class="member-name-link">frameControlForDepth</a><wbr>(int&nbsp;p_309645_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#frameControlForDepth(int)" class="member-name-link">frameControlForDepth</a><wbr>(int&nbsp;depth)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleQueueOverflow()" class="member-name-link">handleQueueOverflow</a>()</code></div>
@@ -200,20 +200,20 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pushNewCommands()" class="member-name-link">pushNewCommands</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T extends <a href="../ExecutionCommandSource.html" title="interface in net.minecraft.commands">ExecutionCommandSource</a>&lt;T&gt;&gt;<br>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queueInitialCommandExecution(net.minecraft.commands.execution.ExecutionContext,java.lang.String,com.mojang.brigadier.context.ContextChain,T,net.minecraft.commands.CommandResultCallback)" class="member-name-link">queueInitialCommandExecution</a><wbr>(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;p_306236_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_305860_,
- com.mojang.brigadier.context.ContextChain&lt;T&gt;&nbsp;p_305784_,
- T&nbsp;p_306195_,
- <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;p_309622_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queueInitialCommandExecution(net.minecraft.commands.execution.ExecutionContext,java.lang.String,com.mojang.brigadier.context.ContextChain,T,net.minecraft.commands.CommandResultCallback)" class="member-name-link">queueInitialCommandExecution</a><wbr>(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;executionContext,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;commandInput,
+ com.mojang.brigadier.context.ContextChain&lt;T&gt;&nbsp;command,
+ T&nbsp;source,
+ <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;returnValueConsumer)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T extends <a href="../ExecutionCommandSource.html" title="interface in net.minecraft.commands">ExecutionCommandSource</a>&lt;T&gt;&gt;<br>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queueInitialFunctionCall(net.minecraft.commands.execution.ExecutionContext,net.minecraft.commands.functions.InstantiatedFunction,T,net.minecraft.commands.CommandResultCallback)" class="member-name-link">queueInitialFunctionCall</a><wbr>(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;p_309686_,
- <a href="../functions/InstantiatedFunction.html" title="interface in net.minecraft.commands.functions">InstantiatedFunction</a>&lt;T&gt;&nbsp;p_306145_,
- T&nbsp;p_309607_,
- <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;p_309681_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queueInitialFunctionCall(net.minecraft.commands.execution.ExecutionContext,net.minecraft.commands.functions.InstantiatedFunction,T,net.minecraft.commands.CommandResultCallback)" class="member-name-link">queueInitialFunctionCall</a><wbr>(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;executionContext,
+ <a href="../functions/InstantiatedFunction.html" title="interface in net.minecraft.commands.functions">InstantiatedFunction</a>&lt;T&gt;&nbsp;function,
+ T&nbsp;source,
+ <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;returnValueConsumer)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queueNext(net.minecraft.commands.execution.CommandQueueEntry)" class="member-name-link">queueNext</a><wbr>(<a href="CommandQueueEntry.html" title="class in net.minecraft.commands.execution">CommandQueueEntry</a>&lt;<a href="ExecutionContext.html" title="type parameter in ExecutionContext">T</a>&gt;&nbsp;p_305869_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queueNext(net.minecraft.commands.execution.CommandQueueEntry)" class="member-name-link">queueNext</a><wbr>(<a href="CommandQueueEntry.html" title="class in net.minecraft.commands.execution">CommandQueueEntry</a>&lt;<a href="ExecutionContext.html" title="type parameter in ExecutionContext">T</a>&gt;&nbsp;entry)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#runCommandQueue()" class="member-name-link">runCommandQueue</a>()</code></div>
@@ -222,7 +222,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tracer()" class="member-name-link">tracer</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tracer(net.minecraft.commands.execution.TraceCallbacks)" class="member-name-link">tracer</a><wbr>(<a href="TraceCallbacks.html" title="interface in net.minecraft.commands.execution">TraceCallbacks</a>&nbsp;p_305950_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tracer(net.minecraft.commands.execution.TraceCallbacks)" class="member-name-link">tracer</a><wbr>(<a href="TraceCallbacks.html" title="interface in net.minecraft.commands.execution">TraceCallbacks</a>&nbsp;tracer)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -327,9 +327,9 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="&lt;init&gt;(int,int,net.minecraft.util.profiling.ProfilerFiller)">
 <h3>ExecutionContext</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ExecutionContext</span><wbr><span class="parameters">(int&nbsp;p_306012_,
- int&nbsp;p_306180_,
- <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;p_306142_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ExecutionContext</span><wbr><span class="parameters">(int&nbsp;commandLimit,
+ int&nbsp;forkLimit,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</span></div>
 </section>
 </li>
 </ul>
@@ -344,29 +344,29 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <section class="detail" id="createTopFrame(net.minecraft.commands.execution.ExecutionContext,net.minecraft.commands.CommandResultCallback)">
 <h3>createTopFrame</h3>
 <div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../ExecutionCommandSource.html" title="interface in net.minecraft.commands">ExecutionCommandSource</a>&lt;T&gt;&gt;</span>
-<span class="return-type"><a href="Frame.html" title="class in net.minecraft.commands.execution">Frame</a></span>&nbsp;<span class="element-name">createTopFrame</span><wbr><span class="parameters">(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;p_309594_,
- <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;p_309689_)</span></div>
+<span class="return-type"><a href="Frame.html" title="class in net.minecraft.commands.execution">Frame</a></span>&nbsp;<span class="element-name">createTopFrame</span><wbr><span class="parameters">(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;executionContext,
+ <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;returnValueConsumer)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="queueInitialFunctionCall(net.minecraft.commands.execution.ExecutionContext,net.minecraft.commands.functions.InstantiatedFunction,T,net.minecraft.commands.CommandResultCallback)">
 <h3 id="queueInitialFunctionCall(net.minecraft.commands.execution.ExecutionContext,net.minecraft.commands.functions.InstantiatedFunction,net.minecraft.commands.ExecutionCommandSource,net.minecraft.commands.CommandResultCallback)">queueInitialFunctionCall</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../ExecutionCommandSource.html" title="interface in net.minecraft.commands">ExecutionCommandSource</a>&lt;T&gt;&gt;</span>
-<span class="return-type">void</span>&nbsp;<span class="element-name">queueInitialFunctionCall</span><wbr><span class="parameters">(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;p_309686_,
- <a href="../functions/InstantiatedFunction.html" title="interface in net.minecraft.commands.functions">InstantiatedFunction</a>&lt;T&gt;&nbsp;p_306145_,
- T&nbsp;p_309607_,
- <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;p_309681_)</span></div>
+<span class="return-type">void</span>&nbsp;<span class="element-name">queueInitialFunctionCall</span><wbr><span class="parameters">(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;executionContext,
+ <a href="../functions/InstantiatedFunction.html" title="interface in net.minecraft.commands.functions">InstantiatedFunction</a>&lt;T&gt;&nbsp;function,
+ T&nbsp;source,
+ <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;returnValueConsumer)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="queueInitialCommandExecution(net.minecraft.commands.execution.ExecutionContext,java.lang.String,com.mojang.brigadier.context.ContextChain,T,net.minecraft.commands.CommandResultCallback)">
 <h3 id="queueInitialCommandExecution(net.minecraft.commands.execution.ExecutionContext,java.lang.String,com.mojang.brigadier.context.ContextChain,net.minecraft.commands.ExecutionCommandSource,net.minecraft.commands.CommandResultCallback)">queueInitialCommandExecution</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../ExecutionCommandSource.html" title="interface in net.minecraft.commands">ExecutionCommandSource</a>&lt;T&gt;&gt;</span>
-<span class="return-type">void</span>&nbsp;<span class="element-name">queueInitialCommandExecution</span><wbr><span class="parameters">(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;p_306236_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_305860_,
- com.mojang.brigadier.context.ContextChain&lt;T&gt;&nbsp;p_305784_,
- T&nbsp;p_306195_,
- <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;p_309622_)</span></div>
+<span class="return-type">void</span>&nbsp;<span class="element-name">queueInitialCommandExecution</span><wbr><span class="parameters">(<a href="ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;T&gt;&nbsp;executionContext,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;commandInput,
+ com.mojang.brigadier.context.ContextChain&lt;T&gt;&nbsp;command,
+ T&nbsp;source,
+ <a href="../CommandResultCallback.html" title="interface in net.minecraft.commands">CommandResultCallback</a>&nbsp;returnValueConsumer)</span></div>
 </section>
 </li>
 <li>
@@ -378,19 +378,19 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="queueNext(net.minecraft.commands.execution.CommandQueueEntry)">
 <h3>queueNext</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">queueNext</span><wbr><span class="parameters">(<a href="CommandQueueEntry.html" title="class in net.minecraft.commands.execution">CommandQueueEntry</a>&lt;<a href="ExecutionContext.html" title="type parameter in ExecutionContext">T</a>&gt;&nbsp;p_305869_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">queueNext</span><wbr><span class="parameters">(<a href="CommandQueueEntry.html" title="class in net.minecraft.commands.execution">CommandQueueEntry</a>&lt;<a href="ExecutionContext.html" title="type parameter in ExecutionContext">T</a>&gt;&nbsp;entry)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="discardAtDepthOrHigher(int)">
 <h3>discardAtDepthOrHigher</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">discardAtDepthOrHigher</span><wbr><span class="parameters">(int&nbsp;p_306290_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">discardAtDepthOrHigher</span><wbr><span class="parameters">(int&nbsp;depth)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="frameControlForDepth(int)">
 <h3>frameControlForDepth</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Frame.FrameControl.html" title="interface in net.minecraft.commands.execution">Frame.FrameControl</a></span>&nbsp;<span class="element-name">frameControlForDepth</span><wbr><span class="parameters">(int&nbsp;p_309645_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Frame.FrameControl.html" title="interface in net.minecraft.commands.execution">Frame.FrameControl</a></span>&nbsp;<span class="element-name">frameControlForDepth</span><wbr><span class="parameters">(int&nbsp;depth)</span></div>
 </section>
 </li>
 <li>
@@ -409,7 +409,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <section class="detail" id="tracer(net.minecraft.commands.execution.TraceCallbacks)">
 <h3>tracer</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tracer</span><wbr><span class="parameters">(@Nullable
- <a href="TraceCallbacks.html" title="interface in net.minecraft.commands.execution">TraceCallbacks</a>&nbsp;p_305950_)</span></div>
+ <a href="TraceCallbacks.html" title="interface in net.minecraft.commands.execution">TraceCallbacks</a>&nbsp;tracer)</span></div>
 </section>
 </li>
 <li>

@@ -98,6 +98,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">EnchantRandomlyFunction</span>
 <span class="extends-implements">extends <a href="LootItemConditionalFunction.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction</a></span></div>
+<div class="block">LootItemFunction that applies a random enchantment to the stack. If an empty list is given, chooses from all enchantments.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -154,9 +155,9 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,java.util.Optional,boolean)" class="member-name-link">EnchantRandomlyFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_299014_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../../core/HolderSet.html" title="interface in net.minecraft.core">HolderSet</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&gt;&nbsp;p_298965_,
- boolean&nbsp;p_344945_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,java.util.Optional,boolean)" class="member-name-link">EnchantRandomlyFunction</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;conditons,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../../core/HolderSet.html" title="interface in net.minecraft.core">HolderSet</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&gt;&nbsp;options,
+ boolean&nbsp;onlyCompatible)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -173,23 +174,25 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#enchantItem(net.minecraft.world.item.ItemStack,net.minecraft.core.Holder,net.minecraft.util.RandomSource)" class="member-name-link">enchantItem</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_230980_,
- <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_346257_,
- <a href="../../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230982_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#enchantItem(net.minecraft.world.item.ItemStack,net.minecraft.core.Holder,net.minecraft.util.RandomSource)" class="member-name-link">enchantItem</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment,
+ <a href="../../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="LootItemFunctionType.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemFunctionType</a><wbr>&lt;<a href="EnchantRandomlyFunction.html" title="class in net.minecraft.world.level.storage.loot.functions">EnchantRandomlyFunction</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="EnchantRandomlyFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">EnchantRandomlyFunction.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#randomApplicableEnchantment(net.minecraft.core.HolderLookup.Provider)" class="member-name-link">randomApplicableEnchantment</a><wbr>(<a href="../../../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;p_346405_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#randomApplicableEnchantment(net.minecraft.core.HolderLookup.Provider)" class="member-name-link">randomApplicableEnchantment</a><wbr>(<a href="../../../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registries)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="EnchantRandomlyFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">EnchantRandomlyFunction.Builder</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#randomEnchantment()" class="member-name-link">randomEnchantment</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">run</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_80429_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_80430_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">run</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;context)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Called to perform the actual action of this function, after conditions have been checked.</div>
+</div>
 </div>
 </div>
 </div>
@@ -251,9 +254,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(java.util.List,java.util.Optional,boolean)">
 <h3>EnchantRandomlyFunction</h3>
-<div class="member-signature"><span class="element-name">EnchantRandomlyFunction</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_299014_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../../core/HolderSet.html" title="interface in net.minecraft.core">HolderSet</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&gt;&nbsp;p_298965_,
- boolean&nbsp;p_344945_)</span></div>
+<div class="member-signature"><span class="element-name">EnchantRandomlyFunction</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;conditons,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../../core/HolderSet.html" title="interface in net.minecraft.core">HolderSet</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&gt;&nbsp;options,
+ boolean&nbsp;onlyCompatible)</span></div>
 </section>
 </li>
 </ul>
@@ -279,8 +282,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)">
 <h3>run</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">run</span><wbr><span class="parameters">(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_80429_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_80430_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">run</span><wbr><span class="parameters">(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;context)</span></div>
+<div class="block">Called to perform the actual action of this function, after conditions have been checked.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="LootItemConditionalFunction.html#run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)">run</a></code>&nbsp;in class&nbsp;<code><a href="LootItemConditionalFunction.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction</a></code></dd>
@@ -290,9 +294,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="enchantItem(net.minecraft.world.item.ItemStack,net.minecraft.core.Holder,net.minecraft.util.RandomSource)">
 <h3>enchantItem</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">enchantItem</span><wbr><span class="parameters">(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_230980_,
- <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_346257_,
- <a href="../../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230982_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">enchantItem</span><wbr><span class="parameters">(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment,
+ <a href="../../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
 </section>
 </li>
 <li>
@@ -304,7 +308,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="randomApplicableEnchantment(net.minecraft.core.HolderLookup.Provider)">
 <h3>randomApplicableEnchantment</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="EnchantRandomlyFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">EnchantRandomlyFunction.Builder</a></span>&nbsp;<span class="element-name">randomApplicableEnchantment</span><wbr><span class="parameters">(<a href="../../../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;p_346405_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="EnchantRandomlyFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">EnchantRandomlyFunction.Builder</a></span>&nbsp;<span class="element-name">randomApplicableEnchantment</span><wbr><span class="parameters">(<a href="../../../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registries)</span></div>
 </section>
 </li>
 </ul>

@@ -97,6 +97,8 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">BlendedNoise</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="../DensityFunction.SimpleFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.SimpleFunction</a></span></div>
+<div class="block">This class wraps three individual perlin noise octaves samplers.
+ It computes the octaves of the main noise, and then uses that as a linear interpolation value between the minimum and maximum limit noises.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -176,22 +178,22 @@ implements <a href="../DensityFunction.SimpleFunction.html" title="interface in 
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.RandomSource,double,double,double,double,double)" class="member-name-link">BlendedNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230462_,
- double&nbsp;p_230463_,
- double&nbsp;p_230464_,
- double&nbsp;p_230465_,
- double&nbsp;p_230466_,
- double&nbsp;p_230467_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.RandomSource,double,double,double,double,double)" class="member-name-link">BlendedNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ double&nbsp;xzScale,
+ double&nbsp;yScale,
+ double&nbsp;xzFactor,
+ double&nbsp;yFactor,
+ double&nbsp;smearScaleMultiplier)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private </code></div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.levelgen.synth.PerlinNoise,net.minecraft.world.level.levelgen.synth.PerlinNoise,net.minecraft.world.level.levelgen.synth.PerlinNoise,double,double,double,double,double)" class="member-name-link">BlendedNoise</a><wbr>(<a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;p_230469_,
- <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;p_230470_,
- <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;p_230471_,
- double&nbsp;p_230472_,
- double&nbsp;p_230473_,
- double&nbsp;p_230474_,
- double&nbsp;p_230475_,
- double&nbsp;p_230476_)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.levelgen.synth.PerlinNoise,net.minecraft.world.level.levelgen.synth.PerlinNoise,net.minecraft.world.level.levelgen.synth.PerlinNoise,double,double,double,double,double)" class="member-name-link">BlendedNoise</a><wbr>(<a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;minLimitNoise,
+ <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;maxLimitNoise,
+ <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;mainNoise,
+ double&nbsp;xzScale,
+ double&nbsp;yScale,
+ double&nbsp;xzFactor,
+ double&nbsp;yFactor,
+ double&nbsp;smearScaleMultiplier)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -211,14 +213,14 @@ implements <a href="../DensityFunction.SimpleFunction.html" title="interface in 
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#codec()" class="member-name-link">codec</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)" class="member-name-link">compute</a><wbr>(<a href="../DensityFunction.FunctionContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a>&nbsp;p_210621_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)" class="member-name-link">compute</a><wbr>(<a href="../DensityFunction.FunctionContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a>&nbsp;context)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="BlendedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">BlendedNoise</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createUnseeded(double,double,double,double,double)" class="member-name-link">createUnseeded</a><wbr>(double&nbsp;p_230478_,
- double&nbsp;p_230479_,
- double&nbsp;p_230480_,
- double&nbsp;p_230481_,
- double&nbsp;p_230482_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createUnseeded(double,double,double,double,double)" class="member-name-link">createUnseeded</a><wbr>(double&nbsp;xzScale,
+ double&nbsp;yScale,
+ double&nbsp;xzFactor,
+ double&nbsp;yFactor,
+ double&nbsp;smearScaleMultiplier)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxValue()" class="member-name-link">maxValue</a>()</code></div>
@@ -227,10 +229,10 @@ implements <a href="../DensityFunction.SimpleFunction.html" title="interface in 
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#minValue()" class="member-name-link">minValue</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parityConfigString(java.lang.StringBuilder)" class="member-name-link">parityConfigString</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html" title="class or interface in java.lang" class="external-link">StringBuilder</a>&nbsp;p_192818_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parityConfigString(java.lang.StringBuilder)" class="member-name-link">parityConfigString</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html" title="class or interface in java.lang" class="external-link">StringBuilder</a>&nbsp;builder)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="BlendedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">BlendedNoise</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withNewRandom(net.minecraft.util.RandomSource)" class="member-name-link">withNewRandom</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230484_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#withNewRandom(net.minecraft.util.RandomSource)" class="member-name-link">withNewRandom</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -350,25 +352,25 @@ implements <a href="../DensityFunction.SimpleFunction.html" title="interface in 
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.levelgen.synth.PerlinNoise,net.minecraft.world.level.levelgen.synth.PerlinNoise,net.minecraft.world.level.levelgen.synth.PerlinNoise,double,double,double,double,double)">
 <h3>BlendedNoise</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">BlendedNoise</span><wbr><span class="parameters">(<a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;p_230469_,
- <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;p_230470_,
- <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;p_230471_,
- double&nbsp;p_230472_,
- double&nbsp;p_230473_,
- double&nbsp;p_230474_,
- double&nbsp;p_230475_,
- double&nbsp;p_230476_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">BlendedNoise</span><wbr><span class="parameters">(<a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;minLimitNoise,
+ <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;maxLimitNoise,
+ <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a>&nbsp;mainNoise,
+ double&nbsp;xzScale,
+ double&nbsp;yScale,
+ double&nbsp;xzFactor,
+ double&nbsp;yFactor,
+ double&nbsp;smearScaleMultiplier)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.util.RandomSource,double,double,double,double,double)">
 <h3>BlendedNoise</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BlendedNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230462_,
- double&nbsp;p_230463_,
- double&nbsp;p_230464_,
- double&nbsp;p_230465_,
- double&nbsp;p_230466_,
- double&nbsp;p_230467_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BlendedNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ double&nbsp;xzScale,
+ double&nbsp;yScale,
+ double&nbsp;xzFactor,
+ double&nbsp;yFactor,
+ double&nbsp;smearScaleMultiplier)</span></div>
 </section>
 </li>
 </ul>
@@ -382,23 +384,23 @@ implements <a href="../DensityFunction.SimpleFunction.html" title="interface in 
 <li>
 <section class="detail" id="createUnseeded(double,double,double,double,double)">
 <h3>createUnseeded</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="BlendedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">BlendedNoise</a></span>&nbsp;<span class="element-name">createUnseeded</span><wbr><span class="parameters">(double&nbsp;p_230478_,
- double&nbsp;p_230479_,
- double&nbsp;p_230480_,
- double&nbsp;p_230481_,
- double&nbsp;p_230482_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="BlendedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">BlendedNoise</a></span>&nbsp;<span class="element-name">createUnseeded</span><wbr><span class="parameters">(double&nbsp;xzScale,
+ double&nbsp;yScale,
+ double&nbsp;xzFactor,
+ double&nbsp;yFactor,
+ double&nbsp;smearScaleMultiplier)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="withNewRandom(net.minecraft.util.RandomSource)">
 <h3>withNewRandom</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BlendedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">BlendedNoise</a></span>&nbsp;<span class="element-name">withNewRandom</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230484_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="BlendedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">BlendedNoise</a></span>&nbsp;<span class="element-name">withNewRandom</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)">
 <h3>compute</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">compute</span><wbr><span class="parameters">(<a href="../DensityFunction.FunctionContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a>&nbsp;p_210621_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">compute</span><wbr><span class="parameters">(<a href="../DensityFunction.FunctionContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a>&nbsp;context)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../DensityFunction.html#compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)">compute</a></code>&nbsp;in interface&nbsp;<code><a href="../DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></dd>
@@ -428,7 +430,7 @@ implements <a href="../DensityFunction.SimpleFunction.html" title="interface in 
 <li>
 <section class="detail" id="parityConfigString(java.lang.StringBuilder)">
 <h3>parityConfigString</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">parityConfigString</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html" title="class or interface in java.lang" class="external-link">StringBuilder</a>&nbsp;p_192818_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">parityConfigString</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html" title="class or interface in java.lang" class="external-link">StringBuilder</a>&nbsp;builder)</span></div>
 </section>
 </li>
 <li>

@@ -176,19 +176,19 @@ implements <a href="../../../level/CustomSpawner.html" title="interface in net.m
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findRandomSpawnPos(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos)" class="member-name-link">findRandomSpawnPos</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_27010_,
- <a href="../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_27011_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findRandomSpawnPos(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos)" class="member-name-link">findRandomSpawnPos</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick(net.minecraft.server.level.ServerLevel,boolean,boolean)" class="member-name-link">tick</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_27013_,
- boolean&nbsp;p_27014_,
- boolean&nbsp;p_27015_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick(net.minecraft.server.level.ServerLevel,boolean,boolean)" class="member-name-link">tick</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ boolean&nbsp;spawnHostiles,
+ boolean&nbsp;spawnPassives)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#trySpawn(net.minecraft.server.level.ServerLevel)" class="member-name-link">trySpawn</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_27017_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#trySpawn(net.minecraft.server.level.ServerLevel)" class="member-name-link">trySpawn</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tryToSetupSiege(net.minecraft.server.level.ServerLevel)" class="member-name-link">tryToSetupSiege</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_27008_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tryToSetupSiege(net.minecraft.server.level.ServerLevel)" class="member-name-link">tryToSetupSiege</a><wbr>(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -280,9 +280,9 @@ implements <a href="../../../level/CustomSpawner.html" title="interface in net.m
 <li>
 <section class="detail" id="tick(net.minecraft.server.level.ServerLevel,boolean,boolean)">
 <h3>tick</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">tick</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_27013_,
- boolean&nbsp;p_27014_,
- boolean&nbsp;p_27015_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">tick</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ boolean&nbsp;spawnHostiles,
+ boolean&nbsp;spawnPassives)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../../level/CustomSpawner.html#tick(net.minecraft.server.level.ServerLevel,boolean,boolean)">tick</a></code>&nbsp;in interface&nbsp;<code><a href="../../../level/CustomSpawner.html" title="interface in net.minecraft.world.level">CustomSpawner</a></code></dd>
@@ -292,21 +292,21 @@ implements <a href="../../../level/CustomSpawner.html" title="interface in net.m
 <li>
 <section class="detail" id="tryToSetupSiege(net.minecraft.server.level.ServerLevel)">
 <h3>tryToSetupSiege</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">tryToSetupSiege</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_27008_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">tryToSetupSiege</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="trySpawn(net.minecraft.server.level.ServerLevel)">
 <h3>trySpawn</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">trySpawn</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_27017_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">trySpawn</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="findRandomSpawnPos(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos)">
 <h3>findRandomSpawnPos</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></span>&nbsp;<span class="element-name">findRandomSpawnPos</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_27010_,
- <a href="../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_27011_)</span></div>
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></span>&nbsp;<span class="element-name">findRandomSpawnPos</span><wbr><span class="parameters">(<a href="../../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 </section>
 </li>
 </ul>

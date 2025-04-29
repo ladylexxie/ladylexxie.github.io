@@ -416,14 +416,14 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.Thread,net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,net.minecraft.server.packs.repository.PackRepository,net.minecraft.server.WorldStem,java.net.Proxy,com.mojang.datafixers.DataFixer,net.minecraft.server.Services,net.minecraft.server.level.progress.ChunkProgressListenerFactory)" class="member-name-link">MinecraftServer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>&nbsp;p_236723_,
- <a href="../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;p_236724_,
- <a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_236725_,
- <a href="WorldStem.html" title="class in net.minecraft.server">WorldStem</a>&nbsp;p_236726_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/Proxy.html" title="class or interface in java.net" class="external-link">Proxy</a>&nbsp;p_236727_,
- com.mojang.datafixers.DataFixer&nbsp;p_236728_,
- <a href="Services.html" title="class in net.minecraft.server">Services</a>&nbsp;p_236729_,
- <a href="level/progress/ChunkProgressListenerFactory.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListenerFactory</a>&nbsp;p_236730_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.Thread,net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,net.minecraft.server.packs.repository.PackRepository,net.minecraft.server.WorldStem,java.net.Proxy,com.mojang.datafixers.DataFixer,net.minecraft.server.Services,net.minecraft.server.level.progress.ChunkProgressListenerFactory)" class="member-name-link">MinecraftServer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>&nbsp;serverThread,
+ <a href="../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;storageSource,
+ <a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="WorldStem.html" title="class in net.minecraft.server">WorldStem</a>&nbsp;worldStem,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/Proxy.html" title="class or interface in java.net" class="external-link">Proxy</a>&nbsp;proxy,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper,
+ <a href="Services.html" title="class in net.minecraft.server">Services</a>&nbsp;services,
+ <a href="level/progress/ChunkProgressListenerFactory.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListenerFactory</a>&nbsp;progressListenerFactory)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -449,7 +449,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#acceptsTransfers()" class="member-name-link">acceptsTransfers</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addTickable(java.lang.Runnable)" class="member-name-link">addTickable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;p_129947_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addTickable(java.lang.Runnable)" class="member-name-link">addTickable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;tickable)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#areNpcsEnabled()" class="member-name-link">areNpcsEnabled</a>()</code></div>
@@ -470,56 +470,56 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#computeNextAutosaveInterval()" class="member-name-link">computeNextAutosaveInterval</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#configurePackRepository(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.WorldDataConfiguration,boolean,boolean)" class="member-name-link">configurePackRepository</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_248681_,
- <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;p_341632_,
- boolean&nbsp;p_249869_,
- boolean&nbsp;p_341620_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#configurePackRepository(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.WorldDataConfiguration,boolean,boolean)" class="member-name-link">configurePackRepository</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;initialDataConfig,
+ boolean&nbsp;initMode,
+ boolean&nbsp;safeMode)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#configureRepositoryWithSelection(net.minecraft.server.packs.repository.PackRepository,java.util.Collection,net.minecraft.world.flag.FeatureFlagSet,boolean)" class="member-name-link">configureRepositoryWithSelection</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_341680_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_341677_,
- <a href="../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a>&nbsp;p_341602_,
- boolean&nbsp;p_341662_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#configureRepositoryWithSelection(net.minecraft.server.packs.repository.PackRepository,java.util.Collection,net.minecraft.world.flag.FeatureFlagSet,boolean)" class="member-name-link">configureRepositoryWithSelection</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;selectedPacks,
+ <a href="../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a>&nbsp;enabledFeatures,
+ boolean&nbsp;safeMode)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#constructOrExtractCrashReport(java.lang.Throwable)" class="member-name-link">constructOrExtractCrashReport</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;p_206569_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#constructOrExtractCrashReport(java.lang.Throwable)" class="member-name-link">constructOrExtractCrashReport</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createCommandSourceStack()" class="member-name-link">createCommandSourceStack</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="level/ServerPlayerGameMode.html" title="class in net.minecraft.server.level">ServerPlayerGameMode</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createGameModeForPlayer(net.minecraft.server.level.ServerPlayer)" class="member-name-link">createGameModeForPlayer</a><wbr>(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_177934_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createGameModeForPlayer(net.minecraft.server.level.ServerPlayer)" class="member-name-link">createGameModeForPlayer</a><wbr>(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createLevels(net.minecraft.server.level.progress.ChunkProgressListener)" class="member-name-link">createLevels</a><wbr>(<a href="level/progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;p_129816_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createLevels(net.minecraft.server.level.progress.ChunkProgressListener)" class="member-name-link">createLevels</a><wbr>(<a href="level/progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;listener)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="network/TextFilter.html" title="interface in net.minecraft.server.network">TextFilter</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createTextFilterForPlayer(net.minecraft.server.level.ServerPlayer)" class="member-name-link">createTextFilterForPlayer</a><wbr>(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_129814_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createTextFilterForPlayer(net.minecraft.server.level.ServerPlayer)" class="member-name-link">createTextFilterForPlayer</a><wbr>(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doRunTask(net.minecraft.server.TickTask)" class="member-name-link">doRunTask</a><wbr>(<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&nbsp;p_129957_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doRunTask(net.minecraft.server.TickTask)" class="member-name-link">doRunTask</a><wbr>(<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&nbsp;task)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpClasspath(java.nio.file.Path)" class="member-name-link">dumpClasspath</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129992_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpClasspath(java.nio.file.Path)" class="member-name-link">dumpClasspath</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpGameRules(java.nio.file.Path)" class="member-name-link">dumpGameRules</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129984_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpGameRules(java.nio.file.Path)" class="member-name-link">dumpGameRules</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpMiscStats(java.nio.file.Path)" class="member-name-link">dumpMiscStats</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129951_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpMiscStats(java.nio.file.Path)" class="member-name-link">dumpMiscStats</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpNativeModules(java.nio.file.Path)" class="member-name-link">dumpNativeModules</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_195522_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpNativeModules(java.nio.file.Path)" class="member-name-link">dumpNativeModules</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpServerProperties(java.nio.file.Path)" class="member-name-link">dumpServerProperties</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_177911_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpServerProperties(java.nio.file.Path)" class="member-name-link">dumpServerProperties</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpThreads(java.nio.file.Path)" class="member-name-link">dumpThreads</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129996_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpThreads(java.nio.file.Path)" class="member-name-link">dumpThreads</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#enableForcedFeaturePacks(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.flag.FeatureFlagSet)" class="member-name-link">enableForcedFeaturePacks</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_341674_,
- <a href="../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a>&nbsp;p_341598_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#enableForcedFeaturePacks(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.flag.FeatureFlagSet)" class="member-name-link">enableForcedFeaturePacks</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a>&nbsp;enabledFeatures)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#endMetricsRecordingTick()" class="member-name-link">endMetricsRecordingTick</a>()</code></div>
@@ -528,13 +528,13 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#enforceSecureProfile()" class="member-name-link">enforceSecureProfile</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#executeIfPossible(java.lang.Runnable)" class="member-name-link">executeIfPossible</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;p_202482_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#executeIfPossible(java.lang.Runnable)" class="member-name-link">executeIfPossible</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;task)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#fillServerSystemReport(net.minecraft.SystemReport)" class="member-name-link">fillServerSystemReport</a><wbr>(<a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;p_177901_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#fillServerSystemReport(net.minecraft.SystemReport)" class="member-name-link">fillServerSystemReport</a><wbr>(<a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;report)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fillSystemReport(net.minecraft.SystemReport)" class="member-name-link">fillSystemReport</a><wbr>(<a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;p_177936_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fillSystemReport(net.minecraft.SystemReport)" class="member-name-link">fillSystemReport</a><wbr>(<a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;systemReport)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishMeasuringTaskExecutionTime()" class="member-name-link">finishMeasuringTaskExecutionTime</a>()</code></div>
@@ -593,7 +593,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDefaultGameType()" class="member-name-link">getDefaultGameType</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFile(java.lang.String)" class="member-name-link">getFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_129972_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFile(java.lang.String)" class="member-name-link">getFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;path)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.mojang.datafixers.DataFixer</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFixerUpper()" class="member-name-link">getFixerUpper</a>()</code></div>
@@ -614,8 +614,10 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getKeyPair()" class="member-name-link">getKeyPair</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLevel(net.minecraft.resources.ResourceKey)" class="member-name-link">getLevel</a><wbr>(<a href="../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;p_129881_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLevel(net.minecraft.resources.ResourceKey)" class="member-name-link">getLevel</a><wbr>(<a href="../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;dimension)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the worldServer by the given dimension.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLocalIp()" class="member-name-link">getLocalIp</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -665,7 +667,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getProfileKeySignatureValidator()" class="member-name-link">getProfileKeySignatureValidator</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getProfilePermissions(com.mojang.authlib.GameProfile)" class="member-name-link">getProfilePermissions</a><wbr>(com.mojang.authlib.GameProfile&nbsp;p_129945_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getProfilePermissions(com.mojang.authlib.GameProfile)" class="member-name-link">getProfilePermissions</a><wbr>(com.mojang.authlib.GameProfile&nbsp;profile)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getProfiler()" class="member-name-link">getProfiler</a>()</code></div>
@@ -689,14 +691,14 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRunningThread()" class="member-name-link">getRunningThread</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScaledTrackingDistance(int)" class="member-name-link">getScaledTrackingDistance</a><wbr>(int&nbsp;p_129935_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScaledTrackingDistance(int)" class="member-name-link">getScaledTrackingDistance</a><wbr>(int&nbsp;trackingDistance)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ServerScoreboard.html" title="class in net.minecraft.server">ServerScoreboard</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScoreboard()" class="member-name-link">getScoreboard</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getSelectedPacks(net.minecraft.server.packs.repository.PackRepository,boolean)" class="member-name-link">getSelectedPacks</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_129818_,
- boolean&nbsp;p_341596_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getSelectedPacks(net.minecraft.server.packs.repository.PackRepository,boolean)" class="member-name-link">getSelectedPacks</a><wbr>(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ boolean&nbsp;safeMode)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getServerDirectory()" class="member-name-link">getServerDirectory</a>()</code></div>
@@ -723,7 +725,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSpawnProtectionRadius()" class="member-name-link">getSpawnProtectionRadius</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSpawnRadius(net.minecraft.server.level.ServerLevel)" class="member-name-link">getSpawnRadius</a><wbr>(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_129804_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSpawnRadius(net.minecraft.server.level.ServerLevel)" class="member-name-link">getSpawnRadius</a><wbr>(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../network/protocol/status/ServerStatus.html" title="class in net.minecraft.network.protocol.status">ServerStatus</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStatus()" class="member-name-link">getStatus</a>()</code></div>
@@ -753,14 +755,16 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWorldData()" class="member-name-link">getWorldData</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWorldPath(net.minecraft.world.level.storage.LevelResource)" class="member-name-link">getWorldPath</a><wbr>(<a href="../world/level/storage/LevelResource.html" title="class in net.minecraft.world.level.storage">LevelResource</a>&nbsp;p_129844_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWorldPath(net.minecraft.world.level.storage.LevelResource)" class="member-name-link">getWorldPath</a><wbr>(<a href="../world/level/storage/LevelResource.html" title="class in net.minecraft.world.level.storage">LevelResource</a>&nbsp;levelResource)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWorldScreenshotFile()" class="member-name-link">getWorldScreenshotFile</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#halt(boolean)" class="member-name-link">halt</a><wbr>(boolean&nbsp;p_129884_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#halt(boolean)" class="member-name-link">halt</a><wbr>(boolean&nbsp;waitForServer)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the serverRunning variable to false, in order to get the server to shut down.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasGui()" class="member-name-link">hasGui</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -804,7 +808,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isHardcore()" class="member-name-link">isHardcore</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isLevelEnabled(net.minecraft.world.level.Level)" class="member-name-link">isLevelEnabled</a><wbr>(<a href="../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_350377_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isLevelEnabled(net.minecraft.world.level.Level)" class="member-name-link">isLevelEnabled</a><wbr>(<a href="../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isPaused()" class="member-name-link">isPaused</a>()</code></div>
@@ -834,7 +838,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSingleplayer()" class="member-name-link">isSingleplayer</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isSingleplayerOwner(com.mojang.authlib.GameProfile)" class="member-name-link">isSingleplayerOwner</a><wbr>(com.mojang.authlib.GameProfile&nbsp;p_129840_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isSingleplayerOwner(com.mojang.authlib.GameProfile)" class="member-name-link">isSingleplayerOwner</a><wbr>(com.mojang.authlib.GameProfile&nbsp;profile)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSpawningAnimals()" class="member-name-link">isSpawningAnimals</a>()</code></div>
@@ -852,12 +856,12 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isTimeProfilerRunning()" class="member-name-link">isTimeProfilerRunning</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isUnderSpawnProtection(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.entity.player.Player)" class="member-name-link">isUnderSpawnProtection</a><wbr>(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_129811_,
- <a href="../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_129812_,
- <a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_129813_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isUnderSpawnProtection(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.entity.player.Player)" class="member-name-link">isUnderSpawnProtection</a><wbr>(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#kickUnlistedPlayers(net.minecraft.commands.CommandSourceStack)" class="member-name-link">kickUnlistedPlayers</a><wbr>(<a href="../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_129850_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#kickUnlistedPlayers(net.minecraft.commands.CommandSourceStack)" class="member-name-link">kickUnlistedPlayers</a><wbr>(<a href="../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;commandSource)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#levelKeys()" class="member-name-link">levelKeys</a>()</code></div>
@@ -869,9 +873,9 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#loadStatusIcon()" class="member-name-link">loadStatusIcon</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logChatMessage(net.minecraft.network.chat.Component,net.minecraft.network.chat.ChatType.Bound,java.lang.String)" class="member-name-link">logChatMessage</a><wbr>(<a href="../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_241503_,
- <a href="../network/chat/ChatType.Bound.html" title="class in net.minecraft.network.chat">ChatType.Bound</a>&nbsp;p_241402_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_241481_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logChatMessage(net.minecraft.network.chat.Component,net.minecraft.network.chat.ChatType.Bound,java.lang.String)" class="member-name-link">logChatMessage</a><wbr>(<a href="../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;content,
+ <a href="../network/chat/ChatType.Bound.html" title="class in net.minecraft.network.chat">ChatType.Bound</a>&nbsp;boundChatType,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;header)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logFullTickTime()" class="member-name-link">logFullTickTime</a>()</code></div>
@@ -880,19 +884,23 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logIPs()" class="member-name-link">logIPs</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logTickMethodTime(long)" class="member-name-link">logTickMethodTime</a><wbr>(long&nbsp;p_321837_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logTickMethodTime(long)" class="member-name-link">logTickMethodTime</a><wbr>(long&nbsp;startTime)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#managedBlock(java.util.function.BooleanSupplier)" class="member-name-link">managedBlock</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;p_347462_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#managedBlock(java.util.function.BooleanSupplier)" class="member-name-link">managedBlock</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;isDone)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Drive the executor until the given BooleanSupplier returns true</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#markWorldsDirty()" class="member-name-link">markWorldsDirty</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onServerCrash(net.minecraft.CrashReport)" class="member-name-link">onServerCrash</a><wbr>(<a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a>&nbsp;p_129874_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onServerCrash(net.minecraft.CrashReport)" class="member-name-link">onServerCrash</a><wbr>(<a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a>&nbsp;report)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Called on exit from the main run() loop.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onServerExit()" class="member-name-link">onServerExit</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -912,15 +920,17 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#potionBrewing()" class="member-name-link">potionBrewing</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepareLevels(net.minecraft.server.level.progress.ChunkProgressListener)" class="member-name-link">prepareLevels</a><wbr>(<a href="level/progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;p_129941_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepareLevels(net.minecraft.server.level.progress.ChunkProgressListener)" class="member-name-link">prepareLevels</a><wbr>(<a href="level/progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;listener)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Loads the spawn chunks and any forced chunks</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#publishServer(net.minecraft.world.level.GameType,boolean,int)" class="member-name-link">publishServer</a><wbr>(<a href="../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;p_129833_,
- boolean&nbsp;p_129834_,
- int&nbsp;p_129835_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#publishServer(net.minecraft.world.level.GameType,boolean,int)" class="member-name-link">publishServer</a><wbr>(<a href="../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;gameMode,
+ boolean&nbsp;commands,
+ int&nbsp;port)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readScoreboard(net.minecraft.world.level.storage.DimensionDataStorage)" class="member-name-link">readScoreboard</a><wbr>(<a href="../world/level/storage/DimensionDataStorage.html" title="class in net.minecraft.world.level.storage">DimensionDataStorage</a>&nbsp;p_129842_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readScoreboard(net.minecraft.world.level.storage.DimensionDataStorage)" class="member-name-link">readScoreboard</a><wbr>(<a href="../world/level/storage/DimensionDataStorage.html" title="class in net.minecraft.world.level.storage">DimensionDataStorage</a>&nbsp;dataStorage)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../core/LayeredRegistryAccess.html" title="class in net.minecraft.core">LayeredRegistryAccess</a><wbr>&lt;<a href="RegistryLayer.html" title="enum class in net.minecraft.server">RegistryLayer</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#registries()" class="member-name-link">registries</a>()</code></div>
@@ -932,20 +942,22 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reloadableRegistries()" class="member-name-link">reloadableRegistries</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reloadResources(java.util.Collection)" class="member-name-link">reloadResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_129862_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reloadResources(java.util.Collection)" class="member-name-link">reloadResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;selectedIds)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Replaces currently selected list of datapacks, reloads them, and sends new data to players.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#repliesToStatus()" class="member-name-link">repliesToStatus</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reportChunkLoadFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)" class="member-name-link">reportChunkLoadFailure</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;p_352289_,
- <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_352335_,
- <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_330507_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reportChunkLoadFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)" class="member-name-link">reportChunkLoadFailure</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;throwable,
+ <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;regionStorageInfo,
+ <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reportChunkSaveFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)" class="member-name-link">reportChunkSaveFailure</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;p_352232_,
- <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_352253_,
- <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_331741_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reportChunkSaveFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)" class="member-name-link">reportChunkSaveFailure</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;throwable,
+ <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;regionStorageInfo,
+ <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetStatusCache(net.minecraft.network.protocol.status.ServerStatus)" class="member-name-link">resetStatusCache</a><wbr>(<a href="../network/protocol/status/ServerStatus.html" title="class in net.minecraft.network.protocol.status">ServerStatus</a>&nbsp;status)</code></div>
@@ -954,90 +966,94 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#runServer()" class="member-name-link">runServer</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#saveAllChunks(boolean,boolean,boolean)" class="member-name-link">saveAllChunks</a><wbr>(boolean&nbsp;p_129886_,
- boolean&nbsp;p_129887_,
- boolean&nbsp;p_129888_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#saveAllChunks(boolean,boolean,boolean)" class="member-name-link">saveAllChunks</a><wbr>(boolean&nbsp;suppressLog,
+ boolean&nbsp;flush,
+ boolean&nbsp;forced)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#saveDebugReport(java.nio.file.Path)" class="member-name-link">saveDebugReport</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129860_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#saveDebugReport(java.nio.file.Path)" class="member-name-link">saveDebugReport</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_path)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#saveEverything(boolean,boolean,boolean)" class="member-name-link">saveEverything</a><wbr>(boolean&nbsp;p_195515_,
- boolean&nbsp;p_195516_,
- boolean&nbsp;p_195517_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#saveEverything(boolean,boolean,boolean)" class="member-name-link">saveEverything</a><wbr>(boolean&nbsp;suppressLog,
+ boolean&nbsp;flush,
+ boolean&nbsp;forced)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#scheduleExecutables()" class="member-name-link">scheduleExecutables</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendDifficultyUpdate(net.minecraft.server.level.ServerPlayer)" class="member-name-link">sendDifficultyUpdate</a><wbr>(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_129939_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendDifficultyUpdate(net.minecraft.server.level.ServerPlayer)" class="member-name-link">sendDifficultyUpdate</a><wbr>(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendSystemMessage(net.minecraft.network.chat.Component)" class="member-name-link">sendSystemMessage</a><wbr>(<a href="../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_236736_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendSystemMessage(net.minecraft.network.chat.Component)" class="member-name-link">sendSystemMessage</a><wbr>(<a href="../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;component)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ServerLinks.html" title="class in net.minecraft.server">ServerLinks</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serverLinks()" class="member-name-link">serverLinks</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDefaultGameType(net.minecraft.world.level.GameType)" class="member-name-link">setDefaultGameType</a><wbr>(<a href="../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;p_129832_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDefaultGameType(net.minecraft.world.level.GameType)" class="member-name-link">setDefaultGameType</a><wbr>(<a href="../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;gameMode)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the game type for all worlds.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDemo(boolean)" class="member-name-link">setDemo</a><wbr>(boolean&nbsp;demo)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets whether this is a demo or not.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDifficulty(net.minecraft.world.Difficulty,boolean)" class="member-name-link">setDifficulty</a><wbr>(<a href="../world/Difficulty.html" title="enum class in net.minecraft.world">Difficulty</a>&nbsp;difficulty,
+ boolean&nbsp;forced)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDemo(boolean)" class="member-name-link">setDemo</a><wbr>(boolean&nbsp;p_129976_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDifficultyLocked(boolean)" class="member-name-link">setDifficultyLocked</a><wbr>(boolean&nbsp;locked)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDifficulty(net.minecraft.world.Difficulty,boolean)" class="member-name-link">setDifficulty</a><wbr>(<a href="../world/Difficulty.html" title="enum class in net.minecraft.world">Difficulty</a>&nbsp;p_129828_,
- boolean&nbsp;p_129829_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDifficultyLocked(boolean)" class="member-name-link">setDifficultyLocked</a><wbr>(boolean&nbsp;p_129959_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setEnforceWhitelist(boolean)" class="member-name-link">setEnforceWhitelist</a><wbr>(boolean&nbsp;p_130005_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setEnforceWhitelist(boolean)" class="member-name-link">setEnforceWhitelist</a><wbr>(boolean&nbsp;whitelistEnabled)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setFatalException(java.lang.RuntimeException)" class="member-name-link">setFatalException</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/RuntimeException.html" title="class or interface in java.lang" class="external-link">RuntimeException</a>&nbsp;p_347584_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setFatalException(java.lang.RuntimeException)" class="member-name-link">setFatalException</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/RuntimeException.html" title="class or interface in java.lang" class="external-link">RuntimeException</a>&nbsp;p_fatalException)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFlightAllowed(boolean)" class="member-name-link">setFlightAllowed</a><wbr>(boolean&nbsp;p_130000_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFlightAllowed(boolean)" class="member-name-link">setFlightAllowed</a><wbr>(boolean&nbsp;allow)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setId(java.lang.String)" class="member-name-link">setId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_129949_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setId(java.lang.String)" class="member-name-link">setId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serverId)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setInitialSpawn(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.storage.ServerLevelData,boolean,boolean)" class="member-name-link">setInitialSpawn</a><wbr>(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_177897_,
- <a href="../world/level/storage/ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a>&nbsp;p_177898_,
- boolean&nbsp;p_177899_,
- boolean&nbsp;p_177900_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setInitialSpawn(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.storage.ServerLevelData,boolean,boolean)" class="member-name-link">setInitialSpawn</a><wbr>(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../world/level/storage/ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a>&nbsp;levelData,
+ boolean&nbsp;generateBonusChest,
+ boolean&nbsp;debug)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLocalIp(java.lang.String)" class="member-name-link">setLocalIp</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_129914_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLocalIp(java.lang.String)" class="member-name-link">setLocalIp</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;localIp)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMotd(java.lang.String)" class="member-name-link">setMotd</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_129990_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMotd(java.lang.String)" class="member-name-link">setMotd</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;motd)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPlayerIdleTimeout(int)" class="member-name-link">setPlayerIdleTimeout</a><wbr>(int&nbsp;p_129978_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPlayerIdleTimeout(int)" class="member-name-link">setPlayerIdleTimeout</a><wbr>(int&nbsp;idleTimeout)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPlayerList(net.minecraft.server.players.PlayerList)" class="member-name-link">setPlayerList</a><wbr>(<a href="players/PlayerList.html" title="class in net.minecraft.server.players">PlayerList</a>&nbsp;p_129824_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPlayerList(net.minecraft.server.players.PlayerList)" class="member-name-link">setPlayerList</a><wbr>(<a href="players/PlayerList.html" title="class in net.minecraft.server.players">PlayerList</a>&nbsp;list)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPort(int)" class="member-name-link">setPort</a><wbr>(int&nbsp;p_129802_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPort(int)" class="member-name-link">setPort</a><wbr>(int&nbsp;port)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPreventProxyConnections(boolean)" class="member-name-link">setPreventProxyConnections</a><wbr>(boolean&nbsp;p_129994_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPreventProxyConnections(boolean)" class="member-name-link">setPreventProxyConnections</a><wbr>(boolean&nbsp;preventProxyConnections)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPvpAllowed(boolean)" class="member-name-link">setPvpAllowed</a><wbr>(boolean&nbsp;p_129998_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPvpAllowed(boolean)" class="member-name-link">setPvpAllowed</a><wbr>(boolean&nbsp;allowPvp)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSingleplayerProfile(com.mojang.authlib.GameProfile)" class="member-name-link">setSingleplayerProfile</a><wbr>(com.mojang.authlib.GameProfile&nbsp;p_236741_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSingleplayerProfile(com.mojang.authlib.GameProfile)" class="member-name-link">setSingleplayerProfile</a><wbr>(com.mojang.authlib.GameProfile&nbsp;singleplayerProfile)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupDebugLevel(net.minecraft.world.level.storage.WorldData)" class="member-name-link">setupDebugLevel</a><wbr>(<a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;p_129848_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupDebugLevel(net.minecraft.world.level.storage.WorldData)" class="member-name-link">setupDebugLevel</a><wbr>(<a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUsesAuthentication(boolean)" class="member-name-link">setUsesAuthentication</a><wbr>(boolean&nbsp;p_129986_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUsesAuthentication(boolean)" class="member-name-link">setUsesAuthentication</a><wbr>(boolean&nbsp;online)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#shouldInformAdmins()" class="member-name-link">shouldInformAdmins</a>()</code></div>
@@ -1046,10 +1062,10 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#shouldRconBroadcast()" class="member-name-link">shouldRconBroadcast</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldRun(net.minecraft.server.TickTask)" class="member-name-link">shouldRun</a><wbr>(<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&nbsp;p_129883_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldRun(net.minecraft.server.TickTask)" class="member-name-link">shouldRun</a><wbr>(<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&nbsp;runnable)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S extends <a href="MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&gt;<br>S</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#spin(java.util.function.Function)" class="member-name-link">spin</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>,<wbr>S&gt;&nbsp;p_129873_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#spin(java.util.function.Function)" class="member-name-link">spin</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>,<wbr>S&gt;&nbsp;threadFunction)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startMeasuringTaskExecutionTime()" class="member-name-link">startMeasuringTaskExecutionTime</a>()</code></div>
@@ -1058,8 +1074,8 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startMetricsRecordingTick()" class="member-name-link">startMetricsRecordingTick</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startRecordingMetrics(java.util.function.Consumer,java.util.function.Consumer)" class="member-name-link">startRecordingMetrics</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../util/profiling/ProfileResults.html" title="interface in net.minecraft.util.profiling">ProfileResults</a>&gt;&nbsp;p_177924_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;p_177925_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startRecordingMetrics(java.util.function.Consumer,java.util.function.Consumer)" class="member-name-link">startRecordingMetrics</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../util/profiling/ProfileResults.html" title="interface in net.minecraft.util.profiling">ProfileResults</a>&gt;&nbsp;output,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;onMetricsRecordingFinished)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#startTimeProfiler()" class="member-name-link">startTimeProfiler</a>()</code></div>
@@ -1074,29 +1090,31 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stopTimeProfiler()" class="member-name-link">stopTimeProfiler</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#storeChunkIoError(net.minecraft.CrashReport,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionStorageInfo)" class="member-name-link">storeChunkIoError</a><wbr>(<a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a>&nbsp;p_352397_,
- <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_352348_,
- <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_352231_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#storeChunkIoError(net.minecraft.CrashReport,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionStorageInfo)" class="member-name-link">storeChunkIoError</a><wbr>(<a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a>&nbsp;crashReport,
+ <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;regionStorageInfo)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#subscribeToDebugSample(net.minecraft.server.level.ServerPlayer,net.minecraft.util.debugchart.RemoteDebugSampleType)" class="member-name-link">subscribeToDebugSample</a><wbr>(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_324078_,
- <a href="../util/debugchart/RemoteDebugSampleType.html" title="enum class in net.minecraft.util.debugchart">RemoteDebugSampleType</a>&nbsp;p_323992_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#subscribeToDebugSample(net.minecraft.server.level.ServerPlayer,net.minecraft.util.debugchart.RemoteDebugSampleType)" class="member-name-link">subscribeToDebugSample</a><wbr>(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player,
+ <a href="../util/debugchart/RemoteDebugSampleType.html" title="enum class in net.minecraft.util.debugchart">RemoteDebugSampleType</a>&nbsp;sampleType)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#synchronizeTime(net.minecraft.server.level.ServerLevel)" class="member-name-link">synchronizeTime</a><wbr>(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_276371_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#synchronizeTime(net.minecraft.server.level.ServerLevel)" class="member-name-link">synchronizeTime</a><wbr>(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#throwIfFatalException()" class="member-name-link">throwIfFatalException</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickChildren(java.util.function.BooleanSupplier)" class="member-name-link">tickChildren</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;p_129954_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickChildren(java.util.function.BooleanSupplier)" class="member-name-link">tickChildren</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;hasTimeLeft)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ServerTickRateManager.html" title="class in net.minecraft.server">ServerTickRateManager</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickRateManager()" class="member-name-link">tickRateManager</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickServer(java.util.function.BooleanSupplier)" class="member-name-link">tickServer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;p_129871_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickServer(java.util.function.BooleanSupplier)" class="member-name-link">tickServer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;hasTimeLeft)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Main function called by run() every loop.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateMobSpawningFlags()" class="member-name-link">updateMobSpawningFlags</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -1110,7 +1128,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitUntilNextTick()" class="member-name-link">waitUntilNextTick</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="TickTask.html" title="class in net.minecraft.server">TickTask</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#wrapRunnable(java.lang.Runnable)" class="member-name-link">wrapRunnable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;p_129852_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#wrapRunnable(java.lang.Runnable)" class="member-name-link">wrapRunnable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;runnable)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -1779,14 +1797,14 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.Thread,net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,net.minecraft.server.packs.repository.PackRepository,net.minecraft.server.WorldStem,java.net.Proxy,com.mojang.datafixers.DataFixer,net.minecraft.server.Services,net.minecraft.server.level.progress.ChunkProgressListenerFactory)">
 <h3>MinecraftServer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">MinecraftServer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>&nbsp;p_236723_,
- <a href="../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;p_236724_,
- <a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_236725_,
- <a href="WorldStem.html" title="class in net.minecraft.server">WorldStem</a>&nbsp;p_236726_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/Proxy.html" title="class or interface in java.net" class="external-link">Proxy</a>&nbsp;p_236727_,
- com.mojang.datafixers.DataFixer&nbsp;p_236728_,
- <a href="Services.html" title="class in net.minecraft.server">Services</a>&nbsp;p_236729_,
- <a href="level/progress/ChunkProgressListenerFactory.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListenerFactory</a>&nbsp;p_236730_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">MinecraftServer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>&nbsp;serverThread,
+ <a href="../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;storageSource,
+ <a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="WorldStem.html" title="class in net.minecraft.server">WorldStem</a>&nbsp;worldStem,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/net/Proxy.html" title="class or interface in java.net" class="external-link">Proxy</a>&nbsp;proxy,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper,
+ <a href="Services.html" title="class in net.minecraft.server">Services</a>&nbsp;services,
+ <a href="level/progress/ChunkProgressListenerFactory.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListenerFactory</a>&nbsp;progressListenerFactory)</span></div>
 </section>
 </li>
 </ul>
@@ -1800,13 +1818,13 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="spin(java.util.function.Function)">
 <h3>spin</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S extends <a href="MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&gt;</span>&nbsp;<span class="return-type">S</span>&nbsp;<span class="element-name">spin</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>,<wbr>S&gt;&nbsp;p_129873_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S extends <a href="MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&gt;</span>&nbsp;<span class="return-type">S</span>&nbsp;<span class="element-name">spin</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>,<wbr>S&gt;&nbsp;threadFunction)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="readScoreboard(net.minecraft.world.level.storage.DimensionDataStorage)">
 <h3>readScoreboard</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">readScoreboard</span><wbr><span class="parameters">(<a href="../world/level/storage/DimensionDataStorage.html" title="class in net.minecraft.world.level.storage">DimensionDataStorage</a>&nbsp;p_129842_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">readScoreboard</span><wbr><span class="parameters">(<a href="../world/level/storage/DimensionDataStorage.html" title="class in net.minecraft.world.level.storage">DimensionDataStorage</a>&nbsp;dataStorage)</span></div>
 </section>
 </li>
 <li>
@@ -1835,28 +1853,29 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="createLevels(net.minecraft.server.level.progress.ChunkProgressListener)">
 <h3>createLevels</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createLevels</span><wbr><span class="parameters">(<a href="level/progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;p_129816_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createLevels</span><wbr><span class="parameters">(<a href="level/progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;listener)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setInitialSpawn(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.storage.ServerLevelData,boolean,boolean)">
 <h3>setInitialSpawn</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setInitialSpawn</span><wbr><span class="parameters">(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_177897_,
- <a href="../world/level/storage/ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a>&nbsp;p_177898_,
- boolean&nbsp;p_177899_,
- boolean&nbsp;p_177900_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setInitialSpawn</span><wbr><span class="parameters">(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../world/level/storage/ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a>&nbsp;levelData,
+ boolean&nbsp;generateBonusChest,
+ boolean&nbsp;debug)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setupDebugLevel(net.minecraft.world.level.storage.WorldData)">
 <h3>setupDebugLevel</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupDebugLevel</span><wbr><span class="parameters">(<a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;p_129848_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupDebugLevel</span><wbr><span class="parameters">(<a href="../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="prepareLevels(net.minecraft.server.level.progress.ChunkProgressListener)">
 <h3>prepareLevels</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">prepareLevels</span><wbr><span class="parameters">(<a href="level/progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;p_129941_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">prepareLevels</span><wbr><span class="parameters">(<a href="level/progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;listener)</span></div>
+<div class="block">Loads the spawn chunks and any forced chunks</div>
 </section>
 </li>
 <li>
@@ -1892,17 +1911,17 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="saveAllChunks(boolean,boolean,boolean)">
 <h3>saveAllChunks</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">saveAllChunks</span><wbr><span class="parameters">(boolean&nbsp;p_129886_,
- boolean&nbsp;p_129887_,
- boolean&nbsp;p_129888_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">saveAllChunks</span><wbr><span class="parameters">(boolean&nbsp;suppressLog,
+ boolean&nbsp;flush,
+ boolean&nbsp;forced)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="saveEverything(boolean,boolean,boolean)">
 <h3>saveEverything</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">saveEverything</span><wbr><span class="parameters">(boolean&nbsp;p_195515_,
- boolean&nbsp;p_195516_,
- boolean&nbsp;p_195517_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">saveEverything</span><wbr><span class="parameters">(boolean&nbsp;suppressLog,
+ boolean&nbsp;flush,
+ boolean&nbsp;forced)</span></div>
 </section>
 </li>
 <li>
@@ -1932,7 +1951,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setLocalIp(java.lang.String)">
 <h3>setLocalIp</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLocalIp</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_129914_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLocalIp</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;localIp)</span></div>
 </section>
 </li>
 <li>
@@ -1944,7 +1963,8 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="halt(boolean)">
 <h3>halt</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">halt</span><wbr><span class="parameters">(boolean&nbsp;p_129884_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">halt</span><wbr><span class="parameters">(boolean&nbsp;waitForServer)</span></div>
+<div class="block">Sets the serverRunning variable to false, in order to get the server to shut down.</div>
 </section>
 </li>
 <li>
@@ -1974,7 +1994,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="constructOrExtractCrashReport(java.lang.Throwable)">
 <h3>constructOrExtractCrashReport</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a></span>&nbsp;<span class="element-name">constructOrExtractCrashReport</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;p_206569_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a></span>&nbsp;<span class="element-name">constructOrExtractCrashReport</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</span></div>
 </section>
 </li>
 <li>
@@ -1992,13 +2012,14 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setFatalException(java.lang.RuntimeException)">
 <h3>setFatalException</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFatalException</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/RuntimeException.html" title="class or interface in java.lang" class="external-link">RuntimeException</a>&nbsp;p_347584_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFatalException</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/RuntimeException.html" title="class or interface in java.lang" class="external-link">RuntimeException</a>&nbsp;p_fatalException)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="managedBlock(java.util.function.BooleanSupplier)">
 <h3>managedBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">managedBlock</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;p_347462_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">managedBlock</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;isDone)</span></div>
+<div class="block">Drive the executor until the given BooleanSupplier returns true</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../util/thread/BlockableEventLoop.html#managedBlock(java.util.function.BooleanSupplier)">managedBlock</a></code>&nbsp;in class&nbsp;<code><a href="../util/thread/BlockableEventLoop.html" title="class in net.minecraft.util.thread">BlockableEventLoop</a>&lt;<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&gt;</code></dd>
@@ -2024,7 +2045,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="wrapRunnable(java.lang.Runnable)">
 <h3>wrapRunnable</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="TickTask.html" title="class in net.minecraft.server">TickTask</a></span>&nbsp;<span class="element-name">wrapRunnable</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;p_129852_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="TickTask.html" title="class in net.minecraft.server">TickTask</a></span>&nbsp;<span class="element-name">wrapRunnable</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;runnable)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../util/thread/BlockableEventLoop.html#wrapRunnable(java.lang.Runnable)">wrapRunnable</a></code>&nbsp;in class&nbsp;<code><a href="../util/thread/BlockableEventLoop.html" title="class in net.minecraft.util.thread">BlockableEventLoop</a>&lt;<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&gt;</code></dd>
@@ -2034,7 +2055,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="shouldRun(net.minecraft.server.TickTask)">
 <h3>shouldRun</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldRun</span><wbr><span class="parameters">(<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&nbsp;p_129883_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldRun</span><wbr><span class="parameters">(<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&nbsp;runnable)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../util/thread/BlockableEventLoop.html#shouldRun(R)">shouldRun</a></code>&nbsp;in class&nbsp;<code><a href="../util/thread/BlockableEventLoop.html" title="class in net.minecraft.util.thread">BlockableEventLoop</a>&lt;<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&gt;</code></dd>
@@ -2060,7 +2081,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="doRunTask(net.minecraft.server.TickTask)">
 <h3>doRunTask</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">doRunTask</span><wbr><span class="parameters">(<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&nbsp;p_129957_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">doRunTask</span><wbr><span class="parameters">(<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&nbsp;task)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../util/thread/ReentrantBlockableEventLoop.html#doRunTask(R)">doRunTask</a></code>&nbsp;in class&nbsp;<code><a href="../util/thread/ReentrantBlockableEventLoop.html" title="class in net.minecraft.util.thread">ReentrantBlockableEventLoop</a>&lt;<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&gt;</code></dd>
@@ -2088,7 +2109,8 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="onServerCrash(net.minecraft.CrashReport)">
 <h3>onServerCrash</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onServerCrash</span><wbr><span class="parameters">(<a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a>&nbsp;p_129874_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onServerCrash</span><wbr><span class="parameters">(<a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a>&nbsp;report)</span></div>
+<div class="block">Called on exit from the main run() loop.</div>
 </section>
 </li>
 <li>
@@ -2106,13 +2128,14 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="tickServer(java.util.function.BooleanSupplier)">
 <h3>tickServer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tickServer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;p_129871_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tickServer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;hasTimeLeft)</span></div>
+<div class="block">Main function called by run() every loop.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="logTickMethodTime(long)">
 <h3>logTickMethodTime</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">logTickMethodTime</span><wbr><span class="parameters">(long&nbsp;p_321837_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">logTickMethodTime</span><wbr><span class="parameters">(long&nbsp;startTime)</span></div>
 </section>
 </li>
 <li>
@@ -2166,13 +2189,13 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="tickChildren(java.util.function.BooleanSupplier)">
 <h3>tickChildren</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tickChildren</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;p_129954_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tickChildren</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;hasTimeLeft)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="synchronizeTime(net.minecraft.server.level.ServerLevel)">
 <h3>synchronizeTime</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">synchronizeTime</span><wbr><span class="parameters">(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_276371_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">synchronizeTime</span><wbr><span class="parameters">(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level)</span></div>
 </section>
 </li>
 <li>
@@ -2184,19 +2207,19 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="isLevelEnabled(net.minecraft.world.level.Level)">
 <h3>isLevelEnabled</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isLevelEnabled</span><wbr><span class="parameters">(<a href="../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_350377_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isLevelEnabled</span><wbr><span class="parameters">(<a href="../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addTickable(java.lang.Runnable)">
 <h3>addTickable</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addTickable</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;p_129947_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addTickable</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;tickable)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setId(java.lang.String)">
 <h3>setId</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_129949_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serverId)</span></div>
 </section>
 </li>
 <li>
@@ -2208,7 +2231,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="getFile(java.lang.String)">
 <h3>getFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_129972_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;path)</span></div>
 </section>
 </li>
 <li>
@@ -2221,7 +2244,8 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <section class="detail" id="getLevel(net.minecraft.resources.ResourceKey)">
 <h3>getLevel</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a></span>&nbsp;<span class="element-name">getLevel</span><wbr><span class="parameters">(<a href="../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;p_129881_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a></span>&nbsp;<span class="element-name">getLevel</span><wbr><span class="parameters">(<a href="../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;dimension)</span></div>
+<div class="block">Gets the worldServer by the given dimension.</div>
 </section>
 </li>
 <li>
@@ -2281,13 +2305,13 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="fillSystemReport(net.minecraft.SystemReport)">
 <h3>fillSystemReport</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a></span>&nbsp;<span class="element-name">fillSystemReport</span><wbr><span class="parameters">(<a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;p_177936_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a></span>&nbsp;<span class="element-name">fillSystemReport</span><wbr><span class="parameters">(<a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;systemReport)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fillServerSystemReport(net.minecraft.SystemReport)">
 <h3>fillServerSystemReport</h3>
-<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type"><a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a></span>&nbsp;<span class="element-name">fillServerSystemReport</span><wbr><span class="parameters">(<a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;p_177901_)</span></div>
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type"><a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a></span>&nbsp;<span class="element-name">fillServerSystemReport</span><wbr><span class="parameters">(<a href="../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;report)</span></div>
 </section>
 </li>
 <li>
@@ -2299,7 +2323,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="sendSystemMessage(net.minecraft.network.chat.Component)">
 <h3>sendSystemMessage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendSystemMessage</span><wbr><span class="parameters">(<a href="../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_236736_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendSystemMessage</span><wbr><span class="parameters">(<a href="../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;component)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../commands/CommandSource.html#sendSystemMessage(net.minecraft.network.chat.Component)">sendSystemMessage</a></code>&nbsp;in interface&nbsp;<code><a href="../commands/CommandSource.html" title="interface in net.minecraft.commands">CommandSource</a></code></dd>
@@ -2321,7 +2345,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setPort(int)">
 <h3>setPort</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPort</span><wbr><span class="parameters">(int&nbsp;p_129802_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPort</span><wbr><span class="parameters">(int&nbsp;port)</span></div>
 </section>
 </li>
 <li>
@@ -2335,7 +2359,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <section class="detail" id="setSingleplayerProfile(com.mojang.authlib.GameProfile)">
 <h3>setSingleplayerProfile</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSingleplayerProfile</span><wbr><span class="parameters">(@Nullable
- com.mojang.authlib.GameProfile&nbsp;p_236741_)</span></div>
+ com.mojang.authlib.GameProfile&nbsp;singleplayerProfile)</span></div>
 </section>
 </li>
 <li>
@@ -2353,14 +2377,14 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setDifficulty(net.minecraft.world.Difficulty,boolean)">
 <h3>setDifficulty</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDifficulty</span><wbr><span class="parameters">(<a href="../world/Difficulty.html" title="enum class in net.minecraft.world">Difficulty</a>&nbsp;p_129828_,
- boolean&nbsp;p_129829_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDifficulty</span><wbr><span class="parameters">(<a href="../world/Difficulty.html" title="enum class in net.minecraft.world">Difficulty</a>&nbsp;difficulty,
+ boolean&nbsp;forced)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getScaledTrackingDistance(int)">
 <h3>getScaledTrackingDistance</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getScaledTrackingDistance</span><wbr><span class="parameters">(int&nbsp;p_129935_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getScaledTrackingDistance</span><wbr><span class="parameters">(int&nbsp;trackingDistance)</span></div>
 </section>
 </li>
 <li>
@@ -2372,13 +2396,13 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setDifficultyLocked(boolean)">
 <h3>setDifficultyLocked</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDifficultyLocked</span><wbr><span class="parameters">(boolean&nbsp;p_129959_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDifficultyLocked</span><wbr><span class="parameters">(boolean&nbsp;locked)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="sendDifficultyUpdate(net.minecraft.server.level.ServerPlayer)">
 <h3>sendDifficultyUpdate</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendDifficultyUpdate</span><wbr><span class="parameters">(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_129939_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendDifficultyUpdate</span><wbr><span class="parameters">(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</span></div>
 </section>
 </li>
 <li>
@@ -2396,7 +2420,8 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setDemo(boolean)">
 <h3>setDemo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDemo</span><wbr><span class="parameters">(boolean&nbsp;p_129976_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDemo</span><wbr><span class="parameters">(boolean&nbsp;demo)</span></div>
+<div class="block">Sets whether this is a demo or not.</div>
 </section>
 </li>
 <li>
@@ -2432,7 +2457,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setUsesAuthentication(boolean)">
 <h3>setUsesAuthentication</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setUsesAuthentication</span><wbr><span class="parameters">(boolean&nbsp;p_129986_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setUsesAuthentication</span><wbr><span class="parameters">(boolean&nbsp;online)</span></div>
 </section>
 </li>
 <li>
@@ -2444,7 +2469,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setPreventProxyConnections(boolean)">
 <h3>setPreventProxyConnections</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPreventProxyConnections</span><wbr><span class="parameters">(boolean&nbsp;p_129994_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPreventProxyConnections</span><wbr><span class="parameters">(boolean&nbsp;preventProxyConnections)</span></div>
 </section>
 </li>
 <li>
@@ -2474,7 +2499,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setPvpAllowed(boolean)">
 <h3>setPvpAllowed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPvpAllowed</span><wbr><span class="parameters">(boolean&nbsp;p_129998_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPvpAllowed</span><wbr><span class="parameters">(boolean&nbsp;allowPvp)</span></div>
 </section>
 </li>
 <li>
@@ -2486,7 +2511,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setFlightAllowed(boolean)">
 <h3>setFlightAllowed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFlightAllowed</span><wbr><span class="parameters">(boolean&nbsp;p_130000_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFlightAllowed</span><wbr><span class="parameters">(boolean&nbsp;allow)</span></div>
 </section>
 </li>
 <li>
@@ -2508,7 +2533,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setMotd(java.lang.String)">
 <h3>setMotd</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMotd</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_129990_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMotd</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;motd)</span></div>
 </section>
 </li>
 <li>
@@ -2526,7 +2551,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setPlayerList(net.minecraft.server.players.PlayerList)">
 <h3>setPlayerList</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPlayerList</span><wbr><span class="parameters">(<a href="players/PlayerList.html" title="class in net.minecraft.server.players">PlayerList</a>&nbsp;p_129824_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPlayerList</span><wbr><span class="parameters">(<a href="players/PlayerList.html" title="class in net.minecraft.server.players">PlayerList</a>&nbsp;list)</span></div>
 </section>
 </li>
 <li>
@@ -2538,7 +2563,8 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setDefaultGameType(net.minecraft.world.level.GameType)">
 <h3>setDefaultGameType</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDefaultGameType</span><wbr><span class="parameters">(<a href="../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;p_129832_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDefaultGameType</span><wbr><span class="parameters">(<a href="../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;gameMode)</span></div>
+<div class="block">Sets the game type for all worlds.</div>
 </section>
 </li>
 <li>
@@ -2563,9 +2589,9 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <section class="detail" id="publishServer(net.minecraft.world.level.GameType,boolean,int)">
 <h3>publishServer</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">publishServer</span><wbr><span class="parameters">(@Nullable
- <a href="../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;p_129833_,
- boolean&nbsp;p_129834_,
- int&nbsp;p_129835_)</span></div>
+ <a href="../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;gameMode,
+ boolean&nbsp;commands,
+ int&nbsp;port)</span></div>
 </section>
 </li>
 <li>
@@ -2583,9 +2609,9 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="isUnderSpawnProtection(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.entity.player.Player)">
 <h3>isUnderSpawnProtection</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isUnderSpawnProtection</span><wbr><span class="parameters">(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_129811_,
- <a href="../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_129812_,
- <a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_129813_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isUnderSpawnProtection</span><wbr><span class="parameters">(<a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</span></div>
 </section>
 </li>
 <li>
@@ -2615,7 +2641,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setPlayerIdleTimeout(int)">
 <h3>setPlayerIdleTimeout</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPlayerIdleTimeout</span><wbr><span class="parameters">(int&nbsp;p_129978_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPlayerIdleTimeout</span><wbr><span class="parameters">(int&nbsp;idleTimeout)</span></div>
 </section>
 </li>
 <li>
@@ -2676,7 +2702,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="executeIfPossible(java.lang.Runnable)">
 <h3>executeIfPossible</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">executeIfPossible</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;p_202482_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">executeIfPossible</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;task)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../util/thread/BlockableEventLoop.html#executeIfPossible(java.lang.Runnable)">executeIfPossible</a></code>&nbsp;in class&nbsp;<code><a href="../util/thread/BlockableEventLoop.html" title="class in net.minecraft.util.thread">BlockableEventLoop</a>&lt;<a href="TickTask.html" title="class in net.minecraft.server">TickTask</a>&gt;</code></dd>
@@ -2721,7 +2747,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <section class="detail" id="getSpawnRadius(net.minecraft.server.level.ServerLevel)">
 <h3>getSpawnRadius</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSpawnRadius</span><wbr><span class="parameters">(@Nullable
- <a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_129804_)</span></div>
+ <a href="level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level)</span></div>
 </section>
 </li>
 <li>
@@ -2739,45 +2765,46 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="reloadResources(java.util.Collection)">
 <h3>reloadResources</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name">reloadResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_129862_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name">reloadResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;selectedIds)</span></div>
+<div class="block">Replaces currently selected list of datapacks, reloads them, and sends new data to players.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="configurePackRepository(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.WorldDataConfiguration,boolean,boolean)">
 <h3>configurePackRepository</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></span>&nbsp;<span class="element-name">configurePackRepository</span><wbr><span class="parameters">(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_248681_,
- <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;p_341632_,
- boolean&nbsp;p_249869_,
- boolean&nbsp;p_341620_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></span>&nbsp;<span class="element-name">configurePackRepository</span><wbr><span class="parameters">(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;initialDataConfig,
+ boolean&nbsp;initMode,
+ boolean&nbsp;safeMode)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="configureRepositoryWithSelection(net.minecraft.server.packs.repository.PackRepository,java.util.Collection,net.minecraft.world.flag.FeatureFlagSet,boolean)">
 <h3>configureRepositoryWithSelection</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></span>&nbsp;<span class="element-name">configureRepositoryWithSelection</span><wbr><span class="parameters">(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_341680_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_341677_,
- <a href="../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a>&nbsp;p_341602_,
- boolean&nbsp;p_341662_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></span>&nbsp;<span class="element-name">configureRepositoryWithSelection</span><wbr><span class="parameters">(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;selectedPacks,
+ <a href="../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a>&nbsp;enabledFeatures,
+ boolean&nbsp;safeMode)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="enableForcedFeaturePacks(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.flag.FeatureFlagSet)">
 <h3>enableForcedFeaturePacks</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">enableForcedFeaturePacks</span><wbr><span class="parameters">(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_341674_,
- <a href="../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a>&nbsp;p_341598_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">enableForcedFeaturePacks</span><wbr><span class="parameters">(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a>&nbsp;enabledFeatures)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getSelectedPacks(net.minecraft.server.packs.repository.PackRepository,boolean)">
 <h3>getSelectedPacks</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a></span>&nbsp;<span class="element-name">getSelectedPacks</span><wbr><span class="parameters">(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_129818_,
- boolean&nbsp;p_341596_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../world/level/DataPackConfig.html" title="class in net.minecraft.world.level">DataPackConfig</a></span>&nbsp;<span class="element-name">getSelectedPacks</span><wbr><span class="parameters">(<a href="packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ boolean&nbsp;safeMode)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="kickUnlistedPlayers(net.minecraft.commands.CommandSourceStack)">
 <h3>kickUnlistedPlayers</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">kickUnlistedPlayers</span><wbr><span class="parameters">(<a href="../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_129850_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">kickUnlistedPlayers</span><wbr><span class="parameters">(<a href="../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;commandSource)</span></div>
 </section>
 </li>
 <li>
@@ -2867,7 +2894,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="setEnforceWhitelist(boolean)">
 <h3>setEnforceWhitelist</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setEnforceWhitelist</span><wbr><span class="parameters">(boolean&nbsp;p_130005_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setEnforceWhitelist</span><wbr><span class="parameters">(boolean&nbsp;whitelistEnabled)</span></div>
 </section>
 </li>
 <li>
@@ -2897,7 +2924,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="getProfilePermissions(com.mojang.authlib.GameProfile)">
 <h3>getProfilePermissions</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getProfilePermissions</span><wbr><span class="parameters">(com.mojang.authlib.GameProfile&nbsp;p_129945_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getProfilePermissions</span><wbr><span class="parameters">(com.mojang.authlib.GameProfile&nbsp;profile)</span></div>
 </section>
 </li>
 <li>
@@ -2909,7 +2936,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="isSingleplayerOwner(com.mojang.authlib.GameProfile)">
 <h3>isSingleplayerOwner</h3>
-<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isSingleplayerOwner</span><wbr><span class="parameters">(com.mojang.authlib.GameProfile&nbsp;p_129840_)</span></div>
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isSingleplayerOwner</span><wbr><span class="parameters">(com.mojang.authlib.GameProfile&nbsp;profile)</span></div>
 </section>
 </li>
 <li>
@@ -2944,7 +2971,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="dumpServerProperties(java.nio.file.Path)">
 <h3>dumpServerProperties</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpServerProperties</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_177911_)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpServerProperties</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</span>
                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2955,13 +2982,13 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="saveDebugReport(java.nio.file.Path)">
 <h3>saveDebugReport</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">saveDebugReport</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129860_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">saveDebugReport</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_path)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="dumpMiscStats(java.nio.file.Path)">
 <h3>dumpMiscStats</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpMiscStats</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129951_)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpMiscStats</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</span>
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2972,7 +2999,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="dumpGameRules(java.nio.file.Path)">
 <h3>dumpGameRules</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpGameRules</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129984_)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpGameRules</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</span>
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2983,7 +3010,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="dumpClasspath(java.nio.file.Path)">
 <h3>dumpClasspath</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpClasspath</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129992_)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpClasspath</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</span>
                     throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -2994,7 +3021,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="dumpThreads(java.nio.file.Path)">
 <h3>dumpThreads</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpThreads</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_129996_)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpThreads</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</span>
                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -3005,7 +3032,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="dumpNativeModules(java.nio.file.Path)">
 <h3>dumpNativeModules</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpNativeModules</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_195522_)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpNativeModules</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</span>
                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -3034,8 +3061,8 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="startRecordingMetrics(java.util.function.Consumer,java.util.function.Consumer)">
 <h3>startRecordingMetrics</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">startRecordingMetrics</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../util/profiling/ProfileResults.html" title="interface in net.minecraft.util.profiling">ProfileResults</a>&gt;&nbsp;p_177924_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;p_177925_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">startRecordingMetrics</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../util/profiling/ProfileResults.html" title="interface in net.minecraft.util.profiling">ProfileResults</a>&gt;&nbsp;output,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;onMetricsRecordingFinished)</span></div>
 </section>
 </li>
 <li>
@@ -3059,7 +3086,7 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="getWorldPath(net.minecraft.world.level.storage.LevelResource)">
 <h3>getWorldPath</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getWorldPath</span><wbr><span class="parameters">(<a href="../world/level/storage/LevelResource.html" title="class in net.minecraft.world.level.storage">LevelResource</a>&nbsp;p_129844_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getWorldPath</span><wbr><span class="parameters">(<a href="../world/level/storage/LevelResource.html" title="class in net.minecraft.world.level.storage">LevelResource</a>&nbsp;levelResource)</span></div>
 </section>
 </li>
 <li>
@@ -3107,13 +3134,13 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="createTextFilterForPlayer(net.minecraft.server.level.ServerPlayer)">
 <h3>createTextFilterForPlayer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="network/TextFilter.html" title="interface in net.minecraft.server.network">TextFilter</a></span>&nbsp;<span class="element-name">createTextFilterForPlayer</span><wbr><span class="parameters">(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_129814_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="network/TextFilter.html" title="interface in net.minecraft.server.network">TextFilter</a></span>&nbsp;<span class="element-name">createTextFilterForPlayer</span><wbr><span class="parameters">(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createGameModeForPlayer(net.minecraft.server.level.ServerPlayer)">
 <h3>createGameModeForPlayer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="level/ServerPlayerGameMode.html" title="class in net.minecraft.server.level">ServerPlayerGameMode</a></span>&nbsp;<span class="element-name">createGameModeForPlayer</span><wbr><span class="parameters">(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_177934_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="level/ServerPlayerGameMode.html" title="class in net.minecraft.server.level">ServerPlayerGameMode</a></span>&nbsp;<span class="element-name">createGameModeForPlayer</span><wbr><span class="parameters">(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</span></div>
 </section>
 </li>
 <li>
@@ -3162,10 +3189,10 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="logChatMessage(net.minecraft.network.chat.Component,net.minecraft.network.chat.ChatType.Bound,java.lang.String)">
 <h3>logChatMessage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">logChatMessage</span><wbr><span class="parameters">(<a href="../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_241503_,
- <a href="../network/chat/ChatType.Bound.html" title="class in net.minecraft.network.chat">ChatType.Bound</a>&nbsp;p_241402_,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">logChatMessage</span><wbr><span class="parameters">(<a href="../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;content,
+ <a href="../network/chat/ChatType.Bound.html" title="class in net.minecraft.network.chat">ChatType.Bound</a>&nbsp;boundChatType,
  @Nullable
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_241481_)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;header)</span></div>
 </section>
 </li>
 <li>
@@ -3183,8 +3210,8 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="subscribeToDebugSample(net.minecraft.server.level.ServerPlayer,net.minecraft.util.debugchart.RemoteDebugSampleType)">
 <h3>subscribeToDebugSample</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeToDebugSample</span><wbr><span class="parameters">(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_324078_,
- <a href="../util/debugchart/RemoteDebugSampleType.html" title="enum class in net.minecraft.util.debugchart">RemoteDebugSampleType</a>&nbsp;p_323992_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">subscribeToDebugSample</span><wbr><span class="parameters">(<a href="level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player,
+ <a href="../util/debugchart/RemoteDebugSampleType.html" title="enum class in net.minecraft.util.debugchart">RemoteDebugSampleType</a>&nbsp;sampleType)</span></div>
 </section>
 </li>
 <li>
@@ -3196,17 +3223,17 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="storeChunkIoError(net.minecraft.CrashReport,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionStorageInfo)">
 <h3>storeChunkIoError</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">storeChunkIoError</span><wbr><span class="parameters">(<a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a>&nbsp;p_352397_,
- <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_352348_,
- <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_352231_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">storeChunkIoError</span><wbr><span class="parameters">(<a href="../CrashReport.html" title="class in net.minecraft">CrashReport</a>&nbsp;crashReport,
+ <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;regionStorageInfo)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="reportChunkLoadFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)">
 <h3>reportChunkLoadFailure</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reportChunkLoadFailure</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;p_352289_,
- <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_352335_,
- <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_330507_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reportChunkLoadFailure</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;throwable,
+ <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;regionStorageInfo,
+ <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../world/level/chunk/storage/ChunkIOErrorReporter.html#reportChunkLoadFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)">reportChunkLoadFailure</a></code>&nbsp;in interface&nbsp;<code><a href="../world/level/chunk/storage/ChunkIOErrorReporter.html" title="interface in net.minecraft.world.level.chunk.storage">ChunkIOErrorReporter</a></code></dd>
@@ -3216,9 +3243,9 @@ implements <a href="ServerInfo.html" title="interface in net.minecraft.server">S
 <li>
 <section class="detail" id="reportChunkSaveFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)">
 <h3>reportChunkSaveFailure</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reportChunkSaveFailure</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;p_352232_,
- <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_352253_,
- <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_331741_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reportChunkSaveFailure</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;throwable,
+ <a href="../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;regionStorageInfo,
+ <a href="../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../world/level/chunk/storage/ChunkIOErrorReporter.html#reportChunkSaveFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)">reportChunkSaveFailure</a></code>&nbsp;in interface&nbsp;<code><a href="../world/level/chunk/storage/ChunkIOErrorReporter.html" title="interface in net.minecraft.world.level.chunk.storage">ChunkIOErrorReporter</a></code></dd>

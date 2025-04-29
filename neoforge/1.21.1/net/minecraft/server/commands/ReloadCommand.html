@@ -135,16 +135,18 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#discoverNewPacks(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.storage.WorldData,java.util.Collection)" class="member-name-link">discoverNewPacks</a><wbr>(<a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_138223_,
- <a href="../../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;p_138224_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_138225_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#discoverNewPacks(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.storage.WorldData,java.util.Collection)" class="member-name-link">discoverNewPacks</a><wbr>(<a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;selectedIds)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Gets a list of IDs for the selected packs as well as all packs not disabled by the world config.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#register(com.mojang.brigadier.CommandDispatcher)" class="member-name-link">register</a><wbr>(com.mojang.brigadier.CommandDispatcher&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;p_138227_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#register(com.mojang.brigadier.CommandDispatcher)" class="member-name-link">register</a><wbr>(com.mojang.brigadier.CommandDispatcher&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;dispatcher)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#reloadPacks(java.util.Collection,net.minecraft.commands.CommandSourceStack)" class="member-name-link">reloadPacks</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_138236_,
- <a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_138237_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#reloadPacks(java.util.Collection,net.minecraft.commands.CommandSourceStack)" class="member-name-link">reloadPacks</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;selectedIds,
+ <a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -194,22 +196,23 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="reloadPacks(java.util.Collection,net.minecraft.commands.CommandSourceStack)">
 <h3>reloadPacks</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reloadPacks</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_138236_,
- <a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;p_138237_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reloadPacks</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;selectedIds,
+ <a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="discoverNewPacks(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.storage.WorldData,java.util.Collection)">
 <h3>discoverNewPacks</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">discoverNewPacks</span><wbr><span class="parameters">(<a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_138223_,
- <a href="../../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;p_138224_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;p_138225_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">discoverNewPacks</span><wbr><span class="parameters">(<a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../../world/level/storage/WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;selectedIds)</span></div>
+<div class="block">Gets a list of IDs for the selected packs as well as all packs not disabled by the world config.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="register(com.mojang.brigadier.CommandDispatcher)">
 <h3>register</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">register</span><wbr><span class="parameters">(com.mojang.brigadier.CommandDispatcher&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;p_138227_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">register</span><wbr><span class="parameters">(com.mojang.brigadier.CommandDispatcher&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;dispatcher)</span></div>
 </section>
 </li>
 </ul>

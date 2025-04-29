@@ -154,8 +154,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.valueproviders.IntProvider,net.minecraft.world.level.block.state.BlockBehaviour.Properties)" class="member-name-link">DropExperienceBlock</a><wbr>(<a href="../../../util/valueproviders/IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&nbsp;p_221084_,
- <a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;p_221083_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.valueproviders.IntProvider,net.minecraft.world.level.block.state.BlockBehaviour.Properties)" class="member-name-link">DropExperienceBlock</a><wbr>(<a href="../../../util/valueproviders/IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&nbsp;xpRange,
+ <a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;properties)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -185,12 +185,14 @@ loadScripts(document, 'script');</script>
 <div class="block">Returns how many experience points this block drops when broken, before application of <a href="../../item/enchantment/EnchantmentEffectComponents.html#BLOCK_EXPERIENCE">enchantments</a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#spawnAfterBreak(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.item.ItemStack,boolean)" class="member-name-link">spawnAfterBreak</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221086_,
- <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_221087_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_221088_,
- <a href="../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_221089_,
- boolean&nbsp;p_221090_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#spawnAfterBreak(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.item.ItemStack,boolean)" class="member-name-link">spawnAfterBreak</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ boolean&nbsp;dropExperience)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Perform side-effects from block dropping, such as creating silverfish</div>
+</div>
 </div>
 </div>
 </div>
@@ -243,8 +245,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.util.valueproviders.IntProvider,net.minecraft.world.level.block.state.BlockBehaviour.Properties)">
 <h3>DropExperienceBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DropExperienceBlock</span><wbr><span class="parameters">(<a href="../../../util/valueproviders/IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&nbsp;p_221084_,
- <a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;p_221083_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DropExperienceBlock</span><wbr><span class="parameters">(<a href="../../../util/valueproviders/IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&nbsp;xpRange,
+ <a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;properties)</span></div>
 </section>
 </li>
 </ul>
@@ -268,11 +270,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="spawnAfterBreak(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.item.ItemStack,boolean)">
 <h3>spawnAfterBreak</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">spawnAfterBreak</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_221086_,
- <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_221087_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_221088_,
- <a href="../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_221089_,
- boolean&nbsp;p_221090_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">spawnAfterBreak</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ boolean&nbsp;dropExperience)</span></div>
+<div class="block">Perform side-effects from block dropping, such as creating silverfish</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#spawnAfterBreak(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.item.ItemStack,boolean)">spawnAfterBreak</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>

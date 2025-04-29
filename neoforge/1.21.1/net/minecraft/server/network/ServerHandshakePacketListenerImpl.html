@@ -132,8 +132,8 @@ implements <a href="../../network/protocol/handshake/ServerHandshakePacketListen
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.MinecraftServer,net.minecraft.network.Connection)" class="member-name-link">ServerHandshakePacketListenerImpl</a><wbr>(<a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;p_9969_,
- <a href="../../network/Connection.html" title="class in net.minecraft.network">Connection</a>&nbsp;p_9970_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.MinecraftServer,net.minecraft.network.Connection)" class="member-name-link">ServerHandshakePacketListenerImpl</a><wbr>(<a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server,
+ <a href="../../network/Connection.html" title="class in net.minecraft.network">Connection</a>&nbsp;connection)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -150,17 +150,19 @@ implements <a href="../../network/protocol/handshake/ServerHandshakePacketListen
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#beginLogin(net.minecraft.network.protocol.handshake.ClientIntentionPacket,boolean)" class="member-name-link">beginLogin</a><wbr>(<a href="../../network/protocol/handshake/ClientIntentionPacket.html" title="class in net.minecraft.network.protocol.handshake">ClientIntentionPacket</a>&nbsp;p_320524_,
- boolean&nbsp;p_320853_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#beginLogin(net.minecraft.network.protocol.handshake.ClientIntentionPacket,boolean)" class="member-name-link">beginLogin</a><wbr>(<a href="../../network/protocol/handshake/ClientIntentionPacket.html" title="class in net.minecraft.network.protocol.handshake">ClientIntentionPacket</a>&nbsp;packet,
+ boolean&nbsp;transferred)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleIntention(net.minecraft.network.protocol.handshake.ClientIntentionPacket)" class="member-name-link">handleIntention</a><wbr>(<a href="../../network/protocol/handshake/ClientIntentionPacket.html" title="class in net.minecraft.network.protocol.handshake">ClientIntentionPacket</a>&nbsp;p_9975_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleIntention(net.minecraft.network.protocol.handshake.ClientIntentionPacket)" class="member-name-link">handleIntention</a><wbr>(<a href="../../network/protocol/handshake/ClientIntentionPacket.html" title="class in net.minecraft.network.protocol.handshake">ClientIntentionPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">There are two recognized intentions for initiating a handshake: logging in and acquiring server status.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isAcceptingMessages()" class="member-name-link">isAcceptingMessages</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onDisconnect(net.minecraft.network.DisconnectionDetails)" class="member-name-link">onDisconnect</a><wbr>(<a href="../../network/DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a>&nbsp;p_350912_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onDisconnect(net.minecraft.network.DisconnectionDetails)" class="member-name-link">onDisconnect</a><wbr>(<a href="../../network/DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a>&nbsp;details)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -220,8 +222,8 @@ implements <a href="../../network/protocol/handshake/ServerHandshakePacketListen
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.server.MinecraftServer,net.minecraft.network.Connection)">
 <h3>ServerHandshakePacketListenerImpl</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ServerHandshakePacketListenerImpl</span><wbr><span class="parameters">(<a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;p_9969_,
- <a href="../../network/Connection.html" title="class in net.minecraft.network">Connection</a>&nbsp;p_9970_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ServerHandshakePacketListenerImpl</span><wbr><span class="parameters">(<a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server,
+ <a href="../../network/Connection.html" title="class in net.minecraft.network">Connection</a>&nbsp;connection)</span></div>
 </section>
 </li>
 </ul>
@@ -235,7 +237,8 @@ implements <a href="../../network/protocol/handshake/ServerHandshakePacketListen
 <li>
 <section class="detail" id="handleIntention(net.minecraft.network.protocol.handshake.ClientIntentionPacket)">
 <h3>handleIntention</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleIntention</span><wbr><span class="parameters">(<a href="../../network/protocol/handshake/ClientIntentionPacket.html" title="class in net.minecraft.network.protocol.handshake">ClientIntentionPacket</a>&nbsp;p_9975_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleIntention</span><wbr><span class="parameters">(<a href="../../network/protocol/handshake/ClientIntentionPacket.html" title="class in net.minecraft.network.protocol.handshake">ClientIntentionPacket</a>&nbsp;packet)</span></div>
+<div class="block">There are two recognized intentions for initiating a handshake: logging in and acquiring server status. The NetworkManager's protocol will be reconfigured according to the specified intention, although a login-intention must pass a versioncheck or receive a disconnect otherwise</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../network/protocol/handshake/ServerHandshakePacketListener.html#handleIntention(net.minecraft.network.protocol.handshake.ClientIntentionPacket)">handleIntention</a></code>&nbsp;in interface&nbsp;<code><a href="../../network/protocol/handshake/ServerHandshakePacketListener.html" title="interface in net.minecraft.network.protocol.handshake">ServerHandshakePacketListener</a></code></dd>
@@ -245,14 +248,14 @@ implements <a href="../../network/protocol/handshake/ServerHandshakePacketListen
 <li>
 <section class="detail" id="beginLogin(net.minecraft.network.protocol.handshake.ClientIntentionPacket,boolean)">
 <h3>beginLogin</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">beginLogin</span><wbr><span class="parameters">(<a href="../../network/protocol/handshake/ClientIntentionPacket.html" title="class in net.minecraft.network.protocol.handshake">ClientIntentionPacket</a>&nbsp;p_320524_,
- boolean&nbsp;p_320853_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">beginLogin</span><wbr><span class="parameters">(<a href="../../network/protocol/handshake/ClientIntentionPacket.html" title="class in net.minecraft.network.protocol.handshake">ClientIntentionPacket</a>&nbsp;packet,
+ boolean&nbsp;transferred)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="onDisconnect(net.minecraft.network.DisconnectionDetails)">
 <h3>onDisconnect</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onDisconnect</span><wbr><span class="parameters">(<a href="../../network/DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a>&nbsp;p_350912_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onDisconnect</span><wbr><span class="parameters">(<a href="../../network/DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a>&nbsp;details)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../network/PacketListener.html#onDisconnect(net.minecraft.network.DisconnectionDetails)">onDisconnect</a></code>&nbsp;in interface&nbsp;<code><a href="../../network/PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></code></dd>

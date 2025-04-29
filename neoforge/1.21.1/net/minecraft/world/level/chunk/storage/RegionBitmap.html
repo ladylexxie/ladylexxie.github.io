@@ -92,6 +92,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">RegionBitmap</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Keeps track of which parts of a region file are used and which parts are free.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -135,16 +136,22 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#allocate(int)" class="member-name-link">allocate</a><wbr>(int&nbsp;p_63611_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#allocate(int)" class="member-name-link">allocate</a><wbr>(int&nbsp;sectorCount)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets a valid offset inside the region file with enough space to store the given amount of sectors and marks that space as used.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#force(int,int)" class="member-name-link">force</a><wbr>(int&nbsp;p_63613_,
- int&nbsp;p_63614_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#force(int,int)" class="member-name-link">force</a><wbr>(int&nbsp;sectorOffset,
+ int&nbsp;sectorCount)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Marks a range of 4 KiB sectors relative to the region file as used.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#free(int,int)" class="member-name-link">free</a><wbr>(int&nbsp;p_63616_,
- int&nbsp;p_63617_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#free(int,int)" class="member-name-link">free</a><wbr>(int&nbsp;sectorOffset,
+ int&nbsp;sectorCount)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Marks a range of 4 KiB sectors relative to the region file as not used.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>it.unimi.dsi.fastutil.ints.IntSet</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUsed()" class="member-name-link">getUsed</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -196,21 +203,34 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="force(int,int)">
 <h3>force</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">force</span><wbr><span class="parameters">(int&nbsp;p_63613_,
- int&nbsp;p_63614_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">force</span><wbr><span class="parameters">(int&nbsp;sectorOffset,
+ int&nbsp;sectorCount)</span></div>
+<div class="block">Marks a range of 4 KiB sectors relative to the region file as used.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sectorOffset</code> - The first sector in the range.</dd>
+<dd><code>sectorCount</code> - The amount of sectors in the range.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="free(int,int)">
 <h3>free</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">free</span><wbr><span class="parameters">(int&nbsp;p_63616_,
- int&nbsp;p_63617_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">free</span><wbr><span class="parameters">(int&nbsp;sectorOffset,
+ int&nbsp;sectorCount)</span></div>
+<div class="block">Marks a range of 4 KiB sectors relative to the region file as not used.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sectorOffset</code> - The first sector in the range.</dd>
+<dd><code>sectorCount</code> - The amount of sectors in the range.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="allocate(int)">
 <h3>allocate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">allocate</span><wbr><span class="parameters">(int&nbsp;p_63611_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">allocate</span><wbr><span class="parameters">(int&nbsp;sectorCount)</span></div>
+<div class="block">Gets a valid offset inside the region file with enough space to store the given amount of sectors and marks that space as used.</div>
 </section>
 </li>
 <li>

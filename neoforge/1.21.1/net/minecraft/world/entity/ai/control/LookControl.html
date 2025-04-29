@@ -145,7 +145,7 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.entity.Mob)" class="member-name-link">LookControl</a><wbr>(<a href="../../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_24945_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.entity.Mob)" class="member-name-link">LookControl</a><wbr>(<a href="../../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -171,7 +171,7 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWantedY()" class="member-name-link">getWantedY</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getWantedY(net.minecraft.world.entity.Entity)" class="member-name-link">getWantedY</a><wbr>(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_24967_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getWantedY(net.minecraft.world.entity.Entity)" class="member-name-link">getWantedY</a><wbr>(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWantedZ()" class="member-name-link">getWantedZ</a>()</code></div>
@@ -189,33 +189,43 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetXRotOnTick()" class="member-name-link">resetXRotOnTick</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected float</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rotateTowards(float,float,float)" class="member-name-link">rotateTowards</a><wbr>(float&nbsp;p_24957_,
- float&nbsp;p_24958_,
- float&nbsp;p_24959_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rotateTowards(float,float,float)" class="member-name-link">rotateTowards</a><wbr>(float&nbsp;from,
+ float&nbsp;to,
+ float&nbsp;maxDelta)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Rotate as much as possible from <code>from</code> to <code>to</code> within the bounds of <code>maxDelta</code></div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(double,double,double)" class="member-name-link">setLookAt</a><wbr>(double&nbsp;p_24947_,
- double&nbsp;p_24948_,
- double&nbsp;p_24949_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(double,double,double)" class="member-name-link">setLookAt</a><wbr>(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(double,double,double,float,float)" class="member-name-link">setLookAt</a><wbr>(double&nbsp;p_24951_,
- double&nbsp;p_24952_,
- double&nbsp;p_24953_,
- float&nbsp;p_24954_,
- float&nbsp;p_24955_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(double,double,double,float,float)" class="member-name-link">setLookAt</a><wbr>(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ float&nbsp;deltaYaw,
+ float&nbsp;deltaPitch)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets position to look at</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(net.minecraft.world.entity.Entity)" class="member-name-link">setLookAt</a><wbr>(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_148052_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(net.minecraft.world.entity.Entity)" class="member-name-link">setLookAt</a><wbr>(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the controlling mob's look vector to the provided entity's location</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(net.minecraft.world.entity.Entity,float,float)" class="member-name-link">setLookAt</a><wbr>(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_24961_,
- float&nbsp;p_24962_,
- float&nbsp;p_24963_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(net.minecraft.world.entity.Entity,float,float)" class="member-name-link">setLookAt</a><wbr>(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ float&nbsp;deltaYaw,
+ float&nbsp;deltaPitch)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets position to look at using entity</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(net.minecraft.world.phys.Vec3)" class="member-name-link">setLookAt</a><wbr>(<a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_24965_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLookAt(net.minecraft.world.phys.Vec3)" class="member-name-link">setLookAt</a><wbr>(<a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;lookVector)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the mob's look vector</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick()" class="member-name-link">tick</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -289,7 +299,7 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.entity.Mob)">
 <h3>LookControl</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LookControl</span><wbr><span class="parameters">(<a href="../../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_24945_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LookControl</span><wbr><span class="parameters">(<a href="../../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob)</span></div>
 </section>
 </li>
 </ul>
@@ -303,39 +313,43 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <li>
 <section class="detail" id="setLookAt(net.minecraft.world.phys.Vec3)">
 <h3>setLookAt</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(<a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_24965_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(<a href="../../../phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;lookVector)</span></div>
+<div class="block">Sets the mob's look vector</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setLookAt(net.minecraft.world.entity.Entity)">
 <h3>setLookAt</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_148052_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</span></div>
+<div class="block">Sets the controlling mob's look vector to the provided entity's location</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setLookAt(net.minecraft.world.entity.Entity,float,float)">
 <h3>setLookAt</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_24961_,
- float&nbsp;p_24962_,
- float&nbsp;p_24963_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ float&nbsp;deltaYaw,
+ float&nbsp;deltaPitch)</span></div>
+<div class="block">Sets position to look at using entity</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setLookAt(double,double,double)">
 <h3>setLookAt</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(double&nbsp;p_24947_,
- double&nbsp;p_24948_,
- double&nbsp;p_24949_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setLookAt(double,double,double,float,float)">
 <h3>setLookAt</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(double&nbsp;p_24951_,
- double&nbsp;p_24952_,
- double&nbsp;p_24953_,
- float&nbsp;p_24954_,
- float&nbsp;p_24955_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLookAt</span><wbr><span class="parameters">(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ float&nbsp;deltaYaw,
+ float&nbsp;deltaPitch)</span></div>
+<div class="block">Sets position to look at</div>
 </section>
 </li>
 <li>
@@ -395,15 +409,16 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <li>
 <section class="detail" id="rotateTowards(float,float,float)">
 <h3>rotateTowards</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">rotateTowards</span><wbr><span class="parameters">(float&nbsp;p_24957_,
- float&nbsp;p_24958_,
- float&nbsp;p_24959_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">rotateTowards</span><wbr><span class="parameters">(float&nbsp;from,
+ float&nbsp;to,
+ float&nbsp;maxDelta)</span></div>
+<div class="block">Rotate as much as possible from <code>from</code> to <code>to</code> within the bounds of <code>maxDelta</code></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getWantedY(net.minecraft.world.entity.Entity)">
 <h3>getWantedY</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getWantedY</span><wbr><span class="parameters">(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_24967_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getWantedY</span><wbr><span class="parameters">(<a href="../../Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</span></div>
 </section>
 </li>
 </ul>

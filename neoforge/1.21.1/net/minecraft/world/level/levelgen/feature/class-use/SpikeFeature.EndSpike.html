@@ -82,7 +82,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../SpikeFeature.EndSpike.html" title="class in net.minecraft.world.level.levelgen.feature">SpikeFeature.EndSpike</a>&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SpikeFeature.</span><code><a href="../SpikeFeature.html#getSpikesForLevel(net.minecraft.world.level.WorldGenLevel)" class="member-name-link">getSpikesForLevel</a><wbr>(<a href="../../../WorldGenLevel.html" title="interface in net.minecraft.world.level">WorldGenLevel</a>&nbsp;p_66859_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SpikeFeature.</span><code><a href="../SpikeFeature.html#getSpikesForLevel(net.minecraft.world.level.WorldGenLevel)" class="member-name-link">getSpikesForLevel</a><wbr>(<a href="../../../WorldGenLevel.html" title="interface in net.minecraft.world.level">WorldGenLevel</a>&nbsp;level)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../SpikeFeature.EndSpike.html" title="class in net.minecraft.world.level.levelgen.feature">SpikeFeature.EndSpike</a>&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">SpikeFeature.SpikeCacheLoader.</span><code><a href="../SpikeFeature.SpikeCacheLoader.html#load(java.lang.Long)" class="member-name-link">load</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&nbsp;p_66910_)</code></div>
@@ -94,11 +94,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SpikeFeature.</span><code><a href="../SpikeFeature.html#placeSpike(net.minecraft.world.level.ServerLevelAccessor,net.minecraft.util.RandomSource,net.minecraft.world.level.levelgen.feature.configurations.SpikeConfiguration,net.minecraft.world.level.levelgen.feature.SpikeFeature.EndSpike)" class="member-name-link">placeSpike</a><wbr>(<a href="../../../ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;p_225247_,
- <a href="../../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_225248_,
- <a href="../configurations/SpikeConfiguration.html" title="class in net.minecraft.world.level.levelgen.feature.configurations">SpikeConfiguration</a>&nbsp;p_225249_,
- <a href="../SpikeFeature.EndSpike.html" title="class in net.minecraft.world.level.levelgen.feature">SpikeFeature.EndSpike</a>&nbsp;p_225250_)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-second even-row-color"><span class="type-name-label">SpikeFeature.</span><code><a href="../SpikeFeature.html#placeSpike(net.minecraft.world.level.ServerLevelAccessor,net.minecraft.util.RandomSource,net.minecraft.world.level.levelgen.feature.configurations.SpikeConfiguration,net.minecraft.world.level.levelgen.feature.SpikeFeature.EndSpike)" class="member-name-link">placeSpike</a><wbr>(<a href="../../../ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>&nbsp;level,
+ <a href="../../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../configurations/SpikeConfiguration.html" title="class in net.minecraft.world.level.levelgen.feature.configurations">SpikeConfiguration</a>&nbsp;config,
+ <a href="../SpikeFeature.EndSpike.html" title="class in net.minecraft.world.level.levelgen.feature">SpikeFeature.EndSpike</a>&nbsp;spike)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Places the End Spike in the world.</div>
+</div>
 </div>
 </section>
 </li>
@@ -129,14 +131,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-second even-row-color"><code><a href="../configurations/SpikeConfiguration.html#%3Cinit%3E(boolean,java.util.List,java.util.Optional)" class="member-name-link">SpikeConfiguration</a><wbr>(boolean&nbsp;p_68109_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../SpikeFeature.EndSpike.html" title="class in net.minecraft.world.level.levelgen.feature">SpikeFeature.EndSpike</a>&gt;&nbsp;p_68110_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;&nbsp;p_68111_)</code></div>
+<div class="col-second even-row-color"><code><a href="../configurations/SpikeConfiguration.html#%3Cinit%3E(boolean,java.util.List,java.util.Optional)" class="member-name-link">SpikeConfiguration</a><wbr>(boolean&nbsp;crystalInvulnerable,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../SpikeFeature.EndSpike.html" title="class in net.minecraft.world.level.levelgen.feature">SpikeFeature.EndSpike</a>&gt;&nbsp;spikes,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;&nbsp;crystalBeamTarget)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../configurations/SpikeConfiguration.html#%3Cinit%3E(boolean,java.util.List,net.minecraft.core.BlockPos)" class="member-name-link">SpikeConfiguration</a><wbr>(boolean&nbsp;p_68105_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../SpikeFeature.EndSpike.html" title="class in net.minecraft.world.level.levelgen.feature">SpikeFeature.EndSpike</a>&gt;&nbsp;p_68106_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_68107_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../configurations/SpikeConfiguration.html#%3Cinit%3E(boolean,java.util.List,net.minecraft.core.BlockPos)" class="member-name-link">SpikeConfiguration</a><wbr>(boolean&nbsp;crystalInvulnerable,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../SpikeFeature.EndSpike.html" title="class in net.minecraft.world.level.levelgen.feature">SpikeFeature.EndSpike</a>&gt;&nbsp;spikes,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;crystalBeamTarget)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>

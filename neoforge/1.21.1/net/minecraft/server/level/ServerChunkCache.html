@@ -188,18 +188,18 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,com.mojang.datafixers.DataFixer,net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager,java.util.concurrent.Executor,net.minecraft.world.level.chunk.ChunkGenerator,int,int,boolean,net.minecraft.server.level.progress.ChunkProgressListener,net.minecraft.world.level.entity.ChunkStatusUpdateListener,java.util.function.Supplier)" class="member-name-link">ServerChunkCache</a><wbr>(<a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_214982_,
- <a href="../../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;p_214983_,
- com.mojang.datafixers.DataFixer&nbsp;p_214984_,
- <a href="../../world/level/levelgen/structure/templatesystem/StructureTemplateManager.html" title="class in net.minecraft.world.level.levelgen.structure.templatesystem">StructureTemplateManager</a>&nbsp;p_214985_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_214986_,
- <a href="../../world/level/chunk/ChunkGenerator.html" title="class in net.minecraft.world.level.chunk">ChunkGenerator</a>&nbsp;p_214987_,
- int&nbsp;p_214988_,
- int&nbsp;p_214989_,
- boolean&nbsp;p_214990_,
- <a href="progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;p_214991_,
- <a href="../../world/level/entity/ChunkStatusUpdateListener.html" title="interface in net.minecraft.world.level.entity">ChunkStatusUpdateListener</a>&nbsp;p_214992_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../../world/level/storage/DimensionDataStorage.html" title="class in net.minecraft.world.level.storage">DimensionDataStorage</a>&gt;&nbsp;p_214993_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,com.mojang.datafixers.DataFixer,net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager,java.util.concurrent.Executor,net.minecraft.world.level.chunk.ChunkGenerator,int,int,boolean,net.minecraft.server.level.progress.ChunkProgressListener,net.minecraft.world.level.entity.ChunkStatusUpdateListener,java.util.function.Supplier)" class="member-name-link">ServerChunkCache</a><wbr>(<a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;levelStorageAccess,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper,
+ <a href="../../world/level/levelgen/structure/templatesystem/StructureTemplateManager.html" title="class in net.minecraft.world.level.levelgen.structure.templatesystem">StructureTemplateManager</a>&nbsp;structureManager,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;dispatcher,
+ <a href="../../world/level/chunk/ChunkGenerator.html" title="class in net.minecraft.world.level.chunk">ChunkGenerator</a>&nbsp;generator,
+ int&nbsp;viewDistance,
+ int&nbsp;simulationDistance,
+ boolean&nbsp;sync,
+ <a href="progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;progressListener,
+ <a href="../../world/level/entity/ChunkStatusUpdateListener.html" title="interface in net.minecraft.world.level.entity">ChunkStatusUpdateListener</a>&nbsp;chunkStatusListener,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../../world/level/storage/DimensionDataStorage.html" title="class in net.minecraft.world.level.storage">DimensionDataStorage</a>&gt;&nbsp;overworldDataStorage)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -216,35 +216,35 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEntity(net.minecraft.world.entity.Entity)" class="member-name-link">addEntity</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_8464_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addEntity(net.minecraft.world.entity.Entity)" class="member-name-link">addEntity</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T)" class="member-name-link">addRegionTicket</a><wbr>(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;p_8388_,
- <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8389_,
- int&nbsp;p_8390_,
- T&nbsp;p_8391_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T)" class="member-name-link">addRegionTicket</a><wbr>(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;type,
+ <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;distance,
+ T&nbsp;value)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T,boolean)" class="member-name-link">addRegionTicket</a><wbr>(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;p_8388_,
- <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8389_,
- int&nbsp;p_8390_,
- T&nbsp;p_8391_,
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T,boolean)" class="member-name-link">addRegionTicket</a><wbr>(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;type,
+ <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;distance,
+ T&nbsp;value,
  boolean&nbsp;forceTicks)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#blockChanged(net.minecraft.core.BlockPos)" class="member-name-link">blockChanged</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_8451_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#blockChanged(net.minecraft.core.BlockPos)" class="member-name-link">blockChanged</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#broadcast(net.minecraft.world.entity.Entity,net.minecraft.network.protocol.Packet)" class="member-name-link">broadcast</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_8446_,
- <a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;p_8447_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#broadcast(net.minecraft.world.entity.Entity,net.minecraft.network.protocol.Packet)" class="member-name-link">broadcast</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ <a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#broadcastAndSend(net.minecraft.world.entity.Entity,net.minecraft.network.protocol.Packet)" class="member-name-link">broadcastAndSend</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_8395_,
- <a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;p_8396_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#broadcastAndSend(net.minecraft.world.entity.Entity,net.minecraft.network.protocol.Packet)" class="member-name-link">broadcastAndSend</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ <a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#chunkAbsent(net.minecraft.server.level.ChunkHolder,int)" class="member-name-link">chunkAbsent</a><wbr>(<a href="ChunkHolder.html" title="class in net.minecraft.server.level">ChunkHolder</a>&nbsp;p_8417_,
- int&nbsp;p_8418_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#chunkAbsent(net.minecraft.server.level.ChunkHolder,int)" class="member-name-link">chunkAbsent</a><wbr>(<a href="ChunkHolder.html" title="class in net.minecraft.server.level">ChunkHolder</a>&nbsp;chunkHolder,
+ int&nbsp;status)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/chunk/storage/ChunkScanAccess.html" title="interface in net.minecraft.world.level.chunk.storage">ChunkScanAccess</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#chunkScanner()" class="member-name-link">chunkScanner</a>()</code></div>
@@ -259,40 +259,40 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#gatherStats()" class="member-name-link">gatherStats</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunk(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)" class="member-name-link">getChunk</a><wbr>(int&nbsp;p_8360_,
- int&nbsp;p_8361_,
- <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;p_330876_,
- boolean&nbsp;p_8363_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunk(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)" class="member-name-link">getChunk</a><wbr>(int&nbsp;x,
+ int&nbsp;z,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;chunkStatus,
+ boolean&nbsp;requireChunk)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkDebugData(net.minecraft.world.level.ChunkPos)" class="member-name-link">getChunkDebugData</a><wbr>(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8449_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkDebugData(net.minecraft.world.level.ChunkPos)" class="member-name-link">getChunkDebugData</a><wbr>(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/chunk/LightChunk.html" title="interface in net.minecraft.world.level.chunk">LightChunk</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkForLighting(int,int)" class="member-name-link">getChunkForLighting</a><wbr>(int&nbsp;p_8454_,
- int&nbsp;p_8455_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkForLighting(int,int)" class="member-name-link">getChunkForLighting</a><wbr>(int&nbsp;chunkX,
+ int&nbsp;chunkZ)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="ChunkResult.html" title="interface in net.minecraft.server.level">ChunkResult</a>&lt;<a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkFuture(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)" class="member-name-link">getChunkFuture</a><wbr>(int&nbsp;p_8432_,
- int&nbsp;p_8433_,
- <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;p_330326_,
- boolean&nbsp;p_8435_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkFuture(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)" class="member-name-link">getChunkFuture</a><wbr>(int&nbsp;x,
+ int&nbsp;z,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;chunkStatus,
+ boolean&nbsp;requireChunk)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="ChunkResult.html" title="interface in net.minecraft.server.level">ChunkResult</a>&lt;<a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkFutureMainThread(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)" class="member-name-link">getChunkFutureMainThread</a><wbr>(int&nbsp;p_8457_,
- int&nbsp;p_8458_,
- <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;p_331599_,
- boolean&nbsp;p_8460_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkFutureMainThread(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)" class="member-name-link">getChunkFutureMainThread</a><wbr>(int&nbsp;x,
+ int&nbsp;z,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;chunkStatus,
+ boolean&nbsp;requireChunk)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/chunk/LevelChunk.html" title="class in net.minecraft.world.level.chunk">LevelChunk</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkNow(int,int)" class="member-name-link">getChunkNow</a><wbr>(int&nbsp;p_8357_,
- int&nbsp;p_8358_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkNow(int,int)" class="member-name-link">getChunkNow</a><wbr>(int&nbsp;chunkX,
+ int&nbsp;chunkZ)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/storage/DimensionDataStorage.html" title="class in net.minecraft.world.level.storage">DimensionDataStorage</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataStorage()" class="member-name-link">getDataStorage</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFullChunk(long,java.util.function.Consumer)" class="member-name-link">getFullChunk</a><wbr>(long&nbsp;p_8371_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../world/level/chunk/LevelChunk.html" title="class in net.minecraft.world.level.chunk">LevelChunk</a>&gt;&nbsp;p_8372_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFullChunk(long,java.util.function.Consumer)" class="member-name-link">getFullChunk</a><wbr>(long&nbsp;chunkPos,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../world/level/chunk/LevelChunk.html" title="class in net.minecraft.world.level.chunk">LevelChunk</a>&gt;&nbsp;fullChunkGetter)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/chunk/ChunkGenerator.html" title="class in net.minecraft.world.level.chunk">ChunkGenerator</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGenerator()" class="member-name-link">getGenerator</a>()</code></div>
@@ -322,21 +322,23 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTickingGenerated()" class="member-name-link">getTickingGenerated</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="ChunkHolder.html" title="class in net.minecraft.server.level">ChunkHolder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVisibleChunkIfPresent(long)" class="member-name-link">getVisibleChunkIfPresent</a><wbr>(long&nbsp;p_8365_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVisibleChunkIfPresent(long)" class="member-name-link">getVisibleChunkIfPresent</a><wbr>(long&nbsp;chunkPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasChunk(int,int)" class="member-name-link">hasChunk</a><wbr>(int&nbsp;p_8429_,
- int&nbsp;p_8430_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasChunk(int,int)" class="member-name-link">hasChunk</a><wbr>(int&nbsp;x,
+ int&nbsp;z)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks to see if a chunk exists at x, z</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isPositionTicking(long)" class="member-name-link">isPositionTicking</a><wbr>(long&nbsp;p_143240_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isPositionTicking(long)" class="member-name-link">isPositionTicking</a><wbr>(long&nbsp;chunkPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#move(net.minecraft.server.level.ServerPlayer)" class="member-name-link">move</a><wbr>(<a href="ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_8386_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#move(net.minecraft.server.level.ServerPlayer)" class="member-name-link">move</a><wbr>(<a href="ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onLightUpdate(net.minecraft.world.level.LightLayer,net.minecraft.core.SectionPos)" class="member-name-link">onLightUpdate</a><wbr>(<a href="../../world/level/LightLayer.html" title="enum class in net.minecraft.world.level">LightLayer</a>&nbsp;p_8403_,
- <a href="../../core/SectionPos.html" title="class in net.minecraft.core">SectionPos</a>&nbsp;p_8404_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onLightUpdate(net.minecraft.world.level.LightLayer,net.minecraft.core.SectionPos)" class="member-name-link">onLightUpdate</a><wbr>(<a href="../../world/level/LightLayer.html" title="enum class in net.minecraft.world.level">LightLayer</a>&nbsp;type,
+ <a href="../../core/SectionPos.html" title="class in net.minecraft.core">SectionPos</a>&nbsp;pos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pollTask()" class="member-name-link">pollTask</a>()</code></div>
@@ -345,19 +347,19 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#randomState()" class="member-name-link">randomState</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeEntity(net.minecraft.world.entity.Entity)" class="member-name-link">removeEntity</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_8444_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeEntity(net.minecraft.world.entity.Entity)" class="member-name-link">removeEntity</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T)" class="member-name-link">removeRegionTicket</a><wbr>(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;p_8439_,
- <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8440_,
- int&nbsp;p_8441_,
- T&nbsp;p_8442_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T)" class="member-name-link">removeRegionTicket</a><wbr>(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;type,
+ <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;distance,
+ T&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T,boolean)" class="member-name-link">removeRegionTicket</a><wbr>(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;p_8439_,
- <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8440_,
- int&nbsp;p_8441_,
- T&nbsp;p_8442_,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T,boolean)" class="member-name-link">removeRegionTicket</a><wbr>(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;type,
+ <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;distance,
+ T&nbsp;value,
  boolean&nbsp;forceTicks)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
@@ -367,33 +369,33 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#runDistanceManagerUpdates()" class="member-name-link">runDistanceManagerUpdates</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#save(boolean)" class="member-name-link">save</a><wbr>(boolean&nbsp;p_8420_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#save(boolean)" class="member-name-link">save</a><wbr>(boolean&nbsp;flush)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSimulationDistance(int)" class="member-name-link">setSimulationDistance</a><wbr>(int&nbsp;p_184027_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSimulationDistance(int)" class="member-name-link">setSimulationDistance</a><wbr>(int&nbsp;simulationDistance)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSpawnSettings(boolean,boolean)" class="member-name-link">setSpawnSettings</a><wbr>(boolean&nbsp;p_8425_,
- boolean&nbsp;p_8426_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSpawnSettings(boolean,boolean)" class="member-name-link">setSpawnSettings</a><wbr>(boolean&nbsp;hostile,
+ boolean&nbsp;peaceful)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setViewDistance(int)" class="member-name-link">setViewDistance</a><wbr>(int&nbsp;p_8355_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setViewDistance(int)" class="member-name-link">setViewDistance</a><wbr>(int&nbsp;viewDistance)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#storeInCache(long,net.minecraft.world.level.chunk.ChunkAccess,net.minecraft.world.level.chunk.status.ChunkStatus)" class="member-name-link">storeInCache</a><wbr>(long&nbsp;p_8367_,
- <a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&nbsp;p_8368_,
- <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;p_331839_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#storeInCache(long,net.minecraft.world.level.chunk.ChunkAccess,net.minecraft.world.level.chunk.status.ChunkStatus)" class="member-name-link">storeInCache</a><wbr>(long&nbsp;chunkPos,
+ <a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&nbsp;chunk,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;chunkStatus)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick(java.util.function.BooleanSupplier,boolean)" class="member-name-link">tick</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;p_201913_,
- boolean&nbsp;p_201914_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick(java.util.function.BooleanSupplier,boolean)" class="member-name-link">tick</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;hasTimeLeft,
+ boolean&nbsp;tickChunks)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickChunks()" class="member-name-link">tickChunks</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateChunkForced(net.minecraft.world.level.ChunkPos,boolean)" class="member-name-link">updateChunkForced</a><wbr>(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8400_,
- boolean&nbsp;p_8401_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateChunkForced(net.minecraft.world.level.ChunkPos,boolean)" class="member-name-link">updateChunkForced</a><wbr>(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ boolean&nbsp;add)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -534,18 +536,18 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.server.level.ServerLevel,net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,com.mojang.datafixers.DataFixer,net.minecraft.world.level.levelgen.structure.templatesystem.StructureTemplateManager,java.util.concurrent.Executor,net.minecraft.world.level.chunk.ChunkGenerator,int,int,boolean,net.minecraft.server.level.progress.ChunkProgressListener,net.minecraft.world.level.entity.ChunkStatusUpdateListener,java.util.function.Supplier)">
 <h3>ServerChunkCache</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ServerChunkCache</span><wbr><span class="parameters">(<a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_214982_,
- <a href="../../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;p_214983_,
- com.mojang.datafixers.DataFixer&nbsp;p_214984_,
- <a href="../../world/level/levelgen/structure/templatesystem/StructureTemplateManager.html" title="class in net.minecraft.world.level.levelgen.structure.templatesystem">StructureTemplateManager</a>&nbsp;p_214985_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_214986_,
- <a href="../../world/level/chunk/ChunkGenerator.html" title="class in net.minecraft.world.level.chunk">ChunkGenerator</a>&nbsp;p_214987_,
- int&nbsp;p_214988_,
- int&nbsp;p_214989_,
- boolean&nbsp;p_214990_,
- <a href="progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;p_214991_,
- <a href="../../world/level/entity/ChunkStatusUpdateListener.html" title="interface in net.minecraft.world.level.entity">ChunkStatusUpdateListener</a>&nbsp;p_214992_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../../world/level/storage/DimensionDataStorage.html" title="class in net.minecraft.world.level.storage">DimensionDataStorage</a>&gt;&nbsp;p_214993_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ServerChunkCache</span><wbr><span class="parameters">(<a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;levelStorageAccess,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper,
+ <a href="../../world/level/levelgen/structure/templatesystem/StructureTemplateManager.html" title="class in net.minecraft.world.level.levelgen.structure.templatesystem">StructureTemplateManager</a>&nbsp;structureManager,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;dispatcher,
+ <a href="../../world/level/chunk/ChunkGenerator.html" title="class in net.minecraft.world.level.chunk">ChunkGenerator</a>&nbsp;generator,
+ int&nbsp;viewDistance,
+ int&nbsp;simulationDistance,
+ boolean&nbsp;sync,
+ <a href="progress/ChunkProgressListener.html" title="interface in net.minecraft.server.level.progress">ChunkProgressListener</a>&nbsp;progressListener,
+ <a href="../../world/level/entity/ChunkStatusUpdateListener.html" title="interface in net.minecraft.world.level.entity">ChunkStatusUpdateListener</a>&nbsp;chunkStatusListener,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../../world/level/storage/DimensionDataStorage.html" title="class in net.minecraft.world.level.storage">DimensionDataStorage</a>&gt;&nbsp;overworldDataStorage)</span></div>
 </section>
 </li>
 </ul>
@@ -570,7 +572,7 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <section class="detail" id="getVisibleChunkIfPresent(long)">
 <h3>getVisibleChunkIfPresent</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="ChunkHolder.html" title="class in net.minecraft.server.level">ChunkHolder</a></span>&nbsp;<span class="element-name">getVisibleChunkIfPresent</span><wbr><span class="parameters">(long&nbsp;p_8365_)</span></div>
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="ChunkHolder.html" title="class in net.minecraft.server.level">ChunkHolder</a></span>&nbsp;<span class="element-name">getVisibleChunkIfPresent</span><wbr><span class="parameters">(long&nbsp;chunkPos)</span></div>
 </section>
 </li>
 <li>
@@ -582,20 +584,20 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="storeInCache(long,net.minecraft.world.level.chunk.ChunkAccess,net.minecraft.world.level.chunk.status.ChunkStatus)">
 <h3>storeInCache</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">storeInCache</span><wbr><span class="parameters">(long&nbsp;p_8367_,
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">storeInCache</span><wbr><span class="parameters">(long&nbsp;chunkPos,
  @Nullable
- <a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&nbsp;p_8368_,
- <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;p_331839_)</span></div>
+ <a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&nbsp;chunk,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;chunkStatus)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getChunk(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)">
 <h3>getChunk</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a></span>&nbsp;<span class="element-name">getChunk</span><wbr><span class="parameters">(int&nbsp;p_8360_,
- int&nbsp;p_8361_,
- <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;p_330876_,
- boolean&nbsp;p_8363_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a></span>&nbsp;<span class="element-name">getChunk</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;z,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;chunkStatus,
+ boolean&nbsp;requireChunk)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../world/level/chunk/ChunkSource.html#getChunk(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)">getChunk</a></code>&nbsp;in class&nbsp;<code><a href="../../world/level/chunk/ChunkSource.html" title="class in net.minecraft.world.level.chunk">ChunkSource</a></code></dd>
@@ -606,8 +608,8 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <section class="detail" id="getChunkNow(int,int)">
 <h3>getChunkNow</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/LevelChunk.html" title="class in net.minecraft.world.level.chunk">LevelChunk</a></span>&nbsp;<span class="element-name">getChunkNow</span><wbr><span class="parameters">(int&nbsp;p_8357_,
- int&nbsp;p_8358_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/LevelChunk.html" title="class in net.minecraft.world.level.chunk">LevelChunk</a></span>&nbsp;<span class="element-name">getChunkNow</span><wbr><span class="parameters">(int&nbsp;chunkX,
+ int&nbsp;chunkZ)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../world/level/chunk/ChunkSource.html#getChunkNow(int,int)">getChunkNow</a></code>&nbsp;in class&nbsp;<code><a href="../../world/level/chunk/ChunkSource.html" title="class in net.minecraft.world.level.chunk">ChunkSource</a></code></dd>
@@ -623,37 +625,40 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="getChunkFuture(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)">
 <h3>getChunkFuture</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="ChunkResult.html" title="interface in net.minecraft.server.level">ChunkResult</a>&lt;<a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&gt;&gt;</span>&nbsp;<span class="element-name">getChunkFuture</span><wbr><span class="parameters">(int&nbsp;p_8432_,
- int&nbsp;p_8433_,
- <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;p_330326_,
- boolean&nbsp;p_8435_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="ChunkResult.html" title="interface in net.minecraft.server.level">ChunkResult</a>&lt;<a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&gt;&gt;</span>&nbsp;<span class="element-name">getChunkFuture</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;z,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;chunkStatus,
+ boolean&nbsp;requireChunk)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getChunkFutureMainThread(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)">
 <h3>getChunkFutureMainThread</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="ChunkResult.html" title="interface in net.minecraft.server.level">ChunkResult</a>&lt;<a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&gt;&gt;</span>&nbsp;<span class="element-name">getChunkFutureMainThread</span><wbr><span class="parameters">(int&nbsp;p_8457_,
- int&nbsp;p_8458_,
- <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;p_331599_,
- boolean&nbsp;p_8460_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="ChunkResult.html" title="interface in net.minecraft.server.level">ChunkResult</a>&lt;<a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&gt;&gt;</span>&nbsp;<span class="element-name">getChunkFutureMainThread</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;z,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;chunkStatus,
+ boolean&nbsp;requireChunk)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="chunkAbsent(net.minecraft.server.level.ChunkHolder,int)">
 <h3>chunkAbsent</h3>
 <div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">chunkAbsent</span><wbr><span class="parameters">(@Nullable
- <a href="ChunkHolder.html" title="class in net.minecraft.server.level">ChunkHolder</a>&nbsp;p_8417_,
- int&nbsp;p_8418_)</span></div>
+ <a href="ChunkHolder.html" title="class in net.minecraft.server.level">ChunkHolder</a>&nbsp;chunkHolder,
+ int&nbsp;status)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hasChunk(int,int)">
 <h3>hasChunk</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasChunk</span><wbr><span class="parameters">(int&nbsp;p_8429_,
- int&nbsp;p_8430_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasChunk</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;z)</span></div>
+<div class="block">Checks to see if a chunk exists at x, z</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../world/level/chunk/ChunkSource.html#hasChunk(int,int)">hasChunk</a></code>&nbsp;in class&nbsp;<code><a href="../../world/level/chunk/ChunkSource.html" title="class in net.minecraft.world.level.chunk">ChunkSource</a></code></dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if a chunk is loaded at the provided position, without forcing a chunk load.</dd>
 </dl>
 </section>
 </li>
@@ -661,8 +666,8 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <section class="detail" id="getChunkForLighting(int,int)">
 <h3>getChunkForLighting</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/LightChunk.html" title="interface in net.minecraft.world.level.chunk">LightChunk</a></span>&nbsp;<span class="element-name">getChunkForLighting</span><wbr><span class="parameters">(int&nbsp;p_8454_,
- int&nbsp;p_8455_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/LightChunk.html" title="interface in net.minecraft.world.level.chunk">LightChunk</a></span>&nbsp;<span class="element-name">getChunkForLighting</span><wbr><span class="parameters">(int&nbsp;chunkX,
+ int&nbsp;chunkZ)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../world/level/chunk/LightChunkGetter.html#getChunkForLighting(int,int)">getChunkForLighting</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/chunk/LightChunkGetter.html" title="interface in net.minecraft.world.level.chunk">LightChunkGetter</a></code></dd>
@@ -696,13 +701,13 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="isPositionTicking(long)">
 <h3>isPositionTicking</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isPositionTicking</span><wbr><span class="parameters">(long&nbsp;p_143240_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isPositionTicking</span><wbr><span class="parameters">(long&nbsp;chunkPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="save(boolean)">
 <h3>save</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">save</span><wbr><span class="parameters">(boolean&nbsp;p_8420_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">save</span><wbr><span class="parameters">(boolean&nbsp;flush)</span></div>
 </section>
 </li>
 <li>
@@ -723,8 +728,8 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="tick(java.util.function.BooleanSupplier,boolean)">
 <h3>tick</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tick</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;p_201913_,
- boolean&nbsp;p_201914_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tick</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;hasTimeLeft,
+ boolean&nbsp;tickChunks)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../world/level/chunk/ChunkSource.html#tick(java.util.function.BooleanSupplier,boolean)">tick</a></code>&nbsp;in class&nbsp;<code><a href="../../world/level/chunk/ChunkSource.html" title="class in net.minecraft.world.level.chunk">ChunkSource</a></code></dd>
@@ -740,8 +745,8 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="getFullChunk(long,java.util.function.Consumer)">
 <h3>getFullChunk</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">getFullChunk</span><wbr><span class="parameters">(long&nbsp;p_8371_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../world/level/chunk/LevelChunk.html" title="class in net.minecraft.world.level.chunk">LevelChunk</a>&gt;&nbsp;p_8372_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">getFullChunk</span><wbr><span class="parameters">(long&nbsp;chunkPos,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../world/level/chunk/LevelChunk.html" title="class in net.minecraft.world.level.chunk">LevelChunk</a>&gt;&nbsp;fullChunkGetter)</span></div>
 </section>
 </li>
 <li>
@@ -791,14 +796,14 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="blockChanged(net.minecraft.core.BlockPos)">
 <h3>blockChanged</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">blockChanged</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_8451_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">blockChanged</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="onLightUpdate(net.minecraft.world.level.LightLayer,net.minecraft.core.SectionPos)">
 <h3>onLightUpdate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onLightUpdate</span><wbr><span class="parameters">(<a href="../../world/level/LightLayer.html" title="enum class in net.minecraft.world.level">LightLayer</a>&nbsp;p_8403_,
- <a href="../../core/SectionPos.html" title="class in net.minecraft.core">SectionPos</a>&nbsp;p_8404_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onLightUpdate</span><wbr><span class="parameters">(<a href="../../world/level/LightLayer.html" title="enum class in net.minecraft.world.level">LightLayer</a>&nbsp;type,
+ <a href="../../core/SectionPos.html" title="class in net.minecraft.core">SectionPos</a>&nbsp;pos)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../world/level/chunk/LightChunkGetter.html#onLightUpdate(net.minecraft.world.level.LightLayer,net.minecraft.core.SectionPos)">onLightUpdate</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/chunk/LightChunkGetter.html" title="interface in net.minecraft.world.level.chunk">LightChunkGetter</a></code></dd>
@@ -808,46 +813,46 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="addRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T)">
 <h3 id="addRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,java.lang.Object)">addRegionTicket</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addRegionTicket</span><wbr><span class="parameters">(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;p_8388_,
- <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8389_,
- int&nbsp;p_8390_,
- T&nbsp;p_8391_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addRegionTicket</span><wbr><span class="parameters">(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;type,
+ <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;distance,
+ T&nbsp;value)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T,boolean)">
 <h3 id="addRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,java.lang.Object,boolean)">addRegionTicket</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addRegionTicket</span><wbr><span class="parameters">(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;p_8388_,
- <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8389_,
- int&nbsp;p_8390_,
- T&nbsp;p_8391_,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addRegionTicket</span><wbr><span class="parameters">(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;type,
+ <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;distance,
+ T&nbsp;value,
  boolean&nbsp;forceTicks)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="removeRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T)">
 <h3 id="removeRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,java.lang.Object)">removeRegionTicket</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeRegionTicket</span><wbr><span class="parameters">(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;p_8439_,
- <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8440_,
- int&nbsp;p_8441_,
- T&nbsp;p_8442_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeRegionTicket</span><wbr><span class="parameters">(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;type,
+ <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;distance,
+ T&nbsp;value)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="removeRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,T,boolean)">
 <h3 id="removeRegionTicket(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int,java.lang.Object,boolean)">removeRegionTicket</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeRegionTicket</span><wbr><span class="parameters">(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;p_8439_,
- <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8440_,
- int&nbsp;p_8441_,
- T&nbsp;p_8442_,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeRegionTicket</span><wbr><span class="parameters">(<a href="TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&lt;T&gt;&nbsp;type,
+ <a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;distance,
+ T&nbsp;value,
  boolean&nbsp;forceTicks)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateChunkForced(net.minecraft.world.level.ChunkPos,boolean)">
 <h3>updateChunkForced</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateChunkForced</span><wbr><span class="parameters">(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8400_,
- boolean&nbsp;p_8401_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateChunkForced</span><wbr><span class="parameters">(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ boolean&nbsp;add)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../world/level/chunk/ChunkSource.html#updateChunkForced(net.minecraft.world.level.ChunkPos,boolean)">updateChunkForced</a></code>&nbsp;in class&nbsp;<code><a href="../../world/level/chunk/ChunkSource.html" title="class in net.minecraft.world.level.chunk">ChunkSource</a></code></dd>
@@ -857,52 +862,52 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="move(net.minecraft.server.level.ServerPlayer)">
 <h3>move</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">move</span><wbr><span class="parameters">(<a href="ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_8386_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">move</span><wbr><span class="parameters">(<a href="ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="removeEntity(net.minecraft.world.entity.Entity)">
 <h3>removeEntity</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeEntity</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_8444_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeEntity</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addEntity(net.minecraft.world.entity.Entity)">
 <h3>addEntity</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addEntity</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_8464_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addEntity</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="broadcastAndSend(net.minecraft.world.entity.Entity,net.minecraft.network.protocol.Packet)">
 <h3>broadcastAndSend</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">broadcastAndSend</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_8395_,
- <a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;p_8396_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">broadcastAndSend</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ <a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="broadcast(net.minecraft.world.entity.Entity,net.minecraft.network.protocol.Packet)">
 <h3>broadcast</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">broadcast</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_8446_,
- <a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;p_8447_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">broadcast</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ <a href="../../network/protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setViewDistance(int)">
 <h3>setViewDistance</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setViewDistance</span><wbr><span class="parameters">(int&nbsp;p_8355_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setViewDistance</span><wbr><span class="parameters">(int&nbsp;viewDistance)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setSimulationDistance(int)">
 <h3>setSimulationDistance</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSimulationDistance</span><wbr><span class="parameters">(int&nbsp;p_184027_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSimulationDistance</span><wbr><span class="parameters">(int&nbsp;simulationDistance)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setSpawnSettings(boolean,boolean)">
 <h3>setSpawnSettings</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSpawnSettings</span><wbr><span class="parameters">(boolean&nbsp;p_8425_,
- boolean&nbsp;p_8426_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSpawnSettings</span><wbr><span class="parameters">(boolean&nbsp;hostile,
+ boolean&nbsp;peaceful)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../world/level/chunk/ChunkSource.html#setSpawnSettings(boolean,boolean)">setSpawnSettings</a></code>&nbsp;in class&nbsp;<code><a href="../../world/level/chunk/ChunkSource.html" title="class in net.minecraft.world.level.chunk">ChunkSource</a></code></dd>
@@ -912,7 +917,7 @@ implements <a href="../../../neoforged/neoforge/common/extensions/IServerChunkCa
 <li>
 <section class="detail" id="getChunkDebugData(net.minecraft.world.level.ChunkPos)">
 <h3>getChunkDebugData</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getChunkDebugData</span><wbr><span class="parameters">(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_8449_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getChunkDebugData</span><wbr><span class="parameters">(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
 </section>
 </li>
 <li>

@@ -127,13 +127,15 @@ extends <a href="FiniteAudioStream.html" title="interface in net.minecraft.clien
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#read(int)" class="member-name-link">read</a><wbr>(int&nbsp;p_341345_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#read(int)" class="member-name-link">read</a><wbr>(int&nbsp;size)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Reads audio data from the stream and returns a byte buffer containing at most the specified number of bytes.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#readAll()" class="member-name-link">readAll</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#readChunk(it.unimi.dsi.fastutil.floats.FloatConsumer)" class="member-name-link">readChunk</a><wbr>(it.unimi.dsi.fastutil.floats.FloatConsumer&nbsp;p_340937_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#readChunk(it.unimi.dsi.fastutil.floats.FloatConsumer)" class="member-name-link">readChunk</a><wbr>(it.unimi.dsi.fastutil.floats.FloatConsumer&nbsp;output)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 </div>
 </div>
@@ -180,7 +182,7 @@ extends <a href="FiniteAudioStream.html" title="interface in net.minecraft.clien
 <li>
 <section class="detail" id="readChunk(it.unimi.dsi.fastutil.floats.FloatConsumer)">
 <h3>readChunk</h3>
-<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">readChunk</span><wbr><span class="parameters">(it.unimi.dsi.fastutil.floats.FloatConsumer&nbsp;p_340937_)</span>
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">readChunk</span><wbr><span class="parameters">(it.unimi.dsi.fastutil.floats.FloatConsumer&nbsp;output)</span>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -191,13 +193,19 @@ extends <a href="FiniteAudioStream.html" title="interface in net.minecraft.clien
 <li>
 <section class="detail" id="read(int)">
 <h3>read</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></span>&nbsp;<span class="element-name">read</span><wbr><span class="parameters">(int&nbsp;p_341345_)</span>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></span>&nbsp;<span class="element-name">read</span><wbr><span class="parameters">(int&nbsp;size)</span>
                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Reads audio data from the stream and returns a byte buffer containing at most the specified number of bytes.
+ The method reads audio frames from the stream and adds them to the output buffer until the buffer contains at least the specified number of bytes or the end fo the stream is reached.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="AudioStream.html#read(int)">read</a></code>&nbsp;in interface&nbsp;<code><a href="AudioStream.html" title="interface in net.minecraft.client.sounds">AudioStream</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>size</code> - the maximum number of bytes to read</dd>
+<dt>Returns:</dt>
+<dd>a byte buffer containing at most the specified number of bytes to read</dd>
 <dt>Throws:</dt>
-<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code> - if an I/O error occurs while reading the audio data</dd>
 </dl>
 </section>
 </li>

@@ -124,7 +124,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mojang.blaze3d.platform.MonitorCreator)" class="member-name-link">ScreenManager</a><wbr>(<a href="MonitorCreator.html" title="interface in com.mojang.blaze3d.platform">MonitorCreator</a>&nbsp;p_85265_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mojang.blaze3d.platform.MonitorCreator)" class="member-name-link">ScreenManager</a><wbr>(<a href="MonitorCreator.html" title="interface in com.mojang.blaze3d.platform">MonitorCreator</a>&nbsp;monitorCreator)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -141,19 +141,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#clamp(int,int,int)" class="member-name-link">clamp</a><wbr>(int&nbsp;p_85268_,
- int&nbsp;p_85269_,
- int&nbsp;p_85270_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#clamp(int,int,int)" class="member-name-link">clamp</a><wbr>(int&nbsp;value,
+ int&nbsp;min,
+ int&nbsp;max)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Monitor.html" title="class in com.mojang.blaze3d.platform">Monitor</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findBestMonitor(com.mojang.blaze3d.platform.Window)" class="member-name-link">findBestMonitor</a><wbr>(<a href="Window.html" title="class in com.mojang.blaze3d.platform">Window</a>&nbsp;p_85277_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findBestMonitor(com.mojang.blaze3d.platform.Window)" class="member-name-link">findBestMonitor</a><wbr>(<a href="Window.html" title="class in com.mojang.blaze3d.platform">Window</a>&nbsp;window)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Monitor.html" title="class in com.mojang.blaze3d.platform">Monitor</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMonitor(long)" class="member-name-link">getMonitor</a><wbr>(long&nbsp;p_85272_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMonitor(long)" class="member-name-link">getMonitor</a><wbr>(long&nbsp;monitorID)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onMonitorChange(long,int)" class="member-name-link">onMonitorChange</a><wbr>(long&nbsp;p_85274_,
- int&nbsp;p_85275_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onMonitorChange(long,int)" class="member-name-link">onMonitorChange</a><wbr>(long&nbsp;monitorID,
+ int&nbsp;opCode)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shutdown()" class="member-name-link">shutdown</a>()</code></div>
@@ -204,7 +204,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(com.mojang.blaze3d.platform.MonitorCreator)">
 <h3>ScreenManager</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ScreenManager</span><wbr><span class="parameters">(<a href="MonitorCreator.html" title="interface in com.mojang.blaze3d.platform">MonitorCreator</a>&nbsp;p_85265_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ScreenManager</span><wbr><span class="parameters">(<a href="MonitorCreator.html" title="interface in com.mojang.blaze3d.platform">MonitorCreator</a>&nbsp;monitorCreator)</span></div>
 </section>
 </li>
 </ul>
@@ -218,30 +218,30 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="onMonitorChange(long,int)">
 <h3>onMonitorChange</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onMonitorChange</span><wbr><span class="parameters">(long&nbsp;p_85274_,
- int&nbsp;p_85275_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onMonitorChange</span><wbr><span class="parameters">(long&nbsp;monitorID,
+ int&nbsp;opCode)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getMonitor(long)">
 <h3>getMonitor</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Monitor.html" title="class in com.mojang.blaze3d.platform">Monitor</a></span>&nbsp;<span class="element-name">getMonitor</span><wbr><span class="parameters">(long&nbsp;p_85272_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Monitor.html" title="class in com.mojang.blaze3d.platform">Monitor</a></span>&nbsp;<span class="element-name">getMonitor</span><wbr><span class="parameters">(long&nbsp;monitorID)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="findBestMonitor(com.mojang.blaze3d.platform.Window)">
 <h3>findBestMonitor</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Monitor.html" title="class in com.mojang.blaze3d.platform">Monitor</a></span>&nbsp;<span class="element-name">findBestMonitor</span><wbr><span class="parameters">(<a href="Window.html" title="class in com.mojang.blaze3d.platform">Window</a>&nbsp;p_85277_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Monitor.html" title="class in com.mojang.blaze3d.platform">Monitor</a></span>&nbsp;<span class="element-name">findBestMonitor</span><wbr><span class="parameters">(<a href="Window.html" title="class in com.mojang.blaze3d.platform">Window</a>&nbsp;window)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="clamp(int,int,int)">
 <h3>clamp</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">clamp</span><wbr><span class="parameters">(int&nbsp;p_85268_,
- int&nbsp;p_85269_,
- int&nbsp;p_85270_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">clamp</span><wbr><span class="parameters">(int&nbsp;value,
+ int&nbsp;min,
+ int&nbsp;max)</span></div>
 </section>
 </li>
 <li>

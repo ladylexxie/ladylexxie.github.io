@@ -99,6 +99,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">ConditionReference</span>(<a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;name)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a>
 implements <a href="LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a></span></div>
+<div class="block">A LootItemCondition that refers to another LootItemCondition by its ID.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -164,7 +165,7 @@ implements <a href="LootItemCondition.html" title="interface in net.minecraft.wo
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootItemCondition.Builder.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition.Builder</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#conditionReference(net.minecraft.resources.ResourceKey)" class="member-name-link">conditionReference</a><wbr>(<a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_335879_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#conditionReference(net.minecraft.resources.ResourceKey)" class="member-name-link">conditionReference</a><wbr>(<a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;name)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
@@ -185,7 +186,7 @@ implements <a href="LootItemCondition.html" title="interface in net.minecraft.wo
 <div class="block">Returns the value of the <code>name</code> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#test(net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">test</a><wbr>(<a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_81558_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#test(net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">test</a><wbr>(<a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;context)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -193,8 +194,10 @@ implements <a href="LootItemCondition.html" title="interface in net.minecraft.wo
 <div class="block">Returns a string representation of this record class.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validate(net.minecraft.world.level.storage.loot.ValidationContext)" class="member-name-link">validate</a><wbr>(<a href="../ValidationContext.html" title="class in net.minecraft.world.level.storage.loot">ValidationContext</a>&nbsp;p_81560_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validate(net.minecraft.world.level.storage.loot.ValidationContext)" class="member-name-link">validate</a><wbr>(<a href="../ValidationContext.html" title="class in net.minecraft.world.level.storage.loot">ValidationContext</a>&nbsp;context)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Validate that this object is used correctly according to the given ValidationContext.</div>
+</div>
 </div>
 </div>
 </div>
@@ -277,7 +280,8 @@ implements <a href="LootItemCondition.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="validate(net.minecraft.world.level.storage.loot.ValidationContext)">
 <h3>validate</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">validate</span><wbr><span class="parameters">(<a href="../ValidationContext.html" title="class in net.minecraft.world.level.storage.loot">ValidationContext</a>&nbsp;p_81560_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">validate</span><wbr><span class="parameters">(<a href="../ValidationContext.html" title="class in net.minecraft.world.level.storage.loot">ValidationContext</a>&nbsp;context)</span></div>
+<div class="block">Validate that this object is used correctly according to the given ValidationContext.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../LootContextUser.html#validate(net.minecraft.world.level.storage.loot.ValidationContext)">validate</a></code>&nbsp;in interface&nbsp;<code><a href="../LootContextUser.html" title="interface in net.minecraft.world.level.storage.loot">LootContextUser</a></code></dd>
@@ -287,7 +291,7 @@ implements <a href="LootItemCondition.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="test(net.minecraft.world.level.storage.loot.LootContext)">
 <h3>test</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">test</span><wbr><span class="parameters">(<a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_81558_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">test</span><wbr><span class="parameters">(<a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;context)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html#test(T)" title="class or interface in java.util.function" class="external-link">test</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&gt;</code></dd>
@@ -297,7 +301,7 @@ implements <a href="LootItemCondition.html" title="interface in net.minecraft.wo
 <li>
 <section class="detail" id="conditionReference(net.minecraft.resources.ResourceKey)">
 <h3>conditionReference</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemCondition.Builder.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition.Builder</a></span>&nbsp;<span class="element-name">conditionReference</span><wbr><span class="parameters">(<a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_335879_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemCondition.Builder.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition.Builder</a></span>&nbsp;<span class="element-name">conditionReference</span><wbr><span class="parameters">(<a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;name)</span></div>
 </section>
 </li>
 <li>

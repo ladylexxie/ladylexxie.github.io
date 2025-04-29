@@ -153,13 +153,13 @@ implements <a href="GlyphProvider.html" title="interface in com.mojang.blaze3d.f
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.nio.ByteBuffer,org.lwjgl.util.freetype.FT_Face,float,float,float,float,java.lang.String)" class="member-name-link">TrueTypeGlyphProvider</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;p_83846_,
- org.lwjgl.util.freetype.FT_Face&nbsp;p_320481_,
- float&nbsp;p_83848_,
- float&nbsp;p_83849_,
- float&nbsp;p_83850_,
- float&nbsp;p_83851_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_83852_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.nio.ByteBuffer,org.lwjgl.util.freetype.FT_Face,float,float,float,float,java.lang.String)" class="member-name-link">TrueTypeGlyphProvider</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;fontMemory,
+ org.lwjgl.util.freetype.FT_Face&nbsp;face,
+ float&nbsp;size,
+ float&nbsp;oversample,
+ float&nbsp;shiftX,
+ float&nbsp;shiftY,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;skip)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -179,7 +179,7 @@ implements <a href="GlyphProvider.html" title="interface in com.mojang.blaze3d.f
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="GlyphInfo.html" title="interface in com.mojang.blaze3d.font">GlyphInfo</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGlyph(int)" class="member-name-link">getGlyph</a><wbr>(int&nbsp;p_231116_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getGlyph(int)" class="member-name-link">getGlyph</a><wbr>(int&nbsp;character)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>it.unimi.dsi.fastutil.ints.IntSet</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSupportedGlyphs()" class="member-name-link">getSupportedGlyphs</a>()</code></div>
@@ -241,13 +241,13 @@ implements <a href="GlyphProvider.html" title="interface in com.mojang.blaze3d.f
 <li>
 <section class="detail" id="&lt;init&gt;(java.nio.ByteBuffer,org.lwjgl.util.freetype.FT_Face,float,float,float,float,java.lang.String)">
 <h3>TrueTypeGlyphProvider</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">TrueTypeGlyphProvider</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;p_83846_,
- org.lwjgl.util.freetype.FT_Face&nbsp;p_320481_,
- float&nbsp;p_83848_,
- float&nbsp;p_83849_,
- float&nbsp;p_83850_,
- float&nbsp;p_83851_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_83852_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">TrueTypeGlyphProvider</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;fontMemory,
+ org.lwjgl.util.freetype.FT_Face&nbsp;face,
+ float&nbsp;size,
+ float&nbsp;oversample,
+ float&nbsp;shiftX,
+ float&nbsp;shiftY,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;skip)</span></div>
 </section>
 </li>
 </ul>
@@ -262,7 +262,7 @@ implements <a href="GlyphProvider.html" title="interface in com.mojang.blaze3d.f
 <section class="detail" id="getGlyph(int)">
 <h3>getGlyph</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="GlyphInfo.html" title="interface in com.mojang.blaze3d.font">GlyphInfo</a></span>&nbsp;<span class="element-name">getGlyph</span><wbr><span class="parameters">(int&nbsp;p_231116_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="GlyphInfo.html" title="interface in com.mojang.blaze3d.font">GlyphInfo</a></span>&nbsp;<span class="element-name">getGlyph</span><wbr><span class="parameters">(int&nbsp;character)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="GlyphProvider.html#getGlyph(int)">getGlyph</a></code>&nbsp;in interface&nbsp;<code><a href="GlyphProvider.html" title="interface in com.mojang.blaze3d.font">GlyphProvider</a></code></dd>

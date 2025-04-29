@@ -192,7 +192,7 @@ implements <a href="CubicSpline.html" title="interface in net.minecraft.util">Cu
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#apply(C)" class="member-name-link">apply</a><wbr>(<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>&nbsp;p_184340_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#apply(C)" class="member-name-link">apply</a><wbr>(<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>&nbsp;object)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#coordinate()" class="member-name-link">coordinate</a>()</code></div>
@@ -201,10 +201,10 @@ implements <a href="CubicSpline.html" title="interface in net.minecraft.util">Cu
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>(package private) static &lt;C,<wbr>
 I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util">ToFloatFunction</a>&lt;C&gt;&gt;<br><a href="CubicSpline.Multipoint.html" title="class in net.minecraft.util">CubicSpline.Multipoint</a><wbr>&lt;C,<wbr>I&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(I,float%5B%5D,java.util.List,float%5B%5D)" class="member-name-link">create</a><wbr>(I&nbsp;p_216144_,
- float[]&nbsp;p_216145_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;C,<wbr>I&gt;&gt;&nbsp;p_216146_,
- float[]&nbsp;p_216147_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(I,float%5B%5D,java.util.List,float%5B%5D)" class="member-name-link">create</a><wbr>(I&nbsp;coordinate,
+ float[]&nbsp;locations,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;C,<wbr>I&gt;&gt;&nbsp;values,
+ float[]&nbsp;derivatives)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float[]</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#derivatives()" class="member-name-link">derivatives</a>()</code></div>
@@ -217,8 +217,8 @@ I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util"
 <div class="block">Indicates whether some other object is "equal to" this one.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#findIntervalStart(float%5B%5D,float)" class="member-name-link">findIntervalStart</a><wbr>(float[]&nbsp;p_216149_,
- float&nbsp;p_216150_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#findIntervalStart(float%5B%5D,float)" class="member-name-link">findIntervalStart</a><wbr>(float[]&nbsp;locations,
+ float&nbsp;start)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
@@ -226,11 +226,11 @@ I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util"
 <div class="block">Returns a hash code value for this object.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static float</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#linearExtend(float,float%5B%5D,float,float%5B%5D,int)" class="member-name-link">linearExtend</a><wbr>(float&nbsp;p_216134_,
- float[]&nbsp;p_216135_,
- float&nbsp;p_216136_,
- float[]&nbsp;p_216137_,
- int&nbsp;p_216138_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#linearExtend(float,float%5B%5D,float,float%5B%5D,int)" class="member-name-link">linearExtend</a><wbr>(float&nbsp;coordinate,
+ float[]&nbsp;locations,
+ float&nbsp;value,
+ float[]&nbsp;derivatives,
+ int&nbsp;index)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float[]</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#locations()" class="member-name-link">locations</a>()</code></div>
@@ -238,7 +238,7 @@ I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util"
 <div class="block">Returns the value of the <code>locations</code> record component.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a><wbr>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>,<wbr><a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mapAll(net.minecraft.util.CubicSpline.CoordinateVisitor)" class="member-name-link">mapAll</a><wbr>(<a href="CubicSpline.CoordinateVisitor.html" title="interface in net.minecraft.util">CubicSpline.CoordinateVisitor</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a>&gt;&nbsp;p_211585_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mapAll(net.minecraft.util.CubicSpline.CoordinateVisitor)" class="member-name-link">mapAll</a><wbr>(<a href="CubicSpline.CoordinateVisitor.html" title="interface in net.minecraft.util">CubicSpline.CoordinateVisitor</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a>&gt;&nbsp;visitor)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxValue()" class="member-name-link">maxValue</a>()</code></div>
@@ -259,13 +259,13 @@ I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util"
 <div class="block">Returns a string representation of this record class.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString(float%5B%5D)" class="member-name-link">toString</a><wbr>(float[]&nbsp;p_184335_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString(float%5B%5D)" class="member-name-link">toString</a><wbr>(float[]&nbsp;locations)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;C,<wbr>
 I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util">ToFloatFunction</a>&lt;C&gt;&gt;<br>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validateSizes(float%5B%5D,java.util.List,float%5B%5D)" class="member-name-link">validateSizes</a><wbr>(float[]&nbsp;p_216152_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;C,<wbr>I&gt;&gt;&nbsp;p_216153_,
- float[]&nbsp;p_216154_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validateSizes(float%5B%5D,java.util.List,float%5B%5D)" class="member-name-link">validateSizes</a><wbr>(float[]&nbsp;locations,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;C,<wbr>I&gt;&gt;&nbsp;values,
+ float[]&nbsp;derivatives)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>,<wbr><a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a>&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#values()" class="member-name-link">values</a>()</code></div>
@@ -376,20 +376,20 @@ I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util"
 <h3 id="create(net.minecraft.util.ToFloatFunction,float[],java.util.List,float[])">create</h3>
 <div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;C,<wbr>
 I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util">ToFloatFunction</a>&lt;C&gt;&gt;</span>
-<span class="return-type"><a href="CubicSpline.Multipoint.html" title="class in net.minecraft.util">CubicSpline.Multipoint</a>&lt;C,<wbr>I&gt;</span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(I&nbsp;p_216144_,
- float[]&nbsp;p_216145_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;C,<wbr>I&gt;&gt;&nbsp;p_216146_,
- float[]&nbsp;p_216147_)</span></div>
+<span class="return-type"><a href="CubicSpline.Multipoint.html" title="class in net.minecraft.util">CubicSpline.Multipoint</a>&lt;C,<wbr>I&gt;</span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(I&nbsp;coordinate,
+ float[]&nbsp;locations,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;C,<wbr>I&gt;&gt;&nbsp;values,
+ float[]&nbsp;derivatives)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="linearExtend(float,float[],float,float[],int)">
 <h3>linearExtend</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">linearExtend</span><wbr><span class="parameters">(float&nbsp;p_216134_,
- float[]&nbsp;p_216135_,
- float&nbsp;p_216136_,
- float[]&nbsp;p_216137_,
- int&nbsp;p_216138_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">linearExtend</span><wbr><span class="parameters">(float&nbsp;coordinate,
+ float[]&nbsp;locations,
+ float&nbsp;value,
+ float[]&nbsp;derivatives,
+ int&nbsp;index)</span></div>
 </section>
 </li>
 <li>
@@ -397,15 +397,15 @@ I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util"
 <h3>validateSizes</h3>
 <div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;C,<wbr>
 I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util">ToFloatFunction</a>&lt;C&gt;&gt;</span>
-<span class="return-type">void</span>&nbsp;<span class="element-name">validateSizes</span><wbr><span class="parameters">(float[]&nbsp;p_216152_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;C,<wbr>I&gt;&gt;&nbsp;p_216153_,
- float[]&nbsp;p_216154_)</span></div>
+<span class="return-type">void</span>&nbsp;<span class="element-name">validateSizes</span><wbr><span class="parameters">(float[]&nbsp;locations,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;C,<wbr>I&gt;&gt;&nbsp;values,
+ float[]&nbsp;derivatives)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="apply(C)">
 <h3 id="apply(java.lang.Object)">apply</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">apply</span><wbr><span class="parameters">(<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>&nbsp;p_184340_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">apply</span><wbr><span class="parameters">(<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>&nbsp;object)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ToFloatFunction.html#apply(C)">apply</a></code>&nbsp;in interface&nbsp;<code><a href="ToFloatFunction.html" title="interface in net.minecraft.util">ToFloatFunction</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>&gt;</code></dd>
@@ -415,8 +415,8 @@ I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util"
 <li>
 <section class="detail" id="findIntervalStart(float[],float)">
 <h3>findIntervalStart</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">findIntervalStart</span><wbr><span class="parameters">(float[]&nbsp;p_216149_,
- float&nbsp;p_216150_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">findIntervalStart</span><wbr><span class="parameters">(float[]&nbsp;locations,
+ float&nbsp;start)</span></div>
 </section>
 </li>
 <li>
@@ -432,13 +432,13 @@ I extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util"
 <li>
 <section class="detail" id="toString(float[])">
 <h3>toString</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span><wbr><span class="parameters">(float[]&nbsp;p_184335_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">toString</span><wbr><span class="parameters">(float[]&nbsp;locations)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="mapAll(net.minecraft.util.CubicSpline.CoordinateVisitor)">
 <h3>mapAll</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>,<wbr><a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a>&gt;</span>&nbsp;<span class="element-name">mapAll</span><wbr><span class="parameters">(<a href="CubicSpline.CoordinateVisitor.html" title="interface in net.minecraft.util">CubicSpline.CoordinateVisitor</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a>&gt;&nbsp;p_211585_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>,<wbr><a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a>&gt;</span>&nbsp;<span class="element-name">mapAll</span><wbr><span class="parameters">(<a href="CubicSpline.CoordinateVisitor.html" title="interface in net.minecraft.util">CubicSpline.CoordinateVisitor</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a>&gt;&nbsp;visitor)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="CubicSpline.html#mapAll(net.minecraft.util.CubicSpline.CoordinateVisitor)">mapAll</a></code>&nbsp;in interface&nbsp;<code><a href="CubicSpline.html" title="interface in net.minecraft.util">CubicSpline</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>,<wbr><a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">I</a> extends <a href="ToFloatFunction.html" title="interface in net.minecraft.util">ToFloatFunction</a>&lt;<a href="CubicSpline.Multipoint.html" title="type parameter in CubicSpline.Multipoint">C</a>&gt;&gt;</code></dd>

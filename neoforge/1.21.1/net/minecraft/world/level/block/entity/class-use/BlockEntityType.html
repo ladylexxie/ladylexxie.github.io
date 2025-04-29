@@ -106,7 +106,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;,<wbr><a href="../../../../../client/renderer/blockentity/BlockEntityRenderer.html" title="interface in net.minecraft.client.renderer.blockentity">BlockEntityRenderer</a>&lt;?&gt;&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockEntityRenderers.</span><code><a href="../../../../../client/renderer/blockentity/BlockEntityRenderers.html#createEntityRenderers(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider.Context)" class="member-name-link">createEntityRenderers</a><wbr>(<a href="../../../../../client/renderer/blockentity/BlockEntityRendererProvider.Context.html" title="class in net.minecraft.client.renderer.blockentity">BlockEntityRendererProvider.Context</a>&nbsp;p_173599_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockEntityRenderers.</span><code><a href="../../../../../client/renderer/blockentity/BlockEntityRenderers.html#createEntityRenderers(net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider.Context)" class="member-name-link">createEntityRenderers</a><wbr>(<a href="../../../../../client/renderer/blockentity/BlockEntityRendererProvider.Context.html" title="class in net.minecraft.client.renderer.blockentity">BlockEntityRendererProvider.Context</a>&nbsp;context)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../../../../../client/renderer/blockentity/package-summary.html">net.minecraft.client.renderer.blockentity</a> with parameters of type <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a></span></div>
@@ -115,8 +115,8 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static &lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockEntityRenderers.</span><code><a href="../../../../../client/renderer/blockentity/BlockEntityRenderers.html#register(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider)" class="member-name-link">register</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;? extends T&gt;&nbsp;p_173591_,
- <a href="../../../../../client/renderer/blockentity/BlockEntityRendererProvider.html" title="interface in net.minecraft.client.renderer.blockentity">BlockEntityRendererProvider</a>&lt;T&gt;&nbsp;p_173592_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockEntityRenderers.</span><code><a href="../../../../../client/renderer/blockentity/BlockEntityRenderers.html#register(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.client.renderer.blockentity.BlockEntityRendererProvider)" class="member-name-link">register</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;? extends T&gt;&nbsp;type,
+ <a href="../../../../../client/renderer/blockentity/BlockEntityRendererProvider.html" title="interface in net.minecraft.client.renderer.blockentity">BlockEntityRendererProvider</a>&lt;T&gt;&nbsp;renderProvider)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -148,7 +148,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private final <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a><wbr>&lt;?&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">ClientboundBlockEntityDataPacket.</span><code><a href="../../../../../network/protocol/game/ClientboundBlockEntityDataPacket.html#type" class="member-name-link">type</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Used only for vanilla block entities</div>
+</div>
 <div class="col-first odd-row-color"><code>(package private) final <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a><wbr>&lt;?&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">ClientboundLevelChunkPacketData.BlockEntityInfo.</span><code><a href="../../../../../network/protocol/game/ClientboundLevelChunkPacketData.BlockEntityInfo.html#type" class="member-name-link">type</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
@@ -168,9 +170,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ClientboundLevelChunkPacketData.BlockEntityTagOutput.</span><code><a href="../../../../../network/protocol/game/ClientboundLevelChunkPacketData.BlockEntityTagOutput.html#accept(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.nbt.CompoundTag)" class="member-name-link">accept</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_195696_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_195697_,
- <a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_195698_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ClientboundLevelChunkPacketData.BlockEntityTagOutput.</span><code><a href="../../../../../network/protocol/game/ClientboundLevelChunkPacketData.BlockEntityTagOutput.html#accept(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.nbt.CompoundTag)" class="member-name-link">accept</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;nbt)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../../../../../network/protocol/game/package-summary.html">net.minecraft.network.protocol.game</a> with parameters of type <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a></span></div>
@@ -179,15 +181,15 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-second even-row-color"><code><a href="../../../../../network/protocol/game/ClientboundLevelChunkPacketData.BlockEntityInfo.html#%3Cinit%3E(int,int,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.nbt.CompoundTag)" class="member-name-link">BlockEntityInfo</a><wbr>(int&nbsp;p_195685_,
- int&nbsp;p_195686_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_195687_,
- <a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_195688_)</code></div>
+<div class="col-second even-row-color"><code><a href="../../../../../network/protocol/game/ClientboundLevelChunkPacketData.BlockEntityInfo.html#%3Cinit%3E(int,int,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.nbt.CompoundTag)" class="member-name-link">BlockEntityInfo</a><wbr>(int&nbsp;packedXZ,
+ int&nbsp;y,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;tag)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private </code></div>
-<div class="col-second odd-row-color"><code><a href="../../../../../network/protocol/game/ClientboundBlockEntityDataPacket.html#%3Cinit%3E(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.nbt.CompoundTag)" class="member-name-link">ClientboundBlockEntityDataPacket</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_195637_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_195638_,
- <a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_195639_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../../../../../network/protocol/game/ClientboundBlockEntityDataPacket.html#%3Cinit%3E(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.nbt.CompoundTag)" class="member-name-link">ClientboundBlockEntityDataPacket</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;tag)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -201,9 +203,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockItem.</span><code><a href="../../../../item/BlockItem.html#setBlockEntityData(net.minecraft.world.item.ItemStack,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.nbt.CompoundTag)" class="member-name-link">setBlockEntityData</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_186339_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_186340_,
- <a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_186341_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockItem.</span><code><a href="../../../../item/BlockItem.html#setBlockEntityData(net.minecraft.world.item.ItemStack,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.nbt.CompoundTag)" class="member-name-link">setBlockEntityData</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;blockEntityType,
+ <a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;blockEntityData)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -217,16 +219,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>default &lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockGetter.</span><code><a href="../../../BlockGetter.html#getBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getBlockEntity</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_151367_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_151368_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockGetter.</span><code><a href="../../../BlockGetter.html#getBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getBlockEntity</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>default &lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">CommonLevelAccessor.</span><code><a href="../../../CommonLevelAccessor.html#getBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getBlockEntity</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_151452_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_151453_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">CommonLevelAccessor.</span><code><a href="../../../CommonLevelAccessor.html#getBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getBlockEntity</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">LevelSimulatedReader.</span><code><a href="../../../LevelSimulatedReader.html#getBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getBlockEntity</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_151582_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_151583_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LevelSimulatedReader.</span><code><a href="../../../LevelSimulatedReader.html#getBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getBlockEntity</a><wbr>(<a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;type)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -258,55 +260,55 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static &lt;S extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../../DoubleBlockCombiner.NeighborCombineResult.html" title="interface in net.minecraft.world.level.block">DoubleBlockCombiner.NeighborCombineResult</a><wbr>&lt;S&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">DoubleBlockCombiner.</span><code><a href="../../DoubleBlockCombiner.html#combineWithNeigbour(net.minecraft.world.level.block.entity.BlockEntityType,java.util.function.Function,java.util.function.Function,net.minecraft.world.level.block.state.properties.DirectionProperty,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,java.util.function.BiPredicate)" class="member-name-link">combineWithNeigbour</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;S&gt;&nbsp;p_52823_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>,<wbr><a href="../../DoubleBlockCombiner.BlockType.html" title="enum class in net.minecraft.world.level.block">DoubleBlockCombiner.BlockType</a>&gt;&nbsp;p_52824_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>,<wbr><a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&gt;&nbsp;p_52825_,
- <a href="../../state/properties/DirectionProperty.html" title="class in net.minecraft.world.level.block.state.properties">DirectionProperty</a>&nbsp;p_52826_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_52827_,
- <a href="../../../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;p_52828_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_52829_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiPredicate.html" title="class or interface in java.util.function" class="external-link">BiPredicate</a>&lt;<a href="../../../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>,<wbr><a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;&nbsp;p_52830_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">DoubleBlockCombiner.</span><code><a href="../../DoubleBlockCombiner.html#combineWithNeigbour(net.minecraft.world.level.block.entity.BlockEntityType,java.util.function.Function,java.util.function.Function,net.minecraft.world.level.block.state.properties.DirectionProperty,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,java.util.function.BiPredicate)" class="member-name-link">combineWithNeigbour</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;S&gt;&nbsp;blockEntityType,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>,<wbr><a href="../../DoubleBlockCombiner.BlockType.html" title="enum class in net.minecraft.world.level.block">DoubleBlockCombiner.BlockType</a>&gt;&nbsp;doubleBlockTypeGetter,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>,<wbr><a href="../../../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&gt;&nbsp;directionGetter,
+ <a href="../../state/properties/DirectionProperty.html" title="class in net.minecraft.world.level.block.state.properties">DirectionProperty</a>&nbsp;directionProperty,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;level,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiPredicate.html" title="class or interface in java.util.function" class="external-link">BiPredicate</a>&lt;<a href="../../../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>,<wbr><a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;&nbsp;blockedChestTest)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected static &lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">AbstractFurnaceBlock.</span><code><a href="../../AbstractFurnaceBlock.html#createFurnaceTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">createFurnaceTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_151988_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_151989_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;? extends <a href="../AbstractFurnaceBlockEntity.html" title="class in net.minecraft.world.level.block.entity">AbstractFurnaceBlockEntity</a>&gt;&nbsp;p_151990_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">AbstractFurnaceBlock.</span><code><a href="../../AbstractFurnaceBlock.html#createFurnaceTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">createFurnaceTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;serverType,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;? extends <a href="../AbstractFurnaceBlockEntity.html" title="class in net.minecraft.world.level.block.entity">AbstractFurnaceBlockEntity</a>&gt;&nbsp;clientType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected static &lt;E extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>,<wbr>
 A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;A&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BaseEntityBlock.</span><code><a href="../../BaseEntityBlock.html#createTickerHelper(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.world.level.block.entity.BlockEntityTicker)" class="member-name-link">createTickerHelper</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;A&gt;&nbsp;p_152133_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;E&gt;&nbsp;p_152134_,
- <a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a>&lt;? super E&gt;&nbsp;p_152135_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BaseEntityBlock.</span><code><a href="../../BaseEntityBlock.html#createTickerHelper(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.world.level.block.entity.BlockEntityTicker)" class="member-name-link">createTickerHelper</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;A&gt;&nbsp;serverType,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;E&gt;&nbsp;clientType,
+ <a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a>&lt;? super E&gt;&nbsp;ticker)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">AbstractSkullBlock.</span><code><a href="../../AbstractSkullBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_151992_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_151993_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_151994_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">AbstractSkullBlock.</span><code><a href="../../AbstractSkullBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BeaconBlock.</span><code><a href="../../BeaconBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_152160_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_152161_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_152162_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BeaconBlock.</span><code><a href="../../BeaconBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BeehiveBlock.</span><code><a href="../../BeehiveBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_152180_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_152181_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_152182_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BeehiveBlock.</span><code><a href="../../BeehiveBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BellBlock.</span><code><a href="../../BellBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_152194_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_152195_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_152196_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BellBlock.</span><code><a href="../../BellBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlastFurnaceBlock.</span><code><a href="../../BlastFurnaceBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_152382_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_152383_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_152384_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlastFurnaceBlock.</span><code><a href="../../BlastFurnaceBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BrewingStandBlock.</span><code><a href="../../BrewingStandBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_152694_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_152695_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_152696_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BrewingStandBlock.</span><code><a href="../../BrewingStandBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">CalibratedSculkSensorBlock.</span><code><a href="../../CalibratedSculkSensorBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_277645_,
@@ -314,69 +316,69 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
  <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_277641_)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CampfireBlock.</span><code><a href="../../CampfireBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_152755_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_152756_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_152757_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CampfireBlock.</span><code><a href="../../CampfireBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">CeilingHangingSignBlock.</span><code><a href="../../CeilingHangingSignBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_279379_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_279390_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_279231_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">CeilingHangingSignBlock.</span><code><a href="../../CeilingHangingSignBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ChestBlock.</span><code><a href="../../ChestBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_153055_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153056_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_153057_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ChestBlock.</span><code><a href="../../ChestBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ConduitBlock.</span><code><a href="../../ConduitBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_153094_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153095_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_153096_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ConduitBlock.</span><code><a href="../../ConduitBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CrafterBlock.</span><code><a href="../../CrafterBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_307308_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_307639_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_307651_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CrafterBlock.</span><code><a href="../../CrafterBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">DaylightDetectorBlock.</span><code><a href="../../DaylightDetectorBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_153109_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153110_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_153111_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">DaylightDetectorBlock.</span><code><a href="../../DaylightDetectorBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EnchantingTableBlock.</span><code><a href="../../EnchantingTableBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_340880_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_341416_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_341078_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EnchantingTableBlock.</span><code><a href="../../EnchantingTableBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EnderChestBlock.</span><code><a href="../../EnderChestBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_153199_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153200_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_153201_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EnderChestBlock.</span><code><a href="../../EnderChestBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EndGatewayBlock.</span><code><a href="../../EndGatewayBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_153189_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153190_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_153191_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EndGatewayBlock.</span><code><a href="../../EndGatewayBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>default &lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">EntityBlock.</span><code><a href="../../EntityBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_153212_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153213_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_153214_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">EntityBlock.</span><code><a href="../../EntityBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">FurnaceBlock.</span><code><a href="../../FurnaceBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_153273_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153274_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_153275_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">FurnaceBlock.</span><code><a href="../../FurnaceBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">HopperBlock.</span><code><a href="../../HopperBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_153378_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_153379_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_153380_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">HopperBlock.</span><code><a href="../../HopperBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">JukeboxBlock.</span><code><a href="../../JukeboxBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_239682_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_239683_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_239684_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">JukeboxBlock.</span><code><a href="../../JukeboxBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">SculkCatalystBlock.</span><code><a href="../../SculkCatalystBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_222100_,
@@ -384,34 +386,34 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
  <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_222102_)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SculkSensorBlock.</span><code><a href="../../SculkSensorBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_154401_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_154402_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_154403_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SculkSensorBlock.</span><code><a href="../../SculkSensorBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SculkShriekerBlock.</span><code><a href="../../SculkShriekerBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_222173_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222174_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_222175_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SculkShriekerBlock.</span><code><a href="../../SculkShriekerBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ShulkerBoxBlock.</span><code><a href="../../ShulkerBoxBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_154543_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_154544_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_154545_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ShulkerBoxBlock.</span><code><a href="../../ShulkerBoxBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SignBlock.</span><code><a href="../../SignBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_277367_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_277896_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_277724_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SignBlock.</span><code><a href="../../SignBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SmokerBlock.</span><code><a href="../../SmokerBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_154640_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_154641_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_154642_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SmokerBlock.</span><code><a href="../../SmokerBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SpawnerBlock.</span><code><a href="../../SpawnerBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_154683_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_154684_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_154685_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SpawnerBlock.</span><code><a href="../../SpawnerBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">TrialSpawnerBlock.</span><code><a href="../../TrialSpawnerBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_311756_,
@@ -424,9 +426,9 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
  <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_323541_)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">WallHangingSignBlock.</span><code><a href="../../WallHangingSignBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_279316_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_279345_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_279384_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">WallHangingSignBlock.</span><code><a href="../../WallHangingSignBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructor parameters in <a href="../../package-summary.html">net.minecraft.world.level.block</a> with type arguments of type <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a></span></div>
@@ -435,12 +437,12 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-second even-row-color"><code><a href="../../AbstractChestBlock.html#%3Cinit%3E(net.minecraft.world.level.block.state.BlockBehaviour.Properties,java.util.function.Supplier)" class="member-name-link">AbstractChestBlock</a><wbr>(<a href="../../state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;p_48677_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;? extends <a href="../../AbstractChestBlock.html" title="type parameter in AbstractChestBlock">E</a>&gt;&gt;&nbsp;p_48678_)</code></div>
+<div class="col-second even-row-color"><code><a href="../../AbstractChestBlock.html#%3Cinit%3E(net.minecraft.world.level.block.state.BlockBehaviour.Properties,java.util.function.Supplier)" class="member-name-link">AbstractChestBlock</a><wbr>(<a href="../../state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;properties,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;? extends <a href="../../AbstractChestBlock.html" title="type parameter in AbstractChestBlock">E</a>&gt;&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../../ChestBlock.html#%3Cinit%3E(net.minecraft.world.level.block.state.BlockBehaviour.Properties,java.util.function.Supplier)" class="member-name-link">ChestBlock</a><wbr>(<a href="../../state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;p_51490_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;? extends <a href="../ChestBlockEntity.html" title="class in net.minecraft.world.level.block.entity">ChestBlockEntity</a>&gt;&gt;&nbsp;p_51491_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../../ChestBlock.html#%3Cinit%3E(net.minecraft.world.level.block.state.BlockBehaviour.Properties,java.util.function.Supplier)" class="member-name-link">ChestBlock</a><wbr>(<a href="../../state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;properties,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;? extends <a href="../ChestBlockEntity.html" title="class in net.minecraft.world.level.block.entity">ChestBlockEntity</a>&gt;&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -606,14 +608,14 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code><a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a><wbr>&lt;<a href="../BlockEntityType.Builder.html" title="type parameter in BlockEntityType.Builder">T</a>&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockEntityType.Builder.</span><code><a href="../BlockEntityType.Builder.html#build(com.mojang.datafixers.types.Type)" class="member-name-link">build</a><wbr>(com.mojang.datafixers.types.Type&lt;?&gt;&nbsp;p_58967_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockEntityType.Builder.</span><code><a href="../BlockEntityType.Builder.html#build(com.mojang.datafixers.types.Type)" class="member-name-link">build</a><wbr>(com.mojang.datafixers.types.Type&lt;?&gt;&nbsp;dataType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code><a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a><wbr>&lt;?&gt;</code></div>
 <div class="col-second odd-row-color"><span class="type-name-label">BlockEntity.</span><code><a href="../BlockEntity.html#getType()" class="member-name-link">getType</a>()</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private static &lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockEntityType.</span><code><a href="../BlockEntityType.html#register(java.lang.String,net.minecraft.world.level.block.entity.BlockEntityType.Builder)" class="member-name-link">register</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_58957_,
- <a href="../BlockEntityType.Builder.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType.Builder</a>&lt;T&gt;&nbsp;p_58958_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockEntityType.</span><code><a href="../BlockEntityType.html#register(java.lang.String,net.minecraft.world.level.block.entity.BlockEntityType.Builder)" class="member-name-link">register</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;key,
+ <a href="../BlockEntityType.Builder.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType.Builder</a>&lt;T&gt;&nbsp;builder)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">net.minecraft.world.level.block.entity</a> that return types with arguments of type <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a></span></div>
@@ -631,11 +633,11 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockEntity.</span><code><a href="../BlockEntity.html#addEntityType(net.minecraft.nbt.CompoundTag,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">addEntityType</a><wbr>(<a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_187469_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_187470_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockEntity.</span><code><a href="../BlockEntity.html#addEntityType(net.minecraft.nbt.CompoundTag,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">addEntityType</a><wbr>(<a href="../../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;tag,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;entityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">BlockEntityType.</span><code><a href="../BlockEntityType.html#getKey(net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getKey</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_58955_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">BlockEntityType.</span><code><a href="../BlockEntityType.html#getKey(net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getKey</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../package-summary.html">net.minecraft.world.level.block.entity</a> with parameters of type <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a></span></div>
@@ -644,50 +646,50 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-second even-row-color"><code><a href="../AbstractFurnaceBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.item.crafting.RecipeType)" class="member-name-link">AbstractFurnaceBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_154991_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_154992_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_154993_,
- <a href="../../../../item/crafting/RecipeType.html" title="interface in net.minecraft.world.item.crafting">RecipeType</a>&lt;? extends <a href="../../../../item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;&nbsp;p_154994_)</code></div>
+<div class="col-second even-row-color"><code><a href="../AbstractFurnaceBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.item.crafting.RecipeType)" class="member-name-link">AbstractFurnaceBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState,
+ <a href="../../../../item/crafting/RecipeType.html" title="interface in net.minecraft.world.item.crafting">RecipeType</a>&lt;? extends <a href="../../../../item/crafting/AbstractCookingRecipe.html" title="class in net.minecraft.world.item.crafting">AbstractCookingRecipe</a>&gt;&nbsp;recipeType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected </code></div>
-<div class="col-second odd-row-color"><code><a href="../BaseContainerBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">BaseContainerBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_155076_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_155077_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_155078_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../BaseContainerBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">BaseContainerBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../BlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">BlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_155228_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_155229_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_155230_)</code></div>
+<div class="col-second even-row-color"><code><a href="../BlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">BlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected </code></div>
-<div class="col-second odd-row-color"><code><a href="../ChestBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">ChestBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_155327_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_155328_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_155329_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../ChestBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">ChestBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-second even-row-color"><code><a href="../DispenserBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">DispenserBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_155489_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_155490_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_155491_)</code></div>
+<div class="col-second even-row-color"><code><a href="../DispenserBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">DispenserBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>protected </code></div>
-<div class="col-second odd-row-color"><code><a href="../RandomizableContainerBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">RandomizableContainerBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_155629_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_155630_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_155631_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../RandomizableContainerBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">RandomizableContainerBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-second even-row-color"><code><a href="../SculkSensorBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">SculkSensorBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_277405_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_277502_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_277699_)</code></div>
+<div class="col-second even-row-color"><code><a href="../SculkSensorBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">SculkSensorBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../SignBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">SignBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&nbsp;p_249609_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_248914_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_249550_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../SignBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">SignBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&nbsp;type,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-second even-row-color"><code><a href="../TheEndPortalBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">TheEndPortalBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_155855_,
- <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_155856_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_155857_)</code></div>
+<div class="col-second even-row-color"><code><a href="../TheEndPortalBlockEntity.html#%3Cinit%3E(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">TheEndPortalBlockEntity</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -701,9 +703,9 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MovingPistonBlock.</span><code><a href="../../piston/MovingPistonBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_155875_,
- <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_155876_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_155877_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MovingPistonBlock.</span><code><a href="../../piston/MovingPistonBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -717,8 +719,8 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&lt;T extends <a href="../BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="../BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">BlockBehaviour.BlockStateBase.</span><code><a href="../../state/BlockBehaviour.BlockStateBase.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_155945_,
- <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_155946_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">BlockBehaviour.BlockStateBase.</span><code><a href="../../state/BlockBehaviour.BlockStateBase.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../../../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -741,13 +743,13 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static <a href="../../../storage/loot/functions/LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SetContainerLootTable.</span><code><a href="../../../storage/loot/functions/SetContainerLootTable.html#withLootTable(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.resources.ResourceKey)" class="member-name-link">withLootTable</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_193050_,
- <a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../storage/loot/LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&gt;&nbsp;p_335933_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SetContainerLootTable.</span><code><a href="../../../storage/loot/functions/SetContainerLootTable.html#withLootTable(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.resources.ResourceKey)" class="member-name-link">withLootTable</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../storage/loot/LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&gt;&nbsp;toolTable)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../../../storage/loot/functions/LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SetContainerLootTable.</span><code><a href="../../../storage/loot/functions/SetContainerLootTable.html#withLootTable(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.resources.ResourceKey,long)" class="member-name-link">withLootTable</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;p_193053_,
- <a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../storage/loot/LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&gt;&nbsp;p_335427_,
- long&nbsp;p_193055_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SetContainerLootTable.</span><code><a href="../../../storage/loot/functions/SetContainerLootTable.html#withLootTable(net.minecraft.world.level.block.entity.BlockEntityType,net.minecraft.resources.ResourceKey,long)" class="member-name-link">withLootTable</a><wbr>(<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&nbsp;type,
+ <a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../storage/loot/LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&gt;&nbsp;lootTable,
+ long&nbsp;seed)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructor parameters in <a href="../../../storage/loot/functions/package-summary.html">net.minecraft.world.level.storage.loot.functions</a> with type arguments of type <a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a></span></div>
@@ -756,10 +758,10 @@ A extends <a href="../BlockEntity.html" title="class in net.minecraft.world.leve
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-second even-row-color"><code><a href="../../../storage/loot/functions/SetContainerLootTable.html#%3Cinit%3E(java.util.List,net.minecraft.resources.ResourceKey,long,net.minecraft.core.Holder)" class="member-name-link">SetContainerLootTable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../storage/loot/predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_298290_,
- <a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../storage/loot/LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&gt;&nbsp;p_335525_,
- long&nbsp;p_193047_,
- <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&gt;&nbsp;p_298416_)</code></div>
+<div class="col-second even-row-color"><code><a href="../../../storage/loot/functions/SetContainerLootTable.html#%3Cinit%3E(java.util.List,net.minecraft.resources.ResourceKey,long,net.minecraft.core.Holder)" class="member-name-link">SetContainerLootTable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../storage/loot/predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;conditions,
+ <a href="../../../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../storage/loot/LootTable.html" title="class in net.minecraft.world.level.storage.loot">LootTable</a>&gt;&nbsp;name,
+ long&nbsp;seed,
+ <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;?&gt;&gt;&nbsp;type)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>

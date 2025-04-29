@@ -132,8 +132,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,net.minecraft.core.BlockPos)" class="member-name-link">BlockDestructionProgress</a><wbr>(int&nbsp;p_139979_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_139980_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,net.minecraft.core.BlockPos)" class="member-name-link">BlockDestructionProgress</a><wbr>(int&nbsp;id,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -150,10 +150,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#compareTo(net.minecraft.server.level.BlockDestructionProgress)" class="member-name-link">compareTo</a><wbr>(<a href="BlockDestructionProgress.html" title="class in net.minecraft.server.level">BlockDestructionProgress</a>&nbsp;p_139984_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#compareTo(net.minecraft.server.level.BlockDestructionProgress)" class="member-name-link">compareTo</a><wbr>(<a href="BlockDestructionProgress.html" title="class in net.minecraft.server.level">BlockDestructionProgress</a>&nbsp;other)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;p_139993_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;other)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
@@ -171,11 +171,15 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setProgress(int)" class="member-name-link">setProgress</a><wbr>(int&nbsp;p_139982_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setProgress(int)" class="member-name-link">setProgress</a><wbr>(int&nbsp;damage)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Inserts damage value into this partially destroyed Block.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateTick(int)" class="member-name-link">updateTick</a><wbr>(int&nbsp;p_139987_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateTick(int)" class="member-name-link">updateTick</a><wbr>(int&nbsp;createdAtCloudUpdateTick)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Saves the current Cloud update tick into the PartiallyDestroyedBlock.</div>
+</div>
 </div>
 </div>
 </div>
@@ -228,8 +232,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="&lt;init&gt;(int,net.minecraft.core.BlockPos)">
 <h3>BlockDestructionProgress</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BlockDestructionProgress</span><wbr><span class="parameters">(int&nbsp;p_139979_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_139980_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">BlockDestructionProgress</span><wbr><span class="parameters">(int&nbsp;id,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 </section>
 </li>
 </ul>
@@ -255,7 +259,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="setProgress(int)">
 <h3>setProgress</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setProgress</span><wbr><span class="parameters">(int&nbsp;p_139982_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setProgress</span><wbr><span class="parameters">(int&nbsp;damage)</span></div>
+<div class="block">Inserts damage value into this partially destroyed Block. -1 causes client renderer to delete it, otherwise ranges from 1 to 10.</div>
 </section>
 </li>
 <li>
@@ -267,7 +272,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="updateTick(int)">
 <h3>updateTick</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateTick</span><wbr><span class="parameters">(int&nbsp;p_139987_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateTick</span><wbr><span class="parameters">(int&nbsp;createdAtCloudUpdateTick)</span></div>
+<div class="block">Saves the current Cloud update tick into the PartiallyDestroyedBlock.</div>
 </section>
 </li>
 <li>
@@ -279,7 +285,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;p_139993_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;other)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
@@ -299,7 +305,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="compareTo(net.minecraft.server.level.BlockDestructionProgress)">
 <h3>compareTo</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">compareTo</span><wbr><span class="parameters">(<a href="BlockDestructionProgress.html" title="class in net.minecraft.server.level">BlockDestructionProgress</a>&nbsp;p_139984_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">compareTo</span><wbr><span class="parameters">(<a href="BlockDestructionProgress.html" title="class in net.minecraft.server.level">BlockDestructionProgress</a>&nbsp;other)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparable.html#compareTo(T)" title="class or interface in java.lang" class="external-link">compareTo</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Comparable.html" title="class or interface in java.lang" class="external-link">Comparable</a>&lt;<a href="BlockDestructionProgress.html" title="class in net.minecraft.server.level">BlockDestructionProgress</a>&gt;</code></dd>

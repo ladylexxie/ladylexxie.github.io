@@ -93,6 +93,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">IContainerFactory&lt;T extends <a href="../../../minecraft/world/inventory/AbstractContainerMenu.html" title="class in net.minecraft.world.inventory">AbstractContainerMenu</a>&gt;</span><span class="extends-implements">
 extends <a href="../../../minecraft/world/inventory/MenuType.MenuSupplier.html" title="interface in net.minecraft.world.inventory">MenuType.MenuSupplier</a>&lt;T&gt;</span></div>
+<div class="block">This extension of <a href="../../../minecraft/world/inventory/MenuType.MenuSupplier.html" title="interface in net.minecraft.world.inventory"><code>MenuType.MenuSupplier</code></a> allows a mod to handle the extra data it sent to the client
+ when creating the client-side copy of a menu.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -115,7 +117,9 @@ extends <a href="../../../minecraft/world/inventory/MenuType.MenuSupplier.html" 
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#create(int,net.minecraft.world.entity.player.Inventory,net.minecraft.network.RegistryFriendlyByteBuf)" class="member-name-link">create</a><wbr>(int&nbsp;windowId,
  <a href="../../../minecraft/world/entity/player/Inventory.html" title="class in net.minecraft.world.entity.player">Inventory</a>&nbsp;inv,
  <a href="../../../minecraft/network/RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;data)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Constructs a menu instance on the client-side in response to a menu being opened on the server-side for a player.</div>
+</div>
 </div>
 </div>
 </div>
@@ -136,6 +140,18 @@ extends <a href="../../../minecraft/world/inventory/MenuType.MenuSupplier.html" 
 <div class="member-signature"><span class="return-type"><a href="IContainerFactory.html" title="type parameter in IContainerFactory">T</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(int&nbsp;windowId,
  <a href="../../../minecraft/world/entity/player/Inventory.html" title="class in net.minecraft.world.entity.player">Inventory</a>&nbsp;inv,
  <a href="../../../minecraft/network/RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;data)</span></div>
+<div class="block">Constructs a menu instance on the client-side in response to a menu being opened on the server-side for a player.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>windowId</code> - The <a href="../../../minecraft/world/inventory/AbstractContainerMenu.html#containerId"><code>AbstractContainerMenu.containerId</code></a> of the menu on the server-side.</dd>
+<dd><code>inv</code> - Player inventory of the player for whom the menu is being created.</dd>
+<dd><code>data</code> - Additional data written by the server when the menu was opened.
+                 It contains any data written by <a href="../client/extensions/IMenuProviderExtension.html#writeClientSideData(net.minecraft.world.inventory.AbstractContainerMenu,net.minecraft.network.RegistryFriendlyByteBuf)"><code>IMenuProviderExtension.writeClientSideData(AbstractContainerMenu, RegistryFriendlyByteBuf)</code></a>,
+                 followed by optional contextual data written by the <code>extraDataWriter</code> argument to
+                 <a href="../common/extensions/IPlayerExtension.html#openMenu(net.minecraft.world.MenuProvider,java.util.function.Consumer)"><code>IPlayerExtension.openMenu(MenuProvider, Consumer)</code></a>.</dd>
+<dt>Returns:</dt>
+<dd>The menu instance to use on the client-side.</dd>
+</dl>
 </section>
 </li>
 <li>

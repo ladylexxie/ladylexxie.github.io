@@ -70,7 +70,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected <a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">DisplayRenderer.TextDisplayRenderer.</span><code><a href="../../../client/renderer/entity/DisplayRenderer.TextDisplayRenderer.html#getSubState(net.minecraft.world.entity.Display.TextDisplay)" class="member-name-link">getSubState</a><wbr>(<a href="../Display.TextDisplay.html" title="class in net.minecraft.world.entity">Display.TextDisplay</a>&nbsp;p_277947_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">DisplayRenderer.TextDisplayRenderer.</span><code><a href="../../../client/renderer/entity/DisplayRenderer.TextDisplayRenderer.html#getSubState(net.minecraft.world.entity.Display.TextDisplay)" class="member-name-link">getSubState</a><wbr>(<a href="../Display.TextDisplay.html" title="class in net.minecraft.world.entity">Display.TextDisplay</a>&nbsp;textDisplay)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../../../client/renderer/entity/package-summary.html">net.minecraft.client.renderer.entity</a> with parameters of type <a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a></span></div>
@@ -79,12 +79,12 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">DisplayRenderer.TextDisplayRenderer.</span><code><a href="../../../client/renderer/entity/DisplayRenderer.TextDisplayRenderer.html#renderInner(net.minecraft.world.entity.Display.TextDisplay,net.minecraft.world.entity.Display.TextDisplay.TextRenderState,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,float)" class="member-name-link">renderInner</a><wbr>(<a href="../Display.TextDisplay.html" title="class in net.minecraft.world.entity">Display.TextDisplay</a>&nbsp;p_277522_,
- <a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a>&nbsp;p_277620_,
- <a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_277536_,
- <a href="../../../client/renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_277845_,
- int&nbsp;p_278046_,
- float&nbsp;p_277769_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">DisplayRenderer.TextDisplayRenderer.</span><code><a href="../../../client/renderer/entity/DisplayRenderer.TextDisplayRenderer.html#renderInner(net.minecraft.world.entity.Display.TextDisplay,net.minecraft.world.entity.Display.TextDisplay.TextRenderState,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,int,float)" class="member-name-link">renderInner</a><wbr>(<a href="../Display.TextDisplay.html" title="class in net.minecraft.world.entity">Display.TextDisplay</a>&nbsp;textDisplay,
+ <a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a>&nbsp;renderState,
+ <a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../client/renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ int&nbsp;lightmapUV,
+ float&nbsp;partialTick)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -110,8 +110,8 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><span class="type-name-label">Display.TextDisplay.</span><code><a href="../Display.TextDisplay.html#createFreshTextRenderState()" class="member-name-link">createFreshTextRenderState</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private <a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Display.TextDisplay.</span><code><a href="../Display.TextDisplay.html#createInterpolatedTextRenderState(net.minecraft.world.entity.Display.TextDisplay.TextRenderState,float)" class="member-name-link">createInterpolatedTextRenderState</a><wbr>(<a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a>&nbsp;p_278000_,
- float&nbsp;p_277646_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Display.TextDisplay.</span><code><a href="../Display.TextDisplay.html#createInterpolatedTextRenderState(net.minecraft.world.entity.Display.TextDisplay.TextRenderState,float)" class="member-name-link">createInterpolatedTextRenderState</a><wbr>(<a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a>&nbsp;renderState,
+ float&nbsp;partialTick)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code><a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a></code></div>
 <div class="col-second even-row-color"><span class="type-name-label">Display.TextDisplay.</span><code><a href="../Display.TextDisplay.html#textRenderState()" class="member-name-link">textRenderState</a>()</code></div>
@@ -123,8 +123,8 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private <a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Display.TextDisplay.</span><code><a href="../Display.TextDisplay.html#createInterpolatedTextRenderState(net.minecraft.world.entity.Display.TextDisplay.TextRenderState,float)" class="member-name-link">createInterpolatedTextRenderState</a><wbr>(<a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a>&nbsp;p_278000_,
- float&nbsp;p_277646_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Display.TextDisplay.</span><code><a href="../Display.TextDisplay.html#createInterpolatedTextRenderState(net.minecraft.world.entity.Display.TextDisplay.TextRenderState,float)" class="member-name-link">createInterpolatedTextRenderState</a><wbr>(<a href="../Display.TextDisplay.TextRenderState.html" title="class in net.minecraft.world.entity">Display.TextDisplay.TextRenderState</a>&nbsp;renderState,
+ float&nbsp;partialTick)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>

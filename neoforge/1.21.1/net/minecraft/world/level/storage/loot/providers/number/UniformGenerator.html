@@ -99,6 +99,8 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public record </span><span class="element-name type-name-label">UniformGenerator</span>(<a href="NumberProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.number">NumberProvider</a>&nbsp;min, <a href="NumberProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.number">NumberProvider</a>&nbsp;max)
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Record.html" title="class or interface in java.lang" class="external-link">Record</a>
 implements <a href="NumberProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.number">NumberProvider</a></span></div>
+<div class="block">Generates a random number which is uniformly distributed between a minimum and a maximum.
+ Minimum and maximum are themselves NumberProviders.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -155,8 +157,8 @@ implements <a href="NumberProvider.html" title="interface in net.minecraft.world
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="UniformGenerator.html" title="class in net.minecraft.world.level.storage.loot.providers.number">UniformGenerator</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#between(float,float)" class="member-name-link">between</a><wbr>(float&nbsp;p_165781_,
- float&nbsp;p_165782_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#between(float,float)" class="member-name-link">between</a><wbr>(float&nbsp;min,
+ float&nbsp;max)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
@@ -164,10 +166,10 @@ implements <a href="NumberProvider.html" title="interface in net.minecraft.world
 <div class="block">Indicates whether some other object is "equal to" this one.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFloat(net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">getFloat</a><wbr>(<a href="../../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_165787_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFloat(net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">getFloat</a><wbr>(<a href="../../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInt(net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">getInt</a><wbr>(<a href="../../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_165784_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInt(net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">getInt</a><wbr>(<a href="../../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../../parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReferencedContextParams()" class="member-name-link">getReferencedContextParams</a>()</code></div>
@@ -277,14 +279,14 @@ implements <a href="NumberProvider.html" title="interface in net.minecraft.world
 <li>
 <section class="detail" id="between(float,float)">
 <h3>between</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="UniformGenerator.html" title="class in net.minecraft.world.level.storage.loot.providers.number">UniformGenerator</a></span>&nbsp;<span class="element-name">between</span><wbr><span class="parameters">(float&nbsp;p_165781_,
- float&nbsp;p_165782_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="UniformGenerator.html" title="class in net.minecraft.world.level.storage.loot.providers.number">UniformGenerator</a></span>&nbsp;<span class="element-name">between</span><wbr><span class="parameters">(float&nbsp;min,
+ float&nbsp;max)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getInt(net.minecraft.world.level.storage.loot.LootContext)">
 <h3>getInt</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getInt</span><wbr><span class="parameters">(<a href="../../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_165784_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getInt</span><wbr><span class="parameters">(<a href="../../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="NumberProvider.html#getInt(net.minecraft.world.level.storage.loot.LootContext)">getInt</a></code>&nbsp;in interface&nbsp;<code><a href="NumberProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.number">NumberProvider</a></code></dd>
@@ -294,7 +296,7 @@ implements <a href="NumberProvider.html" title="interface in net.minecraft.world
 <li>
 <section class="detail" id="getFloat(net.minecraft.world.level.storage.loot.LootContext)">
 <h3>getFloat</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getFloat</span><wbr><span class="parameters">(<a href="../../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_165787_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getFloat</span><wbr><span class="parameters">(<a href="../../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="NumberProvider.html#getFloat(net.minecraft.world.level.storage.loot.LootContext)">getFloat</a></code>&nbsp;in interface&nbsp;<code><a href="NumberProvider.html" title="interface in net.minecraft.world.level.storage.loot.providers.number">NumberProvider</a></code></dd>

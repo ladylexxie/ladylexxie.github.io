@@ -91,9 +91,25 @@ loadScripts(document, 'script');</script>
 </div>
 </div>
 <section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><code>T</code> - the type of the registry entry for this statistic</dd>
+</dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Stat&lt;T&gt;</span>
 <span class="extends-implements">extends <a href="../world/scores/criteria/ObjectiveCriteria.html" title="class in net.minecraft.world.scores.criteria">ObjectiveCriteria</a></span></div>
+<div class="block">An immutable statistic to be counted for a particular entry in the <a href="#type">type</a>'s registry. This is used as a key in a <a href="StatsCounter.html" title="class in net.minecraft.stats"><code>StatsCounter</code></a> for a corresponding count.
+ <p>
+ By default, the statistic's <a href="../world/scores/criteria/ObjectiveCriteria.html#getName()">name</a> is formatted <code>&lt;stat type namespace&gt;.&lt;stat type path&gt;:&lt;value namespace&gt;.&lt;value path&gt;</code>, as created by <a href="#buildName(net.minecraft.stats.StatType,T)"><code>buildName(StatType, Object)</code></a>.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="StatType.html" title="class in net.minecraft.stats"><code>StatType</code></a></li>
+<li><a href="Stats.html" title="class in net.minecraft.stats"><code>Stats</code></a></li>
+</ul>
+</dd>
+</dl>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -123,10 +139,14 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private final <a href="StatType.html" title="class in net.minecraft.stats">StatType</a><wbr>&lt;<a href="Stat.html" title="type parameter in Stat">T</a>&gt;</code></div>
 <div class="col-second even-row-color"><code><a href="#type" class="member-name-link">type</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">The parent statistic type.</div>
+</div>
 <div class="col-first odd-row-color"><code>private final <a href="Stat.html" title="type parameter in Stat">T</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#value" class="member-name-link">value</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">The registry entry for this statistic.</div>
+</div>
 </div>
 <div class="inherited-list">
 <h3 id="fields-inherited-from-class-net.minecraft.world.scores.criteria.ObjectiveCriteria">Fields inherited from class&nbsp;net.minecraft.world.scores.criteria.<a href="../world/scores/criteria/ObjectiveCriteria.html" title="class in net.minecraft.world.scores.criteria">ObjectiveCriteria</a></h3>
@@ -143,9 +163,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.stats.StatType,T,net.minecraft.stats.StatFormatter)" class="member-name-link">Stat</a><wbr>(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;<a href="Stat.html" title="type parameter in Stat">T</a>&gt;&nbsp;p_12856_,
- <a href="Stat.html" title="type parameter in Stat">T</a>&nbsp;p_12857_,
- <a href="StatFormatter.html" title="interface in net.minecraft.stats">StatFormatter</a>&nbsp;p_12858_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.stats.StatType,T,net.minecraft.stats.StatFormatter)" class="member-name-link">Stat</a><wbr>(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;<a href="Stat.html" title="type parameter in Stat">T</a>&gt;&nbsp;type,
+ <a href="Stat.html" title="type parameter in Stat">T</a>&nbsp;value,
+ <a href="StatFormatter.html" title="interface in net.minecraft.stats">StatFormatter</a>&nbsp;formatter)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -162,14 +182,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildName(net.minecraft.stats.StatType,T)" class="member-name-link">buildName</a><wbr>(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;T&gt;&nbsp;p_12863_,
- T&nbsp;p_12864_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildName(net.minecraft.stats.StatType,T)" class="member-name-link">buildName</a><wbr>(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;T&gt;&nbsp;type,
+ T&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;p_12869_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;other)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#format(int)" class="member-name-link">format</a><wbr>(int&nbsp;p_12861_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#format(int)" class="member-name-link">format</a><wbr>(int&nbsp;value)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="StatType.html" title="class in net.minecraft.stats">StatType</a><wbr>&lt;<a href="Stat.html" title="type parameter in Stat">T</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
@@ -181,7 +201,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hashCode()" class="member-name-link">hashCode</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;T&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#locationToKey(net.minecraft.resources.ResourceLocation)" class="member-name-link">locationToKey</a><wbr>(<a href="../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_12866_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#locationToKey(net.minecraft.resources.ResourceLocation)" class="member-name-link">locationToKey</a><wbr>(<a href="../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;location)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -222,12 +242,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="value">
 <h3>value</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="Stat.html" title="type parameter in Stat">T</a></span>&nbsp;<span class="element-name">value</span></div>
+<div class="block">The registry entry for this statistic.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="type">
 <h3>type</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;<a href="Stat.html" title="type parameter in Stat">T</a>&gt;</span>&nbsp;<span class="element-name">type</span></div>
+<div class="block">The parent statistic type.</div>
 </section>
 </li>
 </ul>
@@ -241,9 +263,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.stats.StatType,T,net.minecraft.stats.StatFormatter)">
 <h3 id="&lt;init&gt;(net.minecraft.stats.StatType,java.lang.Object,net.minecraft.stats.StatFormatter)">Stat</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">Stat</span><wbr><span class="parameters">(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;<a href="Stat.html" title="type parameter in Stat">T</a>&gt;&nbsp;p_12856_,
- <a href="Stat.html" title="type parameter in Stat">T</a>&nbsp;p_12857_,
- <a href="StatFormatter.html" title="interface in net.minecraft.stats">StatFormatter</a>&nbsp;p_12858_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">Stat</span><wbr><span class="parameters">(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;<a href="Stat.html" title="type parameter in Stat">T</a>&gt;&nbsp;type,
+ <a href="Stat.html" title="type parameter in Stat">T</a>&nbsp;value,
+ <a href="StatFormatter.html" title="interface in net.minecraft.stats">StatFormatter</a>&nbsp;formatter)</span></div>
 </section>
 </li>
 </ul>
@@ -257,15 +279,23 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="buildName(net.minecraft.stats.StatType,T)">
 <h3 id="buildName(net.minecraft.stats.StatType,java.lang.Object)">buildName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">buildName</span><wbr><span class="parameters">(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;T&gt;&nbsp;p_12863_,
- T&nbsp;p_12864_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">buildName</span><wbr><span class="parameters">(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;T&gt;&nbsp;type,
+ T&nbsp;value)</span></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the name for the specified <code>type</code> and <code>value</code> in the form <code>&lt;stat type namespace&gt;.&lt;stat type path&gt;:&lt;value namespace&gt;.&lt;value path&gt;</code></dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="locationToKey(net.minecraft.resources.ResourceLocation)">
 <h3>locationToKey</h3>
 <div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">locationToKey</span><wbr><span class="parameters">(@Nullable
- <a href="../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_12866_)</span></div>
+ <a href="../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;location)</span></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the specified <code>location</code> as a string with <code>.</code> as the separator character</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -283,13 +313,13 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="format(int)">
 <h3>format</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">format</span><wbr><span class="parameters">(int&nbsp;p_12861_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">format</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="equals(java.lang.Object)">
 <h3>equals</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;p_12869_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;other)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>

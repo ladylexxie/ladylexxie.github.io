@@ -96,6 +96,23 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">RandomSource</span></div>
+<div class="block">A basic interface for random number generation. This mirrors the same methods in <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link"><code>Random</code></a>, however it does not make any guarantee that these are thread-safe, unlike <code>Random</code>.
+ The notable difference is that <a href="#setSeed(long)"><code>setSeed(long)</code></a> is not <code>synchronized</code> and should not be accessed from multiple threads.
+ The documentation for each individual method can be assumed to be otherwise the same as the identically named method in <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link"><code>Random</code></a>.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Random.html" title="class or interface in java.util" class="external-link"><code>Random</code></a></li>
+<li>
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>net.minecraft.world.level.levelgen.SimpleRandomSource</code></pre>
+</details>
+</li>
+</ul>
+</dd>
+</dl>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -128,13 +145,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#consumeCount(int)" class="member-name-link">consumeCount</a><wbr>(int&nbsp;p_216338_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#consumeCount(int)" class="member-name-link">consumeCount</a><wbr>(int&nbsp;count)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="RandomSource.html" title="interface in net.minecraft.util">RandomSource</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#create()" class="member-name-link">create</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="RandomSource.html" title="interface in net.minecraft.util">RandomSource</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(long)" class="member-name-link">create</a><wbr>(long&nbsp;p_216336_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#create(long)" class="member-name-link">create</a><wbr>(long&nbsp;seed)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="RandomSource.html" title="interface in net.minecraft.util">RandomSource</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#createNewThreadLocalInstance()" class="member-name-link">createNewThreadLocalInstance</a>()</code></div>
@@ -166,25 +183,25 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#nextInt()" class="member-name-link">nextInt</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#nextInt(int)" class="member-name-link">nextInt</a><wbr>(int&nbsp;p_216331_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#nextInt(int)" class="member-name-link">nextInt</a><wbr>(int&nbsp;bound)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#nextInt(int,int)" class="member-name-link">nextInt</a><wbr>(int&nbsp;p_216340_,
- int&nbsp;p_216341_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#nextInt(int,int)" class="member-name-link">nextInt</a><wbr>(int&nbsp;origin,
+ int&nbsp;bound)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#nextIntBetweenInclusive(int,int)" class="member-name-link">nextIntBetweenInclusive</a><wbr>(int&nbsp;p_216333_,
- int&nbsp;p_216334_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#nextIntBetweenInclusive(int,int)" class="member-name-link">nextIntBetweenInclusive</a><wbr>(int&nbsp;min,
+ int&nbsp;max)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>long</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#nextLong()" class="member-name-link">nextLong</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setSeed(long)" class="member-name-link">setSeed</a><wbr>(long&nbsp;p_216342_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setSeed(long)" class="member-name-link">setSeed</a><wbr>(long&nbsp;seed)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#triangle(double,double)" class="member-name-link">triangle</a><wbr>(double&nbsp;p_216329_,
- double&nbsp;p_216330_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#triangle(double,double)" class="member-name-link">triangle</a><wbr>(double&nbsp;center,
+ double&nbsp;maxDeviation)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
 </div>
 </div>
@@ -241,7 +258,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="create(long)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="RandomSource.html" title="interface in net.minecraft.util">RandomSource</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(long&nbsp;p_216336_)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="RandomSource.html" title="interface in net.minecraft.util">RandomSource</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(long&nbsp;seed)</span></div>
 </section>
 </li>
 <li>
@@ -265,7 +282,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setSeed(long)">
 <h3>setSeed</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setSeed</span><wbr><span class="parameters">(long&nbsp;p_216342_)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setSeed</span><wbr><span class="parameters">(long&nbsp;seed)</span></div>
 </section>
 </li>
 <li>
@@ -277,14 +294,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="nextInt(int)">
 <h3>nextInt</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">nextInt</span><wbr><span class="parameters">(int&nbsp;p_216331_)</span></div>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">nextInt</span><wbr><span class="parameters">(int&nbsp;bound)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="nextIntBetweenInclusive(int,int)">
 <h3>nextIntBetweenInclusive</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">nextIntBetweenInclusive</span><wbr><span class="parameters">(int&nbsp;p_216333_,
- int&nbsp;p_216334_)</span></div>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">nextIntBetweenInclusive</span><wbr><span class="parameters">(int&nbsp;min,
+ int&nbsp;max)</span></div>
 </section>
 </li>
 <li>
@@ -320,21 +337,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="triangle(double,double)">
 <h3>triangle</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">triangle</span><wbr><span class="parameters">(double&nbsp;p_216329_,
- double&nbsp;p_216330_)</span></div>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">triangle</span><wbr><span class="parameters">(double&nbsp;center,
+ double&nbsp;maxDeviation)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="consumeCount(int)">
 <h3>consumeCount</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">consumeCount</span><wbr><span class="parameters">(int&nbsp;p_216338_)</span></div>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">consumeCount</span><wbr><span class="parameters">(int&nbsp;count)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="nextInt(int,int)">
 <h3>nextInt</h3>
-<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">nextInt</span><wbr><span class="parameters">(int&nbsp;p_216340_,
- int&nbsp;p_216341_)</span></div>
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">nextInt</span><wbr><span class="parameters">(int&nbsp;origin,
+ int&nbsp;bound)</span></div>
 </section>
 </li>
 </ul>

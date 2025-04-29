@@ -114,6 +114,18 @@ implements net.neoforged.fml.event.IModBusEvent</span></div>
 <div class="col-first even-row-color"><code>static class&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="GatherDataEvent.DataGeneratorConfig.html" class="type-name-link" title="class in net.neoforged.neoforge.data.event">GatherDataEvent.DataGeneratorConfig</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="GatherDataEvent.DataProviderFromOutput.html" class="type-name-link" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.DataProviderFromOutput</a>&lt;<a href="GatherDataEvent.DataProviderFromOutput.html" title="type parameter in GatherDataEvent.DataProviderFromOutput">T</a> extends <a href="../../../../minecraft/data/DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="GatherDataEvent.DataProviderFromOutputLookup.html" class="type-name-link" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.DataProviderFromOutputLookup</a>&lt;<a href="GatherDataEvent.DataProviderFromOutputLookup.html" title="type parameter in GatherDataEvent.DataProviderFromOutputLookup">T</a> extends <a href="../../../../minecraft/data/DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="GatherDataEvent.GatherDataEventGenerator.html" class="type-name-link" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.GatherDataEventGenerator</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="GatherDataEvent.ItemTagsProvider.html" class="type-name-link" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.ItemTagsProvider</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -138,6 +150,9 @@ implements net.neoforged.fml.event.IModBusEvent</span></div>
 <div class="col-first odd-row-color"><code>private final net.neoforged.fml.ModContainer</code></div>
 <div class="col-second odd-row-color"><code><a href="#modContainer" class="member-name-link">modContainer</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="../../../../minecraft/core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#registriesWithModdedEntries" class="member-name-link">registriesWithModdedEntries</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
 </li>
@@ -168,6 +183,44 @@ implements net.neoforged.fml.event.IModBusEvent</span></div>
 <div class="table-header col-first">Modifier and Type</div>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../../../../minecraft/data/DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;<br>T</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addProvider(T)" class="member-name-link">addProvider</a><wbr>(T&nbsp;provider)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createBlockAndItemTags(net.neoforged.neoforge.data.event.GatherDataEvent.DataProviderFromOutputLookup,net.neoforged.neoforge.data.event.GatherDataEvent.ItemTagsProvider)" class="member-name-link">createBlockAndItemTags</a><wbr>(<a href="GatherDataEvent.DataProviderFromOutputLookup.html" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.DataProviderFromOutputLookup</a>&lt;<a href="../../../../minecraft/data/tags/TagsProvider.html" title="class in net.minecraft.data.tags">TagsProvider</a>&lt;<a href="../../../../minecraft/world/level/block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&gt;&nbsp;blockTagsProvider,
+ <a href="GatherDataEvent.ItemTagsProvider.html" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.ItemTagsProvider</a>&nbsp;itemTagsProvider)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder)" class="member-name-link">createDatapackRegistryObjects</a><wbr>(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.function.Consumer)" class="member-name-link">createDatapackRegistryObjects</a><wbr>(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="../../../../minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;?&gt;,<wbr><a href="../../common/conditions/ICondition.html" title="interface in net.neoforged.neoforge.common.conditions">ICondition</a>&gt;&gt;&nbsp;conditionsBuilder)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.function.Consumer,java.util.Set)" class="member-name-link">createDatapackRegistryObjects</a><wbr>(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="../../../../minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;?&gt;,<wbr><a href="../../common/conditions/ICondition.html" title="interface in net.neoforged.neoforge.common.conditions">ICondition</a>&gt;&gt;&nbsp;conditionsBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;modIds)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.Map)" class="member-name-link">createDatapackRegistryObjects</a><wbr>(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../../../minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;?&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../common/conditions/ICondition.html" title="interface in net.neoforged.neoforge.common.conditions">ICondition</a>&gt;&gt;&nbsp;conditions)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.Map,java.util.Set)" class="member-name-link">createDatapackRegistryObjects</a><wbr>(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../../../minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;?&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../common/conditions/ICondition.html" title="interface in net.neoforged.neoforge.common.conditions">ICondition</a>&gt;&gt;&nbsp;conditions,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;modIds)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.Set)" class="member-name-link">createDatapackRegistryObjects</a><wbr>(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;modIds)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../../../../minecraft/data/DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;<br>T</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createProvider(net.neoforged.neoforge.data.event.GatherDataEvent.DataProviderFromOutput)" class="member-name-link">createProvider</a><wbr>(<a href="GatherDataEvent.DataProviderFromOutput.html" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.DataProviderFromOutput</a>&lt;T&gt;&nbsp;builder)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../../../../minecraft/data/DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;<br>T</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createProvider(net.neoforged.neoforge.data.event.GatherDataEvent.DataProviderFromOutputLookup)" class="member-name-link">createProvider</a><wbr>(<a href="GatherDataEvent.DataProviderFromOutputLookup.html" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.DataProviderFromOutputLookup</a>&lt;T&gt;&nbsp;builder)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../common/data/ExistingFileHelper.html" title="class in net.neoforged.neoforge.common.data">ExistingFileHelper</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExistingFileHelper()" class="member-name-link">getExistingFileHelper</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -182,6 +235,12 @@ implements net.neoforged.fml.event.IModBusEvent</span></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>net.neoforged.fml.ModContainer</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getModContainer()" class="member-name-link">getModContainer</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMods()" class="member-name-link">getMods</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../minecraft/server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResourceManager(net.minecraft.server.packs.PackType)" class="member-name-link">getResourceManager</a><wbr>(<a href="../../../../minecraft/server/packs/PackType.html" title="enum class in net.minecraft.server.packs">PackType</a>&nbsp;packType)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#includeClient()" class="member-name-link">includeClient</a>()</code></div>
@@ -239,6 +298,13 @@ implements net.neoforged.fml.event.IModBusEvent</span></div>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">net.neoforged.fml.ModContainer</span>&nbsp;<span class="element-name">modContainer</span></div>
 </section>
 </li>
+<li>
+<section class="detail" id="registriesWithModdedEntries">
+<h3>registriesWithModdedEntries</h3>
+<div class="member-signature"><span class="annotations">@Nullable
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../../../minecraft/core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&gt;</span>&nbsp;<span class="element-name">registriesWithModdedEntries</span></div>
+</section>
+</li>
 </ul>
 </section>
 </li>
@@ -271,9 +337,25 @@ implements net.neoforged.fml.event.IModBusEvent</span></div>
 </section>
 </li>
 <li>
+<section class="detail" id="getResourceManager(net.minecraft.server.packs.PackType)">
+<h3>getResourceManager</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../minecraft/server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a></span>&nbsp;<span class="element-name">getResourceManager</span><wbr><span class="parameters">(<a href="../../../../minecraft/server/packs/PackType.html" title="enum class in net.minecraft.server.packs">PackType</a>&nbsp;packType)</span></div>
+</section>
+</li>
+<li>
 <section class="detail" id="getInputs()">
 <h3>getInputs</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;</span>&nbsp;<span class="element-name">getInputs</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getMods()">
+<h3>getMods</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">getMods</span>()</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the mod IDs for which data should be generated</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -322,6 +404,74 @@ implements net.neoforged.fml.event.IModBusEvent</span></div>
 <section class="detail" id="validate()">
 <h3>validate</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">validate</span>()</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addProvider(T)">
+<h3 id="addProvider(net.minecraft.data.DataProvider)">addProvider</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../../../minecraft/data/DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">addProvider</span><wbr><span class="parameters">(T&nbsp;provider)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="createProvider(net.neoforged.neoforge.data.event.GatherDataEvent.DataProviderFromOutput)">
+<h3>createProvider</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../../../minecraft/data/DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">createProvider</span><wbr><span class="parameters">(<a href="GatherDataEvent.DataProviderFromOutput.html" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.DataProviderFromOutput</a>&lt;T&gt;&nbsp;builder)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="createProvider(net.neoforged.neoforge.data.event.GatherDataEvent.DataProviderFromOutputLookup)">
+<h3>createProvider</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../../../minecraft/data/DataProvider.html" title="interface in net.minecraft.data">DataProvider</a>&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">createProvider</span><wbr><span class="parameters">(<a href="GatherDataEvent.DataProviderFromOutputLookup.html" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.DataProviderFromOutputLookup</a>&lt;T&gt;&nbsp;builder)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="createBlockAndItemTags(net.neoforged.neoforge.data.event.GatherDataEvent.DataProviderFromOutputLookup,net.neoforged.neoforge.data.event.GatherDataEvent.ItemTagsProvider)">
+<h3>createBlockAndItemTags</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createBlockAndItemTags</span><wbr><span class="parameters">(<a href="GatherDataEvent.DataProviderFromOutputLookup.html" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.DataProviderFromOutputLookup</a>&lt;<a href="../../../../minecraft/data/tags/TagsProvider.html" title="class in net.minecraft.data.tags">TagsProvider</a>&lt;<a href="../../../../minecraft/world/level/block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;&gt;&nbsp;blockTagsProvider,
+ <a href="GatherDataEvent.ItemTagsProvider.html" title="interface in net.neoforged.neoforge.data.event">GatherDataEvent.ItemTagsProvider</a>&nbsp;itemTagsProvider)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder)">
+<h3>createDatapackRegistryObjects</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createDatapackRegistryObjects</span><wbr><span class="parameters">(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.Set)">
+<h3>createDatapackRegistryObjects</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createDatapackRegistryObjects</span><wbr><span class="parameters">(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;modIds)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.Map)">
+<h3>createDatapackRegistryObjects</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createDatapackRegistryObjects</span><wbr><span class="parameters">(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../../../minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;?&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../common/conditions/ICondition.html" title="interface in net.neoforged.neoforge.common.conditions">ICondition</a>&gt;&gt;&nbsp;conditions)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.Map,java.util.Set)">
+<h3>createDatapackRegistryObjects</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createDatapackRegistryObjects</span><wbr><span class="parameters">(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../../../minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;?&gt;,<wbr><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../common/conditions/ICondition.html" title="interface in net.neoforged.neoforge.common.conditions">ICondition</a>&gt;&gt;&nbsp;conditions,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;modIds)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.function.Consumer)">
+<h3>createDatapackRegistryObjects</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createDatapackRegistryObjects</span><wbr><span class="parameters">(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="../../../../minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;?&gt;,<wbr><a href="../../common/conditions/ICondition.html" title="interface in net.neoforged.neoforge.common.conditions">ICondition</a>&gt;&gt;&nbsp;conditionsBuilder)</span></div>
+</section>
+</li>
+<li>
+<section class="detail" id="createDatapackRegistryObjects(net.minecraft.core.RegistrySetBuilder,java.util.function.Consumer,java.util.Set)">
+<h3>createDatapackRegistryObjects</h3>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createDatapackRegistryObjects</span><wbr><span class="parameters">(<a href="../../../../minecraft/core/RegistrySetBuilder.html" title="class in net.minecraft.core">RegistrySetBuilder</a>&nbsp;datapackEntriesBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="../../../../minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;?&gt;,<wbr><a href="../../common/conditions/ICondition.html" title="interface in net.neoforged.neoforge.common.conditions">ICondition</a>&gt;&gt;&nbsp;conditionsBuilder,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;modIds)</span></div>
 </section>
 </li>
 </ul>

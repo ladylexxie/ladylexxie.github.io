@@ -92,6 +92,8 @@ loadScripts(document, 'script');</script>
 </dl>
 <hr>
 <div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">LootPoolEntry</span></div>
+<div class="block">A loot pool entry generates zero or more stacks of items based on the LootContext.
+ Each loot pool entry has a weight that determines how likely it is to be generated within a given loot pool.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -107,12 +109,16 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#createItemStack(java.util.function.Consumer,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">createItemStack</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;p_79633_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_79634_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#createItemStack(java.util.function.Consumer,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">createItemStack</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;stackConsumer,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Generate the loot stacks of this entry.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getWeight(float)" class="member-name-link">getWeight</a><wbr>(float&nbsp;p_79632_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getWeight(float)" class="member-name-link">getWeight</a><wbr>(float&nbsp;luck)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Gets the effective weight based on the loot entry's weight and quality multiplied by looter's luck.</div>
+</div>
 </div>
 </div>
 </div>
@@ -130,14 +136,17 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getWeight(float)">
 <h3>getWeight</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getWeight</span><wbr><span class="parameters">(float&nbsp;p_79632_)</span></div>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getWeight</span><wbr><span class="parameters">(float&nbsp;luck)</span></div>
+<div class="block">Gets the effective weight based on the loot entry's weight and quality multiplied by looter's luck.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="createItemStack(java.util.function.Consumer,net.minecraft.world.level.storage.loot.LootContext)">
 <h3>createItemStack</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">createItemStack</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;p_79633_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_79634_)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">createItemStack</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&gt;&nbsp;stackConsumer,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;lootContext)</span></div>
+<div class="block">Generate the loot stacks of this entry.
+ Contrary to the method name this method does not always generate one stack, it can also generate zero or multiple stacks.</div>
 </section>
 </li>
 </ul>

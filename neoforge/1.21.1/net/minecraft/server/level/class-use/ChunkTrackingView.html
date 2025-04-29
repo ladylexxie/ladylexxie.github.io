@@ -92,8 +92,8 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color"><span class="type-name-label">ServerPlayer.</span><code><a href="../ServerPlayer.html#getChunkTrackingView()" class="member-name-link">getChunkTrackingView</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static <a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ChunkTrackingView.</span><code><a href="../ChunkTrackingView.html#of(net.minecraft.world.level.ChunkPos,int)" class="member-name-link">of</a><wbr>(<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_296254_,
- int&nbsp;p_295979_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ChunkTrackingView.</span><code><a href="../ChunkTrackingView.html#of(net.minecraft.world.level.ChunkPos,int)" class="member-name-link">of</a><wbr>(<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;center,
+ int&nbsp;viewDistance)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">net.minecraft.server.level</a> with parameters of type <a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a></span></div>
@@ -102,17 +102,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ChunkMap.</span><code><a href="../ChunkMap.html#applyChunkTrackingView(net.minecraft.server.level.ServerPlayer,net.minecraft.server.level.ChunkTrackingView)" class="member-name-link">applyChunkTrackingView</a><wbr>(<a href="../ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;p_294188_,
- <a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a>&nbsp;p_294174_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ChunkMap.</span><code><a href="../ChunkMap.html#applyChunkTrackingView(net.minecraft.server.level.ServerPlayer,net.minecraft.server.level.ChunkTrackingView)" class="member-name-link">applyChunkTrackingView</a><wbr>(<a href="../ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player,
+ <a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a>&nbsp;chunkTrackingView)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ChunkTrackingView.</span><code><a href="../ChunkTrackingView.html#difference(net.minecraft.server.level.ChunkTrackingView,net.minecraft.server.level.ChunkTrackingView,java.util.function.Consumer,java.util.function.Consumer)" class="member-name-link">difference</a><wbr>(<a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a>&nbsp;p_294391_,
- <a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a>&nbsp;p_294272_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&gt;&nbsp;p_295078_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&gt;&nbsp;p_294115_)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-second odd-row-color"><span class="type-name-label">ChunkTrackingView.</span><code><a href="../ChunkTrackingView.html#difference(net.minecraft.server.level.ChunkTrackingView,net.minecraft.server.level.ChunkTrackingView,java.util.function.Consumer,java.util.function.Consumer)" class="member-name-link">difference</a><wbr>(<a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a>&nbsp;oldChunkTrackingView,
+ <a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a>&nbsp;newChunkTrackingView,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&gt;&nbsp;chunkMarker,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&gt;&nbsp;chunkDropper)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Calculates the chunks that the player needs to drop in the <code>oldChunkTrackingView</code> and the chunks that need to be sent for the <code>newChunkTrackingView</code>.</div>
+</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ServerPlayer.</span><code><a href="../ServerPlayer.html#setChunkTrackingView(net.minecraft.server.level.ChunkTrackingView)" class="member-name-link">setChunkTrackingView</a><wbr>(<a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a>&nbsp;p_296310_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ServerPlayer.</span><code><a href="../ServerPlayer.html#setChunkTrackingView(net.minecraft.server.level.ChunkTrackingView)" class="member-name-link">setChunkTrackingView</a><wbr>(<a href="../ChunkTrackingView.html" title="interface in net.minecraft.server.level">ChunkTrackingView</a>&nbsp;chunkTrackingView)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>

@@ -131,7 +131,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.model.geom.ModelPart)" class="member-name-link">PiglinHeadModel</a><wbr>(<a href="geom/ModelPart.html" title="class in net.minecraft.client.model.geom">ModelPart</a>&nbsp;p_261926_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.model.geom.ModelPart)" class="member-name-link">PiglinHeadModel</a><wbr>(<a href="geom/ModelPart.html" title="class in net.minecraft.client.model.geom">ModelPart</a>&nbsp;root)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -151,16 +151,16 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createHeadModel()" class="member-name-link">createHeadModel</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderToBuffer(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,int,int,int)" class="member-name-link">renderToBuffer</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_261809_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_261744_,
- int&nbsp;p_261711_,
- int&nbsp;p_262032_,
- int&nbsp;p_350881_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderToBuffer(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,int,int,int)" class="member-name-link">renderToBuffer</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;buffer,
+ int&nbsp;packedLight,
+ int&nbsp;packedOverlay,
+ int&nbsp;color)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupAnim(float,float,float)" class="member-name-link">setupAnim</a><wbr>(float&nbsp;p_261561_,
- float&nbsp;p_261750_,
- float&nbsp;p_261549_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupAnim(float,float,float)" class="member-name-link">setupAnim</a><wbr>(float&nbsp;mouthAnimation,
+ float&nbsp;yRot,
+ float&nbsp;xRot)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -211,7 +211,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.client.model.geom.ModelPart)">
 <h3>PiglinHeadModel</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PiglinHeadModel</span><wbr><span class="parameters">(<a href="geom/ModelPart.html" title="class in net.minecraft.client.model.geom">ModelPart</a>&nbsp;p_261926_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PiglinHeadModel</span><wbr><span class="parameters">(<a href="geom/ModelPart.html" title="class in net.minecraft.client.model.geom">ModelPart</a>&nbsp;root)</span></div>
 </section>
 </li>
 </ul>
@@ -231,9 +231,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setupAnim(float,float,float)">
 <h3>setupAnim</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupAnim</span><wbr><span class="parameters">(float&nbsp;p_261561_,
- float&nbsp;p_261750_,
- float&nbsp;p_261549_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupAnim</span><wbr><span class="parameters">(float&nbsp;mouthAnimation,
+ float&nbsp;yRot,
+ float&nbsp;xRot)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="SkullModelBase.html#setupAnim(float,float,float)">setupAnim</a></code>&nbsp;in class&nbsp;<code><a href="SkullModelBase.html" title="class in net.minecraft.client.model">SkullModelBase</a></code></dd>
@@ -243,11 +243,11 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="renderToBuffer(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,int,int,int)">
 <h3>renderToBuffer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderToBuffer</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_261809_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_261744_,
- int&nbsp;p_261711_,
- int&nbsp;p_262032_,
- int&nbsp;p_350881_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderToBuffer</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;buffer,
+ int&nbsp;packedLight,
+ int&nbsp;packedOverlay,
+ int&nbsp;color)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="Model.html#renderToBuffer(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,int,int,int)">renderToBuffer</a></code>&nbsp;in class&nbsp;<code><a href="Model.html" title="class in net.minecraft.client.model">Model</a></code></dd>

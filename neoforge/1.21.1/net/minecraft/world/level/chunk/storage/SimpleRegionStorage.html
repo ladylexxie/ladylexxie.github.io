@@ -133,11 +133,11 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.storage.RegionStorageInfo,java.nio.file.Path,com.mojang.datafixers.DataFixer,boolean,net.minecraft.util.datafix.DataFixTypes)" class="member-name-link">SimpleRegionStorage</a><wbr>(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_326109_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_321582_,
- com.mojang.datafixers.DataFixer&nbsp;p_321815_,
- boolean&nbsp;p_321788_,
- <a href="../../../../util/datafix/DataFixTypes.html" title="enum class in net.minecraft.util.datafix">DataFixTypes</a>&nbsp;p_321522_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.storage.RegionStorageInfo,java.nio.file.Path,com.mojang.datafixers.DataFixer,boolean,net.minecraft.util.datafix.DataFixTypes)" class="member-name-link">SimpleRegionStorage</a><wbr>(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;folder,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper,
+ boolean&nbsp;sync,
+ <a href="../../../../util/datafix/DataFixTypes.html" title="enum class in net.minecraft.util.datafix">DataFixTypes</a>&nbsp;dataFixType)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -157,25 +157,25 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&gt;&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#read(net.minecraft.world.level.ChunkPos)" class="member-name-link">read</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_321653_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#read(net.minecraft.world.level.ChunkPos)" class="member-name-link">read</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#storageInfo()" class="member-name-link">storageInfo</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#synchronize(boolean)" class="member-name-link">synchronize</a><wbr>(boolean&nbsp;p_321682_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#synchronize(boolean)" class="member-name-link">synchronize</a><wbr>(boolean&nbsp;flushStorage)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.mojang.serialization.Dynamic<wbr>&lt;<a href="../../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#upgradeChunkTag(com.mojang.serialization.Dynamic,int)" class="member-name-link">upgradeChunkTag</a><wbr>(com.mojang.serialization.Dynamic&lt;<a href="../../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;&nbsp;p_321643_,
- int&nbsp;p_321759_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#upgradeChunkTag(com.mojang.serialization.Dynamic,int)" class="member-name-link">upgradeChunkTag</a><wbr>(com.mojang.serialization.Dynamic&lt;<a href="../../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;&nbsp;tag,
+ int&nbsp;version)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#upgradeChunkTag(net.minecraft.nbt.CompoundTag,int)" class="member-name-link">upgradeChunkTag</a><wbr>(<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_321601_,
- int&nbsp;p_321496_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#upgradeChunkTag(net.minecraft.nbt.CompoundTag,int)" class="member-name-link">upgradeChunkTag</a><wbr>(<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;tag,
+ int&nbsp;version)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.world.level.ChunkPos,net.minecraft.nbt.CompoundTag)" class="member-name-link">write</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_321715_,
- <a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_321816_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.world.level.ChunkPos,net.minecraft.nbt.CompoundTag)" class="member-name-link">write</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ <a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;data)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -223,11 +223,11 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.chunk.storage.RegionStorageInfo,java.nio.file.Path,com.mojang.datafixers.DataFixer,boolean,net.minecraft.util.datafix.DataFixTypes)">
 <h3>SimpleRegionStorage</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SimpleRegionStorage</span><wbr><span class="parameters">(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_326109_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_321582_,
- com.mojang.datafixers.DataFixer&nbsp;p_321815_,
- boolean&nbsp;p_321788_,
- <a href="../../../../util/datafix/DataFixTypes.html" title="enum class in net.minecraft.util.datafix">DataFixTypes</a>&nbsp;p_321522_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SimpleRegionStorage</span><wbr><span class="parameters">(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;folder,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper,
+ boolean&nbsp;sync,
+ <a href="../../../../util/datafix/DataFixTypes.html" title="enum class in net.minecraft.util.datafix">DataFixTypes</a>&nbsp;dataFixType)</span></div>
 </section>
 </li>
 </ul>
@@ -241,35 +241,35 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="read(net.minecraft.world.level.ChunkPos)">
 <h3>read</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&gt;&gt;</span>&nbsp;<span class="element-name">read</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_321653_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&gt;&gt;</span>&nbsp;<span class="element-name">read</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="write(net.minecraft.world.level.ChunkPos,net.minecraft.nbt.CompoundTag)">
 <h3>write</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_321715_,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
  @Nullable
- <a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_321816_)</span></div>
+ <a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;data)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="upgradeChunkTag(net.minecraft.nbt.CompoundTag,int)">
 <h3>upgradeChunkTag</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a></span>&nbsp;<span class="element-name">upgradeChunkTag</span><wbr><span class="parameters">(<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;p_321601_,
- int&nbsp;p_321496_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a></span>&nbsp;<span class="element-name">upgradeChunkTag</span><wbr><span class="parameters">(<a href="../../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a>&nbsp;tag,
+ int&nbsp;version)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="upgradeChunkTag(com.mojang.serialization.Dynamic,int)">
 <h3>upgradeChunkTag</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.mojang.serialization.Dynamic&lt;<a href="../../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;</span>&nbsp;<span class="element-name">upgradeChunkTag</span><wbr><span class="parameters">(com.mojang.serialization.Dynamic&lt;<a href="../../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;&nbsp;p_321643_,
- int&nbsp;p_321759_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.mojang.serialization.Dynamic&lt;<a href="../../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;</span>&nbsp;<span class="element-name">upgradeChunkTag</span><wbr><span class="parameters">(com.mojang.serialization.Dynamic&lt;<a href="../../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;&nbsp;tag,
+ int&nbsp;version)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="synchronize(boolean)">
 <h3>synchronize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name">synchronize</span><wbr><span class="parameters">(boolean&nbsp;p_321682_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Void.html" title="class or interface in java.lang" class="external-link">Void</a>&gt;</span>&nbsp;<span class="element-name">synchronize</span><wbr><span class="parameters">(boolean&nbsp;flushStorage)</span></div>
 </section>
 </li>
 <li>

@@ -127,10 +127,10 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.inventory.Slot,int,int,int)" class="member-name-link">SlotWrapper</a><wbr>(<a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a>&nbsp;p_98657_,
- int&nbsp;p_98658_,
- int&nbsp;p_98659_,
- int&nbsp;p_98660_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.inventory.Slot,int,int,int)" class="member-name-link">SlotWrapper</a><wbr>(<a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a>&nbsp;slot,
+ int&nbsp;index,
+ int&nbsp;x,
+ int&nbsp;y)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -153,7 +153,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxStackSize()" class="member-name-link">getMaxStackSize</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxStackSize(net.minecraft.world.item.ItemStack)" class="member-name-link">getMaxStackSize</a><wbr>(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_98675_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxStackSize(net.minecraft.world.item.ItemStack)" class="member-name-link">getMaxStackSize</a><wbr>(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.mojang.datafixers.util.Pair<wbr>&lt;<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>,<wbr><a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNoItemIcon()" class="member-name-link">getNoItemIcon</a>()</code></div>
@@ -176,21 +176,29 @@ loadScripts(document, 'script');</script>
 <div class="block">Checks if the other slot is in the same inventory, by comparing the inventory reference.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mayPickup(net.minecraft.world.entity.player.Player)" class="member-name-link">mayPickup</a><wbr>(<a href="../../../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_98665_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mayPickup(net.minecraft.world.entity.player.Player)" class="member-name-link">mayPickup</a><wbr>(<a href="../../../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Return whether this slot's stack can be taken from this slot.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mayPlace(net.minecraft.world.item.ItemStack)" class="member-name-link">mayPlace</a><wbr>(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_98670_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mayPlace(net.minecraft.world.item.ItemStack)" class="member-name-link">mayPlace</a><wbr>(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Check if the stack is allowed to be placed in this slot, used for armor slots as well as furnace fuel.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onTake(net.minecraft.world.entity.player.Player,net.minecraft.world.item.ItemStack)" class="member-name-link">onTake</a><wbr>(<a href="../../../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_169754_,
- <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_169755_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onTake(net.minecraft.world.entity.player.Player,net.minecraft.world.item.ItemStack)" class="member-name-link">onTake</a><wbr>(<a href="../../../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
+ <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#remove(int)" class="member-name-link">remove</a><wbr>(int&nbsp;p_98663_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#remove(int)" class="member-name-link">remove</a><wbr>(int&nbsp;amount)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Decrease the size of the stack in slot (first int arg) by the amount of the second int arg.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#set(net.minecraft.world.item.ItemStack)" class="member-name-link">set</a><wbr>(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_98679_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#set(net.minecraft.world.item.ItemStack)" class="member-name-link">set</a><wbr>(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Helper method to put a stack in the slot.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBackground(net.minecraft.resources.ResourceLocation,net.minecraft.resources.ResourceLocation)" class="member-name-link">setBackground</a><wbr>(<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;atlas,
  <a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;sprite)</code></div>
@@ -198,8 +206,8 @@ loadScripts(document, 'script');</script>
 <div class="block">Sets the background atlas and sprite location.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setByPlayer(net.minecraft.world.item.ItemStack,net.minecraft.world.item.ItemStack)" class="member-name-link">setByPlayer</a><wbr>(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_271008_,
- <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_299868_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setByPlayer(net.minecraft.world.item.ItemStack,net.minecraft.world.item.ItemStack)" class="member-name-link">setByPlayer</a><wbr>(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;newStack,
+ <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;oldStack)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setChanged()" class="member-name-link">setChanged</a>()</code></div>
@@ -241,10 +249,10 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.inventory.Slot,int,int,int)">
 <h3>SlotWrapper</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SlotWrapper</span><wbr><span class="parameters">(<a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a>&nbsp;p_98657_,
- int&nbsp;p_98658_,
- int&nbsp;p_98659_,
- int&nbsp;p_98660_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SlotWrapper</span><wbr><span class="parameters">(<a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a>&nbsp;slot,
+ int&nbsp;index,
+ int&nbsp;x,
+ int&nbsp;y)</span></div>
 </section>
 </li>
 </ul>
@@ -258,8 +266,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="onTake(net.minecraft.world.entity.player.Player,net.minecraft.world.item.ItemStack)">
 <h3>onTake</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onTake</span><wbr><span class="parameters">(<a href="../../../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_169754_,
- <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_169755_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onTake</span><wbr><span class="parameters">(<a href="../../../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
+ <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../../../world/inventory/Slot.html#onTake(net.minecraft.world.entity.player.Player,net.minecraft.world.item.ItemStack)">onTake</a></code>&nbsp;in class&nbsp;<code><a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a></code></dd>
@@ -269,7 +277,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="mayPlace(net.minecraft.world.item.ItemStack)">
 <h3>mayPlace</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">mayPlace</span><wbr><span class="parameters">(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_98670_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">mayPlace</span><wbr><span class="parameters">(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</span></div>
+<div class="block">Check if the stack is allowed to be placed in this slot, used for armor slots as well as furnace fuel.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../../../world/inventory/Slot.html#mayPlace(net.minecraft.world.item.ItemStack)">mayPlace</a></code>&nbsp;in class&nbsp;<code><a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a></code></dd>
@@ -299,8 +308,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setByPlayer(net.minecraft.world.item.ItemStack,net.minecraft.world.item.ItemStack)">
 <h3>setByPlayer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setByPlayer</span><wbr><span class="parameters">(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_271008_,
- <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_299868_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setByPlayer</span><wbr><span class="parameters">(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;newStack,
+ <a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;oldStack)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../../../world/inventory/Slot.html#setByPlayer(net.minecraft.world.item.ItemStack,net.minecraft.world.item.ItemStack)">setByPlayer</a></code>&nbsp;in class&nbsp;<code><a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a></code></dd>
@@ -310,7 +319,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="set(net.minecraft.world.item.ItemStack)">
 <h3>set</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">set</span><wbr><span class="parameters">(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_98679_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">set</span><wbr><span class="parameters">(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</span></div>
+<div class="block">Helper method to put a stack in the slot.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../../../world/inventory/Slot.html#set(net.minecraft.world.item.ItemStack)">set</a></code>&nbsp;in class&nbsp;<code><a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a></code></dd>
@@ -340,7 +350,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getMaxStackSize(net.minecraft.world.item.ItemStack)">
 <h3>getMaxStackSize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getMaxStackSize</span><wbr><span class="parameters">(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_98675_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getMaxStackSize</span><wbr><span class="parameters">(<a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../../../world/inventory/Slot.html#getMaxStackSize(net.minecraft.world.item.ItemStack)">getMaxStackSize</a></code>&nbsp;in class&nbsp;<code><a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a></code></dd>
@@ -361,7 +371,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="remove(int)">
 <h3>remove</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">remove</span><wbr><span class="parameters">(int&nbsp;p_98663_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">remove</span><wbr><span class="parameters">(int&nbsp;amount)</span></div>
+<div class="block">Decrease the size of the stack in slot (first int arg) by the amount of the second int arg. Returns the new stack.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../../../world/inventory/Slot.html#remove(int)">remove</a></code>&nbsp;in class&nbsp;<code><a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a></code></dd>
@@ -381,7 +392,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="mayPickup(net.minecraft.world.entity.player.Player)">
 <h3>mayPickup</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">mayPickup</span><wbr><span class="parameters">(<a href="../../../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_98665_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">mayPickup</span><wbr><span class="parameters">(<a href="../../../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</span></div>
+<div class="block">Return whether this slot's stack can be taken from this slot.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="../../../../world/inventory/Slot.html#mayPickup(net.minecraft.world.entity.player.Player)">mayPickup</a></code>&nbsp;in class&nbsp;<code><a href="../../../../world/inventory/Slot.html" title="class in net.minecraft.world.inventory">Slot</a></code></dd>

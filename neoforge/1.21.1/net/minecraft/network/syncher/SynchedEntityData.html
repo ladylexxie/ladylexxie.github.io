@@ -92,6 +92,21 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">SynchedEntityData</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Keeps data in sync from server to client for an entity.
+ A maximum of 254 parameters per entity class can be registered. The system then ensures that these values are updated on the client whenever they change on the server.
+
+ Use <a href="#defineId(java.lang.Class,net.minecraft.network.syncher.EntityDataSerializer)"><code>defineId(java.lang.Class&lt;? extends net.minecraft.network.syncher.SyncedDataHolder&gt;, net.minecraft.network.syncher.EntityDataSerializer&lt;T&gt;)</code></a> to register a piece of data for your entity class.
+ Use 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>#define</code></pre>
+</details>
+ during 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>Entity#defineSynchedData</code></pre>
+</details>
+ to set the default value for a given parameter.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -154,8 +169,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.network.syncher.SyncedDataHolder,net.minecraft.network.syncher.SynchedEntityData.DataItem%5B%5D)" class="member-name-link">SynchedEntityData</a><wbr>(<a href="SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&nbsp;p_326156_,
- <a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;?&gt;[]&nbsp;p_326032_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.network.syncher.SyncedDataHolder,net.minecraft.network.syncher.SynchedEntityData.DataItem%5B%5D)" class="member-name-link">SynchedEntityData</a><wbr>(<a href="SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&nbsp;entity,
+ <a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;?&gt;[]&nbsp;itemsById)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -172,21 +187,27 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private &lt;T&gt;&nbsp;void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#assignValue(net.minecraft.network.syncher.SynchedEntityData.DataItem,net.minecraft.network.syncher.SynchedEntityData.DataValue)" class="member-name-link">assignValue</a><wbr>(<a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;T&gt;&nbsp;p_135376_,
- <a href="SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a>&lt;?&gt;&nbsp;p_254484_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#assignValue(net.minecraft.network.syncher.SynchedEntityData.DataItem,net.minecraft.network.syncher.SynchedEntityData.DataValue)" class="member-name-link">assignValue</a><wbr>(<a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;T&gt;&nbsp;target,
+ <a href="SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a>&lt;?&gt;&nbsp;entry)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#assignValues(java.util.List)" class="member-name-link">assignValues</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a>&lt;?&gt;&gt;&nbsp;p_135357_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#assignValues(java.util.List)" class="member-name-link">assignValues</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a>&lt;?&gt;&gt;&nbsp;entries)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Updates the data using the given entries.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#defineId(java.lang.Class,net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">defineId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&gt;&nbsp;p_135354_,
- <a href="EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;p_135355_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#defineId(java.lang.Class,net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">defineId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&gt;&nbsp;clazz,
+ <a href="EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;serializer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Register a piece of data to be kept in sync for an entity class.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;T</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">get</a><wbr>(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_135371_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">get</a><wbr>(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Get the value of the given key for this entity.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private &lt;T&gt;&nbsp;<a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getItem(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">getItem</a><wbr>(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_135380_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getItem(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">getItem</a><wbr>(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNonDefaultValues()" class="member-name-link">getNonDefaultValues</a>()</code></div>
@@ -198,13 +219,15 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#packDirty()" class="member-name-link">packDirty</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#set(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">set</a><wbr>(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_135382_,
- T&nbsp;p_135383_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#set(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">set</a><wbr>(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key,
+ T&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set the value of the given key for this entity.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#set(net.minecraft.network.syncher.EntityDataAccessor,T,boolean)" class="member-name-link">set</a><wbr>(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_276368_,
- T&nbsp;p_276363_,
- boolean&nbsp;p_276370_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#set(net.minecraft.network.syncher.EntityDataAccessor,T,boolean)" class="member-name-link">set</a><wbr>(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key,
+ T&nbsp;value,
+ boolean&nbsp;force)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -278,8 +301,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.network.syncher.SyncedDataHolder,net.minecraft.network.syncher.SynchedEntityData.DataItem[])">
 <h3>SynchedEntityData</h3>
-<div class="member-signature"><span class="element-name">SynchedEntityData</span><wbr><span class="parameters">(<a href="SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&nbsp;p_326156_,
- <a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;?&gt;[]&nbsp;p_326032_)</span></div>
+<div class="member-signature"><span class="element-name">SynchedEntityData</span><wbr><span class="parameters">(<a href="SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&nbsp;entity,
+ <a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;?&gt;[]&nbsp;itemsById)</span></div>
 </section>
 </li>
 </ul>
@@ -293,35 +316,39 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="defineId(java.lang.Class,net.minecraft.network.syncher.EntityDataSerializer)">
 <h3>defineId</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;</span>&nbsp;<span class="element-name">defineId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&gt;&nbsp;p_135354_,
- <a href="EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;p_135355_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;</span>&nbsp;<span class="element-name">defineId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&gt;&nbsp;clazz,
+ <a href="EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;serializer)</span></div>
+<div class="block">Register a piece of data to be kept in sync for an entity class.
+ This method must be called during a static initializer of an entity class and the first parameter of this method must be that entity class.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getItem(net.minecraft.network.syncher.EntityDataAccessor)">
 <h3>getItem</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;T&gt;</span>&nbsp;<span class="element-name">getItem</span><wbr><span class="parameters">(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_135380_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;T&gt;</span>&nbsp;<span class="element-name">getItem</span><wbr><span class="parameters">(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="get(net.minecraft.network.syncher.EntityDataAccessor)">
 <h3>get</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_135371_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">T</span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key)</span></div>
+<div class="block">Get the value of the given key for this entity.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="set(net.minecraft.network.syncher.EntityDataAccessor,T)">
 <h3 id="set(net.minecraft.network.syncher.EntityDataAccessor,java.lang.Object)">set</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">set</span><wbr><span class="parameters">(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_135382_,
- T&nbsp;p_135383_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">set</span><wbr><span class="parameters">(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key,
+ T&nbsp;value)</span></div>
+<div class="block">Set the value of the given key for this entity.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="set(net.minecraft.network.syncher.EntityDataAccessor,T,boolean)">
 <h3 id="set(net.minecraft.network.syncher.EntityDataAccessor,java.lang.Object,boolean)">set</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">set</span><wbr><span class="parameters">(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_276368_,
- T&nbsp;p_276363_,
- boolean&nbsp;p_276370_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">set</span><wbr><span class="parameters">(<a href="EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key,
+ T&nbsp;value,
+ boolean&nbsp;force)</span></div>
 </section>
 </li>
 <li>
@@ -347,14 +374,15 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="assignValues(java.util.List)">
 <h3>assignValues</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assignValues</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a>&lt;?&gt;&gt;&nbsp;p_135357_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assignValues</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a>&lt;?&gt;&gt;&nbsp;entries)</span></div>
+<div class="block">Updates the data using the given entries. Used on the client when the update packet is received.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="assignValue(net.minecraft.network.syncher.SynchedEntityData.DataItem,net.minecraft.network.syncher.SynchedEntityData.DataValue)">
 <h3>assignValue</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assignValue</span><wbr><span class="parameters">(<a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;T&gt;&nbsp;p_135376_,
- <a href="SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a>&lt;?&gt;&nbsp;p_254484_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assignValue</span><wbr><span class="parameters">(<a href="SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a>&lt;T&gt;&nbsp;target,
+ <a href="SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a>&lt;?&gt;&nbsp;entry)</span></div>
 </section>
 </li>
 </ul>

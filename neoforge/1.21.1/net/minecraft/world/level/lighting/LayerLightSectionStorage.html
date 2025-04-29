@@ -134,7 +134,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private final it.unimi.dsi.fastutil.longs.LongSet</code></div>
 <div class="col-second even-row-color"><code><a href="#columnsToRetainQueuedDataFor" class="member-name-link">columnsToRetainQueuedDataFor</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Section column positions (section positions with Y=0) that need to be kept even if some of their sections could otherwise be removed.</div>
+</div>
 <div class="col-first odd-row-color"><code>private final it.unimi.dsi.fastutil.longs.LongSet</code></div>
 <div class="col-second odd-row-color"><code><a href="#columnsWithSources" class="member-name-link">columnsWithSources</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
@@ -155,7 +157,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private final it.unimi.dsi.fastutil.longs.LongSet</code></div>
 <div class="col-second odd-row-color"><code><a href="#toRemove" class="member-name-link">toRemove</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Set of section positions that can be removed, because their light won't affect any blocks.</div>
+</div>
 <div class="col-first even-row-color"><code>protected final <a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a></code></div>
 <div class="col-second even-row-color"><code><a href="#updatingSectionData" class="member-name-link">updatingSectionData</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -175,9 +179,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.LightLayer,net.minecraft.world.level.chunk.LightChunkGetter,M)" class="member-name-link">LayerLightSectionStorage</a><wbr>(<a href="../LightLayer.html" title="enum class in net.minecraft.world.level">LightLayer</a>&nbsp;p_75745_,
- <a href="../chunk/LightChunkGetter.html" title="interface in net.minecraft.world.level.chunk">LightChunkGetter</a>&nbsp;p_75746_,
- <a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>&nbsp;p_75747_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.LightLayer,net.minecraft.world.level.chunk.LightChunkGetter,M)" class="member-name-link">LayerLightSectionStorage</a><wbr>(<a href="../LightLayer.html" title="enum class in net.minecraft.world.level">LightLayer</a>&nbsp;layer,
+ <a href="../chunk/LightChunkGetter.html" title="interface in net.minecraft.world.level.chunk">LightChunkGetter</a>&nbsp;chunkSource,
+ <a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>&nbsp;updatingSectionData)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -194,84 +198,84 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createDataLayer(long)" class="member-name-link">createDataLayer</a><wbr>(long&nbsp;p_75797_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createDataLayer(long)" class="member-name-link">createDataLayer</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataLayer(long,boolean)" class="member-name-link">getDataLayer</a><wbr>(long&nbsp;p_75759_,
- boolean&nbsp;p_75760_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataLayer(long,boolean)" class="member-name-link">getDataLayer</a><wbr>(long&nbsp;sectionPos,
+ boolean&nbsp;cached)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataLayer(M,long)" class="member-name-link">getDataLayer</a><wbr>(<a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>&nbsp;p_75762_,
- long&nbsp;p_75763_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataLayer(M,long)" class="member-name-link">getDataLayer</a><wbr>(<a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>&nbsp;map,
+ long&nbsp;sectionPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataLayerData(long)" class="member-name-link">getDataLayerData</a><wbr>(long&nbsp;p_75794_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataLayerData(long)" class="member-name-link">getDataLayerData</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataLayerToWrite(long)" class="member-name-link">getDataLayerToWrite</a><wbr>(long&nbsp;p_285278_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDataLayerToWrite(long)" class="member-name-link">getDataLayerToWrite</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="LayerLightSectionStorage.SectionType.html" title="enum class in net.minecraft.world.level.lighting">LayerLightSectionStorage.SectionType</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDebugSectionType(long)" class="member-name-link">getDebugSectionType</a><wbr>(long&nbsp;p_285114_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDebugSectionType(long)" class="member-name-link">getDebugSectionType</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getLightValue(long)" class="member-name-link">getLightValue</a><wbr>(long&nbsp;p_75786_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getLightValue(long)" class="member-name-link">getLightValue</a><wbr>(long&nbsp;levelPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoredLevel(long)" class="member-name-link">getStoredLevel</a><wbr>(long&nbsp;p_75796_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStoredLevel(long)" class="member-name-link">getStoredLevel</a><wbr>(long&nbsp;levelPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasInconsistencies()" class="member-name-link">hasInconsistencies</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initializeSection(long)" class="member-name-link">initializeSection</a><wbr>(long&nbsp;p_285124_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initializeSection(long)" class="member-name-link">initializeSection</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#lightOnInSection(long)" class="member-name-link">lightOnInSection</a><wbr>(long&nbsp;p_285433_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#lightOnInSection(long)" class="member-name-link">lightOnInSection</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#markNewInconsistencies(net.minecraft.world.level.lighting.LightEngine)" class="member-name-link">markNewInconsistencies</a><wbr>(<a href="LightEngine.html" title="class in net.minecraft.world.level.lighting">LightEngine</a>&lt;<a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>,<wbr>?&gt;&nbsp;p_285081_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#markNewInconsistencies(net.minecraft.world.level.lighting.LightEngine)" class="member-name-link">markNewInconsistencies</a><wbr>(<a href="LightEngine.html" title="class in net.minecraft.world.level.lighting">LightEngine</a>&lt;<a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>,<wbr>?&gt;&nbsp;lightEngine)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#markSectionAndNeighborsAsAffected(long)" class="member-name-link">markSectionAndNeighborsAsAffected</a><wbr>(long&nbsp;p_281610_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#markSectionAndNeighborsAsAffected(long)" class="member-name-link">markSectionAndNeighborsAsAffected</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onNodeAdded(long)" class="member-name-link">onNodeAdded</a><wbr>(long&nbsp;p_75798_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onNodeAdded(long)" class="member-name-link">onNodeAdded</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onNodeRemoved(long)" class="member-name-link">onNodeRemoved</a><wbr>(long&nbsp;p_75799_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onNodeRemoved(long)" class="member-name-link">onNodeRemoved</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#putSectionState(long,byte)" class="member-name-link">putSectionState</a><wbr>(long&nbsp;p_285451_,
- byte&nbsp;p_285078_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#putSectionState(long,byte)" class="member-name-link">putSectionState</a><wbr>(long&nbsp;sectionPos,
+ byte&nbsp;sectionState)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queueSectionData(long,net.minecraft.world.level.chunk.DataLayer)" class="member-name-link">queueSectionData</a><wbr>(long&nbsp;p_285403_,
- <a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a>&nbsp;p_285498_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queueSectionData(long,net.minecraft.world.level.chunk.DataLayer)" class="member-name-link">queueSectionData</a><wbr>(long&nbsp;sectionPos,
+ <a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a>&nbsp;data)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeSection(long)" class="member-name-link">removeSection</a><wbr>(long&nbsp;p_285477_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeSection(long)" class="member-name-link">removeSection</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#retainData(long,boolean)" class="member-name-link">retainData</a><wbr>(long&nbsp;p_75783_,
- boolean&nbsp;p_75784_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#retainData(long,boolean)" class="member-name-link">retainData</a><wbr>(long&nbsp;sectionColumnPos,
+ boolean&nbsp;retain)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLightEnabled(long,boolean)" class="member-name-link">setLightEnabled</a><wbr>(long&nbsp;p_285065_,
- boolean&nbsp;p_284938_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLightEnabled(long,boolean)" class="member-name-link">setLightEnabled</a><wbr>(long&nbsp;sectionPos,
+ boolean&nbsp;lightEnabled)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStoredLevel(long,int)" class="member-name-link">setStoredLevel</a><wbr>(long&nbsp;p_75773_,
- int&nbsp;p_75774_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStoredLevel(long,int)" class="member-name-link">setStoredLevel</a><wbr>(long&nbsp;levelPos,
+ int&nbsp;lightLevel)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#storingLightForSection(long)" class="member-name-link">storingLightForSection</a><wbr>(long&nbsp;p_75792_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#storingLightForSection(long)" class="member-name-link">storingLightForSection</a><wbr>(long&nbsp;sectionPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#swapSectionMap()" class="member-name-link">swapSectionMap</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateSectionStatus(long,boolean)" class="member-name-link">updateSectionStatus</a><wbr>(long&nbsp;p_75788_,
- boolean&nbsp;p_75789_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateSectionStatus(long,boolean)" class="member-name-link">updateSectionStatus</a><wbr>(long&nbsp;sectionPos,
+ boolean&nbsp;isEmpty)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -348,12 +352,14 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="columnsToRetainQueuedDataFor">
 <h3>columnsToRetainQueuedDataFor</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.longs.LongSet</span>&nbsp;<span class="element-name">columnsToRetainQueuedDataFor</span></div>
+<div class="block">Section column positions (section positions with Y=0) that need to be kept even if some of their sections could otherwise be removed.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="toRemove">
 <h3>toRemove</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.longs.LongSet</span>&nbsp;<span class="element-name">toRemove</span></div>
+<div class="block">Set of section positions that can be removed, because their light won't affect any blocks.</div>
 </section>
 </li>
 <li>
@@ -373,9 +379,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.LightLayer,net.minecraft.world.level.chunk.LightChunkGetter,M)">
 <h3 id="&lt;init&gt;(net.minecraft.world.level.LightLayer,net.minecraft.world.level.chunk.LightChunkGetter,net.minecraft.world.level.lighting.DataLayerStorageMap)">LayerLightSectionStorage</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">LayerLightSectionStorage</span><wbr><span class="parameters">(<a href="../LightLayer.html" title="enum class in net.minecraft.world.level">LightLayer</a>&nbsp;p_75745_,
- <a href="../chunk/LightChunkGetter.html" title="interface in net.minecraft.world.level.chunk">LightChunkGetter</a>&nbsp;p_75746_,
- <a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>&nbsp;p_75747_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">LayerLightSectionStorage</span><wbr><span class="parameters">(<a href="../LightLayer.html" title="enum class in net.minecraft.world.level">LightLayer</a>&nbsp;layer,
+ <a href="../chunk/LightChunkGetter.html" title="interface in net.minecraft.world.level.chunk">LightChunkGetter</a>&nbsp;chunkSource,
+ <a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>&nbsp;updatingSectionData)</span></div>
 </section>
 </li>
 </ul>
@@ -389,68 +395,68 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="storingLightForSection(long)">
 <h3>storingLightForSection</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">storingLightForSection</span><wbr><span class="parameters">(long&nbsp;p_75792_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">storingLightForSection</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getDataLayer(long,boolean)">
 <h3>getDataLayer</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">getDataLayer</span><wbr><span class="parameters">(long&nbsp;p_75759_,
- boolean&nbsp;p_75760_)</span></div>
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">getDataLayer</span><wbr><span class="parameters">(long&nbsp;sectionPos,
+ boolean&nbsp;cached)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getDataLayer(M,long)">
 <h3 id="getDataLayer(net.minecraft.world.level.lighting.DataLayerStorageMap,long)">getDataLayer</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">getDataLayer</span><wbr><span class="parameters">(<a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>&nbsp;p_75762_,
- long&nbsp;p_75763_)</span></div>
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">getDataLayer</span><wbr><span class="parameters">(<a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>&nbsp;map,
+ long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getDataLayerToWrite(long)">
 <h3>getDataLayerToWrite</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">getDataLayerToWrite</span><wbr><span class="parameters">(long&nbsp;p_285278_)</span></div>
+</span><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">getDataLayerToWrite</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getDataLayerData(long)">
 <h3>getDataLayerData</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">getDataLayerData</span><wbr><span class="parameters">(long&nbsp;p_75794_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">getDataLayerData</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLightValue(long)">
 <h3>getLightValue</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getLightValue</span><wbr><span class="parameters">(long&nbsp;p_75786_)</span></div>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getLightValue</span><wbr><span class="parameters">(long&nbsp;levelPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getStoredLevel(long)">
 <h3>getStoredLevel</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getStoredLevel</span><wbr><span class="parameters">(long&nbsp;p_75796_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getStoredLevel</span><wbr><span class="parameters">(long&nbsp;levelPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setStoredLevel(long,int)">
 <h3>setStoredLevel</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setStoredLevel</span><wbr><span class="parameters">(long&nbsp;p_75773_,
- int&nbsp;p_75774_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setStoredLevel</span><wbr><span class="parameters">(long&nbsp;levelPos,
+ int&nbsp;lightLevel)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="markSectionAndNeighborsAsAffected(long)">
 <h3>markSectionAndNeighborsAsAffected</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">markSectionAndNeighborsAsAffected</span><wbr><span class="parameters">(long&nbsp;p_281610_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">markSectionAndNeighborsAsAffected</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createDataLayer(long)">
 <h3>createDataLayer</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">createDataLayer</span><wbr><span class="parameters">(long&nbsp;p_75797_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a></span>&nbsp;<span class="element-name">createDataLayer</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
@@ -462,73 +468,73 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="markNewInconsistencies(net.minecraft.world.level.lighting.LightEngine)">
 <h3>markNewInconsistencies</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">markNewInconsistencies</span><wbr><span class="parameters">(<a href="LightEngine.html" title="class in net.minecraft.world.level.lighting">LightEngine</a>&lt;<a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>,<wbr>?&gt;&nbsp;p_285081_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">markNewInconsistencies</span><wbr><span class="parameters">(<a href="LightEngine.html" title="class in net.minecraft.world.level.lighting">LightEngine</a>&lt;<a href="LayerLightSectionStorage.html" title="type parameter in LayerLightSectionStorage">M</a>,<wbr>?&gt;&nbsp;lightEngine)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="onNodeAdded(long)">
 <h3>onNodeAdded</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onNodeAdded</span><wbr><span class="parameters">(long&nbsp;p_75798_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onNodeAdded</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="onNodeRemoved(long)">
 <h3>onNodeRemoved</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onNodeRemoved</span><wbr><span class="parameters">(long&nbsp;p_75799_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onNodeRemoved</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setLightEnabled(long,boolean)">
 <h3>setLightEnabled</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLightEnabled</span><wbr><span class="parameters">(long&nbsp;p_285065_,
- boolean&nbsp;p_284938_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLightEnabled</span><wbr><span class="parameters">(long&nbsp;sectionPos,
+ boolean&nbsp;lightEnabled)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="lightOnInSection(long)">
 <h3>lightOnInSection</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">lightOnInSection</span><wbr><span class="parameters">(long&nbsp;p_285433_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">lightOnInSection</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="retainData(long,boolean)">
 <h3>retainData</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">retainData</span><wbr><span class="parameters">(long&nbsp;p_75783_,
- boolean&nbsp;p_75784_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">retainData</span><wbr><span class="parameters">(long&nbsp;sectionColumnPos,
+ boolean&nbsp;retain)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="queueSectionData(long,net.minecraft.world.level.chunk.DataLayer)">
 <h3>queueSectionData</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">queueSectionData</span><wbr><span class="parameters">(long&nbsp;p_285403_,
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">queueSectionData</span><wbr><span class="parameters">(long&nbsp;sectionPos,
  @Nullable
- <a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a>&nbsp;p_285498_)</span></div>
+ <a href="../chunk/DataLayer.html" title="class in net.minecraft.world.level.chunk">DataLayer</a>&nbsp;data)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="updateSectionStatus(long,boolean)">
 <h3>updateSectionStatus</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateSectionStatus</span><wbr><span class="parameters">(long&nbsp;p_75788_,
- boolean&nbsp;p_75789_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateSectionStatus</span><wbr><span class="parameters">(long&nbsp;sectionPos,
+ boolean&nbsp;isEmpty)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="putSectionState(long,byte)">
 <h3>putSectionState</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">putSectionState</span><wbr><span class="parameters">(long&nbsp;p_285451_,
- byte&nbsp;p_285078_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">putSectionState</span><wbr><span class="parameters">(long&nbsp;sectionPos,
+ byte&nbsp;sectionState)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="initializeSection(long)">
 <h3>initializeSection</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">initializeSection</span><wbr><span class="parameters">(long&nbsp;p_285124_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">initializeSection</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="removeSection(long)">
 <h3>removeSection</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeSection</span><wbr><span class="parameters">(long&nbsp;p_285477_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeSection</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 <li>
@@ -540,7 +546,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getDebugSectionType(long)">
 <h3>getDebugSectionType</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="LayerLightSectionStorage.SectionType.html" title="enum class in net.minecraft.world.level.lighting">LayerLightSectionStorage.SectionType</a></span>&nbsp;<span class="element-name">getDebugSectionType</span><wbr><span class="parameters">(long&nbsp;p_285114_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="LayerLightSectionStorage.SectionType.html" title="enum class in net.minecraft.world.level.lighting">LayerLightSectionStorage.SectionType</a></span>&nbsp;<span class="element-name">getDebugSectionType</span><wbr><span class="parameters">(long&nbsp;sectionPos)</span></div>
 </section>
 </li>
 </ul>

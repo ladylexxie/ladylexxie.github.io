@@ -97,6 +97,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public final class </span><span class="element-name type-name-label">RegistryFileCodec&lt;E&gt;</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements com.mojang.serialization.Codec&lt;<a href="../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;E&gt;&gt;</span></div>
+<div class="block">A codec that wraps a single element, or "file", within a registry. Possibly allows inline definitions, and always falls back to the element codec (and thus writing the registry element inline) if it fails to decode from the registry.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -146,9 +147,9 @@ implements com.mojang.serialization.Codec&lt;<a href="../core/Holder.html" title
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.resources.ResourceKey,com.mojang.serialization.Codec,boolean)" class="member-name-link">RegistryFileCodec</a><wbr>(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&gt;&nbsp;p_135574_,
- com.mojang.serialization.Codec&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&nbsp;p_135575_,
- boolean&nbsp;p_135576_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.resources.ResourceKey,com.mojang.serialization.Codec,boolean)" class="member-name-link">RegistryFileCodec</a><wbr>(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&gt;&nbsp;registryKey,
+ com.mojang.serialization.Codec&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&nbsp;elementCodec,
+ boolean&nbsp;allowInline)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -165,22 +166,24 @@ implements com.mojang.serialization.Codec&lt;<a href="../core/Holder.html" title
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;E&gt;&nbsp;<a href="RegistryFileCodec.html" title="class in net.minecraft.resources">RegistryFileCodec</a><wbr>&lt;E&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.resources.ResourceKey,com.mojang.serialization.Codec)" class="member-name-link">create</a><wbr>(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;E&gt;&gt;&nbsp;p_135590_,
- com.mojang.serialization.Codec&lt;E&gt;&nbsp;p_135591_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.resources.ResourceKey,com.mojang.serialization.Codec)" class="member-name-link">create</a><wbr>(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;E&gt;&gt;&nbsp;registryKey,
+ com.mojang.serialization.Codec&lt;E&gt;&nbsp;elementCodec)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Creates a codec for a single registry element, which is held as an un-resolved <code>Supplier&lt;E&gt;</code>.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;E&gt;&nbsp;<a href="RegistryFileCodec.html" title="class in net.minecraft.resources">RegistryFileCodec</a><wbr>&lt;E&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.resources.ResourceKey,com.mojang.serialization.Codec,boolean)" class="member-name-link">create</a><wbr>(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;E&gt;&gt;&nbsp;p_135593_,
- com.mojang.serialization.Codec&lt;E&gt;&nbsp;p_135594_,
- boolean&nbsp;p_135595_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.resources.ResourceKey,com.mojang.serialization.Codec,boolean)" class="member-name-link">create</a><wbr>(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;E&gt;&gt;&nbsp;registryKey,
+ com.mojang.serialization.Codec&lt;E&gt;&nbsp;elementCodec,
+ boolean&nbsp;allowInline)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;com.mojang.serialization.DataResult<wbr>&lt;com.mojang.datafixers.util.Pair&lt;<a href="../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;,<wbr>T&gt;&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#decode(com.mojang.serialization.DynamicOps,T)" class="member-name-link">decode</a><wbr>(com.mojang.serialization.DynamicOps&lt;T&gt;&nbsp;p_135608_,
- T&nbsp;p_135609_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#decode(com.mojang.serialization.DynamicOps,T)" class="member-name-link">decode</a><wbr>(com.mojang.serialization.DynamicOps&lt;T&gt;&nbsp;ops,
+ T&nbsp;input)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;com.mojang.serialization.DataResult<wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#encode(net.minecraft.core.Holder,com.mojang.serialization.DynamicOps,T)" class="member-name-link">encode</a><wbr>(<a href="../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&nbsp;p_206716_,
- com.mojang.serialization.DynamicOps&lt;T&gt;&nbsp;p_206717_,
- T&nbsp;p_206718_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#encode(net.minecraft.core.Holder,com.mojang.serialization.DynamicOps,T)" class="member-name-link">encode</a><wbr>(<a href="../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&nbsp;input,
+ com.mojang.serialization.DynamicOps&lt;T&gt;&nbsp;ops,
+ T&nbsp;prefix)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#toString()" class="member-name-link">toString</a>()</code></div>
@@ -240,9 +243,9 @@ implements com.mojang.serialization.Codec&lt;<a href="../core/Holder.html" title
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.resources.ResourceKey,com.mojang.serialization.Codec,boolean)">
 <h3>RegistryFileCodec</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">RegistryFileCodec</span><wbr><span class="parameters">(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&gt;&nbsp;p_135574_,
- com.mojang.serialization.Codec&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&nbsp;p_135575_,
- boolean&nbsp;p_135576_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">RegistryFileCodec</span><wbr><span class="parameters">(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&gt;&nbsp;registryKey,
+ com.mojang.serialization.Codec&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&nbsp;elementCodec,
+ boolean&nbsp;allowInline)</span></div>
 </section>
 </li>
 </ul>
@@ -256,24 +259,31 @@ implements com.mojang.serialization.Codec&lt;<a href="../core/Holder.html" title
 <li>
 <section class="detail" id="create(net.minecraft.resources.ResourceKey,com.mojang.serialization.Codec)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="RegistryFileCodec.html" title="class in net.minecraft.resources">RegistryFileCodec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;E&gt;&gt;&nbsp;p_135590_,
- com.mojang.serialization.Codec&lt;E&gt;&nbsp;p_135591_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="RegistryFileCodec.html" title="class in net.minecraft.resources">RegistryFileCodec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;E&gt;&gt;&nbsp;registryKey,
+ com.mojang.serialization.Codec&lt;E&gt;&nbsp;elementCodec)</span></div>
+<div class="block">Creates a codec for a single registry element, which is held as an un-resolved <code>Supplier&lt;E&gt;</code>. Both inline definitions of the object, and references to an existing registry element id are allowed.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>registryKey</code> - The registry which elements may belong to.</dd>
+<dd><code>elementCodec</code> - The codec used to decode either inline definitions, or
+                     elements before entering them into the registry.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="create(net.minecraft.resources.ResourceKey,com.mojang.serialization.Codec,boolean)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="RegistryFileCodec.html" title="class in net.minecraft.resources">RegistryFileCodec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;E&gt;&gt;&nbsp;p_135593_,
- com.mojang.serialization.Codec&lt;E&gt;&nbsp;p_135594_,
- boolean&nbsp;p_135595_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="RegistryFileCodec.html" title="class in net.minecraft.resources">RegistryFileCodec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;? extends <a href="../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;E&gt;&gt;&nbsp;registryKey,
+ com.mojang.serialization.Codec&lt;E&gt;&nbsp;elementCodec,
+ boolean&nbsp;allowInline)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="encode(net.minecraft.core.Holder,com.mojang.serialization.DynamicOps,T)">
 <h3 id="encode(net.minecraft.core.Holder,com.mojang.serialization.DynamicOps,java.lang.Object)">encode</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">com.mojang.serialization.DataResult&lt;T&gt;</span>&nbsp;<span class="element-name">encode</span><wbr><span class="parameters">(<a href="../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&nbsp;p_206716_,
- com.mojang.serialization.DynamicOps&lt;T&gt;&nbsp;p_206717_,
- T&nbsp;p_206718_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">com.mojang.serialization.DataResult&lt;T&gt;</span>&nbsp;<span class="element-name">encode</span><wbr><span class="parameters">(<a href="../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;&nbsp;input,
+ com.mojang.serialization.DynamicOps&lt;T&gt;&nbsp;ops,
+ T&nbsp;prefix)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>encode</code>&nbsp;in interface&nbsp;<code>com.mojang.serialization.Encoder&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;</code></dd>
@@ -284,8 +294,8 @@ implements com.mojang.serialization.Codec&lt;<a href="../core/Holder.html" title
 <section class="detail" id="decode(com.mojang.serialization.DynamicOps,T)">
 <h3 id="decode(com.mojang.serialization.DynamicOps,java.lang.Object)">decode</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>
-<span class="return-type">com.mojang.serialization.DataResult&lt;com.mojang.datafixers.util.Pair&lt;<a href="../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;,<wbr>T&gt;&gt;</span>&nbsp;<span class="element-name">decode</span><wbr><span class="parameters">(com.mojang.serialization.DynamicOps&lt;T&gt;&nbsp;p_135608_,
- T&nbsp;p_135609_)</span></div>
+<span class="return-type">com.mojang.serialization.DataResult&lt;com.mojang.datafixers.util.Pair&lt;<a href="../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;,<wbr>T&gt;&gt;</span>&nbsp;<span class="element-name">decode</span><wbr><span class="parameters">(com.mojang.serialization.DynamicOps&lt;T&gt;&nbsp;ops,
+ T&nbsp;input)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code>decode</code>&nbsp;in interface&nbsp;<code>com.mojang.serialization.Decoder&lt;<a href="RegistryFileCodec.html" title="type parameter in RegistryFileCodec">E</a>&gt;</code></dd>

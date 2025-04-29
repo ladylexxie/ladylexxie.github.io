@@ -123,7 +123,7 @@ implements <a href="ClientTooltipComponent.html" title="interface in net.minecra
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.FormattedCharSequence)" class="member-name-link">ClientTextTooltip</a><wbr>(<a href="../../../../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_169938_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.FormattedCharSequence)" class="member-name-link">ClientTextTooltip</a><wbr>(<a href="../../../../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -143,14 +143,14 @@ implements <a href="ClientTooltipComponent.html" title="interface in net.minecra
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHeight()" class="member-name-link">getHeight</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWidth(net.minecraft.client.gui.Font)" class="member-name-link">getWidth</a><wbr>(<a href="../../../Font.html" title="class in net.minecraft.client.gui">Font</a>&nbsp;p_169941_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWidth(net.minecraft.client.gui.Font)" class="member-name-link">getWidth</a><wbr>(<a href="../../../Font.html" title="class in net.minecraft.client.gui">Font</a>&nbsp;font)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderText(net.minecraft.client.gui.Font,int,int,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource.BufferSource)" class="member-name-link">renderText</a><wbr>(<a href="../../../Font.html" title="class in net.minecraft.client.gui">Font</a>&nbsp;p_254285_,
- int&nbsp;p_254192_,
- int&nbsp;p_253697_,
- org.joml.Matrix4f&nbsp;p_253880_,
- <a href="../../../../renderer/MultiBufferSource.BufferSource.html" title="class in net.minecraft.client.renderer">MultiBufferSource.BufferSource</a>&nbsp;p_254231_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderText(net.minecraft.client.gui.Font,int,int,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource.BufferSource)" class="member-name-link">renderText</a><wbr>(<a href="../../../Font.html" title="class in net.minecraft.client.gui">Font</a>&nbsp;font,
+ int&nbsp;mouseX,
+ int&nbsp;mouseY,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../../../../renderer/MultiBufferSource.BufferSource.html" title="class in net.minecraft.client.renderer">MultiBufferSource.BufferSource</a>&nbsp;bufferSource)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -189,7 +189,7 @@ implements <a href="ClientTooltipComponent.html" title="interface in net.minecra
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.util.FormattedCharSequence)">
 <h3>ClientTextTooltip</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ClientTextTooltip</span><wbr><span class="parameters">(<a href="../../../../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_169938_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ClientTextTooltip</span><wbr><span class="parameters">(<a href="../../../../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text)</span></div>
 </section>
 </li>
 </ul>
@@ -203,7 +203,7 @@ implements <a href="ClientTooltipComponent.html" title="interface in net.minecra
 <li>
 <section class="detail" id="getWidth(net.minecraft.client.gui.Font)">
 <h3>getWidth</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getWidth</span><wbr><span class="parameters">(<a href="../../../Font.html" title="class in net.minecraft.client.gui">Font</a>&nbsp;p_169941_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getWidth</span><wbr><span class="parameters">(<a href="../../../Font.html" title="class in net.minecraft.client.gui">Font</a>&nbsp;font)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ClientTooltipComponent.html#getWidth(net.minecraft.client.gui.Font)">getWidth</a></code>&nbsp;in interface&nbsp;<code><a href="ClientTooltipComponent.html" title="interface in net.minecraft.client.gui.screens.inventory.tooltip">ClientTooltipComponent</a></code></dd>
@@ -223,11 +223,11 @@ implements <a href="ClientTooltipComponent.html" title="interface in net.minecra
 <li>
 <section class="detail" id="renderText(net.minecraft.client.gui.Font,int,int,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource.BufferSource)">
 <h3>renderText</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderText</span><wbr><span class="parameters">(<a href="../../../Font.html" title="class in net.minecraft.client.gui">Font</a>&nbsp;p_254285_,
- int&nbsp;p_254192_,
- int&nbsp;p_253697_,
- org.joml.Matrix4f&nbsp;p_253880_,
- <a href="../../../../renderer/MultiBufferSource.BufferSource.html" title="class in net.minecraft.client.renderer">MultiBufferSource.BufferSource</a>&nbsp;p_254231_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderText</span><wbr><span class="parameters">(<a href="../../../Font.html" title="class in net.minecraft.client.gui">Font</a>&nbsp;font,
+ int&nbsp;mouseX,
+ int&nbsp;mouseY,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../../../../renderer/MultiBufferSource.BufferSource.html" title="class in net.minecraft.client.renderer">MultiBufferSource.BufferSource</a>&nbsp;bufferSource)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ClientTooltipComponent.html#renderText(net.minecraft.client.gui.Font,int,int,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource.BufferSource)">renderText</a></code>&nbsp;in interface&nbsp;<code><a href="ClientTooltipComponent.html" title="interface in net.minecraft.client.gui.screens.inventory.tooltip">ClientTooltipComponent</a></code></dd>

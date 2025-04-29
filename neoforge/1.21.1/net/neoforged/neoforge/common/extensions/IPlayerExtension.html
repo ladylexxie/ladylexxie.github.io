@@ -179,12 +179,20 @@ loadScripts(document, 'script');</script>
  <a href="../../../../minecraft/core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 <div class="block">Request to open a GUI on the client, from the server
  <p>
- Refer to <a href="IMenuTypeExtension.html#create(net.neoforged.neoforge.network.IContainerFactory)"><code>IMenuTypeExtension.create(IContainerFactory)</code></a> for how to provide a function to consume
- these GUI requests on the client.</div>
+ Refer to <a href="IMenuTypeExtension.html#create(net.neoforged.neoforge.network.IContainerFactory)"><code>IMenuTypeExtension.create(IContainerFactory)</code></a> for creating a <a href="../../../../minecraft/world/inventory/MenuType.html" title="class in net.minecraft.world.inventory"><code>MenuType</code></a> that can consume the
+ extra data sent to the client by this method.
+ <p>
+ Use <a href="../../../../minecraft/network/FriendlyByteBuf.html#readBlockPos()"><code>FriendlyByteBuf.readBlockPos()</code></a> to read the position you pass to this method.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>menuProvider</code> - A supplier of container properties including the registry name of the container</dd>
-<dd><code>pos</code> - A block pos, which will be encoded into the additional data for this request</dd>
+<dd><code>pos</code> - A block pos, which will be encoded into the additional data for this request, after
+                     data written by 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>IMenuProviderExtension#writeClientSideData(AbstractContainerMenu, RegistryFriendlyByteBuf)</code></pre>
+</details>
+.</dd>
 </dl>
 </section>
 </li>
@@ -195,14 +203,20 @@ loadScripts(document, 'script');</script>
  <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../../../minecraft/network/RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&gt;&nbsp;extraDataWriter)</span></div>
 <div class="block">Request to open a GUI on the client, from the server
  <p>
- Refer to <a href="IMenuTypeExtension.html#create(net.neoforged.neoforge.network.IContainerFactory)"><code>IMenuTypeExtension.create(IContainerFactory)</code></a> for how to provide a function to consume
- these GUI requests on the client.
+ Refer to <a href="IMenuTypeExtension.html#create(net.neoforged.neoforge.network.IContainerFactory)"><code>IMenuTypeExtension.create(IContainerFactory)</code></a> for creating a <a href="../../../../minecraft/world/inventory/MenuType.html" title="class in net.minecraft.world.inventory"><code>MenuType</code></a> that can consume the
+ extra data sent to the client by this method.
  <p>
  The maximum size for #extraDataWriter is 32600 bytes.</div>
 <dl class="notes">
 <dt>Parameters:</dt>
 <dd><code>menuProvider</code> - A supplier of container properties including the registry name of the container</dd>
-<dd><code>extraDataWriter</code> - Consumer to write any additional data the GUI needs</dd>
+<dd><code>extraDataWriter</code> - Consumer to write any additional data the GUI needs.
+                        This data is written after 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>IMenuProviderExtension#writeClientSideData(AbstractContainerMenu, RegistryFriendlyByteBuf)</code></pre>
+</details>
+.</dd>
 <dt>Returns:</dt>
 <dd>The window ID of the opened GUI, or empty if the GUI could not be opened</dd>
 </dl>

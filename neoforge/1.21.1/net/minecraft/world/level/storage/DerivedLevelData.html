@@ -126,8 +126,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.storage.WorldData,net.minecraft.world.level.storage.ServerLevelData)" class="member-name-link">DerivedLevelData</a><wbr>(<a href="WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;p_78079_,
- <a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a>&nbsp;p_78080_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.storage.WorldData,net.minecraft.world.level.storage.ServerLevelData)" class="member-name-link">DerivedLevelData</a><wbr>(<a href="WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData,
+ <a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a>&nbsp;wrapped)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -144,8 +144,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fillCrashReportCategory(net.minecraft.CrashReportCategory,net.minecraft.world.level.LevelHeightAccessor)" class="member-name-link">fillCrashReportCategory</a><wbr>(<a href="../../../CrashReportCategory.html" title="class in net.minecraft">CrashReportCategory</a>&nbsp;p_164852_,
- <a href="../LevelHeightAccessor.html" title="interface in net.minecraft.world.level">LevelHeightAccessor</a>&nbsp;p_164853_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fillCrashReportCategory(net.minecraft.CrashReportCategory,net.minecraft.world.level.LevelHeightAccessor)" class="member-name-link">fillCrashReportCategory</a><wbr>(<a href="../../../CrashReportCategory.html" title="class in net.minecraft">CrashReportCategory</a>&nbsp;crashReportCategory,
+ <a href="../LevelHeightAccessor.html" title="interface in net.minecraft.world.level">LevelHeightAccessor</a>&nbsp;level)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getClearWeatherTime()" class="member-name-link">getClearWeatherTime</a>()</code></div>
@@ -220,11 +220,13 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isThundering()" class="member-name-link">isThundering</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setClearWeatherTime(int)" class="member-name-link">setClearWeatherTime</a><wbr>(int&nbsp;p_78085_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setClearWeatherTime(int)" class="member-name-link">setClearWeatherTime</a><wbr>(int&nbsp;time)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDayTime(long)" class="member-name-link">setDayTime</a><wbr>(long&nbsp;p_78105_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDayTime(long)" class="member-name-link">setDayTime</a><wbr>(long&nbsp;time)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Set current world time</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDayTimeFraction(float)" class="member-name-link">setDayTimeFraction</a><wbr>(float&nbsp;dayTimeFraction)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -232,41 +234,51 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDayTimePerTick(float)" class="member-name-link">setDayTimePerTick</a><wbr>(float&nbsp;dayTimePerTick)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGameTime(long)" class="member-name-link">setGameTime</a><wbr>(long&nbsp;p_78087_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGameTime(long)" class="member-name-link">setGameTime</a><wbr>(long&nbsp;time)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGameType(net.minecraft.world.level.GameType)" class="member-name-link">setGameType</a><wbr>(<a href="../GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;p_78089_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGameType(net.minecraft.world.level.GameType)" class="member-name-link">setGameType</a><wbr>(<a href="../GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;type)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setInitialized(boolean)" class="member-name-link">setInitialized</a><wbr>(boolean&nbsp;p_78112_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setInitialized(boolean)" class="member-name-link">setInitialized</a><wbr>(boolean&nbsp;initialized)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the initialization status of the World.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRaining(boolean)" class="member-name-link">setRaining</a><wbr>(boolean&nbsp;p_78107_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRaining(boolean)" class="member-name-link">setRaining</a><wbr>(boolean&nbsp;isRaining)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets whether it is raining or not.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRainTime(int)" class="member-name-link">setRainTime</a><wbr>(int&nbsp;time)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the number of ticks until rain.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSpawn(net.minecraft.core.BlockPos,float)" class="member-name-link">setSpawn</a><wbr>(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;spawnPoint,
+ float&nbsp;angle)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRainTime(int)" class="member-name-link">setRainTime</a><wbr>(int&nbsp;p_78121_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setThundering(boolean)" class="member-name-link">setThundering</a><wbr>(boolean&nbsp;thundering)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets whether it is thundering or not.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setThunderTime(int)" class="member-name-link">setThunderTime</a><wbr>(int&nbsp;time)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Defines the number of ticks until next thunderbolt.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWanderingTraderId(java.util.UUID)" class="member-name-link">setWanderingTraderId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSpawn(net.minecraft.core.BlockPos,float)" class="member-name-link">setSpawn</a><wbr>(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_78093_,
- float&nbsp;p_78094_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWanderingTraderSpawnChance(int)" class="member-name-link">setWanderingTraderSpawnChance</a><wbr>(int&nbsp;chance)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setThundering(boolean)" class="member-name-link">setThundering</a><wbr>(boolean&nbsp;p_78100_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWanderingTraderSpawnDelay(int)" class="member-name-link">setWanderingTraderSpawnDelay</a><wbr>(int&nbsp;delay)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setThunderTime(int)" class="member-name-link">setThunderTime</a><wbr>(int&nbsp;p_78118_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWanderingTraderId(java.util.UUID)" class="member-name-link">setWanderingTraderId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;p_78096_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWanderingTraderSpawnChance(int)" class="member-name-link">setWanderingTraderSpawnChance</a><wbr>(int&nbsp;p_78127_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWanderingTraderSpawnDelay(int)" class="member-name-link">setWanderingTraderSpawnDelay</a><wbr>(int&nbsp;p_78124_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWorldBorder(net.minecraft.world.level.border.WorldBorder.Settings)" class="member-name-link">setWorldBorder</a><wbr>(<a href="../border/WorldBorder.Settings.html" title="class in net.minecraft.world.level.border">WorldBorder.Settings</a>&nbsp;p_78091_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWorldBorder(net.minecraft.world.level.border.WorldBorder.Settings)" class="member-name-link">setWorldBorder</a><wbr>(<a href="../border/WorldBorder.Settings.html" title="class in net.minecraft.world.level.border">WorldBorder.Settings</a>&nbsp;serializer)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -308,8 +320,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.storage.WorldData,net.minecraft.world.level.storage.ServerLevelData)">
 <h3>DerivedLevelData</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DerivedLevelData</span><wbr><span class="parameters">(<a href="WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;p_78079_,
- <a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a>&nbsp;p_78080_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DerivedLevelData</span><wbr><span class="parameters">(<a href="WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData,
+ <a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a>&nbsp;wrapped)</span></div>
 </section>
 </li>
 </ul>
@@ -383,7 +395,7 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setClearWeatherTime(int)">
 <h3>setClearWeatherTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setClearWeatherTime</span><wbr><span class="parameters">(int&nbsp;p_78085_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setClearWeatherTime</span><wbr><span class="parameters">(int&nbsp;time)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setClearWeatherTime(int)">setClearWeatherTime</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -443,7 +455,7 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setGameTime(long)">
 <h3>setGameTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setGameTime</span><wbr><span class="parameters">(long&nbsp;p_78087_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setGameTime</span><wbr><span class="parameters">(long&nbsp;time)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setGameTime(long)">setGameTime</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -453,7 +465,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setDayTime(long)">
 <h3>setDayTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDayTime</span><wbr><span class="parameters">(long&nbsp;p_78105_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDayTime</span><wbr><span class="parameters">(long&nbsp;time)</span></div>
+<div class="block">Set current world time</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setDayTime(long)">setDayTime</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -463,8 +476,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setSpawn(net.minecraft.core.BlockPos,float)">
 <h3>setSpawn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSpawn</span><wbr><span class="parameters">(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_78093_,
- float&nbsp;p_78094_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSpawn</span><wbr><span class="parameters">(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;spawnPoint,
+ float&nbsp;angle)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="WritableLevelData.html#setSpawn(net.minecraft.core.BlockPos,float)">setSpawn</a></code>&nbsp;in interface&nbsp;<code><a href="WritableLevelData.html" title="interface in net.minecraft.world.level.storage">WritableLevelData</a></code></dd>
@@ -474,7 +487,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setThundering(boolean)">
 <h3>setThundering</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setThundering</span><wbr><span class="parameters">(boolean&nbsp;p_78100_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setThundering</span><wbr><span class="parameters">(boolean&nbsp;thundering)</span></div>
+<div class="block">Sets whether it is thundering or not.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setThundering(boolean)">setThundering</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -484,7 +498,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setThunderTime(int)">
 <h3>setThunderTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setThunderTime</span><wbr><span class="parameters">(int&nbsp;p_78118_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setThunderTime</span><wbr><span class="parameters">(int&nbsp;time)</span></div>
+<div class="block">Defines the number of ticks until next thunderbolt.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setThunderTime(int)">setThunderTime</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -494,7 +509,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setRaining(boolean)">
 <h3>setRaining</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setRaining</span><wbr><span class="parameters">(boolean&nbsp;p_78107_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setRaining</span><wbr><span class="parameters">(boolean&nbsp;isRaining)</span></div>
+<div class="block">Sets whether it is raining or not.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="LevelData.html#setRaining(boolean)">setRaining</a></code>&nbsp;in interface&nbsp;<code><a href="LevelData.html" title="interface in net.minecraft.world.level.storage">LevelData</a></code></dd>
@@ -504,7 +520,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setRainTime(int)">
 <h3>setRainTime</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setRainTime</span><wbr><span class="parameters">(int&nbsp;p_78121_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setRainTime</span><wbr><span class="parameters">(int&nbsp;time)</span></div>
+<div class="block">Sets the number of ticks until rain.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setRainTime(int)">setRainTime</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -514,7 +531,7 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setGameType(net.minecraft.world.level.GameType)">
 <h3>setGameType</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setGameType</span><wbr><span class="parameters">(<a href="../GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;p_78089_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setGameType</span><wbr><span class="parameters">(<a href="../GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;type)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setGameType(net.minecraft.world.level.GameType)">setGameType</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -554,7 +571,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setInitialized(boolean)">
 <h3>setInitialized</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setInitialized</span><wbr><span class="parameters">(boolean&nbsp;p_78112_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setInitialized</span><wbr><span class="parameters">(boolean&nbsp;initialized)</span></div>
+<div class="block">Sets the initialization status of the World.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setInitialized(boolean)">setInitialized</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -584,7 +602,7 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setWorldBorder(net.minecraft.world.level.border.WorldBorder.Settings)">
 <h3>setWorldBorder</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWorldBorder</span><wbr><span class="parameters">(<a href="../border/WorldBorder.Settings.html" title="class in net.minecraft.world.level.border">WorldBorder.Settings</a>&nbsp;p_78091_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWorldBorder</span><wbr><span class="parameters">(<a href="../border/WorldBorder.Settings.html" title="class in net.minecraft.world.level.border">WorldBorder.Settings</a>&nbsp;serializer)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setWorldBorder(net.minecraft.world.level.border.WorldBorder.Settings)">setWorldBorder</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -634,7 +652,7 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setWanderingTraderSpawnDelay(int)">
 <h3>setWanderingTraderSpawnDelay</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWanderingTraderSpawnDelay</span><wbr><span class="parameters">(int&nbsp;p_78124_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWanderingTraderSpawnDelay</span><wbr><span class="parameters">(int&nbsp;delay)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setWanderingTraderSpawnDelay(int)">setWanderingTraderSpawnDelay</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -654,7 +672,7 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setWanderingTraderSpawnChance(int)">
 <h3>setWanderingTraderSpawnChance</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWanderingTraderSpawnChance</span><wbr><span class="parameters">(int&nbsp;p_78127_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWanderingTraderSpawnChance</span><wbr><span class="parameters">(int&nbsp;chance)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setWanderingTraderSpawnChance(int)">setWanderingTraderSpawnChance</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -674,7 +692,7 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="setWanderingTraderId(java.util.UUID)">
 <h3>setWanderingTraderId</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWanderingTraderId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;p_78096_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWanderingTraderId</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;id)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="ServerLevelData.html#setWanderingTraderId(java.util.UUID)">setWanderingTraderId</a></code>&nbsp;in interface&nbsp;<code><a href="ServerLevelData.html" title="interface in net.minecraft.world.level.storage">ServerLevelData</a></code></dd>
@@ -684,8 +702,8 @@ implements <a href="ServerLevelData.html" title="interface in net.minecraft.worl
 <li>
 <section class="detail" id="fillCrashReportCategory(net.minecraft.CrashReportCategory,net.minecraft.world.level.LevelHeightAccessor)">
 <h3>fillCrashReportCategory</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">fillCrashReportCategory</span><wbr><span class="parameters">(<a href="../../../CrashReportCategory.html" title="class in net.minecraft">CrashReportCategory</a>&nbsp;p_164852_,
- <a href="../LevelHeightAccessor.html" title="interface in net.minecraft.world.level">LevelHeightAccessor</a>&nbsp;p_164853_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">fillCrashReportCategory</span><wbr><span class="parameters">(<a href="../../../CrashReportCategory.html" title="class in net.minecraft">CrashReportCategory</a>&nbsp;crashReportCategory,
+ <a href="../LevelHeightAccessor.html" title="interface in net.minecraft.world.level">LevelHeightAccessor</a>&nbsp;level)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="LevelData.html#fillCrashReportCategory(net.minecraft.CrashReportCategory,net.minecraft.world.level.LevelHeightAccessor)">fillCrashReportCategory</a></code>&nbsp;in interface&nbsp;<code><a href="LevelData.html" title="interface in net.minecraft.world.level.storage">LevelData</a></code></dd>

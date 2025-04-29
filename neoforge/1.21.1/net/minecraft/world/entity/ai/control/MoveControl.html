@@ -172,7 +172,7 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.entity.Mob)" class="member-name-link">MoveControl</a><wbr>(<a href="../../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_24983_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.entity.Mob)" class="member-name-link">MoveControl</a><wbr>(<a href="../../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -204,23 +204,27 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasWanted()" class="member-name-link">hasWanted</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isWalkable(float,float)" class="member-name-link">isWalkable</a><wbr>(float&nbsp;p_24997_,
- float&nbsp;p_24998_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isWalkable(float,float)" class="member-name-link">isWalkable</a><wbr>(float&nbsp;relativeX,
+ float&nbsp;relativeZ)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected float</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rotlerp(float,float,float)" class="member-name-link">rotlerp</a><wbr>(float&nbsp;p_24992_,
- float&nbsp;p_24993_,
- float&nbsp;p_24994_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rotlerp(float,float,float)" class="member-name-link">rotlerp</a><wbr>(float&nbsp;sourceAngle,
+ float&nbsp;targetAngle,
+ float&nbsp;maximumChange)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Attempt to rotate the first angle to become the second angle, but only allow overall direction change to at max be third parameter</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWantedPosition(double,double,double,double)" class="member-name-link">setWantedPosition</a><wbr>(double&nbsp;p_24984_,
- double&nbsp;p_24985_,
- double&nbsp;p_24986_,
- double&nbsp;p_24987_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setWantedPosition(double,double,double,double)" class="member-name-link">setWantedPosition</a><wbr>(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;speed)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Sets the speed and location to move to</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#strafe(float,float)" class="member-name-link">strafe</a><wbr>(float&nbsp;p_24989_,
- float&nbsp;p_24990_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#strafe(float,float)" class="member-name-link">strafe</a><wbr>(float&nbsp;forward,
+ float&nbsp;strafe)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick()" class="member-name-link">tick</a>()</code></div>
@@ -343,7 +347,7 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.entity.Mob)">
 <h3>MoveControl</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">MoveControl</span><wbr><span class="parameters">(<a href="../../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;p_24983_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">MoveControl</span><wbr><span class="parameters">(<a href="../../Mob.html" title="class in net.minecraft.world.entity">Mob</a>&nbsp;mob)</span></div>
 </section>
 </li>
 </ul>
@@ -369,17 +373,18 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <li>
 <section class="detail" id="setWantedPosition(double,double,double,double)">
 <h3>setWantedPosition</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWantedPosition</span><wbr><span class="parameters">(double&nbsp;p_24984_,
- double&nbsp;p_24985_,
- double&nbsp;p_24986_,
- double&nbsp;p_24987_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setWantedPosition</span><wbr><span class="parameters">(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;speed)</span></div>
+<div class="block">Sets the speed and location to move to</div>
 </section>
 </li>
 <li>
 <section class="detail" id="strafe(float,float)">
 <h3>strafe</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">strafe</span><wbr><span class="parameters">(float&nbsp;p_24989_,
- float&nbsp;p_24990_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">strafe</span><wbr><span class="parameters">(float&nbsp;forward,
+ float&nbsp;strafe)</span></div>
 </section>
 </li>
 <li>
@@ -391,16 +396,21 @@ implements <a href="Control.html" title="interface in net.minecraft.world.entity
 <li>
 <section class="detail" id="isWalkable(float,float)">
 <h3>isWalkable</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isWalkable</span><wbr><span class="parameters">(float&nbsp;p_24997_,
- float&nbsp;p_24998_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isWalkable</span><wbr><span class="parameters">(float&nbsp;relativeX,
+ float&nbsp;relativeZ)</span></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>true if the mob can walk successfully to a given X and Z</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="rotlerp(float,float,float)">
 <h3>rotlerp</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">rotlerp</span><wbr><span class="parameters">(float&nbsp;p_24992_,
- float&nbsp;p_24993_,
- float&nbsp;p_24994_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">rotlerp</span><wbr><span class="parameters">(float&nbsp;sourceAngle,
+ float&nbsp;targetAngle,
+ float&nbsp;maximumChange)</span></div>
+<div class="block">Attempt to rotate the first angle to become the second angle, but only allow overall direction change to at max be third parameter</div>
 </section>
 </li>
 <li>

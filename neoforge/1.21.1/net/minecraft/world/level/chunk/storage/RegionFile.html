@@ -97,6 +97,7 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">RegionFile</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
 implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></span></div>
+<div class="block">This class handles a single region (or anvil) file and all files for single chunks at chunk positions for that one region file.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -195,16 +196,16 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.storage.RegionStorageInfo,java.nio.file.Path,java.nio.file.Path,boolean)" class="member-name-link">RegionFile</a><wbr>(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_326174_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_196950_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_196951_,
- boolean&nbsp;p_196952_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.storage.RegionStorageInfo,java.nio.file.Path,java.nio.file.Path,boolean)" class="member-name-link">RegionFile</a><wbr>(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;externalFileDir,
+ boolean&nbsp;sync)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.storage.RegionStorageInfo,java.nio.file.Path,java.nio.file.Path,net.minecraft.world.level.chunk.storage.RegionFileVersion,boolean)" class="member-name-link">RegionFile</a><wbr>(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_326221_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_63633_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_63634_,
- <a href="RegionFileVersion.html" title="class in net.minecraft.world.level.chunk.storage">RegionFileVersion</a>&nbsp;p_63635_,
- boolean&nbsp;p_63636_)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.storage.RegionStorageInfo,java.nio.file.Path,java.nio.file.Path,net.minecraft.world.level.chunk.storage.RegionFileVersion,boolean)" class="member-name-link">RegionFile</a><wbr>(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;externalFileDir,
+ <a href="RegionFileVersion.html" title="class in net.minecraft.world.level.chunk.storage">RegionFileVersion</a>&nbsp;version,
+ boolean&nbsp;sync)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -221,90 +222,106 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clear(net.minecraft.world.level.ChunkPos)" class="member-name-link">clear</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_156614_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clear(net.minecraft.world.level.ChunkPos)" class="member-name-link">clear</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataInputStream.html" title="class or interface in java.io" class="external-link">DataInputStream</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createChunkInputStream(net.minecraft.world.level.ChunkPos,byte,java.io.InputStream)" class="member-name-link">createChunkInputStream</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63651_,
- byte&nbsp;p_63652_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&nbsp;p_63653_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createChunkInputStream(net.minecraft.world.level.ChunkPos,byte,java.io.InputStream)" class="member-name-link">createChunkInputStream</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ byte&nbsp;versionByte,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&nbsp;inputStream)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataInputStream.html" title="class or interface in java.io" class="external-link">DataInputStream</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createExternalChunkInputStream(net.minecraft.world.level.ChunkPos,byte)" class="member-name-link">createExternalChunkInputStream</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63648_,
- byte&nbsp;p_63649_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createExternalChunkInputStream(net.minecraft.world.level.ChunkPos,byte)" class="member-name-link">createExternalChunkInputStream</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ byte&nbsp;versionByte)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createExternalStub()" class="member-name-link">createExternalStub</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/ByteArrayInputStream.html" title="class or interface in java.io" class="external-link">ByteArrayInputStream</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createStream(java.nio.ByteBuffer,int)" class="member-name-link">createStream</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;p_63660_,
- int&nbsp;p_63661_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createStream(java.nio.ByteBuffer,int)" class="member-name-link">createStream</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;sourceBuffer,
+ int&nbsp;length)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doesChunkExist(net.minecraft.world.level.ChunkPos)" class="member-name-link">doesChunkExist</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63674_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doesChunkExist(net.minecraft.world.level.ChunkPos)" class="member-name-link">doesChunkExist</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#flush()" class="member-name-link">flush</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataInputStream.html" title="class or interface in java.io" class="external-link">DataInputStream</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkDataInputStream(net.minecraft.world.level.ChunkPos)" class="member-name-link">getChunkDataInputStream</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63646_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkDataInputStream(net.minecraft.world.level.ChunkPos)" class="member-name-link">getChunkDataInputStream</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkDataOutputStream(net.minecraft.world.level.ChunkPos)" class="member-name-link">getChunkDataOutputStream</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63679_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkDataOutputStream(net.minecraft.world.level.ChunkPos)" class="member-name-link">getChunkDataOutputStream</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Creates a new <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link"><code>InputStream</code></a> for a chunk stored in a separate file.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExternalChunkPath(net.minecraft.world.level.ChunkPos)" class="member-name-link">getExternalChunkPath</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63685_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExternalChunkPath(net.minecraft.world.level.ChunkPos)" class="member-name-link">getExternalChunkPath</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Gets the path to store a chunk that can not be stored within the region file because it's larger than 1 MiB.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static byte</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getExternalChunkVersion(byte)" class="member-name-link">getExternalChunkVersion</a><wbr>(byte&nbsp;p_63670_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getExternalChunkVersion(byte)" class="member-name-link">getExternalChunkVersion</a><wbr>(byte&nbsp;versionByte)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getNumSectors(int)" class="member-name-link">getNumSectors</a><wbr>(int&nbsp;p_63641_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getNumSectors(int)" class="member-name-link">getNumSectors</a><wbr>(int&nbsp;packedSectorOffset)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Gets the amount of 4 KiB sectors used to store a chunk.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOffset(net.minecraft.world.level.ChunkPos)" class="member-name-link">getOffset</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63687_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOffset(net.minecraft.world.level.ChunkPos)" class="member-name-link">getOffset</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getOffsetIndex(net.minecraft.world.level.ChunkPos)" class="member-name-link">getOffsetIndex</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63689_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getOffsetIndex(net.minecraft.world.level.ChunkPos)" class="member-name-link">getOffsetIndex</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Gets the offset within the region file where the chunk metadata for a chunk can be found.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPath()" class="member-name-link">getPath</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getSectorNumber(int)" class="member-name-link">getSectorNumber</a><wbr>(int&nbsp;p_63672_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getSectorNumber(int)" class="member-name-link">getSectorNumber</a><wbr>(int&nbsp;packedSectorOffset)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Gets the offset in 4 KiB sectors from the start of the region file, where the data for a chunk starts.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTimestamp()" class="member-name-link">getTimestamp</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasChunk(net.minecraft.world.level.ChunkPos)" class="member-name-link">hasChunk</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63683_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasChunk(net.minecraft.world.level.ChunkPos)" class="member-name-link">hasChunk</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isExternalStreamChunk(byte)" class="member-name-link">isExternalStreamChunk</a><wbr>(byte&nbsp;p_63639_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isExternalStreamChunk(byte)" class="member-name-link">isExternalStreamChunk</a><wbr>(byte&nbsp;versionByte)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#packSectorOffset(int,int)" class="member-name-link">packSectorOffset</a><wbr>(int&nbsp;p_63643_,
- int&nbsp;p_63644_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#packSectorOffset(int,int)" class="member-name-link">packSectorOffset</a><wbr>(int&nbsp;sectorOffset,
+ int&nbsp;sectorCount)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Packs the offset in 4 KiB sectors from the region file start and the amount of 4 KiB sectors used to store a chunk into one <code>int</code>.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#padToFullSector()" class="member-name-link">padToFullSector</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sizeToSectors(int)" class="member-name-link">sizeToSectors</a><wbr>(int&nbsp;p_63677_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#sizeToSectors(int)" class="member-name-link">sizeToSectors</a><wbr>(int&nbsp;size)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Gets the amount of sectors required to store chunk data of a certain size in bytes.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.world.level.ChunkPos,java.nio.ByteBuffer)" class="member-name-link">write</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63655_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;p_63656_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.world.level.ChunkPos,java.nio.ByteBuffer)" class="member-name-link">write</a><wbr>(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;chunkData)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeHeader()" class="member-name-link">writeHeader</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="RegionFile.CommitOp.html" title="interface in net.minecraft.world.level.chunk.storage">RegionFile.CommitOp</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeToExternalFile(java.nio.file.Path,java.nio.ByteBuffer)" class="member-name-link">writeToExternalFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_63663_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;p_63664_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeToExternalFile(java.nio.file.Path,java.nio.ByteBuffer)" class="member-name-link">writeToExternalFile</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;externalChunkFile,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;chunkData)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Writes a chunk to a separate file with only that chunk.</div>
+</div>
 </div>
 </div>
 </div>
@@ -511,10 +528,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.chunk.storage.RegionStorageInfo,java.nio.file.Path,java.nio.file.Path,boolean)">
 <h3>RegionFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RegionFile</span><wbr><span class="parameters">(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_326174_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_196950_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_196951_,
- boolean&nbsp;p_196952_)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RegionFile</span><wbr><span class="parameters">(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;externalFileDir,
+ boolean&nbsp;sync)</span>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -525,11 +542,11 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.chunk.storage.RegionStorageInfo,java.nio.file.Path,java.nio.file.Path,net.minecraft.world.level.chunk.storage.RegionFileVersion,boolean)">
 <h3>RegionFile</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RegionFile</span><wbr><span class="parameters">(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;p_326221_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_63633_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_63634_,
- <a href="RegionFileVersion.html" title="class in net.minecraft.world.level.chunk.storage">RegionFileVersion</a>&nbsp;p_63635_,
- boolean&nbsp;p_63636_)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RegionFile</span><wbr><span class="parameters">(<a href="RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;externalFileDir,
+ <a href="RegionFileVersion.html" title="class in net.minecraft.world.level.chunk.storage">RegionFileVersion</a>&nbsp;version,
+ boolean&nbsp;sync)</span>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -554,14 +571,15 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="getExternalChunkPath(net.minecraft.world.level.ChunkPos)">
 <h3>getExternalChunkPath</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getExternalChunkPath</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63685_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getExternalChunkPath</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
+<div class="block">Gets the path to store a chunk that can not be stored within the region file because it's larger than 1 MiB.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getChunkDataInputStream(net.minecraft.world.level.ChunkPos)">
 <h3>getChunkDataInputStream</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataInputStream.html" title="class or interface in java.io" class="external-link">DataInputStream</a></span>&nbsp;<span class="element-name">getChunkDataInputStream</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63646_)</span>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataInputStream.html" title="class or interface in java.io" class="external-link">DataInputStream</a></span>&nbsp;<span class="element-name">getChunkDataInputStream</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span>
                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -578,22 +596,22 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="isExternalStreamChunk(byte)">
 <h3>isExternalStreamChunk</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isExternalStreamChunk</span><wbr><span class="parameters">(byte&nbsp;p_63639_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isExternalStreamChunk</span><wbr><span class="parameters">(byte&nbsp;versionByte)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getExternalChunkVersion(byte)">
 <h3>getExternalChunkVersion</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">byte</span>&nbsp;<span class="element-name">getExternalChunkVersion</span><wbr><span class="parameters">(byte&nbsp;p_63670_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">byte</span>&nbsp;<span class="element-name">getExternalChunkVersion</span><wbr><span class="parameters">(byte&nbsp;versionByte)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="createChunkInputStream(net.minecraft.world.level.ChunkPos,byte,java.io.InputStream)">
 <h3>createChunkInputStream</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataInputStream.html" title="class or interface in java.io" class="external-link">DataInputStream</a></span>&nbsp;<span class="element-name">createChunkInputStream</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63651_,
- byte&nbsp;p_63652_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&nbsp;p_63653_)</span>
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataInputStream.html" title="class or interface in java.io" class="external-link">DataInputStream</a></span>&nbsp;<span class="element-name">createChunkInputStream</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ byte&nbsp;versionByte,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link">InputStream</a>&nbsp;inputStream)</span>
                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -605,8 +623,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <section class="detail" id="createExternalChunkInputStream(net.minecraft.world.level.ChunkPos,byte)">
 <h3>createExternalChunkInputStream</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataInputStream.html" title="class or interface in java.io" class="external-link">DataInputStream</a></span>&nbsp;<span class="element-name">createExternalChunkInputStream</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63648_,
- byte&nbsp;p_63649_)</span>
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataInputStream.html" title="class or interface in java.io" class="external-link">DataInputStream</a></span>&nbsp;<span class="element-name">createExternalChunkInputStream</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ byte&nbsp;versionByte)</span>
                                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -617,46 +635,51 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="createStream(java.nio.ByteBuffer,int)">
 <h3>createStream</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/ByteArrayInputStream.html" title="class or interface in java.io" class="external-link">ByteArrayInputStream</a></span>&nbsp;<span class="element-name">createStream</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;p_63660_,
- int&nbsp;p_63661_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/ByteArrayInputStream.html" title="class or interface in java.io" class="external-link">ByteArrayInputStream</a></span>&nbsp;<span class="element-name">createStream</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;sourceBuffer,
+ int&nbsp;length)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="packSectorOffset(int,int)">
 <h3>packSectorOffset</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">packSectorOffset</span><wbr><span class="parameters">(int&nbsp;p_63643_,
- int&nbsp;p_63644_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">packSectorOffset</span><wbr><span class="parameters">(int&nbsp;sectorOffset,
+ int&nbsp;sectorCount)</span></div>
+<div class="block">Packs the offset in 4 KiB sectors from the region file start and the amount of 4 KiB sectors used to store a chunk into one <code>int</code>.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getNumSectors(int)">
 <h3>getNumSectors</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getNumSectors</span><wbr><span class="parameters">(int&nbsp;p_63641_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getNumSectors</span><wbr><span class="parameters">(int&nbsp;packedSectorOffset)</span></div>
+<div class="block">Gets the amount of 4 KiB sectors used to store a chunk.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="getSectorNumber(int)">
 <h3>getSectorNumber</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSectorNumber</span><wbr><span class="parameters">(int&nbsp;p_63672_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSectorNumber</span><wbr><span class="parameters">(int&nbsp;packedSectorOffset)</span></div>
+<div class="block">Gets the offset in 4 KiB sectors from the start of the region file, where the data for a chunk starts.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="sizeToSectors(int)">
 <h3>sizeToSectors</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">sizeToSectors</span><wbr><span class="parameters">(int&nbsp;p_63677_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">sizeToSectors</span><wbr><span class="parameters">(int&nbsp;size)</span></div>
+<div class="block">Gets the amount of sectors required to store chunk data of a certain size in bytes.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="doesChunkExist(net.minecraft.world.level.ChunkPos)">
 <h3>doesChunkExist</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">doesChunkExist</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63674_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">doesChunkExist</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getChunkDataOutputStream(net.minecraft.world.level.ChunkPos)">
 <h3>getChunkDataOutputStream</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a></span>&nbsp;<span class="element-name">getChunkDataOutputStream</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63679_)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/DataOutputStream.html" title="class or interface in java.io" class="external-link">DataOutputStream</a></span>&nbsp;<span class="element-name">getChunkDataOutputStream</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span>
                                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Creates a new <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/InputStream.html" title="class or interface in java.io" class="external-link"><code>InputStream</code></a> for a chunk stored in a separate file.</div>
 <dl class="notes">
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
@@ -677,7 +700,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="clear(net.minecraft.world.level.ChunkPos)">
 <h3>clear</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">clear</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_156614_)</span>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">clear</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span>
            throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -688,8 +711,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="write(net.minecraft.world.level.ChunkPos,java.nio.ByteBuffer)">
 <h3>write</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63655_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;p_63656_)</span>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;chunkData)</span>
               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -706,9 +729,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="writeToExternalFile(java.nio.file.Path,java.nio.ByteBuffer)">
 <h3>writeToExternalFile</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RegionFile.CommitOp.html" title="interface in net.minecraft.world.level.chunk.storage">RegionFile.CommitOp</a></span>&nbsp;<span class="element-name">writeToExternalFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;p_63663_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;p_63664_)</span>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="RegionFile.CommitOp.html" title="interface in net.minecraft.world.level.chunk.storage">RegionFile.CommitOp</a></span>&nbsp;<span class="element-name">writeToExternalFile</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;externalChunkFile,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;chunkData)</span>
                                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<div class="block">Writes a chunk to a separate file with only that chunk. This is used for chunks larger than 1 MiB</div>
 <dl class="notes">
 <dt>Throws:</dt>
 <dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
@@ -729,19 +753,20 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="getOffset(net.minecraft.world.level.ChunkPos)">
 <h3>getOffset</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getOffset</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63687_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getOffset</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="hasChunk(net.minecraft.world.level.ChunkPos)">
 <h3>hasChunk</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasChunk</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63683_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasChunk</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getOffsetIndex(net.minecraft.world.level.ChunkPos)">
 <h3>getOffsetIndex</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getOffsetIndex</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_63689_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getOffsetIndex</span><wbr><span class="parameters">(<a href="../../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
+<div class="block">Gets the offset within the region file where the chunk metadata for a chunk can be found.</div>
 </section>
 </li>
 <li>

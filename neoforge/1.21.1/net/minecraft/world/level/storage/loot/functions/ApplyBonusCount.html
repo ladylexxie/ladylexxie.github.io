@@ -98,6 +98,7 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ApplyBonusCount</span>
 <span class="extends-implements">extends <a href="LootItemConditionalFunction.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction</a></span></div>
+<div class="block">LootItemFunction that modifies the stack's count based on an enchantment level on the <a href="../parameters/LootContextParams.html#TOOL">tool</a> using various formulas.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -112,7 +113,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>(package private) static final record&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="ApplyBonusCount.BinomialWithBonusCount.html" class="type-name-link" title="class in net.minecraft.world.level.storage.loot.functions">ApplyBonusCount.BinomialWithBonusCount</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Applies a bonus based on a binomial distribution with <code>n = enchantmentLevel + extraRounds</code> and <code>p = probability</code>.</div>
+</div>
 <div class="col-first odd-row-color"><code>(package private) static interface&nbsp;</code></div>
 <div class="col-second odd-row-color"><code><a href="ApplyBonusCount.Formula.html" class="type-name-link" title="interface in net.minecraft.world.level.storage.loot.functions">ApplyBonusCount.Formula</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
@@ -121,10 +124,14 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>(package private) static final record&nbsp;</code></div>
 <div class="col-second odd-row-color"><code><a href="ApplyBonusCount.OreDrops.html" class="type-name-link" title="class in net.minecraft.world.level.storage.loot.functions">ApplyBonusCount.OreDrops</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Applies a bonus count with a special formula used for fortune ore drops.</div>
+</div>
 <div class="col-first even-row-color"><code>(package private) static final record&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="ApplyBonusCount.UniformBonusCount.html" class="type-name-link" title="class in net.minecraft.world.level.storage.loot.functions">ApplyBonusCount.UniformBonusCount</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Adds a bonus count based on the enchantment level scaled by a constant multiplier.</div>
+</div>
 </div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraft.world.level.storage.loot.functions.LootItemConditionalFunction">Nested classes/interfaces inherited from class&nbsp;net.minecraft.world.level.storage.loot.functions.<a href="LootItemConditionalFunction.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction</a></h2>
@@ -174,9 +181,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,net.minecraft.core.Holder,net.minecraft.world.level.storage.loot.functions.ApplyBonusCount.Formula)" class="member-name-link">ApplyBonusCount</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_298532_,
- <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_298797_,
- <a href="ApplyBonusCount.Formula.html" title="interface in net.minecraft.world.level.storage.loot.functions">ApplyBonusCount.Formula</a>&nbsp;p_79905_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,net.minecraft.core.Holder,net.minecraft.world.level.storage.loot.functions.ApplyBonusCount.Formula)" class="member-name-link">ApplyBonusCount</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;predicates,
+ <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment,
+ <a href="ApplyBonusCount.Formula.html" title="interface in net.minecraft.world.level.storage.loot.functions">ApplyBonusCount.Formula</a>&nbsp;formula)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -193,19 +200,19 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addBonusBinomialDistributionCount(net.minecraft.core.Holder,float,int)" class="member-name-link">addBonusBinomialDistributionCount</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_345484_,
- float&nbsp;p_79919_,
- int&nbsp;p_79920_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addBonusBinomialDistributionCount(net.minecraft.core.Holder,float,int)" class="member-name-link">addBonusBinomialDistributionCount</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment,
+ float&nbsp;probability,
+ int&nbsp;extraRounds)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addOreBonusCount(net.minecraft.core.Holder)" class="member-name-link">addOreBonusCount</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_344867_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addOreBonusCount(net.minecraft.core.Holder)" class="member-name-link">addOreBonusCount</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addUniformBonusCount(net.minecraft.core.Holder)" class="member-name-link">addUniformBonusCount</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_345095_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addUniformBonusCount(net.minecraft.core.Holder)" class="member-name-link">addUniformBonusCount</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addUniformBonusCount(net.minecraft.core.Holder,int)" class="member-name-link">addUniformBonusCount</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_344758_,
- int&nbsp;p_79923_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addUniformBonusCount(net.minecraft.core.Holder,int)" class="member-name-link">addUniformBonusCount</a><wbr>(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment,
+ int&nbsp;bonusMultiplier)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReferencedContextParams()" class="member-name-link">getReferencedContextParams</a>()</code></div>
@@ -214,9 +221,11 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">run</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_79913_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_79914_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">run</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;context)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Called to perform the actual action of this function, after conditions have been checked.</div>
+</div>
 </div>
 </div>
 </div>
@@ -287,9 +296,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(java.util.List,net.minecraft.core.Holder,net.minecraft.world.level.storage.loot.functions.ApplyBonusCount.Formula)">
 <h3>ApplyBonusCount</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">ApplyBonusCount</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_298532_,
- <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_298797_,
- <a href="ApplyBonusCount.Formula.html" title="interface in net.minecraft.world.level.storage.loot.functions">ApplyBonusCount.Formula</a>&nbsp;p_79905_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">ApplyBonusCount</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;predicates,
+ <a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment,
+ <a href="ApplyBonusCount.Formula.html" title="interface in net.minecraft.world.level.storage.loot.functions">ApplyBonusCount.Formula</a>&nbsp;formula)</span></div>
 </section>
 </li>
 </ul>
@@ -321,8 +330,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)">
 <h3>run</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">run</span><wbr><span class="parameters">(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_79913_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_79914_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">run</span><wbr><span class="parameters">(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;context)</span></div>
+<div class="block">Called to perform the actual action of this function, after conditions have been checked.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="LootItemConditionalFunction.html#run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)">run</a></code>&nbsp;in class&nbsp;<code><a href="LootItemConditionalFunction.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction</a></code></dd>
@@ -332,28 +342,28 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="addBonusBinomialDistributionCount(net.minecraft.core.Holder,float,int)">
 <h3>addBonusBinomialDistributionCount</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">addBonusBinomialDistributionCount</span><wbr><span class="parameters">(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_345484_,
- float&nbsp;p_79919_,
- int&nbsp;p_79920_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">addBonusBinomialDistributionCount</span><wbr><span class="parameters">(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment,
+ float&nbsp;probability,
+ int&nbsp;extraRounds)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addOreBonusCount(net.minecraft.core.Holder)">
 <h3>addOreBonusCount</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">addOreBonusCount</span><wbr><span class="parameters">(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_344867_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">addOreBonusCount</span><wbr><span class="parameters">(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addUniformBonusCount(net.minecraft.core.Holder)">
 <h3>addUniformBonusCount</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">addUniformBonusCount</span><wbr><span class="parameters">(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_345095_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">addUniformBonusCount</span><wbr><span class="parameters">(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addUniformBonusCount(net.minecraft.core.Holder,int)">
 <h3>addUniformBonusCount</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">addUniformBonusCount</span><wbr><span class="parameters">(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;p_344758_,
- int&nbsp;p_79923_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">addUniformBonusCount</span><wbr><span class="parameters">(<a href="../../../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../item/enchantment/Enchantment.html" title="class in net.minecraft.world.item.enchantment">Enchantment</a>&gt;&nbsp;enchantment,
+ int&nbsp;bonusMultiplier)</span></div>
 </section>
 </li>
 </ul>

@@ -98,6 +98,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">FillPlayerHead</span>
 <span class="extends-implements">extends <a href="LootItemConditionalFunction.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction</a></span></div>
+<div class="block">LootItemFunction that applies the <code>"SkullOwner"</code> NBT tag to any player heads based on the given <a href="../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot"><code>LootContext.EntityTarget</code></a>.
+ If the given target does not resolve to a player, nothing happens.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -139,8 +141,8 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,net.minecraft.world.level.storage.loot.LootContext.EntityTarget)" class="member-name-link">FillPlayerHead</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_298265_,
- <a href="../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;p_80605_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,net.minecraft.world.level.storage.loot.LootContext.EntityTarget)" class="member-name-link">FillPlayerHead</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;conditions,
+ <a href="../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;entityTarget)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -157,7 +159,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a><wbr>&lt;?&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fillPlayerHead(net.minecraft.world.level.storage.loot.LootContext.EntityTarget)" class="member-name-link">fillPlayerHead</a><wbr>(<a href="../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;p_165208_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fillPlayerHead(net.minecraft.world.level.storage.loot.LootContext.EntityTarget)" class="member-name-link">fillPlayerHead</a><wbr>(<a href="../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;entityTarget)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../parameters/LootContextParam.html" title="class in net.minecraft.world.level.storage.loot.parameters">LootContextParam</a>&lt;?&gt;&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReferencedContextParams()" class="member-name-link">getReferencedContextParams</a>()</code></div>
@@ -166,9 +168,11 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">run</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_80608_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_80609_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)" class="member-name-link">run</a><wbr>(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;context)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Called to perform the actual action of this function, after conditions have been checked.</div>
+</div>
 </div>
 </div>
 </div>
@@ -215,8 +219,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(java.util.List,net.minecraft.world.level.storage.loot.LootContext.EntityTarget)">
 <h3>FillPlayerHead</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FillPlayerHead</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;p_298265_,
- <a href="../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;p_80605_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FillPlayerHead</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../predicates/LootItemCondition.html" title="interface in net.minecraft.world.level.storage.loot.predicates">LootItemCondition</a>&gt;&nbsp;conditions,
+ <a href="../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;entityTarget)</span></div>
 </section>
 </li>
 </ul>
@@ -248,8 +252,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)">
 <h3>run</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">run</span><wbr><span class="parameters">(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_80608_,
- <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;p_80609_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">run</span><wbr><span class="parameters">(<a href="../../../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ <a href="../LootContext.html" title="class in net.minecraft.world.level.storage.loot">LootContext</a>&nbsp;context)</span></div>
+<div class="block">Called to perform the actual action of this function, after conditions have been checked.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="LootItemConditionalFunction.html#run(net.minecraft.world.item.ItemStack,net.minecraft.world.level.storage.loot.LootContext)">run</a></code>&nbsp;in class&nbsp;<code><a href="LootItemConditionalFunction.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction</a></code></dd>
@@ -259,7 +264,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="fillPlayerHead(net.minecraft.world.level.storage.loot.LootContext.EntityTarget)">
 <h3>fillPlayerHead</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">fillPlayerHead</span><wbr><span class="parameters">(<a href="../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;p_165208_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LootItemConditionalFunction.Builder.html" title="class in net.minecraft.world.level.storage.loot.functions">LootItemConditionalFunction.Builder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">fillPlayerHead</span><wbr><span class="parameters">(<a href="../LootContext.EntityTarget.html" title="enum class in net.minecraft.world.level.storage.loot">LootContext.EntityTarget</a>&nbsp;entityTarget)</span></div>
 </section>
 </li>
 </ul>

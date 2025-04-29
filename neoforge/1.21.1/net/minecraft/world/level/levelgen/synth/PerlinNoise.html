@@ -92,6 +92,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">PerlinNoise</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">This class generates multiple octaves of perlin noise. Each individual octave is an instance of <a href="ImprovedNoise.html" title="class in net.minecraft.world.level.levelgen.synth"><code>ImprovedNoise</code></a>.
+ Mojang uses the term 'Perlin' to describe octaves or fBm (Fractal Brownian Motion) noise.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -138,9 +140,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.RandomSource,com.mojang.datafixers.util.Pair,boolean)" class="member-name-link">PerlinNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230515_,
- com.mojang.datafixers.util.Pair&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr>it.unimi.dsi.fastutil.doubles.DoubleList&gt;&nbsp;p_230516_,
- boolean&nbsp;p_230517_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.RandomSource,com.mojang.datafixers.util.Pair,boolean)" class="member-name-link">PerlinNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ com.mojang.datafixers.util.Pair&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr>it.unimi.dsi.fastutil.doubles.DoubleList&gt;&nbsp;octavesAndAmplitudes,
+ boolean&nbsp;useNewFactory)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -160,78 +162,78 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#amplitudes()" class="member-name-link">amplitudes</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.util.RandomSource,int,double,double...)" class="member-name-link">create</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230521_,
- int&nbsp;p_230522_,
- double&nbsp;p_230523_,
- double...&nbsp;p_230524_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.util.RandomSource,int,double,double...)" class="member-name-link">create</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ int&nbsp;firstOctave,
+ double&nbsp;firstAmplitude,
+ double...&nbsp;amplitudes)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.util.RandomSource,int,it.unimi.dsi.fastutil.doubles.DoubleList)" class="member-name-link">create</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230536_,
- int&nbsp;p_230537_,
- it.unimi.dsi.fastutil.doubles.DoubleList&nbsp;p_230538_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.util.RandomSource,int,it.unimi.dsi.fastutil.doubles.DoubleList)" class="member-name-link">create</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ int&nbsp;firstOctave,
+ it.unimi.dsi.fastutil.doubles.DoubleList&nbsp;amplitudes)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.util.RandomSource,java.util.List)" class="member-name-link">create</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230530_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;p_230531_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.util.RandomSource,java.util.List)" class="member-name-link">create</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;octaves)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.util.RandomSource,java.util.stream.IntStream)" class="member-name-link">create</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230540_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&nbsp;p_230541_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(net.minecraft.util.RandomSource,java.util.stream.IntStream)" class="member-name-link">create</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&nbsp;octaves)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#createLegacyForBlendedNoise(net.minecraft.util.RandomSource,java.util.stream.IntStream)" class="member-name-link">createLegacyForBlendedNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230533_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&nbsp;p_230534_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#createLegacyForBlendedNoise(net.minecraft.util.RandomSource,java.util.stream.IntStream)" class="member-name-link">createLegacyForBlendedNoise</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&nbsp;octaves)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code>static <a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#createLegacyForLegacyNetherBiome(net.minecraft.util.RandomSource,int,it.unimi.dsi.fastutil.doubles.DoubleList)" class="member-name-link">createLegacyForLegacyNetherBiome</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230526_,
- int&nbsp;p_230527_,
- it.unimi.dsi.fastutil.doubles.DoubleList&nbsp;p_230528_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#createLegacyForLegacyNetherBiome(net.minecraft.util.RandomSource,int,it.unimi.dsi.fastutil.doubles.DoubleList)" class="member-name-link">createLegacyForLegacyNetherBiome</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ int&nbsp;firstOctave,
+ it.unimi.dsi.fastutil.doubles.DoubleList&nbsp;amplitudes)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4 method-summary-table-tab6">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#edgeValue(double)" class="member-name-link">edgeValue</a><wbr>(double&nbsp;p_210650_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#edgeValue(double)" class="member-name-link">edgeValue</a><wbr>(double&nbsp;multiplier)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#firstOctave()" class="member-name-link">firstOctave</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ImprovedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">ImprovedNoise</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOctaveNoise(int)" class="member-name-link">getOctaveNoise</a><wbr>(int&nbsp;p_75425_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOctaveNoise(int)" class="member-name-link">getOctaveNoise</a><wbr>(int&nbsp;octave)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue(double,double,double)" class="member-name-link">getValue</a><wbr>(double&nbsp;p_75409_,
- double&nbsp;p_75410_,
- double&nbsp;p_75411_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue(double,double,double)" class="member-name-link">getValue</a><wbr>(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#getValue(double,double,double,double,double,boolean)" class="member-name-link">getValue</a><wbr>(double&nbsp;p_75418_,
- double&nbsp;p_75419_,
- double&nbsp;p_75420_,
- double&nbsp;p_75421_,
- double&nbsp;p_75422_,
- boolean&nbsp;p_75423_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#getValue(double,double,double,double,double,boolean)" class="member-name-link">getValue</a><wbr>(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;yScale,
+ double&nbsp;yMax,
+ boolean&nbsp;useFixedY)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
 <div class="block"><span class="deprecated-label">Deprecated.</span></div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static com.mojang.datafixers.util.Pair<wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr>it.unimi.dsi.fastutil.doubles.DoubleList&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#makeAmplitudes(it.unimi.dsi.fastutil.ints.IntSortedSet)" class="member-name-link">makeAmplitudes</a><wbr>(it.unimi.dsi.fastutil.ints.IntSortedSet&nbsp;p_75431_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#makeAmplitudes(it.unimi.dsi.fastutil.ints.IntSortedSet)" class="member-name-link">makeAmplitudes</a><wbr>(it.unimi.dsi.fastutil.ints.IntSortedSet&nbsp;octaves)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxBrokenValue(double)" class="member-name-link">maxBrokenValue</a><wbr>(double&nbsp;p_210644_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxBrokenValue(double)" class="member-name-link">maxBrokenValue</a><wbr>(double&nbsp;yMultiplier)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected double</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxValue()" class="member-name-link">maxValue</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parityConfigString(java.lang.StringBuilder)" class="member-name-link">parityConfigString</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html" title="class or interface in java.lang" class="external-link">StringBuilder</a>&nbsp;p_192891_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parityConfigString(java.lang.StringBuilder)" class="member-name-link">parityConfigString</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html" title="class or interface in java.lang" class="external-link">StringBuilder</a>&nbsp;builder)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#skipOctave(net.minecraft.util.RandomSource)" class="member-name-link">skipOctave</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230519_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#skipOctave(net.minecraft.util.RandomSource)" class="member-name-link">skipOctave</a><wbr>(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static double</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#wrap(double)" class="member-name-link">wrap</a><wbr>(double&nbsp;p_75407_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#wrap(double)" class="member-name-link">wrap</a><wbr>(double&nbsp;value)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -311,9 +313,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.util.RandomSource,com.mojang.datafixers.util.Pair,boolean)">
 <h3>PerlinNoise</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">PerlinNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230515_,
- com.mojang.datafixers.util.Pair&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr>it.unimi.dsi.fastutil.doubles.DoubleList&gt;&nbsp;p_230516_,
- boolean&nbsp;p_230517_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">PerlinNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ com.mojang.datafixers.util.Pair&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr>it.unimi.dsi.fastutil.doubles.DoubleList&gt;&nbsp;octavesAndAmplitudes,
+ boolean&nbsp;useNewFactory)</span></div>
 </section>
 </li>
 </ul>
@@ -328,8 +330,8 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="createLegacyForBlendedNoise(net.minecraft.util.RandomSource,java.util.stream.IntStream)">
 <h3>createLegacyForBlendedNoise</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">createLegacyForBlendedNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230533_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&nbsp;p_230534_)</span></div>
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">createLegacyForBlendedNoise</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&nbsp;octaves)</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </section>
 </li>
@@ -337,47 +339,47 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="createLegacyForLegacyNetherBiome(net.minecraft.util.RandomSource,int,it.unimi.dsi.fastutil.doubles.DoubleList)">
 <h3>createLegacyForLegacyNetherBiome</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">createLegacyForLegacyNetherBiome</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230526_,
- int&nbsp;p_230527_,
- it.unimi.dsi.fastutil.doubles.DoubleList&nbsp;p_230528_)</span></div>
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">createLegacyForLegacyNetherBiome</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ int&nbsp;firstOctave,
+ it.unimi.dsi.fastutil.doubles.DoubleList&nbsp;amplitudes)</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="create(net.minecraft.util.RandomSource,java.util.stream.IntStream)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230540_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&nbsp;p_230541_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&nbsp;octaves)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="create(net.minecraft.util.RandomSource,java.util.List)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230530_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;p_230531_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;octaves)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="create(net.minecraft.util.RandomSource,int,double,double...)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230521_,
- int&nbsp;p_230522_,
- double&nbsp;p_230523_,
- double...&nbsp;p_230524_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ int&nbsp;firstOctave,
+ double&nbsp;firstAmplitude,
+ double...&nbsp;amplitudes)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="create(net.minecraft.util.RandomSource,int,it.unimi.dsi.fastutil.doubles.DoubleList)">
 <h3>create</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230536_,
- int&nbsp;p_230537_,
- it.unimi.dsi.fastutil.doubles.DoubleList&nbsp;p_230538_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="PerlinNoise.html" title="class in net.minecraft.world.level.levelgen.synth">PerlinNoise</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ int&nbsp;firstOctave,
+ it.unimi.dsi.fastutil.doubles.DoubleList&nbsp;amplitudes)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="makeAmplitudes(it.unimi.dsi.fastutil.ints.IntSortedSet)">
 <h3>makeAmplitudes</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">com.mojang.datafixers.util.Pair&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr>it.unimi.dsi.fastutil.doubles.DoubleList&gt;</span>&nbsp;<span class="element-name">makeAmplitudes</span><wbr><span class="parameters">(it.unimi.dsi.fastutil.ints.IntSortedSet&nbsp;p_75431_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">com.mojang.datafixers.util.Pair&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>,<wbr>it.unimi.dsi.fastutil.doubles.DoubleList&gt;</span>&nbsp;<span class="element-name">makeAmplitudes</span><wbr><span class="parameters">(it.unimi.dsi.fastutil.ints.IntSortedSet&nbsp;octaves)</span></div>
 </section>
 </li>
 <li>
@@ -389,53 +391,57 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="skipOctave(net.minecraft.util.RandomSource)">
 <h3>skipOctave</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">skipOctave</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_230519_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">skipOctave</span><wbr><span class="parameters">(<a href="../../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getValue(double,double,double)">
 <h3>getValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(double&nbsp;p_75409_,
- double&nbsp;p_75410_,
- double&nbsp;p_75411_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getValue(double,double,double,double,double,boolean)">
 <h3>getValue</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(double&nbsp;p_75418_,
- double&nbsp;p_75419_,
- double&nbsp;p_75420_,
- double&nbsp;p_75421_,
- double&nbsp;p_75422_,
- boolean&nbsp;p_75423_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;yScale,
+ double&nbsp;yMax,
+ boolean&nbsp;useFixedY)</span></div>
 <div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="maxBrokenValue(double)">
 <h3>maxBrokenValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">maxBrokenValue</span><wbr><span class="parameters">(double&nbsp;p_210644_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">maxBrokenValue</span><wbr><span class="parameters">(double&nbsp;yMultiplier)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="edgeValue(double)">
 <h3>edgeValue</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">edgeValue</span><wbr><span class="parameters">(double&nbsp;p_210650_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">edgeValue</span><wbr><span class="parameters">(double&nbsp;multiplier)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getOctaveNoise(int)">
 <h3>getOctaveNoise</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ImprovedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">ImprovedNoise</a></span>&nbsp;<span class="element-name">getOctaveNoise</span><wbr><span class="parameters">(int&nbsp;p_75425_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ImprovedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">ImprovedNoise</a></span>&nbsp;<span class="element-name">getOctaveNoise</span><wbr><span class="parameters">(int&nbsp;octave)</span></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>A single octave of Perlin noise.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="wrap(double)">
 <h3>wrap</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">wrap</span><wbr><span class="parameters">(double&nbsp;p_75407_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">wrap</span><wbr><span class="parameters">(double&nbsp;value)</span></div>
 </section>
 </li>
 <li>
@@ -453,7 +459,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="parityConfigString(java.lang.StringBuilder)">
 <h3>parityConfigString</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">parityConfigString</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html" title="class or interface in java.lang" class="external-link">StringBuilder</a>&nbsp;p_192891_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">parityConfigString</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/StringBuilder.html" title="class or interface in java.lang" class="external-link">StringBuilder</a>&nbsp;builder)</span></div>
 </section>
 </li>
 </ul>

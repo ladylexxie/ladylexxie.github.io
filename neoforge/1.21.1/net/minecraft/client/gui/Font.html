@@ -165,8 +165,8 @@ implements <a href="../../../neoforged/neoforge/client/extensions/IFontExtension
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.function.Function,boolean)" class="member-name-link">Font</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>,<wbr><a href="font/FontSet.html" title="class in net.minecraft.client.gui.font">FontSet</a>&gt;&nbsp;p_243253_,
- boolean&nbsp;p_243245_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.function.Function,boolean)" class="member-name-link">Font</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>,<wbr><a href="font/FontSet.html" title="class in net.minecraft.client.gui.font">FontSet</a>&gt;&nbsp;fonts,
+ boolean&nbsp;filterFishyGlyphs)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -183,97 +183,99 @@ implements <a href="../../../neoforged/neoforge/client/extensions/IFontExtension
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#adjustColor(int)" class="member-name-link">adjustColor</a><wbr>(int&nbsp;p_92720_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#adjustColor(int)" class="member-name-link">adjustColor</a><wbr>(int&nbsp;color)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#bidirectionalShaping(java.lang.String)" class="member-name-link">bidirectionalShaping</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92802_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#bidirectionalShaping(java.lang.String)" class="member-name-link">bidirectionalShaping</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Apply Unicode Bidirectional Algorithm to string and return a new possibly reordered string for visual rendering.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">drawInBatch</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_272751_,
- float&nbsp;p_272661_,
- float&nbsp;p_273129_,
- int&nbsp;p_273272_,
- boolean&nbsp;p_273209_,
- org.joml.Matrix4f&nbsp;p_272940_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273017_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_272608_,
- int&nbsp;p_273365_,
- int&nbsp;p_272755_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">drawInBatch</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int,boolean)" class="member-name-link">drawInBatch</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_272780_,
- float&nbsp;p_272811_,
- float&nbsp;p_272610_,
- int&nbsp;p_273422_,
- boolean&nbsp;p_273016_,
- org.joml.Matrix4f&nbsp;p_273443_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273387_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273551_,
- int&nbsp;p_272706_,
- int&nbsp;p_273114_,
- boolean&nbsp;p_273022_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int,boolean)" class="member-name-link">drawInBatch</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords,
+ boolean&nbsp;bidirectional)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch(net.minecraft.network.chat.Component,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">drawInBatch</a><wbr>(<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_273032_,
- float&nbsp;p_273249_,
- float&nbsp;p_273594_,
- int&nbsp;p_273714_,
- boolean&nbsp;p_273050_,
- org.joml.Matrix4f&nbsp;p_272974_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273695_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_272782_,
- int&nbsp;p_272603_,
- int&nbsp;p_273632_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch(net.minecraft.network.chat.Component,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">drawInBatch</a><wbr>(<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch(net.minecraft.util.FormattedCharSequence,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">drawInBatch</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_273262_,
- float&nbsp;p_273006_,
- float&nbsp;p_273254_,
- int&nbsp;p_273375_,
- boolean&nbsp;p_273674_,
- org.joml.Matrix4f&nbsp;p_273525_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_272624_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273418_,
- int&nbsp;p_273330_,
- int&nbsp;p_272981_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch(net.minecraft.util.FormattedCharSequence,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">drawInBatch</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch8xOutline(net.minecraft.util.FormattedCharSequence,float,float,int,int,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,int)" class="member-name-link">drawInBatch8xOutline</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_168646_,
- float&nbsp;p_168647_,
- float&nbsp;p_168648_,
- int&nbsp;p_168649_,
- int&nbsp;p_168650_,
- org.joml.Matrix4f&nbsp;p_254170_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_168652_,
- int&nbsp;p_168653_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInBatch8xOutline(net.minecraft.util.FormattedCharSequence,float,float,int,int,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,int)" class="member-name-link">drawInBatch8xOutline</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ int&nbsp;backgroundColor,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ int&nbsp;packedLightCoords)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInternal(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int,boolean)" class="member-name-link">drawInternal</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_273658_,
- float&nbsp;p_273086_,
- float&nbsp;p_272883_,
- int&nbsp;p_273547_,
- boolean&nbsp;p_272778_,
- org.joml.Matrix4f&nbsp;p_272662_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273012_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273381_,
- int&nbsp;p_272855_,
- int&nbsp;p_272745_,
- boolean&nbsp;p_272785_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInternal(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int,boolean)" class="member-name-link">drawInternal</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords,
+ boolean&nbsp;bidirectional)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInternal(net.minecraft.util.FormattedCharSequence,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">drawInternal</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_273025_,
- float&nbsp;p_273121_,
- float&nbsp;p_272717_,
- int&nbsp;p_273653_,
- boolean&nbsp;p_273531_,
- org.joml.Matrix4f&nbsp;p_273265_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273560_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273342_,
- int&nbsp;p_273373_,
- int&nbsp;p_273266_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawInternal(net.minecraft.util.FormattedCharSequence,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">drawInternal</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="font/FontSet.html" title="class in net.minecraft.client.gui.font">FontSet</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFontSet(net.minecraft.resources.ResourceLocation)" class="member-name-link">getFontSet</a><wbr>(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_92864_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFontSet(net.minecraft.resources.ResourceLocation)" class="member-name-link">getFontSet</a><wbr>(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;fontLocation)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../StringSplitter.html" title="class in net.minecraft.client">StringSplitter</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSplitter()" class="member-name-link">getSplitter</a>()</code></div>
@@ -282,80 +284,84 @@ implements <a href="../../../neoforged/neoforge/client/extensions/IFontExtension
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isBidirectional()" class="member-name-link">isBidirectional</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#plainSubstrByWidth(java.lang.String,int)" class="member-name-link">plainSubstrByWidth</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92835_,
- int&nbsp;p_92836_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#plainSubstrByWidth(java.lang.String,int)" class="member-name-link">plainSubstrByWidth</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ int&nbsp;maxWidth)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#plainSubstrByWidth(java.lang.String,int,boolean)" class="member-name-link">plainSubstrByWidth</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92838_,
- int&nbsp;p_92839_,
- boolean&nbsp;p_92840_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#plainSubstrByWidth(java.lang.String,int,boolean)" class="member-name-link">plainSubstrByWidth</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ int&nbsp;maxWidth,
+ boolean&nbsp;tail)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderChar(net.minecraft.client.gui.font.glyphs.BakedGlyph,boolean,boolean,float,float,float,org.joml.Matrix4f,com.mojang.blaze3d.vertex.VertexConsumer,float,float,float,float,int)" class="member-name-link">renderChar</a><wbr>(<a href="font/glyphs/BakedGlyph.html" title="class in net.minecraft.client.gui.font.glyphs">BakedGlyph</a>&nbsp;p_254105_,
- boolean&nbsp;p_254001_,
- boolean&nbsp;p_254262_,
- float&nbsp;p_254256_,
- float&nbsp;p_253753_,
- float&nbsp;p_253629_,
- org.joml.Matrix4f&nbsp;p_254014_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_253852_,
- float&nbsp;p_254317_,
- float&nbsp;p_253809_,
- float&nbsp;p_253870_,
- float&nbsp;p_254287_,
- int&nbsp;p_253905_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderChar(net.minecraft.client.gui.font.glyphs.BakedGlyph,boolean,boolean,float,float,float,org.joml.Matrix4f,com.mojang.blaze3d.vertex.VertexConsumer,float,float,float,float,int)" class="member-name-link">renderChar</a><wbr>(<a href="font/glyphs/BakedGlyph.html" title="class in net.minecraft.client.gui.font.glyphs">BakedGlyph</a>&nbsp;glyph,
+ boolean&nbsp;bold,
+ boolean&nbsp;italic,
+ float&nbsp;boldOffset,
+ float&nbsp;x,
+ float&nbsp;y,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;buffer,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha,
+ int&nbsp;packedLight)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private float</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderText(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">renderText</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_273765_,
- float&nbsp;p_273532_,
- float&nbsp;p_272783_,
- int&nbsp;p_273217_,
- boolean&nbsp;p_273583_,
- org.joml.Matrix4f&nbsp;p_272734_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_272595_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273610_,
- int&nbsp;p_273727_,
- int&nbsp;p_273199_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderText(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">renderText</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private float</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderText(net.minecraft.util.FormattedCharSequence,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">renderText</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_273322_,
- float&nbsp;p_272632_,
- float&nbsp;p_273541_,
- int&nbsp;p_273200_,
- boolean&nbsp;p_273312_,
- org.joml.Matrix4f&nbsp;p_273276_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273392_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_272625_,
- int&nbsp;p_273774_,
- int&nbsp;p_273371_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderText(net.minecraft.util.FormattedCharSequence,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)" class="member-name-link">renderText</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Font.html" title="class in net.minecraft.client.gui">Font</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#self()" class="member-name-link">self</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#split(net.minecraft.network.chat.FormattedText,int)" class="member-name-link">split</a><wbr>(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;p_92924_,
- int&nbsp;p_92925_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#split(net.minecraft.network.chat.FormattedText,int)" class="member-name-link">split</a><wbr>(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;text,
+ int&nbsp;maxWidth)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#substrByWidth(net.minecraft.network.chat.FormattedText,int)" class="member-name-link">substrByWidth</a><wbr>(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;p_92855_,
- int&nbsp;p_92856_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#substrByWidth(net.minecraft.network.chat.FormattedText,int)" class="member-name-link">substrByWidth</a><wbr>(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;text,
+ int&nbsp;maxWidth)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#width(java.lang.String)" class="member-name-link">width</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92896_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#width(java.lang.String)" class="member-name-link">width</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the width of this string.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#width(net.minecraft.network.chat.FormattedText)" class="member-name-link">width</a><wbr>(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;text)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#width(net.minecraft.util.FormattedCharSequence)" class="member-name-link">width</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#width(net.minecraft.network.chat.FormattedText)" class="member-name-link">width</a><wbr>(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;p_92853_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#wordWrapHeight(java.lang.String,int)" class="member-name-link">wordWrapHeight</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ int&nbsp;maxWidth)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the height (in pixels) of the given string if it is wordwrapped to the given max width.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#width(net.minecraft.util.FormattedCharSequence)" class="member-name-link">width</a><wbr>(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_92725_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#wordWrapHeight(java.lang.String,int)" class="member-name-link">wordWrapHeight</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92921_,
- int&nbsp;p_92922_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
-<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#wordWrapHeight(net.minecraft.network.chat.FormattedText,int)" class="member-name-link">wordWrapHeight</a><wbr>(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;p_239134_,
- int&nbsp;p_239135_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#wordWrapHeight(net.minecraft.network.chat.FormattedText,int)" class="member-name-link">wordWrapHeight</a><wbr>(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;text,
+ int&nbsp;maxWidth)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -460,8 +466,8 @@ implements <a href="../../../neoforged/neoforge/client/extensions/IFontExtension
 <li>
 <section class="detail" id="&lt;init&gt;(java.util.function.Function,boolean)">
 <h3>Font</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Font</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>,<wbr><a href="font/FontSet.html" title="class in net.minecraft.client.gui.font">FontSet</a>&gt;&nbsp;p_243253_,
- boolean&nbsp;p_243245_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Font</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>,<wbr><a href="font/FontSet.html" title="class in net.minecraft.client.gui.font">FontSet</a>&gt;&nbsp;fonts,
+ boolean&nbsp;filterFishyGlyphs)</span></div>
 </section>
 </li>
 </ul>
@@ -475,233 +481,236 @@ implements <a href="../../../neoforged/neoforge/client/extensions/IFontExtension
 <li>
 <section class="detail" id="getFontSet(net.minecraft.resources.ResourceLocation)">
 <h3>getFontSet</h3>
-<div class="member-signature"><span class="return-type"><a href="font/FontSet.html" title="class in net.minecraft.client.gui.font">FontSet</a></span>&nbsp;<span class="element-name">getFontSet</span><wbr><span class="parameters">(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_92864_)</span></div>
+<div class="member-signature"><span class="return-type"><a href="font/FontSet.html" title="class in net.minecraft.client.gui.font">FontSet</a></span>&nbsp;<span class="element-name">getFontSet</span><wbr><span class="parameters">(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;fontLocation)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="bidirectionalShaping(java.lang.String)">
 <h3>bidirectionalShaping</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">bidirectionalShaping</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92802_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">bidirectionalShaping</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text)</span></div>
+<div class="block">Apply Unicode Bidirectional Algorithm to string and return a new possibly reordered string for visual rendering.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="drawInBatch(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)">
 <h3>drawInBatch</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInBatch</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_272751_,
- float&nbsp;p_272661_,
- float&nbsp;p_273129_,
- int&nbsp;p_273272_,
- boolean&nbsp;p_273209_,
- org.joml.Matrix4f&nbsp;p_272940_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273017_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_272608_,
- int&nbsp;p_273365_,
- int&nbsp;p_272755_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInBatch</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="drawInBatch(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int,boolean)">
 <h3>drawInBatch</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInBatch</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_272780_,
- float&nbsp;p_272811_,
- float&nbsp;p_272610_,
- int&nbsp;p_273422_,
- boolean&nbsp;p_273016_,
- org.joml.Matrix4f&nbsp;p_273443_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273387_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273551_,
- int&nbsp;p_272706_,
- int&nbsp;p_273114_,
- boolean&nbsp;p_273022_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInBatch</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords,
+ boolean&nbsp;bidirectional)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="drawInBatch(net.minecraft.network.chat.Component,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)">
 <h3>drawInBatch</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInBatch</span><wbr><span class="parameters">(<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;p_273032_,
- float&nbsp;p_273249_,
- float&nbsp;p_273594_,
- int&nbsp;p_273714_,
- boolean&nbsp;p_273050_,
- org.joml.Matrix4f&nbsp;p_272974_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273695_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_272782_,
- int&nbsp;p_272603_,
- int&nbsp;p_273632_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInBatch</span><wbr><span class="parameters">(<a href="../../network/chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="drawInBatch(net.minecraft.util.FormattedCharSequence,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)">
 <h3>drawInBatch</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInBatch</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_273262_,
- float&nbsp;p_273006_,
- float&nbsp;p_273254_,
- int&nbsp;p_273375_,
- boolean&nbsp;p_273674_,
- org.joml.Matrix4f&nbsp;p_273525_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_272624_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273418_,
- int&nbsp;p_273330_,
- int&nbsp;p_272981_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInBatch</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="drawInBatch8xOutline(net.minecraft.util.FormattedCharSequence,float,float,int,int,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,int)">
 <h3>drawInBatch8xOutline</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">drawInBatch8xOutline</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_168646_,
- float&nbsp;p_168647_,
- float&nbsp;p_168648_,
- int&nbsp;p_168649_,
- int&nbsp;p_168650_,
- org.joml.Matrix4f&nbsp;p_254170_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_168652_,
- int&nbsp;p_168653_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">drawInBatch8xOutline</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ int&nbsp;backgroundColor,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ int&nbsp;packedLightCoords)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="adjustColor(int)">
 <h3>adjustColor</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">adjustColor</span><wbr><span class="parameters">(int&nbsp;p_92720_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">adjustColor</span><wbr><span class="parameters">(int&nbsp;color)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="drawInternal(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int,boolean)">
 <h3>drawInternal</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInternal</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_273658_,
- float&nbsp;p_273086_,
- float&nbsp;p_272883_,
- int&nbsp;p_273547_,
- boolean&nbsp;p_272778_,
- org.joml.Matrix4f&nbsp;p_272662_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273012_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273381_,
- int&nbsp;p_272855_,
- int&nbsp;p_272745_,
- boolean&nbsp;p_272785_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInternal</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords,
+ boolean&nbsp;bidirectional)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="drawInternal(net.minecraft.util.FormattedCharSequence,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)">
 <h3>drawInternal</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInternal</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_273025_,
- float&nbsp;p_273121_,
- float&nbsp;p_272717_,
- int&nbsp;p_273653_,
- boolean&nbsp;p_273531_,
- org.joml.Matrix4f&nbsp;p_273265_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273560_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273342_,
- int&nbsp;p_273373_,
- int&nbsp;p_273266_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">drawInternal</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderText(java.lang.String,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)">
 <h3>renderText</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">renderText</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_273765_,
- float&nbsp;p_273532_,
- float&nbsp;p_272783_,
- int&nbsp;p_273217_,
- boolean&nbsp;p_273583_,
- org.joml.Matrix4f&nbsp;p_272734_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_272595_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_273610_,
- int&nbsp;p_273727_,
- int&nbsp;p_273199_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">renderText</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderText(net.minecraft.util.FormattedCharSequence,float,float,int,boolean,org.joml.Matrix4f,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.gui.Font.DisplayMode,int,int)">
 <h3>renderText</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">renderText</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_273322_,
- float&nbsp;p_272632_,
- float&nbsp;p_273541_,
- int&nbsp;p_273200_,
- boolean&nbsp;p_273312_,
- org.joml.Matrix4f&nbsp;p_273276_,
- <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_273392_,
- <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;p_272625_,
- int&nbsp;p_273774_,
- int&nbsp;p_273371_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">renderText</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text,
+ float&nbsp;x,
+ float&nbsp;y,
+ int&nbsp;color,
+ boolean&nbsp;dropShadow,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../renderer/MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="Font.DisplayMode.html" title="enum class in net.minecraft.client.gui">Font.DisplayMode</a>&nbsp;displayMode,
+ int&nbsp;backgroundColor,
+ int&nbsp;packedLightCoords)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderChar(net.minecraft.client.gui.font.glyphs.BakedGlyph,boolean,boolean,float,float,float,org.joml.Matrix4f,com.mojang.blaze3d.vertex.VertexConsumer,float,float,float,float,int)">
 <h3>renderChar</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">renderChar</span><wbr><span class="parameters">(<a href="font/glyphs/BakedGlyph.html" title="class in net.minecraft.client.gui.font.glyphs">BakedGlyph</a>&nbsp;p_254105_,
- boolean&nbsp;p_254001_,
- boolean&nbsp;p_254262_,
- float&nbsp;p_254256_,
- float&nbsp;p_253753_,
- float&nbsp;p_253629_,
- org.joml.Matrix4f&nbsp;p_254014_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_253852_,
- float&nbsp;p_254317_,
- float&nbsp;p_253809_,
- float&nbsp;p_253870_,
- float&nbsp;p_254287_,
- int&nbsp;p_253905_)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">renderChar</span><wbr><span class="parameters">(<a href="font/glyphs/BakedGlyph.html" title="class in net.minecraft.client.gui.font.glyphs">BakedGlyph</a>&nbsp;glyph,
+ boolean&nbsp;bold,
+ boolean&nbsp;italic,
+ float&nbsp;boldOffset,
+ float&nbsp;x,
+ float&nbsp;y,
+ org.joml.Matrix4f&nbsp;matrix,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;buffer,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha,
+ int&nbsp;packedLight)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="width(java.lang.String)">
 <h3>width</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">width</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92896_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">width</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text)</span></div>
+<div class="block">Returns the width of this string. Equivalent of FontMetrics.stringWidth(String s).</div>
 </section>
 </li>
 <li>
 <section class="detail" id="width(net.minecraft.network.chat.FormattedText)">
 <h3>width</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">width</span><wbr><span class="parameters">(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;p_92853_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">width</span><wbr><span class="parameters">(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;text)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="width(net.minecraft.util.FormattedCharSequence)">
 <h3>width</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">width</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;p_92725_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">width</span><wbr><span class="parameters">(<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&nbsp;text)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="plainSubstrByWidth(java.lang.String,int,boolean)">
 <h3>plainSubstrByWidth</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">plainSubstrByWidth</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92838_,
- int&nbsp;p_92839_,
- boolean&nbsp;p_92840_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">plainSubstrByWidth</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ int&nbsp;maxWidth,
+ boolean&nbsp;tail)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="plainSubstrByWidth(java.lang.String,int)">
 <h3>plainSubstrByWidth</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">plainSubstrByWidth</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92835_,
- int&nbsp;p_92836_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">plainSubstrByWidth</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ int&nbsp;maxWidth)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="substrByWidth(net.minecraft.network.chat.FormattedText,int)">
 <h3>substrByWidth</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a></span>&nbsp;<span class="element-name">substrByWidth</span><wbr><span class="parameters">(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;p_92855_,
- int&nbsp;p_92856_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a></span>&nbsp;<span class="element-name">substrByWidth</span><wbr><span class="parameters">(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;text,
+ int&nbsp;maxWidth)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="wordWrapHeight(java.lang.String,int)">
 <h3>wordWrapHeight</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">wordWrapHeight</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_92921_,
- int&nbsp;p_92922_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">wordWrapHeight</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ int&nbsp;maxWidth)</span></div>
+<div class="block">Returns the height (in pixels) of the given string if it is wordwrapped to the given max width.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="wordWrapHeight(net.minecraft.network.chat.FormattedText,int)">
 <h3>wordWrapHeight</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">wordWrapHeight</span><wbr><span class="parameters">(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;p_239134_,
- int&nbsp;p_239135_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">wordWrapHeight</span><wbr><span class="parameters">(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;text,
+ int&nbsp;maxWidth)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="split(net.minecraft.network.chat.FormattedText,int)">
 <h3>split</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&gt;</span>&nbsp;<span class="element-name">split</span><wbr><span class="parameters">(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;p_92924_,
- int&nbsp;p_92925_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../util/FormattedCharSequence.html" title="interface in net.minecraft.util">FormattedCharSequence</a>&gt;</span>&nbsp;<span class="element-name">split</span><wbr><span class="parameters">(<a href="../../network/chat/FormattedText.html" title="interface in net.minecraft.network.chat">FormattedText</a>&nbsp;text,
+ int&nbsp;maxWidth)</span></div>
 </section>
 </li>
 <li>

@@ -103,6 +103,8 @@ loadScripts(document, 'script');</script>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">PacketDecoder&lt;T extends <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&gt;</span>
 <span class="extends-implements">extends io.netty.handler.codec.ByteToMessageDecoder
 implements <a href="ProtocolSwapHandler.html" title="interface in net.minecraft.network">ProtocolSwapHandler</a></span></div>
+<div class="block">Main netty packet decoder. Reads the packet ID as a VarInt and creates the corresponding packet
+ based on the current <a href="ConnectionProtocol.html" title="enum class in net.minecraft.network"><code>ConnectionProtocol</code></a>.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -147,7 +149,7 @@ implements <a href="ProtocolSwapHandler.html" title="interface in net.minecraft.
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.network.ProtocolInfo)" class="member-name-link">PacketDecoder</a><wbr>(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;<a href="PacketDecoder.html" title="type parameter in PacketDecoder">T</a>&gt;&nbsp;p_320637_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.network.ProtocolInfo)" class="member-name-link">PacketDecoder</a><wbr>(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;<a href="PacketDecoder.html" title="type parameter in PacketDecoder">T</a>&gt;&nbsp;protocolInfo)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -164,9 +166,9 @@ implements <a href="ProtocolSwapHandler.html" title="interface in net.minecraft.
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#decode(io.netty.channel.ChannelHandlerContext,io.netty.buffer.ByteBuf,java.util.List)" class="member-name-link">decode</a><wbr>(io.netty.channel.ChannelHandlerContext&nbsp;p_130535_,
- io.netty.buffer.ByteBuf&nbsp;p_130536_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;&nbsp;p_130537_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#decode(io.netty.channel.ChannelHandlerContext,io.netty.buffer.ByteBuf,java.util.List)" class="member-name-link">decode</a><wbr>(io.netty.channel.ChannelHandlerContext&nbsp;context,
+ io.netty.buffer.ByteBuf&nbsp;in,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;&nbsp;out)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -220,7 +222,7 @@ implements <a href="ProtocolSwapHandler.html" title="interface in net.minecraft.
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.network.ProtocolInfo)">
 <h3>PacketDecoder</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PacketDecoder</span><wbr><span class="parameters">(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;<a href="PacketDecoder.html" title="type parameter in PacketDecoder">T</a>&gt;&nbsp;p_320637_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PacketDecoder</span><wbr><span class="parameters">(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;<a href="PacketDecoder.html" title="type parameter in PacketDecoder">T</a>&gt;&nbsp;protocolInfo)</span></div>
 </section>
 </li>
 </ul>
@@ -234,9 +236,9 @@ implements <a href="ProtocolSwapHandler.html" title="interface in net.minecraft.
 <li>
 <section class="detail" id="decode(io.netty.channel.ChannelHandlerContext,io.netty.buffer.ByteBuf,java.util.List)">
 <h3>decode</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">decode</span><wbr><span class="parameters">(io.netty.channel.ChannelHandlerContext&nbsp;p_130535_,
- io.netty.buffer.ByteBuf&nbsp;p_130536_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;&nbsp;p_130537_)</span>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">decode</span><wbr><span class="parameters">(io.netty.channel.ChannelHandlerContext&nbsp;context,
+ io.netty.buffer.ByteBuf&nbsp;in,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&gt;&nbsp;out)</span>
                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Specified by:</dt>

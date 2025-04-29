@@ -165,7 +165,7 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.block.state.BlockBehaviour.Properties)" class="member-name-link">SculkShriekerBlock</a><wbr>(<a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;p_222159_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.block.state.BlockBehaviour.Properties)" class="member-name-link">SculkShriekerBlock</a><wbr>(<a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;properties)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -185,13 +185,13 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#codec()" class="member-name-link">codec</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder)" class="member-name-link">createBlockStateDefinition</a><wbr>(<a href="state/StateDefinition.Builder.html" title="class in net.minecraft.world.level.block.state">StateDefinition.Builder</a>&lt;<a href="Block.html" title="class in net.minecraft.world.level.block">Block</a>,<wbr><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;p_222211_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder)" class="member-name-link">createBlockStateDefinition</a><wbr>(<a href="state/StateDefinition.Builder.html" title="class in net.minecraft.world.level.block.state">StateDefinition.Builder</a>&lt;<a href="Block.html" title="class in net.minecraft.world.level.block">Block</a>,<wbr><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;builder)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCollisionShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.phys.shapes.CollisionContext)" class="member-name-link">getCollisionShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222225_,
- <a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_222226_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222227_,
- <a href="../../phys/shapes/CollisionContext.html" title="interface in net.minecraft.world.phys.shapes">CollisionContext</a>&nbsp;p_222228_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCollisionShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.phys.shapes.CollisionContext)" class="member-name-link">getCollisionShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../phys/shapes/CollisionContext.html" title="interface in net.minecraft.world.phys.shapes">CollisionContext</a>&nbsp;context)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getExpDrop(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntity,net.minecraft.world.entity.Entity,net.minecraft.world.item.ItemStack)" class="member-name-link">getExpDrop</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
@@ -204,64 +204,70 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <div class="block">Returns how many experience points this block drops when broken, before application of <a href="../../item/enchantment/EnchantmentEffectComponents.html#BLOCK_EXPERIENCE">enchantments</a>.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../material/FluidState.html" title="class in net.minecraft.world.level.material">FluidState</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFluidState(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">getFluidState</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222230_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFluidState(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">getFluidState</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOcclusionShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">getOcclusionShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222221_,
- <a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_222222_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222223_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOcclusionShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)" class="member-name-link">getOcclusionShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="RenderShape.html" title="enum class in net.minecraft.world.level.block">RenderShape</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRenderShape(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">getRenderShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222219_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRenderShape(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">getRenderShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">The type of render function called.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStateForPlacement(net.minecraft.world.item.context.BlockPlaceContext)" class="member-name-link">getStateForPlacement</a><wbr>(<a href="../../item/context/BlockPlaceContext.html" title="class in net.minecraft.world.item.context">BlockPlaceContext</a>&nbsp;p_222171_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStateForPlacement(net.minecraft.world.item.context.BlockPlaceContext)" class="member-name-link">getStateForPlacement</a><wbr>(<a href="../../item/context/BlockPlaceContext.html" title="class in net.minecraft.world.item.context">BlockPlaceContext</a>&nbsp;context)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;<br><a href="entity/BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_222173_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222174_,
- <a href="entity/BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_222175_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)" class="member-name-link">getTicker</a><wbr>(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="entity/BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#newBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">newBlockEntity</a><wbr>(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222213_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222214_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#newBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">newBlockEntity</a><wbr>(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onRemove(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,boolean)" class="member-name-link">onRemove</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222198_,
- <a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_222199_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222200_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222201_,
- boolean&nbsp;p_222202_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onRemove(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,boolean)" class="member-name-link">onRemove</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;newState,
+ boolean&nbsp;movedByPiston)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#spawnAfterBreak(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.item.ItemStack,boolean)" class="member-name-link">spawnAfterBreak</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222192_,
- <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_222193_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222194_,
- <a href="../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_222195_,
- boolean&nbsp;p_222196_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#spawnAfterBreak(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.item.ItemStack,boolean)" class="member-name-link">spawnAfterBreak</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ boolean&nbsp;dropExperience)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Perform side-effects from block dropping, such as creating silverfish</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stepOn(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.entity.Entity)" class="member-name-link">stepOn</a><wbr>(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_222177_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222178_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222179_,
- <a href="../../entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_222180_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stepOn(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.entity.Entity)" class="member-name-link">stepOn</a><wbr>(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)" class="member-name-link">tick</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222187_,
- <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_222188_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222189_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_222190_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)" class="member-name-link">tick</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)" class="member-name-link">updateShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222204_,
- <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_222205_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222206_,
- <a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;p_222207_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222208_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222209_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)" class="member-name-link">updateShape</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;neighborState,
+ <a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;neighborPos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Update the provided state given the provided neighbor direction and neighbor state, returning a new state.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#useShapeForLightOcclusion(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">useShapeForLightOcclusion</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222232_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#useShapeForLightOcclusion(net.minecraft.world.level.block.state.BlockState)" class="member-name-link">useShapeForLightOcclusion</a><wbr>(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -351,7 +357,7 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.world.level.block.state.BlockBehaviour.Properties)">
 <h3>SculkShriekerBlock</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SculkShriekerBlock</span><wbr><span class="parameters">(<a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;p_222159_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SculkShriekerBlock</span><wbr><span class="parameters">(<a href="state/BlockBehaviour.Properties.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour.Properties</a>&nbsp;properties)</span></div>
 </section>
 </li>
 </ul>
@@ -375,7 +381,7 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder)">
 <h3>createBlockStateDefinition</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createBlockStateDefinition</span><wbr><span class="parameters">(<a href="state/StateDefinition.Builder.html" title="class in net.minecraft.world.level.block.state">StateDefinition.Builder</a>&lt;<a href="Block.html" title="class in net.minecraft.world.level.block">Block</a>,<wbr><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;p_222211_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createBlockStateDefinition</span><wbr><span class="parameters">(<a href="state/StateDefinition.Builder.html" title="class in net.minecraft.world.level.block.state">StateDefinition.Builder</a>&lt;<a href="Block.html" title="class in net.minecraft.world.level.block">Block</a>,<wbr><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;builder)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Block.html#createBlockStateDefinition(net.minecraft.world.level.block.state.StateDefinition.Builder)">createBlockStateDefinition</a></code>&nbsp;in class&nbsp;<code><a href="Block.html" title="class in net.minecraft.world.level.block">Block</a></code></dd>
@@ -385,10 +391,10 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="stepOn(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.entity.Entity)">
 <h3>stepOn</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stepOn</span><wbr><span class="parameters">(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_222177_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222178_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222179_,
- <a href="../../entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_222180_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stepOn</span><wbr><span class="parameters">(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Block.html#stepOn(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.entity.Entity)">stepOn</a></code>&nbsp;in class&nbsp;<code><a href="Block.html" title="class in net.minecraft.world.level.block">Block</a></code></dd>
@@ -398,11 +404,11 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="onRemove(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,boolean)">
 <h3>onRemove</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onRemove</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222198_,
- <a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_222199_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222200_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222201_,
- boolean&nbsp;p_222202_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onRemove</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;newState,
+ boolean&nbsp;movedByPiston)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#onRemove(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.Level,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,boolean)">onRemove</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -412,10 +418,10 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="tick(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)">
 <h3>tick</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tick</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222187_,
- <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_222188_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222189_,
- <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_222190_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tick</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#tick(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource)">tick</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -425,7 +431,8 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="getRenderShape(net.minecraft.world.level.block.state.BlockState)">
 <h3>getRenderShape</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="RenderShape.html" title="enum class in net.minecraft.world.level.block">RenderShape</a></span>&nbsp;<span class="element-name">getRenderShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222219_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="RenderShape.html" title="enum class in net.minecraft.world.level.block">RenderShape</a></span>&nbsp;<span class="element-name">getRenderShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
+<div class="block">The type of render function called. MODEL for mixed tesr and static model, MODELBLOCK_ANIMATED for TESR-only, LIQUID for vanilla liquids, INVISIBLE to skip all rendering</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="BaseEntityBlock.html#getRenderShape(net.minecraft.world.level.block.state.BlockState)">getRenderShape</a></code>&nbsp;in class&nbsp;<code><a href="BaseEntityBlock.html" title="class in net.minecraft.world.level.block">BaseEntityBlock</a></code></dd>
@@ -435,10 +442,10 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="getCollisionShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.phys.shapes.CollisionContext)">
 <h3>getCollisionShape</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a></span>&nbsp;<span class="element-name">getCollisionShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222225_,
- <a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_222226_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222227_,
- <a href="../../phys/shapes/CollisionContext.html" title="interface in net.minecraft.world.phys.shapes">CollisionContext</a>&nbsp;p_222228_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a></span>&nbsp;<span class="element-name">getCollisionShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../phys/shapes/CollisionContext.html" title="interface in net.minecraft.world.phys.shapes">CollisionContext</a>&nbsp;context)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#getCollisionShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.phys.shapes.CollisionContext)">getCollisionShape</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -448,9 +455,9 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="getOcclusionShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)">
 <h3>getOcclusionShape</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a></span>&nbsp;<span class="element-name">getOcclusionShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222221_,
- <a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_222222_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222223_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../../phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a></span>&nbsp;<span class="element-name">getOcclusionShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#getOcclusionShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos)">getOcclusionShape</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -460,7 +467,7 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="useShapeForLightOcclusion(net.minecraft.world.level.block.state.BlockState)">
 <h3>useShapeForLightOcclusion</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">useShapeForLightOcclusion</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222232_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">useShapeForLightOcclusion</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#useShapeForLightOcclusion(net.minecraft.world.level.block.state.BlockState)">useShapeForLightOcclusion</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -471,8 +478,8 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <section class="detail" id="newBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)">
 <h3>newBlockEntity</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a></span>&nbsp;<span class="element-name">newBlockEntity</span><wbr><span class="parameters">(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222213_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222214_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a></span>&nbsp;<span class="element-name">newBlockEntity</span><wbr><span class="parameters">(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="EntityBlock.html#newBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)">newBlockEntity</a></code>&nbsp;in interface&nbsp;<code><a href="EntityBlock.html" title="interface in net.minecraft.world.level.block">EntityBlock</a></code></dd>
@@ -482,12 +489,15 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="updateShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)">
 <h3>updateShape</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">updateShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222204_,
- <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_222205_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222206_,
- <a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;p_222207_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222208_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222209_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">updateShape</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;neighborState,
+ <a href="../LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;neighborPos)</span></div>
+<div class="block">Update the provided state given the provided neighbor direction and neighbor state, returning a new state.
+ For example, fences make their connections to the passed in state if possible, and wet concrete powder immediately returns its solidified counterpart.
+ Note that this method should ideally consider only the specific direction passed in.</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#updateShape(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.Direction,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.LevelAccessor,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)">updateShape</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -498,7 +508,7 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <section class="detail" id="getStateForPlacement(net.minecraft.world.item.context.BlockPlaceContext)">
 <h3>getStateForPlacement</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getStateForPlacement</span><wbr><span class="parameters">(<a href="../../item/context/BlockPlaceContext.html" title="class in net.minecraft.world.item.context">BlockPlaceContext</a>&nbsp;p_222171_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getStateForPlacement</span><wbr><span class="parameters">(<a href="../../item/context/BlockPlaceContext.html" title="class in net.minecraft.world.item.context">BlockPlaceContext</a>&nbsp;context)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="Block.html#getStateForPlacement(net.minecraft.world.item.context.BlockPlaceContext)">getStateForPlacement</a></code>&nbsp;in class&nbsp;<code><a href="Block.html" title="class in net.minecraft.world.level.block">Block</a></code></dd>
@@ -508,7 +518,7 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="getFluidState(net.minecraft.world.level.block.state.BlockState)">
 <h3>getFluidState</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../material/FluidState.html" title="class in net.minecraft.world.level.material">FluidState</a></span>&nbsp;<span class="element-name">getFluidState</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222230_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../material/FluidState.html" title="class in net.minecraft.world.level.material">FluidState</a></span>&nbsp;<span class="element-name">getFluidState</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#getFluidState(net.minecraft.world.level.block.state.BlockState)">getFluidState</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -518,11 +528,12 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <li>
 <section class="detail" id="spawnAfterBreak(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.item.ItemStack,boolean)">
 <h3>spawnAfterBreak</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">spawnAfterBreak</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222192_,
- <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;p_222193_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_222194_,
- <a href="../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;p_222195_,
- boolean&nbsp;p_222196_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">spawnAfterBreak</span><wbr><span class="parameters">(<a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../../server/level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack,
+ boolean&nbsp;dropExperience)</span></div>
+<div class="block">Perform side-effects from block dropping, such as creating silverfish</div>
 <dl class="notes">
 <dt>Overrides:</dt>
 <dd><code><a href="state/BlockBehaviour.html#spawnAfterBreak(net.minecraft.world.level.block.state.BlockState,net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.item.ItemStack,boolean)">spawnAfterBreak</a></code>&nbsp;in class&nbsp;<code><a href="state/BlockBehaviour.html" title="class in net.minecraft.world.level.block.state">BlockBehaviour</a></code></dd>
@@ -561,9 +572,9 @@ implements <a href="SimpleWaterloggedBlock.html" title="interface in net.minecra
 <section class="detail" id="getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)">
 <h3>getTicker</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;</span>&nbsp;<span class="return-type"><a href="entity/BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a>&lt;T&gt;</span>&nbsp;<span class="element-name">getTicker</span><wbr><span class="parameters">(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_222173_,
- <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_222174_,
- <a href="entity/BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;p_222175_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;</span>&nbsp;<span class="return-type"><a href="entity/BlockEntityTicker.html" title="interface in net.minecraft.world.level.block.entity">BlockEntityTicker</a>&lt;T&gt;</span>&nbsp;<span class="element-name">getTicker</span><wbr><span class="parameters">(<a href="../Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="entity/BlockEntityType.html" title="class in net.minecraft.world.level.block.entity">BlockEntityType</a>&lt;T&gt;&nbsp;blockEntityType)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="EntityBlock.html#getTicker(net.minecraft.world.level.Level,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.entity.BlockEntityType)">getTicker</a></code>&nbsp;in interface&nbsp;<code><a href="EntityBlock.html" title="interface in net.minecraft.world.level.block">EntityBlock</a></code></dd>

@@ -137,13 +137,13 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,byte%5B%5D,byte%5B%5D,boolean)" class="member-name-link">ClientboundHelloPacket</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_134782_,
- byte[]&nbsp;p_134783_,
- byte[]&nbsp;p_134784_,
- boolean&nbsp;p_320681_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,byte%5B%5D,byte%5B%5D,boolean)" class="member-name-link">ClientboundHelloPacket</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serverId,
+ byte[]&nbsp;publicKey,
+ byte[]&nbsp;challenge,
+ boolean&nbsp;shouldAuthenticate)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private </code></div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.network.FriendlyByteBuf)" class="member-name-link">ClientboundHelloPacket</a><wbr>(<a href="../../FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;p_179816_)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.network.FriendlyByteBuf)" class="member-name-link">ClientboundHelloPacket</a><wbr>(<a href="../../FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;buffer)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -169,8 +169,10 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getServerId()" class="member-name-link">getServerId</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handle(net.minecraft.network.protocol.login.ClientLoginPacketListener)" class="member-name-link">handle</a><wbr>(<a href="ClientLoginPacketListener.html" title="interface in net.minecraft.network.protocol.login">ClientLoginPacketListener</a>&nbsp;p_134790_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handle(net.minecraft.network.protocol.login.ClientLoginPacketListener)" class="member-name-link">handle</a><wbr>(<a href="ClientLoginPacketListener.html" title="interface in net.minecraft.network.protocol.login">ClientLoginPacketListener</a>&nbsp;handler)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Passes this Packet on to the NetHandler for processing.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldAuthenticate()" class="member-name-link">shouldAuthenticate</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -178,8 +180,10 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type()" class="member-name-link">type</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.network.FriendlyByteBuf)" class="member-name-link">write</a><wbr>(<a href="../../FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;p_134793_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.network.FriendlyByteBuf)" class="member-name-link">write</a><wbr>(<a href="../../FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;buffer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Writes the raw packet data to the data stream.</div>
+</div>
 </div>
 </div>
 </div>
@@ -241,16 +245,16 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String,byte[],byte[],boolean)">
 <h3>ClientboundHelloPacket</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ClientboundHelloPacket</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_134782_,
- byte[]&nbsp;p_134783_,
- byte[]&nbsp;p_134784_,
- boolean&nbsp;p_320681_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ClientboundHelloPacket</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;serverId,
+ byte[]&nbsp;publicKey,
+ byte[]&nbsp;challenge,
+ boolean&nbsp;shouldAuthenticate)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.network.FriendlyByteBuf)">
 <h3>ClientboundHelloPacket</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">ClientboundHelloPacket</span><wbr><span class="parameters">(<a href="../../FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;p_179816_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">ClientboundHelloPacket</span><wbr><span class="parameters">(<a href="../../FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;buffer)</span></div>
 </section>
 </li>
 </ul>
@@ -264,7 +268,8 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <li>
 <section class="detail" id="write(net.minecraft.network.FriendlyByteBuf)">
 <h3>write</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;p_134793_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;buffer)</span></div>
+<div class="block">Writes the raw packet data to the data stream.</div>
 </section>
 </li>
 <li>
@@ -280,7 +285,8 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <li>
 <section class="detail" id="handle(net.minecraft.network.protocol.login.ClientLoginPacketListener)">
 <h3>handle</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handle</span><wbr><span class="parameters">(<a href="ClientLoginPacketListener.html" title="interface in net.minecraft.network.protocol.login">ClientLoginPacketListener</a>&nbsp;p_134790_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handle</span><wbr><span class="parameters">(<a href="ClientLoginPacketListener.html" title="interface in net.minecraft.network.protocol.login">ClientLoginPacketListener</a>&nbsp;handler)</span></div>
+<div class="block">Passes this Packet on to the NetHandler for processing.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../Packet.html#handle(T)">handle</a></code>&nbsp;in interface&nbsp;<code><a href="../Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;<a href="ClientLoginPacketListener.html" title="interface in net.minecraft.network.protocol.login">ClientLoginPacketListener</a>&gt;</code></dd>

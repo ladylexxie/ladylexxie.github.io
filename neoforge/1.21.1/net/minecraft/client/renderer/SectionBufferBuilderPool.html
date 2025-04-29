@@ -126,7 +126,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List)" class="member-name-link">SectionBufferBuilderPool</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SectionBufferBuilderPack.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPack</a>&gt;&nbsp;p_307506_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List)" class="member-name-link">SectionBufferBuilderPool</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SectionBufferBuilderPack.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPack</a>&gt;&nbsp;freeBuffers)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -146,7 +146,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#acquire()" class="member-name-link">acquire</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SectionBufferBuilderPool.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPool</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#allocate(int)" class="member-name-link">allocate</a><wbr>(int&nbsp;p_307250_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#allocate(int)" class="member-name-link">allocate</a><wbr>(int&nbsp;bufferCount)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFreeBufferCount()" class="member-name-link">getFreeBufferCount</a>()</code></div>
@@ -155,7 +155,7 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEmpty()" class="member-name-link">isEmpty</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#release(net.minecraft.client.renderer.SectionBufferBuilderPack)" class="member-name-link">release</a><wbr>(<a href="SectionBufferBuilderPack.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPack</a>&nbsp;p_307626_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#release(net.minecraft.client.renderer.SectionBufferBuilderPack)" class="member-name-link">release</a><wbr>(<a href="SectionBufferBuilderPack.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPack</a>&nbsp;buffer)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -203,7 +203,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(java.util.List)">
 <h3>SectionBufferBuilderPool</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">SectionBufferBuilderPool</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SectionBufferBuilderPack.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPack</a>&gt;&nbsp;p_307506_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">SectionBufferBuilderPool</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SectionBufferBuilderPack.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPack</a>&gt;&nbsp;freeBuffers)</span></div>
 </section>
 </li>
 </ul>
@@ -217,7 +217,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="allocate(int)">
 <h3>allocate</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SectionBufferBuilderPool.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPool</a></span>&nbsp;<span class="element-name">allocate</span><wbr><span class="parameters">(int&nbsp;p_307250_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SectionBufferBuilderPool.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPool</a></span>&nbsp;<span class="element-name">allocate</span><wbr><span class="parameters">(int&nbsp;bufferCount)</span></div>
 </section>
 </li>
 <li>
@@ -230,7 +230,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="release(net.minecraft.client.renderer.SectionBufferBuilderPack)">
 <h3>release</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">release</span><wbr><span class="parameters">(<a href="SectionBufferBuilderPack.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPack</a>&nbsp;p_307626_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">release</span><wbr><span class="parameters">(<a href="SectionBufferBuilderPack.html" title="class in net.minecraft.client.renderer">SectionBufferBuilderPack</a>&nbsp;buffer)</span></div>
 </section>
 </li>
 <li>

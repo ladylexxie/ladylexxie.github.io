@@ -151,7 +151,7 @@ implements <a href="../util/FormattedCharSink.html" title="interface in net.mine
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(float)" class="member-name-link">LineBreakFinder</a><wbr>(float&nbsp;p_92472_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(float)" class="member-name-link">LineBreakFinder</a><wbr>(float&nbsp;maxWidth)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -168,16 +168,18 @@ implements <a href="../util/FormattedCharSink.html" title="interface in net.mine
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#accept(int,net.minecraft.network.chat.Style,int)" class="member-name-link">accept</a><wbr>(int&nbsp;p_92480_,
- <a href="../network/chat/Style.html" title="class in net.minecraft.network.chat">Style</a>&nbsp;p_92481_,
- int&nbsp;p_92482_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#accept(int,net.minecraft.network.chat.Style,int)" class="member-name-link">accept</a><wbr>(int&nbsp;positionInCurrentSequence,
+ <a href="../network/chat/Style.html" title="class in net.minecraft.network.chat">Style</a>&nbsp;style,
+ int&nbsp;codePoint)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Accepts a single code point from a <a href="../util/FormattedCharSequence.html" title="interface in net.minecraft.util"><code>FormattedCharSequence</code></a>.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToOffset(int)" class="member-name-link">addToOffset</a><wbr>(int&nbsp;p_92475_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToOffset(int)" class="member-name-link">addToOffset</a><wbr>(int&nbsp;offset)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishIteration(int,net.minecraft.network.chat.Style)" class="member-name-link">finishIteration</a><wbr>(int&nbsp;p_92477_,
- <a href="../network/chat/Style.html" title="class in net.minecraft.network.chat">Style</a>&nbsp;p_92478_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finishIteration(int,net.minecraft.network.chat.Style)" class="member-name-link">finishIteration</a><wbr>(int&nbsp;lineBreak,
+ <a href="../network/chat/Style.html" title="class in net.minecraft.network.chat">Style</a>&nbsp;lineBreakStyle)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSplitPosition()" class="member-name-link">getSplitPosition</a>()</code></div>
@@ -270,7 +272,7 @@ implements <a href="../util/FormattedCharSink.html" title="interface in net.mine
 <li>
 <section class="detail" id="&lt;init&gt;(float)">
 <h3>LineBreakFinder</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LineBreakFinder</span><wbr><span class="parameters">(float&nbsp;p_92472_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LineBreakFinder</span><wbr><span class="parameters">(float&nbsp;maxWidth)</span></div>
 </section>
 </li>
 </ul>
@@ -284,20 +286,29 @@ implements <a href="../util/FormattedCharSink.html" title="interface in net.mine
 <li>
 <section class="detail" id="accept(int,net.minecraft.network.chat.Style,int)">
 <h3>accept</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">accept</span><wbr><span class="parameters">(int&nbsp;p_92480_,
- <a href="../network/chat/Style.html" title="class in net.minecraft.network.chat">Style</a>&nbsp;p_92481_,
- int&nbsp;p_92482_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">accept</span><wbr><span class="parameters">(int&nbsp;positionInCurrentSequence,
+ <a href="../network/chat/Style.html" title="class in net.minecraft.network.chat">Style</a>&nbsp;style,
+ int&nbsp;codePoint)</span></div>
+<div class="block">Accepts a single code point from a <a href="../util/FormattedCharSequence.html" title="interface in net.minecraft.util"><code>FormattedCharSequence</code></a>.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../util/FormattedCharSink.html#accept(int,net.minecraft.network.chat.Style,int)">accept</a></code>&nbsp;in interface&nbsp;<code><a href="../util/FormattedCharSink.html" title="interface in net.minecraft.util">FormattedCharSink</a></code></dd>
+<dt>Parameters:</dt>
+<dd><code>positionInCurrentSequence</code> - Contains the relative position of the
+                                  character in the current sub-sequence. If
+                                  multiple formatted char sequences have been
+                                  combined, this value will reset to <code>0</code>
+                                  after each sequence has been fully consumed.</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> to accept more characters, <code>false</code> to stop traversing the sequence.</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="finishIteration(int,net.minecraft.network.chat.Style)">
 <h3>finishIteration</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">finishIteration</span><wbr><span class="parameters">(int&nbsp;p_92477_,
- <a href="../network/chat/Style.html" title="class in net.minecraft.network.chat">Style</a>&nbsp;p_92478_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">finishIteration</span><wbr><span class="parameters">(int&nbsp;lineBreak,
+ <a href="../network/chat/Style.html" title="class in net.minecraft.network.chat">Style</a>&nbsp;lineBreakStyle)</span></div>
 </section>
 </li>
 <li>
@@ -321,7 +332,7 @@ implements <a href="../util/FormattedCharSink.html" title="interface in net.mine
 <li>
 <section class="detail" id="addToOffset(int)">
 <h3>addToOffset</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addToOffset</span><wbr><span class="parameters">(int&nbsp;p_92475_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addToOffset</span><wbr><span class="parameters">(int&nbsp;offset)</span></div>
 </section>
 </li>
 </ul>

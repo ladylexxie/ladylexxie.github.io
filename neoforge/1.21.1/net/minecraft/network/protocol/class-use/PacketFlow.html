@@ -123,14 +123,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Connection.</span><code><a href="../../Connection.html#configureInMemoryPipeline(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow)" class="member-name-link">configureInMemoryPipeline</a><wbr>(io.netty.channel.ChannelPipeline&nbsp;p_295541_,
- <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;p_294540_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Connection.</span><code><a href="../../Connection.html#configureInMemoryPipeline(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow)" class="member-name-link">configureInMemoryPipeline</a><wbr>(io.netty.channel.ChannelPipeline&nbsp;pipeline,
+ <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;flow)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Connection.</span><code><a href="../../Connection.html#configureSerialization(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow,boolean,net.minecraft.network.BandwidthDebugMonitor)" class="member-name-link">configureSerialization</a><wbr>(io.netty.channel.ChannelPipeline&nbsp;p_265436_,
- <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;p_265104_,
- boolean&nbsp;p_341592_,
- <a href="../../BandwidthDebugMonitor.html" title="class in net.minecraft.network">BandwidthDebugMonitor</a>&nbsp;p_299246_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Connection.</span><code><a href="../../Connection.html#configureSerialization(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow,boolean,net.minecraft.network.BandwidthDebugMonitor)" class="member-name-link">configureSerialization</a><wbr>(io.netty.channel.ChannelPipeline&nbsp;pipeline,
+ <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;flow,
+ boolean&nbsp;memoryOnly,
+ <a href="../../BandwidthDebugMonitor.html" title="class in net.minecraft.network">BandwidthDebugMonitor</a>&nbsp;bandwithDebugMonitor)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../../package-summary.html">net.minecraft.network</a> with parameters of type <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></span></div>
@@ -139,7 +139,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../../Connection.html#%3Cinit%3E(net.minecraft.network.protocol.PacketFlow)" class="member-name-link">Connection</a><wbr>(<a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;p_129482_)</code></div>
+<div class="col-second even-row-color"><code><a href="../../Connection.html#%3Cinit%3E(net.minecraft.network.protocol.PacketFlow)" class="member-name-link">Connection</a><wbr>(<a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;receiving)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -206,9 +206,9 @@ the order they are declared.</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private static &lt;L extends <a href="../../PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>,<wbr>
 B extends io.netty.buffer.ByteBuf&gt;<br><a href="../../ProtocolInfo.Unbound.html" title="interface in net.minecraft.network">ProtocolInfo.Unbound</a><wbr>&lt;L,<wbr>B&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ProtocolInfoBuilder.</span><code><a href="../ProtocolInfoBuilder.html#protocol(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketFlow,java.util.function.Consumer)" class="member-name-link">protocol</a><wbr>(<a href="../../ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a>&nbsp;p_320849_,
- <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;p_320146_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../ProtocolInfoBuilder.html" title="class in net.minecraft.network.protocol">ProtocolInfoBuilder</a>&lt;L,<wbr>B&gt;&gt;&nbsp;p_320140_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ProtocolInfoBuilder.</span><code><a href="../ProtocolInfoBuilder.html#protocol(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketFlow,java.util.function.Consumer)" class="member-name-link">protocol</a><wbr>(<a href="../../ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a>&nbsp;protocol,
+ <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;flow,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../ProtocolInfoBuilder.html" title="class in net.minecraft.network.protocol">ProtocolInfoBuilder</a>&lt;L,<wbr>B&gt;&gt;&nbsp;setup)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../package-summary.html">net.minecraft.network.protocol</a> with parameters of type <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></span></div>
@@ -231,11 +231,11 @@ B extends io.netty.buffer.ByteBuf&gt;<br><a href="../../ProtocolInfo.Unbound.htm
 <div class="block">Creates an instance of a <code>PacketType</code> record class.</div>
 </div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../ProtocolCodecBuilder.html#%3Cinit%3E(net.minecraft.network.protocol.PacketFlow)" class="member-name-link">ProtocolCodecBuilder</a><wbr>(<a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;p_320925_)</code></div>
+<div class="col-second even-row-color"><code><a href="../ProtocolCodecBuilder.html#%3Cinit%3E(net.minecraft.network.protocol.PacketFlow)" class="member-name-link">ProtocolCodecBuilder</a><wbr>(<a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;flow)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&nbsp;</code></div>
-<div class="col-second odd-row-color"><code><a href="../ProtocolInfoBuilder.html#%3Cinit%3E(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketFlow)" class="member-name-link">ProtocolInfoBuilder</a><wbr>(<a href="../../ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a>&nbsp;p_320213_,
- <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;p_320424_)</code></div>
+<div class="col-second odd-row-color"><code><a href="../ProtocolInfoBuilder.html#%3Cinit%3E(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketFlow)" class="member-name-link">ProtocolInfoBuilder</a><wbr>(<a href="../../ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a>&nbsp;protocol,
+ <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;flow)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -249,8 +249,8 @@ B extends io.netty.buffer.ByteBuf&gt;<br><a href="../../ProtocolInfo.Unbound.htm
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static &lt;B extends <a href="../../FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&gt;<br><a href="../../codec/StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr><a href="../common/custom/CustomPacketPayload.html" title="interface in net.minecraft.network.protocol.common.custom">CustomPacketPayload</a>&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CustomPacketPayload.</span><code><a href="../common/custom/CustomPacketPayload.html#codec(net.minecraft.network.protocol.common.custom.CustomPacketPayload.FallbackProvider,java.util.List,net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketFlow)" class="member-name-link">codec</a><wbr>(<a href="../common/custom/CustomPacketPayload.FallbackProvider.html" title="interface in net.minecraft.network.protocol.common.custom">CustomPacketPayload.FallbackProvider</a>&lt;B&gt;&nbsp;p_319839_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../common/custom/CustomPacketPayload.TypeAndCodec.html" title="class in net.minecraft.network.protocol.common.custom">CustomPacketPayload.TypeAndCodec</a>&lt;? super B,<wbr>?&gt;&gt;&nbsp;p_320495_,
+<div class="col-second even-row-color"><span class="type-name-label">CustomPacketPayload.</span><code><a href="../common/custom/CustomPacketPayload.html#codec(net.minecraft.network.protocol.common.custom.CustomPacketPayload.FallbackProvider,java.util.List,net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketFlow)" class="member-name-link">codec</a><wbr>(<a href="../common/custom/CustomPacketPayload.FallbackProvider.html" title="interface in net.minecraft.network.protocol.common.custom">CustomPacketPayload.FallbackProvider</a>&lt;B&gt;&nbsp;fallbackProvider,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../common/custom/CustomPacketPayload.TypeAndCodec.html" title="class in net.minecraft.network.protocol.common.custom">CustomPacketPayload.TypeAndCodec</a>&lt;? super B,<wbr>?&gt;&gt;&nbsp;typeAndCodecs,
  <a href="../../ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a>&nbsp;protocol,
  <a href="../PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;packetFlow)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>

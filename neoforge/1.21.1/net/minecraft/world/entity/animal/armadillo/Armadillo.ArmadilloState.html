@@ -183,10 +183,10 @@ implements <a href="../../../../util/StringRepresentable.html" title="interface 
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,boolean,int,int)" class="member-name-link">ArmadilloState</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_316309_,
- boolean&nbsp;p_326269_,
- int&nbsp;p_320184_,
- int&nbsp;p_326087_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,boolean,int,int)" class="member-name-link">ArmadilloState</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ boolean&nbsp;isThreatened,
+ int&nbsp;animationDuration,
+ int&nbsp;id)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -206,7 +206,7 @@ implements <a href="../../../../util/StringRepresentable.html" title="interface 
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#animationDuration()" class="member-name-link">animationDuration</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Armadillo.ArmadilloState.html" title="enum class in net.minecraft.world.entity.animal.armadillo">Armadillo.ArmadilloState</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromName(java.lang.String)" class="member-name-link">fromName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_316203_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromName(java.lang.String)" class="member-name-link">fromName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSerializedName()" class="member-name-link">getSerializedName</a>()</code></div>
@@ -218,7 +218,7 @@ implements <a href="../../../../util/StringRepresentable.html" title="interface 
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isThreatened()" class="member-name-link">isThreatened</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#shouldHideInShell(long)" class="member-name-link">shouldHideInShell</a><wbr>(long&nbsp;p_326488_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#shouldHideInShell(long)" class="member-name-link">shouldHideInShell</a><wbr>(long&nbsp;inStateTicks)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Armadillo.ArmadilloState.html" title="enum class in net.minecraft.world.entity.animal.armadillo">Armadillo.ArmadilloState</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#valueOf(java.lang.String)" class="member-name-link">valueOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
@@ -336,10 +336,10 @@ the order they are declared.</div>
 <li>
 <section class="detail" id="&lt;init&gt;(java.lang.String,boolean,int,int)">
 <h3>ArmadilloState</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">ArmadilloState</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_316309_,
- boolean&nbsp;p_326269_,
- int&nbsp;p_320184_,
- int&nbsp;p_326087_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">ArmadilloState</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ boolean&nbsp;isThreatened,
+ int&nbsp;animationDuration,
+ int&nbsp;id)</span></div>
 </section>
 </li>
 </ul>
@@ -384,7 +384,7 @@ not permitted.)</div>
 <li>
 <section class="detail" id="fromName(java.lang.String)">
 <h3>fromName</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Armadillo.ArmadilloState.html" title="enum class in net.minecraft.world.entity.animal.armadillo">Armadillo.ArmadilloState</a></span>&nbsp;<span class="element-name">fromName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_316203_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Armadillo.ArmadilloState.html" title="enum class in net.minecraft.world.entity.animal.armadillo">Armadillo.ArmadilloState</a></span>&nbsp;<span class="element-name">fromName</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
 </section>
 </li>
 <li>
@@ -406,7 +406,7 @@ not permitted.)</div>
 <li>
 <section class="detail" id="shouldHideInShell(long)">
 <h3>shouldHideInShell</h3>
-<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldHideInShell</span><wbr><span class="parameters">(long&nbsp;p_326488_)</span></div>
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldHideInShell</span><wbr><span class="parameters">(long&nbsp;inStateTicks)</span></div>
 </section>
 </li>
 <li>

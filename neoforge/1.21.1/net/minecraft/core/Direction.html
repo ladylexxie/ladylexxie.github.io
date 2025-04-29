@@ -169,7 +169,9 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private static final <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>[]</code></div>
 <div class="col-second even-row-color"><code><a href="#BY_2D_DATA" class="member-name-link">BY_2D_DATA</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">All Facings with horizontal axis in order S-W-N-E</div>
+</div>
 <div class="col-first odd-row-color"><code>private static final <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>[]</code></div>
 <div class="col-second odd-row-color"><code><a href="#BY_3D_DATA" class="member-name-link">BY_3D_DATA</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
@@ -181,19 +183,27 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>private final int</code></div>
 <div class="col-second even-row-color"><code><a href="#data2d" class="member-name-link">data2d</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Ordering index for the HORIZONTALS field (S-W-N-E)</div>
+</div>
 <div class="col-first odd-row-color"><code>private final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#data3d" class="member-name-link">data3d</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Ordering index for D-U-N-S-W-E</div>
+</div>
 <div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#name" class="member-name-link">name</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private final <a href="Vec3i.html" title="class in net.minecraft.core">Vec3i</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#normal" class="member-name-link">normal</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Normalized vector that points in the direction of this Direction</div>
+</div>
 <div class="col-first even-row-color"><code>private final int</code></div>
 <div class="col-second even-row-color"><code><a href="#oppositeIndex" class="member-name-link">oppositeIndex</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">Index of the opposite Direction in the VALUES array</div>
+</div>
 <div class="col-first odd-row-color"><code>static final <a href="../network/codec/StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;io.netty.buffer.ByteBuf,<wbr><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&gt;</code></div>
 <div class="col-second odd-row-color"><code><a href="#STREAM_CODEC" class="member-name-link">STREAM_CODEC</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
@@ -219,13 +229,13 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,int,int,java.lang.String,net.minecraft.core.Direction.AxisDirection,net.minecraft.core.Direction.Axis,net.minecraft.core.Vec3i)" class="member-name-link">Direction</a><wbr>(int&nbsp;p_122356_,
- int&nbsp;p_122357_,
- int&nbsp;p_122358_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_122359_,
- <a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;p_122360_,
- <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_122361_,
- <a href="Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_122362_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,int,int,java.lang.String,net.minecraft.core.Direction.AxisDirection,net.minecraft.core.Direction.Axis,net.minecraft.core.Vec3i)" class="member-name-link">Direction</a><wbr>(int&nbsp;data3d,
+ int&nbsp;oppositeIndex,
+ int&nbsp;data2d,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;axisDirection,
+ <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis,
+ <a href="Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;normal)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -242,32 +252,32 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a><wbr>&lt;<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#allShuffled(net.minecraft.util.RandomSource)" class="member-name-link">allShuffled</a><wbr>(<a href="../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_235668_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#allShuffled(net.minecraft.util.RandomSource)" class="member-name-link">allShuffled</a><wbr>(<a href="../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#byName(java.lang.String)" class="member-name-link">byName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_122403_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#byName(java.lang.String)" class="member-name-link">byName</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#from2DDataValue(int)" class="member-name-link">from2DDataValue</a><wbr>(int&nbsp;p_122408_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#from2DDataValue(int)" class="member-name-link">from2DDataValue</a><wbr>(int&nbsp;horizontalIndex)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#from3DDataValue(int)" class="member-name-link">from3DDataValue</a><wbr>(int&nbsp;p_122377_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#from3DDataValue(int)" class="member-name-link">from3DDataValue</a><wbr>(int&nbsp;index)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromAxisAndDirection(net.minecraft.core.Direction.Axis,net.minecraft.core.Direction.AxisDirection)" class="member-name-link">fromAxisAndDirection</a><wbr>(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_122388_,
- <a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;p_122389_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromAxisAndDirection(net.minecraft.core.Direction.Axis,net.minecraft.core.Direction.AxisDirection)" class="member-name-link">fromAxisAndDirection</a><wbr>(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis,
+ <a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;axisDirection)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromDelta(int,int,int)" class="member-name-link">fromDelta</a><wbr>(int&nbsp;p_278323_,
- int&nbsp;p_278296_,
- int&nbsp;p_278347_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromDelta(int,int,int)" class="member-name-link">fromDelta</a><wbr>(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromYRot(double)" class="member-name-link">fromYRot</a><wbr>(double&nbsp;p_122365_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromYRot(double)" class="member-name-link">fromYRot</a><wbr>(double&nbsp;angle)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#get(net.minecraft.core.Direction.AxisDirection,net.minecraft.core.Direction.Axis)" class="member-name-link">get</a><wbr>(<a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;p_122391_,
- <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_122392_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#get(net.minecraft.core.Direction.AxisDirection,net.minecraft.core.Direction.Axis)" class="member-name-link">get</a><wbr>(<a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;axisDirection,
+ <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get2DDataValue()" class="member-name-link">get2DDataValue</a>()</code></div>
@@ -285,7 +295,7 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getClockWise()" class="member-name-link">getClockWise</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getClockWise(net.minecraft.core.Direction.Axis)" class="member-name-link">getClockWise</a><wbr>(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_175363_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getClockWise(net.minecraft.core.Direction.Axis)" class="member-name-link">getClockWise</a><wbr>(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getClockWiseX()" class="member-name-link">getClockWiseX</a>()</code></div>
@@ -297,7 +307,7 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCounterClockWise()" class="member-name-link">getCounterClockWise</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCounterClockWise(net.minecraft.core.Direction.Axis)" class="member-name-link">getCounterClockWise</a><wbr>(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_175365_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCounterClockWise(net.minecraft.core.Direction.Axis)" class="member-name-link">getCounterClockWise</a><wbr>(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCounterClockWiseX()" class="member-name-link">getCounterClockWiseX</a>()</code></div>
@@ -306,24 +316,24 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCounterClockWiseZ()" class="member-name-link">getCounterClockWiseZ</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFacingAxis(net.minecraft.world.entity.Entity,net.minecraft.core.Direction.Axis)" class="member-name-link">getFacingAxis</a><wbr>(<a href="../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_175358_,
- <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_175359_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFacingAxis(net.minecraft.world.entity.Entity,net.minecraft.core.Direction.Axis)" class="member-name-link">getFacingAxis</a><wbr>(<a href="../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getNearest(double,double,double)" class="member-name-link">getNearest</a><wbr>(double&nbsp;p_122367_,
- double&nbsp;p_122368_,
- double&nbsp;p_122369_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getNearest(double,double,double)" class="member-name-link">getNearest</a><wbr>(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getNearest(float,float,float)" class="member-name-link">getNearest</a><wbr>(float&nbsp;p_122373_,
- float&nbsp;p_122374_,
- float&nbsp;p_122375_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getNearest(float,float,float)" class="member-name-link">getNearest</a><wbr>(float&nbsp;x,
+ float&nbsp;y,
+ float&nbsp;z)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getNearest(net.minecraft.world.phys.Vec3)" class="member-name-link">getNearest</a><wbr>(<a href="../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_333951_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getNearest(net.minecraft.world.phys.Vec3)" class="member-name-link">getNearest</a><wbr>(<a href="../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;ois)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Vec3i.html" title="class in net.minecraft.core">Vec3i</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNormal()" class="member-name-link">getNormal</a>()</code></div>
@@ -332,7 +342,7 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOpposite()" class="member-name-link">getOpposite</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getRandom(net.minecraft.util.RandomSource)" class="member-name-link">getRandom</a><wbr>(<a href="../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_235673_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getRandom(net.minecraft.util.RandomSource)" class="member-name-link">getRandom</a><wbr>(<a href="../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.joml.Quaternionf</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRotation()" class="member-name-link">getRotation</a>()</code></div>
@@ -350,19 +360,22 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStepZ()" class="member-name-link">getStepZ</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isFacingAngle(float)" class="member-name-link">isFacingAngle</a><wbr>(float&nbsp;p_122371_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isFacingAngle(float)" class="member-name-link">isFacingAngle</a><wbr>(float&nbsp;degrees)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>[]</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#makeDirectionArray(net.minecraft.core.Direction,net.minecraft.core.Direction,net.minecraft.core.Direction)" class="member-name-link">makeDirectionArray</a><wbr>(<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_122399_,
- <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_122400_,
- <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_122401_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#makeDirectionArray(net.minecraft.core.Direction,net.minecraft.core.Direction,net.minecraft.core.Direction)" class="member-name-link">makeDirectionArray</a><wbr>(<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;first,
+ <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;second,
+ <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;third)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>[]</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#orderedByNearest(net.minecraft.world.entity.Entity)" class="member-name-link">orderedByNearest</a><wbr>(<a href="../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_122383_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#orderedByNearest(net.minecraft.world.entity.Entity)" class="member-name-link">orderedByNearest</a><wbr>(<a href="../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Gets the <code>Direction</code> values for the provided entity's
+ looking direction.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#rotate(org.joml.Matrix4f,net.minecraft.core.Direction)" class="member-name-link">rotate</a><wbr>(org.joml.Matrix4f&nbsp;p_254393_,
- <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_254252_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#rotate(org.joml.Matrix4f,net.minecraft.core.Direction)" class="member-name-link">rotate</a><wbr>(org.joml.Matrix4f&nbsp;matrix,
+ <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>org.joml.Vector3f</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#step()" class="member-name-link">step</a>()</code></div>
@@ -388,7 +401,7 @@ implements <a href="../util/StringRepresentable.html" title="interface in net.mi
 the order they are declared.</div>
 </div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static com.mojang.serialization.DataResult<wbr>&lt;<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#verifyVertical(net.minecraft.core.Direction)" class="member-name-link">verifyVertical</a><wbr>(<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_194529_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#verifyVertical(net.minecraft.core.Direction)" class="member-name-link">verifyVertical</a><wbr>(<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -482,18 +495,21 @@ the order they are declared.</div>
 <section class="detail" id="data3d">
 <h3>data3d</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">data3d</span></div>
+<div class="block">Ordering index for D-U-N-S-W-E</div>
 </section>
 </li>
 <li>
 <section class="detail" id="oppositeIndex">
 <h3>oppositeIndex</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">oppositeIndex</span></div>
+<div class="block">Index of the opposite Direction in the VALUES array</div>
 </section>
 </li>
 <li>
 <section class="detail" id="data2d">
 <h3>data2d</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">data2d</span></div>
+<div class="block">Ordering index for the HORIZONTALS field (S-W-N-E)</div>
 </section>
 </li>
 <li>
@@ -518,6 +534,7 @@ the order they are declared.</div>
 <section class="detail" id="normal">
 <h3>normal</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="Vec3i.html" title="class in net.minecraft.core">Vec3i</a></span>&nbsp;<span class="element-name">normal</span></div>
+<div class="block">Normalized vector that points in the direction of this Direction</div>
 </section>
 </li>
 <li>
@@ -536,6 +553,7 @@ the order they are declared.</div>
 <section class="detail" id="BY_2D_DATA">
 <h3>BY_2D_DATA</h3>
 <div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>[]</span>&nbsp;<span class="element-name">BY_2D_DATA</span></div>
+<div class="block">All Facings with horizontal axis in order S-W-N-E</div>
 </section>
 </li>
 </ul>
@@ -549,13 +567,13 @@ the order they are declared.</div>
 <li>
 <section class="detail" id="&lt;init&gt;(int,int,int,java.lang.String,net.minecraft.core.Direction.AxisDirection,net.minecraft.core.Direction.Axis,net.minecraft.core.Vec3i)">
 <h3>Direction</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">Direction</span><wbr><span class="parameters">(int&nbsp;p_122356_,
- int&nbsp;p_122357_,
- int&nbsp;p_122358_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_122359_,
- <a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;p_122360_,
- <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_122361_,
- <a href="Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;p_122362_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">Direction</span><wbr><span class="parameters">(int&nbsp;data3d,
+ int&nbsp;oppositeIndex,
+ int&nbsp;data2d,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;axisDirection,
+ <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis,
+ <a href="Vec3i.html" title="class in net.minecraft.core">Vec3i</a>&nbsp;normal)</span></div>
 </section>
 </li>
 </ul>
@@ -600,28 +618,30 @@ not permitted.)</div>
 <li>
 <section class="detail" id="orderedByNearest(net.minecraft.world.entity.Entity)">
 <h3>orderedByNearest</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>[]</span>&nbsp;<span class="element-name">orderedByNearest</span><wbr><span class="parameters">(<a href="../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_122383_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>[]</span>&nbsp;<span class="element-name">orderedByNearest</span><wbr><span class="parameters">(<a href="../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</span></div>
+<div class="block">Gets the <code>Direction</code> values for the provided entity's
+ looking direction. Dependent on yaw and pitch of entity looking.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="makeDirectionArray(net.minecraft.core.Direction,net.minecraft.core.Direction,net.minecraft.core.Direction)">
 <h3>makeDirectionArray</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>[]</span>&nbsp;<span class="element-name">makeDirectionArray</span><wbr><span class="parameters">(<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_122399_,
- <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_122400_,
- <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_122401_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>[]</span>&nbsp;<span class="element-name">makeDirectionArray</span><wbr><span class="parameters">(<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;first,
+ <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;second,
+ <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;third)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="rotate(org.joml.Matrix4f,net.minecraft.core.Direction)">
 <h3>rotate</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">rotate</span><wbr><span class="parameters">(org.joml.Matrix4f&nbsp;p_254393_,
- <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_254252_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">rotate</span><wbr><span class="parameters">(org.joml.Matrix4f&nbsp;matrix,
+ <a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="allShuffled(net.minecraft.util.RandomSource)">
 <h3>allShuffled</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&gt;</span>&nbsp;<span class="element-name">allShuffled</span><wbr><span class="parameters">(<a href="../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_235668_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&gt;</span>&nbsp;<span class="element-name">allShuffled</span><wbr><span class="parameters">(<a href="../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
 </section>
 </li>
 <li>
@@ -657,8 +677,8 @@ not permitted.)</div>
 <li>
 <section class="detail" id="getFacingAxis(net.minecraft.world.entity.Entity,net.minecraft.core.Direction.Axis)">
 <h3>getFacingAxis</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getFacingAxis</span><wbr><span class="parameters">(<a href="../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_175358_,
- <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_175359_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getFacingAxis</span><wbr><span class="parameters">(<a href="../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis)</span></div>
 </section>
 </li>
 <li>
@@ -670,13 +690,13 @@ not permitted.)</div>
 <li>
 <section class="detail" id="getClockWise(net.minecraft.core.Direction.Axis)">
 <h3>getClockWise</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getClockWise</span><wbr><span class="parameters">(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_175363_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getClockWise</span><wbr><span class="parameters">(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getCounterClockWise(net.minecraft.core.Direction.Axis)">
 <h3>getCounterClockWise</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getCounterClockWise</span><wbr><span class="parameters">(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_175365_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getCounterClockWise</span><wbr><span class="parameters">(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis)</span></div>
 </section>
 </li>
 <li>
@@ -756,41 +776,69 @@ not permitted.)</div>
 <h3>byName</h3>
 <div class="member-signature"><span class="annotations">@Nullable
 </span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">byName</span><wbr><span class="parameters">(@Nullable
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_122403_)</span></div>
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the Direction specified by the given name or null if no such Direction exists</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="from3DDataValue(int)">
 <h3>from3DDataValue</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">from3DDataValue</span><wbr><span class="parameters">(int&nbsp;p_122377_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">from3DDataValue</span><wbr><span class="parameters">(int&nbsp;index)</span></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the <code>Direction</code> corresponding to the given index (0-5). Out of bounds values are wrapped around. The order is D-U-N-S-W-E.</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="#get3DDataValue()"><code>get3DDataValue()</code></a></li>
+</ul>
+</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="from2DDataValue(int)">
 <h3>from2DDataValue</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">from2DDataValue</span><wbr><span class="parameters">(int&nbsp;p_122408_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">from2DDataValue</span><wbr><span class="parameters">(int&nbsp;horizontalIndex)</span></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the Direction corresponding to the given horizontal index (0-3). Out of bounds values are wrapped around. The order is S-W-N-E.</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="#get2DDataValue()"><code>get2DDataValue()</code></a></li>
+</ul>
+</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="fromDelta(int,int,int)">
 <h3>fromDelta</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">fromDelta</span><wbr><span class="parameters">(int&nbsp;p_278323_,
- int&nbsp;p_278296_,
- int&nbsp;p_278347_)</span></div>
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">fromDelta</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="fromYRot(double)">
 <h3>fromYRot</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">fromYRot</span><wbr><span class="parameters">(double&nbsp;p_122365_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">fromYRot</span><wbr><span class="parameters">(double&nbsp;angle)</span></div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the Direction corresponding to the given angle in degrees (0-360). Out of bounds values are wrapped around. An angle of 0 is SOUTH, an angle of 90 would be WEST.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="fromAxisAndDirection(net.minecraft.core.Direction.Axis,net.minecraft.core.Direction.AxisDirection)">
 <h3>fromAxisAndDirection</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">fromAxisAndDirection</span><wbr><span class="parameters">(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_122388_,
- <a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;p_122389_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">fromAxisAndDirection</span><wbr><span class="parameters">(<a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis,
+ <a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;axisDirection)</span></div>
 </section>
 </li>
 <li>
@@ -802,29 +850,29 @@ not permitted.)</div>
 <li>
 <section class="detail" id="getRandom(net.minecraft.util.RandomSource)">
 <h3>getRandom</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getRandom</span><wbr><span class="parameters">(<a href="../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_235673_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getRandom</span><wbr><span class="parameters">(<a href="../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getNearest(double,double,double)">
 <h3>getNearest</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getNearest</span><wbr><span class="parameters">(double&nbsp;p_122367_,
- double&nbsp;p_122368_,
- double&nbsp;p_122369_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getNearest</span><wbr><span class="parameters">(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getNearest(float,float,float)">
 <h3>getNearest</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getNearest</span><wbr><span class="parameters">(float&nbsp;p_122373_,
- float&nbsp;p_122374_,
- float&nbsp;p_122375_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getNearest</span><wbr><span class="parameters">(float&nbsp;x,
+ float&nbsp;y,
+ float&nbsp;z)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getNearest(net.minecraft.world.phys.Vec3)">
 <h3>getNearest</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getNearest</span><wbr><span class="parameters">(<a href="../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_333951_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">getNearest</span><wbr><span class="parameters">(<a href="../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;ois)</span></div>
 </section>
 </li>
 <li>
@@ -850,14 +898,14 @@ not permitted.)</div>
 <li>
 <section class="detail" id="verifyVertical(net.minecraft.core.Direction)">
 <h3>verifyVertical</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">com.mojang.serialization.DataResult&lt;<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&gt;</span>&nbsp;<span class="element-name">verifyVertical</span><wbr><span class="parameters">(<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_194529_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">com.mojang.serialization.DataResult&lt;<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&gt;</span>&nbsp;<span class="element-name">verifyVertical</span><wbr><span class="parameters">(<a href="Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;direction)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="get(net.minecraft.core.Direction.AxisDirection,net.minecraft.core.Direction.Axis)">
 <h3>get</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;p_122391_,
- <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;p_122392_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Direction.html" title="enum class in net.minecraft.core">Direction</a></span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(<a href="Direction.AxisDirection.html" title="enum class in net.minecraft.core">Direction.AxisDirection</a>&nbsp;axisDirection,
+ <a href="Direction.Axis.html" title="enum class in net.minecraft.core">Direction.Axis</a>&nbsp;axis)</span></div>
 </section>
 </li>
 <li>
@@ -869,7 +917,7 @@ not permitted.)</div>
 <li>
 <section class="detail" id="isFacingAngle(float)">
 <h3>isFacingAngle</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isFacingAngle</span><wbr><span class="parameters">(float&nbsp;p_122371_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isFacingAngle</span><wbr><span class="parameters">(float&nbsp;degrees)</span></div>
 </section>
 </li>
 </ul>

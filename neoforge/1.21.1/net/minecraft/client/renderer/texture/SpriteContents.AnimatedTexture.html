@@ -128,9 +128,9 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,int,boolean)" class="member-name-link">AnimatedTexture</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SpriteContents.FrameInfo.html" title="class in net.minecraft.client.renderer.texture">SpriteContents.FrameInfo</a>&gt;&nbsp;p_250968_,
- int&nbsp;p_251686_,
- boolean&nbsp;p_251832_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,int,boolean)" class="member-name-link">AnimatedTexture</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SpriteContents.FrameInfo.html" title="class in net.minecraft.client.renderer.texture">SpriteContents.FrameInfo</a>&gt;&nbsp;frames,
+ int&nbsp;frameRowSize,
+ boolean&nbsp;interpolateFrames)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -150,22 +150,22 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createTicker()" class="member-name-link">createTicker</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFrameX(int)" class="member-name-link">getFrameX</a><wbr>(int&nbsp;p_249475_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFrameX(int)" class="member-name-link">getFrameX</a><wbr>(int&nbsp;frameIndex)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFrameY(int)" class="member-name-link">getFrameY</a><wbr>(int&nbsp;p_251327_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFrameY(int)" class="member-name-link">getFrameY</a><wbr>(int&nbsp;frameIndex)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUniqueFrames()" class="member-name-link">getUniqueFrames</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#uploadFirstFrame(int,int)" class="member-name-link">uploadFirstFrame</a><wbr>(int&nbsp;p_251807_,
- int&nbsp;p_248676_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#uploadFirstFrame(int,int)" class="member-name-link">uploadFirstFrame</a><wbr>(int&nbsp;x,
+ int&nbsp;y)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#uploadFrame(int,int,int)" class="member-name-link">uploadFrame</a><wbr>(int&nbsp;p_250449_,
- int&nbsp;p_248877_,
- int&nbsp;p_249060_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#uploadFrame(int,int,int)" class="member-name-link">uploadFrame</a><wbr>(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;frameIndex)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -213,9 +213,9 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(java.util.List,int,boolean)">
 <h3>AnimatedTexture</h3>
-<div class="member-signature"><span class="element-name">AnimatedTexture</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SpriteContents.FrameInfo.html" title="class in net.minecraft.client.renderer.texture">SpriteContents.FrameInfo</a>&gt;&nbsp;p_250968_,
- int&nbsp;p_251686_,
- boolean&nbsp;p_251832_)</span></div>
+<div class="member-signature"><span class="element-name">AnimatedTexture</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SpriteContents.FrameInfo.html" title="class in net.minecraft.client.renderer.texture">SpriteContents.FrameInfo</a>&gt;&nbsp;frames,
+ int&nbsp;frameRowSize,
+ boolean&nbsp;interpolateFrames)</span></div>
 </section>
 </li>
 </ul>
@@ -229,21 +229,21 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="getFrameX(int)">
 <h3>getFrameX</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getFrameX</span><wbr><span class="parameters">(int&nbsp;p_249475_)</span></div>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getFrameX</span><wbr><span class="parameters">(int&nbsp;frameIndex)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getFrameY(int)">
 <h3>getFrameY</h3>
-<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getFrameY</span><wbr><span class="parameters">(int&nbsp;p_251327_)</span></div>
+<div class="member-signature"><span class="return-type">int</span>&nbsp;<span class="element-name">getFrameY</span><wbr><span class="parameters">(int&nbsp;frameIndex)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="uploadFrame(int,int,int)">
 <h3>uploadFrame</h3>
-<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">uploadFrame</span><wbr><span class="parameters">(int&nbsp;p_250449_,
- int&nbsp;p_248877_,
- int&nbsp;p_249060_)</span></div>
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">uploadFrame</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;frameIndex)</span></div>
 </section>
 </li>
 <li>
@@ -255,8 +255,8 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="uploadFirstFrame(int,int)">
 <h3>uploadFirstFrame</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">uploadFirstFrame</span><wbr><span class="parameters">(int&nbsp;p_251807_,
- int&nbsp;p_248676_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">uploadFirstFrame</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y)</span></div>
 </section>
 </li>
 <li>

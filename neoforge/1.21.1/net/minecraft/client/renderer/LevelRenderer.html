@@ -192,7 +192,9 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;</code></div>
 <div class="col-second odd-row-color"><code><a href="#globalBlockEntities" class="member-name-link">globalBlockEntities</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">Global block entities; these are always rendered, even if off-screen.</div>
+</div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#HALF_SECTION_SIZE" class="member-name-link">HALF_SECTION_SIZE</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -356,10 +358,10 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Minecraft,net.minecraft.client.renderer.entity.EntityRenderDispatcher,net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher,net.minecraft.client.renderer.RenderBuffers)" class="member-name-link">LevelRenderer</a><wbr>(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;p_234245_,
- <a href="entity/EntityRenderDispatcher.html" title="class in net.minecraft.client.renderer.entity">EntityRenderDispatcher</a>&nbsp;p_234246_,
- <a href="blockentity/BlockEntityRenderDispatcher.html" title="class in net.minecraft.client.renderer.blockentity">BlockEntityRenderDispatcher</a>&nbsp;p_234247_,
- <a href="RenderBuffers.html" title="class in net.minecraft.client.renderer">RenderBuffers</a>&nbsp;p_234248_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Minecraft,net.minecraft.client.renderer.entity.EntityRenderDispatcher,net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher,net.minecraft.client.renderer.RenderBuffers)" class="member-name-link">LevelRenderer</a><wbr>(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="entity/EntityRenderDispatcher.html" title="class in net.minecraft.client.renderer.entity">EntityRenderDispatcher</a>&nbsp;entityRenderDispatcher,
+ <a href="blockentity/BlockEntityRenderDispatcher.html" title="class in net.minecraft.client.renderer.blockentity">BlockEntityRenderDispatcher</a>&nbsp;blockEntityRenderDispatcher,
+ <a href="RenderBuffers.html" title="class in net.minecraft.client.renderer">RenderBuffers</a>&nbsp;renderBuffers)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -376,144 +378,148 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addChainedFilledBoxVertices(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float)" class="member-name-link">addChainedFilledBoxVertices</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_270343_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_270926_,
- double&nbsp;p_270503_,
- double&nbsp;p_270353_,
- double&nbsp;p_270642_,
- double&nbsp;p_270676_,
- double&nbsp;p_270711_,
- double&nbsp;p_270601_,
- float&nbsp;p_270523_,
- float&nbsp;p_270382_,
- float&nbsp;p_270089_,
- float&nbsp;p_270335_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addChainedFilledBoxVertices(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float)" class="member-name-link">addChainedFilledBoxVertices</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addChainedFilledBoxVertices(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,float,float,float,float,float,float,float,float,float,float)" class="member-name-link">addChainedFilledBoxVertices</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_270352_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_271015_,
- float&nbsp;p_270144_,
- float&nbsp;p_270901_,
- float&nbsp;p_270546_,
- float&nbsp;p_270102_,
- float&nbsp;p_270605_,
- float&nbsp;p_271006_,
- float&nbsp;p_270864_,
- float&nbsp;p_270181_,
- float&nbsp;p_270220_,
- float&nbsp;p_270293_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addChainedFilledBoxVertices(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,float,float,float,float,float,float,float,float,float,float)" class="member-name-link">addChainedFilledBoxVertices</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ float&nbsp;minX,
+ float&nbsp;minY,
+ float&nbsp;minZ,
+ float&nbsp;maxX,
+ float&nbsp;maxY,
+ float&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addFrustumQuad(com.mojang.blaze3d.vertex.VertexConsumer,org.joml.Matrix4f,int,int,int,int,int,int,int)" class="member-name-link">addFrustumQuad</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_270858_,
- org.joml.Matrix4f&nbsp;p_270341_,
- int&nbsp;p_270702_,
- int&nbsp;p_270959_,
- int&nbsp;p_270732_,
- int&nbsp;p_270363_,
- int&nbsp;p_270273_,
- int&nbsp;p_270934_,
- int&nbsp;p_270916_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addFrustumQuad(com.mojang.blaze3d.vertex.VertexConsumer,org.joml.Matrix4f,int,int,int,int,int,int,int)" class="member-name-link">addFrustumQuad</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ org.joml.Matrix4f&nbsp;matrix,
+ int&nbsp;index1,
+ int&nbsp;index2,
+ int&nbsp;index3,
+ int&nbsp;index4,
+ int&nbsp;red,
+ int&nbsp;green,
+ int&nbsp;blue)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addFrustumVertex(com.mojang.blaze3d.vertex.VertexConsumer,org.joml.Matrix4f,int)" class="member-name-link">addFrustumVertex</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_270950_,
- org.joml.Matrix4f&nbsp;p_270118_,
- int&nbsp;p_270865_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addFrustumVertex(com.mojang.blaze3d.vertex.VertexConsumer,org.joml.Matrix4f,int)" class="member-name-link">addFrustumVertex</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ org.joml.Matrix4f&nbsp;matrix,
+ int&nbsp;vertexIndex)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticle(net.minecraft.core.particles.ParticleOptions,boolean,boolean,double,double,double,double,double,double)" class="member-name-link">addParticle</a><wbr>(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_109753_,
- boolean&nbsp;p_109754_,
- boolean&nbsp;p_109755_,
- double&nbsp;p_109756_,
- double&nbsp;p_109757_,
- double&nbsp;p_109758_,
- double&nbsp;p_109759_,
- double&nbsp;p_109760_,
- double&nbsp;p_109761_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticle(net.minecraft.core.particles.ParticleOptions,boolean,boolean,double,double,double,double,double,double)" class="member-name-link">addParticle</a><wbr>(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;options,
+ boolean&nbsp;force,
+ boolean&nbsp;decreased,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticle(net.minecraft.core.particles.ParticleOptions,boolean,double,double,double,double,double,double)" class="member-name-link">addParticle</a><wbr>(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_109744_,
- boolean&nbsp;p_109745_,
- double&nbsp;p_109746_,
- double&nbsp;p_109747_,
- double&nbsp;p_109748_,
- double&nbsp;p_109749_,
- double&nbsp;p_109750_,
- double&nbsp;p_109751_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticle(net.minecraft.core.particles.ParticleOptions,boolean,double,double,double,double,double,double)" class="member-name-link">addParticle</a><wbr>(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;options,
+ boolean&nbsp;force,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private &lt;T extends <a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&gt;<br>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticle(T,double,double,double,double,double,double)" class="member-name-link">addParticle</a><wbr>(T&nbsp;p_109736_,
- double&nbsp;p_109737_,
- double&nbsp;p_109738_,
- double&nbsp;p_109739_,
- double&nbsp;p_109740_,
- double&nbsp;p_109741_,
- double&nbsp;p_109742_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticle(T,double,double,double,double,double,double)" class="member-name-link">addParticle</a><wbr>(T&nbsp;options,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../particle/Particle.html" title="class in net.minecraft.client.particle">Particle</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticleInternal(net.minecraft.core.particles.ParticleOptions,boolean,boolean,double,double,double,double,double,double)" class="member-name-link">addParticleInternal</a><wbr>(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_109805_,
- boolean&nbsp;p_109806_,
- boolean&nbsp;p_109807_,
- double&nbsp;p_109808_,
- double&nbsp;p_109809_,
- double&nbsp;p_109810_,
- double&nbsp;p_109811_,
- double&nbsp;p_109812_,
- double&nbsp;p_109813_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticleInternal(net.minecraft.core.particles.ParticleOptions,boolean,boolean,double,double,double,double,double,double)" class="member-name-link">addParticleInternal</a><wbr>(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;options,
+ boolean&nbsp;force,
+ boolean&nbsp;decreased,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../particle/Particle.html" title="class in net.minecraft.client.particle">Particle</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticleInternal(net.minecraft.core.particles.ParticleOptions,boolean,double,double,double,double,double,double)" class="member-name-link">addParticleInternal</a><wbr>(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_109796_,
- boolean&nbsp;p_109797_,
- double&nbsp;p_109798_,
- double&nbsp;p_109799_,
- double&nbsp;p_109800_,
- double&nbsp;p_109801_,
- double&nbsp;p_109802_,
- double&nbsp;p_109803_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticleInternal(net.minecraft.core.particles.ParticleOptions,boolean,double,double,double,double,double,double)" class="member-name-link">addParticleInternal</a><wbr>(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;options,
+ boolean&nbsp;force,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addRecentlyCompiledSection(net.minecraft.client.renderer.chunk.SectionRenderDispatcher.RenderSection)" class="member-name-link">addRecentlyCompiledSection</a><wbr>(<a href="chunk/SectionRenderDispatcher.RenderSection.html" title="class in net.minecraft.client.renderer.chunk">SectionRenderDispatcher.RenderSection</a>&nbsp;p_295462_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addRecentlyCompiledSection(net.minecraft.client.renderer.chunk.SectionRenderDispatcher.RenderSection)" class="member-name-link">addRecentlyCompiledSection</a><wbr>(<a href="chunk/SectionRenderDispatcher.RenderSection.html" title="class in net.minecraft.client.renderer.chunk">SectionRenderDispatcher.RenderSection</a>&nbsp;renderSection)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#allChanged()" class="member-name-link">allChanged</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#applyFrustum(net.minecraft.client.renderer.culling.Frustum)" class="member-name-link">applyFrustum</a><wbr>(<a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;p_194355_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#applyFrustum(net.minecraft.client.renderer.culling.Frustum)" class="member-name-link">applyFrustum</a><wbr>(<a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;frustum)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#blockChanged(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,int)" class="member-name-link">blockChanged</a><wbr>(<a href="../../world/level/BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_109545_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109546_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109547_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109548_,
- int&nbsp;p_109549_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#blockChanged(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,int)" class="member-name-link">blockChanged</a><wbr>(<a href="../../world/level/BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;oldState,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;newState,
+ int&nbsp;flags)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../../../../com/mojang/blaze3d/vertex/MeshData.html" title="class in com.mojang.blaze3d.vertex">MeshData</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildClouds(com.mojang.blaze3d.vertex.Tesselator,double,double,double,net.minecraft.world.phys.Vec3)" class="member-name-link">buildClouds</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;p_350398_,
- double&nbsp;p_234263_,
- double&nbsp;p_234264_,
- double&nbsp;p_234265_,
- <a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_234266_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildClouds(com.mojang.blaze3d.vertex.Tesselator,double,double,double,net.minecraft.world.phys.Vec3)" class="member-name-link">buildClouds</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;tesselator,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ <a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;cloudColor)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../../../com/mojang/blaze3d/vertex/MeshData.html" title="class in com.mojang.blaze3d.vertex">MeshData</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildSkyDisc(com.mojang.blaze3d.vertex.Tesselator,float)" class="member-name-link">buildSkyDisc</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;p_350585_,
- float&nbsp;p_234269_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#buildSkyDisc(com.mojang.blaze3d.vertex.Tesselator,float)" class="member-name-link">buildSkyDisc</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;tesselator,
+ float&nbsp;y)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../ParticleStatus.html" title="enum class in net.minecraft.client">ParticleStatus</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#calculateParticleLevel(boolean)" class="member-name-link">calculateParticleLevel</a><wbr>(boolean&nbsp;p_109768_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#calculateParticleLevel(boolean)" class="member-name-link">calculateParticleLevel</a><wbr>(boolean&nbsp;decreased)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Calculates the level of particles to use based on the <a href="../Options.html#particles">particles option</a> and the specified <code>decreased</code> parameter.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#captureFrustum()" class="member-name-link">captureFrustum</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#captureFrustum(org.joml.Matrix4f,org.joml.Matrix4f,double,double,double,net.minecraft.client.renderer.culling.Frustum)" class="member-name-link">captureFrustum</a><wbr>(org.joml.Matrix4f&nbsp;p_253756_,
- org.joml.Matrix4f&nbsp;p_253787_,
- double&nbsp;p_254187_,
- double&nbsp;p_253833_,
- double&nbsp;p_254547_,
- <a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;p_253954_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#captureFrustum(org.joml.Matrix4f,org.joml.Matrix4f,double,double,double,net.minecraft.client.renderer.culling.Frustum)" class="member-name-link">captureFrustum</a><wbr>(org.joml.Matrix4f&nbsp;viewMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ,
+ <a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;capturedFrustrum)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkPoseStack(com.mojang.blaze3d.vertex.PoseStack)" class="member-name-link">checkPoseStack</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109589_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#checkPoseStack(com.mojang.blaze3d.vertex.PoseStack)" class="member-name-link">checkPoseStack</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Asserts that the specified <code>poseStack</code> is <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html#clear()">clear</a>.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -521,7 +527,7 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#compileSections(net.minecraft.client.Camera)" class="member-name-link">compileSections</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_194371_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#compileSections(net.minecraft.client.Camera)" class="member-name-link">compileSections</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#countRenderedSections()" class="member-name-link">countRenderedSections</a>()</code></div>
@@ -539,18 +545,18 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deinitTransparency()" class="member-name-link">deinitTransparency</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#destroyBlockProgress(int,net.minecraft.core.BlockPos,int)" class="member-name-link">destroyBlockProgress</a><wbr>(int&nbsp;p_109775_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109776_,
- int&nbsp;p_109777_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#destroyBlockProgress(int,net.minecraft.core.BlockPos,int)" class="member-name-link">destroyBlockProgress</a><wbr>(int&nbsp;breakerId,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;progress)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doEntityOutline()" class="member-name-link">doEntityOutline</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doesMobEffectBlockSky(net.minecraft.client.Camera)" class="member-name-link">doesMobEffectBlockSky</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_234311_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doesMobEffectBlockSky(net.minecraft.client.Camera)" class="member-name-link">doesMobEffectBlockSky</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../../../../com/mojang/blaze3d/vertex/MeshData.html" title="class in com.mojang.blaze3d.vertex">MeshData</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawStars(com.mojang.blaze3d.vertex.Tesselator)" class="member-name-link">drawStars</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;p_350542_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#drawStars(com.mojang.blaze3d.vertex.Tesselator)" class="member-name-link">drawStars</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;tesselator)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../com/mojang/blaze3d/pipeline/RenderTarget.html" title="class in com.mojang.blaze3d.pipeline">RenderTarget</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#entityTarget()" class="member-name-link">entityTarget</a>()</code></div>
@@ -571,13 +577,13 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastViewDistance()" class="member-name-link">getLastViewDistance</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos)" class="member-name-link">getLightColor</a><wbr>(<a href="../../world/level/BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;p_109542_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109543_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos)" class="member-name-link">getLightColor</a><wbr>(<a href="../../world/level/BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos)" class="member-name-link">getLightColor</a><wbr>(<a href="../../world/level/BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;p_109538_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109539_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109540_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos)" class="member-name-link">getLightColor</a><wbr>(<a href="../../world/level/BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../../com/mojang/blaze3d/pipeline/RenderTarget.html" title="class in com.mojang.blaze3d.pipeline">RenderTarget</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getParticlesTarget()" class="member-name-link">getParticlesTarget</a>()</code></div>
@@ -601,10 +607,12 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWeatherTarget()" class="member-name-link">getWeatherTarget</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#globalLevelEvent(int,net.minecraft.core.BlockPos,int)" class="member-name-link">globalLevelEvent</a><wbr>(int&nbsp;p_109507_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109508_,
- int&nbsp;p_109509_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#globalLevelEvent(int,net.minecraft.core.BlockPos,int)" class="member-name-link">globalLevelEvent</a><wbr>(int&nbsp;type,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;data)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Handles a global level event.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#graphicsChanged()" class="member-name-link">graphicsChanged</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -618,7 +626,7 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initTransparency()" class="member-name-link">initTransparency</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSectionCompiled(net.minecraft.core.BlockPos)" class="member-name-link">isSectionCompiled</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_295788_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSectionCompiled(net.minecraft.core.BlockPos)" class="member-name-link">isSectionCompiled</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#iterateVisibleBlockEntities(java.util.function.Consumer)" class="member-name-link">iterateVisibleBlockEntities</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;&nbsp;blockEntityConsumer)</code></div>
@@ -627,205 +635,207 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#killFrustum()" class="member-name-link">killFrustum</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#levelEvent(int,net.minecraft.core.BlockPos,int)" class="member-name-link">levelEvent</a><wbr>(int&nbsp;p_234305_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_234306_,
- int&nbsp;p_234307_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#levelEvent(int,net.minecraft.core.BlockPos,int)" class="member-name-link">levelEvent</a><wbr>(int&nbsp;type,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;data)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#mixColor(float)" class="member-name-link">mixColor</a><wbr>(float&nbsp;p_286899_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#mixColor(float)" class="member-name-link">mixColor</a><wbr>(float&nbsp;hue)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#needsUpdate()" class="member-name-link">needsUpdate</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#notifyNearbyEntities(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,boolean)" class="member-name-link">notifyNearbyEntities</a><wbr>(<a href="../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_109551_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109552_,
- boolean&nbsp;p_109553_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#notifyNearbyEntities(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,boolean)" class="member-name-link">notifyNearbyEntities</a><wbr>(<a href="../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ boolean&nbsp;playing)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Notifies living entities in a 3 block range of the specified <code>pos</code> that a record is or isn't playing nearby, dependent on the specified <code>playing</code> parameter.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#offsetFrustum(net.minecraft.client.renderer.culling.Frustum)" class="member-name-link">offsetFrustum</a><wbr>(<a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;p_296151_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#offsetFrustum(net.minecraft.client.renderer.culling.Frustum)" class="member-name-link">offsetFrustum</a><wbr>(<a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;frustum)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onChunkLoaded(net.minecraft.world.level.ChunkPos)" class="member-name-link">onChunkLoaded</a><wbr>(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_295808_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onChunkLoaded(net.minecraft.world.level.ChunkPos)" class="member-name-link">onChunkLoaded</a><wbr>(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onResourceManagerReload(net.minecraft.server.packs.resources.ResourceManager)" class="member-name-link">onResourceManagerReload</a><wbr>(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_109513_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onResourceManagerReload(net.minecraft.server.packs.resources.ResourceManager)" class="member-name-link">onResourceManagerReload</a><wbr>(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#playJukeboxSong(net.minecraft.core.Holder,net.minecraft.core.BlockPos)" class="member-name-link">playJukeboxSong</a><wbr>(<a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/item/JukeboxSong.html" title="class in net.minecraft.world.item">JukeboxSong</a>&gt;&nbsp;p_350918_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_350830_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#playJukeboxSong(net.minecraft.core.Holder,net.minecraft.core.BlockPos)" class="member-name-link">playJukeboxSong</a><wbr>(<a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/item/JukeboxSong.html" title="class in net.minecraft.world.item">JukeboxSong</a>&gt;&nbsp;song,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepareCullFrustum(net.minecraft.world.phys.Vec3,org.joml.Matrix4f,org.joml.Matrix4f)" class="member-name-link">prepareCullFrustum</a><wbr>(<a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_253766_,
- org.joml.Matrix4f&nbsp;p_254341_,
- org.joml.Matrix4f&nbsp;p_323487_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepareCullFrustum(net.minecraft.world.phys.Vec3,org.joml.Matrix4f,org.joml.Matrix4f)" class="member-name-link">prepareCullFrustum</a><wbr>(<a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;cameraPosition,
+ org.joml.Matrix4f&nbsp;frustumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeProgress(net.minecraft.server.level.BlockDestructionProgress)" class="member-name-link">removeProgress</a><wbr>(<a href="../../server/level/BlockDestructionProgress.html" title="class in net.minecraft.server.level">BlockDestructionProgress</a>&nbsp;p_109766_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeProgress(net.minecraft.server.level.BlockDestructionProgress)" class="member-name-link">removeProgress</a><wbr>(<a href="../../server/level/BlockDestructionProgress.html" title="class in net.minecraft.server.level">BlockDestructionProgress</a>&nbsp;progress)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderClouds(com.mojang.blaze3d.vertex.PoseStack,org.joml.Matrix4f,org.joml.Matrix4f,float,double,double,double)" class="member-name-link">renderClouds</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_254145_,
- org.joml.Matrix4f&nbsp;p_254537_,
- org.joml.Matrix4f&nbsp;p_324366_,
- float&nbsp;p_254364_,
- double&nbsp;p_253843_,
- double&nbsp;p_253663_,
- double&nbsp;p_253795_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderClouds(com.mojang.blaze3d.vertex.PoseStack,org.joml.Matrix4f,org.joml.Matrix4f,float,double,double,double)" class="member-name-link">renderClouds</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ org.joml.Matrix4f&nbsp;frustumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix,
+ float&nbsp;partialTick,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderDebug(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.Camera)" class="member-name-link">renderDebug</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_271014_,
- <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_270107_,
- <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_270483_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderDebug(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.Camera)" class="member-name-link">renderDebug</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderEndSky(com.mojang.blaze3d.vertex.PoseStack)" class="member-name-link">renderEndSky</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109781_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderEndSky(com.mojang.blaze3d.vertex.PoseStack)" class="member-name-link">renderEndSky</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderEntity(net.minecraft.world.entity.Entity,double,double,double,float,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)" class="member-name-link">renderEntity</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_109518_,
- double&nbsp;p_109519_,
- double&nbsp;p_109520_,
- double&nbsp;p_109521_,
- float&nbsp;p_109522_,
- <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109523_,
- <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_109524_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderEntity(net.minecraft.world.entity.Entity,double,double,double,float,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)" class="member-name-link">renderEntity</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ,
+ float&nbsp;partialTick,
+ <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderFace(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.core.Direction,float,float,float,float,float,float,float,float,float,float)" class="member-name-link">renderFace</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_352330_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_352130_,
- <a href="../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_352308_,
- float&nbsp;p_352429_,
- float&nbsp;p_352303_,
- float&nbsp;p_352424_,
- float&nbsp;p_352369_,
- float&nbsp;p_352439_,
- float&nbsp;p_352140_,
- float&nbsp;p_352061_,
- float&nbsp;p_352352_,
- float&nbsp;p_352098_,
- float&nbsp;p_352096_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderFace(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.core.Direction,float,float,float,float,float,float,float,float,float,float)" class="member-name-link">renderFace</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;buffer,
+ <a href="../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;face,
+ float&nbsp;x1,
+ float&nbsp;y1,
+ float&nbsp;z1,
+ float&nbsp;x2,
+ float&nbsp;y2,
+ float&nbsp;z2,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderHitOutline(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.entity.Entity,double,double,double,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">renderHitOutline</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109638_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109639_,
- <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_109640_,
- double&nbsp;p_109641_,
- double&nbsp;p_109642_,
- double&nbsp;p_109643_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109644_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109645_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderHitOutline(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.entity.Entity,double,double,double,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">renderHitOutline</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderLevel(net.minecraft.client.DeltaTracker,boolean,net.minecraft.client.Camera,net.minecraft.client.renderer.GameRenderer,net.minecraft.client.renderer.LightTexture,org.joml.Matrix4f,org.joml.Matrix4f)" class="member-name-link">renderLevel</a><wbr>(<a href="../DeltaTracker.html" title="interface in net.minecraft.client">DeltaTracker</a>&nbsp;p_348530_,
- boolean&nbsp;p_109603_,
- <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_109604_,
- <a href="GameRenderer.html" title="class in net.minecraft.client.renderer">GameRenderer</a>&nbsp;p_109605_,
- <a href="LightTexture.html" title="class in net.minecraft.client.renderer">LightTexture</a>&nbsp;p_109606_,
- org.joml.Matrix4f&nbsp;p_254120_,
- org.joml.Matrix4f&nbsp;p_323920_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderLevel(net.minecraft.client.DeltaTracker,boolean,net.minecraft.client.Camera,net.minecraft.client.renderer.GameRenderer,net.minecraft.client.renderer.LightTexture,org.joml.Matrix4f,org.joml.Matrix4f)" class="member-name-link">renderLevel</a><wbr>(<a href="../DeltaTracker.html" title="interface in net.minecraft.client">DeltaTracker</a>&nbsp;deltaTracker,
+ boolean&nbsp;renderBlockOutline,
+ <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera,
+ <a href="GameRenderer.html" title="class in net.minecraft.client.renderer">GameRenderer</a>&nbsp;gameRenderer,
+ <a href="LightTexture.html" title="class in net.minecraft.client.renderer">LightTexture</a>&nbsp;lightTexture,
+ org.joml.Matrix4f&nbsp;frustumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderLineBox(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float)" class="member-name-link">renderLineBox</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109609_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109610_,
- double&nbsp;p_109611_,
- double&nbsp;p_109612_,
- double&nbsp;p_109613_,
- double&nbsp;p_109614_,
- double&nbsp;p_109615_,
- double&nbsp;p_109616_,
- float&nbsp;p_109617_,
- float&nbsp;p_109618_,
- float&nbsp;p_109619_,
- float&nbsp;p_109620_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderLineBox(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float)" class="member-name-link">renderLineBox</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderLineBox(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float,float,float,float)" class="member-name-link">renderLineBox</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109622_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109623_,
- double&nbsp;p_109624_,
- double&nbsp;p_109625_,
- double&nbsp;p_109626_,
- double&nbsp;p_109627_,
- double&nbsp;p_109628_,
- double&nbsp;p_109629_,
- float&nbsp;p_109630_,
- float&nbsp;p_109631_,
- float&nbsp;p_109632_,
- float&nbsp;p_109633_,
- float&nbsp;p_109634_,
- float&nbsp;p_109635_,
- float&nbsp;p_109636_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderLineBox(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float,float,float,float)" class="member-name-link">renderLineBox</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha,
+ float&nbsp;red2,
+ float&nbsp;green2,
+ float&nbsp;blue2)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderLineBox(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.phys.AABB,float,float,float,float)" class="member-name-link">renderLineBox</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109647_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109648_,
- <a href="../../world/phys/AABB.html" title="class in net.minecraft.world.phys">AABB</a>&nbsp;p_109649_,
- float&nbsp;p_109650_,
- float&nbsp;p_109651_,
- float&nbsp;p_109652_,
- float&nbsp;p_109653_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderLineBox(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.phys.AABB,float,float,float,float)" class="member-name-link">renderLineBox</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;buffer,
+ <a href="../../world/phys/AABB.html" title="class in net.minecraft.world.phys">AABB</a>&nbsp;box,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderLineBox(com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float)" class="member-name-link">renderLineBox</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_172966_,
- double&nbsp;p_172967_,
- double&nbsp;p_172968_,
- double&nbsp;p_172969_,
- double&nbsp;p_172970_,
- double&nbsp;p_172971_,
- double&nbsp;p_172972_,
- float&nbsp;p_172973_,
- float&nbsp;p_172974_,
- float&nbsp;p_172975_,
- float&nbsp;p_172976_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderLineBox(com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float)" class="member-name-link">renderLineBox</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderSectionLayer(net.minecraft.client.renderer.RenderType,double,double,double,org.joml.Matrix4f,org.joml.Matrix4f)" class="member-name-link">renderSectionLayer</a><wbr>(<a href="RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;p_294513_,
- double&nbsp;p_295577_,
- double&nbsp;p_294761_,
- double&nbsp;p_294297_,
- org.joml.Matrix4f&nbsp;p_294782_,
- org.joml.Matrix4f&nbsp;p_324517_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderSectionLayer(net.minecraft.client.renderer.RenderType,double,double,double,org.joml.Matrix4f,org.joml.Matrix4f)" class="member-name-link">renderSectionLayer</a><wbr>(<a href="RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ org.joml.Matrix4f&nbsp;frustrumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderShape(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.phys.shapes.VoxelShape,double,double,double,float,float,float,float)" class="member-name-link">renderShape</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109783_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109784_,
- <a href="../../world/phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;p_109785_,
- double&nbsp;p_109786_,
- double&nbsp;p_109787_,
- double&nbsp;p_109788_,
- float&nbsp;p_109789_,
- float&nbsp;p_109790_,
- float&nbsp;p_109791_,
- float&nbsp;p_109792_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderShape(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.phys.shapes.VoxelShape,double,double,double,float,float,float,float)" class="member-name-link">renderShape</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ <a href="../../world/phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;shape,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderSky(org.joml.Matrix4f,org.joml.Matrix4f,float,net.minecraft.client.Camera,boolean,java.lang.Runnable)" class="member-name-link">renderSky</a><wbr>(org.joml.Matrix4f&nbsp;p_254034_,
- org.joml.Matrix4f&nbsp;p_324386_,
- float&nbsp;p_202426_,
- <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_202427_,
- boolean&nbsp;p_202428_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;p_202429_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderSky(org.joml.Matrix4f,org.joml.Matrix4f,float,net.minecraft.client.Camera,boolean,java.lang.Runnable)" class="member-name-link">renderSky</a><wbr>(org.joml.Matrix4f&nbsp;frustumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix,
+ float&nbsp;partialTick,
+ <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera,
+ boolean&nbsp;isFoggy,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;skyFogSetup)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderSnowAndRain(net.minecraft.client.renderer.LightTexture,float,double,double,double)" class="member-name-link">renderSnowAndRain</a><wbr>(<a href="LightTexture.html" title="class in net.minecraft.client.renderer">LightTexture</a>&nbsp;p_109704_,
- float&nbsp;p_109705_,
- double&nbsp;p_109706_,
- double&nbsp;p_109707_,
- double&nbsp;p_109708_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderSnowAndRain(net.minecraft.client.renderer.LightTexture,float,double,double,double)" class="member-name-link">renderSnowAndRain</a><wbr>(<a href="LightTexture.html" title="class in net.minecraft.client.renderer">LightTexture</a>&nbsp;lightTexture,
+ float&nbsp;partialTick,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderVoxelShape(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.phys.shapes.VoxelShape,double,double,double,float,float,float,float,boolean)" class="member-name-link">renderVoxelShape</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_286791_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_286416_,
- <a href="../../world/phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;p_286863_,
- double&nbsp;p_286432_,
- double&nbsp;p_286836_,
- double&nbsp;p_286774_,
- float&nbsp;p_286612_,
- float&nbsp;p_286516_,
- float&nbsp;p_286787_,
- float&nbsp;p_286300_,
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderVoxelShape(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.phys.shapes.VoxelShape,double,double,double,float,float,float,float,boolean)" class="member-name-link">renderVoxelShape</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ <a href="../../world/phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;shape,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha,
  boolean&nbsp;p_286443_)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderWorldBorder(net.minecraft.client.Camera)" class="member-name-link">renderWorldBorder</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_173013_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderWorldBorder(net.minecraft.client.Camera)" class="member-name-link">renderWorldBorder</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#requestOutlineEffect()" class="member-name-link">requestOutlineEffect</a>()</code></div>
@@ -833,81 +843,83 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <div class="block">Neo: Request outline effect post-processing to be enabled for the current frame.</div>
 </div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resize(int,int)" class="member-name-link">resize</a><wbr>(int&nbsp;p_109488_,
- int&nbsp;p_109489_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resize(int,int)" class="member-name-link">resize</a><wbr>(int&nbsp;width,
+ int&nbsp;height)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBlockDirty(net.minecraft.core.BlockPos,boolean)" class="member-name-link">setBlockDirty</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109733_,
- boolean&nbsp;p_109734_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBlockDirty(net.minecraft.core.BlockPos,boolean)" class="member-name-link">setBlockDirty</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ boolean&nbsp;reRenderOnMainThread)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBlockDirty(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">setBlockDirty</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109722_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109723_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109724_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBlockDirty(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState)" class="member-name-link">setBlockDirty</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;oldState,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;newState)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBlocksDirty(int,int,int,int,int,int)" class="member-name-link">setBlocksDirty</a><wbr>(int&nbsp;p_109495_,
- int&nbsp;p_109496_,
- int&nbsp;p_109497_,
- int&nbsp;p_109498_,
- int&nbsp;p_109499_,
- int&nbsp;p_109500_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBlocksDirty(int,int,int,int,int,int)" class="member-name-link">setBlocksDirty</a><wbr>(int&nbsp;minX,
+ int&nbsp;minY,
+ int&nbsp;minZ,
+ int&nbsp;maxX,
+ int&nbsp;maxY,
+ int&nbsp;maxZ)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Re-renders all blocks in the specified range.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLevel(net.minecraft.client.multiplayer.ClientLevel)" class="member-name-link">setLevel</a><wbr>(<a href="../multiplayer/ClientLevel.html" title="class in net.minecraft.client.multiplayer">ClientLevel</a>&nbsp;p_109702_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLevel(net.minecraft.client.multiplayer.ClientLevel)" class="member-name-link">setLevel</a><wbr>(<a href="../multiplayer/ClientLevel.html" title="class in net.minecraft.client.multiplayer">ClientLevel</a>&nbsp;level)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSectionDirty(int,int,int)" class="member-name-link">setSectionDirty</a><wbr>(int&nbsp;p_109771_,
- int&nbsp;p_109772_,
- int&nbsp;p_109773_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSectionDirty(int,int,int)" class="member-name-link">setSectionDirty</a><wbr>(int&nbsp;sectionX,
+ int&nbsp;sectionY,
+ int&nbsp;sectionZ)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSectionDirty(int,int,int,boolean)" class="member-name-link">setSectionDirty</a><wbr>(int&nbsp;p_109502_,
- int&nbsp;p_109503_,
- int&nbsp;p_109504_,
- boolean&nbsp;p_109505_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSectionDirty(int,int,int,boolean)" class="member-name-link">setSectionDirty</a><wbr>(int&nbsp;sectionX,
+ int&nbsp;sectionY,
+ int&nbsp;sectionZ,
+ boolean&nbsp;reRenderOnMainThread)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSectionDirtyWithNeighbors(int,int,int)" class="member-name-link">setSectionDirtyWithNeighbors</a><wbr>(int&nbsp;p_109491_,
- int&nbsp;p_109492_,
- int&nbsp;p_109493_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSectionDirtyWithNeighbors(int,int,int)" class="member-name-link">setSectionDirtyWithNeighbors</a><wbr>(int&nbsp;sectionX,
+ int&nbsp;sectionY,
+ int&nbsp;sectionZ)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupRender(net.minecraft.client.Camera,net.minecraft.client.renderer.culling.Frustum,boolean,boolean)" class="member-name-link">setupRender</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_194339_,
- <a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;p_194340_,
- boolean&nbsp;p_194341_,
- boolean&nbsp;p_194342_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupRender(net.minecraft.client.Camera,net.minecraft.client.renderer.culling.Frustum,boolean,boolean)" class="member-name-link">setupRender</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera,
+ <a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;frustum,
+ boolean&nbsp;hasCapturedFrustum,
+ boolean&nbsp;isSpectator)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#shiftHue(float,float,float,float)" class="member-name-link">shiftHue</a><wbr>(float&nbsp;p_286907_,
- float&nbsp;p_286536_,
- float&nbsp;p_286318_,
- float&nbsp;p_286590_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#shiftHue(float,float,float,float)" class="member-name-link">shiftHue</a><wbr>(float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;hue)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shootParticles(int,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource,net.minecraft.core.particles.SimpleParticleType)" class="member-name-link">shootParticles</a><wbr>(int&nbsp;p_307280_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_307603_,
- <a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_307547_,
- <a href="../../core/particles/SimpleParticleType.html" title="class in net.minecraft.core.particles">SimpleParticleType</a>&nbsp;p_307590_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shootParticles(int,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource,net.minecraft.core.particles.SimpleParticleType)" class="member-name-link">shootParticles</a><wbr>(int&nbsp;p_direction,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../core/particles/SimpleParticleType.html" title="class in net.minecraft.core.particles">SimpleParticleType</a>&nbsp;particleType)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldShowEntityOutlines()" class="member-name-link">shouldShowEntityOutlines</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stopJukeboxSong(net.minecraft.core.BlockPos)" class="member-name-link">stopJukeboxSong</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_350526_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stopJukeboxSong(net.minecraft.core.BlockPos)" class="member-name-link">stopJukeboxSong</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stopJukeboxSongAndNotifyNearby(net.minecraft.core.BlockPos)" class="member-name-link">stopJukeboxSongAndNotifyNearby</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_350385_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stopJukeboxSongAndNotifyNearby(net.minecraft.core.BlockPos)" class="member-name-link">stopJukeboxSongAndNotifyNearby</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick()" class="member-name-link">tick</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickRain(net.minecraft.client.Camera)" class="member-name-link">tickRain</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_109694_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickRain(net.minecraft.client.Camera)" class="member-name-link">tickRain</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateGlobalBlockEntities(java.util.Collection,java.util.Collection)" class="member-name-link">updateGlobalBlockEntities</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;&nbsp;p_109763_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;&nbsp;p_109764_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateGlobalBlockEntities(java.util.Collection,java.util.Collection)" class="member-name-link">updateGlobalBlockEntities</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;&nbsp;blockEntitiesToRemove,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;&nbsp;blockEntitiesToAdd)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -1131,6 +1143,8 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <section class="detail" id="globalBlockEntities">
 <h3>globalBlockEntities</h3>
 <div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;</span>&nbsp;<span class="element-name">globalBlockEntities</span></div>
+<div class="block">Global block entities; these are always rendered, even if off-screen.
+ Any block entity is added to this if <a href="blockentity/BlockEntityRenderer.html#shouldRenderOffScreen(T)"><code>BlockEntityRenderer.shouldRenderOffScreen(net.minecraft.world.level.block.entity.BlockEntity)</code></a> returns <code>true</code>.</div>
 </section>
 </li>
 <li>
@@ -1449,10 +1463,10 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.client.Minecraft,net.minecraft.client.renderer.entity.EntityRenderDispatcher,net.minecraft.client.renderer.blockentity.BlockEntityRenderDispatcher,net.minecraft.client.renderer.RenderBuffers)">
 <h3>LevelRenderer</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LevelRenderer</span><wbr><span class="parameters">(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;p_234245_,
- <a href="entity/EntityRenderDispatcher.html" title="class in net.minecraft.client.renderer.entity">EntityRenderDispatcher</a>&nbsp;p_234246_,
- <a href="blockentity/BlockEntityRenderDispatcher.html" title="class in net.minecraft.client.renderer.blockentity">BlockEntityRenderDispatcher</a>&nbsp;p_234247_,
- <a href="RenderBuffers.html" title="class in net.minecraft.client.renderer">RenderBuffers</a>&nbsp;p_234248_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LevelRenderer</span><wbr><span class="parameters">(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="entity/EntityRenderDispatcher.html" title="class in net.minecraft.client.renderer.entity">EntityRenderDispatcher</a>&nbsp;entityRenderDispatcher,
+ <a href="blockentity/BlockEntityRenderDispatcher.html" title="class in net.minecraft.client.renderer.blockentity">BlockEntityRenderDispatcher</a>&nbsp;blockEntityRenderDispatcher,
+ <a href="RenderBuffers.html" title="class in net.minecraft.client.renderer">RenderBuffers</a>&nbsp;renderBuffers)</span></div>
 </section>
 </li>
 </ul>
@@ -1466,17 +1480,17 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="renderSnowAndRain(net.minecraft.client.renderer.LightTexture,float,double,double,double)">
 <h3>renderSnowAndRain</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderSnowAndRain</span><wbr><span class="parameters">(<a href="LightTexture.html" title="class in net.minecraft.client.renderer">LightTexture</a>&nbsp;p_109704_,
- float&nbsp;p_109705_,
- double&nbsp;p_109706_,
- double&nbsp;p_109707_,
- double&nbsp;p_109708_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderSnowAndRain</span><wbr><span class="parameters">(<a href="LightTexture.html" title="class in net.minecraft.client.renderer">LightTexture</a>&nbsp;lightTexture,
+ float&nbsp;partialTick,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="tickRain(net.minecraft.client.Camera)">
 <h3>tickRain</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tickRain</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_109694_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tickRain</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</span></div>
 </section>
 </li>
 <li>
@@ -1492,7 +1506,7 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="onResourceManagerReload(net.minecraft.server.packs.resources.ResourceManager)">
 <h3>onResourceManagerReload</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onResourceManagerReload</span><wbr><span class="parameters">(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_109513_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onResourceManagerReload</span><wbr><span class="parameters">(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../server/packs/resources/ResourceManagerReloadListener.html#onResourceManagerReload(net.minecraft.server.packs.resources.ResourceManager)">onResourceManagerReload</a></code>&nbsp;in interface&nbsp;<code><a href="../../server/packs/resources/ResourceManagerReloadListener.html" title="interface in net.minecraft.server.packs.resources">ResourceManagerReloadListener</a></code></dd>
@@ -1544,8 +1558,8 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="buildSkyDisc(com.mojang.blaze3d.vertex.Tesselator,float)">
 <h3>buildSkyDisc</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/vertex/MeshData.html" title="class in com.mojang.blaze3d.vertex">MeshData</a></span>&nbsp;<span class="element-name">buildSkyDisc</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;p_350585_,
- float&nbsp;p_234269_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/vertex/MeshData.html" title="class in com.mojang.blaze3d.vertex">MeshData</a></span>&nbsp;<span class="element-name">buildSkyDisc</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;tesselator,
+ float&nbsp;y)</span></div>
 </section>
 </li>
 <li>
@@ -1557,14 +1571,18 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="drawStars(com.mojang.blaze3d.vertex.Tesselator)">
 <h3>drawStars</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/vertex/MeshData.html" title="class in com.mojang.blaze3d.vertex">MeshData</a></span>&nbsp;<span class="element-name">drawStars</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;p_350542_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/vertex/MeshData.html" title="class in com.mojang.blaze3d.vertex">MeshData</a></span>&nbsp;<span class="element-name">drawStars</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;tesselator)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setLevel(net.minecraft.client.multiplayer.ClientLevel)">
 <h3>setLevel</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLevel</span><wbr><span class="parameters">(@Nullable
- <a href="../multiplayer/ClientLevel.html" title="class in net.minecraft.client.multiplayer">ClientLevel</a>&nbsp;p_109702_)</span></div>
+ <a href="../multiplayer/ClientLevel.html" title="class in net.minecraft.client.multiplayer">ClientLevel</a>&nbsp;level)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>level</code> - the level to set, or <code>null</code> to clear</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -1582,8 +1600,8 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="resize(int,int)">
 <h3>resize</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resize</span><wbr><span class="parameters">(int&nbsp;p_109488_,
- int&nbsp;p_109489_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resize</span><wbr><span class="parameters">(int&nbsp;width,
+ int&nbsp;height)</span></div>
 </section>
 </li>
 <li>
@@ -1625,118 +1643,123 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="setupRender(net.minecraft.client.Camera,net.minecraft.client.renderer.culling.Frustum,boolean,boolean)">
 <h3>setupRender</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupRender</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_194339_,
- <a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;p_194340_,
- boolean&nbsp;p_194341_,
- boolean&nbsp;p_194342_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupRender</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera,
+ <a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;frustum,
+ boolean&nbsp;hasCapturedFrustum,
+ boolean&nbsp;isSpectator)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="offsetFrustum(net.minecraft.client.renderer.culling.Frustum)">
 <h3>offsetFrustum</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a></span>&nbsp;<span class="element-name">offsetFrustum</span><wbr><span class="parameters">(<a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;p_296151_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a></span>&nbsp;<span class="element-name">offsetFrustum</span><wbr><span class="parameters">(<a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;frustum)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="applyFrustum(net.minecraft.client.renderer.culling.Frustum)">
 <h3>applyFrustum</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">applyFrustum</span><wbr><span class="parameters">(<a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;p_194355_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">applyFrustum</span><wbr><span class="parameters">(<a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;frustum)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addRecentlyCompiledSection(net.minecraft.client.renderer.chunk.SectionRenderDispatcher.RenderSection)">
 <h3>addRecentlyCompiledSection</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addRecentlyCompiledSection</span><wbr><span class="parameters">(<a href="chunk/SectionRenderDispatcher.RenderSection.html" title="class in net.minecraft.client.renderer.chunk">SectionRenderDispatcher.RenderSection</a>&nbsp;p_295462_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addRecentlyCompiledSection</span><wbr><span class="parameters">(<a href="chunk/SectionRenderDispatcher.RenderSection.html" title="class in net.minecraft.client.renderer.chunk">SectionRenderDispatcher.RenderSection</a>&nbsp;renderSection)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="captureFrustum(org.joml.Matrix4f,org.joml.Matrix4f,double,double,double,net.minecraft.client.renderer.culling.Frustum)">
 <h3>captureFrustum</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">captureFrustum</span><wbr><span class="parameters">(org.joml.Matrix4f&nbsp;p_253756_,
- org.joml.Matrix4f&nbsp;p_253787_,
- double&nbsp;p_254187_,
- double&nbsp;p_253833_,
- double&nbsp;p_254547_,
- <a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;p_253954_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">captureFrustum</span><wbr><span class="parameters">(org.joml.Matrix4f&nbsp;viewMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ,
+ <a href="culling/Frustum.html" title="class in net.minecraft.client.renderer.culling">Frustum</a>&nbsp;capturedFrustrum)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="prepareCullFrustum(net.minecraft.world.phys.Vec3,org.joml.Matrix4f,org.joml.Matrix4f)">
 <h3>prepareCullFrustum</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">prepareCullFrustum</span><wbr><span class="parameters">(<a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_253766_,
- org.joml.Matrix4f&nbsp;p_254341_,
- org.joml.Matrix4f&nbsp;p_323487_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">prepareCullFrustum</span><wbr><span class="parameters">(<a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;cameraPosition,
+ org.joml.Matrix4f&nbsp;frustumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderLevel(net.minecraft.client.DeltaTracker,boolean,net.minecraft.client.Camera,net.minecraft.client.renderer.GameRenderer,net.minecraft.client.renderer.LightTexture,org.joml.Matrix4f,org.joml.Matrix4f)">
 <h3>renderLevel</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLevel</span><wbr><span class="parameters">(<a href="../DeltaTracker.html" title="interface in net.minecraft.client">DeltaTracker</a>&nbsp;p_348530_,
- boolean&nbsp;p_109603_,
- <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_109604_,
- <a href="GameRenderer.html" title="class in net.minecraft.client.renderer">GameRenderer</a>&nbsp;p_109605_,
- <a href="LightTexture.html" title="class in net.minecraft.client.renderer">LightTexture</a>&nbsp;p_109606_,
- org.joml.Matrix4f&nbsp;p_254120_,
- org.joml.Matrix4f&nbsp;p_323920_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLevel</span><wbr><span class="parameters">(<a href="../DeltaTracker.html" title="interface in net.minecraft.client">DeltaTracker</a>&nbsp;deltaTracker,
+ boolean&nbsp;renderBlockOutline,
+ <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera,
+ <a href="GameRenderer.html" title="class in net.minecraft.client.renderer">GameRenderer</a>&nbsp;gameRenderer,
+ <a href="LightTexture.html" title="class in net.minecraft.client.renderer">LightTexture</a>&nbsp;lightTexture,
+ org.joml.Matrix4f&nbsp;frustumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="checkPoseStack(com.mojang.blaze3d.vertex.PoseStack)">
 <h3>checkPoseStack</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">checkPoseStack</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109589_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">checkPoseStack</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack)</span></div>
+<div class="block">Asserts that the specified <code>poseStack</code> is <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html#clear()">clear</a>.</div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - if the specified <code>poseStack</code> is not clear</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="renderEntity(net.minecraft.world.entity.Entity,double,double,double,float,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)">
 <h3>renderEntity</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderEntity</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_109518_,
- double&nbsp;p_109519_,
- double&nbsp;p_109520_,
- double&nbsp;p_109521_,
- float&nbsp;p_109522_,
- <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109523_,
- <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_109524_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderEntity</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ,
+ float&nbsp;partialTick,
+ <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderSectionLayer(net.minecraft.client.renderer.RenderType,double,double,double,org.joml.Matrix4f,org.joml.Matrix4f)">
 <h3>renderSectionLayer</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderSectionLayer</span><wbr><span class="parameters">(<a href="RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;p_294513_,
- double&nbsp;p_295577_,
- double&nbsp;p_294761_,
- double&nbsp;p_294297_,
- org.joml.Matrix4f&nbsp;p_294782_,
- org.joml.Matrix4f&nbsp;p_324517_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderSectionLayer</span><wbr><span class="parameters">(<a href="RenderType.html" title="class in net.minecraft.client.renderer">RenderType</a>&nbsp;renderType,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ org.joml.Matrix4f&nbsp;frustrumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderDebug(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.Camera)">
 <h3>renderDebug</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderDebug</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_271014_,
- <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_270107_,
- <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_270483_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderDebug</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addFrustumVertex(com.mojang.blaze3d.vertex.VertexConsumer,org.joml.Matrix4f,int)">
 <h3>addFrustumVertex</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addFrustumVertex</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_270950_,
- org.joml.Matrix4f&nbsp;p_270118_,
- int&nbsp;p_270865_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addFrustumVertex</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ org.joml.Matrix4f&nbsp;matrix,
+ int&nbsp;vertexIndex)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addFrustumQuad(com.mojang.blaze3d.vertex.VertexConsumer,org.joml.Matrix4f,int,int,int,int,int,int,int)">
 <h3>addFrustumQuad</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addFrustumQuad</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_270858_,
- org.joml.Matrix4f&nbsp;p_270341_,
- int&nbsp;p_270702_,
- int&nbsp;p_270959_,
- int&nbsp;p_270732_,
- int&nbsp;p_270363_,
- int&nbsp;p_270273_,
- int&nbsp;p_270934_,
- int&nbsp;p_270916_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addFrustumQuad</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ org.joml.Matrix4f&nbsp;matrix,
+ int&nbsp;index1,
+ int&nbsp;index2,
+ int&nbsp;index3,
+ int&nbsp;index4,
+ int&nbsp;red,
+ int&nbsp;green,
+ int&nbsp;blue)</span></div>
 </section>
 </li>
 <li>
@@ -1760,301 +1783,302 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="removeProgress(net.minecraft.server.level.BlockDestructionProgress)">
 <h3>removeProgress</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeProgress</span><wbr><span class="parameters">(<a href="../../server/level/BlockDestructionProgress.html" title="class in net.minecraft.server.level">BlockDestructionProgress</a>&nbsp;p_109766_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeProgress</span><wbr><span class="parameters">(<a href="../../server/level/BlockDestructionProgress.html" title="class in net.minecraft.server.level">BlockDestructionProgress</a>&nbsp;progress)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderEndSky(com.mojang.blaze3d.vertex.PoseStack)">
 <h3>renderEndSky</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderEndSky</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109781_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderEndSky</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderSky(org.joml.Matrix4f,org.joml.Matrix4f,float,net.minecraft.client.Camera,boolean,java.lang.Runnable)">
 <h3>renderSky</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderSky</span><wbr><span class="parameters">(org.joml.Matrix4f&nbsp;p_254034_,
- org.joml.Matrix4f&nbsp;p_324386_,
- float&nbsp;p_202426_,
- <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_202427_,
- boolean&nbsp;p_202428_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;p_202429_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderSky</span><wbr><span class="parameters">(org.joml.Matrix4f&nbsp;frustumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix,
+ float&nbsp;partialTick,
+ <a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera,
+ boolean&nbsp;isFoggy,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;skyFogSetup)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="doesMobEffectBlockSky(net.minecraft.client.Camera)">
 <h3>doesMobEffectBlockSky</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">doesMobEffectBlockSky</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_234311_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">doesMobEffectBlockSky</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderClouds(com.mojang.blaze3d.vertex.PoseStack,org.joml.Matrix4f,org.joml.Matrix4f,float,double,double,double)">
 <h3>renderClouds</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderClouds</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_254145_,
- org.joml.Matrix4f&nbsp;p_254537_,
- org.joml.Matrix4f&nbsp;p_324366_,
- float&nbsp;p_254364_,
- double&nbsp;p_253843_,
- double&nbsp;p_253663_,
- double&nbsp;p_253795_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderClouds</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ org.joml.Matrix4f&nbsp;frustumMatrix,
+ org.joml.Matrix4f&nbsp;projectionMatrix,
+ float&nbsp;partialTick,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="buildClouds(com.mojang.blaze3d.vertex.Tesselator,double,double,double,net.minecraft.world.phys.Vec3)">
 <h3>buildClouds</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/vertex/MeshData.html" title="class in com.mojang.blaze3d.vertex">MeshData</a></span>&nbsp;<span class="element-name">buildClouds</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;p_350398_,
- double&nbsp;p_234263_,
- double&nbsp;p_234264_,
- double&nbsp;p_234265_,
- <a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_234266_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/vertex/MeshData.html" title="class in com.mojang.blaze3d.vertex">MeshData</a></span>&nbsp;<span class="element-name">buildClouds</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/Tesselator.html" title="class in com.mojang.blaze3d.vertex">Tesselator</a>&nbsp;tesselator,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ <a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;cloudColor)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="compileSections(net.minecraft.client.Camera)">
 <h3>compileSections</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">compileSections</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_194371_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">compileSections</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderWorldBorder(net.minecraft.client.Camera)">
 <h3>renderWorldBorder</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderWorldBorder</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_173013_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderWorldBorder</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;camera)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderHitOutline(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.entity.Entity,double,double,double,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState)">
 <h3>renderHitOutline</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderHitOutline</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109638_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109639_,
- <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;p_109640_,
- double&nbsp;p_109641_,
- double&nbsp;p_109642_,
- double&nbsp;p_109643_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109644_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109645_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderHitOutline</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="mixColor(float)">
 <h3>mixColor</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></span>&nbsp;<span class="element-name">mixColor</span><wbr><span class="parameters">(float&nbsp;p_286899_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></span>&nbsp;<span class="element-name">mixColor</span><wbr><span class="parameters">(float&nbsp;hue)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="shiftHue(float,float,float,float)">
 <h3>shiftHue</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></span>&nbsp;<span class="element-name">shiftHue</span><wbr><span class="parameters">(float&nbsp;p_286907_,
- float&nbsp;p_286536_,
- float&nbsp;p_286318_,
- float&nbsp;p_286590_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a></span>&nbsp;<span class="element-name">shiftHue</span><wbr><span class="parameters">(float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;hue)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderVoxelShape(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.phys.shapes.VoxelShape,double,double,double,float,float,float,float,boolean)">
 <h3>renderVoxelShape</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderVoxelShape</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_286791_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_286416_,
- <a href="../../world/phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;p_286863_,
- double&nbsp;p_286432_,
- double&nbsp;p_286836_,
- double&nbsp;p_286774_,
- float&nbsp;p_286612_,
- float&nbsp;p_286516_,
- float&nbsp;p_286787_,
- float&nbsp;p_286300_,
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderVoxelShape</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ <a href="../../world/phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;shape,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha,
  boolean&nbsp;p_286443_)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderShape(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.phys.shapes.VoxelShape,double,double,double,float,float,float,float)">
 <h3>renderShape</h3>
-<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderShape</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109783_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109784_,
- <a href="../../world/phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;p_109785_,
- double&nbsp;p_109786_,
- double&nbsp;p_109787_,
- double&nbsp;p_109788_,
- float&nbsp;p_109789_,
- float&nbsp;p_109790_,
- float&nbsp;p_109791_,
- float&nbsp;p_109792_)</span></div>
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderShape</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ <a href="../../world/phys/shapes/VoxelShape.html" title="class in net.minecraft.world.phys.shapes">VoxelShape</a>&nbsp;shape,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderLineBox(com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float)">
 <h3>renderLineBox</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLineBox</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_172966_,
- double&nbsp;p_172967_,
- double&nbsp;p_172968_,
- double&nbsp;p_172969_,
- double&nbsp;p_172970_,
- double&nbsp;p_172971_,
- double&nbsp;p_172972_,
- float&nbsp;p_172973_,
- float&nbsp;p_172974_,
- float&nbsp;p_172975_,
- float&nbsp;p_172976_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLineBox</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderLineBox(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.world.phys.AABB,float,float,float,float)">
 <h3>renderLineBox</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLineBox</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109647_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109648_,
- <a href="../../world/phys/AABB.html" title="class in net.minecraft.world.phys">AABB</a>&nbsp;p_109649_,
- float&nbsp;p_109650_,
- float&nbsp;p_109651_,
- float&nbsp;p_109652_,
- float&nbsp;p_109653_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLineBox</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;buffer,
+ <a href="../../world/phys/AABB.html" title="class in net.minecraft.world.phys">AABB</a>&nbsp;box,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderLineBox(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float)">
 <h3>renderLineBox</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLineBox</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109609_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109610_,
- double&nbsp;p_109611_,
- double&nbsp;p_109612_,
- double&nbsp;p_109613_,
- double&nbsp;p_109614_,
- double&nbsp;p_109615_,
- double&nbsp;p_109616_,
- float&nbsp;p_109617_,
- float&nbsp;p_109618_,
- float&nbsp;p_109619_,
- float&nbsp;p_109620_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLineBox</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderLineBox(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float,float,float,float)">
 <h3>renderLineBox</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLineBox</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_109622_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_109623_,
- double&nbsp;p_109624_,
- double&nbsp;p_109625_,
- double&nbsp;p_109626_,
- double&nbsp;p_109627_,
- double&nbsp;p_109628_,
- double&nbsp;p_109629_,
- float&nbsp;p_109630_,
- float&nbsp;p_109631_,
- float&nbsp;p_109632_,
- float&nbsp;p_109633_,
- float&nbsp;p_109634_,
- float&nbsp;p_109635_,
- float&nbsp;p_109636_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderLineBox</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha,
+ float&nbsp;red2,
+ float&nbsp;green2,
+ float&nbsp;blue2)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addChainedFilledBoxVertices(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,double,double,double,double,double,double,float,float,float,float)">
 <h3>addChainedFilledBoxVertices</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addChainedFilledBoxVertices</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_270343_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_270926_,
- double&nbsp;p_270503_,
- double&nbsp;p_270353_,
- double&nbsp;p_270642_,
- double&nbsp;p_270676_,
- double&nbsp;p_270711_,
- double&nbsp;p_270601_,
- float&nbsp;p_270523_,
- float&nbsp;p_270382_,
- float&nbsp;p_270089_,
- float&nbsp;p_270335_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addChainedFilledBoxVertices</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ double&nbsp;minX,
+ double&nbsp;minY,
+ double&nbsp;minZ,
+ double&nbsp;maxX,
+ double&nbsp;maxY,
+ double&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addChainedFilledBoxVertices(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,float,float,float,float,float,float,float,float,float,float)">
 <h3>addChainedFilledBoxVertices</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addChainedFilledBoxVertices</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_270352_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_271015_,
- float&nbsp;p_270144_,
- float&nbsp;p_270901_,
- float&nbsp;p_270546_,
- float&nbsp;p_270102_,
- float&nbsp;p_270605_,
- float&nbsp;p_271006_,
- float&nbsp;p_270864_,
- float&nbsp;p_270181_,
- float&nbsp;p_270220_,
- float&nbsp;p_270293_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addChainedFilledBoxVertices</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;consumer,
+ float&nbsp;minX,
+ float&nbsp;minY,
+ float&nbsp;minZ,
+ float&nbsp;maxX,
+ float&nbsp;maxY,
+ float&nbsp;maxZ,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="renderFace(com.mojang.blaze3d.vertex.PoseStack,com.mojang.blaze3d.vertex.VertexConsumer,net.minecraft.core.Direction,float,float,float,float,float,float,float,float,float,float)">
 <h3>renderFace</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderFace</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_352330_,
- <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;p_352130_,
- <a href="../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;p_352308_,
- float&nbsp;p_352429_,
- float&nbsp;p_352303_,
- float&nbsp;p_352424_,
- float&nbsp;p_352369_,
- float&nbsp;p_352439_,
- float&nbsp;p_352140_,
- float&nbsp;p_352061_,
- float&nbsp;p_352352_,
- float&nbsp;p_352098_,
- float&nbsp;p_352096_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderFace</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../../../../com/mojang/blaze3d/vertex/VertexConsumer.html" title="interface in com.mojang.blaze3d.vertex">VertexConsumer</a>&nbsp;buffer,
+ <a href="../../core/Direction.html" title="enum class in net.minecraft.core">Direction</a>&nbsp;face,
+ float&nbsp;x1,
+ float&nbsp;y1,
+ float&nbsp;z1,
+ float&nbsp;x2,
+ float&nbsp;y2,
+ float&nbsp;z2,
+ float&nbsp;red,
+ float&nbsp;green,
+ float&nbsp;blue,
+ float&nbsp;alpha)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="blockChanged(net.minecraft.world.level.BlockGetter,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState,int)">
 <h3>blockChanged</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">blockChanged</span><wbr><span class="parameters">(<a href="../../world/level/BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;p_109545_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109546_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109547_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109548_,
- int&nbsp;p_109549_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">blockChanged</span><wbr><span class="parameters">(<a href="../../world/level/BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>&nbsp;level,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;oldState,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;newState,
+ int&nbsp;flags)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setBlockDirty(net.minecraft.core.BlockPos,boolean)">
 <h3>setBlockDirty</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBlockDirty</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109733_,
- boolean&nbsp;p_109734_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBlockDirty</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ boolean&nbsp;reRenderOnMainThread)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setBlocksDirty(int,int,int,int,int,int)">
 <h3>setBlocksDirty</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBlocksDirty</span><wbr><span class="parameters">(int&nbsp;p_109495_,
- int&nbsp;p_109496_,
- int&nbsp;p_109497_,
- int&nbsp;p_109498_,
- int&nbsp;p_109499_,
- int&nbsp;p_109500_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBlocksDirty</span><wbr><span class="parameters">(int&nbsp;minX,
+ int&nbsp;minY,
+ int&nbsp;minZ,
+ int&nbsp;maxX,
+ int&nbsp;maxY,
+ int&nbsp;maxZ)</span></div>
+<div class="block">Re-renders all blocks in the specified range.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="setBlockDirty(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,net.minecraft.world.level.block.state.BlockState)">
 <h3>setBlockDirty</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBlockDirty</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109722_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109723_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109724_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBlockDirty</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;oldState,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;newState)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setSectionDirtyWithNeighbors(int,int,int)">
 <h3>setSectionDirtyWithNeighbors</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSectionDirtyWithNeighbors</span><wbr><span class="parameters">(int&nbsp;p_109491_,
- int&nbsp;p_109492_,
- int&nbsp;p_109493_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSectionDirtyWithNeighbors</span><wbr><span class="parameters">(int&nbsp;sectionX,
+ int&nbsp;sectionY,
+ int&nbsp;sectionZ)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setSectionDirty(int,int,int)">
 <h3>setSectionDirty</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSectionDirty</span><wbr><span class="parameters">(int&nbsp;p_109771_,
- int&nbsp;p_109772_,
- int&nbsp;p_109773_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSectionDirty</span><wbr><span class="parameters">(int&nbsp;sectionX,
+ int&nbsp;sectionY,
+ int&nbsp;sectionZ)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setSectionDirty(int,int,int,boolean)">
 <h3>setSectionDirty</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSectionDirty</span><wbr><span class="parameters">(int&nbsp;p_109502_,
- int&nbsp;p_109503_,
- int&nbsp;p_109504_,
- boolean&nbsp;p_109505_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSectionDirty</span><wbr><span class="parameters">(int&nbsp;sectionX,
+ int&nbsp;sectionY,
+ int&nbsp;sectionZ,
+ boolean&nbsp;reRenderOnMainThread)</span></div>
 </section>
 </li>
 <li>
@@ -2086,102 +2110,161 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="playJukeboxSong(net.minecraft.core.Holder,net.minecraft.core.BlockPos)">
 <h3>playJukeboxSong</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">playJukeboxSong</span><wbr><span class="parameters">(<a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/item/JukeboxSong.html" title="class in net.minecraft.world.item">JukeboxSong</a>&gt;&nbsp;p_350918_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_350830_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">playJukeboxSong</span><wbr><span class="parameters">(<a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/item/JukeboxSong.html" title="class in net.minecraft.world.item">JukeboxSong</a>&gt;&nbsp;song,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="stopJukeboxSong(net.minecraft.core.BlockPos)">
 <h3>stopJukeboxSong</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stopJukeboxSong</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_350526_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stopJukeboxSong</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="stopJukeboxSongAndNotifyNearby(net.minecraft.core.BlockPos)">
 <h3>stopJukeboxSongAndNotifyNearby</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stopJukeboxSongAndNotifyNearby</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_350385_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stopJukeboxSongAndNotifyNearby</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="notifyNearbyEntities(net.minecraft.world.level.Level,net.minecraft.core.BlockPos,boolean)">
 <h3>notifyNearbyEntities</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">notifyNearbyEntities</span><wbr><span class="parameters">(<a href="../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;p_109551_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109552_,
- boolean&nbsp;p_109553_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">notifyNearbyEntities</span><wbr><span class="parameters">(<a href="../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&nbsp;level,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ boolean&nbsp;playing)</span></div>
+<div class="block">Notifies living entities in a 3 block range of the specified <code>pos</code> that a record is or isn't playing nearby, dependent on the specified <code>playing</code> parameter.
+ This is used to make parrots start or stop partying.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="addParticle(net.minecraft.core.particles.ParticleOptions,boolean,double,double,double,double,double,double)">
 <h3>addParticle</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addParticle</span><wbr><span class="parameters">(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_109744_,
- boolean&nbsp;p_109745_,
- double&nbsp;p_109746_,
- double&nbsp;p_109747_,
- double&nbsp;p_109748_,
- double&nbsp;p_109749_,
- double&nbsp;p_109750_,
- double&nbsp;p_109751_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addParticle</span><wbr><span class="parameters">(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;options,
+ boolean&nbsp;force,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>force</code> - if <code>true</code>, the particle will be created regardless of its
+              distance from the camera and the 
+<details class="invalid-tag">
+<summary>invalid @linkplain</summary>
+<pre>{@linkplain #</pre>
+</details>
+
+              calculateParticleLevel(boolean) calculated particle level}</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="addParticle(net.minecraft.core.particles.ParticleOptions,boolean,boolean,double,double,double,double,double,double)">
 <h3>addParticle</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addParticle</span><wbr><span class="parameters">(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_109753_,
- boolean&nbsp;p_109754_,
- boolean&nbsp;p_109755_,
- double&nbsp;p_109756_,
- double&nbsp;p_109757_,
- double&nbsp;p_109758_,
- double&nbsp;p_109759_,
- double&nbsp;p_109760_,
- double&nbsp;p_109761_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addParticle</span><wbr><span class="parameters">(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;options,
+ boolean&nbsp;force,
+ boolean&nbsp;decreased,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>force</code> - if <code>true</code>, the particle will be created regardless of
+                  its distance from the camera and the 
+<details class="invalid-tag">
+<summary>invalid @linkplain</summary>
+<pre>{@linkplain #</pre>
+</details>
+
+                  calculateParticleLevel(boolean) calculated particle level}</dd>
+<dd><code>decreased</code> - if <code>true</code>, and the <a href="../Options.html#particles">particles option</a> is
+                  set to minimal, attempts to spawn the particle at a decreased
+                  level</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="addParticle(T,double,double,double,double,double,double)">
 <h3 id="addParticle(net.minecraft.core.particles.ParticleOptions,double,double,double,double,double,double)">addParticle</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addParticle</span><wbr><span class="parameters">(T&nbsp;p_109736_,
- double&nbsp;p_109737_,
- double&nbsp;p_109738_,
- double&nbsp;p_109739_,
- double&nbsp;p_109740_,
- double&nbsp;p_109741_,
- double&nbsp;p_109742_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addParticle</span><wbr><span class="parameters">(T&nbsp;options,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="addParticleInternal(net.minecraft.core.particles.ParticleOptions,boolean,double,double,double,double,double,double)">
 <h3>addParticleInternal</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../particle/Particle.html" title="class in net.minecraft.client.particle">Particle</a></span>&nbsp;<span class="element-name">addParticleInternal</span><wbr><span class="parameters">(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_109796_,
- boolean&nbsp;p_109797_,
- double&nbsp;p_109798_,
- double&nbsp;p_109799_,
- double&nbsp;p_109800_,
- double&nbsp;p_109801_,
- double&nbsp;p_109802_,
- double&nbsp;p_109803_)</span></div>
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../particle/Particle.html" title="class in net.minecraft.client.particle">Particle</a></span>&nbsp;<span class="element-name">addParticleInternal</span><wbr><span class="parameters">(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;options,
+ boolean&nbsp;force,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>force</code> - if <code>true</code>, the particle will be created regardless of its
+              distance from the camera and the 
+<details class="invalid-tag">
+<summary>invalid @linkplain</summary>
+<pre>{@linkplain #</pre>
+</details>
+
+              calculateParticleLevel(boolean) calculated particle level}</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="addParticleInternal(net.minecraft.core.particles.ParticleOptions,boolean,boolean,double,double,double,double,double,double)">
 <h3>addParticleInternal</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../particle/Particle.html" title="class in net.minecraft.client.particle">Particle</a></span>&nbsp;<span class="element-name">addParticleInternal</span><wbr><span class="parameters">(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_109805_,
- boolean&nbsp;p_109806_,
- boolean&nbsp;p_109807_,
- double&nbsp;p_109808_,
- double&nbsp;p_109809_,
- double&nbsp;p_109810_,
- double&nbsp;p_109811_,
- double&nbsp;p_109812_,
- double&nbsp;p_109813_)</span></div>
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../particle/Particle.html" title="class in net.minecraft.client.particle">Particle</a></span>&nbsp;<span class="element-name">addParticleInternal</span><wbr><span class="parameters">(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;options,
+ boolean&nbsp;force,
+ boolean&nbsp;decreased,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xSpeed,
+ double&nbsp;ySpeed,
+ double&nbsp;zSpeed)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>force</code> - if <code>true</code>, the particle will be created regardless of
+                  its distance from the camera and the 
+<details class="invalid-tag">
+<summary>invalid @linkplain</summary>
+<pre>{@linkplain #</pre>
+</details>
+
+                  calculateParticleLevel(boolean) calculated particle level}</dd>
+<dd><code>decreased</code> - if <code>true</code>, and the <a href="../Options.html#particles">particles option</a> is
+                  set to minimal, attempts to spawn the particle at a decreased
+                  level</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="calculateParticleLevel(boolean)">
 <h3>calculateParticleLevel</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../ParticleStatus.html" title="enum class in net.minecraft.client">ParticleStatus</a></span>&nbsp;<span class="element-name">calculateParticleLevel</span><wbr><span class="parameters">(boolean&nbsp;p_109768_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../ParticleStatus.html" title="enum class in net.minecraft.client">ParticleStatus</a></span>&nbsp;<span class="element-name">calculateParticleLevel</span><wbr><span class="parameters">(boolean&nbsp;decreased)</span></div>
+<div class="block">Calculates the level of particles to use based on the <a href="../Options.html#particles">particles option</a> and the specified <code>decreased</code> parameter. This leads to randomly generating more or less particles than the set option.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>decreased</code> - if <code>true</code>, and the <a href="../Options.html#particles">particles option</a> is
+                  set to minimal, has a 1 in 10 chance to return a decreased
+                  level and a further 1 in 3 chance to minimise it</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -2193,25 +2276,33 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="globalLevelEvent(int,net.minecraft.core.BlockPos,int)">
 <h3>globalLevelEvent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">globalLevelEvent</span><wbr><span class="parameters">(int&nbsp;p_109507_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109508_,
- int&nbsp;p_109509_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">globalLevelEvent</span><wbr><span class="parameters">(int&nbsp;type,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;data)</span></div>
+<div class="block">Handles a global level event. This includes playing sounds that should be heard by any player, regardless of position and dimension, such as the Wither spawning.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>type</code> - the type of level event to handle. This method only handles <span class="invalid-tag">invalid input: '{@'</span>
+             linkplain net.minecraft.world.level.block.LevelEvent#
+             SOUND_WITHER_BOSS_SPAWN the wither boss spawn sound}, <a href="../../world/level/block/LevelEvent.html#SOUND_DRAGON_DEATH">the
+             dragon's death sound</a>, and <a href="../../world/level/block/LevelEvent.html#SOUND_END_PORTAL_SPAWN">the end portal spawn sound</a>.</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="levelEvent(int,net.minecraft.core.BlockPos,int)">
 <h3>levelEvent</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">levelEvent</span><wbr><span class="parameters">(int&nbsp;p_234305_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_234306_,
- int&nbsp;p_234307_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">levelEvent</span><wbr><span class="parameters">(int&nbsp;type,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;data)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="destroyBlockProgress(int,net.minecraft.core.BlockPos,int)">
 <h3>destroyBlockProgress</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">destroyBlockProgress</span><wbr><span class="parameters">(int&nbsp;p_109775_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109776_,
- int&nbsp;p_109777_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">destroyBlockProgress</span><wbr><span class="parameters">(int&nbsp;breakerId,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;progress)</span></div>
 </section>
 </li>
 <li>
@@ -2223,7 +2314,7 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="onChunkLoaded(net.minecraft.world.level.ChunkPos)">
 <h3>onChunkLoaded</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onChunkLoaded</span><wbr><span class="parameters">(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_295808_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onChunkLoaded</span><wbr><span class="parameters">(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
 </section>
 </li>
 <li>
@@ -2235,29 +2326,29 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="updateGlobalBlockEntities(java.util.Collection,java.util.Collection)">
 <h3>updateGlobalBlockEntities</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateGlobalBlockEntities</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;&nbsp;p_109763_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;&nbsp;p_109764_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateGlobalBlockEntities</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;&nbsp;blockEntitiesToRemove,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a>&gt;&nbsp;blockEntitiesToAdd)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.core.BlockPos)">
 <h3>getLightColor</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getLightColor</span><wbr><span class="parameters">(<a href="../../world/level/BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;p_109542_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109543_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getLightColor</span><wbr><span class="parameters">(<a href="../../world/level/BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getLightColor(net.minecraft.world.level.BlockAndTintGetter,net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos)">
 <h3>getLightColor</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getLightColor</span><wbr><span class="parameters">(<a href="../../world/level/BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;p_109538_,
- <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;p_109539_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_109540_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getLightColor</span><wbr><span class="parameters">(<a href="../../world/level/BlockAndTintGetter.html" title="interface in net.minecraft.world.level">BlockAndTintGetter</a>&nbsp;level,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;state,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isSectionCompiled(net.minecraft.core.BlockPos)">
 <h3>isSectionCompiled</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isSectionCompiled</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_295788_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isSectionCompiled</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
 </section>
 </li>
 <li>
@@ -2305,10 +2396,10 @@ implements <a href="../../server/packs/resources/ResourceManagerReloadListener.h
 <li>
 <section class="detail" id="shootParticles(int,net.minecraft.core.BlockPos,net.minecraft.util.RandomSource,net.minecraft.core.particles.SimpleParticleType)">
 <h3>shootParticles</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">shootParticles</span><wbr><span class="parameters">(int&nbsp;p_307280_,
- <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_307603_,
- <a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_307547_,
- <a href="../../core/particles/SimpleParticleType.html" title="class in net.minecraft.core.particles">SimpleParticleType</a>&nbsp;p_307590_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">shootParticles</span><wbr><span class="parameters">(int&nbsp;p_direction,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random,
+ <a href="../../core/particles/SimpleParticleType.html" title="class in net.minecraft.core.particles">SimpleParticleType</a>&nbsp;particleType)</span></div>
 </section>
 </li>
 </ul>

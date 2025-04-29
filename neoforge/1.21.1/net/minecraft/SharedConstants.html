@@ -92,6 +92,20 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">SharedConstants</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Shared global constants.
+
+ <p><strong>Note:</strong> The majority of the fields within this class are <code>public static final</code> with constant expressions (constants), and are inlined by the Java compiler at all places which reference these constant fields. Therefore, changing the value of these constant fields will have no effect on already compiled code.</p>
+
+ <p>In addition, it is presumed that a large portion of these constant fields (such as those prefixed with <code>DEBUG_</code> are used as 'flags', for manually toggling code meant for use by Mojang developers in debugging. Therefore, optimizing compilers (which include the Java compiler) may omit the code hidden behind disabled flags, and will result in these flags having no apparent use in the code (when in reality, the optimizing compiler has removed the code which uses them).</p></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="https://docs.oracle.com/javase/specs/jls/se16/html/jls-15.html#jls-15.29">The Java&reg; Language Specification, Java SE 16 Edition, &sect; 15.29. "Constant Expressions"</a></li>
+<li><a href="https://docs.oracle.com/javase/specs/jls/se16/html/jls-14.html#jls-14.22">The Java&reg; Language Specification, Java SE 16 Edition, &sect; 14.22. "Unreachable Statements"</a></li>
+</ul>
+</dd>
+</dl>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -128,11 +142,20 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#DATA_PACK_FORMAT" class="member-name-link">DATA_PACK_FORMAT</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a>, 
+<details class="invalid-tag">
+<summary>invalid @link</summary>
+<pre>{@link com.mojang.bridge.game.GameVersion#com.mojang.bridge.game.GameVersion#getPackVersion(com.mojang.bridge.game.PackType)</pre>
+</details>
+}, and com.mojang.bridge.game.PackType#DATA instead.</div>
+</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#DATA_VERSION_TAG" class="member-name-link">DATA_VERSION_TAG</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">The key for the NBT tag which contains the data version of some data, for use in datafixing.</div>
+</div>
 <div class="col-first odd-row-color"><code>static final boolean</code></div>
 <div class="col-second odd-row-color"><code><a href="#DEBUG_ALLOW_LOW_SIM_DISTANCE" class="member-name-link">DEBUG_ALLOW_LOW_SIM_DISTANCE</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
@@ -351,7 +374,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#DEFAULT_MINECRAFT_PORT" class="member-name-link">DEFAULT_MINECRAFT_PORT</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">The default port used by Minecraft for communication between servers and clients.</div>
+</div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#FAKE_MS_JITTER" class="member-name-link">FAKE_MS_JITTER</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -366,7 +391,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static final char[]</code></div>
 <div class="col-second even-row-color"><code><a href="#ILLEGAL_FILE_CHARACTERS" class="member-name-link">ILLEGAL_FILE_CHARACTERS</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">The characters which may not form part of a file's name.</div>
+</div>
 <div class="col-first odd-row-color"><code>static final boolean</code></div>
 <div class="col-second odd-row-color"><code><a href="#INGAME_DEBUG_OUTPUT" class="member-name-link">INGAME_DEBUG_OUTPUT</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
@@ -386,7 +413,9 @@ loadScripts(document, 'script');</script>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#MAX_CHAT_LENGTH" class="member-name-link">MAX_CHAT_LENGTH</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">The maximum length of a chat message that can be typed by a player.</div>
+</div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#MAX_FUNCTION_COMMAND_LENGTH" class="member-name-link">MAX_FUNCTION_COMMAND_LENGTH</a></code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
@@ -414,7 +443,9 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#RELEASE_NETWORK_PROTOCOL_VERSION" class="member-name-link">RELEASE_NETWORK_PROTOCOL_VERSION</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getProtocolVersion()"><code>getProtocolVersion()</code></a> instead.</div>
+</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#REPORT_FORMAT_VERSION" class="member-name-link">REPORT_FORMAT_VERSION</a></code></div>
@@ -422,7 +453,14 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#RESOURCE_PACK_FORMAT" class="member-name-link">RESOURCE_PACK_FORMAT</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a>, 
+<details class="invalid-tag">
+<summary>invalid @link</summary>
+<pre>{@link com.mojang.bridge.game.GameVersion#com.mojang.bridge.game.GameVersion#getPackVersion(com.mojang.bridge.game.PackType)</pre>
+</details>
+}, and com.mojang.bridge.game.PackType#RESOURCE instead.</div>
+</div>
 </div>
 <div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second even-row-color"><code><a href="#SERIES" class="member-name-link">SERIES</a></code></div>
@@ -432,28 +470,45 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>static final boolean</code></div>
 <div class="col-second odd-row-color"><code><a href="#SNAPSHOT" class="member-name-link">SNAPSHOT</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a> and 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#isStable()</code></pre>
+</details>
+ instead.</div>
+</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#SNAPSHOT_NETWORK_PROTOCOL_VERSION" class="member-name-link">SNAPSHOT_NETWORK_PROTOCOL_VERSION</a></code></div>
 <div class="col-last even-row-color">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getProtocolVersion()"><code>getProtocolVersion()</code></a> instead.</div>
+</div>
 </div>
 <div class="col-first odd-row-color"><code>private static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#SNAPSHOT_PROTOCOL_BIT" class="member-name-link">SNAPSHOT_PROTOCOL_BIT</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">The bit in the networking protocol version for denoting <a href="#SNAPSHOT">snapshot versions</a>.</div>
+</div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#SNBT_NAG_VERSION" class="member-name-link">SNBT_NAG_VERSION</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#TICKS_PER_GAME_DAY" class="member-name-link">TICKS_PER_GAME_DAY</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">The amount of game ticks within a game day.</div>
+</div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#TICKS_PER_MINUTE" class="member-name-link">TICKS_PER_MINUTE</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">The amount of game ticks within a real-life minute.</div>
+</div>
 <div class="col-first odd-row-color"><code>static final int</code></div>
 <div class="col-second odd-row-color"><code><a href="#TICKS_PER_SECOND" class="member-name-link">TICKS_PER_SECOND</a></code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-last odd-row-color">
+<div class="block">The amount of game ticks within a real-life second.</div>
+</div>
 <div class="col-first even-row-color"><code>static final boolean</code></div>
 <div class="col-second even-row-color"><code><a href="#USE_DEBUG_FEATURES" class="member-name-link">USE_DEBUG_FEATURES</a></code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -466,7 +521,14 @@ loadScripts(document, 'script');</script>
 <div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
 <div class="col-second odd-row-color"><code><a href="#VERSION_STRING" class="member-name-link">VERSION_STRING</a></code></div>
 <div class="col-last odd-row-color">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a> and 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#getName()</code></pre>
+</details>
+ instead.</div>
+</div>
 </div>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#WORLD_ICON_SIZE" class="member-name-link">WORLD_ICON_SIZE</a></code></div>
@@ -477,7 +539,14 @@ loadScripts(document, 'script');</script>
 <div class="col-first even-row-color"><code>static final int</code></div>
 <div class="col-second even-row-color"><code><a href="#WORLD_VERSION" class="member-name-link">WORLD_VERSION</a></code></div>
 <div class="col-last even-row-color">
-<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a> and 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#getWorldVersion()</code></pre>
+</details>
+ instead.</div>
+</div>
 </div>
 </div>
 </section>
@@ -507,7 +576,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#debugVoidTerrain(net.minecraft.world.level.ChunkPos)" class="member-name-link">debugVoidTerrain</a><wbr>(<a href="world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_183708_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#debugVoidTerrain(net.minecraft.world.level.ChunkPos)" class="member-name-link">debugVoidTerrain</a><wbr>(<a href="world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="WorldVersion.html" title="interface in net.minecraft">WorldVersion</a></code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getCurrentVersion()" class="member-name-link">getCurrentVersion</a>()</code></div>
@@ -516,8 +585,10 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getProtocolVersion()" class="member-name-link">getProtocolVersion</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setVersion(net.minecraft.WorldVersion)" class="member-name-link">setVersion</a><wbr>(<a href="WorldVersion.html" title="interface in net.minecraft">WorldVersion</a>&nbsp;p_183706_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setVersion(net.minecraft.WorldVersion)" class="member-name-link">setVersion</a><wbr>(<a href="WorldVersion.html" title="interface in net.minecraft">WorldVersion</a>&nbsp;version)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Sets the world version, failing if a different world version is already present.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryDetectVersion()" class="member-name-link">tryDetectVersion</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
@@ -543,11 +614,25 @@ loadScripts(document, 'script');</script>
 <h3>SNAPSHOT</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">SNAPSHOT</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a> and 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#isStable()</code></pre>
+</details>
+ instead.</div>
+</div>
+<div class="block">Indicates whether the currently running game version is a snapshot version.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
+<li>
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#isStable()</code></pre>
+</details>
+</li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.SNAPSHOT">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -559,11 +644,25 @@ loadScripts(document, 'script');</script>
 <h3>WORLD_VERSION</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">WORLD_VERSION</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a> and 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#getWorldVersion()</code></pre>
+</details>
+ instead.</div>
+</div>
+<div class="block">The numeric format number for worlds used by this game version.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
+<li>
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#getWorldVersion()</code></pre>
+</details>
+</li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.WORLD_VERSION">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -591,11 +690,25 @@ loadScripts(document, 'script');</script>
 <h3>VERSION_STRING</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">VERSION_STRING</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a> and 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#getName()</code></pre>
+</details>
+ instead.</div>
+</div>
+<div class="block">The human readable name of this game version.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
+<li>
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#getName()</code></pre>
+</details>
+</li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.VERSION_STRING">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -607,11 +720,17 @@ loadScripts(document, 'script');</script>
 <h3>RELEASE_NETWORK_PROTOCOL_VERSION</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">RELEASE_NETWORK_PROTOCOL_VERSION</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getProtocolVersion()"><code>getProtocolVersion()</code></a> instead.</div>
+</div>
+<div class="block">The numeric format number for the networking protocol used by the release target of this game version.
+
+ <p>This protocol version is used when this game version is a release version, not a <a href="#SNAPSHOT">snapshots</a>. For snapshots, see <a href="#SNAPSHOT_NETWORK_PROTOCOL_VERSION"><code>SNAPSHOT_NETWORK_PROTOCOL_VERSION</code></a>.</p></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
+<li><a href="#getProtocolVersion()"><code>getProtocolVersion()</code></a></li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.RELEASE_NETWORK_PROTOCOL_VERSION">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -623,11 +742,19 @@ loadScripts(document, 'script');</script>
 <h3>SNAPSHOT_NETWORK_PROTOCOL_VERSION</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SNAPSHOT_NETWORK_PROTOCOL_VERSION</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getProtocolVersion()"><code>getProtocolVersion()</code></a> instead.</div>
+</div>
+<div class="block">The numeric format number for the networking protocol used by the snapshot of this game version.
+
+ <p>This protocol version is used when this game version is a <a href="#SNAPSHOT">snapshot version</a>. For releases, see <a href="#RELEASE_NETWORK_PROTOCOL_VERSION"><code>RELEASE_NETWORK_PROTOCOL_VERSION</code></a>.</p>
+
+ <p>The actual networking protocol version used in snapshot versions is the combination (bitwise OR) of this number and the bit at the position marked by <a href="#SNAPSHOT_PROTOCOL_BIT"><code>SNAPSHOT_PROTOCOL_BIT</code></a>.</p></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
+<li><a href="#getProtocolVersion()"><code>getProtocolVersion()</code></a></li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.SNAPSHOT_NETWORK_PROTOCOL_VERSION">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -652,10 +779,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="SNAPSHOT_PROTOCOL_BIT">
 <h3>SNAPSHOT_PROTOCOL_BIT</h3>
 <div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SNAPSHOT_PROTOCOL_BIT</span></div>
+<div class="block">The bit in the networking protocol version for denoting <a href="#SNAPSHOT">snapshot versions</a>.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
+<li><a href="#SNAPSHOT_NETWORK_PROTOCOL_VERSION"><code>SNAPSHOT_NETWORK_PROTOCOL_VERSION</code></a></li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.SNAPSHOT_PROTOCOL_BIT">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -681,11 +810,25 @@ loadScripts(document, 'script');</script>
 <h3>RESOURCE_PACK_FORMAT</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">RESOURCE_PACK_FORMAT</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a>, 
+<details class="invalid-tag">
+<summary>invalid @link</summary>
+<pre>{@link com.mojang.bridge.game.GameVersion#com.mojang.bridge.game.GameVersion#getPackVersion(com.mojang.bridge.game.PackType)</pre>
+</details>
+}, and com.mojang.bridge.game.PackType#RESOURCE instead.</div>
+</div>
+<div class="block">The format of the resource packs used by this game version. Resource packs contain client-side assets, such as translation files, models, and textures.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
+<li>
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#getPackVersion(com.mojang.bridge.game.PackType)</code></pre>
+</details>
+</li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.RESOURCE_PACK_FORMAT">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -697,11 +840,25 @@ loadScripts(document, 'script');</script>
 <h3>DATA_PACK_FORMAT</h3>
 <div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
 </span><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">DATA_PACK_FORMAT</span></div>
-<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Use <a href="#getCurrentVersion()"><code>getCurrentVersion()</code></a>, 
+<details class="invalid-tag">
+<summary>invalid @link</summary>
+<pre>{@link com.mojang.bridge.game.GameVersion#com.mojang.bridge.game.GameVersion#getPackVersion(com.mojang.bridge.game.PackType)</pre>
+</details>
+}, and com.mojang.bridge.game.PackType#DATA instead.</div>
+</div>
+<div class="block">The format of the data packs used by this game version. Data packs contain server-side data such as recipes, loot tables, and tags.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
+<li>
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#getPackVersion(com.mojang.bridge.game.PackType)</code></pre>
+</details>
+</li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.DATA_PACK_FORMAT">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -742,10 +899,19 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="DATA_VERSION_TAG">
 <h3>DATA_VERSION_TAG</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">DATA_VERSION_TAG</span></div>
+<div class="block">The key for the NBT tag which contains the data version of some data, for use in datafixing.
+
+ <p>For various objects, their stored data in a <a href="nbt/CompoundTag.html" title="class in net.minecraft.nbt"><code>CompoundTag</code></a> will usually contain a <a href="nbt/IntTag.html" title="class in net.minecraft.nbt"><code>IntTag</code></a> indexed with this key, which stores the data version when the data for that object was written out. This is used by the datafixer system to determine which fixers needs to be applied to the data.</p></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
-<ul class="tag-list">
+<ul class="tag-list-long">
+<li>
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>com.mojang.bridge.game.GameVersion#getWorldVersion()</code></pre>
+</details>
+</li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.DATA_VERSION_TAG">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -1692,6 +1858,9 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="DEFAULT_MINECRAFT_PORT">
 <h3>DEFAULT_MINECRAFT_PORT</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">DEFAULT_MINECRAFT_PORT</span></div>
+<div class="block">The default port used by Minecraft for communication between servers and clients.
+
+ <p>This is not a registered port at the Internet Assigned Numbers Authority, and therefore may conflict with existing applications. Minecraft servers may be hosted at other ports, in which case the clients must supply the correct port when connecting to the server.</p></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -1946,6 +2115,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="MAX_CHAT_LENGTH">
 <h3>MAX_CHAT_LENGTH</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">MAX_CHAT_LENGTH</span></div>
+<div class="block">The maximum length of a chat message that can be typed by a player.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -2030,12 +2200,26 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="ILLEGAL_FILE_CHARACTERS">
 <h3>ILLEGAL_FILE_CHARACTERS</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">char[]</span>&nbsp;<span class="element-name">ILLEGAL_FILE_CHARACTERS</span></div>
+<div class="block">The characters which may not form part of a file's name. Used in various file processing methods to replace these illegal characters with valid characters, such as the underscore "<code>_</code>".
+
+ <p>This collection of characters is a subset of the forbidden characters listed in the documentation for Microsoft Windows, with the addition of the backtick (<code>`</code>).</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="https://docs.microsoft.com/en-us/windows/win32/fileio/naming-a-file">Microsoft Corporation, "Naming Files, Paths, and Namespaces", &sect; Naming Conventions</a></li>
+</ul>
+</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="TICKS_PER_SECOND">
 <h3>TICKS_PER_SECOND</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">TICKS_PER_SECOND</span></div>
+<div class="block">The amount of game ticks within a real-life second.
+
+ <p>This is not guaranteed by a running server to be an accurate measurement of real-life seconds. Heavy load on the server may cause the actual tick-to-second ratio to go below this defined ratio.</p></div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -2064,10 +2248,12 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="TICKS_PER_MINUTE">
 <h3>TICKS_PER_MINUTE</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">TICKS_PER_MINUTE</span></div>
+<div class="block">The amount of game ticks within a real-life minute. This is equal to <code>TICKS_PER_SECOND * 60</code>, and falls under the same guarantees and restrictions as <a href="#TICKS_PER_SECOND"><code>TICKS_PER_SECOND</code></a>.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
 <ul class="tag-list">
+<li><a href="#TICKS_PER_SECOND"><code>TICKS_PER_SECOND</code></a></li>
 <li><a href="../../constant-values.html#net.minecraft.SharedConstants.TICKS_PER_MINUTE">Constant Field Values</a></li>
 </ul>
 </dd>
@@ -2078,6 +2264,7 @@ loadScripts(document, 'script');</script>
 <section class="detail" id="TICKS_PER_GAME_DAY">
 <h3>TICKS_PER_GAME_DAY</h3>
 <div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">TICKS_PER_GAME_DAY</span></div>
+<div class="block">The amount of game ticks within a game day. A game day is defined as 20 real-life minutes, so this is equal to <code>TICKS_PER_MINUTE * 20</code>. This falls under the same guarantees and restrictions as <a href="#TICKS_PER_SECOND"><code>TICKS_PER_SECOND</code></a>.</div>
 <dl class="notes">
 <dt>See Also:</dt>
 <dd>
@@ -2176,7 +2363,14 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="setVersion(net.minecraft.WorldVersion)">
 <h3>setVersion</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setVersion</span><wbr><span class="parameters">(<a href="WorldVersion.html" title="interface in net.minecraft">WorldVersion</a>&nbsp;p_183706_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setVersion</span><wbr><span class="parameters">(<a href="WorldVersion.html" title="interface in net.minecraft">WorldVersion</a>&nbsp;version)</span></div>
+<div class="block">Sets the world version, failing if a different world version is already present.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>version</code> - the world version to set</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code> - if a different world version has already been set previously</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -2200,7 +2394,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="debugVoidTerrain(net.minecraft.world.level.ChunkPos)">
 <h3>debugVoidTerrain</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">debugVoidTerrain</span><wbr><span class="parameters">(<a href="world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;p_183708_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">debugVoidTerrain</span><wbr><span class="parameters">(<a href="world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
 </section>
 </li>
 </ul>

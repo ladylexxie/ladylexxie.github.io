@@ -141,8 +141,8 @@ implements <a href="../Rule.html" title="interface in net.minecraft.util.parsing
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected </code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.parsing.packrat.Atom,C)" class="member-name-link">ResourceLookupRule</a><wbr>(<a href="../Atom.html" title="class in net.minecraft.util.parsing.packrat">Atom</a>&lt;<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&gt;&nbsp;p_336007_,
- <a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">C</a>&nbsp;p_335882_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.util.parsing.packrat.Atom,C)" class="member-name-link">ResourceLookupRule</a><wbr>(<a href="../Atom.html" title="class in net.minecraft.util.parsing.packrat">Atom</a>&lt;<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&gt;&nbsp;idParser,
+ <a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">C</a>&nbsp;context)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -159,11 +159,11 @@ implements <a href="../Rule.html" title="interface in net.minecraft.util.parsing
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">V</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parse(net.minecraft.util.parsing.packrat.ParseState)" class="member-name-link">parse</a><wbr>(<a href="../ParseState.html" title="class in net.minecraft.util.parsing.packrat">ParseState</a>&lt;com.mojang.brigadier.StringReader&gt;&nbsp;p_335941_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parse(net.minecraft.util.parsing.packrat.ParseState)" class="member-name-link">parse</a><wbr>(<a href="../ParseState.html" title="class in net.minecraft.util.parsing.packrat">ParseState</a>&lt;com.mojang.brigadier.StringReader&gt;&nbsp;parseState)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">V</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#validateElement(com.mojang.brigadier.ImmutableStringReader,net.minecraft.resources.ResourceLocation)" class="member-name-link">validateElement</a><wbr>(com.mojang.brigadier.ImmutableStringReader&nbsp;p_335698_,
- <a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_335462_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#validateElement(com.mojang.brigadier.ImmutableStringReader,net.minecraft.resources.ResourceLocation)" class="member-name-link">validateElement</a><wbr>(com.mojang.brigadier.ImmutableStringReader&nbsp;reader,
+ <a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;elementType)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 </div>
 </div>
@@ -208,8 +208,8 @@ implements <a href="../Rule.html" title="interface in net.minecraft.util.parsing
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.util.parsing.packrat.Atom,C)">
 <h3 id="&lt;init&gt;(net.minecraft.util.parsing.packrat.Atom,java.lang.Object)">ResourceLookupRule</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">ResourceLookupRule</span><wbr><span class="parameters">(<a href="../Atom.html" title="class in net.minecraft.util.parsing.packrat">Atom</a>&lt;<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&gt;&nbsp;p_336007_,
- <a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">C</a>&nbsp;p_335882_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">ResourceLookupRule</span><wbr><span class="parameters">(<a href="../Atom.html" title="class in net.minecraft.util.parsing.packrat">Atom</a>&lt;<a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&gt;&nbsp;idParser,
+ <a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">C</a>&nbsp;context)</span></div>
 </section>
 </li>
 </ul>
@@ -223,7 +223,7 @@ implements <a href="../Rule.html" title="interface in net.minecraft.util.parsing
 <li>
 <section class="detail" id="parse(net.minecraft.util.parsing.packrat.ParseState)">
 <h3>parse</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">V</a>&gt;</span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(<a href="../ParseState.html" title="class in net.minecraft.util.parsing.packrat">ParseState</a>&lt;com.mojang.brigadier.StringReader&gt;&nbsp;p_335941_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">V</a>&gt;</span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(<a href="../ParseState.html" title="class in net.minecraft.util.parsing.packrat">ParseState</a>&lt;com.mojang.brigadier.StringReader&gt;&nbsp;parseState)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../Rule.html#parse(net.minecraft.util.parsing.packrat.ParseState)">parse</a></code>&nbsp;in interface&nbsp;<code><a href="../Rule.html" title="interface in net.minecraft.util.parsing.packrat">Rule</a>&lt;<a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">C</a>,<wbr><a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">V</a>&gt;</code></dd>
@@ -233,8 +233,8 @@ implements <a href="../Rule.html" title="interface in net.minecraft.util.parsing
 <li>
 <section class="detail" id="validateElement(com.mojang.brigadier.ImmutableStringReader,net.minecraft.resources.ResourceLocation)">
 <h3>validateElement</h3>
-<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">V</a></span>&nbsp;<span class="element-name">validateElement</span><wbr><span class="parameters">(com.mojang.brigadier.ImmutableStringReader&nbsp;p_335698_,
- <a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_335462_)</span>
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="ResourceLookupRule.html" title="type parameter in ResourceLookupRule">V</a></span>&nbsp;<span class="element-name">validateElement</span><wbr><span class="parameters">(com.mojang.brigadier.ImmutableStringReader&nbsp;reader,
+ <a href="../../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;elementType)</span>
                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>

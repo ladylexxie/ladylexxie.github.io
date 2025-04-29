@@ -168,16 +168,16 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getId()" class="member-name-link">getId</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#load(net.minecraft.server.packs.resources.ResourceManager)" class="member-name-link">load</a><wbr>(<a href="../../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_117955_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#load(net.minecraft.server.packs.resources.ResourceManager)" class="member-name-link">load</a><wbr>(<a href="../../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#releaseId()" class="member-name-link">releaseId</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reset(net.minecraft.client.renderer.texture.TextureManager,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.resources.ResourceLocation,java.util.concurrent.Executor)" class="member-name-link">reset</a><wbr>(<a href="TextureManager.html" title="class in net.minecraft.client.renderer.texture">TextureManager</a>&nbsp;p_117956_,
- <a href="../../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_117957_,
- <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_117958_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_117959_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reset(net.minecraft.client.renderer.texture.TextureManager,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.resources.ResourceLocation,java.util.concurrent.Executor)" class="member-name-link">reset</a><wbr>(<a href="TextureManager.html" title="class in net.minecraft.client.renderer.texture">TextureManager</a>&nbsp;textureManager,
+ <a href="../../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager,
+ <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;path,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;executor)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#restoreLastBlurMipmap()" class="member-name-link">restoreLastBlurMipmap</a>()</code></div>
@@ -187,8 +187,8 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
  boolean&nbsp;mipmap)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFilter(boolean,boolean)" class="member-name-link">setFilter</a><wbr>(boolean&nbsp;p_117961_,
- boolean&nbsp;p_117962_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFilter(boolean,boolean)" class="member-name-link">setFilter</a><wbr>(boolean&nbsp;blur,
+ boolean&nbsp;mipmap)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -276,8 +276,13 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="setFilter(boolean,boolean)">
 <h3>setFilter</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFilter</span><wbr><span class="parameters">(boolean&nbsp;p_117961_,
- boolean&nbsp;p_117962_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFilter</span><wbr><span class="parameters">(boolean&nbsp;blur,
+ boolean&nbsp;mipmap)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>mipmap</code> - <code>true</code> if a mipmap is being used (mip level is greater than
+               0)</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -308,7 +313,7 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="load(net.minecraft.server.packs.resources.ResourceManager)">
 <h3>load</h3>
-<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">load</span><wbr><span class="parameters">(<a href="../../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_117955_)</span>
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">load</span><wbr><span class="parameters">(<a href="../../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager)</span>
                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
 <dl class="notes">
 <dt>Throws:</dt>
@@ -325,10 +330,10 @@ implements <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base
 <li>
 <section class="detail" id="reset(net.minecraft.client.renderer.texture.TextureManager,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.resources.ResourceLocation,java.util.concurrent.Executor)">
 <h3>reset</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reset</span><wbr><span class="parameters">(<a href="TextureManager.html" title="class in net.minecraft.client.renderer.texture">TextureManager</a>&nbsp;p_117956_,
- <a href="../../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_117957_,
- <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_117958_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_117959_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">reset</span><wbr><span class="parameters">(<a href="TextureManager.html" title="class in net.minecraft.client.renderer.texture">TextureManager</a>&nbsp;textureManager,
+ <a href="../../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager,
+ <a href="../../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;path,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;executor)</span></div>
 </section>
 </li>
 <li>

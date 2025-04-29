@@ -96,6 +96,17 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">StatsCounter</span>
 <span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+<div class="block">Manages counting a set of <a href="Stat.html" title="class in net.minecraft.stats"><code>Stat</code></a> objects, stored by a map of statistics to their count.
+ <p>
+ This base <code>StatsCounter</code> is only used client-side for keeping track of and reading counts sent from the server.</div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="ServerStatsCounter.html" title="class in net.minecraft.stats"><code>ServerStatsCounter</code></a></li>
+</ul>
+</dd>
+</dl>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -139,21 +150,21 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue(net.minecraft.stats.Stat)" class="member-name-link">getValue</a><wbr>(<a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;p_13016_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue(net.minecraft.stats.Stat)" class="member-name-link">getValue</a><wbr>(<a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;stat)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;int</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue(net.minecraft.stats.StatType,T)" class="member-name-link">getValue</a><wbr>(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;T&gt;&nbsp;p_13018_,
- T&nbsp;p_13019_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getValue(net.minecraft.stats.StatType,T)" class="member-name-link">getValue</a><wbr>(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;T&gt;&nbsp;type,
+ T&nbsp;value)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#increment(net.minecraft.world.entity.player.Player,net.minecraft.stats.Stat,int)" class="member-name-link">increment</a><wbr>(<a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_13024_,
- <a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;p_13025_,
- int&nbsp;p_13026_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#increment(net.minecraft.world.entity.player.Player,net.minecraft.stats.Stat,int)" class="member-name-link">increment</a><wbr>(<a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
+ <a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;stat,
+ int&nbsp;amount)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setValue(net.minecraft.world.entity.player.Player,net.minecraft.stats.Stat,int)" class="member-name-link">setValue</a><wbr>(<a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_13020_,
- <a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;p_13021_,
- int&nbsp;p_13022_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setValue(net.minecraft.world.entity.player.Player,net.minecraft.stats.Stat,int)" class="member-name-link">setValue</a><wbr>(<a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
+ <a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;stat,
+ int&nbsp;value)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -203,30 +214,30 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="increment(net.minecraft.world.entity.player.Player,net.minecraft.stats.Stat,int)">
 <h3>increment</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">increment</span><wbr><span class="parameters">(<a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_13024_,
- <a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;p_13025_,
- int&nbsp;p_13026_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">increment</span><wbr><span class="parameters">(<a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
+ <a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;stat,
+ int&nbsp;amount)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="setValue(net.minecraft.world.entity.player.Player,net.minecraft.stats.Stat,int)">
 <h3>setValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setValue</span><wbr><span class="parameters">(<a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;p_13020_,
- <a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;p_13021_,
- int&nbsp;p_13022_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setValue</span><wbr><span class="parameters">(<a href="../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player,
+ <a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;stat,
+ int&nbsp;value)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getValue(net.minecraft.stats.StatType,T)">
 <h3 id="getValue(net.minecraft.stats.StatType,java.lang.Object)">getValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;T&gt;&nbsp;p_13018_,
- T&nbsp;p_13019_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(<a href="StatType.html" title="class in net.minecraft.stats">StatType</a>&lt;T&gt;&nbsp;type,
+ T&nbsp;value)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="getValue(net.minecraft.stats.Stat)">
 <h3>getValue</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(<a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;p_13016_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getValue</span><wbr><span class="parameters">(<a href="Stat.html" title="class in net.minecraft.stats">Stat</a>&lt;?&gt;&nbsp;stat)</span></div>
 </section>
 </li>
 </ul>

@@ -161,19 +161,19 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(double,double,double,float,java.util.List,net.minecraft.world.phys.Vec3,net.minecraft.world.level.Explosion.BlockInteraction,net.minecraft.core.particles.ParticleOptions,net.minecraft.core.particles.ParticleOptions,net.minecraft.core.Holder)" class="member-name-link">ClientboundExplodePacket</a><wbr>(double&nbsp;p_132115_,
- double&nbsp;p_132116_,
- double&nbsp;p_132117_,
- float&nbsp;p_132118_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;&nbsp;p_132119_,
- <a href="../../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_132120_,
- <a href="../../../world/level/Explosion.BlockInteraction.html" title="enum class in net.minecraft.world.level">Explosion.BlockInteraction</a>&nbsp;p_312296_,
- <a href="../../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_312499_,
- <a href="../../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_312203_,
- <a href="../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../sounds/SoundEvent.html" title="class in net.minecraft.sounds">SoundEvent</a>&gt;&nbsp;p_320679_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(double,double,double,float,java.util.List,net.minecraft.world.phys.Vec3,net.minecraft.world.level.Explosion.BlockInteraction,net.minecraft.core.particles.ParticleOptions,net.minecraft.core.particles.ParticleOptions,net.minecraft.core.Holder)" class="member-name-link">ClientboundExplodePacket</a><wbr>(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ float&nbsp;power,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;&nbsp;toBlow,
+ <a href="../../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;knockback,
+ <a href="../../../world/level/Explosion.BlockInteraction.html" title="enum class in net.minecraft.world.level">Explosion.BlockInteraction</a>&nbsp;blockInteraction,
+ <a href="../../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;smallExplosionParticles,
+ <a href="../../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;largeExplosionParticles,
+ <a href="../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../sounds/SoundEvent.html" title="class in net.minecraft.sounds">SoundEvent</a>&gt;&nbsp;explosionSound)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>private </code></div>
-<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.network.RegistryFriendlyByteBuf)" class="member-name-link">ClientboundExplodePacket</a><wbr>(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;p_320217_)</code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.network.RegistryFriendlyByteBuf)" class="member-name-link">ClientboundExplodePacket</a><wbr>(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;buffer)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -226,13 +226,15 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getZ()" class="member-name-link">getZ</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handle(net.minecraft.network.protocol.game.ClientGamePacketListener)" class="member-name-link">handle</a><wbr>(<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&nbsp;p_132126_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handle(net.minecraft.network.protocol.game.ClientGamePacketListener)" class="member-name-link">handle</a><wbr>(<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&nbsp;handler)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Passes this Packet on to the NetHandler for processing.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../PacketType.html" title="class in net.minecraft.network.protocol">PacketType</a><wbr>&lt;<a href="ClientboundExplodePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundExplodePacket</a>&gt;</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type()" class="member-name-link">type</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.network.RegistryFriendlyByteBuf)" class="member-name-link">write</a><wbr>(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;p_319914_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.network.RegistryFriendlyByteBuf)" class="member-name-link">write</a><wbr>(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;buffer)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -343,23 +345,23 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <li>
 <section class="detail" id="&lt;init&gt;(double,double,double,float,java.util.List,net.minecraft.world.phys.Vec3,net.minecraft.world.level.Explosion.BlockInteraction,net.minecraft.core.particles.ParticleOptions,net.minecraft.core.particles.ParticleOptions,net.minecraft.core.Holder)">
 <h3>ClientboundExplodePacket</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ClientboundExplodePacket</span><wbr><span class="parameters">(double&nbsp;p_132115_,
- double&nbsp;p_132116_,
- double&nbsp;p_132117_,
- float&nbsp;p_132118_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;&nbsp;p_132119_,
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ClientboundExplodePacket</span><wbr><span class="parameters">(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ float&nbsp;power,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;&nbsp;toBlow,
  @Nullable
- <a href="../../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;p_132120_,
- <a href="../../../world/level/Explosion.BlockInteraction.html" title="enum class in net.minecraft.world.level">Explosion.BlockInteraction</a>&nbsp;p_312296_,
- <a href="../../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_312499_,
- <a href="../../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;p_312203_,
- <a href="../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../sounds/SoundEvent.html" title="class in net.minecraft.sounds">SoundEvent</a>&gt;&nbsp;p_320679_)</span></div>
+ <a href="../../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;knockback,
+ <a href="../../../world/level/Explosion.BlockInteraction.html" title="enum class in net.minecraft.world.level">Explosion.BlockInteraction</a>&nbsp;blockInteraction,
+ <a href="../../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;smallExplosionParticles,
+ <a href="../../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;largeExplosionParticles,
+ <a href="../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../sounds/SoundEvent.html" title="class in net.minecraft.sounds">SoundEvent</a>&gt;&nbsp;explosionSound)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.network.RegistryFriendlyByteBuf)">
 <h3>ClientboundExplodePacket</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">ClientboundExplodePacket</span><wbr><span class="parameters">(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;p_320217_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">ClientboundExplodePacket</span><wbr><span class="parameters">(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;buffer)</span></div>
 </section>
 </li>
 </ul>
@@ -373,7 +375,7 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <li>
 <section class="detail" id="write(net.minecraft.network.RegistryFriendlyByteBuf)">
 <h3>write</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;p_319914_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../RegistryFriendlyByteBuf.html" title="class in net.minecraft.network">RegistryFriendlyByteBuf</a>&nbsp;buffer)</span></div>
 </section>
 </li>
 <li>
@@ -389,7 +391,8 @@ implements <a href="../Packet.html" title="interface in net.minecraft.network.pr
 <li>
 <section class="detail" id="handle(net.minecraft.network.protocol.game.ClientGamePacketListener)">
 <h3>handle</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handle</span><wbr><span class="parameters">(<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&nbsp;p_132126_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handle</span><wbr><span class="parameters">(<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&nbsp;handler)</span></div>
+<div class="block">Passes this Packet on to the NetHandler for processing.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../Packet.html#handle(T)">handle</a></code>&nbsp;in interface&nbsp;<code><a href="../Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;<a href="ClientGamePacketListener.html" title="interface in net.minecraft.network.protocol.game">ClientGamePacketListener</a>&gt;</code></dd>

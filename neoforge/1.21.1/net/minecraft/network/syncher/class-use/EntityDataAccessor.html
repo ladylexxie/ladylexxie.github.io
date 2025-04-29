@@ -120,7 +120,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">LocalPlayer.</span><code><a href="../../../client/player/LocalPlayer.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_108699_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LocalPlayer.</span><code><a href="../../../client/player/LocalPlayer.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -143,12 +143,14 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>default <a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a><wbr>&lt;<a href="../EntityDataSerializer.html" title="type parameter in EntityDataSerializer">T</a>&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EntityDataSerializer.</span><code><a href="../EntityDataSerializer.html#createAccessor(int)" class="member-name-link">createAccessor</a><wbr>(int&nbsp;p_135022_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EntityDataSerializer.</span><code><a href="../EntityDataSerializer.html#createAccessor(int)" class="member-name-link">createAccessor</a><wbr>(int&nbsp;id)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>static &lt;T&gt;&nbsp;<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#defineId(java.lang.Class,net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">defineId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="../SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&gt;&nbsp;p_135354_,
- <a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;p_135355_)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-second odd-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#defineId(java.lang.Class,net.minecraft.network.syncher.EntityDataSerializer)" class="member-name-link">defineId</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="../SyncedDataHolder.html" title="interface in net.minecraft.network.syncher">SyncedDataHolder</a>&gt;&nbsp;clazz,
+ <a href="../EntityDataSerializer.html" title="interface in net.minecraft.network.syncher">EntityDataSerializer</a>&lt;T&gt;&nbsp;serializer)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Register a piece of data to be kept in sync for an entity class.</div>
+</div>
 <div class="col-first even-row-color"><code><a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a><wbr>&lt;<a href="../SynchedEntityData.DataItem.html" title="type parameter in SynchedEntityData.DataItem">T</a>&gt;</code></div>
 <div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.DataItem.</span><code><a href="../SynchedEntityData.DataItem.html#getAccessor()" class="member-name-link">getAccessor</a>()</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
@@ -159,30 +161,34 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static &lt;T&gt;&nbsp;<a href="../SynchedEntityData.DataValue.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataValue</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.DataValue.</span><code><a href="../SynchedEntityData.DataValue.html#create(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">create</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_254543_,
- T&nbsp;p_254138_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.DataValue.</span><code><a href="../SynchedEntityData.DataValue.html#create(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">create</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;dataAccessor,
+ T&nbsp;value)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T&gt;&nbsp;<a href="../SynchedEntityData.Builder.html" title="class in net.minecraft.network.syncher">SynchedEntityData.Builder</a></code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SynchedEntityData.Builder.</span><code><a href="../SynchedEntityData.Builder.html#define(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">define</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_326262_,
- T&nbsp;p_326000_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SynchedEntityData.Builder.</span><code><a href="../SynchedEntityData.Builder.html#define(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">define</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;accessor,
+ T&nbsp;value)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>&lt;T&gt;&nbsp;T</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#get(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">get</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_135371_)</code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#get(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">get</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key)</code></div>
+<div class="col-last even-row-color">
+<div class="block">Get the value of the given key for this entity.</div>
+</div>
 <div class="col-first odd-row-color"><code>private &lt;T&gt;&nbsp;<a href="../SynchedEntityData.DataItem.html" title="class in net.minecraft.network.syncher">SynchedEntityData.DataItem</a><wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#getItem(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">getItem</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_135380_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#getItem(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">getItem</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SyncedDataHolder.</span><code><a href="../SyncedDataHolder.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_326288_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SyncedDataHolder.</span><code><a href="../SyncedDataHolder.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;dataAccessor)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>&lt;T&gt;&nbsp;void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#set(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">set</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_135382_,
- T&nbsp;p_135383_)</code></div>
-<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-second odd-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#set(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">set</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key,
+ T&nbsp;value)</code></div>
+<div class="col-last odd-row-color">
+<div class="block">Set the value of the given key for this entity.</div>
+</div>
 <div class="col-first even-row-color"><code>&lt;T&gt;&nbsp;void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#set(net.minecraft.network.syncher.EntityDataAccessor,T,boolean)" class="member-name-link">set</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;p_276368_,
- T&nbsp;p_276363_,
- boolean&nbsp;p_276370_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">SynchedEntityData.</span><code><a href="../SynchedEntityData.html#set(net.minecraft.network.syncher.EntityDataAccessor,T,boolean)" class="member-name-link">set</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;T&gt;&nbsp;key,
+ T&nbsp;value,
+ boolean&nbsp;force)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../package-summary.html">net.minecraft.network.syncher</a> with parameters of type <a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a></span></div>
@@ -191,8 +197,8 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../SynchedEntityData.DataItem.html#%3Cinit%3E(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">DataItem</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;<a href="../SynchedEntityData.DataItem.html" title="type parameter in SynchedEntityData.DataItem">T</a>&gt;&nbsp;p_135394_,
- <a href="../SynchedEntityData.DataItem.html" title="type parameter in SynchedEntityData.DataItem">T</a>&nbsp;p_135395_)</code></div>
+<div class="col-second even-row-color"><code><a href="../SynchedEntityData.DataItem.html#%3Cinit%3E(net.minecraft.network.syncher.EntityDataAccessor,T)" class="member-name-link">DataItem</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;<a href="../SynchedEntityData.DataItem.html" title="type parameter in SynchedEntityData.DataItem">T</a>&gt;&nbsp;accessor,
+ <a href="../SynchedEntityData.DataItem.html" title="type parameter in SynchedEntityData.DataItem">T</a>&nbsp;value)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -368,31 +374,31 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">AgeableMob.</span><code><a href="../../../world/entity/AgeableMob.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_146754_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">AgeableMob.</span><code><a href="../../../world/entity/AgeableMob.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">AreaEffectCloud.</span><code><a href="../../../world/entity/AreaEffectCloud.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_19729_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">AreaEffectCloud.</span><code><a href="../../../world/entity/AreaEffectCloud.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Display.BlockDisplay.</span><code><a href="../../../world/entity/Display.BlockDisplay.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_277476_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Display.BlockDisplay.</span><code><a href="../../../world/entity/Display.BlockDisplay.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Display.ItemDisplay.</span><code><a href="../../../world/entity/Display.ItemDisplay.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_277793_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Display.ItemDisplay.</span><code><a href="../../../world/entity/Display.ItemDisplay.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Display.</span><code><a href="../../../world/entity/Display.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_270275_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Display.</span><code><a href="../../../world/entity/Display.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Display.TextDisplay.</span><code><a href="../../../world/entity/Display.TextDisplay.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_270797_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Display.TextDisplay.</span><code><a href="../../../world/entity/Display.TextDisplay.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Entity.</span><code><a href="../../../world/entity/Entity.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_20059_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Entity.</span><code><a href="../../../world/entity/Entity.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Interaction.</span><code><a href="../../../world/entity/Interaction.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_272722_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Interaction.</span><code><a href="../../../world/entity/Interaction.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">LivingEntity.</span><code><a href="../../../world/entity/LivingEntity.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_21104_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">LivingEntity.</span><code><a href="../../../world/entity/LivingEntity.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Constructors in <a href="../../../world/entity/package-summary.html">net.minecraft.world.entity</a> with parameters of type <a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a></span></div>
@@ -401,9 +407,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Constructor</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>&nbsp;</code></div>
-<div class="col-second even-row-color"><code><a href="../../../world/entity/ItemBasedSteering.html#%3Cinit%3E(net.minecraft.network.syncher.SynchedEntityData,net.minecraft.network.syncher.EntityDataAccessor,net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">ItemBasedSteering</a><wbr>(<a href="../SynchedEntityData.html" title="class in net.minecraft.network.syncher">SynchedEntityData</a>&nbsp;p_20841_,
- <a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;p_20842_,
- <a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&nbsp;p_20843_)</code></div>
+<div class="col-second even-row-color"><code><a href="../../../world/entity/ItemBasedSteering.html#%3Cinit%3E(net.minecraft.network.syncher.SynchedEntityData,net.minecraft.network.syncher.EntityDataAccessor,net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">ItemBasedSteering</a><wbr>(<a href="../SynchedEntityData.html" title="class in net.minecraft.network.syncher">SynchedEntityData</a>&nbsp;entityData,
+ <a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;&nbsp;boostTimeAccessor,
+ <a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;&nbsp;hasSaddleAccessor)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -563,10 +569,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Pig.</span><code><a href="../../../world/entity/animal/Pig.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_29480_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Pig.</span><code><a href="../../../world/entity/animal/Pig.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Pufferfish.</span><code><a href="../../../world/entity/animal/Pufferfish.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_29615_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Pufferfish.</span><code><a href="../../../world/entity/animal/Pufferfish.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -606,7 +612,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Armadillo.</span><code><a href="../../../world/entity/animal/armadillo/Armadillo.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_316145_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Armadillo.</span><code><a href="../../../world/entity/animal/armadillo/Armadillo.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -652,7 +658,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Camel.</span><code><a href="../../../world/entity/animal/camel/Camel.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_252215_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Camel.</span><code><a href="../../../world/entity/animal/camel/Camel.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -678,7 +684,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Frog.</span><code><a href="../../../world/entity/animal/frog/Frog.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_218498_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Frog.</span><code><a href="../../../world/entity/animal/frog/Frog.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -750,7 +756,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Sniffer.</span><code><a href="../../../world/entity/animal/sniffer/Sniffer.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_272936_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Sniffer.</span><code><a href="../../../world/entity/animal/sniffer/Sniffer.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -779,7 +785,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EnderDragon.</span><code><a href="../../../world/entity/boss/enderdragon/EnderDragon.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_31136_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EnderDragon.</span><code><a href="../../../world/entity/boss/enderdragon/EnderDragon.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -861,13 +867,13 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ArmorStand.</span><code><a href="../../../world/entity/decoration/ArmorStand.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_31602_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ArmorStand.</span><code><a href="../../../world/entity/decoration/ArmorStand.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">ItemFrame.</span><code><a href="../../../world/entity/decoration/ItemFrame.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_31797_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">ItemFrame.</span><code><a href="../../../world/entity/decoration/ItemFrame.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Painting.</span><code><a href="../../../world/entity/decoration/Painting.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_218896_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Painting.</span><code><a href="../../../world/entity/decoration/Painting.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -899,7 +905,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">ItemEntity.</span><code><a href="../../../world/entity/item/ItemEntity.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_32036_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">ItemEntity.</span><code><a href="../../../world/entity/item/ItemEntity.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -1012,28 +1018,28 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">EnderMan.</span><code><a href="../../../world/entity/monster/EnderMan.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_32513_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">EnderMan.</span><code><a href="../../../world/entity/monster/EnderMan.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Guardian.</span><code><a href="../../../world/entity/monster/Guardian.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_32834_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Guardian.</span><code><a href="../../../world/entity/monster/Guardian.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Phantom.</span><code><a href="../../../world/entity/monster/Phantom.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_33134_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Phantom.</span><code><a href="../../../world/entity/monster/Phantom.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Shulker.</span><code><a href="../../../world/entity/monster/Shulker.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_33434_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Shulker.</span><code><a href="../../../world/entity/monster/Shulker.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Slime.</span><code><a href="../../../world/entity/monster/Slime.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_33609_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Slime.</span><code><a href="../../../world/entity/monster/Slime.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Strider.</span><code><a href="../../../world/entity/monster/Strider.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_33900_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Strider.</span><code><a href="../../../world/entity/monster/Strider.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Zoglin.</span><code><a href="../../../world/entity/monster/Zoglin.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_34225_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Zoglin.</span><code><a href="../../../world/entity/monster/Zoglin.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 <div class="col-first odd-row-color"><code>void</code></div>
-<div class="col-second odd-row-color"><span class="type-name-label">Zombie.</span><code><a href="../../../world/entity/monster/Zombie.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_34307_)</code></div>
+<div class="col-second odd-row-color"><span class="type-name-label">Zombie.</span><code><a href="../../../world/entity/monster/Zombie.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last odd-row-color">&nbsp;</div>
 </div>
 </section>
@@ -1047,7 +1053,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Breeze.</span><code><a href="../../../world/entity/monster/breeze/Breeze.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_312373_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Breeze.</span><code><a href="../../../world/entity/monster/breeze/Breeze.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -1093,7 +1099,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Piglin.</span><code><a href="../../../world/entity/monster/piglin/Piglin.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_34727_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Piglin.</span><code><a href="../../../world/entity/monster/piglin/Piglin.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -1116,7 +1122,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Warden.</span><code><a href="../../../world/entity/monster/warden/Warden.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_219422_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Warden.</span><code><a href="../../../world/entity/monster/warden/Warden.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -1224,7 +1230,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">FishingHook.</span><code><a href="../../../world/entity/projectile/FishingHook.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_37153_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">FishingHook.</span><code><a href="../../../world/entity/projectile/FishingHook.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -1297,7 +1303,7 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>void</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">MinecartCommandBlock.</span><code><a href="../../../world/entity/vehicle/MinecartCommandBlock.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;p_38527_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">MinecartCommandBlock.</span><code><a href="../../../world/entity/vehicle/MinecartCommandBlock.html#onSyncedDataUpdated(net.minecraft.network.syncher.EntityDataAccessor)" class="member-name-link">onSyncedDataUpdated</a><wbr>(<a href="../EntityDataAccessor.html" title="class in net.minecraft.network.syncher">EntityDataAccessor</a>&lt;?&gt;&nbsp;key)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>

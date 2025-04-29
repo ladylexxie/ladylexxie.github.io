@@ -148,9 +148,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.mojang.serialization.Codec<wbr>&lt;<a href="IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#codec(int,int)" class="member-name-link">codec</a><wbr>(int&nbsp;p_146546_,
- int&nbsp;p_146547_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#codec(int,int)" class="member-name-link">codec</a><wbr>(int&nbsp;minInclusive,
+ int&nbsp;maxInclusive)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Creates a codec for an IntProvider that only accepts numbers in the given range.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract int</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getMaxValue()" class="member-name-link">getMaxValue</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
@@ -161,17 +163,17 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract int</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#sample(net.minecraft.util.RandomSource)" class="member-name-link">sample</a><wbr>(<a href="../RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_216855_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#sample(net.minecraft.util.RandomSource)" class="member-name-link">sample</a><wbr>(<a href="../RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;T extends <a href="IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&gt;<br>com.mojang.serialization.DataResult<wbr>&lt;T&gt;</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validate(int,int,T)" class="member-name-link">validate</a><wbr>(int&nbsp;p_338299_,
- int&nbsp;p_338617_,
- T&nbsp;p_338788_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validate(int,int,T)" class="member-name-link">validate</a><wbr>(int&nbsp;min,
+ int&nbsp;max,
+ T&nbsp;provider)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T extends <a href="IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&gt;<br>com.mojang.serialization.Codec<wbr>&lt;T&gt;</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validateCodec(int,int,com.mojang.serialization.Codec)" class="member-name-link">validateCodec</a><wbr>(int&nbsp;p_338363_,
- int&nbsp;p_338219_,
- com.mojang.serialization.Codec&lt;T&gt;&nbsp;p_338307_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validateCodec(int,int,com.mojang.serialization.Codec)" class="member-name-link">validateCodec</a><wbr>(int&nbsp;min,
+ int&nbsp;max,
+ com.mojang.serialization.Codec&lt;T&gt;&nbsp;codec)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -239,32 +241,33 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="codec(int,int)">
 <h3>codec</h3>
-<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">com.mojang.serialization.Codec&lt;<a href="IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&gt;</span>&nbsp;<span class="element-name">codec</span><wbr><span class="parameters">(int&nbsp;p_146546_,
- int&nbsp;p_146547_)</span></div>
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">com.mojang.serialization.Codec&lt;<a href="IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&gt;</span>&nbsp;<span class="element-name">codec</span><wbr><span class="parameters">(int&nbsp;minInclusive,
+ int&nbsp;maxInclusive)</span></div>
+<div class="block">Creates a codec for an IntProvider that only accepts numbers in the given range.</div>
 </section>
 </li>
 <li>
 <section class="detail" id="validateCodec(int,int,com.mojang.serialization.Codec)">
 <h3>validateCodec</h3>
 <div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&gt;</span>
-<span class="return-type">com.mojang.serialization.Codec&lt;T&gt;</span>&nbsp;<span class="element-name">validateCodec</span><wbr><span class="parameters">(int&nbsp;p_338363_,
- int&nbsp;p_338219_,
- com.mojang.serialization.Codec&lt;T&gt;&nbsp;p_338307_)</span></div>
+<span class="return-type">com.mojang.serialization.Codec&lt;T&gt;</span>&nbsp;<span class="element-name">validateCodec</span><wbr><span class="parameters">(int&nbsp;min,
+ int&nbsp;max,
+ com.mojang.serialization.Codec&lt;T&gt;&nbsp;codec)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="validate(int,int,T)">
 <h3 id="validate(int,int,net.minecraft.util.valueproviders.IntProvider)">validate</h3>
 <div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="IntProvider.html" title="class in net.minecraft.util.valueproviders">IntProvider</a>&gt;</span>
-<span class="return-type">com.mojang.serialization.DataResult&lt;T&gt;</span>&nbsp;<span class="element-name">validate</span><wbr><span class="parameters">(int&nbsp;p_338299_,
- int&nbsp;p_338617_,
- T&nbsp;p_338788_)</span></div>
+<span class="return-type">com.mojang.serialization.DataResult&lt;T&gt;</span>&nbsp;<span class="element-name">validate</span><wbr><span class="parameters">(int&nbsp;min,
+ int&nbsp;max,
+ T&nbsp;provider)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="sample(net.minecraft.util.RandomSource)">
 <h3>sample</h3>
-<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">sample</span><wbr><span class="parameters">(<a href="../RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;p_216855_)</span></div>
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">sample</span><wbr><span class="parameters">(<a href="../RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
 </section>
 </li>
 <li>

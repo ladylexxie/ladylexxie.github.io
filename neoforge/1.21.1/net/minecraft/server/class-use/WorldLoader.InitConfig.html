@@ -70,8 +70,8 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private static <a href="../WorldLoader.InitConfig.html" title="class in net.minecraft.server">WorldLoader.InitConfig</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">CreateWorldScreen.</span><code><a href="../../client/gui/screens/worldselection/CreateWorldScreen.html#createDefaultLoadConfig(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.WorldDataConfiguration)" class="member-name-link">createDefaultLoadConfig</a><wbr>(<a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_251829_,
- <a href="../../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;p_251555_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">CreateWorldScreen.</span><code><a href="../../client/gui/screens/worldselection/CreateWorldScreen.html#createDefaultLoadConfig(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.WorldDataConfiguration)" class="member-name-link">createDefaultLoadConfig</a><wbr>(<a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../../world/level/WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;initialDataConfig)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -85,10 +85,10 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>private static <a href="../WorldLoader.InitConfig.html" title="class in net.minecraft.server">WorldLoader.InitConfig</a></code></div>
-<div class="col-second even-row-color"><span class="type-name-label">Main.</span><code><a href="../Main.html#loadOrCreateConfig(net.minecraft.server.dedicated.DedicatedServerProperties,com.mojang.serialization.Dynamic,boolean,net.minecraft.server.packs.repository.PackRepository)" class="member-name-link">loadOrCreateConfig</a><wbr>(<a href="../dedicated/DedicatedServerProperties.html" title="class in net.minecraft.server.dedicated">DedicatedServerProperties</a>&nbsp;p_248563_,
- com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;p_307444_,
- boolean&nbsp;p_249093_,
- <a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;p_251069_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">Main.</span><code><a href="../Main.html#loadOrCreateConfig(net.minecraft.server.dedicated.DedicatedServerProperties,com.mojang.serialization.Dynamic,boolean,net.minecraft.server.packs.repository.PackRepository)" class="member-name-link">loadOrCreateConfig</a><wbr>(<a href="../dedicated/DedicatedServerProperties.html" title="class in net.minecraft.server.dedicated">DedicatedServerProperties</a>&nbsp;dedicatedServerProperties,
+ com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;dynamic,
+ boolean&nbsp;safeMode,
+ <a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 <div class="caption"><span>Methods in <a href="../package-summary.html">net.minecraft.server</a> with parameters of type <a href="../WorldLoader.InitConfig.html" title="class in net.minecraft.server">WorldLoader.InitConfig</a></span></div>
@@ -98,11 +98,11 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>static &lt;D,<wbr>
 R&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;R&gt;</code></div>
-<div class="col-second even-row-color"><span class="type-name-label">WorldLoader.</span><code><a href="../WorldLoader.html#load(net.minecraft.server.WorldLoader.InitConfig,net.minecraft.server.WorldLoader.WorldDataSupplier,net.minecraft.server.WorldLoader.ResultFactory,java.util.concurrent.Executor,java.util.concurrent.Executor)" class="member-name-link">load</a><wbr>(<a href="../WorldLoader.InitConfig.html" title="class in net.minecraft.server">WorldLoader.InitConfig</a>&nbsp;p_214363_,
- <a href="../WorldLoader.WorldDataSupplier.html" title="interface in net.minecraft.server">WorldLoader.WorldDataSupplier</a>&lt;D&gt;&nbsp;p_214364_,
- <a href="../WorldLoader.ResultFactory.html" title="interface in net.minecraft.server">WorldLoader.ResultFactory</a>&lt;D,<wbr>R&gt;&nbsp;p_214365_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_214366_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;p_214367_)</code></div>
+<div class="col-second even-row-color"><span class="type-name-label">WorldLoader.</span><code><a href="../WorldLoader.html#load(net.minecraft.server.WorldLoader.InitConfig,net.minecraft.server.WorldLoader.WorldDataSupplier,net.minecraft.server.WorldLoader.ResultFactory,java.util.concurrent.Executor,java.util.concurrent.Executor)" class="member-name-link">load</a><wbr>(<a href="../WorldLoader.InitConfig.html" title="class in net.minecraft.server">WorldLoader.InitConfig</a>&nbsp;initConfig,
+ <a href="../WorldLoader.WorldDataSupplier.html" title="interface in net.minecraft.server">WorldLoader.WorldDataSupplier</a>&lt;D&gt;&nbsp;worldDataSupplier,
+ <a href="../WorldLoader.ResultFactory.html" title="interface in net.minecraft.server">WorldLoader.ResultFactory</a>&lt;D,<wbr>R&gt;&nbsp;resultFactory,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;backgroundExecutor,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;gameExecutor)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>

@@ -100,6 +100,8 @@ loadScripts(document, 'script');</script>
 <hr>
 <div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">SoundManager</span>
 <span class="extends-implements">extends <a href="../../server/packs/resources/SimplePreparableReloadListener.html" title="class in net.minecraft.server.packs.resources">SimplePreparableReloadListener</a>&lt;<a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a>&gt;</span></div>
+<div class="block">The SoundManager class is responsible for managing sound events and playing sounds.
+ It handles sound event registrations, caching of sound resources, and sound playback.</div>
 </section>
 <section class="summary">
 <ul class="summary-list">
@@ -114,7 +116,9 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color"><code>protected static class&nbsp;</code></div>
 <div class="col-second even-row-color"><code><a href="SoundManager.Preparations.html" class="type-name-link" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a></code></div>
-<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-last even-row-color">
+<div class="block">The Preparations class represents the prepared sound event registrations and caches for applying to the sound manager.</div>
+</div>
 </div>
 <div class="inherited-list">
 <h2 id="nested-classes-inherited-from-class-net.minecraft.server.packs.resources.PreparableReloadListener">Nested classes/interfaces inherited from interface&nbsp;net.minecraft.server.packs.resources.<a href="../../server/packs/resources/PreparableReloadListener.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a></h2>
@@ -177,7 +181,7 @@ loadScripts(document, 'script');</script>
 <div class="summary-table two-column-summary">
 <div class="table-header col-first">Constructor</div>
 <div class="table-header col-last">Description</div>
-<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Options)" class="member-name-link">SoundManager</a><wbr>(<a href="../Options.html" title="class in net.minecraft.client">Options</a>&nbsp;p_250027_)</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Options)" class="member-name-link">SoundManager</a><wbr>(<a href="../Options.html" title="class in net.minecraft.client">Options</a>&nbsp;options)</code></div>
 <div class="col-last even-row-color">&nbsp;</div>
 </div>
 </section>
@@ -194,13 +198,15 @@ loadScripts(document, 'script');</script>
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addListener(net.minecraft.client.sounds.SoundEventListener)" class="member-name-link">addListener</a><wbr>(<a href="SoundEventListener.html" title="interface in net.minecraft.client.sounds">SoundEventListener</a>&nbsp;p_120375_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addListener(net.minecraft.client.sounds.SoundEventListener)" class="member-name-link">addListener</a><wbr>(<a href="SoundEventListener.html" title="interface in net.minecraft.client.sounds">SoundEventListener</a>&nbsp;listener)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#apply(net.minecraft.client.sounds.SoundManager.Preparations,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)" class="member-name-link">apply</a><wbr>(<a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a>&nbsp;p_120377_,
- <a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_120378_,
- <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;p_120379_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#apply(net.minecraft.client.sounds.SoundManager.Preparations,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)" class="member-name-link">apply</a><wbr>(<a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a>&nbsp;object,
+ <a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Applies the prepared sound event registrations and caches to the sound manager.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#destroy()" class="member-name-link">destroy</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
@@ -220,33 +226,45 @@ loadScripts(document, 'script');</script>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getListenerTransform()" class="member-name-link">getListenerTransform</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="WeighedSoundEvents.html" title="class in net.minecraft.client.sounds">WeighedSoundEvents</a></code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSoundEvent(net.minecraft.resources.ResourceLocation)" class="member-name-link">getSoundEvent</a><wbr>(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_120385_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSoundEvent(net.minecraft.resources.ResourceLocation)" class="member-name-link">getSoundEvent</a><wbr>(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;location)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns The sound event associated with the specific <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>, or <code>null</code> if not found.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isActive(net.minecraft.client.resources.sounds.SoundInstance)" class="member-name-link">isActive</a><wbr>(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;p_120404_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isActive(net.minecraft.client.resources.sounds.SoundInstance)" class="member-name-link">isActive</a><wbr>(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;sound)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks if the specified sound is active (playing or scheduled to be played).</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pause()" class="member-name-link">pause</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#play(net.minecraft.client.resources.sounds.SoundInstance)" class="member-name-link">play</a><wbr>(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;p_120368_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#play(net.minecraft.client.resources.sounds.SoundInstance)" class="member-name-link">play</a><wbr>(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;sound)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Play a sound</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#playDelayed(net.minecraft.client.resources.sounds.SoundInstance,int)" class="member-name-link">playDelayed</a><wbr>(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;p_120370_,
- int&nbsp;p_120371_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#playDelayed(net.minecraft.client.resources.sounds.SoundInstance,int)" class="member-name-link">playDelayed</a><wbr>(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;sound,
+ int&nbsp;delay)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Plays a sound with a delay in ticks.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a></code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepare(net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)" class="member-name-link">prepare</a><wbr>(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_120356_,
- <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;p_120357_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepare(net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)" class="member-name-link">prepare</a><wbr>(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Performs any reloading that can be done off-thread, such as file IO</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queueTickingSound(net.minecraft.client.resources.sounds.TickableSoundInstance)" class="member-name-link">queueTickingSound</a><wbr>(<a href="../resources/sounds/TickableSoundInstance.html" title="interface in net.minecraft.client.resources.sounds">TickableSoundInstance</a>&nbsp;p_120373_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#queueTickingSound(net.minecraft.client.resources.sounds.TickableSoundInstance)" class="member-name-link">queueTickingSound</a><wbr>(<a href="../resources/sounds/TickableSoundInstance.html" title="interface in net.minecraft.client.resources.sounds">TickableSoundInstance</a>&nbsp;tickableSound)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Queues a ticking sound to be played.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#reload()" class="member-name-link">reload</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeListener(net.minecraft.client.sounds.SoundEventListener)" class="member-name-link">removeListener</a><wbr>(<a href="SoundEventListener.html" title="interface in net.minecraft.client.sounds">SoundEventListener</a>&nbsp;p_120402_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeListener(net.minecraft.client.sounds.SoundEventListener)" class="member-name-link">removeListener</a><wbr>(<a href="SoundEventListener.html" title="interface in net.minecraft.client.sounds">SoundEventListener</a>&nbsp;listener)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resume()" class="member-name-link">resume</a>()</code></div>
@@ -255,27 +273,37 @@ loadScripts(document, 'script');</script>
 <div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop(net.minecraft.client.resources.sounds.SoundInstance)" class="member-name-link">stop</a><wbr>(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;p_120400_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop(net.minecraft.client.resources.sounds.SoundInstance)" class="member-name-link">stop</a><wbr>(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;sound)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop(net.minecraft.resources.ResourceLocation,net.minecraft.sounds.SoundSource)" class="member-name-link">stop</a><wbr>(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_120387_,
- <a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;p_120388_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop(net.minecraft.resources.ResourceLocation,net.minecraft.sounds.SoundSource)" class="member-name-link">stop</a><wbr>(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;id,
+ <a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;category)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Stops all sounds associated with the specified ID and category.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick(boolean)" class="member-name-link">tick</a><wbr>(boolean&nbsp;p_120390_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick(boolean)" class="member-name-link">tick</a><wbr>(boolean&nbsp;isGamePaused)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Updates the sound manager's tick state.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateSource(net.minecraft.client.Camera)" class="member-name-link">updateSource</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_120362_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateSource(net.minecraft.client.Camera)" class="member-name-link">updateSource</a><wbr>(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;activeRenderInfo)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Updates the sound source position based on the active render info.</div>
+</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateSourceVolume(net.minecraft.sounds.SoundSource,float)" class="member-name-link">updateSourceVolume</a><wbr>(<a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;p_120359_,
- float&nbsp;p_120360_)</code></div>
-<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateSourceVolume(net.minecraft.sounds.SoundSource,float)" class="member-name-link">updateSourceVolume</a><wbr>(<a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;category,
+ float&nbsp;volume)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Updates the volume of the specified sound source category.</div>
+</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>(package private) static boolean</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validateSoundResource(net.minecraft.client.resources.sounds.Sound,net.minecraft.resources.ResourceLocation,net.minecraft.server.packs.resources.ResourceProvider)" class="member-name-link">validateSoundResource</a><wbr>(<a href="../resources/sounds/Sound.html" title="class in net.minecraft.client.resources.sounds">Sound</a>&nbsp;p_250396_,
- <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_250879_,
- <a href="../../server/packs/resources/ResourceProvider.html" title="interface in net.minecraft.server.packs.resources">ResourceProvider</a>&nbsp;p_248737_)</code></div>
-<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validateSoundResource(net.minecraft.client.resources.sounds.Sound,net.minecraft.resources.ResourceLocation,net.minecraft.server.packs.resources.ResourceProvider)" class="member-name-link">validateSoundResource</a><wbr>(<a href="../resources/sounds/Sound.html" title="class in net.minecraft.client.resources.sounds">Sound</a>&nbsp;sound,
+ <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;location,
+ <a href="../../server/packs/resources/ResourceProvider.html" title="interface in net.minecraft.server.packs.resources">ResourceProvider</a>&nbsp;resourceProvider)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Validates a sound resource</div>
+</div>
 </div>
 </div>
 </div>
@@ -393,7 +421,7 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="&lt;init&gt;(net.minecraft.client.Options)">
 <h3>SoundManager</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SoundManager</span><wbr><span class="parameters">(<a href="../Options.html" title="class in net.minecraft.client">Options</a>&nbsp;p_250027_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">SoundManager</span><wbr><span class="parameters">(<a href="../Options.html" title="class in net.minecraft.client">Options</a>&nbsp;options)</span></div>
 </section>
 </li>
 </ul>
@@ -407,23 +435,32 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="prepare(net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)">
 <h3>prepare</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a></span>&nbsp;<span class="element-name">prepare</span><wbr><span class="parameters">(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_120356_,
- <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;p_120357_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a></span>&nbsp;<span class="element-name">prepare</span><wbr><span class="parameters">(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</span></div>
+<div class="block">Performs any reloading that can be done off-thread, such as file IO</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../server/packs/resources/SimplePreparableReloadListener.html#prepare(net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)">prepare</a></code>&nbsp;in class&nbsp;<code><a href="../../server/packs/resources/SimplePreparableReloadListener.html" title="class in net.minecraft.server.packs.resources">SimplePreparableReloadListener</a>&lt;<a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>resourceManager</code> - The resource manager in-charge of loading sound files</dd>
+<dd><code>profiler</code> - The sound profiler</dd>
 </dl>
 </section>
 </li>
 <li>
 <section class="detail" id="apply(net.minecraft.client.sounds.SoundManager.Preparations,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)">
 <h3>apply</h3>
-<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">apply</span><wbr><span class="parameters">(<a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a>&nbsp;p_120377_,
- <a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;p_120378_,
- <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;p_120379_)</span></div>
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">apply</span><wbr><span class="parameters">(<a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a>&nbsp;object,
+ <a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;resourceManager,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</span></div>
+<div class="block">Applies the prepared sound event registrations and caches to the sound manager.</div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="../../server/packs/resources/SimplePreparableReloadListener.html#apply(T,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)">apply</a></code>&nbsp;in class&nbsp;<code><a href="../../server/packs/resources/SimplePreparableReloadListener.html" title="class in net.minecraft.server.packs.resources">SimplePreparableReloadListener</a>&lt;<a href="SoundManager.Preparations.html" title="class in net.minecraft.client.sounds">SoundManager.Preparations</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>object</code> - The prepared sound event registrations and caches</dd>
+<dd><code>resourceManager</code> - The resource manager</dd>
+<dd><code>profiler</code> - The profiler</dd>
 </dl>
 </section>
 </li>
@@ -442,16 +479,33 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="validateSoundResource(net.minecraft.client.resources.sounds.Sound,net.minecraft.resources.ResourceLocation,net.minecraft.server.packs.resources.ResourceProvider)">
 <h3>validateSoundResource</h3>
-<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">validateSoundResource</span><wbr><span class="parameters">(<a href="../resources/sounds/Sound.html" title="class in net.minecraft.client.resources.sounds">Sound</a>&nbsp;p_250396_,
- <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_250879_,
- <a href="../../server/packs/resources/ResourceProvider.html" title="interface in net.minecraft.server.packs.resources">ResourceProvider</a>&nbsp;p_248737_)</span></div>
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">validateSoundResource</span><wbr><span class="parameters">(<a href="../resources/sounds/Sound.html" title="class in net.minecraft.client.resources.sounds">Sound</a>&nbsp;sound,
+ <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;location,
+ <a href="../../server/packs/resources/ResourceProvider.html" title="interface in net.minecraft.server.packs.resources">ResourceProvider</a>&nbsp;resourceProvider)</span></div>
+<div class="block">Validates a sound resource
+ <p></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sound</code> - The sound to validate</dd>
+<dd><code>location</code> - The location of the sound event</dd>
+<dd><code>resourceProvider</code> - The resource provider</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if the sound resource is valid, <code>false</code> otherwise</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="getSoundEvent(net.minecraft.resources.ResourceLocation)">
 <h3>getSoundEvent</h3>
 <div class="member-signature"><span class="annotations">@Nullable
-</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="WeighedSoundEvents.html" title="class in net.minecraft.client.sounds">WeighedSoundEvents</a></span>&nbsp;<span class="element-name">getSoundEvent</span><wbr><span class="parameters">(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_120385_)</span></div>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="WeighedSoundEvents.html" title="class in net.minecraft.client.sounds">WeighedSoundEvents</a></span>&nbsp;<span class="element-name">getSoundEvent</span><wbr><span class="parameters">(<a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;location)</span></div>
+<div class="block">Returns The sound event associated with the specific <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>, or <code>null</code> if not found.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>location</code> - The location of the sound event</dd>
+<dt>Returns:</dt>
+<dd>The sound event associated with the specific <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>, or <code>null</code> if not found</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -463,26 +517,43 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="queueTickingSound(net.minecraft.client.resources.sounds.TickableSoundInstance)">
 <h3>queueTickingSound</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">queueTickingSound</span><wbr><span class="parameters">(<a href="../resources/sounds/TickableSoundInstance.html" title="interface in net.minecraft.client.resources.sounds">TickableSoundInstance</a>&nbsp;p_120373_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">queueTickingSound</span><wbr><span class="parameters">(<a href="../resources/sounds/TickableSoundInstance.html" title="interface in net.minecraft.client.resources.sounds">TickableSoundInstance</a>&nbsp;tickableSound)</span></div>
+<div class="block">Queues a ticking sound to be played.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>tickableSound</code> - The ticking sound instance</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="play(net.minecraft.client.resources.sounds.SoundInstance)">
 <h3>play</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">play</span><wbr><span class="parameters">(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;p_120368_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">play</span><wbr><span class="parameters">(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;sound)</span></div>
+<div class="block">Play a sound</div>
 </section>
 </li>
 <li>
 <section class="detail" id="playDelayed(net.minecraft.client.resources.sounds.SoundInstance,int)">
 <h3>playDelayed</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">playDelayed</span><wbr><span class="parameters">(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;p_120370_,
- int&nbsp;p_120371_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">playDelayed</span><wbr><span class="parameters">(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;sound,
+ int&nbsp;delay)</span></div>
+<div class="block">Plays a sound with a delay in ticks.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sound</code> - The sound instance to play</dd>
+<dd><code>delay</code> - The delay in ticks before playing the sound</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="updateSource(net.minecraft.client.Camera)">
 <h3>updateSource</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateSource</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;p_120362_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateSource</span><wbr><span class="parameters">(<a href="../Camera.html" title="class in net.minecraft.client">Camera</a>&nbsp;activeRenderInfo)</span></div>
+<div class="block">Updates the sound source position based on the active render info.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>activeRenderInfo</code> - The active render info</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -512,7 +583,12 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="tick(boolean)">
 <h3>tick</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tick</span><wbr><span class="parameters">(boolean&nbsp;p_120390_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tick</span><wbr><span class="parameters">(boolean&nbsp;isGamePaused)</span></div>
+<div class="block">Updates the sound manager's tick state.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>isGamePaused</code> - <code>true</code> if the game is paused, <code>false</code> otherwise</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -524,41 +600,61 @@ loadScripts(document, 'script');</script>
 <li>
 <section class="detail" id="updateSourceVolume(net.minecraft.sounds.SoundSource,float)">
 <h3>updateSourceVolume</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateSourceVolume</span><wbr><span class="parameters">(<a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;p_120359_,
- float&nbsp;p_120360_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateSourceVolume</span><wbr><span class="parameters">(<a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;category,
+ float&nbsp;volume)</span></div>
+<div class="block">Updates the volume of the specified sound source category.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>category</code> - The sound source category</dd>
+<dd><code>volume</code> - The new volume</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="stop(net.minecraft.client.resources.sounds.SoundInstance)">
 <h3>stop</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stop</span><wbr><span class="parameters">(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;p_120400_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stop</span><wbr><span class="parameters">(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;sound)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="isActive(net.minecraft.client.resources.sounds.SoundInstance)">
 <h3>isActive</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isActive</span><wbr><span class="parameters">(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;p_120404_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isActive</span><wbr><span class="parameters">(<a href="../resources/sounds/SoundInstance.html" title="interface in net.minecraft.client.resources.sounds">SoundInstance</a>&nbsp;sound)</span></div>
+<div class="block">Checks if the specified sound is active (playing or scheduled to be played).</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>sound</code> - The sound instance to check</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if the sound is active, <code>false</code> otherwise</dd>
+</dl>
 </section>
 </li>
 <li>
 <section class="detail" id="addListener(net.minecraft.client.sounds.SoundEventListener)">
 <h3>addListener</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addListener</span><wbr><span class="parameters">(<a href="SoundEventListener.html" title="interface in net.minecraft.client.sounds">SoundEventListener</a>&nbsp;p_120375_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addListener</span><wbr><span class="parameters">(<a href="SoundEventListener.html" title="interface in net.minecraft.client.sounds">SoundEventListener</a>&nbsp;listener)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="removeListener(net.minecraft.client.sounds.SoundEventListener)">
 <h3>removeListener</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeListener</span><wbr><span class="parameters">(<a href="SoundEventListener.html" title="interface in net.minecraft.client.sounds">SoundEventListener</a>&nbsp;p_120402_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeListener</span><wbr><span class="parameters">(<a href="SoundEventListener.html" title="interface in net.minecraft.client.sounds">SoundEventListener</a>&nbsp;listener)</span></div>
 </section>
 </li>
 <li>
 <section class="detail" id="stop(net.minecraft.resources.ResourceLocation,net.minecraft.sounds.SoundSource)">
 <h3>stop</h3>
 <div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stop</span><wbr><span class="parameters">(@Nullable
- <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;p_120387_,
+ <a href="../../resources/ResourceLocation.html" title="class in net.minecraft.resources">ResourceLocation</a>&nbsp;id,
  @Nullable
- <a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;p_120388_)</span></div>
+ <a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;category)</span></div>
+<div class="block">Stops all sounds associated with the specified ID and category.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>id</code> - The ID of the sounds to stop, or null to stop all sounds</dd>
+<dd><code>category</code> - The category of the sounds to stop, or null to stop sounds from
+                 all categories</dd>
+</dl>
 </section>
 </li>
 <li>

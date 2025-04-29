@@ -158,26 +158,26 @@ implements <a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in 
 <div class="table-header col-second">Method</div>
 <div class="table-header col-last">Description</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addMarker(net.minecraft.core.BlockPos,int,java.lang.String,int)" class="member-name-link">addMarker</a><wbr>(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_113525_,
- int&nbsp;p_113526_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_113527_,
- int&nbsp;p_113528_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addMarker(net.minecraft.core.BlockPos,int,java.lang.String,int)" class="member-name-link">addMarker</a><wbr>(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;color,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ int&nbsp;removeAfter)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
 <div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
-<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#render(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,double,double,double)" class="member-name-link">render</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_113519_,
- <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_113520_,
- double&nbsp;p_113521_,
- double&nbsp;p_113522_,
- double&nbsp;p_113523_)</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#render(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,double,double,double)" class="member-name-link">render</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ)</code></div>
 <div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 <div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
-<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderMarker(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.core.BlockPos,net.minecraft.client.renderer.debug.GameTestDebugRenderer.Marker)" class="member-name-link">renderMarker</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_270274_,
- <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_271018_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_270918_,
- <a href="GameTestDebugRenderer.Marker.html" title="class in net.minecraft.client.renderer.debug">GameTestDebugRenderer.Marker</a>&nbsp;p_270827_)</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderMarker(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.core.BlockPos,net.minecraft.client.renderer.debug.GameTestDebugRenderer.Marker)" class="member-name-link">renderMarker</a><wbr>(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="GameTestDebugRenderer.Marker.html" title="class in net.minecraft.client.renderer.debug">GameTestDebugRenderer.Marker</a>&nbsp;marker)</code></div>
 <div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
 </div>
 </div>
@@ -241,10 +241,15 @@ implements <a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in 
 <li>
 <section class="detail" id="addMarker(net.minecraft.core.BlockPos,int,java.lang.String,int)">
 <h3>addMarker</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addMarker</span><wbr><span class="parameters">(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_113525_,
- int&nbsp;p_113526_,
- <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;p_113527_,
- int&nbsp;p_113528_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addMarker</span><wbr><span class="parameters">(<a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;color,
+ <a href="https://docs.oracle.com/en/java/javase/21/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;text,
+ int&nbsp;removeAfter)</span></div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>removeAfter</code> - how long after the current time to remove this marker, in
+                    milliseconds</dd>
+</dl>
 </section>
 </li>
 <li>
@@ -260,11 +265,11 @@ implements <a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in 
 <li>
 <section class="detail" id="render(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,double,double,double)">
 <h3>render</h3>
-<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">render</span><wbr><span class="parameters">(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_113519_,
- <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_113520_,
- double&nbsp;p_113521_,
- double&nbsp;p_113522_,
- double&nbsp;p_113523_)</span></div>
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">render</span><wbr><span class="parameters">(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ double&nbsp;camX,
+ double&nbsp;camY,
+ double&nbsp;camZ)</span></div>
 <dl class="notes">
 <dt>Specified by:</dt>
 <dd><code><a href="DebugRenderer.SimpleDebugRenderer.html#render(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,double,double,double)">render</a></code>&nbsp;in interface&nbsp;<code><a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in net.minecraft.client.renderer.debug">DebugRenderer.SimpleDebugRenderer</a></code></dd>
@@ -274,10 +279,10 @@ implements <a href="DebugRenderer.SimpleDebugRenderer.html" title="interface in 
 <li>
 <section class="detail" id="renderMarker(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.core.BlockPos,net.minecraft.client.renderer.debug.GameTestDebugRenderer.Marker)">
 <h3>renderMarker</h3>
-<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderMarker</span><wbr><span class="parameters">(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;p_270274_,
- <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;p_271018_,
- <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;p_270918_,
- <a href="GameTestDebugRenderer.Marker.html" title="class in net.minecraft.client.renderer.debug">GameTestDebugRenderer.Marker</a>&nbsp;p_270827_)</span></div>
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderMarker</span><wbr><span class="parameters">(<a href="../../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="../MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;buffer,
+ <a href="../../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="GameTestDebugRenderer.Marker.html" title="class in net.minecraft.client.renderer.debug">GameTestDebugRenderer.Marker</a>&nbsp;marker)</span></div>
 </section>
 </li>
 </ul>
