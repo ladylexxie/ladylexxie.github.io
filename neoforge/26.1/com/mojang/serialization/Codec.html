@@ -1,0 +1,1264 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Codec (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.mojang.serialization, interface: Codec">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/Codec.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../search.html">Search</a></li>
+<li><a href="../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">com.mojang.serialization</a></li>
+<li><a href="Codec.html" class="current-selection">Codec</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#BOOL" tabindex="0">BOOL</a></li>
+<li><a href="#BYTE" tabindex="0">BYTE</a></li>
+<li><a href="#SHORT" tabindex="0">SHORT</a></li>
+<li><a href="#INT" tabindex="0">INT</a></li>
+<li><a href="#LONG" tabindex="0">LONG</a></li>
+<li><a href="#FLOAT" tabindex="0">FLOAT</a></li>
+<li><a href="#DOUBLE" tabindex="0">DOUBLE</a></li>
+<li><a href="#STRING" tabindex="0">STRING</a></li>
+<li><a href="#BYTE_BUFFER" tabindex="0">BYTE_BUFFER</a></li>
+<li><a href="#INT_STREAM" tabindex="0">INT_STREAM</a></li>
+<li><a href="#LONG_STREAM" tabindex="0">LONG_STREAM</a></li>
+<li><a href="#PASSTHROUGH" tabindex="0">PASSTHROUGH</a></li>
+<li><a href="#EMPTY" tabindex="0">EMPTY</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#withLifecycle(com.mojang.serialization.Lifecycle)" tabindex="0">withLifecycle(Lifecycle)</a></li>
+<li><a href="#stable()" tabindex="0">stable()</a></li>
+<li><a href="#deprecated(int)" tabindex="0">deprecated(int)</a></li>
+<li><a href="#of(com.mojang.serialization.Encoder,com.mojang.serialization.Decoder)" tabindex="0">of(Encoder, Decoder)</a></li>
+<li><a href="#of(com.mojang.serialization.Encoder,com.mojang.serialization.Decoder,java.lang.String)" tabindex="0">of(Encoder, Decoder, String)</a></li>
+<li><a href="#of(com.mojang.serialization.MapEncoder,com.mojang.serialization.MapDecoder)" tabindex="0">of(MapEncoder, MapDecoder)</a></li>
+<li><a href="#of(com.mojang.serialization.MapEncoder,com.mojang.serialization.MapDecoder,java.util.function.Supplier)" tabindex="0">of(MapEncoder, MapDecoder, Supplier)</a></li>
+<li><a href="#pair(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" tabindex="0">pair(Codec, Codec)</a></li>
+<li><a href="#either(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" tabindex="0">either(Codec, Codec)</a></li>
+<li><a href="#xor(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" tabindex="0">xor(Codec, Codec)</a></li>
+<li><a href="#withAlternative(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" tabindex="0">withAlternative(Codec, Codec)</a></li>
+<li><a href="#withAlternative(com.mojang.serialization.Codec)" tabindex="0">withAlternative(Codec)</a></li>
+<li><a href="#withAlternative(com.mojang.serialization.Codec,com.mojang.serialization.Codec,java.util.function.Function)" tabindex="0">withAlternative(Codec, Codec, Function)</a></li>
+<li><a href="#withAlternative(com.mojang.serialization.Codec,java.util.function.Function)" tabindex="0">withAlternative(Codec, Function)</a></li>
+<li><a href="#mapPair(com.mojang.serialization.MapCodec,com.mojang.serialization.MapCodec)" tabindex="0">mapPair(MapCodec, MapCodec)</a></li>
+<li><a href="#mapEither(com.mojang.serialization.MapCodec,com.mojang.serialization.MapCodec)" tabindex="0">mapEither(MapCodec, MapCodec)</a></li>
+<li><a href="#list(com.mojang.serialization.Codec)" tabindex="0">list(Codec)</a></li>
+<li><a href="#list(com.mojang.serialization.Codec,int,int)" tabindex="0">list(Codec, int, int)</a></li>
+<li><a href="#compoundList(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" tabindex="0">compoundList(Codec, Codec)</a></li>
+<li><a href="#simpleMap(com.mojang.serialization.Codec,com.mojang.serialization.Codec,com.mojang.serialization.Keyable)" tabindex="0">simpleMap(Codec, Codec, Keyable)</a></li>
+<li><a href="#unboundedMap(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" tabindex="0">unboundedMap(Codec, Codec)</a></li>
+<li><a href="#dispatchedMap(com.mojang.serialization.Codec,java.util.function.Function)" tabindex="0">dispatchedMap(Codec, Function)</a></li>
+<li><a href="#stringResolver(java.util.function.Function,java.util.function.Function)" tabindex="0">stringResolver(Function, Function)</a></li>
+<li><a href="#optionalField(java.lang.String,com.mojang.serialization.Codec,boolean)" tabindex="0">optionalField(String, Codec, boolean)</a></li>
+<li><a href="#recursive(java.lang.String,java.util.function.Function)" tabindex="0">recursive(String, Function)</a></li>
+<li><a href="#lazyInitialized(java.util.function.Supplier)" tabindex="0">lazyInitialized(Supplier)</a></li>
+<li><a href="#listOf()" tabindex="0">listOf()</a></li>
+<li><a href="#listOf(int,int)" tabindex="0">listOf(int, int)</a></li>
+<li><a href="#sizeLimitedListOf(int)" tabindex="0">sizeLimitedListOf(int)</a></li>
+<li><a href="#xmap(java.util.function.Function,java.util.function.Function)" tabindex="0">xmap(Function, Function)</a></li>
+<li><a href="#comapFlatMap(java.util.function.Function,java.util.function.Function)" tabindex="0">comapFlatMap(Function, Function)</a></li>
+<li><a href="#flatComapMap(java.util.function.Function,java.util.function.Function)" tabindex="0">flatComapMap(Function, Function)</a></li>
+<li><a href="#flatXmap(java.util.function.Function,java.util.function.Function)" tabindex="0">flatXmap(Function, Function)</a></li>
+<li><a href="#fieldOf(java.lang.String)" tabindex="0">fieldOf(String)</a></li>
+<li><a href="#optionalFieldOf(java.lang.String)" tabindex="0">optionalFieldOf(String)</a></li>
+<li><a href="#optionalFieldOf(java.lang.String,A)" tabindex="0">optionalFieldOf(String, A)</a></li>
+<li><a href="#optionalFieldOf(java.lang.String,A,com.mojang.serialization.Lifecycle)" tabindex="0">optionalFieldOf(String, A, Lifecycle)</a></li>
+<li><a href="#optionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,A,com.mojang.serialization.Lifecycle)" tabindex="0">optionalFieldOf(String, Lifecycle, A, Lifecycle)</a></li>
+<li><a href="#lenientOptionalFieldOf(java.lang.String)" tabindex="0">lenientOptionalFieldOf(String)</a></li>
+<li><a href="#lenientOptionalFieldOf(java.lang.String,A)" tabindex="0">lenientOptionalFieldOf(String, A)</a></li>
+<li><a href="#lenientOptionalFieldOf(java.lang.String,A,com.mojang.serialization.Lifecycle)" tabindex="0">lenientOptionalFieldOf(String, A, Lifecycle)</a></li>
+<li><a href="#lenientOptionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,A,com.mojang.serialization.Lifecycle)" tabindex="0">lenientOptionalFieldOf(String, Lifecycle, A, Lifecycle)</a></li>
+<li><a href="#optionalFieldOf(java.lang.String,A,boolean)" tabindex="0">optionalFieldOf(String, A, boolean)</a></li>
+<li><a href="#optionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,A,com.mojang.serialization.Lifecycle,boolean)" tabindex="0">optionalFieldOf(String, Lifecycle, A, Lifecycle, boolean)</a></li>
+<li><a href="#mapResult(com.mojang.serialization.Codec.ResultFunction)" tabindex="0">mapResult(Codec.ResultFunction)</a></li>
+<li><a href="#orElse(java.util.function.Consumer,A)" tabindex="0">orElse(Consumer, A)</a></li>
+<li><a href="#orElse(java.util.function.UnaryOperator,A)" tabindex="0">orElse(UnaryOperator, A)</a></li>
+<li><a href="#orElseGet(java.util.function.Consumer,java.util.function.Supplier)" tabindex="0">orElseGet(Consumer, Supplier)</a></li>
+<li><a href="#orElseGet(java.util.function.UnaryOperator,java.util.function.Supplier)" tabindex="0">orElseGet(UnaryOperator, Supplier)</a></li>
+<li><a href="#orElse(A)" tabindex="0">orElse(A)</a></li>
+<li><a href="#orElseGet(java.util.function.Supplier)" tabindex="0">orElseGet(Supplier)</a></li>
+<li><a href="#promotePartial(java.util.function.Consumer)" tabindex="0">promotePartial(Consumer)</a></li>
+<li><a href="#dispatch(java.util.function.Function,java.util.function.Function)" tabindex="0">dispatch(Function, Function)</a></li>
+<li><a href="#dispatch(java.lang.String,java.util.function.Function,java.util.function.Function)" tabindex="0">dispatch(String, Function, Function)</a></li>
+<li><a href="#dispatchStable(java.util.function.Function,java.util.function.Function)" tabindex="0">dispatchStable(Function, Function)</a></li>
+<li><a href="#partialDispatch(java.lang.String,java.util.function.Function,java.util.function.Function)" tabindex="0">partialDispatch(String, Function, Function)</a></li>
+<li><a href="#dispatchMap(java.util.function.Function,java.util.function.Function)" tabindex="0">dispatchMap(Function, Function)</a></li>
+<li><a href="#dispatchMap(java.lang.String,java.util.function.Function,java.util.function.Function)" tabindex="0">dispatchMap(String, Function, Function)</a></li>
+<li><a href="#validate(java.util.function.Function)" tabindex="0">validate(Function)</a></li>
+<li><a href="#checkRange(N,N)" tabindex="0">checkRange(N, N)</a></li>
+<li><a href="#intRange(int,int)" tabindex="0">intRange(int, int)</a></li>
+<li><a href="#floatRange(float,float)" tabindex="0">floatRange(float, float)</a></li>
+<li><a href="#doubleRange(double,double)" tabindex="0">doubleRange(double, double)</a></li>
+<li><a href="#string(int,int)" tabindex="0">string(int, int)</a></li>
+<li><a href="#sizeLimitedString(int)" tabindex="0">sizeLimitedString(int)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Interface Codec" class="title">Interface Codec&lt;<span id="type-param-A">A</span>&gt;</h1>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Superinterfaces:</dt>
+<dd><code><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;, <a href="Encoder.html" title="interface in com.mojang.serialization">Encoder</a>&lt;A&gt;</code></dd>
+</dl>
+<dl class="notes">
+<dt>All Known Subinterfaces:</dt>
+<dd><code><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;A&gt;</code></dd>
+</dl>
+<dl class="notes">
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="Codec.RecursiveCodec.html" title="class in com.mojang.serialization">Codec.RecursiveCodec</a>, <a href="codecs/CompoundListCodec.html" title="class in com.mojang.serialization.codecs">CompoundListCodec</a>, <a href="codecs/DispatchedMapCodec.html" title="class in com.mojang.serialization.codecs">DispatchedMapCodec</a>, <a href="codecs/EitherCodec.html" title="class in com.mojang.serialization.codecs">EitherCodec</a>, <a href="../../../net/minecraft/util/ExtraCodecs.StrictUnboundedMapCodec.html" title="class in net.minecraft.util">ExtraCodecs.StrictUnboundedMapCodec</a>, <a href="../../../net/minecraft/resources/HolderSetCodec.html" title="class in net.minecraft.resources">HolderSetCodec</a>, <a href="../../../net/neoforged/neoforge/common/LenientUnboundedMapCodec.html" title="class in net.neoforged.neoforge.common">LenientUnboundedMapCodec</a>, <a href="codecs/ListCodec.html" title="class in com.mojang.serialization.codecs">ListCodec</a>, <a href="MapCodec.MapCodecCodec.html" title="class in com.mojang.serialization">MapCodec.MapCodecCodec</a>, <a href="../../../net/neoforged/neoforge/common/util/NeoForgeExtraCodecs.AlternativeCodec.html" title="class in net.neoforged.neoforge.common.util">NeoForgeExtraCodecs.AlternativeCodec</a>, <a href="codecs/PairCodec.html" title="class in com.mojang.serialization.codecs">PairCodec</a>, <a href="../../../net/minecraft/resources/RegistryFileCodec.html" title="class in net.minecraft.resources">RegistryFileCodec</a>, <a href="../../../net/minecraft/resources/RegistryFixedCodec.html" title="class in net.minecraft.resources">RegistryFixedCodec</a>, <a href="../../../net/minecraft/util/StringRepresentable.EnumCodec.html" title="class in net.minecraft.util">StringRepresentable.EnumCodec</a>, <a href="../../../net/minecraft/util/StringRepresentable.StringRepresentableCodec.html" title="class in net.minecraft.util">StringRepresentable.StringRepresentableCodec</a>, <a href="codecs/UnboundedMapCodec.html" title="class in com.mojang.serialization.codecs">UnboundedMapCodec</a>, <a href="codecs/XorCodec.html" title="class in com.mojang.serialization.codecs">XorCodec</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">Codec&lt;A&gt;</span><span class="extends-implements">
+extends <a href="Encoder.html" title="interface in com.mojang.serialization">Encoder</a>&lt;A&gt;, <a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;</span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Interface</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Codec.RecursiveCodec.html" class="type-name-link" title="class in com.mojang.serialization">Codec.RecursiveCodec</a>&lt;<a href="Codec.RecursiveCodec.html#type-param-T" title="type parameter in Codec.RecursiveCodec">T</a>&gt;</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="Codec.ResultFunction.html" class="type-name-link" title="interface in com.mojang.serialization">Codec.ResultFunction</a>&lt;<a href="Codec.ResultFunction.html#type-param-A" title="type parameter in Codec.ResultFunction">A</a>&gt;</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-com.mojang.serialization.Decoder">Nested classes/interfaces inherited from interface&nbsp;<a href="Decoder.html#nested-class-summary" title="interface in com.mojang.serialization">Decoder</a></h3>
+<code><a href="Decoder.Boxed.html" title="interface in com.mojang.serialization">Decoder.Boxed</a>&lt;A&gt;, <a href="Decoder.Simple.html" title="interface in com.mojang.serialization">Decoder.Simple</a>&lt;A&gt;, <a href="Decoder.Terminal.html" title="interface in com.mojang.serialization">Decoder.Terminal</a>&lt;A&gt;</code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#BOOL" class="member-name-link">BOOL</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Byte.html" title="class or interface in java.lang" class="external-link">Byte</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#BYTE" class="member-name-link">BYTE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#BYTE_BUFFER" class="member-name-link">BYTE_BUFFER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#DOUBLE" class="member-name-link">DOUBLE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="../datafixers/util/Unit.html" title="enum class in com.mojang.datafixers.util">Unit</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#EMPTY" class="member-name-link">EMPTY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#FLOAT" class="member-name-link">FLOAT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#INT" class="member-name-link">INT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#INT_STREAM" class="member-name-link">INT_STREAM</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#LONG" class="member-name-link">LONG</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/LongStream.html" title="class or interface in java.util.stream" class="external-link">LongStream</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#LONG_STREAM" class="member-name-link">LONG_STREAM</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#PASSTHROUGH" class="member-name-link">PASSTHROUGH</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Short.html" title="class or interface in java.lang" class="external-link">Short</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#SHORT" class="member-name-link">SHORT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#STRING" class="member-name-link">STRING</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;N extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Number.html" title="class or interface in java.lang" class="external-link">Number</a> &amp; <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Comparable.html" title="class or interface in java.lang" class="external-link">Comparable</a>&lt;N&gt;&gt;<br><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a><wbr>&lt;N, <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;N&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#checkRange(N,N)" class="member-name-link">checkRange</a><wbr>(N&nbsp;minInclusive,
+ N&nbsp;maxInclusive)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;S&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;S&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#comapFlatMap(java.util.function.Function,java.util.function.Function)" class="member-name-link">comapFlatMap</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends S&gt;&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super S, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;from)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;K,<wbr>V&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;K,<wbr>V&gt;&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#compoundList(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" class="member-name-link">compoundList</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;K&gt;&nbsp;keyCodec,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;V&gt;&nbsp;elementCodec)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#deprecated(int)" class="member-name-link">deprecated</a><wbr>(int&nbsp;since)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;E&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#dispatch(java.lang.String,java.util.function.Function,java.util.function.Function)" class="member-name-link">dispatch</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;typeKey,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;E&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#dispatch(java.util.function.Function,java.util.function.Function)" class="member-name-link">dispatch</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;K,<wbr>V&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;K,<wbr>V&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#dispatchedMap(com.mojang.serialization.Codec,java.util.function.Function)" class="member-name-link">dispatchedMap</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;K&gt;&nbsp;keyCodec,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;K, <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;? extends V&gt;&gt;&nbsp;valueCodecFunction)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;E&gt;&nbsp;<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#dispatchMap(java.lang.String,java.util.function.Function,java.util.function.Function)" class="member-name-link">dispatchMap</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;typeKey,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;E&gt;&nbsp;<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#dispatchMap(java.util.function.Function,java.util.function.Function)" class="member-name-link">dispatchMap</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;E&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#dispatchStable(java.util.function.Function,java.util.function.Function)" class="member-name-link">dispatchStable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#doubleRange(double,double)" class="member-name-link">doubleRange</a><wbr>(double&nbsp;minInclusive,
+ double&nbsp;maxInclusive)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;F,<wbr>S&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="../datafixers/util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>S&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#either(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" class="member-name-link">either</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;F&gt;&nbsp;first,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;&nbsp;second)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#fieldOf(java.lang.String)" class="member-name-link">fieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;S&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;S&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#flatComapMap(java.util.function.Function,java.util.function.Function)" class="member-name-link">flatComapMap</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends S&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super S, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;&nbsp;from)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;S&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;S&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#flatXmap(java.util.function.Function,java.util.function.Function)" class="member-name-link">flatXmap</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends S&gt;&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super S, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;&nbsp;from)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#floatRange(float,float)" class="member-name-link">floatRange</a><wbr>(float&nbsp;minInclusive,
+ float&nbsp;maxInclusive)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#intRange(int,int)" class="member-name-link">intRange</a><wbr>(int&nbsp;minInclusive,
+ int&nbsp;maxInclusive)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#lazyInitialized(java.util.function.Supplier)" class="member-name-link">lazyInitialized</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;&gt;&nbsp;delegate)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#lenientOptionalFieldOf(java.lang.String)" class="member-name-link">lenientOptionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#lenientOptionalFieldOf(java.lang.String,A)" class="member-name-link">lenientOptionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#lenientOptionalFieldOf(java.lang.String,A,com.mojang.serialization.Lifecycle)" class="member-name-link">lenientOptionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#lenientOptionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,A,com.mojang.serialization.Lifecycle)" class="member-name-link">lenientOptionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;fieldLifecycle,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;E&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;E&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#list(com.mojang.serialization.Codec)" class="member-name-link">list</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;E&gt;&nbsp;elementCodec)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;E&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;E&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#list(com.mojang.serialization.Codec,int,int)" class="member-name-link">list</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;E&gt;&nbsp;elementCodec,
+ int&nbsp;minSize,
+ int&nbsp;maxSize)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#listOf()" class="member-name-link">listOf</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#listOf(int,int)" class="member-name-link">listOf</a><wbr>(int&nbsp;minSize,
+ int&nbsp;maxSize)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;F,<wbr>S&gt;&nbsp;<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="../datafixers/util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>S&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#mapEither(com.mojang.serialization.MapCodec,com.mojang.serialization.MapCodec)" class="member-name-link">mapEither</a><wbr>(<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;F&gt;&nbsp;first,
+ <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;S&gt;&nbsp;second)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;F,<wbr>S&gt;&nbsp;<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;F,<wbr>S&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#mapPair(com.mojang.serialization.MapCodec,com.mojang.serialization.MapCodec)" class="member-name-link">mapPair</a><wbr>(<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;F&gt;&nbsp;first,
+ <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;S&gt;&nbsp;second)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#mapResult(com.mojang.serialization.Codec.ResultFunction)" class="member-name-link">mapResult</a><wbr>(<a href="Codec.ResultFunction.html" title="interface in com.mojang.serialization">Codec.ResultFunction</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;function)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#of(com.mojang.serialization.Encoder,com.mojang.serialization.Decoder)" class="member-name-link">of</a><wbr>(<a href="Encoder.html" title="interface in com.mojang.serialization">Encoder</a>&lt;A&gt;&nbsp;encoder,
+ <a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;&nbsp;decoder)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#of(com.mojang.serialization.Encoder,com.mojang.serialization.Decoder,java.lang.String)" class="member-name-link">of</a><wbr>(<a href="Encoder.html" title="interface in com.mojang.serialization">Encoder</a>&lt;A&gt;&nbsp;encoder,
+ <a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;&nbsp;decoder,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#of(com.mojang.serialization.MapEncoder,com.mojang.serialization.MapDecoder)" class="member-name-link">of</a><wbr>(<a href="MapEncoder.html" title="interface in com.mojang.serialization">MapEncoder</a>&lt;A&gt;&nbsp;encoder,
+ <a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a>&lt;A&gt;&nbsp;decoder)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#of(com.mojang.serialization.MapEncoder,com.mojang.serialization.MapDecoder,java.util.function.Supplier)" class="member-name-link">of</a><wbr>(<a href="MapEncoder.html" title="interface in com.mojang.serialization">MapEncoder</a>&lt;A&gt;&nbsp;encoder,
+ <a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a>&lt;A&gt;&nbsp;decoder,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;F&gt;&nbsp;<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;F&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#optionalField(java.lang.String,com.mojang.serialization.Codec,boolean)" class="member-name-link">optionalField</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;F&gt;&nbsp;elementCodec,
+ boolean&nbsp;lenient)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#optionalFieldOf(java.lang.String)" class="member-name-link">optionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#optionalFieldOf(java.lang.String,A)" class="member-name-link">optionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2"><code>private <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2"><code><a href="#optionalFieldOf(java.lang.String,A,boolean)" class="member-name-link">optionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ boolean&nbsp;lenient)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#optionalFieldOf(java.lang.String,A,com.mojang.serialization.Lifecycle)" class="member-name-link">optionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#optionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,A,com.mojang.serialization.Lifecycle)" class="member-name-link">optionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;fieldLifecycle,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2"><code>private <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2"><code><a href="#optionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,A,com.mojang.serialization.Lifecycle,boolean)" class="member-name-link">optionalFieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;fieldLifecycle,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault,
+ boolean&nbsp;lenient)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#orElse(A)" class="member-name-link">orElse</a><wbr>(<a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#orElse(java.util.function.Consumer,A)" class="member-name-link">orElse</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#orElse(java.util.function.UnaryOperator,A)" class="member-name-link">orElse</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#orElseGet(java.util.function.Consumer,java.util.function.Supplier)" class="member-name-link">orElseGet</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#orElseGet(java.util.function.Supplier)" class="member-name-link">orElseGet</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#orElseGet(java.util.function.UnaryOperator,java.util.function.Supplier)" class="member-name-link">orElseGet</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;F,<wbr>S&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;F,<wbr>S&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#pair(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" class="member-name-link">pair</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;F&gt;&nbsp;first,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;&nbsp;second)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;E&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#partialDispatch(java.lang.String,java.util.function.Function,java.util.function.Function)" class="member-name-link">partialDispatch</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;typeKey,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&gt;&nbsp;codec)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#promotePartial(java.util.function.Consumer)" class="member-name-link">promotePartial</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#recursive(java.lang.String,java.util.function.Function)" class="member-name-link">recursive</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;,<wbr><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;&gt;&nbsp;wrapped)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;K,<wbr>V&gt;&nbsp;<a href="codecs/SimpleMapCodec.html" title="class in com.mojang.serialization.codecs">SimpleMapCodec</a><wbr>&lt;K,<wbr>V&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#simpleMap(com.mojang.serialization.Codec,com.mojang.serialization.Codec,com.mojang.serialization.Keyable)" class="member-name-link">simpleMap</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;K&gt;&nbsp;keyCodec,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;V&gt;&nbsp;elementCodec,
+ <a href="Keyable.html" title="interface in com.mojang.serialization">Keyable</a>&nbsp;keys)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#sizeLimitedListOf(int)" class="member-name-link">sizeLimitedListOf</a><wbr>(int&nbsp;maxSize)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#sizeLimitedString(int)" class="member-name-link">sizeLimitedString</a><wbr>(int&nbsp;maxSize)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#stable()" class="member-name-link">stable</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#string(int,int)" class="member-name-link">string</a><wbr>(int&nbsp;minSize,
+ int&nbsp;maxSize)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;E&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;E&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#stringResolver(java.util.function.Function,java.util.function.Function)" class="member-name-link">stringResolver</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;E,<wbr><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;toString,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>E&gt;&nbsp;fromString)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;K,<wbr>V&gt;&nbsp;<a href="codecs/UnboundedMapCodec.html" title="class in com.mojang.serialization.codecs">UnboundedMapCodec</a><wbr>&lt;K,<wbr>V&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#unboundedMap(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" class="member-name-link">unboundedMap</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;K&gt;&nbsp;keyCodec,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;V&gt;&nbsp;elementCodec)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#validate(java.util.function.Function)" class="member-name-link">validate</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>, <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;&nbsp;checker)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#withAlternative(com.mojang.serialization.Codec)" class="member-name-link">withAlternative</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;alternative)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;T&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#withAlternative(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" class="member-name-link">withAlternative</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;T&gt;&nbsp;primary,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;? extends T&gt;&nbsp;alternative)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;T,<wbr>U&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#withAlternative(com.mojang.serialization.Codec,com.mojang.serialization.Codec,java.util.function.Function)" class="member-name-link">withAlternative</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;T&gt;&nbsp;primary,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;U&gt;&nbsp;alternative,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;U,<wbr>T&gt;&nbsp;converter)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;U&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#withAlternative(com.mojang.serialization.Codec,java.util.function.Function)" class="member-name-link">withAlternative</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;U&gt;&nbsp;alternative,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;U,<wbr><a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;converter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#withLifecycle(com.mojang.serialization.Lifecycle)" class="member-name-link">withLifecycle</a><wbr>(<a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycle)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;S&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;S&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#xmap(java.util.function.Function,java.util.function.Function)" class="member-name-link">xmap</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends S&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super S, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;from)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;F,<wbr>S&gt;&nbsp;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="../datafixers/util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>S&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#xor(com.mojang.serialization.Codec,com.mojang.serialization.Codec)" class="member-name-link">xor</a><wbr>(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;F&gt;&nbsp;first,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;&nbsp;second)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-com.mojang.serialization.Decoder">Methods inherited from interface&nbsp;<a href="Decoder.html#method-summary" title="interface in com.mojang.serialization">Decoder</a></h3>
+<code><a href="Decoder.html#boxed()" title="boxed()">boxed</a>, <a href="Decoder.html#decode(com.mojang.serialization.Dynamic)" title="decode(Dynamic)">decode</a>, <a href="Decoder.html#decode(com.mojang.serialization.DynamicOps,T)" title="decode(DynamicOps, T)">decode</a>, <a href="Decoder.html#flatMap(java.util.function.Function)" title="flatMap(Function)">flatMap</a>, <a href="Decoder.html#map(java.util.function.Function)" title="map(Function)">map</a>, <a href="Decoder.html#parse(com.mojang.serialization.Dynamic)" title="parse(Dynamic)">parse</a>, <a href="Decoder.html#parse(com.mojang.serialization.DynamicOps,T)" title="parse(DynamicOps, T)">parse</a>, <a href="Decoder.html#simple()" title="simple()">simple</a>, <a href="Decoder.html#terminal()" title="terminal()">terminal</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-com.mojang.serialization.Encoder">Methods inherited from interface&nbsp;<a href="Encoder.html#method-summary" title="interface in com.mojang.serialization">Encoder</a></h3>
+<code><a href="Encoder.html#comap(java.util.function.Function)" title="comap(Function)">comap</a>, <a href="Encoder.html#encode(A,com.mojang.serialization.DynamicOps,T)" title="encode(A, DynamicOps, T)">encode</a>, <a href="Encoder.html#encodeStart(com.mojang.serialization.DynamicOps,A)" title="encodeStart(DynamicOps, A)">encodeStart</a>, <a href="Encoder.html#flatComap(java.util.function.Function)" title="flatComap(Function)">flatComap</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="BOOL">
+<h3>BOOL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Boolean.html" title="class or interface in java.lang" class="external-link">Boolean</a>&gt;</span>&nbsp;<span class="element-name">BOOL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BYTE">
+<h3>BYTE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Byte.html" title="class or interface in java.lang" class="external-link">Byte</a>&gt;</span>&nbsp;<span class="element-name">BYTE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SHORT">
+<h3>SHORT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Short.html" title="class or interface in java.lang" class="external-link">Short</a>&gt;</span>&nbsp;<span class="element-name">SHORT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="INT">
+<h3>INT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">INT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LONG">
+<h3>LONG</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Long.html" title="class or interface in java.lang" class="external-link">Long</a>&gt;</span>&nbsp;<span class="element-name">LONG</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="FLOAT">
+<h3>FLOAT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>&gt;</span>&nbsp;<span class="element-name">FLOAT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DOUBLE">
+<h3>DOUBLE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;</span>&nbsp;<span class="element-name">DOUBLE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="STRING">
+<h3>STRING</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">STRING</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BYTE_BUFFER">
+<h3>BYTE_BUFFER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&gt;</span>&nbsp;<span class="element-name">BYTE_BUFFER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="INT_STREAM">
+<h3>INT_STREAM</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/IntStream.html" title="class or interface in java.util.stream" class="external-link">IntStream</a>&gt;</span>&nbsp;<span class="element-name">INT_STREAM</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LONG_STREAM">
+<h3>LONG_STREAM</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/LongStream.html" title="class or interface in java.util.stream" class="external-link">LongStream</a>&gt;</span>&nbsp;<span class="element-name">LONG_STREAM</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PASSTHROUGH">
+<h3>PASSTHROUGH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">PASSTHROUGH</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="EMPTY">
+<h3>EMPTY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="../datafixers/util/Unit.html" title="enum class in com.mojang.datafixers.util">Unit</a>&gt;</span>&nbsp;<span class="element-name">EMPTY</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="withLifecycle(com.mojang.serialization.Lifecycle)">
+<h3>withLifecycle</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">withLifecycle</span><wbr><span class="parameters">(<a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycle)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Decoder.html#withLifecycle(com.mojang.serialization.Lifecycle)">withLifecycle</a></code>&nbsp;in interface&nbsp;<code><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="Encoder.html#withLifecycle(com.mojang.serialization.Lifecycle)">withLifecycle</a></code>&nbsp;in interface&nbsp;<code><a href="Encoder.html" title="interface in com.mojang.serialization">Encoder</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="stable()">
+<h3>stable</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">stable</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="deprecated(int)">
+<h3>deprecated</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">deprecated</span><wbr><span class="parameters">(int&nbsp;since)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="of(com.mojang.serialization.Encoder,com.mojang.serialization.Decoder)">
+<h3>of</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;</span>&nbsp;<span class="element-name">of</span><wbr><span class="parameters">(<a href="Encoder.html" title="interface in com.mojang.serialization">Encoder</a>&lt;A&gt;&nbsp;encoder,
+ <a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;&nbsp;decoder)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="of(com.mojang.serialization.Encoder,com.mojang.serialization.Decoder,java.lang.String)">
+<h3>of</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;</span>&nbsp;<span class="element-name">of</span><wbr><span class="parameters">(<a href="Encoder.html" title="interface in com.mojang.serialization">Encoder</a>&lt;A&gt;&nbsp;encoder,
+ <a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;&nbsp;decoder,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="of(com.mojang.serialization.MapEncoder,com.mojang.serialization.MapDecoder)">
+<h3>of</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;A&gt;</span>&nbsp;<span class="element-name">of</span><wbr><span class="parameters">(<a href="MapEncoder.html" title="interface in com.mojang.serialization">MapEncoder</a>&lt;A&gt;&nbsp;encoder,
+ <a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a>&lt;A&gt;&nbsp;decoder)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="of(com.mojang.serialization.MapEncoder,com.mojang.serialization.MapDecoder,java.util.function.Supplier)">
+<h3>of</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;A&gt;</span>&nbsp;<span class="element-name">of</span><wbr><span class="parameters">(<a href="MapEncoder.html" title="interface in com.mojang.serialization">MapEncoder</a>&lt;A&gt;&nbsp;encoder,
+ <a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a>&lt;A&gt;&nbsp;decoder,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;name)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pair(com.mojang.serialization.Codec,com.mojang.serialization.Codec)">
+<h3>pair</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>S&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;F,<wbr>S&gt;&gt;</span>&nbsp;<span class="element-name">pair</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;F&gt;&nbsp;first,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;&nbsp;second)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="either(com.mojang.serialization.Codec,com.mojang.serialization.Codec)">
+<h3>either</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>S&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="../datafixers/util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>S&gt;&gt;</span>&nbsp;<span class="element-name">either</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;F&gt;&nbsp;first,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;&nbsp;second)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="xor(com.mojang.serialization.Codec,com.mojang.serialization.Codec)">
+<h3>xor</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>S&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="../datafixers/util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>S&gt;&gt;</span>&nbsp;<span class="element-name">xor</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;F&gt;&nbsp;first,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;&nbsp;second)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="withAlternative(com.mojang.serialization.Codec,com.mojang.serialization.Codec)">
+<h3>withAlternative</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;T&gt;</span>&nbsp;<span class="element-name">withAlternative</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;T&gt;&nbsp;primary,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;? extends T&gt;&nbsp;alternative)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="withAlternative(com.mojang.serialization.Codec)">
+<h3>withAlternative</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">withAlternative</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;alternative)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="withAlternative(com.mojang.serialization.Codec,com.mojang.serialization.Codec,java.util.function.Function)">
+<h3>withAlternative</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;T,<wbr>U&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;T&gt;</span>&nbsp;<span class="element-name">withAlternative</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;T&gt;&nbsp;primary,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;U&gt;&nbsp;alternative,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;U,<wbr>T&gt;&nbsp;converter)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="withAlternative(com.mojang.serialization.Codec,java.util.function.Function)">
+<h3>withAlternative</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;U&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">withAlternative</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;U&gt;&nbsp;alternative,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;U,<wbr><a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;converter)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="mapPair(com.mojang.serialization.MapCodec,com.mojang.serialization.MapCodec)">
+<h3>mapPair</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>S&gt;</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;F,<wbr>S&gt;&gt;</span>&nbsp;<span class="element-name">mapPair</span><wbr><span class="parameters">(<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;F&gt;&nbsp;first,
+ <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;S&gt;&nbsp;second)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="mapEither(com.mojang.serialization.MapCodec,com.mojang.serialization.MapCodec)">
+<h3>mapEither</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>S&gt;</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="../datafixers/util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>S&gt;&gt;</span>&nbsp;<span class="element-name">mapEither</span><wbr><span class="parameters">(<a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;F&gt;&nbsp;first,
+ <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;S&gt;&nbsp;second)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="list(com.mojang.serialization.Codec)">
+<h3>list</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;E&gt;&gt;</span>&nbsp;<span class="element-name">list</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;E&gt;&nbsp;elementCodec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="list(com.mojang.serialization.Codec,int,int)">
+<h3>list</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;E&gt;&gt;</span>&nbsp;<span class="element-name">list</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;E&gt;&nbsp;elementCodec,
+ int&nbsp;minSize,
+ int&nbsp;maxSize)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="compoundList(com.mojang.serialization.Codec,com.mojang.serialization.Codec)">
+<h3>compoundList</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;K,<wbr>V&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;K,<wbr>V&gt;&gt;&gt;</span>&nbsp;<span class="element-name">compoundList</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;K&gt;&nbsp;keyCodec,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;V&gt;&nbsp;elementCodec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="simpleMap(com.mojang.serialization.Codec,com.mojang.serialization.Codec,com.mojang.serialization.Keyable)">
+<h3>simpleMap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;K,<wbr>V&gt;</span>&nbsp;<span class="return-type"><a href="codecs/SimpleMapCodec.html" title="class in com.mojang.serialization.codecs">SimpleMapCodec</a>&lt;K,<wbr>V&gt;</span>&nbsp;<span class="element-name">simpleMap</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;K&gt;&nbsp;keyCodec,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;V&gt;&nbsp;elementCodec,
+ <a href="Keyable.html" title="interface in com.mojang.serialization">Keyable</a>&nbsp;keys)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="unboundedMap(com.mojang.serialization.Codec,com.mojang.serialization.Codec)">
+<h3>unboundedMap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;K,<wbr>V&gt;</span>&nbsp;<span class="return-type"><a href="codecs/UnboundedMapCodec.html" title="class in com.mojang.serialization.codecs">UnboundedMapCodec</a>&lt;K,<wbr>V&gt;</span>&nbsp;<span class="element-name">unboundedMap</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;K&gt;&nbsp;keyCodec,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;V&gt;&nbsp;elementCodec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dispatchedMap(com.mojang.serialization.Codec,java.util.function.Function)">
+<h3>dispatchedMap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;K,<wbr>V&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;K,<wbr>V&gt;&gt;</span>&nbsp;<span class="element-name">dispatchedMap</span><wbr><span class="parameters">(<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;K&gt;&nbsp;keyCodec,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;K, <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;? extends V&gt;&gt;&nbsp;valueCodecFunction)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="stringResolver(java.util.function.Function,java.util.function.Function)">
+<h3>stringResolver</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">stringResolver</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;E,<wbr><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;toString,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr>E&gt;&nbsp;fromString)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="optionalField(java.lang.String,com.mojang.serialization.Codec,boolean)">
+<h3>optionalField</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;F&gt;</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;F&gt;&gt;</span>&nbsp;<span class="element-name">optionalField</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;F&gt;&nbsp;elementCodec,
+ boolean&nbsp;lenient)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="recursive(java.lang.String,java.util.function.Function)">
+<h3>recursive</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;</span>&nbsp;<span class="element-name">recursive</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;,<wbr><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;&gt;&nbsp;wrapped)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="lazyInitialized(java.util.function.Supplier)">
+<h3>lazyInitialized</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;</span>&nbsp;<span class="element-name">lazyInitialized</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;&gt;&nbsp;delegate)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="listOf()">
+<h3>listOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</span>&nbsp;<span class="element-name">listOf</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="listOf(int,int)">
+<h3>listOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</span>&nbsp;<span class="element-name">listOf</span><wbr><span class="parameters">(int&nbsp;minSize,
+ int&nbsp;maxSize)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sizeLimitedListOf(int)">
+<h3>sizeLimitedListOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</span>&nbsp;<span class="element-name">sizeLimitedListOf</span><wbr><span class="parameters">(int&nbsp;maxSize)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="xmap(java.util.function.Function,java.util.function.Function)">
+<h3>xmap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;S&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;</span>&nbsp;<span class="element-name">xmap</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends S&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super S, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;from)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="comapFlatMap(java.util.function.Function,java.util.function.Function)">
+<h3>comapFlatMap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;S&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;</span>&nbsp;<span class="element-name">comapFlatMap</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends S&gt;&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super S, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;from)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="flatComapMap(java.util.function.Function,java.util.function.Function)">
+<h3>flatComapMap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;S&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;</span>&nbsp;<span class="element-name">flatComapMap</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends S&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super S, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;&nbsp;from)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="flatXmap(java.util.function.Function,java.util.function.Function)">
+<h3>flatXmap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;S&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;S&gt;</span>&nbsp;<span class="element-name">flatXmap</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends S&gt;&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super S, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;&nbsp;from)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fieldOf(java.lang.String)">
+<h3>fieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">fieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Decoder.html#fieldOf(java.lang.String)">fieldOf</a></code>&nbsp;in interface&nbsp;<code><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="Encoder.html#fieldOf(java.lang.String)">fieldOf</a></code>&nbsp;in interface&nbsp;<code><a href="Encoder.html" title="interface in com.mojang.serialization">Encoder</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="optionalFieldOf(java.lang.String)">
+<h3>optionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</span>&nbsp;<span class="element-name">optionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="optionalFieldOf(java.lang.String,A)">
+<h3 id="optionalFieldOf(java.lang.String,java.lang.Object)">optionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">optionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="optionalFieldOf(java.lang.String,A,com.mojang.serialization.Lifecycle)">
+<h3 id="optionalFieldOf(java.lang.String,java.lang.Object,com.mojang.serialization.Lifecycle)">optionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">optionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="optionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,A,com.mojang.serialization.Lifecycle)">
+<h3 id="optionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,java.lang.Object,com.mojang.serialization.Lifecycle)">optionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">optionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;fieldLifecycle,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="lenientOptionalFieldOf(java.lang.String)">
+<h3>lenientOptionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;</span>&nbsp;<span class="element-name">lenientOptionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="lenientOptionalFieldOf(java.lang.String,A)">
+<h3 id="lenientOptionalFieldOf(java.lang.String,java.lang.Object)">lenientOptionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">lenientOptionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="lenientOptionalFieldOf(java.lang.String,A,com.mojang.serialization.Lifecycle)">
+<h3 id="lenientOptionalFieldOf(java.lang.String,java.lang.Object,com.mojang.serialization.Lifecycle)">lenientOptionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">lenientOptionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="lenientOptionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,A,com.mojang.serialization.Lifecycle)">
+<h3 id="lenientOptionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,java.lang.Object,com.mojang.serialization.Lifecycle)">lenientOptionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">lenientOptionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;fieldLifecycle,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="optionalFieldOf(java.lang.String,A,boolean)">
+<h3 id="optionalFieldOf(java.lang.String,java.lang.Object,boolean)">optionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">optionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ boolean&nbsp;lenient)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="optionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,A,com.mojang.serialization.Lifecycle,boolean)">
+<h3 id="optionalFieldOf(java.lang.String,com.mojang.serialization.Lifecycle,java.lang.Object,com.mojang.serialization.Lifecycle,boolean)">optionalFieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">optionalFieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;fieldLifecycle,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;defaultValue,
+ <a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycleOfDefault,
+ boolean&nbsp;lenient)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="mapResult(com.mojang.serialization.Codec.ResultFunction)">
+<h3>mapResult</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">mapResult</span><wbr><span class="parameters">(<a href="Codec.ResultFunction.html" title="interface in com.mojang.serialization">Codec.ResultFunction</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="orElse(java.util.function.Consumer,A)">
+<h3 id="orElse(java.util.function.Consumer,java.lang.Object)">orElse</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">orElse</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="orElse(java.util.function.UnaryOperator,A)">
+<h3 id="orElse(java.util.function.UnaryOperator,java.lang.Object)">orElse</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">orElse</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError,
+ <a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="orElseGet(java.util.function.Consumer,java.util.function.Supplier)">
+<h3>orElseGet</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">orElseGet</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="orElseGet(java.util.function.UnaryOperator,java.util.function.Supplier)">
+<h3>orElseGet</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">orElseGet</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="orElse(A)">
+<h3 id="orElse(java.lang.Object)">orElse</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">orElse</span><wbr><span class="parameters">(<a href="#type-param-A" title="type parameter in Codec">A</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="orElseGet(java.util.function.Supplier)">
+<h3>orElseGet</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">orElseGet</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="promotePartial(java.util.function.Consumer)">
+<h3>promotePartial</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">promotePartial</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="Decoder.html#promotePartial(java.util.function.Consumer)">promotePartial</a></code>&nbsp;in interface&nbsp;<code><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dispatch(java.util.function.Function,java.util.function.Function)">
+<h3>dispatch</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">dispatch</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dispatch(java.lang.String,java.util.function.Function,java.util.function.Function)">
+<h3>dispatch</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">dispatch</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;typeKey,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dispatchStable(java.util.function.Function,java.util.function.Function)">
+<h3>dispatchStable</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">dispatchStable</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="partialDispatch(java.lang.String,java.util.function.Function,java.util.function.Function)">
+<h3>partialDispatch</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">partialDispatch</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;typeKey,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&gt;&nbsp;codec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dispatchMap(java.util.function.Function,java.util.function.Function)">
+<h3>dispatchMap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">dispatchMap</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dispatchMap(java.lang.String,java.util.function.Function,java.util.function.Function)">
+<h3>dispatchMap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;E&gt;</span>&nbsp;<span class="return-type"><a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;E&gt;</span>&nbsp;<span class="element-name">dispatchMap</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;typeKey,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super E, ? extends <a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Codec">A</a>, ? extends <a href="MapCodec.html" title="class in com.mojang.serialization">MapCodec</a>&lt;? extends E&gt;&gt;&nbsp;codec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="validate(java.util.function.Function)">
+<h3>validate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;</span>&nbsp;<span class="element-name">validate</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>, <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="#type-param-A" title="type parameter in Codec">A</a>&gt;&gt;&nbsp;checker)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="checkRange(N,N)">
+<h3 id="checkRange(java.lang.Number,java.lang.Number)">checkRange</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;N extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Number.html" title="class or interface in java.lang" class="external-link">Number</a> &amp; <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Comparable.html" title="class or interface in java.lang" class="external-link">Comparable</a>&lt;N&gt;&gt;</span>
+<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;N, <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;N&gt;&gt;</span>&nbsp;<span class="element-name">checkRange</span><wbr><span class="parameters">(N&nbsp;minInclusive,
+ N&nbsp;maxInclusive)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="intRange(int,int)">
+<h3>intRange</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Integer.html" title="class or interface in java.lang" class="external-link">Integer</a>&gt;</span>&nbsp;<span class="element-name">intRange</span><wbr><span class="parameters">(int&nbsp;minInclusive,
+ int&nbsp;maxInclusive)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="floatRange(float,float)">
+<h3>floatRange</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Float.html" title="class or interface in java.lang" class="external-link">Float</a>&gt;</span>&nbsp;<span class="element-name">floatRange</span><wbr><span class="parameters">(float&nbsp;minInclusive,
+ float&nbsp;maxInclusive)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="doubleRange(double,double)">
+<h3>doubleRange</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Double.html" title="class or interface in java.lang" class="external-link">Double</a>&gt;</span>&nbsp;<span class="element-name">doubleRange</span><wbr><span class="parameters">(double&nbsp;minInclusive,
+ double&nbsp;maxInclusive)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="string(int,int)">
+<h3>string</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">string</span><wbr><span class="parameters">(int&nbsp;minSize,
+ int&nbsp;maxSize)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sizeLimitedString(int)">
+<h3>sizeLimitedString</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="return-type"><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">sizeLimitedString</span><wbr><span class="parameters">(int&nbsp;maxSize)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

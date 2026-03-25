@@ -1,0 +1,806 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Type (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.mojang.datafixers.types, class: Type">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/Type.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">com.mojang.datafixers.types</a></li>
+<li><a href="Type.html" class="current-selection">Type</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#PENDING_REWRITE_CACHE" tabindex="0">PENDING_REWRITE_CACHE</a></li>
+<li><a href="#REWRITE_CACHE" tabindex="0">REWRITE_CACHE</a></li>
+<li><a href="#template" tabindex="0">template</a></li>
+<li><a href="#codec" tabindex="0">codec</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">Type()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#unbox(com.mojang.datafixers.kinds.App)" tabindex="0">unbox(App)</a></li>
+<li><a href="#rewriteOrNop(com.mojang.datafixers.TypeRewriteRule)" tabindex="0">rewriteOrNop(TypeRewriteRule)</a></li>
+<li><a href="#opticView(com.mojang.datafixers.types.Type,com.mojang.datafixers.RewriteResult,com.mojang.datafixers.TypedOptic)" tabindex="0">opticView(Type, RewriteResult, TypedOptic)</a></li>
+<li><a href="#all(com.mojang.datafixers.TypeRewriteRule,boolean,boolean)" tabindex="0">all(TypeRewriteRule, boolean, boolean)</a></li>
+<li><a href="#one(com.mojang.datafixers.TypeRewriteRule)" tabindex="0">one(TypeRewriteRule)</a></li>
+<li><a href="#everywhere(com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,boolean,boolean)" tabindex="0">everywhere(TypeRewriteRule, PointFreeRule, boolean, boolean)</a></li>
+<li><a href="#updateMu(com.mojang.datafixers.types.families.RecursiveTypeFamily)" tabindex="0">updateMu(RecursiveTypeFamily)</a></li>
+<li><a href="#template()" tabindex="0">template()</a></li>
+<li><a href="#buildTemplate()" tabindex="0">buildTemplate()</a></li>
+<li><a href="#findChoiceType(java.lang.String,int)" tabindex="0">findChoiceType(String, int)</a></li>
+<li><a href="#findCheckedType(int)" tabindex="0">findCheckedType(int)</a></li>
+<li><a href="#read(com.mojang.serialization.Dynamic)" tabindex="0">read(Dynamic)</a></li>
+<li><a href="#codec()" tabindex="0">codec()</a></li>
+<li><a href="#buildCodec()" tabindex="0">buildCodec()</a></li>
+<li><a href="#write(com.mojang.serialization.DynamicOps,A)" tabindex="0">write(DynamicOps, A)</a></li>
+<li><a href="#writeDynamic(com.mojang.serialization.DynamicOps,A)" tabindex="0">writeDynamic(DynamicOps, A)</a></li>
+<li><a href="#readTyped(com.mojang.serialization.Dynamic)" tabindex="0">readTyped(Dynamic)</a></li>
+<li><a href="#readTyped(com.mojang.serialization.DynamicOps,T)" tabindex="0">readTyped(DynamicOps, T)</a></li>
+<li><a href="#read(com.mojang.serialization.DynamicOps,com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,T)" tabindex="0">read(DynamicOps, TypeRewriteRule, PointFreeRule, T)</a></li>
+<li><a href="#readAndWrite(com.mojang.serialization.DynamicOps,com.mojang.datafixers.types.Type,com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,T)" tabindex="0">readAndWrite(DynamicOps, Type, TypeRewriteRule, PointFreeRule, T)</a></li>
+<li><a href="#capWrite(com.mojang.serialization.DynamicOps,com.mojang.datafixers.types.Type,T,A,com.mojang.datafixers.View)" tabindex="0">capWrite(DynamicOps, Type, T, A, View)</a></li>
+<li><a href="#rewrite(com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule)" tabindex="0">rewrite(TypeRewriteRule, PointFreeRule)</a></li>
+<li><a href="#getSetType(com.mojang.datafixers.OpticFinder,com.mojang.datafixers.types.Type)" tabindex="0">getSetType(OpticFinder, Type)</a></li>
+<li><a href="#findFieldTypeOpt(java.lang.String)" tabindex="0">findFieldTypeOpt(String)</a></li>
+<li><a href="#findFieldType(java.lang.String)" tabindex="0">findFieldType(String)</a></li>
+<li><a href="#findField(java.lang.String)" tabindex="0">findField(String)</a></li>
+<li><a href="#point(com.mojang.serialization.DynamicOps)" tabindex="0">point(DynamicOps)</a></li>
+<li><a href="#pointTyped(com.mojang.serialization.DynamicOps)" tabindex="0">pointTyped(DynamicOps)</a></li>
+<li><a href="#findTypeCached(com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type.TypeMatcher,boolean)" tabindex="0">findTypeCached(Type, Type, Type.TypeMatcher, boolean)</a></li>
+<li><a href="#findType(com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type.TypeMatcher,boolean)" tabindex="0">findType(Type, Type, Type.TypeMatcher, boolean)</a></li>
+<li><a href="#findTypeInChildren(com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type.TypeMatcher,boolean)" tabindex="0">findTypeInChildren(Type, Type, Type.TypeMatcher, boolean)</a></li>
+<li><a href="#finder()" tabindex="0">finder()</a></li>
+<li><a href="#ifSame(com.mojang.datafixers.Typed)" tabindex="0">ifSame(Typed)</a></li>
+<li><a href="#ifSame(com.mojang.datafixers.types.Type,B)" tabindex="0">ifSame(Type, B)</a></li>
+<li><a href="#ifSame(com.mojang.datafixers.types.Type,com.mojang.datafixers.RewriteResult)" tabindex="0">ifSame(Type, RewriteResult)</a></li>
+<li><a href="#equals(java.lang.Object)" tabindex="0">equals(Object)</a></li>
+<li><a href="#equals(java.lang.Object,boolean,boolean)" tabindex="0">equals(Object, boolean, boolean)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class Type" class="title">Class Type&lt;<span id="type-param-A">A</span>&gt;</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">com.mojang.datafixers.types.Type&lt;A&gt;</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../kinds/App.html" title="interface in com.mojang.datafixers.kinds">App</a>&lt;<a href="Type.Mu.html" title="class in com.mojang.datafixers.types">Type.Mu</a>,<wbr>A&gt;</code></dd>
+</dl>
+<dl class="notes">
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="templates/Check.CheckType.html" title="class in com.mojang.datafixers.types.templates">Check.CheckType</a>, <a href="templates/CompoundList.CompoundListType.html" title="class in com.mojang.datafixers.types.templates">CompoundList.CompoundListType</a>, <a href="templates/Const.PrimitiveType.html" title="class in com.mojang.datafixers.types.templates">Const.PrimitiveType</a>, <a href="constant/EmptyPart.html" title="class in com.mojang.datafixers.types.constant">EmptyPart</a>, <a href="constant/EmptyPartPassthrough.html" title="class in com.mojang.datafixers.types.constant">EmptyPartPassthrough</a>, <a href="Func.html" title="class in com.mojang.datafixers.types">Func</a>, <a href="templates/Hook.HookType.html" title="class in com.mojang.datafixers.types.templates">Hook.HookType</a>, <a href="templates/List.ListType.html" title="class in com.mojang.datafixers.types.templates">List.ListType</a>, <a href="templates/Named.NamedType.html" title="class in com.mojang.datafixers.types.templates">Named.NamedType</a>, <a href="templates/Product.ProductType.html" title="class in com.mojang.datafixers.types.templates">Product.ProductType</a>, <a href="templates/RecursivePoint.RecursivePointType.html" title="class in com.mojang.datafixers.types.templates">RecursivePoint.RecursivePointType</a>, <a href="templates/Sum.SumType.html" title="class in com.mojang.datafixers.types.templates">Sum.SumType</a>, <a href="templates/Tag.TagType.html" title="class in com.mojang.datafixers.types.templates">Tag.TagType</a>, <a href="templates/TaggedChoice.TaggedChoiceType.html" title="class in com.mojang.datafixers.types.templates">TaggedChoice.TaggedChoiceType</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">Type&lt;A&gt;</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="../kinds/App.html" title="interface in com.mojang.datafixers.kinds">App</a>&lt;<a href="Type.Mu.html" title="class in com.mojang.datafixers.types">Type.Mu</a>,<wbr>A&gt;</span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Type.Continue.html" class="type-name-link" title="class in com.mojang.datafixers.types">Type.Continue</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="Type.FieldNotFoundException.html" class="type-name-link" title="class in com.mojang.datafixers.types">Type.FieldNotFoundException</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Type.Mu.html" class="type-name-link" title="class in com.mojang.datafixers.types">Type.Mu</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final record&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="Type.RewriteCacheKey.html" class="type-name-link" title="class in com.mojang.datafixers.types">Type.RewriteCacheKey</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Type.TypeError.html" class="type-name-link" title="class in com.mojang.datafixers.types">Type.TypeError</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="Type.TypeMatcher.html" class="type-name-link" title="interface in com.mojang.datafixers.types">Type.TypeMatcher</a>&lt;<a href="Type.TypeMatcher.html#type-param-FT" title="type parameter in Type.TypeMatcher">FT</a>,<wbr><a href="Type.TypeMatcher.html#type-param-FR" title="type parameter in Type.TypeMatcher">FR</a>&gt;</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="../../serialization/Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#codec" class="member-name-link">codec</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="Type.RewriteCacheKey.html" title="class in com.mojang.datafixers.types">Type.RewriteCacheKey</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;? extends <a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;?,<wbr>?&gt;&gt;&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#PENDING_REWRITE_CACHE" class="member-name-link">PENDING_REWRITE_CACHE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="Type.RewriteCacheKey.html" title="class in com.mojang.datafixers.types">Type.RewriteCacheKey</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;? extends <a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;?,<wbr>?&gt;&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#REWRITE_CACHE" class="member-name-link">REWRITE_CACHE</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private <a href="templates/TypeTemplate.html" title="interface in com.mojang.datafixers.types.templates">TypeTemplate</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#template" class="member-name-link">template</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Type</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#all(com.mojang.datafixers.TypeRewriteRule,boolean,boolean)" class="member-name-link">all</a><wbr>(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ boolean&nbsp;recurse,
+ boolean&nbsp;checkIndex)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">gmapT
+run rule on all direct children and combine results</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="../../serialization/Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#buildCodec()" class="member-name-link">buildCodec</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract <a href="templates/TypeTemplate.html" title="interface in com.mojang.datafixers.types.templates">TypeTemplate</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#buildTemplate()" class="member-name-link">buildTemplate</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private &lt;T,<wbr>B&gt;&nbsp;<a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#capWrite(com.mojang.serialization.DynamicOps,com.mojang.datafixers.types.Type,T,A,com.mojang.datafixers.View)" class="member-name-link">capWrite</a><wbr>(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;&nbsp;expectedType,
+ T&nbsp;rest,
+ <a href="#type-param-A" title="type parameter in Type">A</a>&nbsp;value,
+ <a href="../View.html" title="class in com.mojang.datafixers">View</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>B&gt;&nbsp;f)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final <a href="../../serialization/Codec.html" title="interface in com.mojang.serialization">Codec</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#codec()" class="member-name-link">codec</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#equals(java.lang.Object)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>abstract boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#equals(java.lang.Object,boolean,boolean)" class="member-name-link">equals</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o,
+ boolean&nbsp;ignoreRecursionPoints,
+ boolean&nbsp;checkIndex)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#everywhere(com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,boolean,boolean)" class="member-name-link">everywhere</a><wbr>(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ <a href="../functions/PointFreeRule.html" title="interface in com.mojang.datafixers.functions">PointFreeRule</a>&nbsp;optimizationRule,
+ boolean&nbsp;recurse,
+ boolean&nbsp;checkIndex)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findCheckedType(int)" class="member-name-link">findCheckedType</a><wbr>(int&nbsp;index)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="templates/TaggedChoice.TaggedChoiceType.html" title="class in com.mojang.datafixers.types.templates">TaggedChoice.TaggedChoiceType</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findChoiceType(java.lang.String,int)" class="member-name-link">findChoiceType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ int&nbsp;index)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../OpticFinder.html" title="interface in com.mojang.datafixers">OpticFinder</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#finder()" class="member-name-link">finder</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../OpticFinder.html" title="interface in com.mojang.datafixers">OpticFinder</a><wbr>&lt;?&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findField(java.lang.String)" class="member-name-link">findField</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Type.html" title="class in com.mojang.datafixers.types">Type</a><wbr>&lt;?&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findFieldType(java.lang.String)" class="member-name-link">findFieldType</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findFieldTypeOpt(java.lang.String)" class="member-name-link">findFieldTypeOpt</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;FT,<wbr>FR&gt;&nbsp;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a><wbr>&lt;<a href="../TypedOptic.html" title="class in com.mojang.datafixers">TypedOptic</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?,<wbr>FT,<wbr>FR&gt;, <a href="Type.FieldNotFoundException.html" title="class in com.mojang.datafixers.types">Type.FieldNotFoundException</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findType(com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type.TypeMatcher,boolean)" class="member-name-link">findType</a><wbr>(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FT&gt;&nbsp;type,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FR&gt;&nbsp;resultType,
+ <a href="Type.TypeMatcher.html" title="interface in com.mojang.datafixers.types">Type.TypeMatcher</a>&lt;FT,<wbr>FR&gt;&nbsp;matcher,
+ boolean&nbsp;recurse)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;FT,<wbr>FR&gt;&nbsp;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a><wbr>&lt;<a href="../TypedOptic.html" title="class in com.mojang.datafixers">TypedOptic</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?,<wbr>FT,<wbr>FR&gt;, <a href="Type.FieldNotFoundException.html" title="class in com.mojang.datafixers.types">Type.FieldNotFoundException</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findTypeCached(com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type.TypeMatcher,boolean)" class="member-name-link">findTypeCached</a><wbr>(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FT&gt;&nbsp;type,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FR&gt;&nbsp;resultType,
+ <a href="Type.TypeMatcher.html" title="interface in com.mojang.datafixers.types">Type.TypeMatcher</a>&lt;FT,<wbr>FR&gt;&nbsp;matcher,
+ boolean&nbsp;recurse)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;FT,<wbr>FR&gt;&nbsp;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a><wbr>&lt;<a href="../TypedOptic.html" title="class in com.mojang.datafixers">TypedOptic</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?,<wbr>FT,<wbr>FR&gt;, <a href="Type.FieldNotFoundException.html" title="class in com.mojang.datafixers.types">Type.FieldNotFoundException</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findTypeInChildren(com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type.TypeMatcher,boolean)" class="member-name-link">findTypeInChildren</a><wbr>(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FT&gt;&nbsp;type,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FR&gt;&nbsp;resultType,
+ <a href="Type.TypeMatcher.html" title="interface in com.mojang.datafixers.types">Type.TypeMatcher</a>&lt;FT,<wbr>FR&gt;&nbsp;matcher,
+ boolean&nbsp;recurse)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;FT,<wbr>FR&gt;&nbsp;<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a><wbr>&lt;?&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSetType(com.mojang.datafixers.OpticFinder,com.mojang.datafixers.types.Type)" class="member-name-link">getSetType</a><wbr>(<a href="../OpticFinder.html" title="interface in com.mojang.datafixers">OpticFinder</a>&lt;FT&gt;&nbsp;optic,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FR&gt;&nbsp;newType)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;B&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#ifSame(com.mojang.datafixers.Typed)" class="member-name-link">ifSame</a><wbr>(<a href="../Typed.html" title="class in com.mojang.datafixers">Typed</a>&lt;B&gt;&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;B&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#ifSame(com.mojang.datafixers.types.Type,B)" class="member-name-link">ifSame</a><wbr>(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;B&gt;&nbsp;type,
+ B&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;B&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#ifSame(com.mojang.datafixers.types.Type,com.mojang.datafixers.RewriteResult)" class="member-name-link">ifSame</a><wbr>(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;B&gt;&nbsp;type,
+ <a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;B,<wbr>?&gt;&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#one(com.mojang.datafixers.TypeRewriteRule)" class="member-name-link">one</a><wbr>(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">run rule on exactly one child</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a><wbr>&lt;S,<wbr>T&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#opticView(com.mojang.datafixers.types.Type,com.mojang.datafixers.RewriteResult,com.mojang.datafixers.TypedOptic)" class="member-name-link">opticView</a><wbr>(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;S&gt;&nbsp;type,
+ <a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;A,<wbr>B&gt;&nbsp;view,
+ <a href="../TypedOptic.html" title="class in com.mojang.datafixers">TypedOptic</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;optic)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#point(com.mojang.serialization.DynamicOps)" class="member-name-link">point</a><wbr>(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;?&gt;&nbsp;ops)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">populate with the default value, if possible
+only initializes empty things</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../Typed.html" title="class in com.mojang.datafixers">Typed</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pointTyped(com.mojang.serialization.DynamicOps)" class="member-name-link">pointTyped</a><wbr>(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;?&gt;&nbsp;ops)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final &lt;T&gt;&nbsp;<a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;<a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>, <a href="../../serialization/Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#read(com.mojang.serialization.Dynamic)" class="member-name-link">read</a><wbr>(<a href="../../serialization/Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&nbsp;input)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;<a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;<a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;?&gt;, T&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#read(com.mojang.serialization.DynamicOps,com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,T)" class="member-name-link">read</a><wbr>(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ <a href="../functions/PointFreeRule.html" title="interface in com.mojang.datafixers.functions">PointFreeRule</a>&nbsp;fRule,
+ T&nbsp;input)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;<a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readAndWrite(com.mojang.serialization.DynamicOps,com.mojang.datafixers.types.Type,com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,T)" class="member-name-link">readAndWrite</a><wbr>(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;&nbsp;expectedType,
+ <a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ <a href="../functions/PointFreeRule.html" title="interface in com.mojang.datafixers.functions">PointFreeRule</a>&nbsp;fRule,
+ T&nbsp;input)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;<a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;<a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="../Typed.html" title="class in com.mojang.datafixers">Typed</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;,<wbr>T&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readTyped(com.mojang.serialization.Dynamic)" class="member-name-link">readTyped</a><wbr>(<a href="../../serialization/Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&nbsp;input)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T&gt;&nbsp;<a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;<a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="../Typed.html" title="class in com.mojang.datafixers">Typed</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;,<wbr>T&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readTyped(com.mojang.serialization.DynamicOps,T)" class="member-name-link">readTyped</a><wbr>(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ T&nbsp;input)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rewrite(com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule)" class="member-name-link">rewrite</a><wbr>(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ <a href="../functions/PointFreeRule.html" title="interface in com.mojang.datafixers.functions">PointFreeRule</a>&nbsp;fRule)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rewriteOrNop(com.mojang.datafixers.TypeRewriteRule)" class="member-name-link">rewriteOrNop</a><wbr>(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="templates/TypeTemplate.html" title="interface in com.mojang.datafixers.types.templates">TypeTemplate</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#template()" class="member-name-link">template</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;A&gt;&nbsp;<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#unbox(com.mojang.datafixers.kinds.App)" class="member-name-link">unbox</a><wbr>(<a href="../kinds/App.html" title="interface in com.mojang.datafixers.kinds">App</a>&lt;<a href="Type.Mu.html" title="class in com.mojang.datafixers.types">Type.Mu</a>,<wbr>A&gt;&nbsp;box)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Type.html" title="class in com.mojang.datafixers.types">Type</a><wbr>&lt;?&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateMu(com.mojang.datafixers.types.families.RecursiveTypeFamily)" class="member-name-link">updateMu</a><wbr>(<a href="families/RecursiveTypeFamily.html" title="class in com.mojang.datafixers.types.families">RecursiveTypeFamily</a>&nbsp;newFamily)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final &lt;T&gt;&nbsp;<a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(com.mojang.serialization.DynamicOps,A)" class="member-name-link">write</a><wbr>(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="#type-param-A" title="type parameter in Type">A</a>&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>final &lt;T&gt;&nbsp;<a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;<a href="../../serialization/Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeDynamic(com.mojang.serialization.DynamicOps,A)" class="member-name-link">writeDynamic</a><wbr>(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="#type-param-A" title="type parameter in Type">A</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="PENDING_REWRITE_CACHE">
+<h3>PENDING_REWRITE_CACHE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="Type.RewriteCacheKey.html" title="class in com.mojang.datafixers.types">Type.RewriteCacheKey</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;? extends <a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;?,<wbr>?&gt;&gt;&gt;&gt;</span>&nbsp;<span class="element-name">PENDING_REWRITE_CACHE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="REWRITE_CACHE">
+<h3>REWRITE_CACHE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="Type.RewriteCacheKey.html" title="class in com.mojang.datafixers.types">Type.RewriteCacheKey</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;? extends <a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;?,<wbr>?&gt;&gt;&gt;</span>&nbsp;<span class="element-name">REWRITE_CACHE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="template">
+<h3>template</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations">@Nullable
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="templates/TypeTemplate.html" title="interface in com.mojang.datafixers.types.templates">TypeTemplate</a></span>&nbsp;<span class="element-name">template</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="codec">
+<h3>codec</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations">@Nullable
+</span><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../serialization/Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</span>&nbsp;<span class="element-name">codec</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>Type</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Type</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="unbox(com.mojang.datafixers.kinds.App)">
+<h3>unbox</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;A&gt;</span>&nbsp;<span class="element-name">unbox</span><wbr><span class="parameters">(<a href="../kinds/App.html" title="interface in com.mojang.datafixers.kinds">App</a>&lt;<a href="Type.Mu.html" title="class in com.mojang.datafixers.types">Type.Mu</a>,<wbr>A&gt;&nbsp;box)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="rewriteOrNop(com.mojang.datafixers.TypeRewriteRule)">
+<h3>rewriteOrNop</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;</span>&nbsp;<span class="element-name">rewriteOrNop</span><wbr><span class="parameters">(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="opticView(com.mojang.datafixers.types.Type,com.mojang.datafixers.RewriteResult,com.mojang.datafixers.TypedOptic)">
+<h3>opticView</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;S,<wbr>T&gt;</span>&nbsp;<span class="element-name">opticView</span><wbr><span class="parameters">(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;S&gt;&nbsp;type,
+ <a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;A,<wbr>B&gt;&nbsp;view,
+ <a href="../TypedOptic.html" title="class in com.mojang.datafixers">TypedOptic</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="all(com.mojang.datafixers.TypeRewriteRule,boolean,boolean)">
+<h3>all</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;</span>&nbsp;<span class="element-name">all</span><wbr><span class="parameters">(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ boolean&nbsp;recurse,
+ boolean&nbsp;checkIndex)</span></div>
+<div class="block">gmapT
+run rule on all direct children and combine results</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="one(com.mojang.datafixers.TypeRewriteRule)">
+<h3>one</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;&gt;</span>&nbsp;<span class="element-name">one</span><wbr><span class="parameters">(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule)</span></div>
+<div class="block">run rule on exactly one child</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="everywhere(com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,boolean,boolean)">
+<h3>everywhere</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;&gt;</span>&nbsp;<span class="element-name">everywhere</span><wbr><span class="parameters">(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ <a href="../functions/PointFreeRule.html" title="interface in com.mojang.datafixers.functions">PointFreeRule</a>&nbsp;optimizationRule,
+ boolean&nbsp;recurse,
+ boolean&nbsp;checkIndex)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="updateMu(com.mojang.datafixers.types.families.RecursiveTypeFamily)">
+<h3>updateMu</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;</span>&nbsp;<span class="element-name">updateMu</span><wbr><span class="parameters">(<a href="families/RecursiveTypeFamily.html" title="class in com.mojang.datafixers.types.families">RecursiveTypeFamily</a>&nbsp;newFamily)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="template()">
+<h3>template</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="templates/TypeTemplate.html" title="interface in com.mojang.datafixers.types.templates">TypeTemplate</a></span>&nbsp;<span class="element-name">template</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="buildTemplate()">
+<h3>buildTemplate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type"><a href="templates/TypeTemplate.html" title="interface in com.mojang.datafixers.types.templates">TypeTemplate</a></span>&nbsp;<span class="element-name">buildTemplate</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findChoiceType(java.lang.String,int)">
+<h3>findChoiceType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="templates/TaggedChoice.TaggedChoiceType.html" title="class in com.mojang.datafixers.types.templates">TaggedChoice.TaggedChoiceType</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">findChoiceType</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ int&nbsp;index)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findCheckedType(int)">
+<h3>findCheckedType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">findCheckedType</span><wbr><span class="parameters">(int&nbsp;index)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="read(com.mojang.serialization.Dynamic)">
+<h3>read</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>, <a href="../../serialization/Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&gt;&gt;</span>&nbsp;<span class="element-name">read</span><wbr><span class="parameters">(<a href="../../serialization/Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&nbsp;input)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="codec()">
+<h3>codec</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type"><a href="../../serialization/Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</span>&nbsp;<span class="element-name">codec</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="buildCodec()">
+<h3>buildCodec</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="../../serialization/Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</span>&nbsp;<span class="element-name">buildCodec</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="write(com.mojang.serialization.DynamicOps,A)">
+<h3 id="write(com.mojang.serialization.DynamicOps,java.lang.Object)">write</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;T&gt;</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="#type-param-A" title="type parameter in Type">A</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="writeDynamic(com.mojang.serialization.DynamicOps,A)">
+<h3 id="writeDynamic(com.mojang.serialization.DynamicOps,java.lang.Object)">writeDynamic</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="../../serialization/Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&gt;</span>&nbsp;<span class="element-name">writeDynamic</span><wbr><span class="parameters">(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="#type-param-A" title="type parameter in Type">A</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readTyped(com.mojang.serialization.Dynamic)">
+<h3>readTyped</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="../Typed.html" title="class in com.mojang.datafixers">Typed</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;,<wbr>T&gt;&gt;</span>&nbsp;<span class="element-name">readTyped</span><wbr><span class="parameters">(<a href="../../serialization/Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&nbsp;input)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readTyped(com.mojang.serialization.DynamicOps,T)">
+<h3 id="readTyped(com.mojang.serialization.DynamicOps,java.lang.Object)">readTyped</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="../Typed.html" title="class in com.mojang.datafixers">Typed</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;,<wbr>T&gt;&gt;</span>&nbsp;<span class="element-name">readTyped</span><wbr><span class="parameters">(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ T&nbsp;input)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="read(com.mojang.serialization.DynamicOps,com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,T)">
+<h3 id="read(com.mojang.serialization.DynamicOps,com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,java.lang.Object)">read</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;?&gt;, T&gt;&gt;</span>&nbsp;<span class="element-name">read</span><wbr><span class="parameters">(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ <a href="../functions/PointFreeRule.html" title="interface in com.mojang.datafixers.functions">PointFreeRule</a>&nbsp;fRule,
+ T&nbsp;input)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readAndWrite(com.mojang.serialization.DynamicOps,com.mojang.datafixers.types.Type,com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,T)">
+<h3 id="readAndWrite(com.mojang.serialization.DynamicOps,com.mojang.datafixers.types.Type,com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule,java.lang.Object)">readAndWrite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;T&gt;</span>&nbsp;<span class="element-name">readAndWrite</span><wbr><span class="parameters">(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;&nbsp;expectedType,
+ <a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ <a href="../functions/PointFreeRule.html" title="interface in com.mojang.datafixers.functions">PointFreeRule</a>&nbsp;fRule,
+ T&nbsp;input)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="capWrite(com.mojang.serialization.DynamicOps,com.mojang.datafixers.types.Type,T,A,com.mojang.datafixers.View)">
+<h3 id="capWrite(com.mojang.serialization.DynamicOps,com.mojang.datafixers.types.Type,java.lang.Object,java.lang.Object,com.mojang.datafixers.View)">capWrite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;T,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="../../serialization/DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;T&gt;</span>&nbsp;<span class="element-name">capWrite</span><wbr><span class="parameters">(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;&nbsp;expectedType,
+ T&nbsp;rest,
+ <a href="#type-param-A" title="type parameter in Type">A</a>&nbsp;value,
+ <a href="../View.html" title="class in com.mojang.datafixers">View</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>B&gt;&nbsp;f)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="rewrite(com.mojang.datafixers.TypeRewriteRule,com.mojang.datafixers.functions.PointFreeRule)">
+<h3>rewrite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;&gt;</span>&nbsp;<span class="element-name">rewrite</span><wbr><span class="parameters">(<a href="../TypeRewriteRule.html" title="interface in com.mojang.datafixers">TypeRewriteRule</a>&nbsp;rule,
+ <a href="../functions/PointFreeRule.html" title="interface in com.mojang.datafixers.functions">PointFreeRule</a>&nbsp;fRule)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSetType(com.mojang.datafixers.OpticFinder,com.mojang.datafixers.types.Type)">
+<h3>getSetType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;FT,<wbr>FR&gt;</span>&nbsp;<span class="return-type"><a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;</span>&nbsp;<span class="element-name">getSetType</span><wbr><span class="parameters">(<a href="../OpticFinder.html" title="interface in com.mojang.datafixers">OpticFinder</a>&lt;FT&gt;&nbsp;optic,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FR&gt;&nbsp;newType)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findFieldTypeOpt(java.lang.String)">
+<h3>findFieldTypeOpt</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">findFieldTypeOpt</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findFieldType(java.lang.String)">
+<h3>findFieldType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;?&gt;</span>&nbsp;<span class="element-name">findFieldType</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findField(java.lang.String)">
+<h3>findField</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../OpticFinder.html" title="interface in com.mojang.datafixers">OpticFinder</a>&lt;?&gt;</span>&nbsp;<span class="element-name">findField</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="point(com.mojang.serialization.DynamicOps)">
+<h3>point</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</span>&nbsp;<span class="element-name">point</span><wbr><span class="parameters">(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;?&gt;&nbsp;ops)</span></div>
+<div class="block">populate with the default value, if possible
+only initializes empty things</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pointTyped(com.mojang.serialization.DynamicOps)">
+<h3>pointTyped</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../Typed.html" title="class in com.mojang.datafixers">Typed</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;&gt;</span>&nbsp;<span class="element-name">pointTyped</span><wbr><span class="parameters">(<a href="../../serialization/DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;?&gt;&nbsp;ops)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findTypeCached(com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type.TypeMatcher,boolean)">
+<h3>findTypeCached</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;FT,<wbr>FR&gt;</span>
+<span class="return-type"><a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;<a href="../TypedOptic.html" title="class in com.mojang.datafixers">TypedOptic</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?,<wbr>FT,<wbr>FR&gt;, <a href="Type.FieldNotFoundException.html" title="class in com.mojang.datafixers.types">Type.FieldNotFoundException</a>&gt;</span>&nbsp;<span class="element-name">findTypeCached</span><wbr><span class="parameters">(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FT&gt;&nbsp;type,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FR&gt;&nbsp;resultType,
+ <a href="Type.TypeMatcher.html" title="interface in com.mojang.datafixers.types">Type.TypeMatcher</a>&lt;FT,<wbr>FR&gt;&nbsp;matcher,
+ boolean&nbsp;recurse)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findType(com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type.TypeMatcher,boolean)">
+<h3>findType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;FT,<wbr>FR&gt;</span>
+<span class="return-type"><a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;<a href="../TypedOptic.html" title="class in com.mojang.datafixers">TypedOptic</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?,<wbr>FT,<wbr>FR&gt;, <a href="Type.FieldNotFoundException.html" title="class in com.mojang.datafixers.types">Type.FieldNotFoundException</a>&gt;</span>&nbsp;<span class="element-name">findType</span><wbr><span class="parameters">(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FT&gt;&nbsp;type,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FR&gt;&nbsp;resultType,
+ <a href="Type.TypeMatcher.html" title="interface in com.mojang.datafixers.types">Type.TypeMatcher</a>&lt;FT,<wbr>FR&gt;&nbsp;matcher,
+ boolean&nbsp;recurse)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findTypeInChildren(com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type,com.mojang.datafixers.types.Type.TypeMatcher,boolean)">
+<h3>findTypeInChildren</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;FT,<wbr>FR&gt;</span>
+<span class="return-type"><a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;<a href="../TypedOptic.html" title="class in com.mojang.datafixers">TypedOptic</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?,<wbr>FT,<wbr>FR&gt;, <a href="Type.FieldNotFoundException.html" title="class in com.mojang.datafixers.types">Type.FieldNotFoundException</a>&gt;</span>&nbsp;<span class="element-name">findTypeInChildren</span><wbr><span class="parameters">(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FT&gt;&nbsp;type,
+ <a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;FR&gt;&nbsp;resultType,
+ <a href="Type.TypeMatcher.html" title="interface in com.mojang.datafixers.types">Type.TypeMatcher</a>&lt;FT,<wbr>FR&gt;&nbsp;matcher,
+ boolean&nbsp;recurse)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="finder()">
+<h3>finder</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../OpticFinder.html" title="interface in com.mojang.datafixers">OpticFinder</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</span>&nbsp;<span class="element-name">finder</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ifSame(com.mojang.datafixers.Typed)">
+<h3>ifSame</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;B&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</span>&nbsp;<span class="element-name">ifSame</span><wbr><span class="parameters">(<a href="../Typed.html" title="class in com.mojang.datafixers">Typed</a>&lt;B&gt;&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ifSame(com.mojang.datafixers.types.Type,B)">
+<h3 id="ifSame(com.mojang.datafixers.types.Type,java.lang.Object)">ifSame</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;B&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>&gt;</span>&nbsp;<span class="element-name">ifSame</span><wbr><span class="parameters">(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;B&gt;&nbsp;type,
+ B&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ifSame(com.mojang.datafixers.types.Type,com.mojang.datafixers.RewriteResult)">
+<h3>ifSame</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;B&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;<a href="#type-param-A" title="type parameter in Type">A</a>,<wbr>?&gt;&gt;</span>&nbsp;<span class="element-name">ifSame</span><wbr><span class="parameters">(<a href="Type.html" title="class in com.mojang.datafixers.types">Type</a>&lt;B&gt;&nbsp;type,
+ <a href="../RewriteResult.html" title="class in com.mojang.datafixers">RewriteResult</a>&lt;B,<wbr>?&gt;&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="equals(java.lang.Object)">
+<h3>equals</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public final</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="equals(java.lang.Object,boolean,boolean)">
+<h3>equals</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public abstract</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">equals</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;o,
+ boolean&nbsp;ignoreRecursionPoints,
+ boolean&nbsp;checkIndex)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

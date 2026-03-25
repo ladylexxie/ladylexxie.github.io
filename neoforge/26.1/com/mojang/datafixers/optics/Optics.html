@@ -1,0 +1,626 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Optics (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.mojang.datafixers.optics, class: Optics">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/Optics.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">com.mojang.datafixers.optics</a></li>
+<li><a href="Optics.html" class="current-selection">Optics</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">Optics()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#toAdapter(com.mojang.datafixers.optics.Optic)" tabindex="0">toAdapter(Optic)</a></li>
+<li><a href="#toLens(com.mojang.datafixers.optics.Optic)" tabindex="0">toLens(Optic)</a></li>
+<li><a href="#toPrism(com.mojang.datafixers.optics.Optic)" tabindex="0">toPrism(Optic)</a></li>
+<li><a href="#toAffine(com.mojang.datafixers.optics.Optic)" tabindex="0">toAffine(Optic)</a></li>
+<li><a href="#toGetter(com.mojang.datafixers.optics.Optic)" tabindex="0">toGetter(Optic)</a></li>
+<li><a href="#toTraversal(com.mojang.datafixers.optics.Optic)" tabindex="0">toTraversal(Optic)</a></li>
+<li><a href="#merge(com.mojang.datafixers.optics.Lens,com.mojang.datafixers.optics.Lens)" tabindex="0">merge(Lens, Lens)</a></li>
+<li><a href="#id()" tabindex="0">id()</a></li>
+<li><a href="#isId(com.mojang.datafixers.optics.Optic)" tabindex="0">isId(Optic)</a></li>
+<li><a href="#adapter(java.util.function.Function,java.util.function.Function)" tabindex="0">adapter(Function, Function)</a></li>
+<li><a href="#lens(java.util.function.Function,java.util.function.BiFunction)" tabindex="0">lens(Function, BiFunction)</a></li>
+<li><a href="#prism(java.util.function.Function,java.util.function.Function)" tabindex="0">prism(Function, Function)</a></li>
+<li><a href="#affine(java.util.function.Function,java.util.function.BiFunction)" tabindex="0">affine(Function, BiFunction)</a></li>
+<li><a href="#getter(java.util.function.Function)" tabindex="0">getter(Function)</a></li>
+<li><a href="#forget(java.util.function.Function)" tabindex="0">forget(Function)</a></li>
+<li><a href="#forgetOpt(java.util.function.Function)" tabindex="0">forgetOpt(Function)</a></li>
+<li><a href="#forgetE(java.util.function.Function)" tabindex="0">forgetE(Function)</a></li>
+<li><a href="#reForget(java.util.function.Function)" tabindex="0">reForget(Function)</a></li>
+<li><a href="#grate(com.mojang.datafixers.FunctionType)" tabindex="0">grate(FunctionType)</a></li>
+<li><a href="#reForgetEP(java.lang.String,java.util.function.Function)" tabindex="0">reForgetEP(String, Function)</a></li>
+<li><a href="#reForgetE(java.lang.String,java.util.function.Function)" tabindex="0">reForgetE(String, Function)</a></li>
+<li><a href="#reForgetP(java.lang.String,java.util.function.BiFunction)" tabindex="0">reForgetP(String, BiFunction)</a></li>
+<li><a href="#reForgetC(java.lang.String,com.mojang.datafixers.util.Either)" tabindex="0">reForgetC(String, Either)</a></li>
+<li><a href="#pStore(java.util.function.Function,java.util.function.Supplier)" tabindex="0">pStore(Function, Supplier)</a></li>
+<li><a href="#getFunc(com.mojang.datafixers.kinds.App2)" tabindex="0">getFunc(App2)</a></li>
+<li><a href="#proj1()" tabindex="0">proj1()</a></li>
+<li><a href="#isProj1(com.mojang.datafixers.optics.Optic)" tabindex="0">isProj1(Optic)</a></li>
+<li><a href="#proj2()" tabindex="0">proj2()</a></li>
+<li><a href="#isProj2(com.mojang.datafixers.optics.Optic)" tabindex="0">isProj2(Optic)</a></li>
+<li><a href="#inj1()" tabindex="0">inj1()</a></li>
+<li><a href="#isInj1(com.mojang.datafixers.optics.Optic)" tabindex="0">isInj1(Optic)</a></li>
+<li><a href="#inj2()" tabindex="0">inj2()</a></li>
+<li><a href="#isInj2(com.mojang.datafixers.optics.Optic)" tabindex="0">isInj2(Optic)</a></li>
+<li><a href="#eitherLens(com.mojang.datafixers.optics.Lens,com.mojang.datafixers.optics.Lens)" tabindex="0">eitherLens(Lens, Lens)</a></li>
+<li><a href="#eitherAffine(com.mojang.datafixers.optics.Affine,com.mojang.datafixers.optics.Affine)" tabindex="0">eitherAffine(Affine, Affine)</a></li>
+<li><a href="#eitherTraversal(com.mojang.datafixers.optics.Traversal,com.mojang.datafixers.optics.Traversal)" tabindex="0">eitherTraversal(Traversal, Traversal)</a></li>
+<li><a href="#listTraversal()" tabindex="0">listTraversal()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class Optics" class="title">Class Optics</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">com.mojang.datafixers.optics.Optics</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">Optics</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Optics</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Adapter.html" title="interface in com.mojang.datafixers.optics">Adapter</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#adapter(java.util.function.Function,java.util.function.Function)" class="member-name-link">adapter</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S,<wbr>A&gt;&nbsp;from,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;B,<wbr>T&gt;&nbsp;to)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#affine(java.util.function.Function,java.util.function.BiFunction)" class="member-name-link">affine</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;T,<wbr>A&gt;&gt;&nbsp;preview,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;B,<wbr>S,<wbr>T&gt;&nbsp;build)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;F,<wbr>G,<wbr>F2,<wbr>G2,<wbr>A,<wbr>B&gt;<br><a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a><wbr>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>G&gt;, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F2,<wbr>G2&gt;, A, B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#eitherAffine(com.mojang.datafixers.optics.Affine,com.mojang.datafixers.optics.Affine)" class="member-name-link">eitherAffine</a><wbr>(<a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a>&lt;F,<wbr>F2,<wbr>A,<wbr>B&gt;&nbsp;fAffine,
+ <a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a>&lt;G,<wbr>G2,<wbr>A,<wbr>B&gt;&nbsp;gAffine)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;F,<wbr>G,<wbr>F2,<wbr>G2,<wbr>A,<wbr>B&gt;<br><a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a><wbr>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>G&gt;, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F2,<wbr>G2&gt;, A, B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#eitherLens(com.mojang.datafixers.optics.Lens,com.mojang.datafixers.optics.Lens)" class="member-name-link">eitherLens</a><wbr>(<a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;F,<wbr>F2,<wbr>A,<wbr>B&gt;&nbsp;fLens,
+ <a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;G,<wbr>G2,<wbr>A,<wbr>B&gt;&nbsp;gLens)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;F,<wbr>G,<wbr>F2,<wbr>G2,<wbr>A,<wbr>B&gt;<br><a href="Traversal.html" title="interface in com.mojang.datafixers.optics">Traversal</a><wbr>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>G&gt;, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F2,<wbr>G2&gt;, A, B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#eitherTraversal(com.mojang.datafixers.optics.Traversal,com.mojang.datafixers.optics.Traversal)" class="member-name-link">eitherTraversal</a><wbr>(<a href="Traversal.html" title="interface in com.mojang.datafixers.optics">Traversal</a>&lt;F,<wbr>F2,<wbr>A,<wbr>B&gt;&nbsp;fOptic,
+ <a href="Traversal.html" title="interface in com.mojang.datafixers.optics">Traversal</a>&lt;G,<wbr>G2,<wbr>A,<wbr>B&gt;&nbsp;gOptic)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;R,<wbr>A,<wbr>B&gt;&nbsp;<a href="Forget.html" title="interface in com.mojang.datafixers.optics">Forget</a><wbr>&lt;R,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#forget(java.util.function.Function)" class="member-name-link">forget</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;A,<wbr>R&gt;&nbsp;function)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;R,<wbr>A,<wbr>B&gt;&nbsp;<a href="ForgetE.html" title="interface in com.mojang.datafixers.optics">ForgetE</a><wbr>&lt;R,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#forgetE(java.util.function.Function)" class="member-name-link">forgetE</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;A, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;B,<wbr>R&gt;&gt;&nbsp;function)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;R,<wbr>A,<wbr>B&gt;&nbsp;<a href="ForgetOpt.html" title="interface in com.mojang.datafixers.optics">ForgetOpt</a><wbr>&lt;R,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#forgetOpt(java.util.function.Function)" class="member-name-link">forgetOpt</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;A, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;R&gt;&gt;&nbsp;function)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;A,<wbr>B&gt;&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a><wbr>&lt;A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFunc(com.mojang.datafixers.kinds.App2)" class="member-name-link">getFunc</a><wbr>(<a href="../kinds/App2.html" title="interface in com.mojang.datafixers.kinds">App2</a>&lt;<a href="../FunctionType.Mu.html" title="class in com.mojang.datafixers">FunctionType.Mu</a>, A, B&gt;&nbsp;box)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Getter.html" title="interface in com.mojang.datafixers.optics">Getter</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getter(java.util.function.Function)" class="member-name-link">getter</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S,<wbr>A&gt;&nbsp;get)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Grate.html" title="interface in com.mojang.datafixers.optics">Grate</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#grate(com.mojang.datafixers.FunctionType)" class="member-name-link">grate</a><wbr>(<a href="../FunctionType.html" title="interface in com.mojang.datafixers">FunctionType</a>&lt;<a href="../FunctionType.html" title="interface in com.mojang.datafixers">FunctionType</a>&lt;<a href="../FunctionType.html" title="interface in com.mojang.datafixers">FunctionType</a>&lt;S,<wbr>A&gt;, B&gt;, T&gt;&nbsp;grate)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T&gt;&nbsp;<a href="Adapter.html" title="interface in com.mojang.datafixers.optics">Adapter</a><wbr>&lt;S,<wbr>T,<wbr>S,<wbr>T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#id()" class="member-name-link">id</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;F,<wbr>G,<wbr>F2&gt;&nbsp;<a href="Inj1.html" title="class in com.mojang.datafixers.optics">Inj1</a><wbr>&lt;F,<wbr>G,<wbr>F2&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#inj1()" class="member-name-link">inj1</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;F,<wbr>G,<wbr>G2&gt;&nbsp;<a href="Inj2.html" title="class in com.mojang.datafixers.optics">Inj2</a><wbr>&lt;F,<wbr>G,<wbr>G2&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#inj2()" class="member-name-link">inj2</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isId(com.mojang.datafixers.optics.Optic)" class="member-name-link">isId</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isInj1(com.mojang.datafixers.optics.Optic)" class="member-name-link">isInj1</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isInj2(com.mojang.datafixers.optics.Optic)" class="member-name-link">isInj2</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isProj1(com.mojang.datafixers.optics.Optic)" class="member-name-link">isProj1</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isProj2(com.mojang.datafixers.optics.Optic)" class="member-name-link">isProj2</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#lens(java.util.function.Function,java.util.function.BiFunction)" class="member-name-link">lens</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S,<wbr>A&gt;&nbsp;view,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;B,<wbr>S,<wbr>T&gt;&nbsp;update)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;A,<wbr>B&gt;&nbsp;<a href="ListTraversal.html" title="class in com.mojang.datafixers.optics">ListTraversal</a><wbr>&lt;A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#listTraversal()" class="member-name-link">listTraversal</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>(package private) static &lt;S,<wbr>T,<wbr>A,<wbr>B,<wbr>F&gt;<br><a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a><wbr>&lt;S, T, <a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;F,<wbr>A&gt;, B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#merge(com.mojang.datafixers.optics.Lens,com.mojang.datafixers.optics.Lens)" class="member-name-link">merge</a><wbr>(<a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;S,<wbr>?,<wbr>F,<wbr>?&gt;&nbsp;getter,
+ <a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;lens)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Prism.html" title="interface in com.mojang.datafixers.optics">Prism</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#prism(java.util.function.Function,java.util.function.Function)" class="member-name-link">prism</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;T,<wbr>A&gt;&gt;&nbsp;match,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;B,<wbr>T&gt;&nbsp;build)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;F,<wbr>G,<wbr>F2&gt;&nbsp;<a href="Proj1.html" title="class in com.mojang.datafixers.optics">Proj1</a><wbr>&lt;F,<wbr>G,<wbr>F2&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#proj1()" class="member-name-link">proj1</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;F,<wbr>G,<wbr>G2&gt;&nbsp;<a href="Proj2.html" title="class in com.mojang.datafixers.optics">Proj2</a><wbr>&lt;F,<wbr>G,<wbr>G2&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#proj2()" class="member-name-link">proj2</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;I,<wbr>J,<wbr>X&gt;&nbsp;<a href="PStore.html" title="interface in com.mojang.datafixers.optics">PStore</a><wbr>&lt;I,<wbr>J,<wbr>X&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#pStore(java.util.function.Function,java.util.function.Supplier)" class="member-name-link">pStore</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;J,<wbr>X&gt;&nbsp;peek,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;I&gt;&nbsp;pos)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;R,<wbr>A,<wbr>B&gt;&nbsp;<a href="ReForget.html" title="interface in com.mojang.datafixers.optics">ReForget</a><wbr>&lt;R,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#reForget(java.util.function.Function)" class="member-name-link">reForget</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;R,<wbr>B&gt;&nbsp;function)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;R,<wbr>A,<wbr>B&gt;&nbsp;<a href="ReForgetC.html" title="interface in com.mojang.datafixers.optics">ReForgetC</a><wbr>&lt;R,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#reForgetC(java.lang.String,com.mojang.datafixers.util.Either)" class="member-name-link">reForgetC</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;R,<wbr>B&gt;, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;A,<wbr>R,<wbr>B&gt;&gt;&nbsp;either)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;R,<wbr>A,<wbr>B&gt;&nbsp;<a href="ReForgetE.html" title="interface in com.mojang.datafixers.optics">ReForgetE</a><wbr>&lt;R,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#reForgetE(java.lang.String,java.util.function.Function)" class="member-name-link">reForgetE</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;A,<wbr>R&gt;, B&gt;&nbsp;function)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;R,<wbr>A,<wbr>B&gt;&nbsp;<a href="ReForgetEP.html" title="interface in com.mojang.datafixers.optics">ReForgetEP</a><wbr>&lt;R,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#reForgetEP(java.lang.String,java.util.function.Function)" class="member-name-link">reForgetEP</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;A, <a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;A,<wbr>R&gt;&gt;, B&gt;&nbsp;function)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;R,<wbr>A,<wbr>B&gt;&nbsp;<a href="ReForgetP.html" title="interface in com.mojang.datafixers.optics">ReForgetP</a><wbr>&lt;R,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#reForgetP(java.lang.String,java.util.function.BiFunction)" class="member-name-link">reForgetP</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;A,<wbr>R,<wbr>B&gt;&nbsp;function)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Adapter.html" title="interface in com.mojang.datafixers.optics">Adapter</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toAdapter(com.mojang.datafixers.optics.Optic)" class="member-name-link">toAdapter</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/Profunctor.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">Profunctor.Mu</a>, S, T, A, B&gt;&nbsp;optic)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toAffine(com.mojang.datafixers.optics.Optic)" class="member-name-link">toAffine</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/AffineP.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">AffineP.Mu</a>, S, T, A, B&gt;&nbsp;optic)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Getter.html" title="interface in com.mojang.datafixers.optics">Getter</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toGetter(com.mojang.datafixers.optics.Optic)" class="member-name-link">toGetter</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/GetterP.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">GetterP.Mu</a>, S, T, A, B&gt;&nbsp;optic)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toLens(com.mojang.datafixers.optics.Optic)" class="member-name-link">toLens</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/Cartesian.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">Cartesian.Mu</a>, S, T, A, B&gt;&nbsp;optic)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Prism.html" title="interface in com.mojang.datafixers.optics">Prism</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toPrism(com.mojang.datafixers.optics.Optic)" class="member-name-link">toPrism</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/Cocartesian.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">Cocartesian.Mu</a>, S, T, A, B&gt;&nbsp;optic)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;<a href="Traversal.html" title="interface in com.mojang.datafixers.optics">Traversal</a><wbr>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#toTraversal(com.mojang.datafixers.optics.Optic)" class="member-name-link">toTraversal</a><wbr>(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/TraversalP.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">TraversalP.Mu</a>, S, T, A, B&gt;&nbsp;optic)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>Optics</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Optics</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="toAdapter(com.mojang.datafixers.optics.Optic)">
+<h3>toAdapter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Adapter.html" title="interface in com.mojang.datafixers.optics">Adapter</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">toAdapter</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/Profunctor.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">Profunctor.Mu</a>, S, T, A, B&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="toLens(com.mojang.datafixers.optics.Optic)">
+<h3>toLens</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">toLens</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/Cartesian.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">Cartesian.Mu</a>, S, T, A, B&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="toPrism(com.mojang.datafixers.optics.Optic)">
+<h3>toPrism</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Prism.html" title="interface in com.mojang.datafixers.optics">Prism</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">toPrism</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/Cocartesian.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">Cocartesian.Mu</a>, S, T, A, B&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="toAffine(com.mojang.datafixers.optics.Optic)">
+<h3>toAffine</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">toAffine</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/AffineP.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">AffineP.Mu</a>, S, T, A, B&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="toGetter(com.mojang.datafixers.optics.Optic)">
+<h3>toGetter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Getter.html" title="interface in com.mojang.datafixers.optics">Getter</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">toGetter</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/GetterP.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">GetterP.Mu</a>, S, T, A, B&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="toTraversal(com.mojang.datafixers.optics.Optic)">
+<h3>toTraversal</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Traversal.html" title="interface in com.mojang.datafixers.optics">Traversal</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">toTraversal</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;? super <a href="profunctors/TraversalP.Mu.html" title="interface in com.mojang.datafixers.optics.profunctors">TraversalP.Mu</a>, S, T, A, B&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="merge(com.mojang.datafixers.optics.Lens,com.mojang.datafixers.optics.Lens)">
+<h3>merge</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B,<wbr>F&gt;</span>&nbsp;<span class="return-type"><a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;S, T, <a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;F,<wbr>A&gt;, B&gt;</span>&nbsp;<span class="element-name">merge</span><wbr><span class="parameters">(<a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;S,<wbr>?,<wbr>F,<wbr>?&gt;&nbsp;getter,
+ <a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;&nbsp;lens)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="id()">
+<h3>id</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T&gt;</span>&nbsp;<span class="return-type"><a href="Adapter.html" title="interface in com.mojang.datafixers.optics">Adapter</a>&lt;S,<wbr>T,<wbr>S,<wbr>T&gt;</span>&nbsp;<span class="element-name">id</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isId(com.mojang.datafixers.optics.Optic)">
+<h3>isId</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isId</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="adapter(java.util.function.Function,java.util.function.Function)">
+<h3>adapter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Adapter.html" title="interface in com.mojang.datafixers.optics">Adapter</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">adapter</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S,<wbr>A&gt;&nbsp;from,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;B,<wbr>T&gt;&nbsp;to)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="lens(java.util.function.Function,java.util.function.BiFunction)">
+<h3>lens</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">lens</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S,<wbr>A&gt;&nbsp;view,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;B,<wbr>S,<wbr>T&gt;&nbsp;update)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="prism(java.util.function.Function,java.util.function.Function)">
+<h3>prism</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Prism.html" title="interface in com.mojang.datafixers.optics">Prism</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">prism</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;T,<wbr>A&gt;&gt;&nbsp;match,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;B,<wbr>T&gt;&nbsp;build)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="affine(java.util.function.Function,java.util.function.BiFunction)">
+<h3>affine</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">affine</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;T,<wbr>A&gt;&gt;&nbsp;preview,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;B,<wbr>S,<wbr>T&gt;&nbsp;build)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getter(java.util.function.Function)">
+<h3>getter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Getter.html" title="interface in com.mojang.datafixers.optics">Getter</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">getter</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;S,<wbr>A&gt;&nbsp;get)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="forget(java.util.function.Function)">
+<h3>forget</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Forget.html" title="interface in com.mojang.datafixers.optics">Forget</a>&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">forget</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;A,<wbr>R&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="forgetOpt(java.util.function.Function)">
+<h3>forgetOpt</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="ForgetOpt.html" title="interface in com.mojang.datafixers.optics">ForgetOpt</a>&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">forgetOpt</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;A, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;R&gt;&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="forgetE(java.util.function.Function)">
+<h3>forgetE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="ForgetE.html" title="interface in com.mojang.datafixers.optics">ForgetE</a>&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">forgetE</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;A, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;B,<wbr>R&gt;&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="reForget(java.util.function.Function)">
+<h3>reForget</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="ReForget.html" title="interface in com.mojang.datafixers.optics">ReForget</a>&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">reForget</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;R,<wbr>B&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="grate(com.mojang.datafixers.FunctionType)">
+<h3>grate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="Grate.html" title="interface in com.mojang.datafixers.optics">Grate</a>&lt;S,<wbr>T,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">grate</span><wbr><span class="parameters">(<a href="../FunctionType.html" title="interface in com.mojang.datafixers">FunctionType</a>&lt;<a href="../FunctionType.html" title="interface in com.mojang.datafixers">FunctionType</a>&lt;<a href="../FunctionType.html" title="interface in com.mojang.datafixers">FunctionType</a>&lt;S,<wbr>A&gt;, B&gt;, T&gt;&nbsp;grate)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="reForgetEP(java.lang.String,java.util.function.Function)">
+<h3>reForgetEP</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="ReForgetEP.html" title="interface in com.mojang.datafixers.optics">ReForgetEP</a>&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">reForgetEP</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;A, <a href="../util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;A,<wbr>R&gt;&gt;, B&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="reForgetE(java.lang.String,java.util.function.Function)">
+<h3>reForgetE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="ReForgetE.html" title="interface in com.mojang.datafixers.optics">ReForgetE</a>&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">reForgetE</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;A,<wbr>R&gt;, B&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="reForgetP(java.lang.String,java.util.function.BiFunction)">
+<h3>reForgetP</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="ReForgetP.html" title="interface in com.mojang.datafixers.optics">ReForgetP</a>&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">reForgetP</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;A,<wbr>R,<wbr>B&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="reForgetC(java.lang.String,com.mojang.datafixers.util.Either)">
+<h3>reForgetC</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="ReForgetC.html" title="interface in com.mojang.datafixers.optics">ReForgetC</a>&lt;R,<wbr>A,<wbr>B&gt;</span>&nbsp;<span class="element-name">reForgetC</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;R,<wbr>B&gt;, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;A,<wbr>R,<wbr>B&gt;&gt;&nbsp;either)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pStore(java.util.function.Function,java.util.function.Supplier)">
+<h3>pStore</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;I,<wbr>J,<wbr>X&gt;</span>&nbsp;<span class="return-type"><a href="PStore.html" title="interface in com.mojang.datafixers.optics">PStore</a>&lt;I,<wbr>J,<wbr>X&gt;</span>&nbsp;<span class="element-name">pStore</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;J,<wbr>X&gt;&nbsp;peek,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;I&gt;&nbsp;pos)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getFunc(com.mojang.datafixers.kinds.App2)">
+<h3>getFunc</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;A,<wbr>B&gt;</span>&nbsp;<span class="element-name">getFunc</span><wbr><span class="parameters">(<a href="../kinds/App2.html" title="interface in com.mojang.datafixers.kinds">App2</a>&lt;<a href="../FunctionType.Mu.html" title="class in com.mojang.datafixers">FunctionType.Mu</a>, A, B&gt;&nbsp;box)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="proj1()">
+<h3>proj1</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>G,<wbr>F2&gt;</span>&nbsp;<span class="return-type"><a href="Proj1.html" title="class in com.mojang.datafixers.optics">Proj1</a>&lt;F,<wbr>G,<wbr>F2&gt;</span>&nbsp;<span class="element-name">proj1</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isProj1(com.mojang.datafixers.optics.Optic)">
+<h3>isProj1</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isProj1</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="proj2()">
+<h3>proj2</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>G,<wbr>G2&gt;</span>&nbsp;<span class="return-type"><a href="Proj2.html" title="class in com.mojang.datafixers.optics">Proj2</a>&lt;F,<wbr>G,<wbr>G2&gt;</span>&nbsp;<span class="element-name">proj2</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isProj2(com.mojang.datafixers.optics.Optic)">
+<h3>isProj2</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isProj2</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="inj1()">
+<h3>inj1</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>G,<wbr>F2&gt;</span>&nbsp;<span class="return-type"><a href="Inj1.html" title="class in com.mojang.datafixers.optics">Inj1</a>&lt;F,<wbr>G,<wbr>F2&gt;</span>&nbsp;<span class="element-name">inj1</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isInj1(com.mojang.datafixers.optics.Optic)">
+<h3>isInj1</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isInj1</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="inj2()">
+<h3>inj2</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>G,<wbr>G2&gt;</span>&nbsp;<span class="return-type"><a href="Inj2.html" title="class in com.mojang.datafixers.optics">Inj2</a>&lt;F,<wbr>G,<wbr>G2&gt;</span>&nbsp;<span class="element-name">inj2</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isInj2(com.mojang.datafixers.optics.Optic)">
+<h3>isInj2</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isInj2</span><wbr><span class="parameters">(<a href="Optic.html" title="interface in com.mojang.datafixers.optics">Optic</a>&lt;?,<wbr>?,<wbr>?,<wbr>?,<wbr>?&gt;&nbsp;optic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="eitherLens(com.mojang.datafixers.optics.Lens,com.mojang.datafixers.optics.Lens)">
+<h3>eitherLens</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>G,<wbr>F2,<wbr>G2,<wbr>A,<wbr>B&gt;</span>
+<span class="return-type"><a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>G&gt;, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F2,<wbr>G2&gt;, A, B&gt;</span>&nbsp;<span class="element-name">eitherLens</span><wbr><span class="parameters">(<a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;F,<wbr>F2,<wbr>A,<wbr>B&gt;&nbsp;fLens,
+ <a href="Lens.html" title="interface in com.mojang.datafixers.optics">Lens</a>&lt;G,<wbr>G2,<wbr>A,<wbr>B&gt;&nbsp;gLens)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="eitherAffine(com.mojang.datafixers.optics.Affine,com.mojang.datafixers.optics.Affine)">
+<h3>eitherAffine</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>G,<wbr>F2,<wbr>G2,<wbr>A,<wbr>B&gt;</span>
+<span class="return-type"><a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>G&gt;, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F2,<wbr>G2&gt;, A, B&gt;</span>&nbsp;<span class="element-name">eitherAffine</span><wbr><span class="parameters">(<a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a>&lt;F,<wbr>F2,<wbr>A,<wbr>B&gt;&nbsp;fAffine,
+ <a href="Affine.html" title="interface in com.mojang.datafixers.optics">Affine</a>&lt;G,<wbr>G2,<wbr>A,<wbr>B&gt;&nbsp;gAffine)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="eitherTraversal(com.mojang.datafixers.optics.Traversal,com.mojang.datafixers.optics.Traversal)">
+<h3>eitherTraversal</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;F,<wbr>G,<wbr>F2,<wbr>G2,<wbr>A,<wbr>B&gt;</span>
+<span class="return-type"><a href="Traversal.html" title="interface in com.mojang.datafixers.optics">Traversal</a>&lt;<a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F,<wbr>G&gt;, <a href="../util/Either.html" title="class in com.mojang.datafixers.util">Either</a>&lt;F2,<wbr>G2&gt;, A, B&gt;</span>&nbsp;<span class="element-name">eitherTraversal</span><wbr><span class="parameters">(<a href="Traversal.html" title="interface in com.mojang.datafixers.optics">Traversal</a>&lt;F,<wbr>F2,<wbr>A,<wbr>B&gt;&nbsp;fOptic,
+ <a href="Traversal.html" title="interface in com.mojang.datafixers.optics">Traversal</a>&lt;G,<wbr>G2,<wbr>A,<wbr>B&gt;&nbsp;gOptic)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="listTraversal()">
+<h3>listTraversal</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;A,<wbr>B&gt;</span>&nbsp;<span class="return-type"><a href="ListTraversal.html" title="class in com.mojang.datafixers.optics">ListTraversal</a>&lt;A,<wbr>B&gt;</span>&nbsp;<span class="element-name">listTraversal</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

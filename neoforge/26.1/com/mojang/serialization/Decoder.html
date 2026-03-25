@@ -1,0 +1,361 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Decoder (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.mojang.serialization, interface: Decoder">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/Decoder.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../search.html">Search</a></li>
+<li><a href="../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">com.mojang.serialization</a></li>
+<li><a href="Decoder.html" class="current-selection">Decoder</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#decode(com.mojang.serialization.DynamicOps,T)" tabindex="0">decode(DynamicOps, T)</a></li>
+<li><a href="#parse(com.mojang.serialization.DynamicOps,T)" tabindex="0">parse(DynamicOps, T)</a></li>
+<li><a href="#decode(com.mojang.serialization.Dynamic)" tabindex="0">decode(Dynamic)</a></li>
+<li><a href="#parse(com.mojang.serialization.Dynamic)" tabindex="0">parse(Dynamic)</a></li>
+<li><a href="#terminal()" tabindex="0">terminal()</a></li>
+<li><a href="#boxed()" tabindex="0">boxed()</a></li>
+<li><a href="#simple()" tabindex="0">simple()</a></li>
+<li><a href="#fieldOf(java.lang.String)" tabindex="0">fieldOf(String)</a></li>
+<li><a href="#flatMap(java.util.function.Function)" tabindex="0">flatMap(Function)</a></li>
+<li><a href="#map(java.util.function.Function)" tabindex="0">map(Function)</a></li>
+<li><a href="#promotePartial(java.util.function.Consumer)" tabindex="0">promotePartial(Consumer)</a></li>
+<li><a href="#withLifecycle(com.mojang.serialization.Lifecycle)" tabindex="0">withLifecycle(Lifecycle)</a></li>
+<li><a href="#ofTerminal(com.mojang.serialization.Decoder.Terminal)" tabindex="0">ofTerminal(Decoder.Terminal)</a></li>
+<li><a href="#ofBoxed(com.mojang.serialization.Decoder.Boxed)" tabindex="0">ofBoxed(Decoder.Boxed)</a></li>
+<li><a href="#ofSimple(com.mojang.serialization.Decoder.Simple)" tabindex="0">ofSimple(Decoder.Simple)</a></li>
+<li><a href="#unit(A)" tabindex="0">unit(A)</a></li>
+<li><a href="#unit(java.util.function.Supplier)" tabindex="0">unit(Supplier)</a></li>
+<li><a href="#error(java.lang.String)" tabindex="0">error(String)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Interface Decoder" class="title">Interface Decoder&lt;<span id="type-param-A">A</span>&gt;</h1>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Known Subinterfaces:</dt>
+<dd><code><a href="Codec.html" title="interface in com.mojang.serialization">Codec</a>&lt;A&gt;, <a href="codecs/PrimitiveCodec.html" title="interface in com.mojang.serialization.codecs">PrimitiveCodec</a>&lt;A&gt;</code></dd>
+</dl>
+<dl class="notes">
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="Codec.RecursiveCodec.html" title="class in com.mojang.serialization">Codec.RecursiveCodec</a>, <a href="codecs/CompoundListCodec.html" title="class in com.mojang.serialization.codecs">CompoundListCodec</a>, <a href="../../../net/neoforged/neoforge/common/conditions/ConditionalOps.ConditionalDecoder.html" title="class in net.neoforged.neoforge.common.conditions">ConditionalOps.ConditionalDecoder</a>, <a href="codecs/DispatchedMapCodec.html" title="class in com.mojang.serialization.codecs">DispatchedMapCodec</a>, <a href="codecs/EitherCodec.html" title="class in com.mojang.serialization.codecs">EitherCodec</a>, <a href="../../../net/minecraft/util/ExtraCodecs.StrictUnboundedMapCodec.html" title="class in net.minecraft.util">ExtraCodecs.StrictUnboundedMapCodec</a>, <a href="../../../net/minecraft/resources/HolderSetCodec.html" title="class in net.minecraft.resources">HolderSetCodec</a>, <a href="../../../net/neoforged/neoforge/common/LenientUnboundedMapCodec.html" title="class in net.neoforged.neoforge.common">LenientUnboundedMapCodec</a>, <a href="codecs/ListCodec.html" title="class in com.mojang.serialization.codecs">ListCodec</a>, <a href="MapCodec.MapCodecCodec.html" title="class in com.mojang.serialization">MapCodec.MapCodecCodec</a>, <a href="../../../net/neoforged/neoforge/common/util/NeoForgeExtraCodecs.AlternativeCodec.html" title="class in net.neoforged.neoforge.common.util">NeoForgeExtraCodecs.AlternativeCodec</a>, <a href="codecs/PairCodec.html" title="class in com.mojang.serialization.codecs">PairCodec</a>, <a href="../../../net/minecraft/resources/RegistryFileCodec.html" title="class in net.minecraft.resources">RegistryFileCodec</a>, <a href="../../../net/minecraft/resources/RegistryFixedCodec.html" title="class in net.minecraft.resources">RegistryFixedCodec</a>, <a href="../../../net/minecraft/util/StringRepresentable.EnumCodec.html" title="class in net.minecraft.util">StringRepresentable.EnumCodec</a>, <a href="../../../net/minecraft/util/StringRepresentable.StringRepresentableCodec.html" title="class in net.minecraft.util">StringRepresentable.StringRepresentableCodec</a>, <a href="codecs/UnboundedMapCodec.html" title="class in com.mojang.serialization.codecs">UnboundedMapCodec</a>, <a href="codecs/XorCodec.html" title="class in com.mojang.serialization.codecs">XorCodec</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">Decoder&lt;A&gt;</span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Interface</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Decoder.Boxed.html" class="type-name-link" title="interface in com.mojang.serialization">Decoder.Boxed</a>&lt;<a href="Decoder.Boxed.html#type-param-A" title="type parameter in Decoder.Boxed">A</a>&gt;</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="Decoder.Simple.html" class="type-name-link" title="interface in com.mojang.serialization">Decoder.Simple</a>&lt;<a href="Decoder.Simple.html#type-param-A" title="type parameter in Decoder.Simple">A</a>&gt;</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Decoder.Terminal.html" class="type-name-link" title="interface in com.mojang.serialization">Decoder.Terminal</a>&lt;<a href="Decoder.Terminal.html#type-param-A" title="type parameter in Decoder.Terminal">A</a>&gt;</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Decoder.Boxed.html" title="interface in com.mojang.serialization">Decoder.Boxed</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#boxed()" class="member-name-link">boxed</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;T&gt;&nbsp;<a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>,<wbr>T&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#decode(com.mojang.serialization.Dynamic)" class="member-name-link">decode</a><wbr>(<a href="Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&nbsp;input)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>&lt;T&gt;&nbsp;<a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>,<wbr>T&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#decode(com.mojang.serialization.DynamicOps,T)" class="member-name-link">decode</a><wbr>(<a href="DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ T&nbsp;input)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#error(java.lang.String)" class="member-name-link">error</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;error)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#fieldOf(java.lang.String)" class="member-name-link">fieldOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;B&gt;&nbsp;<a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a><wbr>&lt;B&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#flatMap(java.util.function.Function)" class="member-name-link">flatMap</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Decoder">A</a>, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends B&gt;&gt;&nbsp;function)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;B&gt;&nbsp;<a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a><wbr>&lt;B&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#map(java.util.function.Function)" class="member-name-link">map</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Decoder">A</a>, ? extends B&gt;&nbsp;function)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofBoxed(com.mojang.serialization.Decoder.Boxed)" class="member-name-link">ofBoxed</a><wbr>(<a href="Decoder.Boxed.html" title="interface in com.mojang.serialization">Decoder.Boxed</a>&lt;? extends A&gt;&nbsp;boxed)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofSimple(com.mojang.serialization.Decoder.Simple)" class="member-name-link">ofSimple</a><wbr>(<a href="Decoder.Simple.html" title="interface in com.mojang.serialization">Decoder.Simple</a>&lt;? extends A&gt;&nbsp;simple)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofTerminal(com.mojang.serialization.Decoder.Terminal)" class="member-name-link">ofTerminal</a><wbr>(<a href="Decoder.Terminal.html" title="interface in com.mojang.serialization">Decoder.Terminal</a>&lt;? extends A&gt;&nbsp;terminal)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;T&gt;&nbsp;<a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#parse(com.mojang.serialization.Dynamic)" class="member-name-link">parse</a><wbr>(<a href="Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&nbsp;input)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;T&gt;&nbsp;<a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#parse(com.mojang.serialization.DynamicOps,T)" class="member-name-link">parse</a><wbr>(<a href="DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ T&nbsp;input)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#promotePartial(java.util.function.Consumer)" class="member-name-link">promotePartial</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Decoder.Simple.html" title="interface in com.mojang.serialization">Decoder.Simple</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#simple()" class="member-name-link">simple</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Decoder.Terminal.html" title="interface in com.mojang.serialization">Decoder.Terminal</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#terminal()" class="member-name-link">terminal</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#unit(A)" class="member-name-link">unit</a><wbr>(A&nbsp;instance)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;A&gt;&nbsp;<a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a><wbr>&lt;A&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#unit(java.util.function.Supplier)" class="member-name-link">unit</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;A&gt;&nbsp;instance)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a><wbr>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#withLifecycle(com.mojang.serialization.Lifecycle)" class="member-name-link">withLifecycle</a><wbr>(<a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycle)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+</div>
+</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="decode(com.mojang.serialization.DynamicOps,T)">
+<h3 id="decode(com.mojang.serialization.DynamicOps,java.lang.Object)">decode</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>,<wbr>T&gt;&gt;</span>&nbsp;<span class="element-name">decode</span><wbr><span class="parameters">(<a href="DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ T&nbsp;input)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="parse(com.mojang.serialization.DynamicOps,T)">
+<h3 id="parse(com.mojang.serialization.DynamicOps,java.lang.Object)">parse</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(<a href="DynamicOps.html" title="interface in com.mojang.serialization">DynamicOps</a>&lt;T&gt;&nbsp;ops,
+ T&nbsp;input)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="decode(com.mojang.serialization.Dynamic)">
+<h3>decode</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="../datafixers/util/Pair.html" title="class in com.mojang.datafixers.util">Pair</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>,<wbr>T&gt;&gt;</span>&nbsp;<span class="element-name">decode</span><wbr><span class="parameters">(<a href="Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&nbsp;input)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="parse(com.mojang.serialization.Dynamic)">
+<h3>parse</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type"><a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(<a href="Dynamic.html" title="class in com.mojang.serialization">Dynamic</a>&lt;T&gt;&nbsp;input)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="terminal()">
+<h3>terminal</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Decoder.Terminal.html" title="interface in com.mojang.serialization">Decoder.Terminal</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</span>&nbsp;<span class="element-name">terminal</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="boxed()">
+<h3>boxed</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Decoder.Boxed.html" title="interface in com.mojang.serialization">Decoder.Boxed</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</span>&nbsp;<span class="element-name">boxed</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="simple()">
+<h3>simple</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Decoder.Simple.html" title="interface in com.mojang.serialization">Decoder.Simple</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</span>&nbsp;<span class="element-name">simple</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fieldOf(java.lang.String)">
+<h3>fieldOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</span>&nbsp;<span class="element-name">fieldOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="flatMap(java.util.function.Function)">
+<h3>flatMap</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;B&gt;</span>&nbsp;<span class="return-type"><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;B&gt;</span>&nbsp;<span class="element-name">flatMap</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Decoder">A</a>, ? extends <a href="DataResult.html" title="interface in com.mojang.serialization">DataResult</a>&lt;? extends B&gt;&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="map(java.util.function.Function)">
+<h3>map</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;B&gt;</span>&nbsp;<span class="return-type"><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;B&gt;</span>&nbsp;<span class="element-name">map</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-A" title="type parameter in Decoder">A</a>, ? extends B&gt;&nbsp;function)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="promotePartial(java.util.function.Consumer)">
+<h3>promotePartial</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</span>&nbsp;<span class="element-name">promotePartial</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;onError)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="withLifecycle(com.mojang.serialization.Lifecycle)">
+<h3>withLifecycle</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;<a href="#type-param-A" title="type parameter in Decoder">A</a>&gt;</span>&nbsp;<span class="element-name">withLifecycle</span><wbr><span class="parameters">(<a href="Lifecycle.html" title="class in com.mojang.serialization">Lifecycle</a>&nbsp;lifecycle)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ofTerminal(com.mojang.serialization.Decoder.Terminal)">
+<h3>ofTerminal</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;</span>&nbsp;<span class="element-name">ofTerminal</span><wbr><span class="parameters">(<a href="Decoder.Terminal.html" title="interface in com.mojang.serialization">Decoder.Terminal</a>&lt;? extends A&gt;&nbsp;terminal)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ofBoxed(com.mojang.serialization.Decoder.Boxed)">
+<h3>ofBoxed</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;</span>&nbsp;<span class="element-name">ofBoxed</span><wbr><span class="parameters">(<a href="Decoder.Boxed.html" title="interface in com.mojang.serialization">Decoder.Boxed</a>&lt;? extends A&gt;&nbsp;boxed)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ofSimple(com.mojang.serialization.Decoder.Simple)">
+<h3>ofSimple</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;</span>&nbsp;<span class="element-name">ofSimple</span><wbr><span class="parameters">(<a href="Decoder.Simple.html" title="interface in com.mojang.serialization">Decoder.Simple</a>&lt;? extends A&gt;&nbsp;simple)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="unit(A)">
+<h3 id="unit(java.lang.Object)">unit</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a>&lt;A&gt;</span>&nbsp;<span class="element-name">unit</span><wbr><span class="parameters">(A&nbsp;instance)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="unit(java.util.function.Supplier)">
+<h3>unit</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="MapDecoder.html" title="interface in com.mojang.serialization">MapDecoder</a>&lt;A&gt;</span>&nbsp;<span class="element-name">unit</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;A&gt;&nbsp;instance)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="error(java.lang.String)">
+<h3>error</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;A&gt;</span>&nbsp;<span class="return-type"><a href="Decoder.html" title="interface in com.mojang.serialization">Decoder</a>&lt;A&gt;</span>&nbsp;<span class="element-name">error</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;error)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>
