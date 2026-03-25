@@ -1,0 +1,837 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>StacksResourceHandler (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.neoforged.neoforge.transfer, class: StacksResourceHandler">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/StacksResourceHandler.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.neoforged.neoforge.transfer</a></li>
+<li><a href="StacksResourceHandler.html" class="current-selection">StacksResourceHandler</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#VALUE_IO_KEY" tabindex="0">VALUE_IO_KEY</a></li>
+<li><a href="#emptyStack" tabindex="0">emptyStack</a></li>
+<li><a href="#stacks" tabindex="0">stacks</a></li>
+<li><a href="#codec" tabindex="0">codec</a></li>
+<li><a href="#snapshotJournals" tabindex="0">snapshotJournals</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(int,S,com.mojang.serialization.Codec)" tabindex="0">StacksResourceHandler(int, S, Codec)</a></li>
+<li><a href="#%3Cinit%3E(net.minecraft.core.NonNullList,S,com.mojang.serialization.Codec)" tabindex="0">StacksResourceHandler(NonNullList, S, Codec)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#mutableCopyOf(java.util.Collection)" tabindex="0">mutableCopyOf(Collection)</a></li>
+<li><a href="#setStacks(net.minecraft.core.NonNullList)" tabindex="0">setStacks(NonNullList)</a></li>
+<li><a href="#updateStacksSize()" tabindex="0">updateStacksSize()</a></li>
+<li><a href="#serialize(net.minecraft.world.level.storage.ValueOutput)" tabindex="0">serialize(ValueOutput)</a></li>
+<li><a href="#deserialize(net.minecraft.world.level.storage.ValueInput)" tabindex="0">deserialize(ValueInput)</a></li>
+<li><a href="#set(int,T,int)" tabindex="0">set(int, T, int)</a></li>
+<li><a href="#getResourceFrom(S)" tabindex="0">getResourceFrom(S)</a></li>
+<li><a href="#getAmountFrom(S)" tabindex="0">getAmountFrom(S)</a></li>
+<li><a href="#getStackFrom(T,int)" tabindex="0">getStackFrom(T, int)</a></li>
+<li><a href="#copyOf(S)" tabindex="0">copyOf(S)</a></li>
+<li><a href="#matches(S,T)" tabindex="0">matches(S, T)</a></li>
+<li><a href="#isValid(int,T)" tabindex="0">isValid(int, T)</a></li>
+<li><a href="#getCapacity(int,T)" tabindex="0">getCapacity(int, T)</a></li>
+<li><a href="#onContentsChanged(int,S)" tabindex="0">onContentsChanged(int, S)</a></li>
+<li><a href="#copyToList()" tabindex="0">copyToList()</a></li>
+<li><a href="#size()" tabindex="0">size()</a></li>
+<li><a href="#getResource(int)" tabindex="0">getResource(int)</a></li>
+<li><a href="#getAmountAsLong(int)" tabindex="0">getAmountAsLong(int)</a></li>
+<li><a href="#getCapacityAsLong(int,T)" tabindex="0">getCapacityAsLong(int, T)</a></li>
+<li><a href="#insert(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)" tabindex="0">insert(int, T, int, TransactionContext)</a></li>
+<li><a href="#extract(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)" tabindex="0">extract(int, T, int, TransactionContext)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class StacksResourceHandler" class="title">Class StacksResourceHandler&lt;S, T extends <a href="resource/Resource.html" title="interface in net.neoforged.neoforge.transfer.resource">Resource</a>&gt;</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.neoforged.neoforge.transfer.StacksResourceHandler&lt;S,<wbr>T&gt;</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>Type Parameters:</dt>
+<dd><span id="type-param-S"><code>S</code> - The type of stack used to store the contents of this handler.</span></dd>
+<dd><span id="type-param-T"><code>T</code> - The type of resource this handler manages.</span></dd>
+</dl>
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../common/util/ValueIOSerializable.html" title="interface in net.neoforged.neoforge.common.util">ValueIOSerializable</a>, <a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a>&lt;T&gt;</code></dd>
+</dl>
+<dl class="notes">
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="fluid/FluidStacksResourceHandler.html" title="class in net.neoforged.neoforge.transfer.fluid">FluidStacksResourceHandler</a>, <a href="item/ItemStacksResourceHandler.html" title="class in net.neoforged.neoforge.transfer.item">ItemStacksResourceHandler</a>, <a href="ResourceStacksResourceHandler.html" title="class in net.neoforged.neoforge.transfer">ResourceStacksResourceHandler</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public abstract class </span><span class="element-name type-name-label">StacksResourceHandler&lt;S, T extends <a href="resource/Resource.html" title="interface in net.neoforged.neoforge.transfer.resource">Resource</a>&gt;</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a>&lt;T&gt;, <a href="../common/util/ValueIOSerializable.html" title="interface in net.neoforged.neoforge.common.util">ValueIOSerializable</a></span></div>
+<div class="block">Base implementation of a <a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer"><code>ResourceHandler</code></a> backed by a list of stacks.
+This implementation is generic in the type of transferred resources <code>T</code>,
+and in the type of stack <code>S</code> used to store the contents of the handler.
+
+<p>As a result of this flexibility, this base implementation comes with the following methods will typically be overridden:
+<ul>
+<li>(required) <a href="#getResourceFrom(S)"><code>getResourceFrom(S)</code></a>, <a href="#getAmountFrom(S)"><code>getAmountFrom(S)</code></a>, and <a href="#getStackFrom(T,int)"><code>getStackFrom(T, int)</code></a> to convert between amounts, resources and stacks.</li>
+<li>(required) <a href="#copyOf(S)"><code>copyOf(S)</code></a> to copy stacks for snapshotting support.</li>
+<li>(recommended) <a href="#matches(S,T)"><code>matches(S, T)</code></a> to optimize the frequent operation of checking whether a resource and a stack match.</li>
+<li>(optional) <a href="#isValid(int,T)"><code>isValid(int, T)</code></a> to limit which resources are allowed in this handler; by default any resource is allowed.</li>
+<li>(required) <a href="#getCapacity(int,T)"><code>getCapacity(int, T)</code></a> to specify the capacity of this handler.</li>
+<li>(recommended) <a href="#onContentsChanged(int,S)"><code>onContentsChanged(int, S)</code></a> to react to changes in this handler, for example to trigger <code>setChanged()</code>.</li>
+</ul></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="item/ItemStacksResourceHandler.html" title="class in net.neoforged.neoforge.transfer.item">the ItemStack-based subclass</a></li>
+<li><a href="fluid/FluidStacksResourceHandler.html" title="class in net.neoforged.neoforge.transfer.fluid">the FluidStack-based subclass</a></li>
+<li><a href="ResourceStacksResourceHandler.html" title="class in net.neoforged.neoforge.transfer">the ResourceStack-based subclass</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="StacksResourceHandler.StackJournal.html" class="type-name-link" title="class in net.neoforged.neoforge.transfer">StacksResourceHandler.StackJournal</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>protected final com.mojang.serialization.Codec<wbr>&lt;<a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#codec" class="member-name-link">codec</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected final <a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#emptyStack" class="member-name-link">emptyStack</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a><wbr>&lt;<a href="StacksResourceHandler.html" title="class in net.neoforged.neoforge.transfer">StacksResourceHandler</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>,<wbr><a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&gt;.<a href="StacksResourceHandler.StackJournal.html" title="class in net.neoforged.neoforge.transfer">StackJournal</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#snapshotJournals" class="member-name-link">snapshotJournals</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected <a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a><wbr>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#stacks" class="member-name-link">stacks</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#VALUE_IO_KEY" class="member-name-link">VALUE_IO_KEY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>protected </code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(int,S,com.mojang.serialization.Codec)" class="member-name-link">StacksResourceHandler</a><wbr>(int&nbsp;size,
+ <a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;emptyStack,
+ com.mojang.serialization.Codec&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;stackCodec)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected </code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.core.NonNullList,S,com.mojang.serialization.Codec)" class="member-name-link">StacksResourceHandler</a><wbr>(<a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;stacks,
+ <a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;emptyStack,
+ com.mojang.serialization.Codec&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;stackCodec)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#copyOf(S)" class="member-name-link">copyOf</a><wbr>(<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;stack)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Creates a copy of a stack, for use as a snapshot.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a><wbr>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#copyToList()" class="member-name-link">copyToList</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Copies all the contents of this handler to a mutable fixed-size <a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core"><code>NonNullList</code></a>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deserialize(net.minecraft.world.level.storage.ValueInput)" class="member-name-link">deserialize</a><wbr>(<a href="../../../minecraft/world/level/storage/ValueInput.html" title="interface in net.minecraft.world.level.storage">ValueInput</a>&nbsp;input)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#extract(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)" class="member-name-link">extract</a><wbr>(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource,
+ int&nbsp;amount,
+ <a href="transaction/TransactionContext.html" title="interface in net.neoforged.neoforge.transfer.transaction">TransactionContext</a>&nbsp;transaction)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Extracts up to the given amount of a resource from the handler at the given index.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAmountAsLong(int)" class="member-name-link">getAmountAsLong</a><wbr>(int&nbsp;index)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the amount of the <a href="ResourceHandler.html#getResource(int)">currently stored resource</a> at the given index, as a <code>long</code>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getAmountFrom(S)" class="member-name-link">getAmountFrom</a><wbr>(<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;stack)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Retrieves the amount from a stack.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getCapacity(int,T)" class="member-name-link">getCapacity</a><wbr>(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Return the maximum capacity of this handler for the passed resource.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCapacityAsLong(int,T)" class="member-name-link">getCapacityAsLong</a><wbr>(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the capacity of the handler at the given index and for the given resource,
+irrespective of the current amount or resource currently at that index, as a <code>long</code>.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResource(int)" class="member-name-link">getResource</a><wbr>(int&nbsp;index)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the resource at the given index, which may be empty.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getResourceFrom(S)" class="member-name-link">getResourceFrom</a><wbr>(<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;stack)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Retrieves the resource from a stack.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>protected abstract <a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getStackFrom(T,int)" class="member-name-link">getStackFrom</a><wbr>(<a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource,
+ int&nbsp;amount)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Creates a stack from a resource and an amount.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#insert(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)" class="member-name-link">insert</a><wbr>(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource,
+ int&nbsp;amount,
+ <a href="transaction/TransactionContext.html" title="interface in net.neoforged.neoforge.transfer.transaction">TransactionContext</a>&nbsp;transaction)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Inserts up to the given amount of a resource into the handler at the given index.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isValid(int,T)" class="member-name-link">isValid</a><wbr>(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Return <code>true</code> if the passed non-empty resource can fit in this handler, <code>false</code> otherwise.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#matches(S,T)" class="member-name-link">matches</a><wbr>(<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;stack,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Checks if the passed resource corresponds to the stack.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a><wbr>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#mutableCopyOf(java.util.Collection)" class="member-name-link">mutableCopyOf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;list)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Creates a <a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core"><code>NonNullList</code></a> that is a fixed-size mutable copy of the given collection.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onContentsChanged(int,S)" class="member-name-link">onContentsChanged</a><wbr>(int&nbsp;index,
+ <a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;previousContents)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Called after the contents of the handler changed.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serialize(net.minecraft.world.level.storage.ValueOutput)" class="member-name-link">serialize</a><wbr>(<a href="../../../minecraft/world/level/storage/ValueOutput.html" title="interface in net.minecraft.world.level.storage">ValueOutput</a>&nbsp;output)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#set(int,T,int)" class="member-name-link">set</a><wbr>(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource,
+ int&nbsp;amount)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Directly overwrites the contents of the handler.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStacks(net.minecraft.core.NonNullList)" class="member-name-link">setStacks</a><wbr>(<a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;stacks)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Changes the list of stacks.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#size()" class="member-name-link">size</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Returns the <i>current</i> number of indices in this resource handler.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateStacksSize()" class="member-name-link">updateStacksSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.neoforged.neoforge.transfer.ResourceHandler">Methods inherited from interface&nbsp;<a href="ResourceHandler.html#method-summary" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a></h3>
+<code><a href="ResourceHandler.html#extract(T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)" title="extract(T, int, TransactionContext)">extract</a>, <a href="ResourceHandler.html#getAmountAsInt(int)" title="getAmountAsInt(int)">getAmountAsInt</a>, <a href="ResourceHandler.html#getCapacityAsInt(int,T)" title="getCapacityAsInt(int, T)">getCapacityAsInt</a>, <a href="ResourceHandler.html#insert(T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)" title="insert(T, int, TransactionContext)">insert</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="VALUE_IO_KEY">
+<h3>VALUE_IO_KEY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">VALUE_IO_KEY</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.neoforged.neoforge.transfer.StacksResourceHandler.VALUE_IO_KEY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="emptyStack">
+<h3>emptyStack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a></span>&nbsp;<span class="element-name">emptyStack</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="stacks">
+<h3>stacks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</span>&nbsp;<span class="element-name">stacks</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="codec">
+<h3>codec</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type">com.mojang.serialization.Codec&lt;<a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&gt;</span>&nbsp;<span class="element-name">codec</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="snapshotJournals">
+<h3>snapshotJournals</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/ArrayList.html" title="class or interface in java.util" class="external-link">ArrayList</a>&lt;<a href="StacksResourceHandler.html" title="class in net.neoforged.neoforge.transfer">StacksResourceHandler</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>, <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a> extends <a href="resource/Resource.html" title="interface in net.neoforged.neoforge.transfer.resource">Resource</a>&gt;.<a href="StacksResourceHandler.StackJournal.html" title="class in net.neoforged.neoforge.transfer">StackJournal</a>&gt;</span>&nbsp;<span class="element-name">snapshotJournals</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(int,S,com.mojang.serialization.Codec)">
+<h3 id="&lt;init&gt;(int,java.lang.Object,com.mojang.serialization.Codec)">StacksResourceHandler</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">StacksResourceHandler</span><wbr><span class="parameters">(int&nbsp;size,
+ <a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;emptyStack,
+ com.mojang.serialization.Codec&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;stackCodec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.core.NonNullList,S,com.mojang.serialization.Codec)">
+<h3 id="&lt;init&gt;(net.minecraft.core.NonNullList,java.lang.Object,com.mojang.serialization.Codec)">StacksResourceHandler</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="element-name">StacksResourceHandler</span><wbr><span class="parameters">(<a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;stacks,
+ <a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;emptyStack,
+ com.mojang.serialization.Codec&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;stackCodec)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="mutableCopyOf(java.util.Collection)">
+<h3>mutableCopyOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</span>&nbsp;<span class="element-name">mutableCopyOf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;list)</span></div>
+<div class="block">Creates a <a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core"><code>NonNullList</code></a> that is a fixed-size mutable copy of the given collection.</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setStacks(net.minecraft.core.NonNullList)">
+<h3>setStacks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setStacks</span><wbr><span class="parameters">(<a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;&nbsp;stacks)</span></div>
+<div class="block">Changes the list of stacks. Can change the size of the handler.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>stacks</code> - The new list of stacks. A shallow copy will be made.</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="updateStacksSize()">
+<h3>updateStacksSize</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateStacksSize</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="serialize(net.minecraft.world.level.storage.ValueOutput)">
+<h3>serialize</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">serialize</span><wbr><span class="parameters">(<a href="../../../minecraft/world/level/storage/ValueOutput.html" title="interface in net.minecraft.world.level.storage">ValueOutput</a>&nbsp;output)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../common/util/ValueIOSerializable.html#serialize(net.minecraft.world.level.storage.ValueOutput)">serialize</a></code>&nbsp;in interface&nbsp;<code><a href="../common/util/ValueIOSerializable.html" title="interface in net.neoforged.neoforge.common.util">ValueIOSerializable</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="deserialize(net.minecraft.world.level.storage.ValueInput)">
+<h3>deserialize</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deserialize</span><wbr><span class="parameters">(<a href="../../../minecraft/world/level/storage/ValueInput.html" title="interface in net.minecraft.world.level.storage">ValueInput</a>&nbsp;input)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../common/util/ValueIOSerializable.html#deserialize(net.minecraft.world.level.storage.ValueInput)">deserialize</a></code>&nbsp;in interface&nbsp;<code><a href="../common/util/ValueIOSerializable.html" title="interface in net.neoforged.neoforge.common.util">ValueIOSerializable</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="set(int,T,int)">
+<h3 id="set(int,net.neoforged.neoforge.transfer.resource.Resource,int)">set</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">set</span><wbr><span class="parameters">(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource,
+ int&nbsp;amount)</span></div>
+<div class="block">Directly overwrites the contents of the handler.
+
+<p>Note that this method can be used as an <a href="IndexModifier.html" title="interface in net.neoforged.neoforge.transfer"><code>IndexModifier</code></a>, for usage in <a href="item/ResourceHandlerSlot.html" title="class in net.neoforged.neoforge.transfer.item"><code>ResourceHandlerSlot</code></a>.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>index</code> - index to change</dd>
+<dd><code>resource</code> - new resource at the index</dd>
+<dd><code>amount</code> - new amount at the index</dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalArgumentException.html" title="class or interface in java.lang" class="external-link">IllegalArgumentException</a></code> - if either the amount is negative; or if the resource is non-empty for a 0 amount</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getResourceFrom(S)">
+<h3 id="getResourceFrom(java.lang.Object)">getResourceFrom</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a></span>&nbsp;<span class="element-name">getResourceFrom</span><wbr><span class="parameters">(<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;stack)</span></div>
+<div class="block">Retrieves the resource from a stack.
+In the case of an <a href="../../../minecraft/world/item/ItemStack.html" title="class in net.minecraft.world.item"><code>ItemStack</code></a> an <a href="item/ItemResource.html" title="class in net.neoforged.neoforge.transfer.item"><code>ItemResource</code></a> would be returned for example.</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAmountFrom(S)">
+<h3 id="getAmountFrom(java.lang.Object)">getAmountFrom</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getAmountFrom</span><wbr><span class="parameters">(<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;stack)</span></div>
+<div class="block">Retrieves the amount from a stack.
+In the case of an <a href="../../../minecraft/world/item/ItemStack.html" title="class in net.minecraft.world.item"><code>ItemStack</code></a> <a href="../../../minecraft/world/item/ItemStack.html#getCount()">the count</a> would be returned for example.</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getStackFrom(T,int)">
+<h3 id="getStackFrom(net.neoforged.neoforge.transfer.resource.Resource,int)">getStackFrom</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a></span>&nbsp;<span class="element-name">getStackFrom</span><wbr><span class="parameters">(<a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource,
+ int&nbsp;amount)</span></div>
+<div class="block">Creates a stack from a resource and an amount.
+
+<p>If the stack <a href="ResourceHandlerUtil.html#isEmpty(net.neoforged.neoforge.transfer.resource.Resource,int)">would be empty</a>,
+consider returning <a href="#emptyStack"><code>emptyStack</code></a> instead of creating a new empty stack instance.</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="copyOf(S)">
+<h3 id="copyOf(java.lang.Object)">copyOf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type"><a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a></span>&nbsp;<span class="element-name">copyOf</span><wbr><span class="parameters">(<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;stack)</span></div>
+<div class="block">Creates a copy of a stack, for use as a snapshot.
+
+<p>If using an immutable stack type such as <a href="resource/ResourceStack.html" title="class in net.neoforged.neoforge.transfer.resource"><code>ResourceStack</code></a>, it can be returned as is.
+In the case of a mutable stack type such as an item or fluid stack, a copy should be returned.</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="matches(S,T)">
+<h3 id="matches(java.lang.Object,net.neoforged.neoforge.transfer.resource.Resource)">matches</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">matches</span><wbr><span class="parameters">(<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;stack,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource)</span></div>
+<div class="block">Checks if the passed resource corresponds to the stack.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>stack</code> - the stack, usually the current stored value</dd>
+<dd><code>resource</code> - the resource, usually the received value in insert or extract</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if the stack and resource match; <code>false</code> otherwise.</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isValid(int,T)">
+<h3 id="isValid(int,net.neoforged.neoforge.transfer.resource.Resource)">isValid</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isValid</span><wbr><span class="parameters">(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource)</span></div>
+<div class="block">Return <code>true</code> if the passed non-empty resource can fit in this handler, <code>false</code> otherwise.
+
+<p>The result of this function is used in the provided implementations of:
+<ul>
+<li><a href="#getCapacityAsLong(int,T)"><code>getCapacityAsLong(int, T)</code></a>, to report a capacity of <code>0</code> for invalid items;</li>
+<li><a href="#insert(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)"><code>insert(int, T, int, TransactionContext)</code></a>, to reject items that cannot fit in this handler.</li>
+</ul></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceHandler.html#isValid(int,T)">isValid</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>index</code> - The index to check.</dd>
+<dd><code>resource</code> - The resource to check. <strong>Must be non-empty.</strong></dd>
+<dt>Returns:</dt>
+<dd>whether the given resource is generally allowed to be contained at the given index,
+irrespective of the current amount or resource currently at that index</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCapacity(int,T)">
+<h3 id="getCapacity(int,net.neoforged.neoforge.transfer.resource.Resource)">getCapacity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected abstract</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getCapacity</span><wbr><span class="parameters">(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource)</span></div>
+<div class="block">Return the maximum capacity of this handler for the passed resource.
+If the passed resource is empty, an estimate should be returned.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>The maximum capacity of this handler for the passed resource.</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onContentsChanged(int,S)">
+<h3 id="onContentsChanged(int,java.lang.Object)">onContentsChanged</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onContentsChanged</span><wbr><span class="parameters">(int&nbsp;index,
+ <a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&nbsp;previousContents)</span></div>
+<div class="block">Called after the contents of the handler changed.
+
+<p>For changes that happen through <a href="#set(int,T,int)"><code>set(int, T, int)</code></a>, this method is called immediately.
+For changes that happen through <a href="#insert(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)"><code>insert(int, T, int, TransactionContext)</code></a> or <a href="#extract(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)"><code>extract(int, T, int, TransactionContext)</code></a>,
+this function will be called at the end of the transaction, once per index that changed.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>index</code> - the index where the change happened</dd>
+<dd><code>previousContents</code> - the stack before the change</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="copyToList()">
+<h3>copyToList</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core">NonNullList</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</span>&nbsp;<span class="element-name">copyToList</span>()</div>
+<div class="block">Copies all the contents of this handler to a mutable fixed-size <a href="../../../minecraft/core/NonNullList.html" title="class in net.minecraft.core"><code>NonNullList</code></a>.</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="size()">
+<h3>size</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">size</span>()</div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="ResourceHandler.html#size()">ResourceHandler</a></code></span></div>
+<div class="block">Returns the <i>current</i> number of indices in this resource handler.
+
+<p>This size provides a bound on the valid indices for this handler,
+see the documentation of <a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer"><code>ResourceHandler</code></a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceHandler.html#size()">size</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></dd>
+<dt>Returns:</dt>
+<dd>The size of the resource handler. Can be <code>0</code> if the handler currently has no indices.</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getResource(int)">
+<h3>getResource</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a></span>&nbsp;<span class="element-name">getResource</span><wbr><span class="parameters">(int&nbsp;index)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="ResourceHandler.html#getResource(int)">ResourceHandler</a></code></span></div>
+<div class="block">Returns the resource at the given index, which may be empty.
+
+<p>If the resource is empty, the <a href="ResourceHandler.html#getAmountAsLong(int)">stored amount</a> must be 0.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceHandler.html#getResource(int)">getResource</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>index</code> - The index to get the resource from.</dd>
+<dt>Returns:</dt>
+<dd>the resource at the given index, which may be empty</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAmountAsLong(int)">
+<h3>getAmountAsLong</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">getAmountAsLong</span><wbr><span class="parameters">(int&nbsp;index)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="ResourceHandler.html#getAmountAsLong(int)">ResourceHandler</a></code></span></div>
+<div class="block">Returns the amount of the <a href="ResourceHandler.html#getResource(int)">currently stored resource</a> at the given index, as a <code>long</code>.
+
+<p>In general, resource handlers can report <code>long</code> amounts.
+However, if the handler is known to only support amounts up to <code>Integer.MAX_VALUE</code>,
+or if the caller prefers to deal in <code>int</code>s only,
+the <a href="ResourceHandler.html#getAmountAsInt(int)">int-returning overload</a> can be used instead.
+
+<p>The returned amount must be <strong>non-negative</strong>.
+If the <a href="ResourceHandler.html#getResource(int)">stored resource</a> is empty, the amount must be 0.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceHandler.html#getAmountAsLong(int)">getAmountAsLong</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>index</code> - The index to get the amount from.</dd>
+<dt>Returns:</dt>
+<dd>the amount at the given index, as a long</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="ResourceHandler.html#getAmountAsInt(int)"><code>ResourceHandler.getAmountAsInt(int)</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCapacityAsLong(int,T)">
+<h3 id="getCapacityAsLong(int,net.neoforged.neoforge.transfer.resource.Resource)">getCapacityAsLong</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">getCapacityAsLong</span><wbr><span class="parameters">(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="ResourceHandler.html#getCapacityAsLong(int,T)">ResourceHandler</a></code></span></div>
+<div class="block">Returns the capacity of the handler at the given index and for the given resource,
+irrespective of the current amount or resource currently at that index, as a <code>long</code>.
+<p>
+In general, resource handlers can report <code>long</code> capacities.
+However, if the handler is known to only support capacities up to <code>Integer.MAX_VALUE</code>,
+or if the caller prefers to deal in <code>int</code>s only,
+the <a href="ResourceHandler.html#getCapacityAsInt(int,T)">int-returning overload</a> can be used instead.
+<p>
+This function serves as a hint on the maximum <a href="ResourceHandler.html#getAmountAsLong(int)">amount</a> the resource handler might contain,
+for example the handler can be considered full if <code>amount &gt;= capacity</code>.
+Note that the returned capacity may overestimate the actual allowed amount, and it might be smaller than the current amount.
+The only way to know if a handler will accept a resource, is to try to <a href="ResourceHandler.html#insert(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)"><code>insert</code></a> it.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceHandler.html#getCapacityAsLong(int,T)">getCapacityAsLong</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>index</code> - The index to get the capacity for.</dd>
+<dd><code>resource</code> - The resource to get the capacity for. May be empty to get the general capacity at the index.</dd>
+<dt>Returns:</dt>
+<dd>the capacity at the given index, as a long</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="ResourceHandler.html#getCapacityAsInt(int,T)"><code>ResourceHandler.getCapacityAsInt(int, Resource)</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="insert(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">
+<h3 id="insert(int,net.neoforged.neoforge.transfer.resource.Resource,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">insert</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">insert</span><wbr><span class="parameters">(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource,
+ int&nbsp;amount,
+ <a href="transaction/TransactionContext.html" title="interface in net.neoforged.neoforge.transfer.transaction">TransactionContext</a>&nbsp;transaction)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="ResourceHandler.html#insert(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">ResourceHandler</a></code></span></div>
+<div class="block">Inserts up to the given amount of a resource into the handler at the given index.
+
+<p>Changes to the handler are made in the context of a <a href="transaction/Transaction.html" title="class in net.neoforged.neoforge.transfer.transaction">transaction</a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceHandler.html#insert(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">insert</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>index</code> - The index to insert the resource into.</dd>
+<dd><code>resource</code> - The resource to insert. <strong>Must be non-empty.</strong></dd>
+<dd><code>amount</code> - The maximum amount of the resource to insert. <strong>Must be non-negative.</strong></dd>
+<dd><code>transaction</code> - The transaction that this operation is part of.</dd>
+<dt>Returns:</dt>
+<dd>The amount that was inserted. Between <code>0</code> (inclusive, nothing was inserted) and <code>amount</code> (inclusive, everything was inserted).</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="ResourceHandler.html#insert(T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">Inserting without a specific index, which can be more efficient.</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="extract(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">
+<h3 id="extract(int,net.neoforged.neoforge.transfer.resource.Resource,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">extract</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">extract</span><wbr><span class="parameters">(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in StacksResourceHandler">T</a>&nbsp;resource,
+ int&nbsp;amount,
+ <a href="transaction/TransactionContext.html" title="interface in net.neoforged.neoforge.transfer.transaction">TransactionContext</a>&nbsp;transaction)</span></div>
+<div class="block"><span class="description-from-type-label">Description copied from interface:&nbsp;<code><a href="ResourceHandler.html#extract(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">ResourceHandler</a></code></span></div>
+<div class="block">Extracts up to the given amount of a resource from the handler at the given index.
+
+<p>Changes to the handler are made in the context of a <a href="transaction/Transaction.html" title="class in net.neoforged.neoforge.transfer.transaction">transaction</a>.</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceHandler.html#extract(int,T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">extract</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceHandler.html" title="interface in net.neoforged.neoforge.transfer">ResourceHandler</a>&lt;<a href="#type-param-S" title="type parameter in StacksResourceHandler">S</a>&gt;</code></dd>
+<dt>Parameters:</dt>
+<dd><code>index</code> - The index to extract the resource from.</dd>
+<dd><code>resource</code> - The resource to extract. <strong>Must be non-empty.</strong></dd>
+<dd><code>amount</code> - The maximum amount of the resource to extract. <strong>Must be non-negative.</strong></dd>
+<dd><code>transaction</code> - The transaction that this operation is part of.</dd>
+<dt>Returns:</dt>
+<dd>The amount that was extracted. Between <code>0</code> (inclusive, nothing was extracted) and <code>amount</code> (inclusive, everything was extracted).</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list-long">
+<li><a href="ResourceHandler.html#extract(T,int,net.neoforged.neoforge.transfer.transaction.TransactionContext)">Extracting without a specific index, which can be more efficient.</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

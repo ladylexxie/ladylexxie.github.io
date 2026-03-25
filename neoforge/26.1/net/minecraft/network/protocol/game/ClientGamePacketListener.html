@@ -1,0 +1,1645 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ClientGamePacketListener (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.network.protocol.game, interface: ClientGamePacketListener">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/ClientGamePacketListener.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.network.protocol.game</a></li>
+<li><a href="ClientGamePacketListener.html" class="current-selection">ClientGamePacketListener</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#protocol()" tabindex="0">protocol()</a></li>
+<li><a href="#handleAddEntity(net.minecraft.network.protocol.game.ClientboundAddEntityPacket)" tabindex="0">handleAddEntity(ClientboundAddEntityPacket)</a></li>
+<li><a href="#handleAddObjective(net.minecraft.network.protocol.game.ClientboundSetObjectivePacket)" tabindex="0">handleAddObjective(ClientboundSetObjectivePacket)</a></li>
+<li><a href="#handleAnimate(net.minecraft.network.protocol.game.ClientboundAnimatePacket)" tabindex="0">handleAnimate(ClientboundAnimatePacket)</a></li>
+<li><a href="#handleHurtAnimation(net.minecraft.network.protocol.game.ClientboundHurtAnimationPacket)" tabindex="0">handleHurtAnimation(ClientboundHurtAnimationPacket)</a></li>
+<li><a href="#handleAwardStats(net.minecraft.network.protocol.game.ClientboundAwardStatsPacket)" tabindex="0">handleAwardStats(ClientboundAwardStatsPacket)</a></li>
+<li><a href="#handleRecipeBookAdd(net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket)" tabindex="0">handleRecipeBookAdd(ClientboundRecipeBookAddPacket)</a></li>
+<li><a href="#handleRecipeBookRemove(net.minecraft.network.protocol.game.ClientboundRecipeBookRemovePacket)" tabindex="0">handleRecipeBookRemove(ClientboundRecipeBookRemovePacket)</a></li>
+<li><a href="#handleRecipeBookSettings(net.minecraft.network.protocol.game.ClientboundRecipeBookSettingsPacket)" tabindex="0">handleRecipeBookSettings(ClientboundRecipeBookSettingsPacket)</a></li>
+<li><a href="#handleBlockDestruction(net.minecraft.network.protocol.game.ClientboundBlockDestructionPacket)" tabindex="0">handleBlockDestruction(ClientboundBlockDestructionPacket)</a></li>
+<li><a href="#handleOpenSignEditor(net.minecraft.network.protocol.game.ClientboundOpenSignEditorPacket)" tabindex="0">handleOpenSignEditor(ClientboundOpenSignEditorPacket)</a></li>
+<li><a href="#handleBlockEntityData(net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket)" tabindex="0">handleBlockEntityData(ClientboundBlockEntityDataPacket)</a></li>
+<li><a href="#handleBlockEvent(net.minecraft.network.protocol.game.ClientboundBlockEventPacket)" tabindex="0">handleBlockEvent(ClientboundBlockEventPacket)</a></li>
+<li><a href="#handleBlockUpdate(net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket)" tabindex="0">handleBlockUpdate(ClientboundBlockUpdatePacket)</a></li>
+<li><a href="#handleSystemChat(net.minecraft.network.protocol.game.ClientboundSystemChatPacket)" tabindex="0">handleSystemChat(ClientboundSystemChatPacket)</a></li>
+<li><a href="#handlePlayerChat(net.minecraft.network.protocol.game.ClientboundPlayerChatPacket)" tabindex="0">handlePlayerChat(ClientboundPlayerChatPacket)</a></li>
+<li><a href="#handleDisguisedChat(net.minecraft.network.protocol.game.ClientboundDisguisedChatPacket)" tabindex="0">handleDisguisedChat(ClientboundDisguisedChatPacket)</a></li>
+<li><a href="#handleDeleteChat(net.minecraft.network.protocol.game.ClientboundDeleteChatPacket)" tabindex="0">handleDeleteChat(ClientboundDeleteChatPacket)</a></li>
+<li><a href="#handleChunkBlocksUpdate(net.minecraft.network.protocol.game.ClientboundSectionBlocksUpdatePacket)" tabindex="0">handleChunkBlocksUpdate(ClientboundSectionBlocksUpdatePacket)</a></li>
+<li><a href="#handleMapItemData(net.minecraft.network.protocol.game.ClientboundMapItemDataPacket)" tabindex="0">handleMapItemData(ClientboundMapItemDataPacket)</a></li>
+<li><a href="#handleContainerClose(net.minecraft.network.protocol.game.ClientboundContainerClosePacket)" tabindex="0">handleContainerClose(ClientboundContainerClosePacket)</a></li>
+<li><a href="#handleContainerContent(net.minecraft.network.protocol.game.ClientboundContainerSetContentPacket)" tabindex="0">handleContainerContent(ClientboundContainerSetContentPacket)</a></li>
+<li><a href="#handleMountScreenOpen(net.minecraft.network.protocol.game.ClientboundMountScreenOpenPacket)" tabindex="0">handleMountScreenOpen(ClientboundMountScreenOpenPacket)</a></li>
+<li><a href="#handleContainerSetData(net.minecraft.network.protocol.game.ClientboundContainerSetDataPacket)" tabindex="0">handleContainerSetData(ClientboundContainerSetDataPacket)</a></li>
+<li><a href="#handleContainerSetSlot(net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket)" tabindex="0">handleContainerSetSlot(ClientboundContainerSetSlotPacket)</a></li>
+<li><a href="#handleEntityEvent(net.minecraft.network.protocol.game.ClientboundEntityEventPacket)" tabindex="0">handleEntityEvent(ClientboundEntityEventPacket)</a></li>
+<li><a href="#handleEntityLinkPacket(net.minecraft.network.protocol.game.ClientboundSetEntityLinkPacket)" tabindex="0">handleEntityLinkPacket(ClientboundSetEntityLinkPacket)</a></li>
+<li><a href="#handleSetEntityPassengersPacket(net.minecraft.network.protocol.game.ClientboundSetPassengersPacket)" tabindex="0">handleSetEntityPassengersPacket(ClientboundSetPassengersPacket)</a></li>
+<li><a href="#handleExplosion(net.minecraft.network.protocol.game.ClientboundExplodePacket)" tabindex="0">handleExplosion(ClientboundExplodePacket)</a></li>
+<li><a href="#handleGameEvent(net.minecraft.network.protocol.game.ClientboundGameEventPacket)" tabindex="0">handleGameEvent(ClientboundGameEventPacket)</a></li>
+<li><a href="#handleLevelChunkWithLight(net.minecraft.network.protocol.game.ClientboundLevelChunkWithLightPacket)" tabindex="0">handleLevelChunkWithLight(ClientboundLevelChunkWithLightPacket)</a></li>
+<li><a href="#handleChunksBiomes(net.minecraft.network.protocol.game.ClientboundChunksBiomesPacket)" tabindex="0">handleChunksBiomes(ClientboundChunksBiomesPacket)</a></li>
+<li><a href="#handleForgetLevelChunk(net.minecraft.network.protocol.game.ClientboundForgetLevelChunkPacket)" tabindex="0">handleForgetLevelChunk(ClientboundForgetLevelChunkPacket)</a></li>
+<li><a href="#handleLevelEvent(net.minecraft.network.protocol.game.ClientboundLevelEventPacket)" tabindex="0">handleLevelEvent(ClientboundLevelEventPacket)</a></li>
+<li><a href="#handleLogin(net.minecraft.network.protocol.game.ClientboundLoginPacket)" tabindex="0">handleLogin(ClientboundLoginPacket)</a></li>
+<li><a href="#handleMoveEntity(net.minecraft.network.protocol.game.ClientboundMoveEntityPacket)" tabindex="0">handleMoveEntity(ClientboundMoveEntityPacket)</a></li>
+<li><a href="#handleMinecartAlongTrack(net.minecraft.network.protocol.game.ClientboundMoveMinecartPacket)" tabindex="0">handleMinecartAlongTrack(ClientboundMoveMinecartPacket)</a></li>
+<li><a href="#handleMovePlayer(net.minecraft.network.protocol.game.ClientboundPlayerPositionPacket)" tabindex="0">handleMovePlayer(ClientboundPlayerPositionPacket)</a></li>
+<li><a href="#handleRotatePlayer(net.minecraft.network.protocol.game.ClientboundPlayerRotationPacket)" tabindex="0">handleRotatePlayer(ClientboundPlayerRotationPacket)</a></li>
+<li><a href="#handleParticleEvent(net.minecraft.network.protocol.game.ClientboundLevelParticlesPacket)" tabindex="0">handleParticleEvent(ClientboundLevelParticlesPacket)</a></li>
+<li><a href="#handlePlayerAbilities(net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket)" tabindex="0">handlePlayerAbilities(ClientboundPlayerAbilitiesPacket)</a></li>
+<li><a href="#handleGameRuleValues(net.minecraft.network.protocol.game.ClientboundGameRuleValuesPacket)" tabindex="0">handleGameRuleValues(ClientboundGameRuleValuesPacket)</a></li>
+<li><a href="#handlePlayerInfoRemove(net.minecraft.network.protocol.game.ClientboundPlayerInfoRemovePacket)" tabindex="0">handlePlayerInfoRemove(ClientboundPlayerInfoRemovePacket)</a></li>
+<li><a href="#handlePlayerInfoUpdate(net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket)" tabindex="0">handlePlayerInfoUpdate(ClientboundPlayerInfoUpdatePacket)</a></li>
+<li><a href="#handleRemoveEntities(net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket)" tabindex="0">handleRemoveEntities(ClientboundRemoveEntitiesPacket)</a></li>
+<li><a href="#handleRemoveMobEffect(net.minecraft.network.protocol.game.ClientboundRemoveMobEffectPacket)" tabindex="0">handleRemoveMobEffect(ClientboundRemoveMobEffectPacket)</a></li>
+<li><a href="#handleRespawn(net.minecraft.network.protocol.game.ClientboundRespawnPacket)" tabindex="0">handleRespawn(ClientboundRespawnPacket)</a></li>
+<li><a href="#handleRotateMob(net.minecraft.network.protocol.game.ClientboundRotateHeadPacket)" tabindex="0">handleRotateMob(ClientboundRotateHeadPacket)</a></li>
+<li><a href="#handleSetHeldSlot(net.minecraft.network.protocol.game.ClientboundSetHeldSlotPacket)" tabindex="0">handleSetHeldSlot(ClientboundSetHeldSlotPacket)</a></li>
+<li><a href="#handleSetDisplayObjective(net.minecraft.network.protocol.game.ClientboundSetDisplayObjectivePacket)" tabindex="0">handleSetDisplayObjective(ClientboundSetDisplayObjectivePacket)</a></li>
+<li><a href="#handleSetEntityData(net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket)" tabindex="0">handleSetEntityData(ClientboundSetEntityDataPacket)</a></li>
+<li><a href="#handleSetEntityMotion(net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket)" tabindex="0">handleSetEntityMotion(ClientboundSetEntityMotionPacket)</a></li>
+<li><a href="#handleSetEquipment(net.minecraft.network.protocol.game.ClientboundSetEquipmentPacket)" tabindex="0">handleSetEquipment(ClientboundSetEquipmentPacket)</a></li>
+<li><a href="#handleSetExperience(net.minecraft.network.protocol.game.ClientboundSetExperiencePacket)" tabindex="0">handleSetExperience(ClientboundSetExperiencePacket)</a></li>
+<li><a href="#handleSetHealth(net.minecraft.network.protocol.game.ClientboundSetHealthPacket)" tabindex="0">handleSetHealth(ClientboundSetHealthPacket)</a></li>
+<li><a href="#handleSetPlayerTeamPacket(net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket)" tabindex="0">handleSetPlayerTeamPacket(ClientboundSetPlayerTeamPacket)</a></li>
+<li><a href="#handleSetScore(net.minecraft.network.protocol.game.ClientboundSetScorePacket)" tabindex="0">handleSetScore(ClientboundSetScorePacket)</a></li>
+<li><a href="#handleResetScore(net.minecraft.network.protocol.game.ClientboundResetScorePacket)" tabindex="0">handleResetScore(ClientboundResetScorePacket)</a></li>
+<li><a href="#handleSetSpawn(net.minecraft.network.protocol.game.ClientboundSetDefaultSpawnPositionPacket)" tabindex="0">handleSetSpawn(ClientboundSetDefaultSpawnPositionPacket)</a></li>
+<li><a href="#handleSetTime(net.minecraft.network.protocol.game.ClientboundSetTimePacket)" tabindex="0">handleSetTime(ClientboundSetTimePacket)</a></li>
+<li><a href="#handleSoundEvent(net.minecraft.network.protocol.game.ClientboundSoundPacket)" tabindex="0">handleSoundEvent(ClientboundSoundPacket)</a></li>
+<li><a href="#handleSoundEntityEvent(net.minecraft.network.protocol.game.ClientboundSoundEntityPacket)" tabindex="0">handleSoundEntityEvent(ClientboundSoundEntityPacket)</a></li>
+<li><a href="#handleTakeItemEntity(net.minecraft.network.protocol.game.ClientboundTakeItemEntityPacket)" tabindex="0">handleTakeItemEntity(ClientboundTakeItemEntityPacket)</a></li>
+<li><a href="#handleEntityPositionSync(net.minecraft.network.protocol.game.ClientboundEntityPositionSyncPacket)" tabindex="0">handleEntityPositionSync(ClientboundEntityPositionSyncPacket)</a></li>
+<li><a href="#handleTeleportEntity(net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket)" tabindex="0">handleTeleportEntity(ClientboundTeleportEntityPacket)</a></li>
+<li><a href="#handleTickingState(net.minecraft.network.protocol.game.ClientboundTickingStatePacket)" tabindex="0">handleTickingState(ClientboundTickingStatePacket)</a></li>
+<li><a href="#handleTickingStep(net.minecraft.network.protocol.game.ClientboundTickingStepPacket)" tabindex="0">handleTickingStep(ClientboundTickingStepPacket)</a></li>
+<li><a href="#handleUpdateAttributes(net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket)" tabindex="0">handleUpdateAttributes(ClientboundUpdateAttributesPacket)</a></li>
+<li><a href="#handleUpdateMobEffect(net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket)" tabindex="0">handleUpdateMobEffect(ClientboundUpdateMobEffectPacket)</a></li>
+<li><a href="#handlePlayerCombatEnd(net.minecraft.network.protocol.game.ClientboundPlayerCombatEndPacket)" tabindex="0">handlePlayerCombatEnd(ClientboundPlayerCombatEndPacket)</a></li>
+<li><a href="#handlePlayerCombatEnter(net.minecraft.network.protocol.game.ClientboundPlayerCombatEnterPacket)" tabindex="0">handlePlayerCombatEnter(ClientboundPlayerCombatEnterPacket)</a></li>
+<li><a href="#handlePlayerCombatKill(net.minecraft.network.protocol.game.ClientboundPlayerCombatKillPacket)" tabindex="0">handlePlayerCombatKill(ClientboundPlayerCombatKillPacket)</a></li>
+<li><a href="#handleChangeDifficulty(net.minecraft.network.protocol.game.ClientboundChangeDifficultyPacket)" tabindex="0">handleChangeDifficulty(ClientboundChangeDifficultyPacket)</a></li>
+<li><a href="#handleSetCamera(net.minecraft.network.protocol.game.ClientboundSetCameraPacket)" tabindex="0">handleSetCamera(ClientboundSetCameraPacket)</a></li>
+<li><a href="#handleInitializeBorder(net.minecraft.network.protocol.game.ClientboundInitializeBorderPacket)" tabindex="0">handleInitializeBorder(ClientboundInitializeBorderPacket)</a></li>
+<li><a href="#handleSetBorderLerpSize(net.minecraft.network.protocol.game.ClientboundSetBorderLerpSizePacket)" tabindex="0">handleSetBorderLerpSize(ClientboundSetBorderLerpSizePacket)</a></li>
+<li><a href="#handleSetBorderSize(net.minecraft.network.protocol.game.ClientboundSetBorderSizePacket)" tabindex="0">handleSetBorderSize(ClientboundSetBorderSizePacket)</a></li>
+<li><a href="#handleSetBorderWarningDelay(net.minecraft.network.protocol.game.ClientboundSetBorderWarningDelayPacket)" tabindex="0">handleSetBorderWarningDelay(ClientboundSetBorderWarningDelayPacket)</a></li>
+<li><a href="#handleSetBorderWarningDistance(net.minecraft.network.protocol.game.ClientboundSetBorderWarningDistancePacket)" tabindex="0">handleSetBorderWarningDistance(ClientboundSetBorderWarningDistancePacket)</a></li>
+<li><a href="#handleSetBorderCenter(net.minecraft.network.protocol.game.ClientboundSetBorderCenterPacket)" tabindex="0">handleSetBorderCenter(ClientboundSetBorderCenterPacket)</a></li>
+<li><a href="#handleTabListCustomisation(net.minecraft.network.protocol.game.ClientboundTabListPacket)" tabindex="0">handleTabListCustomisation(ClientboundTabListPacket)</a></li>
+<li><a href="#handleBossUpdate(net.minecraft.network.protocol.game.ClientboundBossEventPacket)" tabindex="0">handleBossUpdate(ClientboundBossEventPacket)</a></li>
+<li><a href="#handleItemCooldown(net.minecraft.network.protocol.game.ClientboundCooldownPacket)" tabindex="0">handleItemCooldown(ClientboundCooldownPacket)</a></li>
+<li><a href="#handleMoveVehicle(net.minecraft.network.protocol.game.ClientboundMoveVehiclePacket)" tabindex="0">handleMoveVehicle(ClientboundMoveVehiclePacket)</a></li>
+<li><a href="#handleUpdateAdvancementsPacket(net.minecraft.network.protocol.game.ClientboundUpdateAdvancementsPacket)" tabindex="0">handleUpdateAdvancementsPacket(ClientboundUpdateAdvancementsPacket)</a></li>
+<li><a href="#handleSelectAdvancementsTab(net.minecraft.network.protocol.game.ClientboundSelectAdvancementsTabPacket)" tabindex="0">handleSelectAdvancementsTab(ClientboundSelectAdvancementsTabPacket)</a></li>
+<li><a href="#handlePlaceRecipe(net.minecraft.network.protocol.game.ClientboundPlaceGhostRecipePacket)" tabindex="0">handlePlaceRecipe(ClientboundPlaceGhostRecipePacket)</a></li>
+<li><a href="#handleCommands(net.minecraft.network.protocol.game.ClientboundCommandsPacket)" tabindex="0">handleCommands(ClientboundCommandsPacket)</a></li>
+<li><a href="#handleStopSoundEvent(net.minecraft.network.protocol.game.ClientboundStopSoundPacket)" tabindex="0">handleStopSoundEvent(ClientboundStopSoundPacket)</a></li>
+<li><a href="#handleCommandSuggestions(net.minecraft.network.protocol.game.ClientboundCommandSuggestionsPacket)" tabindex="0">handleCommandSuggestions(ClientboundCommandSuggestionsPacket)</a></li>
+<li><a href="#handleUpdateRecipes(net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket)" tabindex="0">handleUpdateRecipes(ClientboundUpdateRecipesPacket)</a></li>
+<li><a href="#handleLookAt(net.minecraft.network.protocol.game.ClientboundPlayerLookAtPacket)" tabindex="0">handleLookAt(ClientboundPlayerLookAtPacket)</a></li>
+<li><a href="#handleTagQueryPacket(net.minecraft.network.protocol.game.ClientboundTagQueryPacket)" tabindex="0">handleTagQueryPacket(ClientboundTagQueryPacket)</a></li>
+<li><a href="#handleLightUpdatePacket(net.minecraft.network.protocol.game.ClientboundLightUpdatePacket)" tabindex="0">handleLightUpdatePacket(ClientboundLightUpdatePacket)</a></li>
+<li><a href="#handleOpenBook(net.minecraft.network.protocol.game.ClientboundOpenBookPacket)" tabindex="0">handleOpenBook(ClientboundOpenBookPacket)</a></li>
+<li><a href="#handleOpenScreen(net.minecraft.network.protocol.game.ClientboundOpenScreenPacket)" tabindex="0">handleOpenScreen(ClientboundOpenScreenPacket)</a></li>
+<li><a href="#handleMerchantOffers(net.minecraft.network.protocol.game.ClientboundMerchantOffersPacket)" tabindex="0">handleMerchantOffers(ClientboundMerchantOffersPacket)</a></li>
+<li><a href="#handleSetChunkCacheRadius(net.minecraft.network.protocol.game.ClientboundSetChunkCacheRadiusPacket)" tabindex="0">handleSetChunkCacheRadius(ClientboundSetChunkCacheRadiusPacket)</a></li>
+<li><a href="#handleSetSimulationDistance(net.minecraft.network.protocol.game.ClientboundSetSimulationDistancePacket)" tabindex="0">handleSetSimulationDistance(ClientboundSetSimulationDistancePacket)</a></li>
+<li><a href="#handleSetChunkCacheCenter(net.minecraft.network.protocol.game.ClientboundSetChunkCacheCenterPacket)" tabindex="0">handleSetChunkCacheCenter(ClientboundSetChunkCacheCenterPacket)</a></li>
+<li><a href="#handleBlockChangedAck(net.minecraft.network.protocol.game.ClientboundBlockChangedAckPacket)" tabindex="0">handleBlockChangedAck(ClientboundBlockChangedAckPacket)</a></li>
+<li><a href="#setActionBarText(net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket)" tabindex="0">setActionBarText(ClientboundSetActionBarTextPacket)</a></li>
+<li><a href="#setSubtitleText(net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket)" tabindex="0">setSubtitleText(ClientboundSetSubtitleTextPacket)</a></li>
+<li><a href="#setTitleText(net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket)" tabindex="0">setTitleText(ClientboundSetTitleTextPacket)</a></li>
+<li><a href="#setTitlesAnimation(net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket)" tabindex="0">setTitlesAnimation(ClientboundSetTitlesAnimationPacket)</a></li>
+<li><a href="#handleTitlesClear(net.minecraft.network.protocol.game.ClientboundClearTitlesPacket)" tabindex="0">handleTitlesClear(ClientboundClearTitlesPacket)</a></li>
+<li><a href="#handleServerData(net.minecraft.network.protocol.game.ClientboundServerDataPacket)" tabindex="0">handleServerData(ClientboundServerDataPacket)</a></li>
+<li><a href="#handleCustomChatCompletions(net.minecraft.network.protocol.game.ClientboundCustomChatCompletionsPacket)" tabindex="0">handleCustomChatCompletions(ClientboundCustomChatCompletionsPacket)</a></li>
+<li><a href="#handleBundlePacket(net.minecraft.network.protocol.game.ClientboundBundlePacket)" tabindex="0">handleBundlePacket(ClientboundBundlePacket)</a></li>
+<li><a href="#handleDamageEvent(net.minecraft.network.protocol.game.ClientboundDamageEventPacket)" tabindex="0">handleDamageEvent(ClientboundDamageEventPacket)</a></li>
+<li><a href="#handleConfigurationStart(net.minecraft.network.protocol.game.ClientboundStartConfigurationPacket)" tabindex="0">handleConfigurationStart(ClientboundStartConfigurationPacket)</a></li>
+<li><a href="#handleChunkBatchStart(net.minecraft.network.protocol.game.ClientboundChunkBatchStartPacket)" tabindex="0">handleChunkBatchStart(ClientboundChunkBatchStartPacket)</a></li>
+<li><a href="#handleChunkBatchFinished(net.minecraft.network.protocol.game.ClientboundChunkBatchFinishedPacket)" tabindex="0">handleChunkBatchFinished(ClientboundChunkBatchFinishedPacket)</a></li>
+<li><a href="#handleDebugSample(net.minecraft.network.protocol.game.ClientboundDebugSamplePacket)" tabindex="0">handleDebugSample(ClientboundDebugSamplePacket)</a></li>
+<li><a href="#handleProjectilePowerPacket(net.minecraft.network.protocol.game.ClientboundProjectilePowerPacket)" tabindex="0">handleProjectilePowerPacket(ClientboundProjectilePowerPacket)</a></li>
+<li><a href="#handleSetCursorItem(net.minecraft.network.protocol.game.ClientboundSetCursorItemPacket)" tabindex="0">handleSetCursorItem(ClientboundSetCursorItemPacket)</a></li>
+<li><a href="#handleSetPlayerInventory(net.minecraft.network.protocol.game.ClientboundSetPlayerInventoryPacket)" tabindex="0">handleSetPlayerInventory(ClientboundSetPlayerInventoryPacket)</a></li>
+<li><a href="#handleTestInstanceBlockStatus(net.minecraft.network.protocol.game.ClientboundTestInstanceBlockStatus)" tabindex="0">handleTestInstanceBlockStatus(ClientboundTestInstanceBlockStatus)</a></li>
+<li><a href="#handleWaypoint(net.minecraft.network.protocol.game.ClientboundTrackedWaypointPacket)" tabindex="0">handleWaypoint(ClientboundTrackedWaypointPacket)</a></li>
+<li><a href="#handleDebugChunkValue(net.minecraft.network.protocol.game.ClientboundDebugChunkValuePacket)" tabindex="0">handleDebugChunkValue(ClientboundDebugChunkValuePacket)</a></li>
+<li><a href="#handleDebugBlockValue(net.minecraft.network.protocol.game.ClientboundDebugBlockValuePacket)" tabindex="0">handleDebugBlockValue(ClientboundDebugBlockValuePacket)</a></li>
+<li><a href="#handleDebugEntityValue(net.minecraft.network.protocol.game.ClientboundDebugEntityValuePacket)" tabindex="0">handleDebugEntityValue(ClientboundDebugEntityValuePacket)</a></li>
+<li><a href="#handleDebugEvent(net.minecraft.network.protocol.game.ClientboundDebugEventPacket)" tabindex="0">handleDebugEvent(ClientboundDebugEventPacket)</a></li>
+<li><a href="#handleGameTestHighlightPos(net.minecraft.network.protocol.game.ClientboundGameTestHighlightPosPacket)" tabindex="0">handleGameTestHighlightPos(ClientboundGameTestHighlightPosPacket)</a></li>
+<li><a href="#handleLowDiskSpaceWarning(net.minecraft.network.protocol.game.ClientboundLowDiskSpaceWarningPacket)" tabindex="0">handleLowDiskSpaceWarning(ClientboundLowDiskSpaceWarningPacket)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Interface ClientGamePacketListener" class="title">Interface ClientGamePacketListener</h1>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Superinterfaces:</dt>
+<dd><code><a href="../../ClientboundPacketListener.html" title="interface in net.minecraft.network">ClientboundPacketListener</a>, <a href="../common/ClientCommonPacketListener.html" title="interface in net.minecraft.network.protocol.common">ClientCommonPacketListener</a>, <a href="../cookie/ClientCookiePacketListener.html" title="interface in net.minecraft.network.protocol.cookie">ClientCookiePacketListener</a>, <a href="../ping/ClientPongPacketListener.html" title="interface in net.minecraft.network.protocol.ping">ClientPongPacketListener</a>, <a href="../../../../neoforged/neoforge/common/extensions/IClientCommonPacketListenerExtension.html" title="interface in net.neoforged.neoforge.common.extensions">IClientCommonPacketListenerExtension</a>, <a href="../../../../neoforged/neoforge/common/extensions/ICommonPacketListener.html" title="interface in net.neoforged.neoforge.common.extensions">ICommonPacketListener</a>, <a href="../../PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></code></dd>
+</dl>
+<dl class="notes">
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="../../../client/multiplayer/ClientPacketListener.html" title="class in net.minecraft.client.multiplayer">ClientPacketListener</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">ClientGamePacketListener</span><span class="extends-implements">
+extends <a href="../common/ClientCommonPacketListener.html" title="interface in net.minecraft.network.protocol.common">ClientCommonPacketListener</a>, <a href="../ping/ClientPongPacketListener.html" title="interface in net.minecraft.network.protocol.ping">ClientPongPacketListener</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleAddEntity(net.minecraft.network.protocol.game.ClientboundAddEntityPacket)" class="member-name-link">handleAddEntity</a><wbr>(<a href="ClientboundAddEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundAddEntityPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleAddObjective(net.minecraft.network.protocol.game.ClientboundSetObjectivePacket)" class="member-name-link">handleAddObjective</a><wbr>(<a href="ClientboundSetObjectivePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetObjectivePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleAnimate(net.minecraft.network.protocol.game.ClientboundAnimatePacket)" class="member-name-link">handleAnimate</a><wbr>(<a href="ClientboundAnimatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundAnimatePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleAwardStats(net.minecraft.network.protocol.game.ClientboundAwardStatsPacket)" class="member-name-link">handleAwardStats</a><wbr>(<a href="ClientboundAwardStatsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundAwardStatsPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleBlockChangedAck(net.minecraft.network.protocol.game.ClientboundBlockChangedAckPacket)" class="member-name-link">handleBlockChangedAck</a><wbr>(<a href="ClientboundBlockChangedAckPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockChangedAckPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleBlockDestruction(net.minecraft.network.protocol.game.ClientboundBlockDestructionPacket)" class="member-name-link">handleBlockDestruction</a><wbr>(<a href="ClientboundBlockDestructionPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockDestructionPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleBlockEntityData(net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket)" class="member-name-link">handleBlockEntityData</a><wbr>(<a href="ClientboundBlockEntityDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockEntityDataPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleBlockEvent(net.minecraft.network.protocol.game.ClientboundBlockEventPacket)" class="member-name-link">handleBlockEvent</a><wbr>(<a href="ClientboundBlockEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockEventPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleBlockUpdate(net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket)" class="member-name-link">handleBlockUpdate</a><wbr>(<a href="ClientboundBlockUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockUpdatePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleBossUpdate(net.minecraft.network.protocol.game.ClientboundBossEventPacket)" class="member-name-link">handleBossUpdate</a><wbr>(<a href="ClientboundBossEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBossEventPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleBundlePacket(net.minecraft.network.protocol.game.ClientboundBundlePacket)" class="member-name-link">handleBundlePacket</a><wbr>(<a href="ClientboundBundlePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBundlePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleChangeDifficulty(net.minecraft.network.protocol.game.ClientboundChangeDifficultyPacket)" class="member-name-link">handleChangeDifficulty</a><wbr>(<a href="ClientboundChangeDifficultyPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundChangeDifficultyPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleChunkBatchFinished(net.minecraft.network.protocol.game.ClientboundChunkBatchFinishedPacket)" class="member-name-link">handleChunkBatchFinished</a><wbr>(<a href="ClientboundChunkBatchFinishedPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundChunkBatchFinishedPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleChunkBatchStart(net.minecraft.network.protocol.game.ClientboundChunkBatchStartPacket)" class="member-name-link">handleChunkBatchStart</a><wbr>(<a href="ClientboundChunkBatchStartPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundChunkBatchStartPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleChunkBlocksUpdate(net.minecraft.network.protocol.game.ClientboundSectionBlocksUpdatePacket)" class="member-name-link">handleChunkBlocksUpdate</a><wbr>(<a href="ClientboundSectionBlocksUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSectionBlocksUpdatePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleChunksBiomes(net.minecraft.network.protocol.game.ClientboundChunksBiomesPacket)" class="member-name-link">handleChunksBiomes</a><wbr>(<a href="ClientboundChunksBiomesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundChunksBiomesPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleCommands(net.minecraft.network.protocol.game.ClientboundCommandsPacket)" class="member-name-link">handleCommands</a><wbr>(<a href="ClientboundCommandsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundCommandsPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleCommandSuggestions(net.minecraft.network.protocol.game.ClientboundCommandSuggestionsPacket)" class="member-name-link">handleCommandSuggestions</a><wbr>(<a href="ClientboundCommandSuggestionsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundCommandSuggestionsPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleConfigurationStart(net.minecraft.network.protocol.game.ClientboundStartConfigurationPacket)" class="member-name-link">handleConfigurationStart</a><wbr>(<a href="ClientboundStartConfigurationPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundStartConfigurationPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleContainerClose(net.minecraft.network.protocol.game.ClientboundContainerClosePacket)" class="member-name-link">handleContainerClose</a><wbr>(<a href="ClientboundContainerClosePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundContainerClosePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleContainerContent(net.minecraft.network.protocol.game.ClientboundContainerSetContentPacket)" class="member-name-link">handleContainerContent</a><wbr>(<a href="ClientboundContainerSetContentPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundContainerSetContentPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleContainerSetData(net.minecraft.network.protocol.game.ClientboundContainerSetDataPacket)" class="member-name-link">handleContainerSetData</a><wbr>(<a href="ClientboundContainerSetDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundContainerSetDataPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleContainerSetSlot(net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket)" class="member-name-link">handleContainerSetSlot</a><wbr>(<a href="ClientboundContainerSetSlotPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundContainerSetSlotPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleCustomChatCompletions(net.minecraft.network.protocol.game.ClientboundCustomChatCompletionsPacket)" class="member-name-link">handleCustomChatCompletions</a><wbr>(<a href="ClientboundCustomChatCompletionsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundCustomChatCompletionsPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleDamageEvent(net.minecraft.network.protocol.game.ClientboundDamageEventPacket)" class="member-name-link">handleDamageEvent</a><wbr>(<a href="ClientboundDamageEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDamageEventPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleDebugBlockValue(net.minecraft.network.protocol.game.ClientboundDebugBlockValuePacket)" class="member-name-link">handleDebugBlockValue</a><wbr>(<a href="ClientboundDebugBlockValuePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugBlockValuePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleDebugChunkValue(net.minecraft.network.protocol.game.ClientboundDebugChunkValuePacket)" class="member-name-link">handleDebugChunkValue</a><wbr>(<a href="ClientboundDebugChunkValuePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugChunkValuePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleDebugEntityValue(net.minecraft.network.protocol.game.ClientboundDebugEntityValuePacket)" class="member-name-link">handleDebugEntityValue</a><wbr>(<a href="ClientboundDebugEntityValuePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugEntityValuePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleDebugEvent(net.minecraft.network.protocol.game.ClientboundDebugEventPacket)" class="member-name-link">handleDebugEvent</a><wbr>(<a href="ClientboundDebugEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugEventPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleDebugSample(net.minecraft.network.protocol.game.ClientboundDebugSamplePacket)" class="member-name-link">handleDebugSample</a><wbr>(<a href="ClientboundDebugSamplePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugSamplePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleDeleteChat(net.minecraft.network.protocol.game.ClientboundDeleteChatPacket)" class="member-name-link">handleDeleteChat</a><wbr>(<a href="ClientboundDeleteChatPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDeleteChatPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleDisguisedChat(net.minecraft.network.protocol.game.ClientboundDisguisedChatPacket)" class="member-name-link">handleDisguisedChat</a><wbr>(<a href="ClientboundDisguisedChatPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDisguisedChatPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleEntityEvent(net.minecraft.network.protocol.game.ClientboundEntityEventPacket)" class="member-name-link">handleEntityEvent</a><wbr>(<a href="ClientboundEntityEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundEntityEventPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleEntityLinkPacket(net.minecraft.network.protocol.game.ClientboundSetEntityLinkPacket)" class="member-name-link">handleEntityLinkPacket</a><wbr>(<a href="ClientboundSetEntityLinkPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetEntityLinkPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleEntityPositionSync(net.minecraft.network.protocol.game.ClientboundEntityPositionSyncPacket)" class="member-name-link">handleEntityPositionSync</a><wbr>(<a href="ClientboundEntityPositionSyncPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundEntityPositionSyncPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleExplosion(net.minecraft.network.protocol.game.ClientboundExplodePacket)" class="member-name-link">handleExplosion</a><wbr>(<a href="ClientboundExplodePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundExplodePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleForgetLevelChunk(net.minecraft.network.protocol.game.ClientboundForgetLevelChunkPacket)" class="member-name-link">handleForgetLevelChunk</a><wbr>(<a href="ClientboundForgetLevelChunkPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundForgetLevelChunkPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleGameEvent(net.minecraft.network.protocol.game.ClientboundGameEventPacket)" class="member-name-link">handleGameEvent</a><wbr>(<a href="ClientboundGameEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundGameEventPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleGameRuleValues(net.minecraft.network.protocol.game.ClientboundGameRuleValuesPacket)" class="member-name-link">handleGameRuleValues</a><wbr>(<a href="ClientboundGameRuleValuesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundGameRuleValuesPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleGameTestHighlightPos(net.minecraft.network.protocol.game.ClientboundGameTestHighlightPosPacket)" class="member-name-link">handleGameTestHighlightPos</a><wbr>(<a href="ClientboundGameTestHighlightPosPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundGameTestHighlightPosPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleHurtAnimation(net.minecraft.network.protocol.game.ClientboundHurtAnimationPacket)" class="member-name-link">handleHurtAnimation</a><wbr>(<a href="ClientboundHurtAnimationPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundHurtAnimationPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleInitializeBorder(net.minecraft.network.protocol.game.ClientboundInitializeBorderPacket)" class="member-name-link">handleInitializeBorder</a><wbr>(<a href="ClientboundInitializeBorderPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundInitializeBorderPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleItemCooldown(net.minecraft.network.protocol.game.ClientboundCooldownPacket)" class="member-name-link">handleItemCooldown</a><wbr>(<a href="ClientboundCooldownPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundCooldownPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleLevelChunkWithLight(net.minecraft.network.protocol.game.ClientboundLevelChunkWithLightPacket)" class="member-name-link">handleLevelChunkWithLight</a><wbr>(<a href="ClientboundLevelChunkWithLightPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLevelChunkWithLightPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleLevelEvent(net.minecraft.network.protocol.game.ClientboundLevelEventPacket)" class="member-name-link">handleLevelEvent</a><wbr>(<a href="ClientboundLevelEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLevelEventPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleLightUpdatePacket(net.minecraft.network.protocol.game.ClientboundLightUpdatePacket)" class="member-name-link">handleLightUpdatePacket</a><wbr>(<a href="ClientboundLightUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLightUpdatePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleLogin(net.minecraft.network.protocol.game.ClientboundLoginPacket)" class="member-name-link">handleLogin</a><wbr>(<a href="ClientboundLoginPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLoginPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleLookAt(net.minecraft.network.protocol.game.ClientboundPlayerLookAtPacket)" class="member-name-link">handleLookAt</a><wbr>(<a href="ClientboundPlayerLookAtPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerLookAtPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleLowDiskSpaceWarning(net.minecraft.network.protocol.game.ClientboundLowDiskSpaceWarningPacket)" class="member-name-link">handleLowDiskSpaceWarning</a><wbr>(<a href="ClientboundLowDiskSpaceWarningPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLowDiskSpaceWarningPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleMapItemData(net.minecraft.network.protocol.game.ClientboundMapItemDataPacket)" class="member-name-link">handleMapItemData</a><wbr>(<a href="ClientboundMapItemDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMapItemDataPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleMerchantOffers(net.minecraft.network.protocol.game.ClientboundMerchantOffersPacket)" class="member-name-link">handleMerchantOffers</a><wbr>(<a href="ClientboundMerchantOffersPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMerchantOffersPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleMinecartAlongTrack(net.minecraft.network.protocol.game.ClientboundMoveMinecartPacket)" class="member-name-link">handleMinecartAlongTrack</a><wbr>(<a href="ClientboundMoveMinecartPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMoveMinecartPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleMountScreenOpen(net.minecraft.network.protocol.game.ClientboundMountScreenOpenPacket)" class="member-name-link">handleMountScreenOpen</a><wbr>(<a href="ClientboundMountScreenOpenPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMountScreenOpenPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleMoveEntity(net.minecraft.network.protocol.game.ClientboundMoveEntityPacket)" class="member-name-link">handleMoveEntity</a><wbr>(<a href="ClientboundMoveEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMoveEntityPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleMovePlayer(net.minecraft.network.protocol.game.ClientboundPlayerPositionPacket)" class="member-name-link">handleMovePlayer</a><wbr>(<a href="ClientboundPlayerPositionPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerPositionPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleMoveVehicle(net.minecraft.network.protocol.game.ClientboundMoveVehiclePacket)" class="member-name-link">handleMoveVehicle</a><wbr>(<a href="ClientboundMoveVehiclePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMoveVehiclePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleOpenBook(net.minecraft.network.protocol.game.ClientboundOpenBookPacket)" class="member-name-link">handleOpenBook</a><wbr>(<a href="ClientboundOpenBookPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundOpenBookPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleOpenScreen(net.minecraft.network.protocol.game.ClientboundOpenScreenPacket)" class="member-name-link">handleOpenScreen</a><wbr>(<a href="ClientboundOpenScreenPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundOpenScreenPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleOpenSignEditor(net.minecraft.network.protocol.game.ClientboundOpenSignEditorPacket)" class="member-name-link">handleOpenSignEditor</a><wbr>(<a href="ClientboundOpenSignEditorPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundOpenSignEditorPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleParticleEvent(net.minecraft.network.protocol.game.ClientboundLevelParticlesPacket)" class="member-name-link">handleParticleEvent</a><wbr>(<a href="ClientboundLevelParticlesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLevelParticlesPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handlePlaceRecipe(net.minecraft.network.protocol.game.ClientboundPlaceGhostRecipePacket)" class="member-name-link">handlePlaceRecipe</a><wbr>(<a href="ClientboundPlaceGhostRecipePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlaceGhostRecipePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handlePlayerAbilities(net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket)" class="member-name-link">handlePlayerAbilities</a><wbr>(<a href="ClientboundPlayerAbilitiesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerAbilitiesPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handlePlayerChat(net.minecraft.network.protocol.game.ClientboundPlayerChatPacket)" class="member-name-link">handlePlayerChat</a><wbr>(<a href="ClientboundPlayerChatPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerChatPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handlePlayerCombatEnd(net.minecraft.network.protocol.game.ClientboundPlayerCombatEndPacket)" class="member-name-link">handlePlayerCombatEnd</a><wbr>(<a href="ClientboundPlayerCombatEndPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerCombatEndPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handlePlayerCombatEnter(net.minecraft.network.protocol.game.ClientboundPlayerCombatEnterPacket)" class="member-name-link">handlePlayerCombatEnter</a><wbr>(<a href="ClientboundPlayerCombatEnterPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerCombatEnterPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handlePlayerCombatKill(net.minecraft.network.protocol.game.ClientboundPlayerCombatKillPacket)" class="member-name-link">handlePlayerCombatKill</a><wbr>(<a href="ClientboundPlayerCombatKillPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerCombatKillPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handlePlayerInfoRemove(net.minecraft.network.protocol.game.ClientboundPlayerInfoRemovePacket)" class="member-name-link">handlePlayerInfoRemove</a><wbr>(<a href="ClientboundPlayerInfoRemovePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerInfoRemovePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handlePlayerInfoUpdate(net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket)" class="member-name-link">handlePlayerInfoUpdate</a><wbr>(<a href="ClientboundPlayerInfoUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerInfoUpdatePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleProjectilePowerPacket(net.minecraft.network.protocol.game.ClientboundProjectilePowerPacket)" class="member-name-link">handleProjectilePowerPacket</a><wbr>(<a href="ClientboundProjectilePowerPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundProjectilePowerPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleRecipeBookAdd(net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket)" class="member-name-link">handleRecipeBookAdd</a><wbr>(<a href="ClientboundRecipeBookAddPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRecipeBookAddPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleRecipeBookRemove(net.minecraft.network.protocol.game.ClientboundRecipeBookRemovePacket)" class="member-name-link">handleRecipeBookRemove</a><wbr>(<a href="ClientboundRecipeBookRemovePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRecipeBookRemovePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleRecipeBookSettings(net.minecraft.network.protocol.game.ClientboundRecipeBookSettingsPacket)" class="member-name-link">handleRecipeBookSettings</a><wbr>(<a href="ClientboundRecipeBookSettingsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRecipeBookSettingsPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleRemoveEntities(net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket)" class="member-name-link">handleRemoveEntities</a><wbr>(<a href="ClientboundRemoveEntitiesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRemoveEntitiesPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleRemoveMobEffect(net.minecraft.network.protocol.game.ClientboundRemoveMobEffectPacket)" class="member-name-link">handleRemoveMobEffect</a><wbr>(<a href="ClientboundRemoveMobEffectPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRemoveMobEffectPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleResetScore(net.minecraft.network.protocol.game.ClientboundResetScorePacket)" class="member-name-link">handleResetScore</a><wbr>(<a href="ClientboundResetScorePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundResetScorePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleRespawn(net.minecraft.network.protocol.game.ClientboundRespawnPacket)" class="member-name-link">handleRespawn</a><wbr>(<a href="ClientboundRespawnPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRespawnPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleRotateMob(net.minecraft.network.protocol.game.ClientboundRotateHeadPacket)" class="member-name-link">handleRotateMob</a><wbr>(<a href="ClientboundRotateHeadPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRotateHeadPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleRotatePlayer(net.minecraft.network.protocol.game.ClientboundPlayerRotationPacket)" class="member-name-link">handleRotatePlayer</a><wbr>(<a href="ClientboundPlayerRotationPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerRotationPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSelectAdvancementsTab(net.minecraft.network.protocol.game.ClientboundSelectAdvancementsTabPacket)" class="member-name-link">handleSelectAdvancementsTab</a><wbr>(<a href="ClientboundSelectAdvancementsTabPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSelectAdvancementsTabPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleServerData(net.minecraft.network.protocol.game.ClientboundServerDataPacket)" class="member-name-link">handleServerData</a><wbr>(<a href="ClientboundServerDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundServerDataPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetBorderCenter(net.minecraft.network.protocol.game.ClientboundSetBorderCenterPacket)" class="member-name-link">handleSetBorderCenter</a><wbr>(<a href="ClientboundSetBorderCenterPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderCenterPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetBorderLerpSize(net.minecraft.network.protocol.game.ClientboundSetBorderLerpSizePacket)" class="member-name-link">handleSetBorderLerpSize</a><wbr>(<a href="ClientboundSetBorderLerpSizePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderLerpSizePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetBorderSize(net.minecraft.network.protocol.game.ClientboundSetBorderSizePacket)" class="member-name-link">handleSetBorderSize</a><wbr>(<a href="ClientboundSetBorderSizePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderSizePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetBorderWarningDelay(net.minecraft.network.protocol.game.ClientboundSetBorderWarningDelayPacket)" class="member-name-link">handleSetBorderWarningDelay</a><wbr>(<a href="ClientboundSetBorderWarningDelayPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderWarningDelayPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetBorderWarningDistance(net.minecraft.network.protocol.game.ClientboundSetBorderWarningDistancePacket)" class="member-name-link">handleSetBorderWarningDistance</a><wbr>(<a href="ClientboundSetBorderWarningDistancePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderWarningDistancePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetCamera(net.minecraft.network.protocol.game.ClientboundSetCameraPacket)" class="member-name-link">handleSetCamera</a><wbr>(<a href="ClientboundSetCameraPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetCameraPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetChunkCacheCenter(net.minecraft.network.protocol.game.ClientboundSetChunkCacheCenterPacket)" class="member-name-link">handleSetChunkCacheCenter</a><wbr>(<a href="ClientboundSetChunkCacheCenterPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetChunkCacheCenterPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetChunkCacheRadius(net.minecraft.network.protocol.game.ClientboundSetChunkCacheRadiusPacket)" class="member-name-link">handleSetChunkCacheRadius</a><wbr>(<a href="ClientboundSetChunkCacheRadiusPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetChunkCacheRadiusPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetCursorItem(net.minecraft.network.protocol.game.ClientboundSetCursorItemPacket)" class="member-name-link">handleSetCursorItem</a><wbr>(<a href="ClientboundSetCursorItemPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetCursorItemPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetDisplayObjective(net.minecraft.network.protocol.game.ClientboundSetDisplayObjectivePacket)" class="member-name-link">handleSetDisplayObjective</a><wbr>(<a href="ClientboundSetDisplayObjectivePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetDisplayObjectivePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetEntityData(net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket)" class="member-name-link">handleSetEntityData</a><wbr>(<a href="ClientboundSetEntityDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetEntityDataPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetEntityMotion(net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket)" class="member-name-link">handleSetEntityMotion</a><wbr>(<a href="ClientboundSetEntityMotionPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetEntityMotionPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetEntityPassengersPacket(net.minecraft.network.protocol.game.ClientboundSetPassengersPacket)" class="member-name-link">handleSetEntityPassengersPacket</a><wbr>(<a href="ClientboundSetPassengersPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetPassengersPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetEquipment(net.minecraft.network.protocol.game.ClientboundSetEquipmentPacket)" class="member-name-link">handleSetEquipment</a><wbr>(<a href="ClientboundSetEquipmentPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetEquipmentPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetExperience(net.minecraft.network.protocol.game.ClientboundSetExperiencePacket)" class="member-name-link">handleSetExperience</a><wbr>(<a href="ClientboundSetExperiencePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetExperiencePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetHealth(net.minecraft.network.protocol.game.ClientboundSetHealthPacket)" class="member-name-link">handleSetHealth</a><wbr>(<a href="ClientboundSetHealthPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetHealthPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetHeldSlot(net.minecraft.network.protocol.game.ClientboundSetHeldSlotPacket)" class="member-name-link">handleSetHeldSlot</a><wbr>(<a href="ClientboundSetHeldSlotPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetHeldSlotPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetPlayerInventory(net.minecraft.network.protocol.game.ClientboundSetPlayerInventoryPacket)" class="member-name-link">handleSetPlayerInventory</a><wbr>(<a href="ClientboundSetPlayerInventoryPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetPlayerInventoryPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetPlayerTeamPacket(net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket)" class="member-name-link">handleSetPlayerTeamPacket</a><wbr>(<a href="ClientboundSetPlayerTeamPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetPlayerTeamPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetScore(net.minecraft.network.protocol.game.ClientboundSetScorePacket)" class="member-name-link">handleSetScore</a><wbr>(<a href="ClientboundSetScorePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetScorePacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetSimulationDistance(net.minecraft.network.protocol.game.ClientboundSetSimulationDistancePacket)" class="member-name-link">handleSetSimulationDistance</a><wbr>(<a href="ClientboundSetSimulationDistancePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetSimulationDistancePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetSpawn(net.minecraft.network.protocol.game.ClientboundSetDefaultSpawnPositionPacket)" class="member-name-link">handleSetSpawn</a><wbr>(<a href="ClientboundSetDefaultSpawnPositionPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetDefaultSpawnPositionPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSetTime(net.minecraft.network.protocol.game.ClientboundSetTimePacket)" class="member-name-link">handleSetTime</a><wbr>(<a href="ClientboundSetTimePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetTimePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSoundEntityEvent(net.minecraft.network.protocol.game.ClientboundSoundEntityPacket)" class="member-name-link">handleSoundEntityEvent</a><wbr>(<a href="ClientboundSoundEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSoundEntityPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSoundEvent(net.minecraft.network.protocol.game.ClientboundSoundPacket)" class="member-name-link">handleSoundEvent</a><wbr>(<a href="ClientboundSoundPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSoundPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleStopSoundEvent(net.minecraft.network.protocol.game.ClientboundStopSoundPacket)" class="member-name-link">handleStopSoundEvent</a><wbr>(<a href="ClientboundStopSoundPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundStopSoundPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleSystemChat(net.minecraft.network.protocol.game.ClientboundSystemChatPacket)" class="member-name-link">handleSystemChat</a><wbr>(<a href="ClientboundSystemChatPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSystemChatPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleTabListCustomisation(net.minecraft.network.protocol.game.ClientboundTabListPacket)" class="member-name-link">handleTabListCustomisation</a><wbr>(<a href="ClientboundTabListPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTabListPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleTagQueryPacket(net.minecraft.network.protocol.game.ClientboundTagQueryPacket)" class="member-name-link">handleTagQueryPacket</a><wbr>(<a href="ClientboundTagQueryPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTagQueryPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleTakeItemEntity(net.minecraft.network.protocol.game.ClientboundTakeItemEntityPacket)" class="member-name-link">handleTakeItemEntity</a><wbr>(<a href="ClientboundTakeItemEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTakeItemEntityPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleTeleportEntity(net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket)" class="member-name-link">handleTeleportEntity</a><wbr>(<a href="ClientboundTeleportEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTeleportEntityPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleTestInstanceBlockStatus(net.minecraft.network.protocol.game.ClientboundTestInstanceBlockStatus)" class="member-name-link">handleTestInstanceBlockStatus</a><wbr>(<a href="ClientboundTestInstanceBlockStatus.html" title="class in net.minecraft.network.protocol.game">ClientboundTestInstanceBlockStatus</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleTickingState(net.minecraft.network.protocol.game.ClientboundTickingStatePacket)" class="member-name-link">handleTickingState</a><wbr>(<a href="ClientboundTickingStatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTickingStatePacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleTickingStep(net.minecraft.network.protocol.game.ClientboundTickingStepPacket)" class="member-name-link">handleTickingStep</a><wbr>(<a href="ClientboundTickingStepPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTickingStepPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleTitlesClear(net.minecraft.network.protocol.game.ClientboundClearTitlesPacket)" class="member-name-link">handleTitlesClear</a><wbr>(<a href="ClientboundClearTitlesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundClearTitlesPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleUpdateAdvancementsPacket(net.minecraft.network.protocol.game.ClientboundUpdateAdvancementsPacket)" class="member-name-link">handleUpdateAdvancementsPacket</a><wbr>(<a href="ClientboundUpdateAdvancementsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundUpdateAdvancementsPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleUpdateAttributes(net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket)" class="member-name-link">handleUpdateAttributes</a><wbr>(<a href="ClientboundUpdateAttributesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundUpdateAttributesPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleUpdateMobEffect(net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket)" class="member-name-link">handleUpdateMobEffect</a><wbr>(<a href="ClientboundUpdateMobEffectPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundUpdateMobEffectPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleUpdateRecipes(net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket)" class="member-name-link">handleUpdateRecipes</a><wbr>(<a href="ClientboundUpdateRecipesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundUpdateRecipesPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#handleWaypoint(net.minecraft.network.protocol.game.ClientboundTrackedWaypointPacket)" class="member-name-link">handleWaypoint</a><wbr>(<a href="ClientboundTrackedWaypointPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTrackedWaypointPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#protocol()" class="member-name-link">protocol</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setActionBarText(net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket)" class="member-name-link">setActionBarText</a><wbr>(<a href="ClientboundSetActionBarTextPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetActionBarTextPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setSubtitleText(net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket)" class="member-name-link">setSubtitleText</a><wbr>(<a href="ClientboundSetSubtitleTextPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetSubtitleTextPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setTitlesAnimation(net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket)" class="member-name-link">setTitlesAnimation</a><wbr>(<a href="ClientboundSetTitlesAnimationPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetTitlesAnimationPacket</a>&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setTitleText(net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket)" class="member-name-link">setTitleText</a><wbr>(<a href="ClientboundSetTitleTextPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetTitleTextPacket</a>&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.network.ClientboundPacketListener">Methods inherited from interface&nbsp;<a href="../../ClientboundPacketListener.html#method-summary" title="interface in net.minecraft.network">ClientboundPacketListener</a></h3>
+<code><a href="../../ClientboundPacketListener.html#flow()" title="flow()">flow</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.network.protocol.common.ClientCommonPacketListener">Methods inherited from interface&nbsp;<a href="../common/ClientCommonPacketListener.html#method-summary" title="interface in net.minecraft.network.protocol.common">ClientCommonPacketListener</a></h3>
+<code><a href="../common/ClientCommonPacketListener.html#handleClearDialog(net.minecraft.network.protocol.common.ClientboundClearDialogPacket)" title="handleClearDialog(ClientboundClearDialogPacket)">handleClearDialog</a>, <a href="../common/ClientCommonPacketListener.html#handleCustomPayload(net.minecraft.network.protocol.common.ClientboundCustomPayloadPacket)" title="handleCustomPayload(ClientboundCustomPayloadPacket)">handleCustomPayload</a>, <a href="../common/ClientCommonPacketListener.html#handleCustomReportDetails(net.minecraft.network.protocol.common.ClientboundCustomReportDetailsPacket)" title="handleCustomReportDetails(ClientboundCustomReportDetailsPacket)">handleCustomReportDetails</a>, <a href="../common/ClientCommonPacketListener.html#handleDisconnect(net.minecraft.network.protocol.common.ClientboundDisconnectPacket)" title="handleDisconnect(ClientboundDisconnectPacket)">handleDisconnect</a>, <a href="../common/ClientCommonPacketListener.html#handleKeepAlive(net.minecraft.network.protocol.common.ClientboundKeepAlivePacket)" title="handleKeepAlive(ClientboundKeepAlivePacket)">handleKeepAlive</a>, <a href="../common/ClientCommonPacketListener.html#handlePing(net.minecraft.network.protocol.common.ClientboundPingPacket)" title="handlePing(ClientboundPingPacket)">handlePing</a>, <a href="../common/ClientCommonPacketListener.html#handleResourcePackPop(net.minecraft.network.protocol.common.ClientboundResourcePackPopPacket)" title="handleResourcePackPop(ClientboundResourcePackPopPacket)">handleResourcePackPop</a>, <a href="../common/ClientCommonPacketListener.html#handleResourcePackPush(net.minecraft.network.protocol.common.ClientboundResourcePackPushPacket)" title="handleResourcePackPush(ClientboundResourcePackPushPacket)">handleResourcePackPush</a>, <a href="../common/ClientCommonPacketListener.html#handleServerLinks(net.minecraft.network.protocol.common.ClientboundServerLinksPacket)" title="handleServerLinks(ClientboundServerLinksPacket)">handleServerLinks</a>, <a href="../common/ClientCommonPacketListener.html#handleShowDialog(net.minecraft.network.protocol.common.ClientboundShowDialogPacket)" title="handleShowDialog(ClientboundShowDialogPacket)">handleShowDialog</a>, <a href="../common/ClientCommonPacketListener.html#handleStoreCookie(net.minecraft.network.protocol.common.ClientboundStoreCookiePacket)" title="handleStoreCookie(ClientboundStoreCookiePacket)">handleStoreCookie</a>, <a href="../common/ClientCommonPacketListener.html#handleTransfer(net.minecraft.network.protocol.common.ClientboundTransferPacket)" title="handleTransfer(ClientboundTransferPacket)">handleTransfer</a>, <a href="../common/ClientCommonPacketListener.html#handleUpdateTags(net.minecraft.network.protocol.common.ClientboundUpdateTagsPacket)" title="handleUpdateTags(ClientboundUpdateTagsPacket)">handleUpdateTags</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.network.protocol.cookie.ClientCookiePacketListener">Methods inherited from interface&nbsp;<a href="../cookie/ClientCookiePacketListener.html#method-summary" title="interface in net.minecraft.network.protocol.cookie">ClientCookiePacketListener</a></h3>
+<code><a href="../cookie/ClientCookiePacketListener.html#handleRequestCookie(net.minecraft.network.protocol.cookie.ClientboundCookieRequestPacket)" title="handleRequestCookie(ClientboundCookieRequestPacket)">handleRequestCookie</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.network.protocol.ping.ClientPongPacketListener">Methods inherited from interface&nbsp;<a href="../ping/ClientPongPacketListener.html#method-summary" title="interface in net.minecraft.network.protocol.ping">ClientPongPacketListener</a></h3>
+<code><a href="../ping/ClientPongPacketListener.html#handlePongResponse(net.minecraft.network.protocol.ping.ClientboundPongResponsePacket)" title="handlePongResponse(ClientboundPongResponsePacket)">handlePongResponse</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.neoforged.neoforge.common.extensions.IClientCommonPacketListenerExtension">Methods inherited from interface&nbsp;<a href="../../../../neoforged/neoforge/common/extensions/IClientCommonPacketListenerExtension.html#method-summary" title="interface in net.neoforged.neoforge.common.extensions">IClientCommonPacketListenerExtension</a></h3>
+<code><a href="../../../../neoforged/neoforge/common/extensions/IClientCommonPacketListenerExtension.html#disconnect(net.minecraft.network.chat.Component)" title="disconnect(Component)">disconnect</a>, <a href="../../../../neoforged/neoforge/common/extensions/IClientCommonPacketListenerExtension.html#send(net.minecraft.network.protocol.common.custom.CustomPacketPayload)" title="send(CustomPacketPayload)">send</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.neoforged.neoforge.common.extensions.ICommonPacketListener">Methods inherited from interface&nbsp;<a href="../../../../neoforged/neoforge/common/extensions/ICommonPacketListener.html#method-summary" title="interface in net.neoforged.neoforge.common.extensions">ICommonPacketListener</a></h3>
+<code><a href="../../../../neoforged/neoforge/common/extensions/ICommonPacketListener.html#getConnection()" title="getConnection()">getConnection</a>, <a href="../../../../neoforged/neoforge/common/extensions/ICommonPacketListener.html#getConnectionType()" title="getConnectionType()">getConnectionType</a>, <a href="../../../../neoforged/neoforge/common/extensions/ICommonPacketListener.html#getPacketProcessor()" title="getPacketProcessor()">getPacketProcessor</a>, <a href="../../../../neoforged/neoforge/common/extensions/ICommonPacketListener.html#hasChannel(net.minecraft.network.protocol.common.custom.CustomPacketPayload)" title="hasChannel(CustomPacketPayload)">hasChannel</a>, <a href="../../../../neoforged/neoforge/common/extensions/ICommonPacketListener.html#hasChannel(net.minecraft.network.protocol.common.custom.CustomPacketPayload.Type)" title="hasChannel(CustomPacketPayload.Type)">hasChannel</a>, <a href="../../../../neoforged/neoforge/common/extensions/ICommonPacketListener.html#hasChannel(net.minecraft.resources.Identifier)" title="hasChannel(Identifier)">hasChannel</a>, <a href="../../../../neoforged/neoforge/common/extensions/ICommonPacketListener.html#send(net.minecraft.network.protocol.Packet)" title="send(Packet)">send</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.network.PacketListener">Methods inherited from interface&nbsp;<a href="../../PacketListener.html#method-summary" title="interface in net.minecraft.network">PacketListener</a></h3>
+<code><a href="../../PacketListener.html#createDisconnectionInfo(net.minecraft.network.chat.Component,java.lang.Throwable)" title="createDisconnectionInfo(Component, Throwable)">createDisconnectionInfo</a>, <a href="../../PacketListener.html#fillCrashReport(net.minecraft.CrashReport)" title="fillCrashReport(CrashReport)">fillCrashReport</a>, <a href="../../PacketListener.html#fillListenerSpecificCrashDetails(net.minecraft.CrashReport,net.minecraft.CrashReportCategory)" title="fillListenerSpecificCrashDetails(CrashReport, CrashReportCategory)">fillListenerSpecificCrashDetails</a>, <a href="../../PacketListener.html#isAcceptingMessages()" title="isAcceptingMessages()">isAcceptingMessages</a>, <a href="../../PacketListener.html#onDisconnect(net.minecraft.network.DisconnectionDetails)" title="onDisconnect(DisconnectionDetails)">onDisconnect</a>, <a href="../../PacketListener.html#onPacketError(net.minecraft.network.protocol.Packet,java.lang.Exception)" title="onPacketError(Packet, Exception)">onPacketError</a>, <a href="../../PacketListener.html#shouldHandleMessage(net.minecraft.network.protocol.Packet)" title="shouldHandleMessage(Packet)">shouldHandleMessage</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="protocol()">
+<h3>protocol</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a></span>&nbsp;<span class="element-name">protocol</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../PacketListener.html#protocol()">protocol</a></code>&nbsp;in interface&nbsp;<code><a href="../../PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleAddEntity(net.minecraft.network.protocol.game.ClientboundAddEntityPacket)">
+<h3>handleAddEntity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleAddEntity</span><wbr><span class="parameters">(<a href="ClientboundAddEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundAddEntityPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleAddObjective(net.minecraft.network.protocol.game.ClientboundSetObjectivePacket)">
+<h3>handleAddObjective</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleAddObjective</span><wbr><span class="parameters">(<a href="ClientboundSetObjectivePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetObjectivePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleAnimate(net.minecraft.network.protocol.game.ClientboundAnimatePacket)">
+<h3>handleAnimate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleAnimate</span><wbr><span class="parameters">(<a href="ClientboundAnimatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundAnimatePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleHurtAnimation(net.minecraft.network.protocol.game.ClientboundHurtAnimationPacket)">
+<h3>handleHurtAnimation</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleHurtAnimation</span><wbr><span class="parameters">(<a href="ClientboundHurtAnimationPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundHurtAnimationPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleAwardStats(net.minecraft.network.protocol.game.ClientboundAwardStatsPacket)">
+<h3>handleAwardStats</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleAwardStats</span><wbr><span class="parameters">(<a href="ClientboundAwardStatsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundAwardStatsPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleRecipeBookAdd(net.minecraft.network.protocol.game.ClientboundRecipeBookAddPacket)">
+<h3>handleRecipeBookAdd</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleRecipeBookAdd</span><wbr><span class="parameters">(<a href="ClientboundRecipeBookAddPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRecipeBookAddPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleRecipeBookRemove(net.minecraft.network.protocol.game.ClientboundRecipeBookRemovePacket)">
+<h3>handleRecipeBookRemove</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleRecipeBookRemove</span><wbr><span class="parameters">(<a href="ClientboundRecipeBookRemovePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRecipeBookRemovePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleRecipeBookSettings(net.minecraft.network.protocol.game.ClientboundRecipeBookSettingsPacket)">
+<h3>handleRecipeBookSettings</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleRecipeBookSettings</span><wbr><span class="parameters">(<a href="ClientboundRecipeBookSettingsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRecipeBookSettingsPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleBlockDestruction(net.minecraft.network.protocol.game.ClientboundBlockDestructionPacket)">
+<h3>handleBlockDestruction</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleBlockDestruction</span><wbr><span class="parameters">(<a href="ClientboundBlockDestructionPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockDestructionPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleOpenSignEditor(net.minecraft.network.protocol.game.ClientboundOpenSignEditorPacket)">
+<h3>handleOpenSignEditor</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleOpenSignEditor</span><wbr><span class="parameters">(<a href="ClientboundOpenSignEditorPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundOpenSignEditorPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleBlockEntityData(net.minecraft.network.protocol.game.ClientboundBlockEntityDataPacket)">
+<h3>handleBlockEntityData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleBlockEntityData</span><wbr><span class="parameters">(<a href="ClientboundBlockEntityDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockEntityDataPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleBlockEvent(net.minecraft.network.protocol.game.ClientboundBlockEventPacket)">
+<h3>handleBlockEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleBlockEvent</span><wbr><span class="parameters">(<a href="ClientboundBlockEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockEventPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleBlockUpdate(net.minecraft.network.protocol.game.ClientboundBlockUpdatePacket)">
+<h3>handleBlockUpdate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleBlockUpdate</span><wbr><span class="parameters">(<a href="ClientboundBlockUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockUpdatePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSystemChat(net.minecraft.network.protocol.game.ClientboundSystemChatPacket)">
+<h3>handleSystemChat</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSystemChat</span><wbr><span class="parameters">(<a href="ClientboundSystemChatPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSystemChatPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlePlayerChat(net.minecraft.network.protocol.game.ClientboundPlayerChatPacket)">
+<h3>handlePlayerChat</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handlePlayerChat</span><wbr><span class="parameters">(<a href="ClientboundPlayerChatPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerChatPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDisguisedChat(net.minecraft.network.protocol.game.ClientboundDisguisedChatPacket)">
+<h3>handleDisguisedChat</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleDisguisedChat</span><wbr><span class="parameters">(<a href="ClientboundDisguisedChatPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDisguisedChatPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDeleteChat(net.minecraft.network.protocol.game.ClientboundDeleteChatPacket)">
+<h3>handleDeleteChat</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleDeleteChat</span><wbr><span class="parameters">(<a href="ClientboundDeleteChatPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDeleteChatPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleChunkBlocksUpdate(net.minecraft.network.protocol.game.ClientboundSectionBlocksUpdatePacket)">
+<h3>handleChunkBlocksUpdate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleChunkBlocksUpdate</span><wbr><span class="parameters">(<a href="ClientboundSectionBlocksUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSectionBlocksUpdatePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleMapItemData(net.minecraft.network.protocol.game.ClientboundMapItemDataPacket)">
+<h3>handleMapItemData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleMapItemData</span><wbr><span class="parameters">(<a href="ClientboundMapItemDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMapItemDataPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleContainerClose(net.minecraft.network.protocol.game.ClientboundContainerClosePacket)">
+<h3>handleContainerClose</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleContainerClose</span><wbr><span class="parameters">(<a href="ClientboundContainerClosePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundContainerClosePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleContainerContent(net.minecraft.network.protocol.game.ClientboundContainerSetContentPacket)">
+<h3>handleContainerContent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleContainerContent</span><wbr><span class="parameters">(<a href="ClientboundContainerSetContentPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundContainerSetContentPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleMountScreenOpen(net.minecraft.network.protocol.game.ClientboundMountScreenOpenPacket)">
+<h3>handleMountScreenOpen</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleMountScreenOpen</span><wbr><span class="parameters">(<a href="ClientboundMountScreenOpenPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMountScreenOpenPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleContainerSetData(net.minecraft.network.protocol.game.ClientboundContainerSetDataPacket)">
+<h3>handleContainerSetData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleContainerSetData</span><wbr><span class="parameters">(<a href="ClientboundContainerSetDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundContainerSetDataPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleContainerSetSlot(net.minecraft.network.protocol.game.ClientboundContainerSetSlotPacket)">
+<h3>handleContainerSetSlot</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleContainerSetSlot</span><wbr><span class="parameters">(<a href="ClientboundContainerSetSlotPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundContainerSetSlotPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleEntityEvent(net.minecraft.network.protocol.game.ClientboundEntityEventPacket)">
+<h3>handleEntityEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleEntityEvent</span><wbr><span class="parameters">(<a href="ClientboundEntityEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundEntityEventPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleEntityLinkPacket(net.minecraft.network.protocol.game.ClientboundSetEntityLinkPacket)">
+<h3>handleEntityLinkPacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleEntityLinkPacket</span><wbr><span class="parameters">(<a href="ClientboundSetEntityLinkPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetEntityLinkPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetEntityPassengersPacket(net.minecraft.network.protocol.game.ClientboundSetPassengersPacket)">
+<h3>handleSetEntityPassengersPacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetEntityPassengersPacket</span><wbr><span class="parameters">(<a href="ClientboundSetPassengersPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetPassengersPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleExplosion(net.minecraft.network.protocol.game.ClientboundExplodePacket)">
+<h3>handleExplosion</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleExplosion</span><wbr><span class="parameters">(<a href="ClientboundExplodePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundExplodePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleGameEvent(net.minecraft.network.protocol.game.ClientboundGameEventPacket)">
+<h3>handleGameEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleGameEvent</span><wbr><span class="parameters">(<a href="ClientboundGameEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundGameEventPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleLevelChunkWithLight(net.minecraft.network.protocol.game.ClientboundLevelChunkWithLightPacket)">
+<h3>handleLevelChunkWithLight</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleLevelChunkWithLight</span><wbr><span class="parameters">(<a href="ClientboundLevelChunkWithLightPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLevelChunkWithLightPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleChunksBiomes(net.minecraft.network.protocol.game.ClientboundChunksBiomesPacket)">
+<h3>handleChunksBiomes</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleChunksBiomes</span><wbr><span class="parameters">(<a href="ClientboundChunksBiomesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundChunksBiomesPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleForgetLevelChunk(net.minecraft.network.protocol.game.ClientboundForgetLevelChunkPacket)">
+<h3>handleForgetLevelChunk</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleForgetLevelChunk</span><wbr><span class="parameters">(<a href="ClientboundForgetLevelChunkPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundForgetLevelChunkPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleLevelEvent(net.minecraft.network.protocol.game.ClientboundLevelEventPacket)">
+<h3>handleLevelEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleLevelEvent</span><wbr><span class="parameters">(<a href="ClientboundLevelEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLevelEventPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleLogin(net.minecraft.network.protocol.game.ClientboundLoginPacket)">
+<h3>handleLogin</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleLogin</span><wbr><span class="parameters">(<a href="ClientboundLoginPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLoginPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleMoveEntity(net.minecraft.network.protocol.game.ClientboundMoveEntityPacket)">
+<h3>handleMoveEntity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleMoveEntity</span><wbr><span class="parameters">(<a href="ClientboundMoveEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMoveEntityPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleMinecartAlongTrack(net.minecraft.network.protocol.game.ClientboundMoveMinecartPacket)">
+<h3>handleMinecartAlongTrack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleMinecartAlongTrack</span><wbr><span class="parameters">(<a href="ClientboundMoveMinecartPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMoveMinecartPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleMovePlayer(net.minecraft.network.protocol.game.ClientboundPlayerPositionPacket)">
+<h3>handleMovePlayer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleMovePlayer</span><wbr><span class="parameters">(<a href="ClientboundPlayerPositionPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerPositionPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleRotatePlayer(net.minecraft.network.protocol.game.ClientboundPlayerRotationPacket)">
+<h3>handleRotatePlayer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleRotatePlayer</span><wbr><span class="parameters">(<a href="ClientboundPlayerRotationPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerRotationPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleParticleEvent(net.minecraft.network.protocol.game.ClientboundLevelParticlesPacket)">
+<h3>handleParticleEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleParticleEvent</span><wbr><span class="parameters">(<a href="ClientboundLevelParticlesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLevelParticlesPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlePlayerAbilities(net.minecraft.network.protocol.game.ClientboundPlayerAbilitiesPacket)">
+<h3>handlePlayerAbilities</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handlePlayerAbilities</span><wbr><span class="parameters">(<a href="ClientboundPlayerAbilitiesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerAbilitiesPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleGameRuleValues(net.minecraft.network.protocol.game.ClientboundGameRuleValuesPacket)">
+<h3>handleGameRuleValues</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleGameRuleValues</span><wbr><span class="parameters">(<a href="ClientboundGameRuleValuesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundGameRuleValuesPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlePlayerInfoRemove(net.minecraft.network.protocol.game.ClientboundPlayerInfoRemovePacket)">
+<h3>handlePlayerInfoRemove</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handlePlayerInfoRemove</span><wbr><span class="parameters">(<a href="ClientboundPlayerInfoRemovePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerInfoRemovePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlePlayerInfoUpdate(net.minecraft.network.protocol.game.ClientboundPlayerInfoUpdatePacket)">
+<h3>handlePlayerInfoUpdate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handlePlayerInfoUpdate</span><wbr><span class="parameters">(<a href="ClientboundPlayerInfoUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerInfoUpdatePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleRemoveEntities(net.minecraft.network.protocol.game.ClientboundRemoveEntitiesPacket)">
+<h3>handleRemoveEntities</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleRemoveEntities</span><wbr><span class="parameters">(<a href="ClientboundRemoveEntitiesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRemoveEntitiesPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleRemoveMobEffect(net.minecraft.network.protocol.game.ClientboundRemoveMobEffectPacket)">
+<h3>handleRemoveMobEffect</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleRemoveMobEffect</span><wbr><span class="parameters">(<a href="ClientboundRemoveMobEffectPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRemoveMobEffectPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleRespawn(net.minecraft.network.protocol.game.ClientboundRespawnPacket)">
+<h3>handleRespawn</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleRespawn</span><wbr><span class="parameters">(<a href="ClientboundRespawnPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRespawnPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleRotateMob(net.minecraft.network.protocol.game.ClientboundRotateHeadPacket)">
+<h3>handleRotateMob</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleRotateMob</span><wbr><span class="parameters">(<a href="ClientboundRotateHeadPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundRotateHeadPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetHeldSlot(net.minecraft.network.protocol.game.ClientboundSetHeldSlotPacket)">
+<h3>handleSetHeldSlot</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetHeldSlot</span><wbr><span class="parameters">(<a href="ClientboundSetHeldSlotPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetHeldSlotPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetDisplayObjective(net.minecraft.network.protocol.game.ClientboundSetDisplayObjectivePacket)">
+<h3>handleSetDisplayObjective</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetDisplayObjective</span><wbr><span class="parameters">(<a href="ClientboundSetDisplayObjectivePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetDisplayObjectivePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetEntityData(net.minecraft.network.protocol.game.ClientboundSetEntityDataPacket)">
+<h3>handleSetEntityData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetEntityData</span><wbr><span class="parameters">(<a href="ClientboundSetEntityDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetEntityDataPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetEntityMotion(net.minecraft.network.protocol.game.ClientboundSetEntityMotionPacket)">
+<h3>handleSetEntityMotion</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetEntityMotion</span><wbr><span class="parameters">(<a href="ClientboundSetEntityMotionPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetEntityMotionPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetEquipment(net.minecraft.network.protocol.game.ClientboundSetEquipmentPacket)">
+<h3>handleSetEquipment</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetEquipment</span><wbr><span class="parameters">(<a href="ClientboundSetEquipmentPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetEquipmentPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetExperience(net.minecraft.network.protocol.game.ClientboundSetExperiencePacket)">
+<h3>handleSetExperience</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetExperience</span><wbr><span class="parameters">(<a href="ClientboundSetExperiencePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetExperiencePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetHealth(net.minecraft.network.protocol.game.ClientboundSetHealthPacket)">
+<h3>handleSetHealth</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetHealth</span><wbr><span class="parameters">(<a href="ClientboundSetHealthPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetHealthPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetPlayerTeamPacket(net.minecraft.network.protocol.game.ClientboundSetPlayerTeamPacket)">
+<h3>handleSetPlayerTeamPacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetPlayerTeamPacket</span><wbr><span class="parameters">(<a href="ClientboundSetPlayerTeamPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetPlayerTeamPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetScore(net.minecraft.network.protocol.game.ClientboundSetScorePacket)">
+<h3>handleSetScore</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetScore</span><wbr><span class="parameters">(<a href="ClientboundSetScorePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetScorePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleResetScore(net.minecraft.network.protocol.game.ClientboundResetScorePacket)">
+<h3>handleResetScore</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleResetScore</span><wbr><span class="parameters">(<a href="ClientboundResetScorePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundResetScorePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetSpawn(net.minecraft.network.protocol.game.ClientboundSetDefaultSpawnPositionPacket)">
+<h3>handleSetSpawn</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetSpawn</span><wbr><span class="parameters">(<a href="ClientboundSetDefaultSpawnPositionPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetDefaultSpawnPositionPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetTime(net.minecraft.network.protocol.game.ClientboundSetTimePacket)">
+<h3>handleSetTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetTime</span><wbr><span class="parameters">(<a href="ClientboundSetTimePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetTimePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSoundEvent(net.minecraft.network.protocol.game.ClientboundSoundPacket)">
+<h3>handleSoundEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSoundEvent</span><wbr><span class="parameters">(<a href="ClientboundSoundPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSoundPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSoundEntityEvent(net.minecraft.network.protocol.game.ClientboundSoundEntityPacket)">
+<h3>handleSoundEntityEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSoundEntityEvent</span><wbr><span class="parameters">(<a href="ClientboundSoundEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSoundEntityPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleTakeItemEntity(net.minecraft.network.protocol.game.ClientboundTakeItemEntityPacket)">
+<h3>handleTakeItemEntity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleTakeItemEntity</span><wbr><span class="parameters">(<a href="ClientboundTakeItemEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTakeItemEntityPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleEntityPositionSync(net.minecraft.network.protocol.game.ClientboundEntityPositionSyncPacket)">
+<h3>handleEntityPositionSync</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleEntityPositionSync</span><wbr><span class="parameters">(<a href="ClientboundEntityPositionSyncPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundEntityPositionSyncPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleTeleportEntity(net.minecraft.network.protocol.game.ClientboundTeleportEntityPacket)">
+<h3>handleTeleportEntity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleTeleportEntity</span><wbr><span class="parameters">(<a href="ClientboundTeleportEntityPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTeleportEntityPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleTickingState(net.minecraft.network.protocol.game.ClientboundTickingStatePacket)">
+<h3>handleTickingState</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleTickingState</span><wbr><span class="parameters">(<a href="ClientboundTickingStatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTickingStatePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleTickingStep(net.minecraft.network.protocol.game.ClientboundTickingStepPacket)">
+<h3>handleTickingStep</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleTickingStep</span><wbr><span class="parameters">(<a href="ClientboundTickingStepPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTickingStepPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleUpdateAttributes(net.minecraft.network.protocol.game.ClientboundUpdateAttributesPacket)">
+<h3>handleUpdateAttributes</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleUpdateAttributes</span><wbr><span class="parameters">(<a href="ClientboundUpdateAttributesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundUpdateAttributesPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleUpdateMobEffect(net.minecraft.network.protocol.game.ClientboundUpdateMobEffectPacket)">
+<h3>handleUpdateMobEffect</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleUpdateMobEffect</span><wbr><span class="parameters">(<a href="ClientboundUpdateMobEffectPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundUpdateMobEffectPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlePlayerCombatEnd(net.minecraft.network.protocol.game.ClientboundPlayerCombatEndPacket)">
+<h3>handlePlayerCombatEnd</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handlePlayerCombatEnd</span><wbr><span class="parameters">(<a href="ClientboundPlayerCombatEndPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerCombatEndPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlePlayerCombatEnter(net.minecraft.network.protocol.game.ClientboundPlayerCombatEnterPacket)">
+<h3>handlePlayerCombatEnter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handlePlayerCombatEnter</span><wbr><span class="parameters">(<a href="ClientboundPlayerCombatEnterPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerCombatEnterPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlePlayerCombatKill(net.minecraft.network.protocol.game.ClientboundPlayerCombatKillPacket)">
+<h3>handlePlayerCombatKill</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handlePlayerCombatKill</span><wbr><span class="parameters">(<a href="ClientboundPlayerCombatKillPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerCombatKillPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleChangeDifficulty(net.minecraft.network.protocol.game.ClientboundChangeDifficultyPacket)">
+<h3>handleChangeDifficulty</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleChangeDifficulty</span><wbr><span class="parameters">(<a href="ClientboundChangeDifficultyPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundChangeDifficultyPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetCamera(net.minecraft.network.protocol.game.ClientboundSetCameraPacket)">
+<h3>handleSetCamera</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetCamera</span><wbr><span class="parameters">(<a href="ClientboundSetCameraPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetCameraPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleInitializeBorder(net.minecraft.network.protocol.game.ClientboundInitializeBorderPacket)">
+<h3>handleInitializeBorder</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleInitializeBorder</span><wbr><span class="parameters">(<a href="ClientboundInitializeBorderPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundInitializeBorderPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetBorderLerpSize(net.minecraft.network.protocol.game.ClientboundSetBorderLerpSizePacket)">
+<h3>handleSetBorderLerpSize</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetBorderLerpSize</span><wbr><span class="parameters">(<a href="ClientboundSetBorderLerpSizePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderLerpSizePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetBorderSize(net.minecraft.network.protocol.game.ClientboundSetBorderSizePacket)">
+<h3>handleSetBorderSize</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetBorderSize</span><wbr><span class="parameters">(<a href="ClientboundSetBorderSizePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderSizePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetBorderWarningDelay(net.minecraft.network.protocol.game.ClientboundSetBorderWarningDelayPacket)">
+<h3>handleSetBorderWarningDelay</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetBorderWarningDelay</span><wbr><span class="parameters">(<a href="ClientboundSetBorderWarningDelayPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderWarningDelayPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetBorderWarningDistance(net.minecraft.network.protocol.game.ClientboundSetBorderWarningDistancePacket)">
+<h3>handleSetBorderWarningDistance</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetBorderWarningDistance</span><wbr><span class="parameters">(<a href="ClientboundSetBorderWarningDistancePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderWarningDistancePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetBorderCenter(net.minecraft.network.protocol.game.ClientboundSetBorderCenterPacket)">
+<h3>handleSetBorderCenter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetBorderCenter</span><wbr><span class="parameters">(<a href="ClientboundSetBorderCenterPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetBorderCenterPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleTabListCustomisation(net.minecraft.network.protocol.game.ClientboundTabListPacket)">
+<h3>handleTabListCustomisation</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleTabListCustomisation</span><wbr><span class="parameters">(<a href="ClientboundTabListPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTabListPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleBossUpdate(net.minecraft.network.protocol.game.ClientboundBossEventPacket)">
+<h3>handleBossUpdate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleBossUpdate</span><wbr><span class="parameters">(<a href="ClientboundBossEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBossEventPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleItemCooldown(net.minecraft.network.protocol.game.ClientboundCooldownPacket)">
+<h3>handleItemCooldown</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleItemCooldown</span><wbr><span class="parameters">(<a href="ClientboundCooldownPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundCooldownPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleMoveVehicle(net.minecraft.network.protocol.game.ClientboundMoveVehiclePacket)">
+<h3>handleMoveVehicle</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleMoveVehicle</span><wbr><span class="parameters">(<a href="ClientboundMoveVehiclePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMoveVehiclePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleUpdateAdvancementsPacket(net.minecraft.network.protocol.game.ClientboundUpdateAdvancementsPacket)">
+<h3>handleUpdateAdvancementsPacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleUpdateAdvancementsPacket</span><wbr><span class="parameters">(<a href="ClientboundUpdateAdvancementsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundUpdateAdvancementsPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSelectAdvancementsTab(net.minecraft.network.protocol.game.ClientboundSelectAdvancementsTabPacket)">
+<h3>handleSelectAdvancementsTab</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSelectAdvancementsTab</span><wbr><span class="parameters">(<a href="ClientboundSelectAdvancementsTabPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSelectAdvancementsTabPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlePlaceRecipe(net.minecraft.network.protocol.game.ClientboundPlaceGhostRecipePacket)">
+<h3>handlePlaceRecipe</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handlePlaceRecipe</span><wbr><span class="parameters">(<a href="ClientboundPlaceGhostRecipePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlaceGhostRecipePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleCommands(net.minecraft.network.protocol.game.ClientboundCommandsPacket)">
+<h3>handleCommands</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleCommands</span><wbr><span class="parameters">(<a href="ClientboundCommandsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundCommandsPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleStopSoundEvent(net.minecraft.network.protocol.game.ClientboundStopSoundPacket)">
+<h3>handleStopSoundEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleStopSoundEvent</span><wbr><span class="parameters">(<a href="ClientboundStopSoundPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundStopSoundPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleCommandSuggestions(net.minecraft.network.protocol.game.ClientboundCommandSuggestionsPacket)">
+<h3>handleCommandSuggestions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleCommandSuggestions</span><wbr><span class="parameters">(<a href="ClientboundCommandSuggestionsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundCommandSuggestionsPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleUpdateRecipes(net.minecraft.network.protocol.game.ClientboundUpdateRecipesPacket)">
+<h3>handleUpdateRecipes</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleUpdateRecipes</span><wbr><span class="parameters">(<a href="ClientboundUpdateRecipesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundUpdateRecipesPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleLookAt(net.minecraft.network.protocol.game.ClientboundPlayerLookAtPacket)">
+<h3>handleLookAt</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleLookAt</span><wbr><span class="parameters">(<a href="ClientboundPlayerLookAtPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundPlayerLookAtPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleTagQueryPacket(net.minecraft.network.protocol.game.ClientboundTagQueryPacket)">
+<h3>handleTagQueryPacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleTagQueryPacket</span><wbr><span class="parameters">(<a href="ClientboundTagQueryPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTagQueryPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleLightUpdatePacket(net.minecraft.network.protocol.game.ClientboundLightUpdatePacket)">
+<h3>handleLightUpdatePacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleLightUpdatePacket</span><wbr><span class="parameters">(<a href="ClientboundLightUpdatePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLightUpdatePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleOpenBook(net.minecraft.network.protocol.game.ClientboundOpenBookPacket)">
+<h3>handleOpenBook</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleOpenBook</span><wbr><span class="parameters">(<a href="ClientboundOpenBookPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundOpenBookPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleOpenScreen(net.minecraft.network.protocol.game.ClientboundOpenScreenPacket)">
+<h3>handleOpenScreen</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleOpenScreen</span><wbr><span class="parameters">(<a href="ClientboundOpenScreenPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundOpenScreenPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleMerchantOffers(net.minecraft.network.protocol.game.ClientboundMerchantOffersPacket)">
+<h3>handleMerchantOffers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleMerchantOffers</span><wbr><span class="parameters">(<a href="ClientboundMerchantOffersPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundMerchantOffersPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetChunkCacheRadius(net.minecraft.network.protocol.game.ClientboundSetChunkCacheRadiusPacket)">
+<h3>handleSetChunkCacheRadius</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetChunkCacheRadius</span><wbr><span class="parameters">(<a href="ClientboundSetChunkCacheRadiusPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetChunkCacheRadiusPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetSimulationDistance(net.minecraft.network.protocol.game.ClientboundSetSimulationDistancePacket)">
+<h3>handleSetSimulationDistance</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetSimulationDistance</span><wbr><span class="parameters">(<a href="ClientboundSetSimulationDistancePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetSimulationDistancePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetChunkCacheCenter(net.minecraft.network.protocol.game.ClientboundSetChunkCacheCenterPacket)">
+<h3>handleSetChunkCacheCenter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetChunkCacheCenter</span><wbr><span class="parameters">(<a href="ClientboundSetChunkCacheCenterPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetChunkCacheCenterPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleBlockChangedAck(net.minecraft.network.protocol.game.ClientboundBlockChangedAckPacket)">
+<h3>handleBlockChangedAck</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleBlockChangedAck</span><wbr><span class="parameters">(<a href="ClientboundBlockChangedAckPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBlockChangedAckPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setActionBarText(net.minecraft.network.protocol.game.ClientboundSetActionBarTextPacket)">
+<h3>setActionBarText</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setActionBarText</span><wbr><span class="parameters">(<a href="ClientboundSetActionBarTextPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetActionBarTextPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setSubtitleText(net.minecraft.network.protocol.game.ClientboundSetSubtitleTextPacket)">
+<h3>setSubtitleText</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setSubtitleText</span><wbr><span class="parameters">(<a href="ClientboundSetSubtitleTextPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetSubtitleTextPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setTitleText(net.minecraft.network.protocol.game.ClientboundSetTitleTextPacket)">
+<h3>setTitleText</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setTitleText</span><wbr><span class="parameters">(<a href="ClientboundSetTitleTextPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetTitleTextPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setTitlesAnimation(net.minecraft.network.protocol.game.ClientboundSetTitlesAnimationPacket)">
+<h3>setTitlesAnimation</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setTitlesAnimation</span><wbr><span class="parameters">(<a href="ClientboundSetTitlesAnimationPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetTitlesAnimationPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleTitlesClear(net.minecraft.network.protocol.game.ClientboundClearTitlesPacket)">
+<h3>handleTitlesClear</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleTitlesClear</span><wbr><span class="parameters">(<a href="ClientboundClearTitlesPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundClearTitlesPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleServerData(net.minecraft.network.protocol.game.ClientboundServerDataPacket)">
+<h3>handleServerData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleServerData</span><wbr><span class="parameters">(<a href="ClientboundServerDataPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundServerDataPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleCustomChatCompletions(net.minecraft.network.protocol.game.ClientboundCustomChatCompletionsPacket)">
+<h3>handleCustomChatCompletions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleCustomChatCompletions</span><wbr><span class="parameters">(<a href="ClientboundCustomChatCompletionsPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundCustomChatCompletionsPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleBundlePacket(net.minecraft.network.protocol.game.ClientboundBundlePacket)">
+<h3>handleBundlePacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleBundlePacket</span><wbr><span class="parameters">(<a href="ClientboundBundlePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundBundlePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDamageEvent(net.minecraft.network.protocol.game.ClientboundDamageEventPacket)">
+<h3>handleDamageEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleDamageEvent</span><wbr><span class="parameters">(<a href="ClientboundDamageEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDamageEventPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleConfigurationStart(net.minecraft.network.protocol.game.ClientboundStartConfigurationPacket)">
+<h3>handleConfigurationStart</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleConfigurationStart</span><wbr><span class="parameters">(<a href="ClientboundStartConfigurationPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundStartConfigurationPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleChunkBatchStart(net.minecraft.network.protocol.game.ClientboundChunkBatchStartPacket)">
+<h3>handleChunkBatchStart</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleChunkBatchStart</span><wbr><span class="parameters">(<a href="ClientboundChunkBatchStartPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundChunkBatchStartPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleChunkBatchFinished(net.minecraft.network.protocol.game.ClientboundChunkBatchFinishedPacket)">
+<h3>handleChunkBatchFinished</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleChunkBatchFinished</span><wbr><span class="parameters">(<a href="ClientboundChunkBatchFinishedPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundChunkBatchFinishedPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDebugSample(net.minecraft.network.protocol.game.ClientboundDebugSamplePacket)">
+<h3>handleDebugSample</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleDebugSample</span><wbr><span class="parameters">(<a href="ClientboundDebugSamplePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugSamplePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleProjectilePowerPacket(net.minecraft.network.protocol.game.ClientboundProjectilePowerPacket)">
+<h3>handleProjectilePowerPacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleProjectilePowerPacket</span><wbr><span class="parameters">(<a href="ClientboundProjectilePowerPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundProjectilePowerPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetCursorItem(net.minecraft.network.protocol.game.ClientboundSetCursorItemPacket)">
+<h3>handleSetCursorItem</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetCursorItem</span><wbr><span class="parameters">(<a href="ClientboundSetCursorItemPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetCursorItemPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleSetPlayerInventory(net.minecraft.network.protocol.game.ClientboundSetPlayerInventoryPacket)">
+<h3>handleSetPlayerInventory</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleSetPlayerInventory</span><wbr><span class="parameters">(<a href="ClientboundSetPlayerInventoryPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundSetPlayerInventoryPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleTestInstanceBlockStatus(net.minecraft.network.protocol.game.ClientboundTestInstanceBlockStatus)">
+<h3>handleTestInstanceBlockStatus</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleTestInstanceBlockStatus</span><wbr><span class="parameters">(<a href="ClientboundTestInstanceBlockStatus.html" title="class in net.minecraft.network.protocol.game">ClientboundTestInstanceBlockStatus</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleWaypoint(net.minecraft.network.protocol.game.ClientboundTrackedWaypointPacket)">
+<h3>handleWaypoint</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleWaypoint</span><wbr><span class="parameters">(<a href="ClientboundTrackedWaypointPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundTrackedWaypointPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDebugChunkValue(net.minecraft.network.protocol.game.ClientboundDebugChunkValuePacket)">
+<h3>handleDebugChunkValue</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleDebugChunkValue</span><wbr><span class="parameters">(<a href="ClientboundDebugChunkValuePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugChunkValuePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDebugBlockValue(net.minecraft.network.protocol.game.ClientboundDebugBlockValuePacket)">
+<h3>handleDebugBlockValue</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleDebugBlockValue</span><wbr><span class="parameters">(<a href="ClientboundDebugBlockValuePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugBlockValuePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDebugEntityValue(net.minecraft.network.protocol.game.ClientboundDebugEntityValuePacket)">
+<h3>handleDebugEntityValue</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleDebugEntityValue</span><wbr><span class="parameters">(<a href="ClientboundDebugEntityValuePacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugEntityValuePacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDebugEvent(net.minecraft.network.protocol.game.ClientboundDebugEventPacket)">
+<h3>handleDebugEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleDebugEvent</span><wbr><span class="parameters">(<a href="ClientboundDebugEventPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundDebugEventPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleGameTestHighlightPos(net.minecraft.network.protocol.game.ClientboundGameTestHighlightPosPacket)">
+<h3>handleGameTestHighlightPos</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleGameTestHighlightPos</span><wbr><span class="parameters">(<a href="ClientboundGameTestHighlightPosPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundGameTestHighlightPosPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleLowDiskSpaceWarning(net.minecraft.network.protocol.game.ClientboundLowDiskSpaceWarningPacket)">
+<h3>handleLowDiskSpaceWarning</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">handleLowDiskSpaceWarning</span><wbr><span class="parameters">(<a href="ClientboundLowDiskSpaceWarningPacket.html" title="class in net.minecraft.network.protocol.game">ClientboundLowDiskSpaceWarningPacket</a>&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

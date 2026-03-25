@@ -1,0 +1,705 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>PalettedContainer (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.world.level.chunk, class: PalettedContainer">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/PalettedContainer.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.world.level.chunk</a></li>
+<li><a href="PalettedContainer.html" class="current-selection">PalettedContainer</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#MIN_PALETTE_BITS" tabindex="0">MIN_PALETTE_BITS</a></li>
+<li><a href="#data" tabindex="0">data</a></li>
+<li><a href="#strategy" tabindex="0">strategy</a></li>
+<li><a href="#threadingDetector" tabindex="0">threadingDetector</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.Strategy,net.minecraft.world.level.chunk.Configuration,net.minecraft.util.BitStorage,net.minecraft.world.level.chunk.Palette)" tabindex="0">PalettedContainer(Strategy, Configuration, BitStorage, Palette)</a></li>
+<li><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.PalettedContainer)" tabindex="0">PalettedContainer(PalettedContainer)</a></li>
+<li><a href="#%3Cinit%3E(T,net.minecraft.world.level.chunk.Strategy)" tabindex="0">PalettedContainer(T, Strategy)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#acquire()" tabindex="0">acquire()</a></li>
+<li><a href="#release()" tabindex="0">release()</a></li>
+<li><a href="#codecRW(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,T)" tabindex="0">codecRW(Codec, Strategy, T)</a></li>
+<li><a href="#codecRO(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,T)" tabindex="0">codecRO(Codec, Strategy, T)</a></li>
+<li><a href="#codec(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,T,net.minecraft.world.level.chunk.PalettedContainerRO.Unpacker)" tabindex="0">codec(Codec, Strategy, T, PalettedContainerRO.Unpacker)</a></li>
+<li><a href="#createOrReuseData(net.minecraft.world.level.chunk.PalettedContainer.Data,int)" tabindex="0">createOrReuseData(PalettedContainer.Data, int)</a></li>
+<li><a href="#onResize(int,T)" tabindex="0">onResize(int, T)</a></li>
+<li><a href="#getAndSet(int,int,int,T)" tabindex="0">getAndSet(int, int, int, T)</a></li>
+<li><a href="#getAndSetUnchecked(int,int,int,T)" tabindex="0">getAndSetUnchecked(int, int, int, T)</a></li>
+<li><a href="#getAndSet(int,T)" tabindex="0">getAndSet(int, T)</a></li>
+<li><a href="#set(int,int,int,T)" tabindex="0">set(int, int, int, T)</a></li>
+<li><a href="#set(int,T)" tabindex="0">set(int, T)</a></li>
+<li><a href="#get(int,int,int)" tabindex="0">get(int, int, int)</a></li>
+<li><a href="#get(int)" tabindex="0">get(int)</a></li>
+<li><a href="#getAll(java.util.function.Consumer)" tabindex="0">getAll(Consumer)</a></li>
+<li><a href="#read(net.minecraft.network.FriendlyByteBuf)" tabindex="0">read(FriendlyByteBuf)</a></li>
+<li><a href="#write(net.minecraft.network.FriendlyByteBuf)" tabindex="0">write(FriendlyByteBuf)</a></li>
+<li><a href="#unpack(net.minecraft.world.level.chunk.Strategy,net.minecraft.world.level.chunk.PalettedContainerRO.PackedData)" tabindex="0">unpack(Strategy, PalettedContainerRO.PackedData)</a></li>
+<li><a href="#pack(net.minecraft.world.level.chunk.Strategy)" tabindex="0">pack(Strategy)</a></li>
+<li><a href="#reencodeContents(net.minecraft.util.BitStorage,net.minecraft.world.level.chunk.Palette,net.minecraft.world.level.chunk.Palette)" tabindex="0">reencodeContents(BitStorage, Palette, Palette)</a></li>
+<li><a href="#getSerializedSize()" tabindex="0">getSerializedSize()</a></li>
+<li><a href="#bitsPerEntry()" tabindex="0">bitsPerEntry()</a></li>
+<li><a href="#maybeHas(java.util.function.Predicate)" tabindex="0">maybeHas(Predicate)</a></li>
+<li><a href="#copy()" tabindex="0">copy()</a></li>
+<li><a href="#recreate()" tabindex="0">recreate()</a></li>
+<li><a href="#count(net.minecraft.world.level.chunk.PalettedContainer.CountConsumer)" tabindex="0">count(PalettedContainer.CountConsumer)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class PalettedContainer" class="title">Class PalettedContainer&lt;<span id="type-param-T">T</span>&gt;</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.world.level.chunk.PalettedContainer&lt;T&gt;</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;T&gt;, <a href="PaletteResize.html" title="interface in net.minecraft.world.level.chunk">PaletteResize</a>&lt;T&gt;</code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">PalettedContainer&lt;T&gt;</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="PaletteResize.html" title="interface in net.minecraft.world.level.chunk">PaletteResize</a>&lt;T&gt;, <a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;T&gt;</span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="PalettedContainer.CountConsumer.html" class="type-name-link" title="interface in net.minecraft.world.level.chunk">PalettedContainer.CountConsumer</a>&lt;<a href="PalettedContainer.CountConsumer.html#type-param-T" title="type parameter in PalettedContainer.CountConsumer">T</a>&gt;</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final record&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="PalettedContainer.Data.html" class="type-name-link" title="class in net.minecraft.world.level.chunk">PalettedContainer.Data</a>&lt;<a href="PalettedContainer.Data.html#type-param-T" title="type parameter in PalettedContainer.Data">T</a>&gt;</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-net.minecraft.world.level.chunk.PalettedContainerRO">Nested classes/interfaces inherited from interface&nbsp;<a href="PalettedContainerRO.html#nested-class-summary" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a></h3>
+<code><a href="PalettedContainerRO.PackedData.html" title="class in net.minecraft.world.level.chunk">PalettedContainerRO.PackedData</a>&lt;T&gt;, <a href="PalettedContainerRO.Unpacker.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO.Unpacker</a>&lt;T,<wbr>C&gt;</code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="PalettedContainer.Data.html" title="class in net.minecraft.world.level.chunk">PalettedContainer.Data</a><wbr>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#data" class="member-name-link">data</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#MIN_PALETTE_BITS" class="member-name-link">MIN_PALETTE_BITS</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a><wbr>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#strategy" class="member-name-link">strategy</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../../util/ThreadingDetector.html" title="class in net.minecraft.util">ThreadingDetector</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#threadingDetector" class="member-name-link">threadingDetector</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private </code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.PalettedContainer)" class="member-name-link">PalettedContainer</a><wbr>(<a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;source)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private </code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(net.minecraft.world.level.chunk.Strategy,net.minecraft.world.level.chunk.Configuration,net.minecraft.util.BitStorage,net.minecraft.world.level.chunk.Palette)" class="member-name-link">PalettedContainer</a><wbr>(<a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;strategy,
+ <a href="Configuration.html" title="interface in net.minecraft.world.level.chunk">Configuration</a>&nbsp;dataConfiguration,
+ <a href="../../../util/BitStorage.html" title="interface in net.minecraft.util">BitStorage</a>&nbsp;storage,
+ <a href="Palette.html" title="interface in net.minecraft.world.level.chunk">Palette</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;palette)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(T,net.minecraft.world.level.chunk.Strategy)" class="member-name-link">PalettedContainer</a><wbr>(<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;initialValue,
+ <a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;strategy)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#acquire()" class="member-name-link">acquire</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#bitsPerEntry()" class="member-name-link">bitsPerEntry</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;T, C extends <a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;T&gt;&gt;<br>com.mojang.serialization.Codec<wbr>&lt;C&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#codec(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,T,net.minecraft.world.level.chunk.PalettedContainerRO.Unpacker)" class="member-name-link">codec</a><wbr>(com.mojang.serialization.Codec&lt;T&gt;&nbsp;elementCodec,
+ <a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;T&gt;&nbsp;strategy,
+ T&nbsp;defaultValue,
+ <a href="PalettedContainerRO.Unpacker.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO.Unpacker</a>&lt;T,<wbr>C&gt;&nbsp;unpacker)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;com.mojang.serialization.Codec<wbr>&lt;<a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;T&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#codecRO(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,T)" class="member-name-link">codecRO</a><wbr>(com.mojang.serialization.Codec&lt;T&gt;&nbsp;elementCodec,
+ <a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;T&gt;&nbsp;strategy,
+ T&nbsp;defaultValue)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;com.mojang.serialization.Codec<wbr>&lt;<a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a>&lt;T&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#codecRW(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,T)" class="member-name-link">codecRW</a><wbr>(com.mojang.serialization.Codec&lt;T&gt;&nbsp;elementCodec,
+ <a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;T&gt;&nbsp;strategy,
+ T&nbsp;defaultValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a><wbr>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#copy()" class="member-name-link">copy</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#count(net.minecraft.world.level.chunk.PalettedContainer.CountConsumer)" class="member-name-link">count</a><wbr>(<a href="PalettedContainer.CountConsumer.html" title="interface in net.minecraft.world.level.chunk">PalettedContainer.CountConsumer</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;output)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="PalettedContainer.Data.html" title="class in net.minecraft.world.level.chunk">PalettedContainer.Data</a><wbr>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createOrReuseData(net.minecraft.world.level.chunk.PalettedContainer.Data,int)" class="member-name-link">createOrReuseData</a><wbr>(@Nullable <a href="PalettedContainer.Data.html" title="class in net.minecraft.world.level.chunk">PalettedContainer.Data</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;oldData,
+ int&nbsp;targetBits)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="#type-param-T" title="type parameter in PalettedContainer">T</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(int)" class="member-name-link">get</a><wbr>(int&nbsp;index)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type-param-T" title="type parameter in PalettedContainer">T</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#get(int,int,int)" class="member-name-link">get</a><wbr>(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAll(java.util.function.Consumer)" class="member-name-link">getAll</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;consumer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type-param-T" title="type parameter in PalettedContainer">T</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAndSet(int,int,int,T)" class="member-name-link">getAndSet</a><wbr>(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="#type-param-T" title="type parameter in PalettedContainer">T</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAndSet(int,T)" class="member-name-link">getAndSet</a><wbr>(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#type-param-T" title="type parameter in PalettedContainer">T</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAndSetUnchecked(int,int,int,T)" class="member-name-link">getAndSetUnchecked</a><wbr>(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSerializedSize()" class="member-name-link">getSerializedSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maybeHas(java.util.function.Predicate)" class="member-name-link">maybeHas</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;predicate)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onResize(int,T)" class="member-name-link">onResize</a><wbr>(int&nbsp;bits,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;lastAddedValue)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PalettedContainerRO.PackedData.html" title="class in net.minecraft.world.level.chunk">PalettedContainerRO.PackedData</a><wbr>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pack(net.minecraft.world.level.chunk.Strategy)" class="member-name-link">pack</a><wbr>(<a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;strategy)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#read(net.minecraft.network.FriendlyByteBuf)" class="member-name-link">read</a><wbr>(<a href="../../../network/FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;buffer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a><wbr>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#recreate()" class="member-name-link">recreate</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;T&gt;&nbsp;int[]</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#reencodeContents(net.minecraft.util.BitStorage,net.minecraft.world.level.chunk.Palette,net.minecraft.world.level.chunk.Palette)" class="member-name-link">reencodeContents</a><wbr>(<a href="../../../util/BitStorage.html" title="interface in net.minecraft.util">BitStorage</a>&nbsp;storage,
+ <a href="Palette.html" title="interface in net.minecraft.world.level.chunk">Palette</a>&lt;T&gt;&nbsp;oldPalette,
+ <a href="Palette.html" title="interface in net.minecraft.world.level.chunk">Palette</a>&lt;T&gt;&nbsp;newPalette)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#release()" class="member-name-link">release</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#set(int,int,int,T)" class="member-name-link">set</a><wbr>(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#set(int,T)" class="member-name-link">set</a><wbr>(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;com.mojang.serialization.DataResult<wbr>&lt;<a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a>&lt;T&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#unpack(net.minecraft.world.level.chunk.Strategy,net.minecraft.world.level.chunk.PalettedContainerRO.PackedData)" class="member-name-link">unpack</a><wbr>(<a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;T&gt;&nbsp;strategy,
+ <a href="PalettedContainerRO.PackedData.html" title="class in net.minecraft.world.level.chunk">PalettedContainerRO.PackedData</a>&lt;T&gt;&nbsp;discData)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#write(net.minecraft.network.FriendlyByteBuf)" class="member-name-link">write</a><wbr>(<a href="../../../network/FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;buffer)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="MIN_PALETTE_BITS">
+<h3>MIN_PALETTE_BITS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">MIN_PALETTE_BITS</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.world.level.chunk.PalettedContainer.MIN_PALETTE_BITS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="data">
+<h3>data</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type"><a href="PalettedContainer.Data.html" title="class in net.minecraft.world.level.chunk">PalettedContainer.Data</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</span>&nbsp;<span class="element-name">data</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="strategy">
+<h3>strategy</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</span>&nbsp;<span class="element-name">strategy</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="threadingDetector">
+<h3>threadingDetector</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../util/ThreadingDetector.html" title="class in net.minecraft.util">ThreadingDetector</a></span>&nbsp;<span class="element-name">threadingDetector</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.world.level.chunk.Strategy,net.minecraft.world.level.chunk.Configuration,net.minecraft.util.BitStorage,net.minecraft.world.level.chunk.Palette)">
+<h3>PalettedContainer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">PalettedContainer</span><wbr><span class="parameters">(<a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;strategy,
+ <a href="Configuration.html" title="interface in net.minecraft.world.level.chunk">Configuration</a>&nbsp;dataConfiguration,
+ <a href="../../../util/BitStorage.html" title="interface in net.minecraft.util">BitStorage</a>&nbsp;storage,
+ <a href="Palette.html" title="interface in net.minecraft.world.level.chunk">Palette</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;palette)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.world.level.chunk.PalettedContainer)">
+<h3>PalettedContainer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">PalettedContainer</span><wbr><span class="parameters">(<a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;source)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(T,net.minecraft.world.level.chunk.Strategy)">
+<h3 id="&lt;init&gt;(java.lang.Object,net.minecraft.world.level.chunk.Strategy)">PalettedContainer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">PalettedContainer</span><wbr><span class="parameters">(<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;initialValue,
+ <a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;strategy)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="acquire()">
+<h3>acquire</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">acquire</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="release()">
+<h3>release</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">release</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="codecRW(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,T)">
+<h3 id="codecRW(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,java.lang.Object)">codecRW</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>
+<span class="return-type">com.mojang.serialization.Codec&lt;<a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a>&lt;T&gt;&gt;</span>&nbsp;<span class="element-name">codecRW</span><wbr><span class="parameters">(com.mojang.serialization.Codec&lt;T&gt;&nbsp;elementCodec,
+ <a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;T&gt;&nbsp;strategy,
+ T&nbsp;defaultValue)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="codecRO(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,T)">
+<h3 id="codecRO(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,java.lang.Object)">codecRO</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>
+<span class="return-type">com.mojang.serialization.Codec&lt;<a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;T&gt;&gt;</span>&nbsp;<span class="element-name">codecRO</span><wbr><span class="parameters">(com.mojang.serialization.Codec&lt;T&gt;&nbsp;elementCodec,
+ <a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;T&gt;&nbsp;strategy,
+ T&nbsp;defaultValue)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="codec(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,T,net.minecraft.world.level.chunk.PalettedContainerRO.Unpacker)">
+<h3 id="codec(com.mojang.serialization.Codec,net.minecraft.world.level.chunk.Strategy,java.lang.Object,net.minecraft.world.level.chunk.PalettedContainerRO.Unpacker)">codec</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;T, C extends <a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;T&gt;&gt;</span>
+<span class="return-type">com.mojang.serialization.Codec&lt;C&gt;</span>&nbsp;<span class="element-name">codec</span><wbr><span class="parameters">(com.mojang.serialization.Codec&lt;T&gt;&nbsp;elementCodec,
+ <a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;T&gt;&nbsp;strategy,
+ T&nbsp;defaultValue,
+ <a href="PalettedContainerRO.Unpacker.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO.Unpacker</a>&lt;T,<wbr>C&gt;&nbsp;unpacker)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createOrReuseData(net.minecraft.world.level.chunk.PalettedContainer.Data,int)">
+<h3>createOrReuseData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="PalettedContainer.Data.html" title="class in net.minecraft.world.level.chunk">PalettedContainer.Data</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</span>&nbsp;<span class="element-name">createOrReuseData</span><wbr><span class="parameters">(@Nullable <a href="PalettedContainer.Data.html" title="class in net.minecraft.world.level.chunk">PalettedContainer.Data</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;oldData,
+ int&nbsp;targetBits)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onResize(int,T)">
+<h3 id="onResize(int,java.lang.Object)">onResize</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">onResize</span><wbr><span class="parameters">(int&nbsp;bits,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;lastAddedValue)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PaletteResize.html#onResize(int,T)">onResize</a></code>&nbsp;in interface&nbsp;<code><a href="PaletteResize.html" title="interface in net.minecraft.world.level.chunk">PaletteResize</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAndSet(int,int,int,T)">
+<h3 id="getAndSet(int,int,int,java.lang.Object)">getAndSet</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="#type-param-T" title="type parameter in PalettedContainer">T</a></span>&nbsp;<span class="element-name">getAndSet</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAndSetUnchecked(int,int,int,T)">
+<h3 id="getAndSetUnchecked(int,int,int,java.lang.Object)">getAndSetUnchecked</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="#type-param-T" title="type parameter in PalettedContainer">T</a></span>&nbsp;<span class="element-name">getAndSetUnchecked</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAndSet(int,T)">
+<h3 id="getAndSet(int,java.lang.Object)">getAndSet</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="#type-param-T" title="type parameter in PalettedContainer">T</a></span>&nbsp;<span class="element-name">getAndSet</span><wbr><span class="parameters">(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="set(int,int,int,T)">
+<h3 id="set(int,int,int,java.lang.Object)">set</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">set</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="set(int,T)">
+<h3 id="set(int,java.lang.Object)">set</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">set</span><wbr><span class="parameters">(int&nbsp;index,
+ <a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="get(int,int,int)">
+<h3>get</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="#type-param-T" title="type parameter in PalettedContainer">T</a></span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;z)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#get(int,int,int)">get</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="get(int)">
+<h3>get</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="#type-param-T" title="type parameter in PalettedContainer">T</a></span>&nbsp;<span class="element-name">get</span><wbr><span class="parameters">(int&nbsp;index)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAll(java.util.function.Consumer)">
+<h3>getAll</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">getAll</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;consumer)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#getAll(java.util.function.Consumer)">getAll</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="read(net.minecraft.network.FriendlyByteBuf)">
+<h3>read</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">read</span><wbr><span class="parameters">(<a href="../../../network/FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;buffer)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="write(net.minecraft.network.FriendlyByteBuf)">
+<h3>write</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">write</span><wbr><span class="parameters">(<a href="../../../network/FriendlyByteBuf.html" title="class in net.minecraft.network">FriendlyByteBuf</a>&nbsp;buffer)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#write(net.minecraft.network.FriendlyByteBuf)">write</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="unpack(net.minecraft.world.level.chunk.Strategy,net.minecraft.world.level.chunk.PalettedContainerRO.PackedData)">
+<h3>unpack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>
+<span class="return-type">com.mojang.serialization.DataResult&lt;<a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a>&lt;T&gt;&gt;</span>&nbsp;<span class="element-name">unpack</span><wbr><span class="parameters">(<a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;T&gt;&nbsp;strategy,
+ <a href="PalettedContainerRO.PackedData.html" title="class in net.minecraft.world.level.chunk">PalettedContainerRO.PackedData</a>&lt;T&gt;&nbsp;discData)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pack(net.minecraft.world.level.chunk.Strategy)">
+<h3>pack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PalettedContainerRO.PackedData.html" title="class in net.minecraft.world.level.chunk">PalettedContainerRO.PackedData</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</span>&nbsp;<span class="element-name">pack</span><wbr><span class="parameters">(<a href="Strategy.html" title="class in net.minecraft.world.level.chunk">Strategy</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;strategy)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#pack(net.minecraft.world.level.chunk.Strategy)">pack</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="reencodeContents(net.minecraft.util.BitStorage,net.minecraft.world.level.chunk.Palette,net.minecraft.world.level.chunk.Palette)">
+<h3>reencodeContents</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">int[]</span>&nbsp;<span class="element-name">reencodeContents</span><wbr><span class="parameters">(<a href="../../../util/BitStorage.html" title="interface in net.minecraft.util">BitStorage</a>&nbsp;storage,
+ <a href="Palette.html" title="interface in net.minecraft.world.level.chunk">Palette</a>&lt;T&gt;&nbsp;oldPalette,
+ <a href="Palette.html" title="interface in net.minecraft.world.level.chunk">Palette</a>&lt;T&gt;&nbsp;newPalette)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSerializedSize()">
+<h3>getSerializedSize</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSerializedSize</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#getSerializedSize()">getSerializedSize</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="bitsPerEntry()">
+<h3>bitsPerEntry</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">bitsPerEntry</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#bitsPerEntry()">bitsPerEntry</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="maybeHas(java.util.function.Predicate)">
+<h3>maybeHas</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">maybeHas</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;predicate)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#maybeHas(java.util.function.Predicate)">maybeHas</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="copy()">
+<h3>copy</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</span>&nbsp;<span class="element-name">copy</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#copy()">copy</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="recreate()">
+<h3>recreate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="PalettedContainer.html" title="class in net.minecraft.world.level.chunk">PalettedContainer</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</span>&nbsp;<span class="element-name">recreate</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#recreate()">recreate</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="count(net.minecraft.world.level.chunk.PalettedContainer.CountConsumer)">
+<h3>count</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">count</span><wbr><span class="parameters">(<a href="PalettedContainer.CountConsumer.html" title="interface in net.minecraft.world.level.chunk">PalettedContainer.CountConsumer</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;&nbsp;output)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="PalettedContainerRO.html#count(net.minecraft.world.level.chunk.PalettedContainer.CountConsumer)">count</a></code>&nbsp;in interface&nbsp;<code><a href="PalettedContainerRO.html" title="interface in net.minecraft.world.level.chunk">PalettedContainerRO</a>&lt;<a href="#type-param-T" title="type parameter in PalettedContainer">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

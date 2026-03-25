@@ -1,0 +1,462 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ScreenEffectRenderer (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.client.renderer, class: ScreenEffectRenderer">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/ScreenEffectRenderer.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.client.renderer</a></li>
+<li><a href="ScreenEffectRenderer.html" class="current-selection">ScreenEffectRenderer</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#UNDERWATER_LOCATION" tabindex="0">UNDERWATER_LOCATION</a></li>
+<li><a href="#minecraft" tabindex="0">minecraft</a></li>
+<li><a href="#sprites" tabindex="0">sprites</a></li>
+<li><a href="#bufferSource" tabindex="0">bufferSource</a></li>
+<li><a href="#ITEM_ACTIVATION_ANIMATION_LENGTH" tabindex="0">ITEM_ACTIVATION_ANIMATION_LENGTH</a></li>
+<li><a href="#itemActivationItem" tabindex="0">itemActivationItem</a></li>
+<li><a href="#itemActivationTicks" tabindex="0">itemActivationTicks</a></li>
+<li><a href="#itemActivationOffX" tabindex="0">itemActivationOffX</a></li>
+<li><a href="#itemActivationOffY" tabindex="0">itemActivationOffY</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.client.Minecraft,net.minecraft.client.resources.model.sprite.SpriteGetter,net.minecraft.client.renderer.MultiBufferSource)" tabindex="0">ScreenEffectRenderer(Minecraft, SpriteGetter, MultiBufferSource)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#tick()" tabindex="0">tick()</a></li>
+<li><a href="#renderScreenEffect(boolean,boolean,float,net.minecraft.client.renderer.SubmitNodeCollector,boolean)" tabindex="0">renderScreenEffect(boolean, boolean, float, SubmitNodeCollector, boolean)</a></li>
+<li><a href="#renderItemActivationAnimation(com.mojang.blaze3d.vertex.PoseStack,float,net.minecraft.client.renderer.SubmitNodeCollector)" tabindex="0">renderItemActivationAnimation(PoseStack, float, SubmitNodeCollector)</a></li>
+<li><a href="#resetItemActivation()" tabindex="0">resetItemActivation()</a></li>
+<li><a href="#displayItemActivation(net.minecraft.world.item.ItemStack,net.minecraft.util.RandomSource)" tabindex="0">displayItemActivation(ItemStack, RandomSource)</a></li>
+<li><a href="#getViewBlockingState(net.minecraft.world.entity.player.Player)" tabindex="0">getViewBlockingState(Player)</a></li>
+<li><a href="#getOverlayBlock(net.minecraft.world.entity.player.Player)" tabindex="0">getOverlayBlock(Player)</a></li>
+<li><a href="#renderTex(net.minecraft.client.renderer.texture.TextureAtlasSprite,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)" tabindex="0">renderTex(TextureAtlasSprite, PoseStack, MultiBufferSource)</a></li>
+<li><a href="#renderWater(net.minecraft.client.Minecraft,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)" tabindex="0">renderWater(Minecraft, PoseStack, MultiBufferSource)</a></li>
+<li><a href="#renderFluid(net.minecraft.client.Minecraft,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.resources.Identifier)" tabindex="0">renderFluid(Minecraft, PoseStack, MultiBufferSource, Identifier)</a></li>
+<li><a href="#renderFire(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.renderer.texture.TextureAtlasSprite)" tabindex="0">renderFire(PoseStack, MultiBufferSource, TextureAtlasSprite)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class ScreenEffectRenderer" class="title">Class ScreenEffectRenderer</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.client.renderer.ScreenEffectRenderer</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ScreenEffectRenderer</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a></code></div>
+<div class="col-second even-row-color"><code><a href="#bufferSource" class="member-name-link">bufferSource</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#ITEM_ACTIVATION_ANIMATION_LENGTH" class="member-name-link">ITEM_ACTIVATION_ANIMATION_LENGTH</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></code></div>
+<div class="col-second even-row-color"><code><a href="#itemActivationItem" class="member-name-link">itemActivationItem</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private float</code></div>
+<div class="col-second odd-row-color"><code><a href="#itemActivationOffX" class="member-name-link">itemActivationOffX</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private float</code></div>
+<div class="col-second even-row-color"><code><a href="#itemActivationOffY" class="member-name-link">itemActivationOffY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private int</code></div>
+<div class="col-second odd-row-color"><code><a href="#itemActivationTicks" class="member-name-link">itemActivationTicks</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a></code></div>
+<div class="col-second even-row-color"><code><a href="#minecraft" class="member-name-link">minecraft</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../resources/model/sprite/SpriteGetter.html" title="interface in net.minecraft.client.resources.model.sprite">SpriteGetter</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#sprites" class="member-name-link">sprites</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a></code></div>
+<div class="col-second even-row-color"><code><a href="#UNDERWATER_LOCATION" class="member-name-link">UNDERWATER_LOCATION</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Minecraft,net.minecraft.client.resources.model.sprite.SpriteGetter,net.minecraft.client.renderer.MultiBufferSource)" class="member-name-link">ScreenEffectRenderer</a><wbr>(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="../resources/model/sprite/SpriteGetter.html" title="interface in net.minecraft.client.resources.model.sprite">SpriteGetter</a>&nbsp;sprites,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#displayItemActivation(net.minecraft.world.item.ItemStack,net.minecraft.util.RandomSource)" class="member-name-link">displayItemActivation</a><wbr>(<a href="../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;itemStack,
+ <a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static @Nullable org.apache.commons.lang3.tuple.Pair<wbr>&lt;<a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>, <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getOverlayBlock(net.minecraft.world.entity.player.Player)" class="member-name-link">getOverlayBlock</a><wbr>(<a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static @Nullable <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getViewBlockingState(net.minecraft.world.entity.player.Player)" class="member-name-link">getViewBlockingState</a><wbr>(<a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderFire(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.renderer.texture.TextureAtlasSprite)" class="member-name-link">renderFire</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ <a href="texture/TextureAtlasSprite.html" title="class in net.minecraft.client.renderer.texture">TextureAtlasSprite</a>&nbsp;sprite)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderFluid(net.minecraft.client.Minecraft,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.resources.Identifier)" class="member-name-link">renderFluid</a><wbr>(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ <a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;texture)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderItemActivationAnimation(com.mojang.blaze3d.vertex.PoseStack,float,net.minecraft.client.renderer.SubmitNodeCollector)" class="member-name-link">renderItemActivationAnimation</a><wbr>(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ float&nbsp;partialTicks,
+ <a href="SubmitNodeCollector.html" title="interface in net.minecraft.client.renderer">SubmitNodeCollector</a>&nbsp;submitNodeCollector)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#renderScreenEffect(boolean,boolean,float,net.minecraft.client.renderer.SubmitNodeCollector,boolean)" class="member-name-link">renderScreenEffect</a><wbr>(boolean&nbsp;isFirstPerson,
+ boolean&nbsp;isSleeping,
+ float&nbsp;partialTicks,
+ <a href="SubmitNodeCollector.html" title="interface in net.minecraft.client.renderer">SubmitNodeCollector</a>&nbsp;submitNodeCollector,
+ boolean&nbsp;hideGui)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderTex(net.minecraft.client.renderer.texture.TextureAtlasSprite,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)" class="member-name-link">renderTex</a><wbr>(<a href="texture/TextureAtlasSprite.html" title="class in net.minecraft.client.renderer.texture">TextureAtlasSprite</a>&nbsp;sprite,
+ <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderWater(net.minecraft.client.Minecraft,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)" class="member-name-link">renderWater</a><wbr>(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetItemActivation()" class="member-name-link">resetItemActivation</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick()" class="member-name-link">tick</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="UNDERWATER_LOCATION">
+<h3>UNDERWATER_LOCATION</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a></span>&nbsp;<span class="element-name">UNDERWATER_LOCATION</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="minecraft">
+<h3>minecraft</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a></span>&nbsp;<span class="element-name">minecraft</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sprites">
+<h3>sprites</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../resources/model/sprite/SpriteGetter.html" title="interface in net.minecraft.client.resources.model.sprite">SpriteGetter</a></span>&nbsp;<span class="element-name">sprites</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="bufferSource">
+<h3>bufferSource</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a></span>&nbsp;<span class="element-name">bufferSource</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ITEM_ACTIVATION_ANIMATION_LENGTH">
+<h3>ITEM_ACTIVATION_ANIMATION_LENGTH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">ITEM_ACTIVATION_ANIMATION_LENGTH</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.minecraft.client.renderer.ScreenEffectRenderer.ITEM_ACTIVATION_ANIMATION_LENGTH">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="itemActivationItem">
+<h3>itemActivationItem</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a></span>&nbsp;<span class="element-name">itemActivationItem</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="itemActivationTicks">
+<h3>itemActivationTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">itemActivationTicks</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="itemActivationOffX">
+<h3>itemActivationOffX</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">itemActivationOffX</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="itemActivationOffY">
+<h3>itemActivationOffY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">itemActivationOffY</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.client.Minecraft,net.minecraft.client.resources.model.sprite.SpriteGetter,net.minecraft.client.renderer.MultiBufferSource)">
+<h3>ScreenEffectRenderer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ScreenEffectRenderer</span><wbr><span class="parameters">(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="../resources/model/sprite/SpriteGetter.html" title="interface in net.minecraft.client.resources.model.sprite">SpriteGetter</a>&nbsp;sprites,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="tick()">
+<h3>tick</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tick</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderScreenEffect(boolean,boolean,float,net.minecraft.client.renderer.SubmitNodeCollector,boolean)">
+<h3>renderScreenEffect</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderScreenEffect</span><wbr><span class="parameters">(boolean&nbsp;isFirstPerson,
+ boolean&nbsp;isSleeping,
+ float&nbsp;partialTicks,
+ <a href="SubmitNodeCollector.html" title="interface in net.minecraft.client.renderer">SubmitNodeCollector</a>&nbsp;submitNodeCollector,
+ boolean&nbsp;hideGui)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderItemActivationAnimation(com.mojang.blaze3d.vertex.PoseStack,float,net.minecraft.client.renderer.SubmitNodeCollector)">
+<h3>renderItemActivationAnimation</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderItemActivationAnimation</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ float&nbsp;partialTicks,
+ <a href="SubmitNodeCollector.html" title="interface in net.minecraft.client.renderer">SubmitNodeCollector</a>&nbsp;submitNodeCollector)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="resetItemActivation()">
+<h3>resetItemActivation</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resetItemActivation</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="displayItemActivation(net.minecraft.world.item.ItemStack,net.minecraft.util.RandomSource)">
+<h3>displayItemActivation</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">displayItemActivation</span><wbr><span class="parameters">(<a href="../../world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;itemStack,
+ <a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a>&nbsp;random)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getViewBlockingState(net.minecraft.world.entity.player.Player)">
+<h3>getViewBlockingState</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getViewBlockingState</span><wbr><span class="parameters">(<a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getOverlayBlock(net.minecraft.world.entity.player.Player)">
+<h3>getOverlayBlock</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable org.apache.commons.lang3.tuple.Pair&lt;<a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>, <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;</span>&nbsp;<span class="element-name">getOverlayBlock</span><wbr><span class="parameters">(<a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderTex(net.minecraft.client.renderer.texture.TextureAtlasSprite,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)">
+<h3>renderTex</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderTex</span><wbr><span class="parameters">(<a href="texture/TextureAtlasSprite.html" title="class in net.minecraft.client.renderer.texture">TextureAtlasSprite</a>&nbsp;sprite,
+ <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderWater(net.minecraft.client.Minecraft,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource)">
+<h3>renderWater</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderWater</span><wbr><span class="parameters">(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderFluid(net.minecraft.client.Minecraft,com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.resources.Identifier)">
+<h3>renderFluid</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderFluid</span><wbr><span class="parameters">(<a href="../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ <a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;texture)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderFire(com.mojang.blaze3d.vertex.PoseStack,net.minecraft.client.renderer.MultiBufferSource,net.minecraft.client.renderer.texture.TextureAtlasSprite)">
+<h3>renderFire</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderFire</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/vertex/PoseStack.html" title="class in com.mojang.blaze3d.vertex">PoseStack</a>&nbsp;poseStack,
+ <a href="MultiBufferSource.html" title="interface in net.minecraft.client.renderer">MultiBufferSource</a>&nbsp;bufferSource,
+ <a href="texture/TextureAtlasSprite.html" title="class in net.minecraft.client.renderer.texture">TextureAtlasSprite</a>&nbsp;sprite)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

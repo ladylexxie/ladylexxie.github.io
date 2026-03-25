@@ -1,0 +1,381 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>InsideBlockEffectApplier.StepBasedCollector (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.world.entity, interface: InsideBlockEffectApplier, class: StepBasedCollector">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/InsideBlockEffectApplier.StepBasedCollector.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.world.entity</a></li>
+<li><a href="InsideBlockEffectApplier.html">InsideBlockEffectApplier</a></li>
+<li><a href="InsideBlockEffectApplier.StepBasedCollector.html" class="current-selection">StepBasedCollector</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#APPLY_ORDER" tabindex="0">APPLY_ORDER</a></li>
+<li><a href="#NO_STEP" tabindex="0">NO_STEP</a></li>
+<li><a href="#effectsInStep" tabindex="0">effectsInStep</a></li>
+<li><a href="#beforeEffectsInStep" tabindex="0">beforeEffectsInStep</a></li>
+<li><a href="#afterEffectsInStep" tabindex="0">afterEffectsInStep</a></li>
+<li><a href="#finalEffects" tabindex="0">finalEffects</a></li>
+<li><a href="#lastStep" tabindex="0">lastStep</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">StepBasedCollector()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#advanceStep(int)" tabindex="0">advanceStep(int)</a></li>
+<li><a href="#applyAndClear(net.minecraft.world.entity.Entity)" tabindex="0">applyAndClear(Entity)</a></li>
+<li><a href="#flushStep()" tabindex="0">flushStep()</a></li>
+<li><a href="#apply(net.minecraft.world.entity.InsideBlockEffectType)" tabindex="0">apply(InsideBlockEffectType)</a></li>
+<li><a href="#runBefore(net.minecraft.world.entity.InsideBlockEffectType,java.util.function.Consumer)" tabindex="0">runBefore(InsideBlockEffectType, Consumer)</a></li>
+<li><a href="#runAfter(net.minecraft.world.entity.InsideBlockEffectType,java.util.function.Consumer)" tabindex="0">runAfter(InsideBlockEffectType, Consumer)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class InsideBlockEffectApplier.StepBasedCollector" class="title">Class InsideBlockEffectApplier.StepBasedCollector</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.world.entity.InsideBlockEffectApplier.StepBasedCollector</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="InsideBlockEffectApplier.html" title="interface in net.minecraft.world.entity">InsideBlockEffectApplier</a></code></dd>
+</dl>
+<dl class="notes">
+<dt>Enclosing interface:</dt>
+<dd><code><a href="InsideBlockEffectApplier.html" title="interface in net.minecraft.world.entity">InsideBlockEffectApplier</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public static class </span><span class="element-name type-name-label">InsideBlockEffectApplier.StepBasedCollector</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="InsideBlockEffectApplier.html" title="interface in net.minecraft.world.entity">InsideBlockEffectApplier</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-net.minecraft.world.entity.InsideBlockEffectApplier">Nested classes/interfaces inherited from interface&nbsp;<a href="InsideBlockEffectApplier.html#nested-class-summary" title="interface in net.minecraft.world.entity">InsideBlockEffectApplier</a></h3>
+<code><a href="InsideBlockEffectApplier.StepBasedCollector.html" title="class in net.minecraft.world.entity">InsideBlockEffectApplier.StepBasedCollector</a></code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#afterEffectsInStep" class="member-name-link">afterEffectsInStep</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>[]</code></div>
+<div class="col-second odd-row-color"><code><a href="#APPLY_ORDER" class="member-name-link">APPLY_ORDER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#beforeEffectsInStep" class="member-name-link">beforeEffectsInStep</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#effectsInStep" class="member-name-link">effectsInStep</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#finalEffects" class="member-name-link">finalEffects</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private int</code></div>
+<div class="col-second odd-row-color"><code><a href="#lastStep" class="member-name-link">lastStep</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#NO_STEP" class="member-name-link">NO_STEP</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.world.entity.InsideBlockEffectApplier">Fields inherited from interface&nbsp;<a href="InsideBlockEffectApplier.html#field-summary" title="interface in net.minecraft.world.entity">InsideBlockEffectApplier</a></h3>
+<code><a href="InsideBlockEffectApplier.html#NOOP">NOOP</a></code></div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">StepBasedCollector</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#advanceStep(int)" class="member-name-link">advanceStep</a><wbr>(int&nbsp;step)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#apply(net.minecraft.world.entity.InsideBlockEffectType)" class="member-name-link">apply</a><wbr>(<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>&nbsp;type)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#applyAndClear(net.minecraft.world.entity.Entity)" class="member-name-link">applyAndClear</a><wbr>(<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#flushStep()" class="member-name-link">flushStep</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#runAfter(net.minecraft.world.entity.InsideBlockEffectType,java.util.function.Consumer)" class="member-name-link">runAfter</a><wbr>(<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&nbsp;effect)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#runBefore(net.minecraft.world.entity.InsideBlockEffectType,java.util.function.Consumer)" class="member-name-link">runBefore</a><wbr>(<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&nbsp;effect)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="APPLY_ORDER">
+<h3>APPLY_ORDER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>[]</span>&nbsp;<span class="element-name">APPLY_ORDER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="NO_STEP">
+<h3>NO_STEP</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">NO_STEP</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.minecraft.world.entity.InsideBlockEffectApplier.StepBasedCollector.NO_STEP">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="effectsInStep">
+<h3>effectsInStep</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>&gt;</span>&nbsp;<span class="element-name">effectsInStep</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="beforeEffectsInStep">
+<h3>beforeEffectsInStep</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&gt;&gt;</span>&nbsp;<span class="element-name">beforeEffectsInStep</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="afterEffectsInStep">
+<h3>afterEffectsInStep</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&gt;&gt;</span>&nbsp;<span class="element-name">afterEffectsInStep</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="finalEffects">
+<h3>finalEffects</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&gt;</span>&nbsp;<span class="element-name">finalEffects</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="lastStep">
+<h3>lastStep</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">lastStep</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>StepBasedCollector</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">StepBasedCollector</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="advanceStep(int)">
+<h3>advanceStep</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">advanceStep</span><wbr><span class="parameters">(int&nbsp;step)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="applyAndClear(net.minecraft.world.entity.Entity)">
+<h3>applyAndClear</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">applyAndClear</span><wbr><span class="parameters">(<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="flushStep()">
+<h3>flushStep</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">flushStep</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="apply(net.minecraft.world.entity.InsideBlockEffectType)">
+<h3>apply</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">apply</span><wbr><span class="parameters">(<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>&nbsp;type)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="InsideBlockEffectApplier.html#apply(net.minecraft.world.entity.InsideBlockEffectType)">apply</a></code>&nbsp;in interface&nbsp;<code><a href="InsideBlockEffectApplier.html" title="interface in net.minecraft.world.entity">InsideBlockEffectApplier</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="runBefore(net.minecraft.world.entity.InsideBlockEffectType,java.util.function.Consumer)">
+<h3>runBefore</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">runBefore</span><wbr><span class="parameters">(<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&nbsp;effect)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="InsideBlockEffectApplier.html#runBefore(net.minecraft.world.entity.InsideBlockEffectType,java.util.function.Consumer)">runBefore</a></code>&nbsp;in interface&nbsp;<code><a href="InsideBlockEffectApplier.html" title="interface in net.minecraft.world.entity">InsideBlockEffectApplier</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="runAfter(net.minecraft.world.entity.InsideBlockEffectType,java.util.function.Consumer)">
+<h3>runAfter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">runAfter</span><wbr><span class="parameters">(<a href="InsideBlockEffectType.html" title="enum class in net.minecraft.world.entity">InsideBlockEffectType</a>&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&nbsp;effect)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="InsideBlockEffectApplier.html#runAfter(net.minecraft.world.entity.InsideBlockEffectType,java.util.function.Consumer)">runAfter</a></code>&nbsp;in interface&nbsp;<code><a href="InsideBlockEffectApplier.html" title="interface in net.minecraft.world.entity">InsideBlockEffectApplier</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

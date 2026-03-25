@@ -1,0 +1,261 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ICustomIngredient (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.neoforged.neoforge.common.crafting, interface: ICustomIngredient">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/ICustomIngredient.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.neoforged.neoforge.common.crafting</a></li>
+<li><a href="ICustomIngredient.html" class="current-selection">ICustomIngredient</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#test(net.minecraft.world.item.ItemStack)" tabindex="0">test(ItemStack)</a></li>
+<li><a href="#items()" tabindex="0">items()</a></li>
+<li><a href="#isSimple()" tabindex="0">isSimple()</a></li>
+<li><a href="#getType()" tabindex="0">getType()</a></li>
+<li><a href="#display()" tabindex="0">display()</a></li>
+<li><a href="#toVanilla()" tabindex="0">toVanilla()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Interface ICustomIngredient" class="title">Interface ICustomIngredient</h1>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="BlockTagIngredient.html" title="class in net.neoforged.neoforge.common.crafting">BlockTagIngredient</a>, <a href="CompoundIngredient.html" title="class in net.neoforged.neoforge.common.crafting">CompoundIngredient</a>, <a href="CustomDisplayIngredient.html" title="class in net.neoforged.neoforge.common.crafting">CustomDisplayIngredient</a>, <a href="DataComponentIngredient.html" title="class in net.neoforged.neoforge.common.crafting">DataComponentIngredient</a>, <a href="DifferenceIngredient.html" title="class in net.neoforged.neoforge.common.crafting">DifferenceIngredient</a>, <a href="IntersectionIngredient.html" title="class in net.neoforged.neoforge.common.crafting">IntersectionIngredient</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">ICustomIngredient</span></div>
+<div class="block">Interface that modders can implement to create new behaviors for <a href="../../../../minecraft/world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting"><code>Ingredient</code></a>s.
+
+<p>This is not directly implemented on vanilla <a href="../../../../minecraft/world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting"><code>Ingredient</code></a>s, but conversions are possible:
+<ul>
+<li><a href="#toVanilla()"><code>toVanilla()</code></a> converts a custom ingredient to a vanilla <a href="../../../../minecraft/world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting"><code>Ingredient</code></a>.</li>
+<li><a href="../../../../minecraft/world/item/crafting/Ingredient.html#getCustomIngredient()"><code>Ingredient.getCustomIngredient()</code></a> retrieves the custom ingredient inside a vanilla <a href="../../../../minecraft/world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting"><code>Ingredient</code></a>.</li>
+</ul>
+
+<p>Implementations of this interface <b>must implement <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link"><code>Object.equals(Object)</code></a> and <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link"><code>Object.hashCode()</code></a></b>
+to ensure that the ingredient also supports them.</div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../../minecraft/world/item/crafting/display/SlotDisplay.html" title="interface in net.minecraft.world.item.crafting.display">SlotDisplay</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#display()" class="member-name-link">display</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Returns the display for this ingredient.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="IngredientType.html" title="class in net.neoforged.neoforge.common.crafting">IngredientType</a><wbr>&lt;?&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#getType()" class="member-name-link">getType</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns the type of this ingredient.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isSimple()" class="member-name-link">isSimple</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns whether this ingredient always requires <a href="#test(net.minecraft.world.item.ItemStack)">direct stack testing</a>.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="../../../../minecraft/core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../minecraft/world/item/Item.html" title="class in net.minecraft.world.item">Item</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#items()" class="member-name-link">items</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Returns the list of items that this ingredient accepts.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#test(net.minecraft.world.item.ItemStack)" class="member-name-link">test</a><wbr>(<a href="../../../../minecraft/world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">
+<div class="block">Checks if a stack matches this ingredient.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="../../../../minecraft/world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#toVanilla()" class="member-name-link">toVanilla</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">
+<div class="block">Returns a new <a href="../../../../minecraft/world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting"><code>Ingredient</code></a> behaving as defined by this custom ingredient.</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="test(net.minecraft.world.item.ItemStack)">
+<h3>test</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">test</span><wbr><span class="parameters">(<a href="../../../../minecraft/world/item/ItemStack.html" title="class in net.minecraft.world.item">ItemStack</a>&nbsp;stack)</span></div>
+<div class="block">Checks if a stack matches this ingredient.
+The stack <b>must not</b> be modified in any way.</div>
+<dl class="notes">
+<dt>Parameters:</dt>
+<dd><code>stack</code> - the stack to test</dd>
+<dt>Returns:</dt>
+<dd><code>true</code> if the stack matches this ingredient, <code>false</code> otherwise</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="items()">
+<h3>items</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a>&lt;<a href="../../../../minecraft/core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../../minecraft/world/item/Item.html" title="class in net.minecraft.world.item">Item</a>&gt;&gt;</span>&nbsp;<span class="element-name">items</span>()</div>
+<div class="block">Returns the list of items that this ingredient accepts.
+
+<p>The following guidelines should be followed for good compatibility:
+<ul>
+<li>At least one item must be returned for the ingredient not to be considered empty. Empty ingredients invalidate the entire recipe.</li>
+<li>The ingredient should return all <a href="../../../../minecraft/world/item/Item.html" title="class in net.minecraft.world.item"><code>Item</code></a>s it might possible accept.
+This allows mods that inspect the ingredient to figure out which stacks it might accept.</li>
+<li>Returned items might not always be accepted by the ingredient, as an ingredient might still perform additional NBT-dependent tests.</li>
+<li>An exception is ingredients that <a href="#isSimple()">are simple</a>,
+for which <a href="#test(net.minecraft.world.item.ItemStack)"><code>testing a stack</code></a> is equivalent to testing if the item is in the returned list.</li>
+</ul>
+
+<p>Note: no caching needs to be done by the implementation, this is already handled by the ingredient itself.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the list of items that this ingredient accepts</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isSimple()">
+<h3>isSimple</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">isSimple</span>()</div>
+<div class="block">Returns whether this ingredient always requires <a href="#test(net.minecraft.world.item.ItemStack)">direct stack testing</a>.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd><code>true</code> if this ingredient ignores NBT data when matching stacks, <code>false</code> otherwise</dd>
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../minecraft/world/item/crafting/Ingredient.html#isSimple()"><code>Ingredient.isSimple()</code></a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getType()">
+<h3>getType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="IngredientType.html" title="class in net.neoforged.neoforge.common.crafting">IngredientType</a>&lt;?&gt;</span>&nbsp;<span class="element-name">getType</span>()</div>
+<div class="block">Returns the type of this ingredient.
+
+<p>The type must be registered to <a href="../../registries/NeoForgeRegistries.html#INGREDIENT_TYPES"><code>NeoForgeRegistries.INGREDIENT_TYPES</code></a>.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>the type of this ingredient</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="display()">
+<h3>display</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../../minecraft/world/item/crafting/display/SlotDisplay.html" title="interface in net.minecraft.world.item.crafting.display">SlotDisplay</a></span>&nbsp;<span class="element-name">display</span>()</div>
+<div class="block">Returns the display for this ingredient.
+
+<p>The display is synced to the client, and is also used to retrieve the <a href="../../../../minecraft/world/item/ItemStack.html" title="class in net.minecraft.world.item"><code>ItemStack</code></a>s that are shown to the client.</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="toVanilla()">
+<h3>toVanilla</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations">@NonExtendable
+</span><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="../../../../minecraft/world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting">Ingredient</a></span>&nbsp;<span class="element-name">toVanilla</span>()</div>
+<div class="block">Returns a new <a href="../../../../minecraft/world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting"><code>Ingredient</code></a> behaving as defined by this custom ingredient.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>a new <a href="../../../../minecraft/world/item/crafting/Ingredient.html" title="class in net.minecraft.world.item.crafting"><code>Ingredient</code></a> behaving as defined by this custom ingredient</dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

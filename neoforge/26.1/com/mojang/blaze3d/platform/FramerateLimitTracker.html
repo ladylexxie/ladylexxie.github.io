@@ -1,0 +1,424 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>FramerateLimitTracker (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.mojang.blaze3d.platform, class: FramerateLimitTracker">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/FramerateLimitTracker.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">com.mojang.blaze3d.platform</a></li>
+<li><a href="FramerateLimitTracker.html" class="current-selection">FramerateLimitTracker</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#OUT_OF_LEVEL_MENU_LIMIT" tabindex="0">OUT_OF_LEVEL_MENU_LIMIT</a></li>
+<li><a href="#ICONIFIED_WINDOW_LIMIT" tabindex="0">ICONIFIED_WINDOW_LIMIT</a></li>
+<li><a href="#AFK_LIMIT" tabindex="0">AFK_LIMIT</a></li>
+<li><a href="#LONG_AFK_LIMIT" tabindex="0">LONG_AFK_LIMIT</a></li>
+<li><a href="#AFK_THRESHOLD_MS" tabindex="0">AFK_THRESHOLD_MS</a></li>
+<li><a href="#LONG_AFK_THRESHOLD_MS" tabindex="0">LONG_AFK_THRESHOLD_MS</a></li>
+<li><a href="#options" tabindex="0">options</a></li>
+<li><a href="#minecraft" tabindex="0">minecraft</a></li>
+<li><a href="#framerateLimit" tabindex="0">framerateLimit</a></li>
+<li><a href="#latestInputTime" tabindex="0">latestInputTime</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.client.Options,net.minecraft.client.Minecraft)" tabindex="0">FramerateLimitTracker(Options, Minecraft)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#getFramerateLimit()" tabindex="0">getFramerateLimit()</a></li>
+<li><a href="#getThrottleReason()" tabindex="0">getThrottleReason()</a></li>
+<li><a href="#isHeavilyThrottled()" tabindex="0">isHeavilyThrottled()</a></li>
+<li><a href="#setFramerateLimit(int)" tabindex="0">setFramerateLimit(int)</a></li>
+<li><a href="#onInputReceived()" tabindex="0">onInputReceived()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class FramerateLimitTracker" class="title">Class FramerateLimitTracker</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">com.mojang.blaze3d.platform.FramerateLimitTracker</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">FramerateLimitTracker</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="FramerateLimitTracker.FramerateThrottleReason.html" class="type-name-link" title="enum class in com.mojang.blaze3d.platform">FramerateLimitTracker.FramerateThrottleReason</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#AFK_LIMIT" class="member-name-link">AFK_LIMIT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final long</code></div>
+<div class="col-second odd-row-color"><code><a href="#AFK_THRESHOLD_MS" class="member-name-link">AFK_THRESHOLD_MS</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private int</code></div>
+<div class="col-second even-row-color"><code><a href="#framerateLimit" class="member-name-link">framerateLimit</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#ICONIFIED_WINDOW_LIMIT" class="member-name-link">ICONIFIED_WINDOW_LIMIT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private long</code></div>
+<div class="col-second even-row-color"><code><a href="#latestInputTime" class="member-name-link">latestInputTime</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#LONG_AFK_LIMIT" class="member-name-link">LONG_AFK_LIMIT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final long</code></div>
+<div class="col-second even-row-color"><code><a href="#LONG_AFK_THRESHOLD_MS" class="member-name-link">LONG_AFK_THRESHOLD_MS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../../../net/minecraft/client/Minecraft.html" title="class in net.minecraft.client">Minecraft</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#minecraft" class="member-name-link">minecraft</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="../../../../net/minecraft/client/Options.html" title="class in net.minecraft.client">Options</a></code></div>
+<div class="col-second even-row-color"><code><a href="#options" class="member-name-link">options</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#OUT_OF_LEVEL_MENU_LIMIT" class="member-name-link">OUT_OF_LEVEL_MENU_LIMIT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Options,net.minecraft.client.Minecraft)" class="member-name-link">FramerateLimitTracker</a><wbr>(<a href="../../../../net/minecraft/client/Options.html" title="class in net.minecraft.client">Options</a>&nbsp;options,
+ <a href="../../../../net/minecraft/client/Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFramerateLimit()" class="member-name-link">getFramerateLimit</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="FramerateLimitTracker.FramerateThrottleReason.html" title="enum class in com.mojang.blaze3d.platform">FramerateLimitTracker.FramerateThrottleReason</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getThrottleReason()" class="member-name-link">getThrottleReason</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isHeavilyThrottled()" class="member-name-link">isHeavilyThrottled</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onInputReceived()" class="member-name-link">onInputReceived</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setFramerateLimit(int)" class="member-name-link">setFramerateLimit</a><wbr>(int&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="OUT_OF_LEVEL_MENU_LIMIT">
+<h3>OUT_OF_LEVEL_MENU_LIMIT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">OUT_OF_LEVEL_MENU_LIMIT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.platform.FramerateLimitTracker.OUT_OF_LEVEL_MENU_LIMIT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ICONIFIED_WINDOW_LIMIT">
+<h3>ICONIFIED_WINDOW_LIMIT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">ICONIFIED_WINDOW_LIMIT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.platform.FramerateLimitTracker.ICONIFIED_WINDOW_LIMIT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="AFK_LIMIT">
+<h3>AFK_LIMIT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">AFK_LIMIT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.platform.FramerateLimitTracker.AFK_LIMIT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LONG_AFK_LIMIT">
+<h3>LONG_AFK_LIMIT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">LONG_AFK_LIMIT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.platform.FramerateLimitTracker.LONG_AFK_LIMIT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="AFK_THRESHOLD_MS">
+<h3>AFK_THRESHOLD_MS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">AFK_THRESHOLD_MS</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.platform.FramerateLimitTracker.AFK_THRESHOLD_MS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LONG_AFK_THRESHOLD_MS">
+<h3>LONG_AFK_THRESHOLD_MS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">LONG_AFK_THRESHOLD_MS</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.platform.FramerateLimitTracker.LONG_AFK_THRESHOLD_MS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="options">
+<h3>options</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../../net/minecraft/client/Options.html" title="class in net.minecraft.client">Options</a></span>&nbsp;<span class="element-name">options</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="minecraft">
+<h3>minecraft</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../../net/minecraft/client/Minecraft.html" title="class in net.minecraft.client">Minecraft</a></span>&nbsp;<span class="element-name">minecraft</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="framerateLimit">
+<h3>framerateLimit</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">framerateLimit</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="latestInputTime">
+<h3>latestInputTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">latestInputTime</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.client.Options,net.minecraft.client.Minecraft)">
+<h3>FramerateLimitTracker</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">FramerateLimitTracker</span><wbr><span class="parameters">(<a href="../../../../net/minecraft/client/Options.html" title="class in net.minecraft.client">Options</a>&nbsp;options,
+ <a href="../../../../net/minecraft/client/Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="getFramerateLimit()">
+<h3>getFramerateLimit</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getFramerateLimit</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getThrottleReason()">
+<h3>getThrottleReason</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="FramerateLimitTracker.FramerateThrottleReason.html" title="enum class in com.mojang.blaze3d.platform">FramerateLimitTracker.FramerateThrottleReason</a></span>&nbsp;<span class="element-name">getThrottleReason</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isHeavilyThrottled()">
+<h3>isHeavilyThrottled</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isHeavilyThrottled</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setFramerateLimit(int)">
+<h3>setFramerateLimit</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setFramerateLimit</span><wbr><span class="parameters">(int&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onInputReceived()">
+<h3>onInputReceived</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onInputReceived</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

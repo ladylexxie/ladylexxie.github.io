@@ -1,0 +1,544 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Library (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.mojang.blaze3d.audio, class: Library">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/Library.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">com.mojang.blaze3d.audio</a></li>
+<li><a href="Library.html" class="current-selection">Library</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#NO_DEVICE" tabindex="0">NO_DEVICE</a></li>
+<li><a href="#NO_DEVICE_NAME" tabindex="0">NO_DEVICE_NAME</a></li>
+<li><a href="#DEFAULT_CHANNEL_COUNT" tabindex="0">DEFAULT_CHANNEL_COUNT</a></li>
+<li><a href="#currentDevice" tabindex="0">currentDevice</a></li>
+<li><a href="#currentDeviceName" tabindex="0">currentDeviceName</a></li>
+<li><a href="#context" tabindex="0">context</a></li>
+<li><a href="#supportsDisconnections" tabindex="0">supportsDisconnections</a></li>
+<li><a href="#EMPTY" tabindex="0">EMPTY</a></li>
+<li><a href="#staticChannels" tabindex="0">staticChannels</a></li>
+<li><a href="#streamingChannels" tabindex="0">streamingChannels</a></li>
+<li><a href="#listener" tabindex="0">listener</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">Library()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#init(java.lang.String,com.mojang.blaze3d.audio.DeviceList,boolean)" tabindex="0">init(String, DeviceList, boolean)</a></li>
+<li><a href="#createAttributes(org.lwjgl.system.MemoryStack,boolean)" tabindex="0">createAttributes(MemoryStack, boolean)</a></li>
+<li><a href="#getChannelCount()" tabindex="0">getChannelCount()</a></li>
+<li><a href="#currentDeviceName()" tabindex="0">currentDeviceName()</a></li>
+<li><a href="#queryDeviceName(long)" tabindex="0">queryDeviceName(long)</a></li>
+<li><a href="#openDeviceOrFallback(java.lang.String,java.lang.String)" tabindex="0">openDeviceOrFallback(String, String)</a></li>
+<li><a href="#tryOpenDevice(java.lang.String)" tabindex="0">tryOpenDevice(String)</a></li>
+<li><a href="#cleanup()" tabindex="0">cleanup()</a></li>
+<li><a href="#getListener()" tabindex="0">getListener()</a></li>
+<li><a href="#acquireChannel(com.mojang.blaze3d.audio.Library.Pool)" tabindex="0">acquireChannel(Library.Pool)</a></li>
+<li><a href="#releaseChannel(com.mojang.blaze3d.audio.Channel)" tabindex="0">releaseChannel(Channel)</a></li>
+<li><a href="#getChannelDebugString()" tabindex="0">getChannelDebugString()</a></li>
+<li><a href="#isCurrentDeviceDisconnected()" tabindex="0">isCurrentDeviceDisconnected()</a></li>
+<li><a href="#createDeviceTracker()" tabindex="0">createDeviceTracker()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class Library" class="title">Class Library</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">com.mojang.blaze3d.audio.Library</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Library</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Library.ChannelPool.html" class="type-name-link" title="interface in com.mojang.blaze3d.audio">Library.ChannelPool</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="Library.CountingChannelPool.html" class="type-name-link" title="class in com.mojang.blaze3d.audio">Library.CountingChannelPool</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Library.Pool.html" class="type-name-link" title="enum class in com.mojang.blaze3d.audio">Library.Pool</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private long</code></div>
+<div class="col-second even-row-color"><code><a href="#context" class="member-name-link">context</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private long</code></div>
+<div class="col-second odd-row-color"><code><a href="#currentDevice" class="member-name-link">currentDevice</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#currentDeviceName" class="member-name-link">currentDeviceName</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#DEFAULT_CHANNEL_COUNT" class="member-name-link">DEFAULT_CHANNEL_COUNT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="Library.ChannelPool.html" title="interface in com.mojang.blaze3d.audio">Library.ChannelPool</a></code></div>
+<div class="col-second even-row-color"><code><a href="#EMPTY" class="member-name-link">EMPTY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="Listener.html" title="class in com.mojang.blaze3d.audio">Listener</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#listener" class="member-name-link">listener</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second even-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#NO_DEVICE" class="member-name-link">NO_DEVICE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#NO_DEVICE_NAME" class="member-name-link">NO_DEVICE_NAME</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private <a href="Library.ChannelPool.html" title="interface in com.mojang.blaze3d.audio">Library.ChannelPool</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#staticChannels" class="member-name-link">staticChannels</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private <a href="Library.ChannelPool.html" title="interface in com.mojang.blaze3d.audio">Library.ChannelPool</a></code></div>
+<div class="col-second even-row-color"><code><a href="#streamingChannels" class="member-name-link">streamingChannels</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#supportsDisconnections" class="member-name-link">supportsDisconnections</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">Library</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="Channel.html" title="class in com.mojang.blaze3d.audio">Channel</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#acquireChannel(com.mojang.blaze3d.audio.Library.Pool)" class="member-name-link">acquireChannel</a><wbr>(<a href="Library.Pool.html" title="enum class in com.mojang.blaze3d.audio">Library.Pool</a>&nbsp;pool)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#cleanup()" class="member-name-link">cleanup</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/IntBuffer.html" title="class or interface in java.nio" class="external-link">IntBuffer</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createAttributes(org.lwjgl.system.MemoryStack,boolean)" class="member-name-link">createAttributes</a><wbr>(org.lwjgl.system.MemoryStack&nbsp;stack,
+ boolean&nbsp;enableHrtf)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="DeviceTracker.html" title="interface in com.mojang.blaze3d.audio">DeviceTracker</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createDeviceTracker()" class="member-name-link">createDeviceTracker</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#currentDeviceName()" class="member-name-link">currentDeviceName</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChannelCount()" class="member-name-link">getChannelCount</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChannelDebugString()" class="member-name-link">getChannelDebugString</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="Listener.html" title="class in com.mojang.blaze3d.audio">Listener</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getListener()" class="member-name-link">getListener</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#init(java.lang.String,com.mojang.blaze3d.audio.DeviceList,boolean)" class="member-name-link">init</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;preferredDevice,
+ <a href="DeviceList.html" title="class in com.mojang.blaze3d.audio">DeviceList</a>&nbsp;currentDevices,
+ boolean&nbsp;useHrtf)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isCurrentDeviceDisconnected()" class="member-name-link">isCurrentDeviceDisconnected</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#openDeviceOrFallback(java.lang.String,java.lang.String)" class="member-name-link">openDeviceOrFallback</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;preferredDevice,
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;systemDefaultDevice)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queryDeviceName(long)" class="member-name-link">queryDeviceName</a><wbr>(long&nbsp;deviceId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#releaseChannel(com.mojang.blaze3d.audio.Channel)" class="member-name-link">releaseChannel</a><wbr>(<a href="Channel.html" title="class in com.mojang.blaze3d.audio">Channel</a>&nbsp;channel)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryOpenDevice(java.lang.String)" class="member-name-link">tryOpenDevice</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="NO_DEVICE">
+<h3>NO_DEVICE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">NO_DEVICE</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.audio.Library.NO_DEVICE">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="NO_DEVICE_NAME">
+<h3>NO_DEVICE_NAME</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">NO_DEVICE_NAME</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.audio.Library.NO_DEVICE_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DEFAULT_CHANNEL_COUNT">
+<h3>DEFAULT_CHANNEL_COUNT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">DEFAULT_CHANNEL_COUNT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.audio.Library.DEFAULT_CHANNEL_COUNT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="currentDevice">
+<h3>currentDevice</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">currentDevice</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="currentDeviceName">
+<h3>currentDeviceName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">currentDeviceName</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="context">
+<h3>context</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">context</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="supportsDisconnections">
+<h3>supportsDisconnections</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">supportsDisconnections</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="EMPTY">
+<h3>EMPTY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="Library.ChannelPool.html" title="interface in com.mojang.blaze3d.audio">Library.ChannelPool</a></span>&nbsp;<span class="element-name">EMPTY</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="staticChannels">
+<h3>staticChannels</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="Library.ChannelPool.html" title="interface in com.mojang.blaze3d.audio">Library.ChannelPool</a></span>&nbsp;<span class="element-name">staticChannels</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="streamingChannels">
+<h3>streamingChannels</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="Library.ChannelPool.html" title="interface in com.mojang.blaze3d.audio">Library.ChannelPool</a></span>&nbsp;<span class="element-name">streamingChannels</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="listener">
+<h3>listener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="Listener.html" title="class in com.mojang.blaze3d.audio">Listener</a></span>&nbsp;<span class="element-name">listener</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>Library</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Library</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="init(java.lang.String,com.mojang.blaze3d.audio.DeviceList,boolean)">
+<h3>init</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">init</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;preferredDevice,
+ <a href="DeviceList.html" title="class in com.mojang.blaze3d.audio">DeviceList</a>&nbsp;currentDevices,
+ boolean&nbsp;useHrtf)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createAttributes(org.lwjgl.system.MemoryStack,boolean)">
+<h3>createAttributes</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/IntBuffer.html" title="class or interface in java.nio" class="external-link">IntBuffer</a></span>&nbsp;<span class="element-name">createAttributes</span><wbr><span class="parameters">(org.lwjgl.system.MemoryStack&nbsp;stack,
+ boolean&nbsp;enableHrtf)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getChannelCount()">
+<h3>getChannelCount</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getChannelCount</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="currentDeviceName()">
+<h3>currentDeviceName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">currentDeviceName</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="queryDeviceName(long)">
+<h3>queryDeviceName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">queryDeviceName</span><wbr><span class="parameters">(long&nbsp;deviceId)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="openDeviceOrFallback(java.lang.String,java.lang.String)">
+<h3>openDeviceOrFallback</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">openDeviceOrFallback</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;preferredDevice,
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;systemDefaultDevice)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tryOpenDevice(java.lang.String)">
+<h3>tryOpenDevice</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/OptionalLong.html" title="class or interface in java.util" class="external-link">OptionalLong</a></span>&nbsp;<span class="element-name">tryOpenDevice</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="cleanup()">
+<h3>cleanup</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">cleanup</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getListener()">
+<h3>getListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="Listener.html" title="class in com.mojang.blaze3d.audio">Listener</a></span>&nbsp;<span class="element-name">getListener</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="acquireChannel(com.mojang.blaze3d.audio.Library.Pool)">
+<h3>acquireChannel</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="Channel.html" title="class in com.mojang.blaze3d.audio">Channel</a></span>&nbsp;<span class="element-name">acquireChannel</span><wbr><span class="parameters">(<a href="Library.Pool.html" title="enum class in com.mojang.blaze3d.audio">Library.Pool</a>&nbsp;pool)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="releaseChannel(com.mojang.blaze3d.audio.Channel)">
+<h3>releaseChannel</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">releaseChannel</span><wbr><span class="parameters">(<a href="Channel.html" title="class in com.mojang.blaze3d.audio">Channel</a>&nbsp;channel)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getChannelDebugString()">
+<h3>getChannelDebugString</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getChannelDebugString</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isCurrentDeviceDisconnected()">
+<h3>isCurrentDeviceDisconnected</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isCurrentDeviceDisconnected</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createDeviceTracker()">
+<h3>createDeviceTracker</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="DeviceTracker.html" title="interface in com.mojang.blaze3d.audio">DeviceTracker</a></span>&nbsp;<span class="element-name">createDeviceTracker</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

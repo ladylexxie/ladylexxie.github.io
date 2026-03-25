@@ -1,0 +1,1046 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RenderSystem (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.mojang.blaze3d.systems, class: RenderSystem">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/RenderSystem.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">com.mojang.blaze3d.systems</a></li>
+<li><a href="RenderSystem.html" class="current-selection">RenderSystem</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#MINIMUM_ATLAS_TEXTURE_SIZE" tabindex="0">MINIMUM_ATLAS_TEXTURE_SIZE</a></li>
+<li><a href="#PROJECTION_MATRIX_UBO_SIZE" tabindex="0">PROJECTION_MATRIX_UBO_SIZE</a></li>
+<li><a href="#renderThread" tabindex="0">renderThread</a></li>
+<li><a href="#DEVICE" tabindex="0">DEVICE</a></li>
+<li><a href="#sharedSequential" tabindex="0">sharedSequential</a></li>
+<li><a href="#sharedSequentialQuad" tabindex="0">sharedSequentialQuad</a></li>
+<li><a href="#sharedSequentialLines" tabindex="0">sharedSequentialLines</a></li>
+<li><a href="#projectionType" tabindex="0">projectionType</a></li>
+<li><a href="#savedProjectionType" tabindex="0">savedProjectionType</a></li>
+<li><a href="#modelViewStack" tabindex="0">modelViewStack</a></li>
+<li><a href="#shaderFog" tabindex="0">shaderFog</a></li>
+<li><a href="#shaderLightDirections" tabindex="0">shaderLightDirections</a></li>
+<li><a href="#projectionMatrixBuffer" tabindex="0">projectionMatrixBuffer</a></li>
+<li><a href="#savedProjectionMatrixBuffer" tabindex="0">savedProjectionMatrixBuffer</a></li>
+<li><a href="#apiDescription" tabindex="0">apiDescription</a></li>
+<li><a href="#pollEventsWaitStart" tabindex="0">pollEventsWaitStart</a></li>
+<li><a href="#pollingEvents" tabindex="0">pollingEvents</a></li>
+<li><a href="#PENDING_FENCES" tabindex="0">PENDING_FENCES</a></li>
+<li><a href="#outputColorTextureOverride" tabindex="0">outputColorTextureOverride</a></li>
+<li><a href="#outputDepthTextureOverride" tabindex="0">outputDepthTextureOverride</a></li>
+<li><a href="#globalSettingsUniform" tabindex="0">globalSettingsUniform</a></li>
+<li><a href="#dynamicUniforms" tabindex="0">dynamicUniforms</a></li>
+<li><a href="#scissorStateForRenderTypeDraws" tabindex="0">scissorStateForRenderTypeDraws</a></li>
+<li><a href="#samplerCache" tabindex="0">samplerCache</a></li>
+<li><a href="#PIPELINE_MODIFIERS" tabindex="0">PIPELINE_MODIFIERS</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">RenderSystem()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#getSamplerCache()" tabindex="0">getSamplerCache()</a></li>
+<li><a href="#initRenderThread()" tabindex="0">initRenderThread()</a></li>
+<li><a href="#isOnRenderThread()" tabindex="0">isOnRenderThread()</a></li>
+<li><a href="#assertOnRenderThread()" tabindex="0">assertOnRenderThread()</a></li>
+<li><a href="#constructThreadException()" tabindex="0">constructThreadException()</a></li>
+<li><a href="#pollEvents()" tabindex="0">pollEvents()</a></li>
+<li><a href="#isFrozenAtPollEvents()" tabindex="0">isFrozenAtPollEvents()</a></li>
+<li><a href="#flipFrame(com.mojang.blaze3d.TracyFrameCapture)" tabindex="0">flipFrame(TracyFrameCapture)</a></li>
+<li><a href="#setShaderFog(com.mojang.blaze3d.buffers.GpuBufferSlice)" tabindex="0">setShaderFog(GpuBufferSlice)</a></li>
+<li><a href="#getShaderFog()" tabindex="0">getShaderFog()</a></li>
+<li><a href="#setShaderLights(com.mojang.blaze3d.buffers.GpuBufferSlice)" tabindex="0">setShaderLights(GpuBufferSlice)</a></li>
+<li><a href="#getShaderLights()" tabindex="0">getShaderLights()</a></li>
+<li><a href="#enableScissorForRenderTypeDraws(int,int,int,int)" tabindex="0">enableScissorForRenderTypeDraws(int, int, int, int)</a></li>
+<li><a href="#disableScissorForRenderTypeDraws()" tabindex="0">disableScissorForRenderTypeDraws()</a></li>
+<li><a href="#getScissorStateForRenderTypeDraws()" tabindex="0">getScissorStateForRenderTypeDraws()</a></li>
+<li><a href="#getBackendDescription()" tabindex="0">getBackendDescription()</a></li>
+<li><a href="#getApiDescription()" tabindex="0">getApiDescription()</a></li>
+<li><a href="#initBackendSystem(com.mojang.blaze3d.platform.BackendOptions)" tabindex="0">initBackendSystem(BackendOptions)</a></li>
+<li><a href="#initRenderer(com.mojang.blaze3d.systems.GpuDevice)" tabindex="0">initRenderer(GpuDevice)</a></li>
+<li><a href="#setErrorCallback(org.lwjgl.glfw.GLFWErrorCallbackI)" tabindex="0">setErrorCallback(GLFWErrorCallbackI)</a></li>
+<li><a href="#setupDefaultState()" tabindex="0">setupDefaultState()</a></li>
+<li><a href="#setProjectionMatrix(com.mojang.blaze3d.buffers.GpuBufferSlice,com.mojang.blaze3d.ProjectionType)" tabindex="0">setProjectionMatrix(GpuBufferSlice, ProjectionType)</a></li>
+<li><a href="#backupProjectionMatrix()" tabindex="0">backupProjectionMatrix()</a></li>
+<li><a href="#restoreProjectionMatrix()" tabindex="0">restoreProjectionMatrix()</a></li>
+<li><a href="#getProjectionMatrixBuffer()" tabindex="0">getProjectionMatrixBuffer()</a></li>
+<li><a href="#getModelViewMatrix()" tabindex="0">getModelViewMatrix()</a></li>
+<li><a href="#getModelViewStack()" tabindex="0">getModelViewStack()</a></li>
+<li><a href="#getSequentialBuffer(com.mojang.blaze3d.vertex.VertexFormat.Mode)" tabindex="0">getSequentialBuffer(VertexFormat.Mode)</a></li>
+<li><a href="#setGlobalSettingsUniform(com.mojang.blaze3d.buffers.GpuBuffer)" tabindex="0">setGlobalSettingsUniform(GpuBuffer)</a></li>
+<li><a href="#getGlobalSettingsUniform()" tabindex="0">getGlobalSettingsUniform()</a></li>
+<li><a href="#getProjectionType()" tabindex="0">getProjectionType()</a></li>
+<li><a href="#queueFencedTask(java.lang.Runnable)" tabindex="0">queueFencedTask(Runnable)</a></li>
+<li><a href="#executePendingTasks()" tabindex="0">executePendingTasks()</a></li>
+<li><a href="#getDevice()" tabindex="0">getDevice()</a></li>
+<li><a href="#tryGetDevice()" tabindex="0">tryGetDevice()</a></li>
+<li><a href="#getDynamicUniforms()" tabindex="0">getDynamicUniforms()</a></li>
+<li><a href="#bindDefaultUniforms(com.mojang.blaze3d.systems.RenderPass)" tabindex="0">bindDefaultUniforms(RenderPass)</a></li>
+<li><a href="#pushPipelineModifier(net.minecraft.resources.ResourceKey)" tabindex="0">pushPipelineModifier(ResourceKey)</a></li>
+<li><a href="#popPipelineModifier()" tabindex="0">popPipelineModifier()</a></li>
+<li><a href="#renderWithPipelineModifier(net.minecraft.resources.ResourceKey,java.lang.Runnable)" tabindex="0">renderWithPipelineModifier(ResourceKey, Runnable)</a></li>
+<li><a href="#applyPipelineModifiers(com.mojang.blaze3d.pipeline.RenderPipeline)" tabindex="0">applyPipelineModifiers(RenderPipeline)</a></li>
+<li><a href="#ensurePipelineModifiersEmpty()" tabindex="0">ensurePipelineModifiersEmpty()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class RenderSystem" class="title">Class RenderSystem</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">com.mojang.blaze3d.systems.RenderSystem</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">RenderSystem</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="RenderSystem.AutoStorageIndexBuffer.html" class="type-name-link" title="class in com.mojang.blaze3d.systems">RenderSystem.AutoStorageIndexBuffer</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>(package private) static final record&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="RenderSystem.GpuAsyncTask.html" class="type-name-link" title="class in com.mojang.blaze3d.systems">RenderSystem.GpuAsyncTask</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#apiDescription" class="member-name-link">apiDescription</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static @Nullable <a href="GpuDevice.html" title="class in com.mojang.blaze3d.systems">GpuDevice</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#DEVICE" class="member-name-link">DEVICE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static @Nullable <a href="../../../../net/minecraft/client/renderer/DynamicUniforms.html" title="class in net.minecraft.client.renderer">DynamicUniforms</a></code></div>
+<div class="col-second even-row-color"><code><a href="#dynamicUniforms" class="member-name-link">dynamicUniforms</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static @Nullable <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#globalSettingsUniform" class="member-name-link">globalSettingsUniform</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second even-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#MINIMUM_ATLAS_TEXTURE_SIZE" class="member-name-link">MINIMUM_ATLAS_TEXTURE_SIZE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final org.joml.Matrix4fStack</code></div>
+<div class="col-second even-row-color"><code><a href="#modelViewStack" class="member-name-link">modelViewStack</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static @Nullable <a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#outputColorTextureOverride" class="member-name-link">outputColorTextureOverride</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static @Nullable <a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a></code></div>
+<div class="col-second even-row-color"><code><a href="#outputDepthTextureOverride" class="member-name-link">outputDepthTextureOverride</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="../../../../net/minecraft/util/ArrayListDeque.html" title="class in net.minecraft.util">ArrayListDeque</a><wbr>&lt;<a href="RenderSystem.GpuAsyncTask.html" title="class in com.mojang.blaze3d.systems">RenderSystem.GpuAsyncTask</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#PENDING_FENCES" class="member-name-link">PENDING_FENCES</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifierStack.html" title="class in net.neoforged.neoforge.client.pipeline">PipelineModifierStack</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PIPELINE_MODIFIERS" class="member-name-link">PIPELINE_MODIFIERS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#pollEventsWaitStart" class="member-name-link">pollEventsWaitStart</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicBoolean</a></code></div>
+<div class="col-second even-row-color"><code><a href="#pollingEvents" class="member-name-link">pollingEvents</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#PROJECTION_MATRIX_UBO_SIZE" class="member-name-link">PROJECTION_MATRIX_UBO_SIZE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static @Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></code></div>
+<div class="col-second even-row-color"><code><a href="#projectionMatrixBuffer" class="member-name-link">projectionMatrixBuffer</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static <a href="../ProjectionType.html" title="enum class in com.mojang.blaze3d">ProjectionType</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#projectionType" class="member-name-link">projectionType</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a></code></div>
+<div class="col-second even-row-color"><code><a href="#renderThread" class="member-name-link">renderThread</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="SamplerCache.html" title="class in com.mojang.blaze3d.systems">SamplerCache</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#samplerCache" class="member-name-link">samplerCache</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static @Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></code></div>
+<div class="col-second even-row-color"><code><a href="#savedProjectionMatrixBuffer" class="member-name-link">savedProjectionMatrixBuffer</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static <a href="../ProjectionType.html" title="enum class in com.mojang.blaze3d">ProjectionType</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#savedProjectionType" class="member-name-link">savedProjectionType</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="ScissorState.html" title="class in com.mojang.blaze3d.systems">ScissorState</a></code></div>
+<div class="col-second even-row-color"><code><a href="#scissorStateForRenderTypeDraws" class="member-name-link">scissorStateForRenderTypeDraws</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static @Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#shaderFog" class="member-name-link">shaderFog</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static @Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></code></div>
+<div class="col-second even-row-color"><code><a href="#shaderLightDirections" class="member-name-link">shaderLightDirections</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="RenderSystem.AutoStorageIndexBuffer.html" title="class in com.mojang.blaze3d.systems">RenderSystem.AutoStorageIndexBuffer</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#sharedSequential" class="member-name-link">sharedSequential</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="RenderSystem.AutoStorageIndexBuffer.html" title="class in com.mojang.blaze3d.systems">RenderSystem.AutoStorageIndexBuffer</a></code></div>
+<div class="col-second even-row-color"><code><a href="#sharedSequentialLines" class="member-name-link">sharedSequentialLines</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="RenderSystem.AutoStorageIndexBuffer.html" title="class in com.mojang.blaze3d.systems">RenderSystem.AutoStorageIndexBuffer</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#sharedSequentialQuad" class="member-name-link">sharedSequentialQuad</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">RenderSystem</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#applyPipelineModifiers(com.mojang.blaze3d.pipeline.RenderPipeline)" class="member-name-link">applyPipelineModifiers</a><wbr>(<a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#assertOnRenderThread()" class="member-name-link">assertOnRenderThread</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#backupProjectionMatrix()" class="member-name-link">backupProjectionMatrix</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#bindDefaultUniforms(com.mojang.blaze3d.systems.RenderPass)" class="member-name-link">bindDefaultUniforms</a><wbr>(<a href="RenderPass.html" title="class in com.mojang.blaze3d.systems">RenderPass</a>&nbsp;renderPass)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#constructThreadException()" class="member-name-link">constructThreadException</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#disableScissorForRenderTypeDraws()" class="member-name-link">disableScissorForRenderTypeDraws</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#enableScissorForRenderTypeDraws(int,int,int,int)" class="member-name-link">enableScissorForRenderTypeDraws</a><wbr>(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;width,
+ int&nbsp;height)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#ensurePipelineModifiersEmpty()" class="member-name-link">ensurePipelineModifiersEmpty</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#executePendingTasks()" class="member-name-link">executePendingTasks</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#flipFrame(com.mojang.blaze3d.TracyFrameCapture)" class="member-name-link">flipFrame</a><wbr>(@Nullable <a href="../TracyFrameCapture.html" title="class in com.mojang.blaze3d">TracyFrameCapture</a>&nbsp;tracyFrameCapture)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getApiDescription()" class="member-name-link">getApiDescription</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBackendDescription()" class="member-name-link">getBackendDescription</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="GpuDevice.html" title="class in com.mojang.blaze3d.systems">GpuDevice</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getDevice()" class="member-name-link">getDevice</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../../../net/minecraft/client/renderer/DynamicUniforms.html" title="class in net.minecraft.client.renderer">DynamicUniforms</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getDynamicUniforms()" class="member-name-link">getDynamicUniforms</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @Nullable <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getGlobalSettingsUniform()" class="member-name-link">getGlobalSettingsUniform</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.joml.Matrix4f</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getModelViewMatrix()" class="member-name-link">getModelViewMatrix</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static org.joml.Matrix4fStack</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getModelViewStack()" class="member-name-link">getModelViewStack</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getProjectionMatrixBuffer()" class="member-name-link">getProjectionMatrixBuffer</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../ProjectionType.html" title="enum class in com.mojang.blaze3d">ProjectionType</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getProjectionType()" class="member-name-link">getProjectionType</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="SamplerCache.html" title="class in com.mojang.blaze3d.systems">SamplerCache</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getSamplerCache()" class="member-name-link">getSamplerCache</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="ScissorState.html" title="class in com.mojang.blaze3d.systems">ScissorState</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getScissorStateForRenderTypeDraws()" class="member-name-link">getScissorStateForRenderTypeDraws</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="RenderSystem.AutoStorageIndexBuffer.html" title="class in com.mojang.blaze3d.systems">RenderSystem.AutoStorageIndexBuffer</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getSequentialBuffer(com.mojang.blaze3d.vertex.VertexFormat.Mode)" class="member-name-link">getSequentialBuffer</a><wbr>(<a href="../vertex/VertexFormat.Mode.html" title="enum class in com.mojang.blaze3d.vertex">VertexFormat.Mode</a>&nbsp;primitiveMode)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getShaderFog()" class="member-name-link">getShaderFog</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getShaderLights()" class="member-name-link">getShaderLights</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../../../net/minecraft/util/TimeSource.NanoTimeSource.html" title="interface in net.minecraft.util">TimeSource.NanoTimeSource</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#initBackendSystem(com.mojang.blaze3d.platform.BackendOptions)" class="member-name-link">initBackendSystem</a><wbr>(<a href="../platform/BackendOptions.html" title="class in com.mojang.blaze3d.platform">BackendOptions</a>&nbsp;options)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#initRenderer(com.mojang.blaze3d.systems.GpuDevice)" class="member-name-link">initRenderer</a><wbr>(<a href="GpuDevice.html" title="class in com.mojang.blaze3d.systems">GpuDevice</a>&nbsp;device)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#initRenderThread()" class="member-name-link">initRenderThread</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isFrozenAtPollEvents()" class="member-name-link">isFrozenAtPollEvents</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isOnRenderThread()" class="member-name-link">isOnRenderThread</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#pollEvents()" class="member-name-link">pollEvents</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#popPipelineModifier()" class="member-name-link">popPipelineModifier</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Neo: Pop the last <a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline"><code>PipelineModifier</code></a> off the modifier stack</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#pushPipelineModifier(net.minecraft.resources.ResourceKey)" class="member-name-link">pushPipelineModifier</a><wbr>(<a href="../../../../net/minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline">PipelineModifier</a>&gt;&nbsp;modifier)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Neo: Push the provided <a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline"><code>PipelineModifier</code></a> to be applied to subsequent rendering.</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queueFencedTask(java.lang.Runnable)" class="member-name-link">queueFencedTask</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;task)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#renderWithPipelineModifier(net.minecraft.resources.ResourceKey,java.lang.Runnable)" class="member-name-link">renderWithPipelineModifier</a><wbr>(<a href="../../../../net/minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline">PipelineModifier</a>&gt;&nbsp;modifier,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;renderTask)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">
+<div class="block">Neo: Run the provided <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link"><code>Runnable</code></a> with the provided <a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline"><code>PipelineModifier</code></a> applied
+to the pipelines used by the rendering done in the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link"><code>Runnable</code></a></div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#restoreProjectionMatrix()" class="member-name-link">restoreProjectionMatrix</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setErrorCallback(org.lwjgl.glfw.GLFWErrorCallbackI)" class="member-name-link">setErrorCallback</a><wbr>(org.lwjgl.glfw.GLFWErrorCallbackI&nbsp;onFullscreenError)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setGlobalSettingsUniform(com.mojang.blaze3d.buffers.GpuBuffer)" class="member-name-link">setGlobalSettingsUniform</a><wbr>(<a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;buffer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setProjectionMatrix(com.mojang.blaze3d.buffers.GpuBufferSlice,com.mojang.blaze3d.ProjectionType)" class="member-name-link">setProjectionMatrix</a><wbr>(<a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a>&nbsp;projectionMatrixBuffer,
+ <a href="../ProjectionType.html" title="enum class in com.mojang.blaze3d">ProjectionType</a>&nbsp;type)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setShaderFog(com.mojang.blaze3d.buffers.GpuBufferSlice)" class="member-name-link">setShaderFog</a><wbr>(<a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a>&nbsp;fog)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setShaderLights(com.mojang.blaze3d.buffers.GpuBufferSlice)" class="member-name-link">setShaderLights</a><wbr>(<a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a>&nbsp;buffer)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setupDefaultState()" class="member-name-link">setupDefaultState</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @Nullable <a href="GpuDevice.html" title="class in com.mojang.blaze3d.systems">GpuDevice</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryGetDevice()" class="member-name-link">tryGetDevice</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MINIMUM_ATLAS_TEXTURE_SIZE">
+<h3>MINIMUM_ATLAS_TEXTURE_SIZE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">MINIMUM_ATLAS_TEXTURE_SIZE</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#com.mojang.blaze3d.systems.RenderSystem.MINIMUM_ATLAS_TEXTURE_SIZE">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PROJECTION_MATRIX_UBO_SIZE">
+<h3>PROJECTION_MATRIX_UBO_SIZE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">PROJECTION_MATRIX_UBO_SIZE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderThread">
+<h3>renderThread</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a></span>&nbsp;<span class="element-name">renderThread</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DEVICE">
+<h3>DEVICE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="GpuDevice.html" title="class in com.mojang.blaze3d.systems">GpuDevice</a></span>&nbsp;<span class="element-name">DEVICE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sharedSequential">
+<h3>sharedSequential</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="RenderSystem.AutoStorageIndexBuffer.html" title="class in com.mojang.blaze3d.systems">RenderSystem.AutoStorageIndexBuffer</a></span>&nbsp;<span class="element-name">sharedSequential</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sharedSequentialQuad">
+<h3>sharedSequentialQuad</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="RenderSystem.AutoStorageIndexBuffer.html" title="class in com.mojang.blaze3d.systems">RenderSystem.AutoStorageIndexBuffer</a></span>&nbsp;<span class="element-name">sharedSequentialQuad</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sharedSequentialLines">
+<h3>sharedSequentialLines</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="RenderSystem.AutoStorageIndexBuffer.html" title="class in com.mojang.blaze3d.systems">RenderSystem.AutoStorageIndexBuffer</a></span>&nbsp;<span class="element-name">sharedSequentialLines</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="projectionType">
+<h3>projectionType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../ProjectionType.html" title="enum class in com.mojang.blaze3d">ProjectionType</a></span>&nbsp;<span class="element-name">projectionType</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="savedProjectionType">
+<h3>savedProjectionType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../ProjectionType.html" title="enum class in com.mojang.blaze3d">ProjectionType</a></span>&nbsp;<span class="element-name">savedProjectionType</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="modelViewStack">
+<h3>modelViewStack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.joml.Matrix4fStack</span>&nbsp;<span class="element-name">modelViewStack</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shaderFog">
+<h3>shaderFog</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></span>&nbsp;<span class="element-name">shaderFog</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shaderLightDirections">
+<h3>shaderLightDirections</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></span>&nbsp;<span class="element-name">shaderLightDirections</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="projectionMatrixBuffer">
+<h3>projectionMatrixBuffer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></span>&nbsp;<span class="element-name">projectionMatrixBuffer</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="savedProjectionMatrixBuffer">
+<h3>savedProjectionMatrixBuffer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></span>&nbsp;<span class="element-name">savedProjectionMatrixBuffer</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="apiDescription">
+<h3>apiDescription</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">apiDescription</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pollEventsWaitStart">
+<h3>pollEventsWaitStart</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name">pollEventsWaitStart</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pollingEvents">
+<h3>pollingEvents</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicBoolean.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicBoolean</a></span>&nbsp;<span class="element-name">pollingEvents</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PENDING_FENCES">
+<h3>PENDING_FENCES</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../../../net/minecraft/util/ArrayListDeque.html" title="class in net.minecraft.util">ArrayListDeque</a>&lt;<a href="RenderSystem.GpuAsyncTask.html" title="class in com.mojang.blaze3d.systems">RenderSystem.GpuAsyncTask</a>&gt;</span>&nbsp;<span class="element-name">PENDING_FENCES</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="outputColorTextureOverride">
+<h3>outputColorTextureOverride</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a></span>&nbsp;<span class="element-name">outputColorTextureOverride</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="outputDepthTextureOverride">
+<h3>outputDepthTextureOverride</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a></span>&nbsp;<span class="element-name">outputDepthTextureOverride</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="globalSettingsUniform">
+<h3>globalSettingsUniform</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a></span>&nbsp;<span class="element-name">globalSettingsUniform</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dynamicUniforms">
+<h3>dynamicUniforms</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../../../../net/minecraft/client/renderer/DynamicUniforms.html" title="class in net.minecraft.client.renderer">DynamicUniforms</a></span>&nbsp;<span class="element-name">dynamicUniforms</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="scissorStateForRenderTypeDraws">
+<h3>scissorStateForRenderTypeDraws</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="ScissorState.html" title="class in com.mojang.blaze3d.systems">ScissorState</a></span>&nbsp;<span class="element-name">scissorStateForRenderTypeDraws</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="samplerCache">
+<h3>samplerCache</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="SamplerCache.html" title="class in com.mojang.blaze3d.systems">SamplerCache</a></span>&nbsp;<span class="element-name">samplerCache</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PIPELINE_MODIFIERS">
+<h3>PIPELINE_MODIFIERS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifierStack.html" title="class in net.neoforged.neoforge.client.pipeline">PipelineModifierStack</a></span>&nbsp;<span class="element-name">PIPELINE_MODIFIERS</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>RenderSystem</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RenderSystem</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="getSamplerCache()">
+<h3>getSamplerCache</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="SamplerCache.html" title="class in com.mojang.blaze3d.systems">SamplerCache</a></span>&nbsp;<span class="element-name">getSamplerCache</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initRenderThread()">
+<h3>initRenderThread</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">initRenderThread</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isOnRenderThread()">
+<h3>isOnRenderThread</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isOnRenderThread</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="assertOnRenderThread()">
+<h3>assertOnRenderThread</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">assertOnRenderThread</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="constructThreadException()">
+<h3>constructThreadException</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/IllegalStateException.html" title="class or interface in java.lang" class="external-link">IllegalStateException</a></span>&nbsp;<span class="element-name">constructThreadException</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pollEvents()">
+<h3>pollEvents</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">pollEvents</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isFrozenAtPollEvents()">
+<h3>isFrozenAtPollEvents</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isFrozenAtPollEvents</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="flipFrame(com.mojang.blaze3d.TracyFrameCapture)">
+<h3>flipFrame</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">flipFrame</span><wbr><span class="parameters">(@Nullable <a href="../TracyFrameCapture.html" title="class in com.mojang.blaze3d">TracyFrameCapture</a>&nbsp;tracyFrameCapture)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setShaderFog(com.mojang.blaze3d.buffers.GpuBufferSlice)">
+<h3>setShaderFog</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setShaderFog</span><wbr><span class="parameters">(<a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a>&nbsp;fog)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getShaderFog()">
+<h3>getShaderFog</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></span>&nbsp;<span class="element-name">getShaderFog</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setShaderLights(com.mojang.blaze3d.buffers.GpuBufferSlice)">
+<h3>setShaderLights</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setShaderLights</span><wbr><span class="parameters">(<a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a>&nbsp;buffer)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getShaderLights()">
+<h3>getShaderLights</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></span>&nbsp;<span class="element-name">getShaderLights</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="enableScissorForRenderTypeDraws(int,int,int,int)">
+<h3>enableScissorForRenderTypeDraws</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">enableScissorForRenderTypeDraws</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;width,
+ int&nbsp;height)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="disableScissorForRenderTypeDraws()">
+<h3>disableScissorForRenderTypeDraws</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">disableScissorForRenderTypeDraws</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getScissorStateForRenderTypeDraws()">
+<h3>getScissorStateForRenderTypeDraws</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="ScissorState.html" title="class in com.mojang.blaze3d.systems">ScissorState</a></span>&nbsp;<span class="element-name">getScissorStateForRenderTypeDraws</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBackendDescription()">
+<h3>getBackendDescription</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getBackendDescription</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getApiDescription()">
+<h3>getApiDescription</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getApiDescription</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initBackendSystem(com.mojang.blaze3d.platform.BackendOptions)">
+<h3>initBackendSystem</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../../../net/minecraft/util/TimeSource.NanoTimeSource.html" title="interface in net.minecraft.util">TimeSource.NanoTimeSource</a></span>&nbsp;<span class="element-name">initBackendSystem</span><wbr><span class="parameters">(<a href="../platform/BackendOptions.html" title="class in com.mojang.blaze3d.platform">BackendOptions</a>&nbsp;options)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initRenderer(com.mojang.blaze3d.systems.GpuDevice)">
+<h3>initRenderer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">initRenderer</span><wbr><span class="parameters">(<a href="GpuDevice.html" title="class in com.mojang.blaze3d.systems">GpuDevice</a>&nbsp;device)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setErrorCallback(org.lwjgl.glfw.GLFWErrorCallbackI)">
+<h3>setErrorCallback</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setErrorCallback</span><wbr><span class="parameters">(org.lwjgl.glfw.GLFWErrorCallbackI&nbsp;onFullscreenError)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setupDefaultState()">
+<h3>setupDefaultState</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupDefaultState</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setProjectionMatrix(com.mojang.blaze3d.buffers.GpuBufferSlice,com.mojang.blaze3d.ProjectionType)">
+<h3>setProjectionMatrix</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setProjectionMatrix</span><wbr><span class="parameters">(<a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a>&nbsp;projectionMatrixBuffer,
+ <a href="../ProjectionType.html" title="enum class in com.mojang.blaze3d">ProjectionType</a>&nbsp;type)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="backupProjectionMatrix()">
+<h3>backupProjectionMatrix</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">backupProjectionMatrix</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="restoreProjectionMatrix()">
+<h3>restoreProjectionMatrix</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">restoreProjectionMatrix</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getProjectionMatrixBuffer()">
+<h3>getProjectionMatrixBuffer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a></span>&nbsp;<span class="element-name">getProjectionMatrixBuffer</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getModelViewMatrix()">
+<h3>getModelViewMatrix</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.joml.Matrix4f</span>&nbsp;<span class="element-name">getModelViewMatrix</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getModelViewStack()">
+<h3>getModelViewStack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">org.joml.Matrix4fStack</span>&nbsp;<span class="element-name">getModelViewStack</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSequentialBuffer(com.mojang.blaze3d.vertex.VertexFormat.Mode)">
+<h3>getSequentialBuffer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="RenderSystem.AutoStorageIndexBuffer.html" title="class in com.mojang.blaze3d.systems">RenderSystem.AutoStorageIndexBuffer</a></span>&nbsp;<span class="element-name">getSequentialBuffer</span><wbr><span class="parameters">(<a href="../vertex/VertexFormat.Mode.html" title="enum class in com.mojang.blaze3d.vertex">VertexFormat.Mode</a>&nbsp;primitiveMode)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setGlobalSettingsUniform(com.mojang.blaze3d.buffers.GpuBuffer)">
+<h3>setGlobalSettingsUniform</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setGlobalSettingsUniform</span><wbr><span class="parameters">(<a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;buffer)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getGlobalSettingsUniform()">
+<h3>getGlobalSettingsUniform</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a></span>&nbsp;<span class="element-name">getGlobalSettingsUniform</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getProjectionType()">
+<h3>getProjectionType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../ProjectionType.html" title="enum class in com.mojang.blaze3d">ProjectionType</a></span>&nbsp;<span class="element-name">getProjectionType</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="queueFencedTask(java.lang.Runnable)">
+<h3>queueFencedTask</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">queueFencedTask</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;task)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="executePendingTasks()">
+<h3>executePendingTasks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">executePendingTasks</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getDevice()">
+<h3>getDevice</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="GpuDevice.html" title="class in com.mojang.blaze3d.systems">GpuDevice</a></span>&nbsp;<span class="element-name">getDevice</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tryGetDevice()">
+<h3>tryGetDevice</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="GpuDevice.html" title="class in com.mojang.blaze3d.systems">GpuDevice</a></span>&nbsp;<span class="element-name">tryGetDevice</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getDynamicUniforms()">
+<h3>getDynamicUniforms</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../../../net/minecraft/client/renderer/DynamicUniforms.html" title="class in net.minecraft.client.renderer">DynamicUniforms</a></span>&nbsp;<span class="element-name">getDynamicUniforms</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="bindDefaultUniforms(com.mojang.blaze3d.systems.RenderPass)">
+<h3>bindDefaultUniforms</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">bindDefaultUniforms</span><wbr><span class="parameters">(<a href="RenderPass.html" title="class in com.mojang.blaze3d.systems">RenderPass</a>&nbsp;renderPass)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pushPipelineModifier(net.minecraft.resources.ResourceKey)">
+<h3>pushPipelineModifier</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">pushPipelineModifier</span><wbr><span class="parameters">(<a href="../../../../net/minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline">PipelineModifier</a>&gt;&nbsp;modifier)</span></div>
+<div class="block">Neo: Push the provided <a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline"><code>PipelineModifier</code></a> to be applied to subsequent rendering.
+<p>
+Must be paired with a corresponding <a href="#popPipelineModifier()"><code>popPipelineModifier()</code></a> call after flushing the used buffers</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="popPipelineModifier()">
+<h3>popPipelineModifier</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">popPipelineModifier</span>()</div>
+<div class="block">Neo: Pop the last <a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline"><code>PipelineModifier</code></a> off the modifier stack</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="renderWithPipelineModifier(net.minecraft.resources.ResourceKey,java.lang.Runnable)">
+<h3>renderWithPipelineModifier</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">renderWithPipelineModifier</span><wbr><span class="parameters">(<a href="../../../../net/minecraft/resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline">PipelineModifier</a>&gt;&nbsp;modifier,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;renderTask)</span></div>
+<div class="block">Neo: Run the provided <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link"><code>Runnable</code></a> with the provided <a href="../../../../net/neoforged/neoforge/client/pipeline/PipelineModifier.html" title="interface in net.neoforged.neoforge.client.pipeline"><code>PipelineModifier</code></a> applied
+to the pipelines used by the rendering done in the <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link"><code>Runnable</code></a></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="applyPipelineModifiers(com.mojang.blaze3d.pipeline.RenderPipeline)">
+<h3>applyPipelineModifiers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations">@Internal
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">applyPipelineModifiers</span><wbr><span class="parameters">(<a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ensurePipelineModifiersEmpty()">
+<h3>ensurePipelineModifiersEmpty</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations">@Internal
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">ensurePipelineModifiersEmpty</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

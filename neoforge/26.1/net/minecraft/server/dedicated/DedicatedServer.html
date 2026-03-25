@@ -1,0 +1,1782 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>DedicatedServer (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.server.dedicated, class: DedicatedServer">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/DedicatedServer.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.server.dedicated</a></li>
+<li><a href="DedicatedServer.html" class="current-selection">DedicatedServer</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#CONVERSION_RETRY_DELAY_MS" tabindex="0">CONVERSION_RETRY_DELAY_MS</a></li>
+<li><a href="#CONVERSION_RETRIES" tabindex="0">CONVERSION_RETRIES</a></li>
+<li><a href="#consoleInput" tabindex="0">consoleInput</a></li>
+<li><a href="#queryThreadGs4" tabindex="0">queryThreadGs4</a></li>
+<li><a href="#rconConsoleSource" tabindex="0">rconConsoleSource</a></li>
+<li><a href="#rconThread" tabindex="0">rconThread</a></li>
+<li><a href="#settings" tabindex="0">settings</a></li>
+<li><a href="#gui" tabindex="0">gui</a></li>
+<li><a href="#serverTextFilter" tabindex="0">serverTextFilter</a></li>
+<li><a href="#tickTimeLogger" tabindex="0">tickTimeLogger</a></li>
+<li><a href="#isTickTimeLoggingEnabled" tabindex="0">isTickTimeLoggingEnabled</a></li>
+<li><a href="#serverLinks" tabindex="0">serverLinks</a></li>
+<li><a href="#codeOfConductTexts" tabindex="0">codeOfConductTexts</a></li>
+<li><a href="#jsonRpcServer" tabindex="0">jsonRpcServer</a></li>
+<li><a href="#lastHeartbeat" tabindex="0">lastHeartbeat</a></li>
+<li><a href="#dediLanPinger" tabindex="0">dediLanPinger</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(java.lang.Thread,net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,net.minecraft.server.packs.repository.PackRepository,net.minecraft.server.WorldStem,java.util.Optional,net.minecraft.server.dedicated.DedicatedServerSettings,com.mojang.datafixers.DataFixer,net.minecraft.server.Services)" tabindex="0">DedicatedServer(Thread, LevelStorageSource.LevelStorageAccess, PackRepository, WorldStem, Optional, DedicatedServerSettings, DataFixer, Services)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#readCodeOfConducts()" tabindex="0">readCodeOfConducts()</a></li>
+<li><a href="#createSslContext()" tabindex="0">createSslContext()</a></li>
+<li><a href="#initServer()" tabindex="0">initServer()</a></li>
+<li><a href="#isEnforceWhitelist()" tabindex="0">isEnforceWhitelist()</a></li>
+<li><a href="#setEnforceWhitelist(boolean)" tabindex="0">setEnforceWhitelist(boolean)</a></li>
+<li><a href="#isUsingWhitelist()" tabindex="0">isUsingWhitelist()</a></li>
+<li><a href="#setUsingWhitelist(boolean)" tabindex="0">setUsingWhitelist(boolean)</a></li>
+<li><a href="#tickServer(java.util.function.BooleanSupplier)" tabindex="0">tickServer(BooleanSupplier)</a></li>
+<li><a href="#saveAllChunks(boolean,boolean,boolean)" tabindex="0">saveAllChunks(boolean, boolean, boolean)</a></li>
+<li><a href="#sendLowDiskSpaceWarning()" tabindex="0">sendLowDiskSpaceWarning()</a></li>
+<li><a href="#allowFlight()" tabindex="0">allowFlight()</a></li>
+<li><a href="#setAllowFlight(boolean)" tabindex="0">setAllowFlight(boolean)</a></li>
+<li><a href="#getProperties()" tabindex="0">getProperties()</a></li>
+<li><a href="#setDifficulty(net.minecraft.world.Difficulty)" tabindex="0">setDifficulty(Difficulty)</a></li>
+<li><a href="#forceDifficulty()" tabindex="0">forceDifficulty()</a></li>
+<li><a href="#viewDistance()" tabindex="0">viewDistance()</a></li>
+<li><a href="#setViewDistance(int)" tabindex="0">setViewDistance(int)</a></li>
+<li><a href="#simulationDistance()" tabindex="0">simulationDistance()</a></li>
+<li><a href="#setSimulationDistance(int)" tabindex="0">setSimulationDistance(int)</a></li>
+<li><a href="#fillServerSystemReport(net.minecraft.SystemReport)" tabindex="0">fillServerSystemReport(SystemReport)</a></li>
+<li><a href="#dumpServerProperties(java.nio.file.Path)" tabindex="0">dumpServerProperties(Path)</a></li>
+<li><a href="#onServerExit()" tabindex="0">onServerExit()</a></li>
+<li><a href="#tickConnection()" tabindex="0">tickConnection()</a></li>
+<li><a href="#handleConsoleInput(java.lang.String,net.minecraft.commands.CommandSourceStack)" tabindex="0">handleConsoleInput(String, CommandSourceStack)</a></li>
+<li><a href="#handleConsoleInputs()" tabindex="0">handleConsoleInputs()</a></li>
+<li><a href="#isDedicatedServer()" tabindex="0">isDedicatedServer()</a></li>
+<li><a href="#getRateLimitPacketsPerSecond()" tabindex="0">getRateLimitPacketsPerSecond()</a></li>
+<li><a href="#useNativeTransport()" tabindex="0">useNativeTransport()</a></li>
+<li><a href="#getPlayerList()" tabindex="0">getPlayerList()</a></li>
+<li><a href="#getMaxPlayers()" tabindex="0">getMaxPlayers()</a></li>
+<li><a href="#setMaxPlayers(int)" tabindex="0">setMaxPlayers(int)</a></li>
+<li><a href="#isPublished()" tabindex="0">isPublished()</a></li>
+<li><a href="#getServerIp()" tabindex="0">getServerIp()</a></li>
+<li><a href="#getServerPort()" tabindex="0">getServerPort()</a></li>
+<li><a href="#getServerName()" tabindex="0">getServerName()</a></li>
+<li><a href="#showGui()" tabindex="0">showGui()</a></li>
+<li><a href="#spawnProtectionRadius()" tabindex="0">spawnProtectionRadius()</a></li>
+<li><a href="#setSpawnProtectionRadius(int)" tabindex="0">setSpawnProtectionRadius(int)</a></li>
+<li><a href="#isUnderSpawnProtection(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.entity.player.Player)" tabindex="0">isUnderSpawnProtection(ServerLevel, BlockPos, Player)</a></li>
+<li><a href="#repliesToStatus()" tabindex="0">repliesToStatus()</a></li>
+<li><a href="#setRepliesToStatus(boolean)" tabindex="0">setRepliesToStatus(boolean)</a></li>
+<li><a href="#hidesOnlinePlayers()" tabindex="0">hidesOnlinePlayers()</a></li>
+<li><a href="#setHidesOnlinePlayers(boolean)" tabindex="0">setHidesOnlinePlayers(boolean)</a></li>
+<li><a href="#operatorUserPermissions()" tabindex="0">operatorUserPermissions()</a></li>
+<li><a href="#setOperatorUserPermissions(net.minecraft.server.permissions.LevelBasedPermissionSet)" tabindex="0">setOperatorUserPermissions(LevelBasedPermissionSet)</a></li>
+<li><a href="#getFunctionCompilationPermissions()" tabindex="0">getFunctionCompilationPermissions()</a></li>
+<li><a href="#playerIdleTimeout()" tabindex="0">playerIdleTimeout()</a></li>
+<li><a href="#setPlayerIdleTimeout(int)" tabindex="0">setPlayerIdleTimeout(int)</a></li>
+<li><a href="#statusHeartbeatInterval()" tabindex="0">statusHeartbeatInterval()</a></li>
+<li><a href="#setStatusHeartbeatInterval(int)" tabindex="0">setStatusHeartbeatInterval(int)</a></li>
+<li><a href="#getMotd()" tabindex="0">getMotd()</a></li>
+<li><a href="#setMotd(java.lang.String)" tabindex="0">setMotd(String)</a></li>
+<li><a href="#shouldRconBroadcast()" tabindex="0">shouldRconBroadcast()</a></li>
+<li><a href="#shouldInformAdmins()" tabindex="0">shouldInformAdmins()</a></li>
+<li><a href="#getAbsoluteMaxWorldSize()" tabindex="0">getAbsoluteMaxWorldSize()</a></li>
+<li><a href="#getCompressionThreshold()" tabindex="0">getCompressionThreshold()</a></li>
+<li><a href="#enforceSecureProfile()" tabindex="0">enforceSecureProfile()</a></li>
+<li><a href="#logIPs()" tabindex="0">logIPs()</a></li>
+<li><a href="#convertOldUsers()" tabindex="0">convertOldUsers()</a></li>
+<li><a href="#waitForRetry()" tabindex="0">waitForRetry()</a></li>
+<li><a href="#getMaxTickLength()" tabindex="0">getMaxTickLength()</a></li>
+<li><a href="#getMaxChainedNeighborUpdates()" tabindex="0">getMaxChainedNeighborUpdates()</a></li>
+<li><a href="#getPluginNames()" tabindex="0">getPluginNames()</a></li>
+<li><a href="#runCommand(java.lang.String)" tabindex="0">runCommand(String)</a></li>
+<li><a href="#stopServer()" tabindex="0">stopServer()</a></li>
+<li><a href="#isSingleplayerOwner(net.minecraft.server.players.NameAndId)" tabindex="0">isSingleplayerOwner(NameAndId)</a></li>
+<li><a href="#getScaledTrackingDistance(int)" tabindex="0">getScaledTrackingDistance(int)</a></li>
+<li><a href="#entityBroadcastRangePercentage()" tabindex="0">entityBroadcastRangePercentage()</a></li>
+<li><a href="#setEntityBroadcastRangePercentage(int)" tabindex="0">setEntityBroadcastRangePercentage(int)</a></li>
+<li><a href="#getLevelIdName()" tabindex="0">getLevelIdName()</a></li>
+<li><a href="#forceSynchronousWrites()" tabindex="0">forceSynchronousWrites()</a></li>
+<li><a href="#createTextFilterForPlayer(net.minecraft.server.level.ServerPlayer)" tabindex="0">createTextFilterForPlayer(ServerPlayer)</a></li>
+<li><a href="#getForcedGameType()" tabindex="0">getForcedGameType()</a></li>
+<li><a href="#forceGameMode()" tabindex="0">forceGameMode()</a></li>
+<li><a href="#setForceGameMode(boolean)" tabindex="0">setForceGameMode(boolean)</a></li>
+<li><a href="#gameMode()" tabindex="0">gameMode()</a></li>
+<li><a href="#setGameMode(net.minecraft.world.level.GameType)" tabindex="0">setGameMode(GameType)</a></li>
+<li><a href="#getServerResourcePack()" tabindex="0">getServerResourcePack()</a></li>
+<li><a href="#endMetricsRecordingTick()" tabindex="0">endMetricsRecordingTick()</a></li>
+<li><a href="#getTickTimeLogger()" tabindex="0">getTickTimeLogger()</a></li>
+<li><a href="#isTickTimeLoggingEnabled()" tabindex="0">isTickTimeLoggingEnabled()</a></li>
+<li><a href="#acceptsTransfers()" tabindex="0">acceptsTransfers()</a></li>
+<li><a href="#setAcceptsTransfers(boolean)" tabindex="0">setAcceptsTransfers(boolean)</a></li>
+<li><a href="#serverLinks()" tabindex="0">serverLinks()</a></li>
+<li><a href="#pauseWhenEmptySeconds()" tabindex="0">pauseWhenEmptySeconds()</a></li>
+<li><a href="#setPauseWhenEmptySeconds(int)" tabindex="0">setPauseWhenEmptySeconds(int)</a></li>
+<li><a href="#createServerLinks(net.minecraft.server.dedicated.DedicatedServerSettings)" tabindex="0">createServerLinks(DedicatedServerSettings)</a></li>
+<li><a href="#parseBugReportLink(net.minecraft.server.dedicated.DedicatedServerProperties)" tabindex="0">parseBugReportLink(DedicatedServerProperties)</a></li>
+<li><a href="#getCodeOfConducts()" tabindex="0">getCodeOfConducts()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class DedicatedServer" class="title">Class DedicatedServer</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance"><a href="../../util/thread/BlockableEventLoop.html" title="class in net.minecraft.util.thread">net.minecraft.util.thread.BlockableEventLoop</a>&lt;<a href="../TickTask.html" title="class in net.minecraft.server">TickTask</a>&gt;
+<div class="inheritance"><a href="../../util/thread/ReentrantBlockableEventLoop.html" title="class in net.minecraft.util.thread">net.minecraft.util.thread.ReentrantBlockableEventLoop</a>&lt;<a href="../TickTask.html" title="class in net.minecraft.server">TickTask</a>&gt;
+<div class="inheritance"><a href="../MinecraftServer.html" title="class in net.minecraft.server">net.minecraft.server.MinecraftServer</a>
+<div class="inheritance">net.minecraft.server.dedicated.DedicatedServer</div>
+</div>
+</div>
+</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>, <a href="../../commands/CommandSource.html" title="interface in net.minecraft.commands">CommandSource</a>, <a href="../ServerInfo.html" title="interface in net.minecraft.server">ServerInfo</a>, <a href="../ServerInterface.html" title="interface in net.minecraft.server">ServerInterface</a>, <a href="../../util/profiling/metrics/ProfilerMeasured.html" title="interface in net.minecraft.util.profiling.metrics">ProfilerMeasured</a>, <a href="../../util/thread/TaskScheduler.html" title="interface in net.minecraft.util.thread">TaskScheduler</a>&lt;<a href="../TickTask.html" title="class in net.minecraft.server">TickTask</a>&gt;, <a href="../../world/level/chunk/storage/ChunkIOErrorReporter.html" title="interface in net.minecraft.world.level.chunk.storage">ChunkIOErrorReporter</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">DedicatedServer</span>
+<span class="extends-implements">extends <a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>
+implements <a href="../ServerInterface.html" title="interface in net.minecraft.server">ServerInterface</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-net.minecraft.server.MinecraftServer">Nested classes/interfaces inherited from class&nbsp;<a href="../MinecraftServer.html#nested-class-summary" title="class in net.minecraft.server">MinecraftServer</a></h3>
+<code><a href="../MinecraftServer.ReloadableResources.html" title="class in net.minecraft.server">MinecraftServer.ReloadableResources</a>, <a href="../MinecraftServer.ServerResourcePackInfo.html" title="class in net.minecraft.server">MinecraftServer.ServerResourcePackInfo</a></code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#codeOfConductTexts" class="member-name-link">codeOfConductTexts</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../ConsoleInput.html" title="class in net.minecraft.server">ConsoleInput</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#consoleInput" class="member-name-link">consoleInput</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#CONVERSION_RETRIES" class="member-name-link">CONVERSION_RETRIES</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#CONVERSION_RETRY_DELAY_MS" class="member-name-link">CONVERSION_RETRY_DELAY_MS</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="../../../neoforged/neoforge/server/dedicated/DedicatedLanServerPinger.html" title="class in net.neoforged.neoforge.server.dedicated">DedicatedLanServerPinger</a></code></div>
+<div class="col-second even-row-color"><code><a href="#dediLanPinger" class="member-name-link">dediLanPinger</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private @Nullable <a href="../gui/MinecraftServerGui.html" title="class in net.minecraft.server.gui">MinecraftServerGui</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#gui" class="member-name-link">gui</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#isTickTimeLoggingEnabled" class="member-name-link">isTickTimeLoggingEnabled</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private @Nullable <a href="../jsonrpc/ManagementServer.html" title="class in net.minecraft.server.jsonrpc">ManagementServer</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#jsonRpcServer" class="member-name-link">jsonRpcServer</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private long</code></div>
+<div class="col-second even-row-color"><code><a href="#lastHeartbeat" class="member-name-link">lastHeartbeat</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second odd-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="../rcon/thread/QueryThreadGs4.html" title="class in net.minecraft.server.rcon.thread">QueryThreadGs4</a></code></div>
+<div class="col-second even-row-color"><code><a href="#queryThreadGs4" class="member-name-link">queryThreadGs4</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../rcon/RconConsoleSource.html" title="class in net.minecraft.server.rcon">RconConsoleSource</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#rconConsoleSource" class="member-name-link">rconConsoleSource</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="../rcon/thread/RconThread.html" title="class in net.minecraft.server.rcon.thread">RconThread</a></code></div>
+<div class="col-second even-row-color"><code><a href="#rconThread" class="member-name-link">rconThread</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../ServerLinks.html" title="class in net.minecraft.server">ServerLinks</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#serverLinks" class="member-name-link">serverLinks</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final @Nullable <a href="../network/ServerTextFilter.html" title="class in net.minecraft.server.network">ServerTextFilter</a></code></div>
+<div class="col-second even-row-color"><code><a href="#serverTextFilter" class="member-name-link">serverTextFilter</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="DedicatedServerSettings.html" title="class in net.minecraft.server.dedicated">DedicatedServerSettings</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#settings" class="member-name-link">settings</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="../../util/debugchart/RemoteSampleLogger.html" title="class in net.minecraft.util.debugchart">RemoteSampleLogger</a></code></div>
+<div class="col-second even-row-color"><code><a href="#tickTimeLogger" class="member-name-link">tickTimeLogger</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.server.MinecraftServer">Fields inherited from class&nbsp;<a href="../MinecraftServer.html#field-summary" title="class in net.minecraft.server">MinecraftServer</a></h3>
+<code><a href="../MinecraftServer.html#ABSOLUTE_MAX_WORLD_SIZE">ABSOLUTE_MAX_WORLD_SIZE</a>, <a href="../MinecraftServer.html#ANONYMOUS_PLAYER_PROFILE">ANONYMOUS_PLAYER_PROFILE</a>, <a href="../MinecraftServer.html#DEFAULT_GAME_RULES">DEFAULT_GAME_RULES</a>, <a href="../MinecraftServer.html#DEMO_SETTINGS">DEMO_SETTINGS</a>, <a href="../MinecraftServer.html#nextTickTimeNanos">nextTickTimeNanos</a>, <a href="../MinecraftServer.html#playerDataStorage">playerDataStorage</a>, <a href="../MinecraftServer.html#proxy">proxy</a>, <a href="../MinecraftServer.html#services">services</a>, <a href="../MinecraftServer.html#SPAWN_POSITION_SEARCH_RADIUS">SPAWN_POSITION_SEARCH_RADIUS</a>, <a href="../MinecraftServer.html#storageSource">storageSource</a>, <a href="../MinecraftServer.html#VANILLA_BRAND">VANILLA_BRAND</a>, <a href="../MinecraftServer.html#worldData">worldData</a></code></div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.util.thread.BlockableEventLoop">Fields inherited from class&nbsp;<a href="../../util/thread/BlockableEventLoop.html#field-summary" title="class in net.minecraft.util.thread">BlockableEventLoop</a></h3>
+<code><a href="../../util/thread/BlockableEventLoop.html#BLOCK_TIME_NANOS">BLOCK_TIME_NANOS</a></code></div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.commands.CommandSource">Fields inherited from interface&nbsp;<a href="../../commands/CommandSource.html#field-summary" title="interface in net.minecraft.commands">CommandSource</a></h3>
+<code><a href="../../commands/CommandSource.html#NULL">NULL</a></code></div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.Thread,net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,net.minecraft.server.packs.repository.PackRepository,net.minecraft.server.WorldStem,java.util.Optional,net.minecraft.server.dedicated.DedicatedServerSettings,com.mojang.datafixers.DataFixer,net.minecraft.server.Services)" class="member-name-link">DedicatedServer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>&nbsp;serverThread,
+ <a href="../../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;levelStorageSource,
+ <a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../WorldStem.html" title="class in net.minecraft.server">WorldStem</a>&nbsp;worldStem,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/level/gamerules/GameRules.html" title="class in net.minecraft.world.level.gamerules">GameRules</a>&gt;&nbsp;gameRules,
+ <a href="DedicatedServerSettings.html" title="class in net.minecraft.server.dedicated">DedicatedServerSettings</a>&nbsp;settings,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper,
+ <a href="../Services.html" title="class in net.minecraft.server">Services</a>&nbsp;services)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#acceptsTransfers()" class="member-name-link">acceptsTransfers</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#allowFlight()" class="member-name-link">allowFlight</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#convertOldUsers()" class="member-name-link">convertOldUsers</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../ServerLinks.html" title="class in net.minecraft.server">ServerLinks</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createServerLinks(net.minecraft.server.dedicated.DedicatedServerSettings)" class="member-name-link">createServerLinks</a><wbr>(<a href="DedicatedServerSettings.html" title="class in net.minecraft.server.dedicated">DedicatedServerSettings</a>&nbsp;settings)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private io.netty.handler.ssl.SslContext</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createSslContext()" class="member-name-link">createSslContext</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../network/TextFilter.html" title="interface in net.minecraft.server.network">TextFilter</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createTextFilterForPlayer(net.minecraft.server.level.ServerPlayer)" class="member-name-link">createTextFilterForPlayer</a><wbr>(<a href="../level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dumpServerProperties(java.nio.file.Path)" class="member-name-link">dumpServerProperties</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#endMetricsRecordingTick()" class="member-name-link">endMetricsRecordingTick</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#enforceSecureProfile()" class="member-name-link">enforceSecureProfile</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#entityBroadcastRangePercentage()" class="member-name-link">entityBroadcastRangePercentage</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../SystemReport.html" title="class in net.minecraft">SystemReport</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fillServerSystemReport(net.minecraft.SystemReport)" class="member-name-link">fillServerSystemReport</a><wbr>(<a href="../../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;systemReport)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceDifficulty()" class="member-name-link">forceDifficulty</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceGameMode()" class="member-name-link">forceGameMode</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forceSynchronousWrites()" class="member-name-link">forceSynchronousWrites</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#gameMode()" class="member-name-link">gameMode</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAbsoluteMaxWorldSize()" class="member-name-link">getAbsoluteMaxWorldSize</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCodeOfConducts()" class="member-name-link">getCodeOfConducts</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCompressionThreshold()" class="member-name-link">getCompressionThreshold</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="../../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getForcedGameType()" class="member-name-link">getForcedGameType</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../permissions/PermissionSet.html" title="interface in net.minecraft.server.permissions">PermissionSet</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFunctionCompilationPermissions()" class="member-name-link">getFunctionCompilationPermissions</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLevelIdName()" class="member-name-link">getLevelIdName</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxChainedNeighborUpdates()" class="member-name-link">getMaxChainedNeighborUpdates</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxPlayers()" class="member-name-link">getMaxPlayers</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxTickLength()" class="member-name-link">getMaxTickLength</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMotd()" class="member-name-link">getMotd</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DedicatedPlayerList.html" title="class in net.minecraft.server.dedicated">DedicatedPlayerList</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPlayerList()" class="member-name-link">getPlayerList</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPluginNames()" class="member-name-link">getPluginNames</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="DedicatedServerProperties.html" title="class in net.minecraft.server.dedicated">DedicatedServerProperties</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getProperties()" class="member-name-link">getProperties</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRateLimitPacketsPerSecond()" class="member-name-link">getRateLimitPacketsPerSecond</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getScaledTrackingDistance(int)" class="member-name-link">getScaledTrackingDistance</a><wbr>(int&nbsp;range)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getServerIp()" class="member-name-link">getServerIp</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getServerName()" class="member-name-link">getServerName</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getServerPort()" class="member-name-link">getServerPort</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../MinecraftServer.ServerResourcePackInfo.html" title="class in net.minecraft.server">MinecraftServer.ServerResourcePackInfo</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getServerResourcePack()" class="member-name-link">getServerResourcePack</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="../../util/debugchart/SampleLogger.html" title="interface in net.minecraft.util.debugchart">SampleLogger</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTickTimeLogger()" class="member-name-link">getTickTimeLogger</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleConsoleInput(java.lang.String,net.minecraft.commands.CommandSourceStack)" class="member-name-link">handleConsoleInput</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;msg,
+ <a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleConsoleInputs()" class="member-name-link">handleConsoleInputs</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hidesOnlinePlayers()" class="member-name-link">hidesOnlinePlayers</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initServer()" class="member-name-link">initServer</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isDedicatedServer()" class="member-name-link">isDedicatedServer</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEnforceWhitelist()" class="member-name-link">isEnforceWhitelist</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isPublished()" class="member-name-link">isPublished</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isSingleplayerOwner(net.minecraft.server.players.NameAndId)" class="member-name-link">isSingleplayerOwner</a><wbr>(<a href="../players/NameAndId.html" title="class in net.minecraft.server.players">NameAndId</a>&nbsp;nameAndId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isTickTimeLoggingEnabled()" class="member-name-link">isTickTimeLoggingEnabled</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isUnderSpawnProtection(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.entity.player.Player)" class="member-name-link">isUnderSpawnProtection</a><wbr>(<a href="../level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isUsingWhitelist()" class="member-name-link">isUsingWhitelist</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#logIPs()" class="member-name-link">logIPs</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onServerExit()" class="member-name-link">onServerExit</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../permissions/LevelBasedPermissionSet.html" title="interface in net.minecraft.server.permissions">LevelBasedPermissionSet</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#operatorUserPermissions()" class="member-name-link">operatorUserPermissions</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseBugReportLink(net.minecraft.server.dedicated.DedicatedServerProperties)" class="member-name-link">parseBugReportLink</a><wbr>(<a href="DedicatedServerProperties.html" title="class in net.minecraft.server.dedicated">DedicatedServerProperties</a>&nbsp;properties)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pauseWhenEmptySeconds()" class="member-name-link">pauseWhenEmptySeconds</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#playerIdleTimeout()" class="member-name-link">playerIdleTimeout</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readCodeOfConducts()" class="member-name-link">readCodeOfConducts</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#repliesToStatus()" class="member-name-link">repliesToStatus</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#runCommand(java.lang.String)" class="member-name-link">runCommand</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;command)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#saveAllChunks(boolean,boolean,boolean)" class="member-name-link">saveAllChunks</a><wbr>(boolean&nbsp;silent,
+ boolean&nbsp;flush,
+ boolean&nbsp;force)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendLowDiskSpaceWarning()" class="member-name-link">sendLowDiskSpaceWarning</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../ServerLinks.html" title="class in net.minecraft.server">ServerLinks</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#serverLinks()" class="member-name-link">serverLinks</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAcceptsTransfers(boolean)" class="member-name-link">setAcceptsTransfers</a><wbr>(boolean&nbsp;acceptTransfers)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setAllowFlight(boolean)" class="member-name-link">setAllowFlight</a><wbr>(boolean&nbsp;allowed)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setDifficulty(net.minecraft.world.Difficulty)" class="member-name-link">setDifficulty</a><wbr>(<a href="../../world/Difficulty.html" title="enum class in net.minecraft.world">Difficulty</a>&nbsp;difficulty)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setEnforceWhitelist(boolean)" class="member-name-link">setEnforceWhitelist</a><wbr>(boolean&nbsp;enforceWhitelist)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setEntityBroadcastRangePercentage(int)" class="member-name-link">setEntityBroadcastRangePercentage</a><wbr>(int&nbsp;range)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setForceGameMode(boolean)" class="member-name-link">setForceGameMode</a><wbr>(boolean&nbsp;forceGameMode)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setGameMode(net.minecraft.world.level.GameType)" class="member-name-link">setGameMode</a><wbr>(<a href="../../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;gameMode)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setHidesOnlinePlayers(boolean)" class="member-name-link">setHidesOnlinePlayers</a><wbr>(boolean&nbsp;hide)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMaxPlayers(int)" class="member-name-link">setMaxPlayers</a><wbr>(int&nbsp;maxPlayers)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMotd(java.lang.String)" class="member-name-link">setMotd</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;motd)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOperatorUserPermissions(net.minecraft.server.permissions.LevelBasedPermissionSet)" class="member-name-link">setOperatorUserPermissions</a><wbr>(<a href="../permissions/LevelBasedPermissionSet.html" title="interface in net.minecraft.server.permissions">LevelBasedPermissionSet</a>&nbsp;permissions)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPauseWhenEmptySeconds(int)" class="member-name-link">setPauseWhenEmptySeconds</a><wbr>(int&nbsp;seconds)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setPlayerIdleTimeout(int)" class="member-name-link">setPlayerIdleTimeout</a><wbr>(int&nbsp;playerIdleTimeout)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setRepliesToStatus(boolean)" class="member-name-link">setRepliesToStatus</a><wbr>(boolean&nbsp;enable)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSimulationDistance(int)" class="member-name-link">setSimulationDistance</a><wbr>(int&nbsp;simulationDistance)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSpawnProtectionRadius(int)" class="member-name-link">setSpawnProtectionRadius</a><wbr>(int&nbsp;spawnProtectionRadius)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setStatusHeartbeatInterval(int)" class="member-name-link">setStatusHeartbeatInterval</a><wbr>(int&nbsp;statusHeartbeatInterval)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setUsingWhitelist(boolean)" class="member-name-link">setUsingWhitelist</a><wbr>(boolean&nbsp;usingWhitelist)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setViewDistance(int)" class="member-name-link">setViewDistance</a><wbr>(int&nbsp;viewDistance)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldInformAdmins()" class="member-name-link">shouldInformAdmins</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldRconBroadcast()" class="member-name-link">shouldRconBroadcast</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showGui()" class="member-name-link">showGui</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#simulationDistance()" class="member-name-link">simulationDistance</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#spawnProtectionRadius()" class="member-name-link">spawnProtectionRadius</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#statusHeartbeatInterval()" class="member-name-link">statusHeartbeatInterval</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stopServer()" class="member-name-link">stopServer</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickConnection()" class="member-name-link">tickConnection</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickServer(java.util.function.BooleanSupplier)" class="member-name-link">tickServer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;haveTime)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#useNativeTransport()" class="member-name-link">useNativeTransport</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#viewDistance()" class="member-name-link">viewDistance</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#waitForRetry()" class="member-name-link">waitForRetry</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.server.MinecraftServer">Methods inherited from class&nbsp;<a href="../MinecraftServer.html#method-summary" title="class in net.minecraft.server">MinecraftServer</a></h3>
+<code><a href="../MinecraftServer.html#acceptsFailure()" title="acceptsFailure()">acceptsFailure</a>, <a href="../MinecraftServer.html#acceptsSuccess()" title="acceptsSuccess()">acceptsSuccess</a>, <a href="../MinecraftServer.html#addTickable(java.lang.Runnable)" title="addTickable(Runnable)">addTickable</a>, <a href="../MinecraftServer.html#cancelRecordingMetrics()" title="cancelRecordingMetrics()">cancelRecordingMetrics</a>, <a href="../MinecraftServer.html#clockManager()" title="clockManager()">clockManager</a>, <a href="../MinecraftServer.html#close()" title="close()">close</a>, <a href="../MinecraftServer.html#configurePackRepository(net.minecraft.server.packs.repository.PackRepository,net.minecraft.world.level.WorldDataConfiguration,boolean,boolean)" title="configurePackRepository(PackRepository, WorldDataConfiguration, boolean, boolean)">configurePackRepository</a>, <a href="../MinecraftServer.html#createChunkLoadStatusView(int)" title="createChunkLoadStatusView(int)">createChunkLoadStatusView</a>, <a href="../MinecraftServer.html#createCommandSourceStack()" title="createCommandSourceStack()">createCommandSourceStack</a>, <a href="../MinecraftServer.html#createGameModeForPlayer(net.minecraft.server.level.ServerPlayer)" title="createGameModeForPlayer(ServerPlayer)">createGameModeForPlayer</a>, <a href="../MinecraftServer.html#createLevels()" title="createLevels()">createLevels</a>, <a href="../MinecraftServer.html#debugSubscribers()" title="debugSubscribers()">debugSubscribers</a>, <a href="../MinecraftServer.html#doRunTask(net.minecraft.server.TickTask)" title="doRunTask(TickTask)">doRunTask</a>, <a href="../MinecraftServer.html#enforceGameTypeForPlayers(net.minecraft.world.level.GameType)" title="enforceGameTypeForPlayers(GameType)">enforceGameTypeForPlayers</a>, <a href="../MinecraftServer.html#executeIfPossible(java.lang.Runnable)" title="executeIfPossible(Runnable)">executeIfPossible</a>, <a href="../MinecraftServer.html#fillSystemReport(net.minecraft.SystemReport)" title="fillSystemReport(SystemReport)">fillSystemReport</a>, <a href="../MinecraftServer.html#findRespawnDimension()" title="findRespawnDimension()">findRespawnDimension</a>, <a href="../MinecraftServer.html#finishRecordingMetrics()" title="finishRecordingMetrics()">finishRecordingMetrics</a>, <a href="../MinecraftServer.html#forceGameTimeSynchronization()" title="forceGameTimeSynchronization()">forceGameTimeSynchronization</a>, <a href="../MinecraftServer.html#forgeGetWorldMap()" title="forgeGetWorldMap()">forgeGetWorldMap</a>, <a href="../MinecraftServer.html#fuelValues()" title="fuelValues()">fuelValues</a>, <a href="../MinecraftServer.html#getAdvancements()" title="getAdvancements()">getAdvancements</a>, <a href="../MinecraftServer.html#getAllLevels()" title="getAllLevels()">getAllLevels</a>, <a href="../MinecraftServer.html#getAverageTickTimeNanos()" title="getAverageTickTimeNanos()">getAverageTickTimeNanos</a>, <a href="../MinecraftServer.html#getChatDecorator()" title="getChatDecorator()">getChatDecorator</a>, <a href="../MinecraftServer.html#getCommands()" title="getCommands()">getCommands</a>, <a href="../MinecraftServer.html#getCommandStorage()" title="getCommandStorage()">getCommandStorage</a>, <a href="../MinecraftServer.html#getConnection()" title="getConnection()">getConnection</a>, <a href="../MinecraftServer.html#getCurrentSmoothedTickTime()" title="getCurrentSmoothedTickTime()">getCurrentSmoothedTickTime</a>, <a href="../MinecraftServer.html#getCustomBossEvents()" title="getCustomBossEvents()">getCustomBossEvents</a>, <a href="../MinecraftServer.html#getDataStorage()" title="getDataStorage()">getDataStorage</a>, <a href="../MinecraftServer.html#getDefaultGameType()" title="getDefaultGameType()">getDefaultGameType</a>, <a href="../MinecraftServer.html#getFile(java.lang.String)" title="getFile(String)">getFile</a>, <a href="../MinecraftServer.html#getFixerUpper()" title="getFixerUpper()">getFixerUpper</a>, <a href="../MinecraftServer.html#getFunctions()" title="getFunctions()">getFunctions</a>, <a href="../MinecraftServer.html#getGameRules()" title="getGameRules()">getGameRules</a>, <a href="../MinecraftServer.html#getGlobalGameRules()" title="getGlobalGameRules()">getGlobalGameRules</a>, <a href="../MinecraftServer.html#getKeyPair()" title="getKeyPair()">getKeyPair</a>, <a href="../MinecraftServer.html#getLevel(net.minecraft.resources.ResourceKey)" title="getLevel(ResourceKey)">getLevel</a>, <a href="../MinecraftServer.html#getLevelLoadListener()" title="getLevelLoadListener()">getLevelLoadListener</a>, <a href="../MinecraftServer.html#getLocalIp()" title="getLocalIp()">getLocalIp</a>, <a href="../MinecraftServer.html#getModdedStatus()" title="getModdedStatus()">getModdedStatus</a>, <a href="../MinecraftServer.html#getNextTickTime()" title="getNextTickTime()">getNextTickTime</a>, <a href="../MinecraftServer.html#getPackRepository()" title="getPackRepository()">getPackRepository</a>, <a href="../MinecraftServer.html#getPlayerCount()" title="getPlayerCount()">getPlayerCount</a>, <a href="../MinecraftServer.html#getPlayerNames()" title="getPlayerNames()">getPlayerNames</a>, <a href="../MinecraftServer.html#getPort()" title="getPort()">getPort</a>, <a href="../MinecraftServer.html#getPreventProxyConnections()" title="getPreventProxyConnections()">getPreventProxyConnections</a>, <a href="../MinecraftServer.html#getProfilePermissions(net.minecraft.server.players.NameAndId)" title="getProfilePermissions(NameAndId)">getProfilePermissions</a>, <a href="../MinecraftServer.html#getProxy()" title="getProxy()">getProxy</a>, <a href="../MinecraftServer.html#getRandomSequence(net.minecraft.resources.Identifier)" title="getRandomSequence(Identifier)">getRandomSequence</a>, <a href="../MinecraftServer.html#getRandomSequences()" title="getRandomSequences()">getRandomSequences</a>, <a href="../MinecraftServer.html#getRecipeManager()" title="getRecipeManager()">getRecipeManager</a>, <a href="../MinecraftServer.html#getResourceManager()" title="getResourceManager()">getResourceManager</a>, <a href="../MinecraftServer.html#getRespawnData()" title="getRespawnData()">getRespawnData</a>, <a href="../MinecraftServer.html#getRunningThread()" title="getRunningThread()">getRunningThread</a>, <a href="../MinecraftServer.html#getScheduledEvents()" title="getScheduledEvents()">getScheduledEvents</a>, <a href="../MinecraftServer.html#getScoreboard()" title="getScoreboard()">getScoreboard</a>, <a href="../MinecraftServer.html#getServerActivityMonitor()" title="getServerActivityMonitor()">getServerActivityMonitor</a>, <a href="../MinecraftServer.html#getServerDirectory()" title="getServerDirectory()">getServerDirectory</a>, <a href="../MinecraftServer.html#getServerModName()" title="getServerModName()">getServerModName</a>, <a href="../MinecraftServer.html#getServerResources()" title="getServerResources()">getServerResources</a>, <a href="../MinecraftServer.html#getServerVersion()" title="getServerVersion()">getServerVersion</a>, <a href="../MinecraftServer.html#getSingleplayerProfile()" title="getSingleplayerProfile()">getSingleplayerProfile</a>, <a href="../MinecraftServer.html#getStatus()" title="getStatus()">getStatus</a>, <a href="../MinecraftServer.html#getStatusJson()" title="getStatusJson()">getStatusJson</a>, <a href="../MinecraftServer.html#getStopwatches()" title="getStopwatches()">getStopwatches</a>, <a href="../MinecraftServer.html#getStructureManager()" title="getStructureManager()">getStructureManager</a>, <a href="../MinecraftServer.html#getTickCount()" title="getTickCount()">getTickCount</a>, <a href="../MinecraftServer.html#getTickTime(net.minecraft.resources.ResourceKey)" title="getTickTime(ResourceKey)">getTickTime</a>, <a href="../MinecraftServer.html#getTickTimesNanos()" title="getTickTimesNanos()">getTickTimesNanos</a>, <a href="../MinecraftServer.html#getWeatherData()" title="getWeatherData()">getWeatherData</a>, <a href="../MinecraftServer.html#getWorldData()" title="getWorldData()">getWorldData</a>, <a href="../MinecraftServer.html#getWorldGenSettings()" title="getWorldGenSettings()">getWorldGenSettings</a>, <a href="../MinecraftServer.html#getWorldPath(net.minecraft.world.level.storage.LevelResource)" title="getWorldPath(LevelResource)">getWorldPath</a>, <a href="../MinecraftServer.html#getWorldScreenshotFile()" title="getWorldScreenshotFile()">getWorldScreenshotFile</a>, <a href="../MinecraftServer.html#halt(boolean)" title="halt(boolean)">halt</a>, <a href="../MinecraftServer.html#handleCustomClickAction(net.minecraft.resources.Identifier,java.util.Optional)" title="handleCustomClickAction(Identifier, Optional)">handleCustomClickAction</a>, <a href="../MinecraftServer.html#initializeKeyPair()" title="initializeKeyPair()">initializeKeyPair</a>, <a href="../MinecraftServer.html#invalidateStatus()" title="invalidateStatus()">invalidateStatus</a>, <a href="../MinecraftServer.html#isAutoSave()" title="isAutoSave()">isAutoSave</a>, <a href="../MinecraftServer.html#isCurrentlySaving()" title="isCurrentlySaving()">isCurrentlySaving</a>, <a href="../MinecraftServer.html#isDemo()" title="isDemo()">isDemo</a>, <a href="../MinecraftServer.html#isHardcore()" title="isHardcore()">isHardcore</a>, <a href="../MinecraftServer.html#isPaused()" title="isPaused()">isPaused</a>, <a href="../MinecraftServer.html#isReady()" title="isReady()">isReady</a>, <a href="../MinecraftServer.html#isRecordingMetrics()" title="isRecordingMetrics()">isRecordingMetrics</a>, <a href="../MinecraftServer.html#isResourcePackRequired()" title="isResourcePackRequired()">isResourcePackRequired</a>, <a href="../MinecraftServer.html#isRunning()" title="isRunning()">isRunning</a>, <a href="../MinecraftServer.html#isShutdown()" title="isShutdown()">isShutdown</a>, <a href="../MinecraftServer.html#isSingleplayer()" title="isSingleplayer()">isSingleplayer</a>, <a href="../MinecraftServer.html#isStopped()" title="isStopped()">isStopped</a>, <a href="../MinecraftServer.html#isTimeProfilerRunning()" title="isTimeProfilerRunning()">isTimeProfilerRunning</a>, <a href="../MinecraftServer.html#kickUnlistedPlayers()" title="kickUnlistedPlayers()">kickUnlistedPlayers</a>, <a href="../MinecraftServer.html#levelKeys()" title="levelKeys()">levelKeys</a>, <a href="../MinecraftServer.html#loadLevel()" title="loadLevel()">loadLevel</a>, <a href="../MinecraftServer.html#logChatMessage(net.minecraft.network.chat.Component,net.minecraft.network.chat.ChatType.Bound,java.lang.String)" title="logChatMessage(Component, ChatType.Bound, String)">logChatMessage</a>, <a href="../MinecraftServer.html#markWorldsDirty()" title="markWorldsDirty()">markWorldsDirty</a>, <a href="../MinecraftServer.html#notificationManager()" title="notificationManager()">notificationManager</a>, <a href="../MinecraftServer.html#onGameRuleChanged(net.minecraft.world.level.gamerules.GameRule,T)" title="onGameRuleChanged(GameRule, T)">onGameRuleChanged</a>, <a href="../MinecraftServer.html#onServerCrash(net.minecraft.CrashReport)" title="onServerCrash(CrashReport)">onServerCrash</a>, <a href="../MinecraftServer.html#onTickRateChanged()" title="onTickRateChanged()">onTickRateChanged</a>, <a href="../MinecraftServer.html#overworld()" title="overworld()">overworld</a>, <a href="../MinecraftServer.html#packetProcessor()" title="packetProcessor()">packetProcessor</a>, <a href="../MinecraftServer.html#pollTask()" title="pollTask()">pollTask</a>, <a href="../MinecraftServer.html#potionBrewing()" title="potionBrewing()">potionBrewing</a>, <a href="../MinecraftServer.html#processPacketsAndTick(boolean)" title="processPacketsAndTick(boolean)">processPacketsAndTick</a>, <a href="../MinecraftServer.html#publishServer(net.minecraft.world.level.GameType,boolean,int)" title="publishServer(GameType, boolean, int)">publishServer</a>, <a href="../MinecraftServer.html#registries()" title="registries()">registries</a>, <a href="../MinecraftServer.html#registryAccess()" title="registryAccess()">registryAccess</a>, <a href="../MinecraftServer.html#reloadableRegistries()" title="reloadableRegistries()">reloadableRegistries</a>, <a href="../MinecraftServer.html#reloadResources(java.util.Collection)" title="reloadResources(Collection)">reloadResources</a>, <a href="../MinecraftServer.html#reportChunkLoadFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)" title="reportChunkLoadFailure(Throwable, RegionStorageInfo, ChunkPos)">reportChunkLoadFailure</a>, <a href="../MinecraftServer.html#reportChunkSaveFailure(java.lang.Throwable,net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos)" title="reportChunkSaveFailure(Throwable, RegionStorageInfo, ChunkPos)">reportChunkSaveFailure</a>, <a href="../MinecraftServer.html#reportPacketHandlingException(java.lang.Throwable,net.minecraft.network.protocol.PacketType)" title="reportPacketHandlingException(Throwable, PacketType)">reportPacketHandlingException</a>, <a href="../MinecraftServer.html#runServer()" title="runServer()">runServer</a>, <a href="../MinecraftServer.html#saveEverything(boolean,boolean,boolean)" title="saveEverything(boolean, boolean, boolean)">saveEverything</a>, <a href="../MinecraftServer.html#scheduleExecutables()" title="scheduleExecutables()">scheduleExecutables</a>, <a href="../MinecraftServer.html#selectLevelLoadFocusPos()" title="selectLevelLoadFocusPos()">selectLevelLoadFocusPos</a>, <a href="../MinecraftServer.html#sendSystemMessage(net.minecraft.network.chat.Component)" title="sendSystemMessage(Component)">sendSystemMessage</a>, <a href="../MinecraftServer.html#services()" title="services()">services</a>, <a href="../MinecraftServer.html#setAutoSave(boolean)" title="setAutoSave(boolean)">setAutoSave</a>, <a href="../MinecraftServer.html#setDefaultGameType(net.minecraft.world.level.GameType)" title="setDefaultGameType(GameType)">setDefaultGameType</a>, <a href="../MinecraftServer.html#setDemo(boolean)" title="setDemo(boolean)">setDemo</a>, <a href="../MinecraftServer.html#setDifficulty(net.minecraft.world.Difficulty,boolean)" title="setDifficulty(Difficulty, boolean)">setDifficulty</a>, <a href="../MinecraftServer.html#setDifficultyLocked(boolean)" title="setDifficultyLocked(boolean)">setDifficultyLocked</a>, <a href="../MinecraftServer.html#setId(java.lang.String)" title="setId(String)">setId</a>, <a href="../MinecraftServer.html#setLocalIp(java.lang.String)" title="setLocalIp(String)">setLocalIp</a>, <a href="../MinecraftServer.html#setPlayerList(net.minecraft.server.players.PlayerList)" title="setPlayerList(PlayerList)">setPlayerList</a>, <a href="../MinecraftServer.html#setPort(int)" title="setPort(int)">setPort</a>, <a href="../MinecraftServer.html#setPreventProxyConnections(boolean)" title="setPreventProxyConnections(boolean)">setPreventProxyConnections</a>, <a href="../MinecraftServer.html#setRespawnData(net.minecraft.world.level.storage.LevelData.RespawnData)" title="setRespawnData(LevelData.RespawnData)">setRespawnData</a>, <a href="../MinecraftServer.html#setSingleplayerProfile(com.mojang.authlib.GameProfile)" title="setSingleplayerProfile(GameProfile)">setSingleplayerProfile</a>, <a href="../MinecraftServer.html#setUsesAuthentication(boolean)" title="setUsesAuthentication(boolean)">setUsesAuthentication</a>, <a href="../MinecraftServer.html#setWeatherParameters(int,int,boolean,boolean)" title="setWeatherParameters(int, int, boolean, boolean)">setWeatherParameters</a>, <a href="../MinecraftServer.html#shouldRun(net.minecraft.server.TickTask)" title="shouldRun(TickTask)">shouldRun</a>, <a href="../MinecraftServer.html#spin(java.util.function.Function)" title="spin(Function)">spin</a>, <a href="../MinecraftServer.html#startRecordingMetrics(java.util.function.Consumer,java.util.function.Consumer)" title="startRecordingMetrics(Consumer, Consumer)">startRecordingMetrics</a>, <a href="../MinecraftServer.html#startTimeProfiler()" title="startTimeProfiler()">startTimeProfiler</a>, <a href="../MinecraftServer.html#stopRecordingMetrics()" title="stopRecordingMetrics()">stopRecordingMetrics</a>, <a href="../MinecraftServer.html#stopTimeProfiler()" title="stopTimeProfiler()">stopTimeProfiler</a>, <a href="../MinecraftServer.html#tickChildren(java.util.function.BooleanSupplier)" title="tickChildren(BooleanSupplier)">tickChildren</a>, <a href="../MinecraftServer.html#tickRateManager()" title="tickRateManager()">tickRateManager</a>, <a href="../MinecraftServer.html#updateEffectiveRespawnData()" title="updateEffectiveRespawnData()">updateEffectiveRespawnData</a>, <a href="../MinecraftServer.html#updateMobSpawningFlags()" title="updateMobSpawningFlags()">updateMobSpawningFlags</a>, <a href="../MinecraftServer.html#usesAuthentication()" title="usesAuthentication()">usesAuthentication</a>, <a href="../MinecraftServer.html#waitForTasks()" title="waitForTasks()">waitForTasks</a>, <a href="../MinecraftServer.html#waitUntilNextTick()" title="waitUntilNextTick()">waitUntilNextTick</a>, <a href="../MinecraftServer.html#warnOnLowDiskSpace()" title="warnOnLowDiskSpace()">warnOnLowDiskSpace</a>, <a href="../MinecraftServer.html#wrapRunnable(java.lang.Runnable)" title="wrapRunnable(Runnable)">wrapRunnable</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.util.thread.ReentrantBlockableEventLoop">Methods inherited from class&nbsp;<a href="../../util/thread/ReentrantBlockableEventLoop.html#method-summary" title="class in net.minecraft.util.thread">ReentrantBlockableEventLoop</a></h3>
+<code><a href="../../util/thread/ReentrantBlockableEventLoop.html#runningTask()" title="runningTask()">runningTask</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.util.thread.BlockableEventLoop">Methods inherited from class&nbsp;<a href="../../util/thread/BlockableEventLoop.html#method-summary" title="class in net.minecraft.util.thread">BlockableEventLoop</a></h3>
+<code><a href="../../util/thread/BlockableEventLoop.html#delayCrash(net.minecraft.CrashReport)" title="delayCrash(CrashReport)">delayCrash</a>, <a href="../../util/thread/BlockableEventLoop.html#dropAllTasks()" title="dropAllTasks()">dropAllTasks</a>, <a href="../../util/thread/BlockableEventLoop.html#execute(java.lang.Runnable)" title="execute(Runnable)">execute</a>, <a href="../../util/thread/BlockableEventLoop.html#executeBlocking(java.lang.Runnable)" title="executeBlocking(Runnable)">executeBlocking</a>, <a href="../../util/thread/BlockableEventLoop.html#getPendingTasksCount()" title="getPendingTasksCount()">getPendingTasksCount</a>, <a href="../../util/thread/BlockableEventLoop.html#hasDelayedCrash()" title="hasDelayedCrash()">hasDelayedCrash</a>, <a href="../../util/thread/BlockableEventLoop.html#isNonRecoverable(java.lang.Throwable)" title="isNonRecoverable(Throwable)">isNonRecoverable</a>, <a href="../../util/thread/BlockableEventLoop.html#isSameThread()" title="isSameThread()">isSameThread</a>, <a href="../../util/thread/BlockableEventLoop.html#managedBlock(java.util.function.BooleanSupplier)" title="managedBlock(BooleanSupplier)">managedBlock</a>, <a href="../../util/thread/BlockableEventLoop.html#name()" title="name()">name</a>, <a href="../../util/thread/BlockableEventLoop.html#profiledMetrics()" title="profiledMetrics()">profiledMetrics</a>, <a href="../../util/thread/BlockableEventLoop.html#relayDelayCrash(net.minecraft.CrashReport)" title="relayDelayCrash(CrashReport)">relayDelayCrash</a>, <a href="../../util/thread/BlockableEventLoop.html#runAllTasks()" title="runAllTasks()">runAllTasks</a>, <a href="../../util/thread/BlockableEventLoop.html#schedule(R)" title="schedule(TickTask)">schedule</a>, <a href="../../util/thread/BlockableEventLoop.html#shouldRunAllTasks()" title="shouldRunAllTasks()">shouldRunAllTasks</a>, <a href="../../util/thread/BlockableEventLoop.html#submit(java.lang.Runnable)" title="submit(Runnable)">submit</a>, <a href="../../util/thread/BlockableEventLoop.html#submit(java.util.function.Supplier)" title="submit(Supplier)">submit</a>, <a href="../../util/thread/BlockableEventLoop.html#submitAsync(java.lang.Runnable)" title="submitAsync(Runnable)">submitAsync</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.chunk.storage.ChunkIOErrorReporter">Methods inherited from interface&nbsp;<a href="../../world/level/chunk/storage/ChunkIOErrorReporter.html#method-summary" title="interface in net.minecraft.world.level.chunk.storage">ChunkIOErrorReporter</a></h3>
+<code><a href="../../world/level/chunk/storage/ChunkIOErrorReporter.html#reportMisplacedChunk(net.minecraft.world.level.ChunkPos,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionStorageInfo)" title="reportMisplacedChunk(ChunkPos, ChunkPos, RegionStorageInfo)">reportMisplacedChunk</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.commands.CommandSource">Methods inherited from interface&nbsp;<a href="../../commands/CommandSource.html#method-summary" title="interface in net.minecraft.commands">CommandSource</a></h3>
+<code><a href="../../commands/CommandSource.html#alwaysAccepts()" title="alwaysAccepts()">alwaysAccepts</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.server.ServerInfo">Methods inherited from interface&nbsp;<a href="../ServerInfo.html#method-summary" title="interface in net.minecraft.server">ServerInfo</a></h3>
+<code><a href="../ServerInfo.html#getPlayerCount()" title="getPlayerCount()">getPlayerCount</a>, <a href="../ServerInfo.html#getServerVersion()" title="getServerVersion()">getServerVersion</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.server.ServerInterface">Methods inherited from interface&nbsp;<a href="../ServerInterface.html#method-summary" title="interface in net.minecraft.server">ServerInterface</a></h3>
+<code><a href="../ServerInterface.html#getPlayerNames()" title="getPlayerNames()">getPlayerNames</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.util.thread.TaskScheduler">Methods inherited from interface&nbsp;<a href="../../util/thread/TaskScheduler.html#method-summary" title="interface in net.minecraft.util.thread">TaskScheduler</a></h3>
+<code><a href="../../util/thread/TaskScheduler.html#scheduleWithResult(java.util.function.Consumer)" title="scheduleWithResult(Consumer)">scheduleWithResult</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CONVERSION_RETRY_DELAY_MS">
+<h3>CONVERSION_RETRY_DELAY_MS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">CONVERSION_RETRY_DELAY_MS</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.minecraft.server.dedicated.DedicatedServer.CONVERSION_RETRY_DELAY_MS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CONVERSION_RETRIES">
+<h3>CONVERSION_RETRIES</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">CONVERSION_RETRIES</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.minecraft.server.dedicated.DedicatedServer.CONVERSION_RETRIES">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="consoleInput">
+<h3>consoleInput</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../ConsoleInput.html" title="class in net.minecraft.server">ConsoleInput</a>&gt;</span>&nbsp;<span class="element-name">consoleInput</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="queryThreadGs4">
+<h3>queryThreadGs4</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="../rcon/thread/QueryThreadGs4.html" title="class in net.minecraft.server.rcon.thread">QueryThreadGs4</a></span>&nbsp;<span class="element-name">queryThreadGs4</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="rconConsoleSource">
+<h3>rconConsoleSource</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../rcon/RconConsoleSource.html" title="class in net.minecraft.server.rcon">RconConsoleSource</a></span>&nbsp;<span class="element-name">rconConsoleSource</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="rconThread">
+<h3>rconThread</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="../rcon/thread/RconThread.html" title="class in net.minecraft.server.rcon.thread">RconThread</a></span>&nbsp;<span class="element-name">rconThread</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="settings">
+<h3>settings</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="DedicatedServerSettings.html" title="class in net.minecraft.server.dedicated">DedicatedServerSettings</a></span>&nbsp;<span class="element-name">settings</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="gui">
+<h3>gui</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="../gui/MinecraftServerGui.html" title="class in net.minecraft.server.gui">MinecraftServerGui</a></span>&nbsp;<span class="element-name">gui</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="serverTextFilter">
+<h3>serverTextFilter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">@Nullable <a href="../network/ServerTextFilter.html" title="class in net.minecraft.server.network">ServerTextFilter</a></span>&nbsp;<span class="element-name">serverTextFilter</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tickTimeLogger">
+<h3>tickTimeLogger</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="../../util/debugchart/RemoteSampleLogger.html" title="class in net.minecraft.util.debugchart">RemoteSampleLogger</a></span>&nbsp;<span class="element-name">tickTimeLogger</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isTickTimeLoggingEnabled">
+<h3>isTickTimeLoggingEnabled</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isTickTimeLoggingEnabled</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="serverLinks">
+<h3>serverLinks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../ServerLinks.html" title="class in net.minecraft.server">ServerLinks</a></span>&nbsp;<span class="element-name">serverLinks</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="codeOfConductTexts">
+<h3>codeOfConductTexts</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">codeOfConductTexts</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="jsonRpcServer">
+<h3>jsonRpcServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="../jsonrpc/ManagementServer.html" title="class in net.minecraft.server.jsonrpc">ManagementServer</a></span>&nbsp;<span class="element-name">jsonRpcServer</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="lastHeartbeat">
+<h3>lastHeartbeat</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">lastHeartbeat</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dediLanPinger">
+<h3>dediLanPinger</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="../../../neoforged/neoforge/server/dedicated/DedicatedLanServerPinger.html" title="class in net.neoforged.neoforge.server.dedicated">DedicatedLanServerPinger</a></span>&nbsp;<span class="element-name">dediLanPinger</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(java.lang.Thread,net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,net.minecraft.server.packs.repository.PackRepository,net.minecraft.server.WorldStem,java.util.Optional,net.minecraft.server.dedicated.DedicatedServerSettings,com.mojang.datafixers.DataFixer,net.minecraft.server.Services)">
+<h3>DedicatedServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">DedicatedServer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Thread.html" title="class or interface in java.lang" class="external-link">Thread</a>&nbsp;serverThread,
+ <a href="../../world/level/storage/LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;levelStorageSource,
+ <a href="../packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ <a href="../WorldStem.html" title="class in net.minecraft.server">WorldStem</a>&nbsp;worldStem,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/level/gamerules/GameRules.html" title="class in net.minecraft.world.level.gamerules">GameRules</a>&gt;&nbsp;gameRules,
+ <a href="DedicatedServerSettings.html" title="class in net.minecraft.server.dedicated">DedicatedServerSettings</a>&nbsp;settings,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper,
+ <a href="../Services.html" title="class in net.minecraft.server">Services</a>&nbsp;services)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="readCodeOfConducts()">
+<h3>readCodeOfConducts</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">readCodeOfConducts</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createSslContext()">
+<h3>createSslContext</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">io.netty.handler.ssl.SslContext</span>&nbsp;<span class="element-name">createSslContext</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initServer()">
+<h3>initServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">initServer</span>()
+                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#initServer()">initServer</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isEnforceWhitelist()">
+<h3>isEnforceWhitelist</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isEnforceWhitelist</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#isEnforceWhitelist()">isEnforceWhitelist</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setEnforceWhitelist(boolean)">
+<h3>setEnforceWhitelist</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setEnforceWhitelist</span><wbr><span class="parameters">(boolean&nbsp;enforceWhitelist)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#setEnforceWhitelist(boolean)">setEnforceWhitelist</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isUsingWhitelist()">
+<h3>isUsingWhitelist</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isUsingWhitelist</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#isUsingWhitelist()">isUsingWhitelist</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setUsingWhitelist(boolean)">
+<h3>setUsingWhitelist</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setUsingWhitelist</span><wbr><span class="parameters">(boolean&nbsp;usingWhitelist)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#setUsingWhitelist(boolean)">setUsingWhitelist</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tickServer(java.util.function.BooleanSupplier)">
+<h3>tickServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tickServer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BooleanSupplier.html" title="class or interface in java.util.function" class="external-link">BooleanSupplier</a>&nbsp;haveTime)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#tickServer(java.util.function.BooleanSupplier)">tickServer</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="saveAllChunks(boolean,boolean,boolean)">
+<h3>saveAllChunks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">saveAllChunks</span><wbr><span class="parameters">(boolean&nbsp;silent,
+ boolean&nbsp;flush,
+ boolean&nbsp;force)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#saveAllChunks(boolean,boolean,boolean)">saveAllChunks</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sendLowDiskSpaceWarning()">
+<h3>sendLowDiskSpaceWarning</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendLowDiskSpaceWarning</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#sendLowDiskSpaceWarning()">sendLowDiskSpaceWarning</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="allowFlight()">
+<h3>allowFlight</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">allowFlight</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#allowFlight()">allowFlight</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setAllowFlight(boolean)">
+<h3>setAllowFlight</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setAllowFlight</span><wbr><span class="parameters">(boolean&nbsp;allowed)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getProperties()">
+<h3>getProperties</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DedicatedServerProperties.html" title="class in net.minecraft.server.dedicated">DedicatedServerProperties</a></span>&nbsp;<span class="element-name">getProperties</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ServerInterface.html#getProperties()">getProperties</a></code>&nbsp;in interface&nbsp;<code><a href="../ServerInterface.html" title="interface in net.minecraft.server">ServerInterface</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setDifficulty(net.minecraft.world.Difficulty)">
+<h3>setDifficulty</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setDifficulty</span><wbr><span class="parameters">(<a href="../../world/Difficulty.html" title="enum class in net.minecraft.world">Difficulty</a>&nbsp;difficulty)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="forceDifficulty()">
+<h3>forceDifficulty</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">forceDifficulty</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#forceDifficulty()">forceDifficulty</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="viewDistance()">
+<h3>viewDistance</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">viewDistance</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setViewDistance(int)">
+<h3>setViewDistance</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setViewDistance</span><wbr><span class="parameters">(int&nbsp;viewDistance)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="simulationDistance()">
+<h3>simulationDistance</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">simulationDistance</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setSimulationDistance(int)">
+<h3>setSimulationDistance</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSimulationDistance</span><wbr><span class="parameters">(int&nbsp;simulationDistance)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fillServerSystemReport(net.minecraft.SystemReport)">
+<h3>fillServerSystemReport</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../SystemReport.html" title="class in net.minecraft">SystemReport</a></span>&nbsp;<span class="element-name">fillServerSystemReport</span><wbr><span class="parameters">(<a href="../../SystemReport.html" title="class in net.minecraft">SystemReport</a>&nbsp;systemReport)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#fillServerSystemReport(net.minecraft.SystemReport)">fillServerSystemReport</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dumpServerProperties(java.nio.file.Path)">
+<h3>dumpServerProperties</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">dumpServerProperties</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</span>
+                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#dumpServerProperties(java.nio.file.Path)">dumpServerProperties</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onServerExit()">
+<h3>onServerExit</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onServerExit</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#onServerExit()">onServerExit</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tickConnection()">
+<h3>tickConnection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tickConnection</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#tickConnection()">tickConnection</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleConsoleInput(java.lang.String,net.minecraft.commands.CommandSourceStack)">
+<h3>handleConsoleInput</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleConsoleInput</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;msg,
+ <a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleConsoleInputs()">
+<h3>handleConsoleInputs</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleConsoleInputs</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isDedicatedServer()">
+<h3>isDedicatedServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isDedicatedServer</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#isDedicatedServer()">isDedicatedServer</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getRateLimitPacketsPerSecond()">
+<h3>getRateLimitPacketsPerSecond</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getRateLimitPacketsPerSecond</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#getRateLimitPacketsPerSecond()">getRateLimitPacketsPerSecond</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="useNativeTransport()">
+<h3>useNativeTransport</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">useNativeTransport</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#useNativeTransport()">useNativeTransport</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getPlayerList()">
+<h3>getPlayerList</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="DedicatedPlayerList.html" title="class in net.minecraft.server.dedicated">DedicatedPlayerList</a></span>&nbsp;<span class="element-name">getPlayerList</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#getPlayerList()">getPlayerList</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getMaxPlayers()">
+<h3>getMaxPlayers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getMaxPlayers</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ServerInfo.html#getMaxPlayers()">getMaxPlayers</a></code>&nbsp;in interface&nbsp;<code><a href="../ServerInfo.html" title="interface in net.minecraft.server">ServerInfo</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setMaxPlayers(int)">
+<h3>setMaxPlayers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMaxPlayers</span><wbr><span class="parameters">(int&nbsp;maxPlayers)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isPublished()">
+<h3>isPublished</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isPublished</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#isPublished()">isPublished</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getServerIp()">
+<h3>getServerIp</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getServerIp</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ServerInterface.html#getServerIp()">getServerIp</a></code>&nbsp;in interface&nbsp;<code><a href="../ServerInterface.html" title="interface in net.minecraft.server">ServerInterface</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getServerPort()">
+<h3>getServerPort</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getServerPort</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ServerInterface.html#getServerPort()">getServerPort</a></code>&nbsp;in interface&nbsp;<code><a href="../ServerInterface.html" title="interface in net.minecraft.server">ServerInterface</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getServerName()">
+<h3>getServerName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getServerName</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ServerInterface.html#getServerName()">getServerName</a></code>&nbsp;in interface&nbsp;<code><a href="../ServerInterface.html" title="interface in net.minecraft.server">ServerInterface</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="showGui()">
+<h3>showGui</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">showGui</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="spawnProtectionRadius()">
+<h3>spawnProtectionRadius</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">spawnProtectionRadius</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setSpawnProtectionRadius(int)">
+<h3>setSpawnProtectionRadius</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSpawnProtectionRadius</span><wbr><span class="parameters">(int&nbsp;spawnProtectionRadius)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isUnderSpawnProtection(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.entity.player.Player)">
+<h3>isUnderSpawnProtection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isUnderSpawnProtection</span><wbr><span class="parameters">(<a href="../level/ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&nbsp;player)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#isUnderSpawnProtection(net.minecraft.server.level.ServerLevel,net.minecraft.core.BlockPos,net.minecraft.world.entity.player.Player)">isUnderSpawnProtection</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="repliesToStatus()">
+<h3>repliesToStatus</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">repliesToStatus</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#repliesToStatus()">repliesToStatus</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setRepliesToStatus(boolean)">
+<h3>setRepliesToStatus</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setRepliesToStatus</span><wbr><span class="parameters">(boolean&nbsp;enable)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hidesOnlinePlayers()">
+<h3>hidesOnlinePlayers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hidesOnlinePlayers</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#hidesOnlinePlayers()">hidesOnlinePlayers</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setHidesOnlinePlayers(boolean)">
+<h3>setHidesOnlinePlayers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setHidesOnlinePlayers</span><wbr><span class="parameters">(boolean&nbsp;hide)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="operatorUserPermissions()">
+<h3>operatorUserPermissions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../permissions/LevelBasedPermissionSet.html" title="interface in net.minecraft.server.permissions">LevelBasedPermissionSet</a></span>&nbsp;<span class="element-name">operatorUserPermissions</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#operatorUserPermissions()">operatorUserPermissions</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setOperatorUserPermissions(net.minecraft.server.permissions.LevelBasedPermissionSet)">
+<h3>setOperatorUserPermissions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setOperatorUserPermissions</span><wbr><span class="parameters">(<a href="../permissions/LevelBasedPermissionSet.html" title="interface in net.minecraft.server.permissions">LevelBasedPermissionSet</a>&nbsp;permissions)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getFunctionCompilationPermissions()">
+<h3>getFunctionCompilationPermissions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../permissions/PermissionSet.html" title="interface in net.minecraft.server.permissions">PermissionSet</a></span>&nbsp;<span class="element-name">getFunctionCompilationPermissions</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#getFunctionCompilationPermissions()">getFunctionCompilationPermissions</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="playerIdleTimeout()">
+<h3>playerIdleTimeout</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">playerIdleTimeout</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#playerIdleTimeout()">playerIdleTimeout</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setPlayerIdleTimeout(int)">
+<h3>setPlayerIdleTimeout</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPlayerIdleTimeout</span><wbr><span class="parameters">(int&nbsp;playerIdleTimeout)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#setPlayerIdleTimeout(int)">setPlayerIdleTimeout</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="statusHeartbeatInterval()">
+<h3>statusHeartbeatInterval</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">statusHeartbeatInterval</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setStatusHeartbeatInterval(int)">
+<h3>setStatusHeartbeatInterval</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setStatusHeartbeatInterval</span><wbr><span class="parameters">(int&nbsp;statusHeartbeatInterval)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getMotd()">
+<h3>getMotd</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getMotd</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ServerInfo.html#getMotd()">getMotd</a></code>&nbsp;in interface&nbsp;<code><a href="../ServerInfo.html" title="interface in net.minecraft.server">ServerInfo</a></code></dd>
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#getMotd()">getMotd</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setMotd(java.lang.String)">
+<h3>setMotd</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMotd</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;motd)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#setMotd(java.lang.String)">setMotd</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shouldRconBroadcast()">
+<h3>shouldRconBroadcast</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldRconBroadcast</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#shouldRconBroadcast()">shouldRconBroadcast</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shouldInformAdmins()">
+<h3>shouldInformAdmins</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldInformAdmins</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../commands/CommandSource.html#shouldInformAdmins()">shouldInformAdmins</a></code>&nbsp;in interface&nbsp;<code><a href="../../commands/CommandSource.html" title="interface in net.minecraft.commands">CommandSource</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#shouldInformAdmins()">shouldInformAdmins</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAbsoluteMaxWorldSize()">
+<h3>getAbsoluteMaxWorldSize</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getAbsoluteMaxWorldSize</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#getAbsoluteMaxWorldSize()">getAbsoluteMaxWorldSize</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCompressionThreshold()">
+<h3>getCompressionThreshold</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getCompressionThreshold</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#getCompressionThreshold()">getCompressionThreshold</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="enforceSecureProfile()">
+<h3>enforceSecureProfile</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">enforceSecureProfile</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#enforceSecureProfile()">enforceSecureProfile</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="logIPs()">
+<h3>logIPs</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">logIPs</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#logIPs()">logIPs</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="convertOldUsers()">
+<h3>convertOldUsers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">convertOldUsers</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="waitForRetry()">
+<h3>waitForRetry</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">waitForRetry</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getMaxTickLength()">
+<h3>getMaxTickLength</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">getMaxTickLength</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getMaxChainedNeighborUpdates()">
+<h3>getMaxChainedNeighborUpdates</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getMaxChainedNeighborUpdates</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#getMaxChainedNeighborUpdates()">getMaxChainedNeighborUpdates</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getPluginNames()">
+<h3>getPluginNames</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getPluginNames</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ServerInterface.html#getPluginNames()">getPluginNames</a></code>&nbsp;in interface&nbsp;<code><a href="../ServerInterface.html" title="interface in net.minecraft.server">ServerInterface</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="runCommand(java.lang.String)">
+<h3>runCommand</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">runCommand</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;command)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ServerInterface.html#runCommand(java.lang.String)">runCommand</a></code>&nbsp;in interface&nbsp;<code><a href="../ServerInterface.html" title="interface in net.minecraft.server">ServerInterface</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="stopServer()">
+<h3>stopServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">stopServer</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#stopServer()">stopServer</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isSingleplayerOwner(net.minecraft.server.players.NameAndId)">
+<h3>isSingleplayerOwner</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isSingleplayerOwner</span><wbr><span class="parameters">(<a href="../players/NameAndId.html" title="class in net.minecraft.server.players">NameAndId</a>&nbsp;nameAndId)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#isSingleplayerOwner(net.minecraft.server.players.NameAndId)">isSingleplayerOwner</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getScaledTrackingDistance(int)">
+<h3>getScaledTrackingDistance</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getScaledTrackingDistance</span><wbr><span class="parameters">(int&nbsp;range)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#getScaledTrackingDistance(int)">getScaledTrackingDistance</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="entityBroadcastRangePercentage()">
+<h3>entityBroadcastRangePercentage</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">entityBroadcastRangePercentage</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setEntityBroadcastRangePercentage(int)">
+<h3>setEntityBroadcastRangePercentage</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setEntityBroadcastRangePercentage</span><wbr><span class="parameters">(int&nbsp;range)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLevelIdName()">
+<h3>getLevelIdName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getLevelIdName</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../ServerInterface.html#getLevelIdName()">getLevelIdName</a></code>&nbsp;in interface&nbsp;<code><a href="../ServerInterface.html" title="interface in net.minecraft.server">ServerInterface</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="forceSynchronousWrites()">
+<h3>forceSynchronousWrites</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">forceSynchronousWrites</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#forceSynchronousWrites()">forceSynchronousWrites</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createTextFilterForPlayer(net.minecraft.server.level.ServerPlayer)">
+<h3>createTextFilterForPlayer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../network/TextFilter.html" title="interface in net.minecraft.server.network">TextFilter</a></span>&nbsp;<span class="element-name">createTextFilterForPlayer</span><wbr><span class="parameters">(<a href="../level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</span></div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#createTextFilterForPlayer(net.minecraft.server.level.ServerPlayer)">createTextFilterForPlayer</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getForcedGameType()">
+<h3>getForcedGameType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="../../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a></span>&nbsp;<span class="element-name">getForcedGameType</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#getForcedGameType()">getForcedGameType</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="forceGameMode()">
+<h3>forceGameMode</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">forceGameMode</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setForceGameMode(boolean)">
+<h3>setForceGameMode</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setForceGameMode</span><wbr><span class="parameters">(boolean&nbsp;forceGameMode)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="gameMode()">
+<h3>gameMode</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a></span>&nbsp;<span class="element-name">gameMode</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setGameMode(net.minecraft.world.level.GameType)">
+<h3>setGameMode</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setGameMode</span><wbr><span class="parameters">(<a href="../../world/level/GameType.html" title="enum class in net.minecraft.world.level">GameType</a>&nbsp;gameMode)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getServerResourcePack()">
+<h3>getServerResourcePack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../MinecraftServer.ServerResourcePackInfo.html" title="class in net.minecraft.server">MinecraftServer.ServerResourcePackInfo</a>&gt;</span>&nbsp;<span class="element-name">getServerResourcePack</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#getServerResourcePack()">getServerResourcePack</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="endMetricsRecordingTick()">
+<h3>endMetricsRecordingTick</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">endMetricsRecordingTick</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#endMetricsRecordingTick()">endMetricsRecordingTick</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getTickTimeLogger()">
+<h3>getTickTimeLogger</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="../../util/debugchart/SampleLogger.html" title="interface in net.minecraft.util.debugchart">SampleLogger</a></span>&nbsp;<span class="element-name">getTickTimeLogger</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#getTickTimeLogger()">getTickTimeLogger</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isTickTimeLoggingEnabled()">
+<h3>isTickTimeLoggingEnabled</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isTickTimeLoggingEnabled</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../MinecraftServer.html#isTickTimeLoggingEnabled()">isTickTimeLoggingEnabled</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="acceptsTransfers()">
+<h3>acceptsTransfers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">acceptsTransfers</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#acceptsTransfers()">acceptsTransfers</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setAcceptsTransfers(boolean)">
+<h3>setAcceptsTransfers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setAcceptsTransfers</span><wbr><span class="parameters">(boolean&nbsp;acceptTransfers)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="serverLinks()">
+<h3>serverLinks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../ServerLinks.html" title="class in net.minecraft.server">ServerLinks</a></span>&nbsp;<span class="element-name">serverLinks</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#serverLinks()">serverLinks</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pauseWhenEmptySeconds()">
+<h3>pauseWhenEmptySeconds</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">pauseWhenEmptySeconds</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#pauseWhenEmptySeconds()">pauseWhenEmptySeconds</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setPauseWhenEmptySeconds(int)">
+<h3>setPauseWhenEmptySeconds</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setPauseWhenEmptySeconds</span><wbr><span class="parameters">(int&nbsp;seconds)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createServerLinks(net.minecraft.server.dedicated.DedicatedServerSettings)">
+<h3>createServerLinks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../ServerLinks.html" title="class in net.minecraft.server">ServerLinks</a></span>&nbsp;<span class="element-name">createServerLinks</span><wbr><span class="parameters">(<a href="DedicatedServerSettings.html" title="class in net.minecraft.server.dedicated">DedicatedServerSettings</a>&nbsp;settings)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="parseBugReportLink(net.minecraft.server.dedicated.DedicatedServerProperties)">
+<h3>parseBugReportLink</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/URI.html" title="class or interface in java.net" class="external-link">URI</a>&gt;</span>&nbsp;<span class="element-name">parseBugReportLink</span><wbr><span class="parameters">(<a href="DedicatedServerProperties.html" title="class in net.minecraft.server.dedicated">DedicatedServerProperties</a>&nbsp;properties)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCodeOfConducts()">
+<h3>getCodeOfConducts</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>,<wbr><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">getCodeOfConducts</span>()</div>
+<dl class="notes">
+<dt>Overrides:</dt>
+<dd><code><a href="../MinecraftServer.html#getCodeOfConducts()">getCodeOfConducts</a></code>&nbsp;in class&nbsp;<code><a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

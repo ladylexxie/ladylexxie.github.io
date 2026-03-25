@@ -1,0 +1,495 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Beardifier (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.world.level.levelgen, class: Beardifier">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/Beardifier.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.world.level.levelgen</a></li>
+<li><a href="Beardifier.html" class="current-selection">Beardifier</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#BEARD_KERNEL_RADIUS" tabindex="0">BEARD_KERNEL_RADIUS</a></li>
+<li><a href="#BEARD_KERNEL_SIZE" tabindex="0">BEARD_KERNEL_SIZE</a></li>
+<li><a href="#BEARD_KERNEL" tabindex="0">BEARD_KERNEL</a></li>
+<li><a href="#EMPTY" tabindex="0">EMPTY</a></li>
+<li><a href="#pieces" tabindex="0">pieces</a></li>
+<li><a href="#junctions" tabindex="0">junctions</a></li>
+<li><a href="#affectedBox" tabindex="0">affectedBox</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(java.util.List,java.util.List,net.minecraft.world.level.levelgen.structure.BoundingBox)" tabindex="0">Beardifier(List, List, BoundingBox)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#forStructuresInChunk(net.minecraft.world.level.StructureManager,net.minecraft.world.level.ChunkPos)" tabindex="0">forStructuresInChunk(StructureManager, ChunkPos)</a></li>
+<li><a href="#includeBoundingBox(net.minecraft.world.level.levelgen.structure.BoundingBox,net.minecraft.world.level.levelgen.structure.BoundingBox)" tabindex="0">includeBoundingBox(BoundingBox, BoundingBox)</a></li>
+<li><a href="#fillArray(double%5B%5D,net.minecraft.world.level.levelgen.DensityFunction.ContextProvider)" tabindex="0">fillArray(double[], DensityFunction.ContextProvider)</a></li>
+<li><a href="#compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)" tabindex="0">compute(DensityFunction.FunctionContext)</a></li>
+<li><a href="#minValue()" tabindex="0">minValue()</a></li>
+<li><a href="#maxValue()" tabindex="0">maxValue()</a></li>
+<li><a href="#getBuryContribution(double,double,double)" tabindex="0">getBuryContribution(double, double, double)</a></li>
+<li><a href="#getBeardContribution(int,int,int,int)" tabindex="0">getBeardContribution(int, int, int, int)</a></li>
+<li><a href="#isInKernelRange(int)" tabindex="0">isInKernelRange(int)</a></li>
+<li><a href="#computeBeardContribution(int,int,int)" tabindex="0">computeBeardContribution(int, int, int)</a></li>
+<li><a href="#computeBeardContribution(int,double,int)" tabindex="0">computeBeardContribution(int, double, int)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class Beardifier" class="title">Class Beardifier</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.world.level.levelgen.Beardifier</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a>, <a href="DensityFunction.SimpleFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.SimpleFunction</a>, <a href="DensityFunctions.BeardifierOrMarker.html" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.BeardifierOrMarker</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Beardifier</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="DensityFunctions.BeardifierOrMarker.html" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.BeardifierOrMarker</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Beardifier.Rigid.html" class="type-name-link" title="class in net.minecraft.world.level.levelgen">Beardifier.Rigid</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-net.minecraft.world.level.levelgen.DensityFunction">Nested classes/interfaces inherited from interface&nbsp;<a href="DensityFunction.html#nested-class-summary" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></h3>
+<code><a href="DensityFunction.ContextProvider.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.ContextProvider</a>, <a href="DensityFunction.FunctionContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a>, <a href="DensityFunction.NoiseHolder.html" title="class in net.minecraft.world.level.levelgen">DensityFunction.NoiseHolder</a>, <a href="DensityFunction.SimpleFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.SimpleFunction</a>, <a href="DensityFunction.SinglePointContext.html" title="class in net.minecraft.world.level.levelgen">DensityFunction.SinglePointContext</a>, <a href="DensityFunction.Visitor.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.Visitor</a></code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final @Nullable <a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a></code></div>
+<div class="col-second even-row-color"><code><a href="#affectedBox" class="member-name-link">affectedBox</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final float[]</code></div>
+<div class="col-second odd-row-color"><code><a href="#BEARD_KERNEL" class="member-name-link">BEARD_KERNEL</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#BEARD_KERNEL_RADIUS" class="member-name-link">BEARD_KERNEL_RADIUS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#BEARD_KERNEL_SIZE" class="member-name-link">BEARD_KERNEL_SIZE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="Beardifier.html" title="class in net.minecraft.world.level.levelgen">Beardifier</a></code></div>
+<div class="col-second even-row-color"><code><a href="#EMPTY" class="member-name-link">EMPTY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="structure/pools/JigsawJunction.html" title="class in net.minecraft.world.level.levelgen.structure.pools">JigsawJunction</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#junctions" class="member-name-link">junctions</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>protected final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Beardifier.Rigid.html" title="class in net.minecraft.world.level.levelgen">Beardifier.Rigid</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#pieces" class="member-name-link">pieces</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.world.level.levelgen.DensityFunction">Fields inherited from interface&nbsp;<a href="DensityFunction.html#field-summary" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></h3>
+<code><a href="DensityFunction.html#DIRECT_CODEC">DIRECT_CODEC</a>, <a href="DensityFunction.html#HOLDER_HELPER_CODEC">HOLDER_HELPER_CODEC</a></code></div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.world.level.levelgen.DensityFunctions.BeardifierOrMarker">Fields inherited from interface&nbsp;<a href="DensityFunctions.BeardifierOrMarker.html#field-summary" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.BeardifierOrMarker</a></h3>
+<code><a href="DensityFunctions.BeardifierOrMarker.html#CODEC">CODEC</a></code></div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.util.List,java.util.List,net.minecraft.world.level.levelgen.structure.BoundingBox)" class="member-name-link">Beardifier</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Beardifier.Rigid.html" title="class in net.minecraft.world.level.levelgen">Beardifier.Rigid</a>&gt;&nbsp;pieces,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="structure/pools/JigsawJunction.html" title="class in net.minecraft.world.level.levelgen.structure.pools">JigsawJunction</a>&gt;&nbsp;junctions,
+ @Nullable <a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;affectedBox)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)" class="member-name-link">compute</a><wbr>(<a href="DensityFunction.FunctionContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a>&nbsp;context)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static double</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#computeBeardContribution(int,double,int)" class="member-name-link">computeBeardContribution</a><wbr>(int&nbsp;dx,
+ double&nbsp;dy,
+ int&nbsp;dz)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#computeBeardContribution(int,int,int)" class="member-name-link">computeBeardContribution</a><wbr>(int&nbsp;dx,
+ int&nbsp;dy,
+ int&nbsp;dz)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fillArray(double%5B%5D,net.minecraft.world.level.levelgen.DensityFunction.ContextProvider)" class="member-name-link">fillArray</a><wbr>(double[]&nbsp;output,
+ <a href="DensityFunction.ContextProvider.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.ContextProvider</a>&nbsp;contextProvider)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Beardifier.html" title="class in net.minecraft.world.level.levelgen">Beardifier</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#forStructuresInChunk(net.minecraft.world.level.StructureManager,net.minecraft.world.level.ChunkPos)" class="member-name-link">forStructuresInChunk</a><wbr>(<a href="../StructureManager.html" title="class in net.minecraft.world.level">StructureManager</a>&nbsp;structureManager,
+ <a href="../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static double</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBeardContribution(int,int,int,int)" class="member-name-link">getBeardContribution</a><wbr>(int&nbsp;dx,
+ int&nbsp;dy,
+ int&nbsp;dz,
+ int&nbsp;yToGround)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>protected static double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getBuryContribution(double,double,double)" class="member-name-link">getBuryContribution</a><wbr>(double&nbsp;dx,
+ double&nbsp;dy,
+ double&nbsp;dz)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#includeBoundingBox(net.minecraft.world.level.levelgen.structure.BoundingBox,net.minecraft.world.level.levelgen.structure.BoundingBox)" class="member-name-link">includeBoundingBox</a><wbr>(@Nullable <a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;encompassingBox,
+ <a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;newBox)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isInKernelRange(int)" class="member-name-link">isInKernelRange</a><wbr>(int&nbsp;xi)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#maxValue()" class="member-name-link">maxValue</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#minValue()" class="member-name-link">minValue</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.levelgen.DensityFunction">Methods inherited from interface&nbsp;<a href="DensityFunction.html#method-summary" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></h3>
+<code><a href="DensityFunction.html#abs()" title="abs()">abs</a>, <a href="DensityFunction.html#clamp(double,double)" title="clamp(double, double)">clamp</a>, <a href="DensityFunction.html#cube()" title="cube()">cube</a>, <a href="DensityFunction.html#halfNegative()" title="halfNegative()">halfNegative</a>, <a href="DensityFunction.html#invert()" title="invert()">invert</a>, <a href="DensityFunction.html#quarterNegative()" title="quarterNegative()">quarterNegative</a>, <a href="DensityFunction.html#square()" title="square()">square</a>, <a href="DensityFunction.html#squeeze()" title="squeeze()">squeeze</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.levelgen.DensityFunction.SimpleFunction">Methods inherited from interface&nbsp;<a href="DensityFunction.SimpleFunction.html#method-summary" title="interface in net.minecraft.world.level.levelgen">DensityFunction.SimpleFunction</a></h3>
+<code><a href="DensityFunction.SimpleFunction.html#mapAll(net.minecraft.world.level.levelgen.DensityFunction.Visitor)" title="mapAll(DensityFunction.Visitor)">mapAll</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.levelgen.DensityFunctions.BeardifierOrMarker">Methods inherited from interface&nbsp;<a href="DensityFunctions.BeardifierOrMarker.html#method-summary" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.BeardifierOrMarker</a></h3>
+<code><a href="DensityFunctions.BeardifierOrMarker.html#codec()" title="codec()">codec</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="BEARD_KERNEL_RADIUS">
+<h3>BEARD_KERNEL_RADIUS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">BEARD_KERNEL_RADIUS</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.world.level.levelgen.Beardifier.BEARD_KERNEL_RADIUS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BEARD_KERNEL_SIZE">
+<h3>BEARD_KERNEL_SIZE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">BEARD_KERNEL_SIZE</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.world.level.levelgen.Beardifier.BEARD_KERNEL_SIZE">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BEARD_KERNEL">
+<h3>BEARD_KERNEL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">float[]</span>&nbsp;<span class="element-name">BEARD_KERNEL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="EMPTY">
+<h3>EMPTY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="Beardifier.html" title="class in net.minecraft.world.level.levelgen">Beardifier</a></span>&nbsp;<span class="element-name">EMPTY</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pieces">
+<h3>pieces</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Beardifier.Rigid.html" title="class in net.minecraft.world.level.levelgen">Beardifier.Rigid</a>&gt;</span>&nbsp;<span class="element-name">pieces</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="junctions">
+<h3>junctions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="structure/pools/JigsawJunction.html" title="class in net.minecraft.world.level.levelgen.structure.pools">JigsawJunction</a>&gt;</span>&nbsp;<span class="element-name">junctions</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="affectedBox">
+<h3>affectedBox</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">@Nullable <a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a></span>&nbsp;<span class="element-name">affectedBox</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(java.util.List,java.util.List,net.minecraft.world.level.levelgen.structure.BoundingBox)">
+<h3>Beardifier</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Beardifier</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Beardifier.Rigid.html" title="class in net.minecraft.world.level.levelgen">Beardifier.Rigid</a>&gt;&nbsp;pieces,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="structure/pools/JigsawJunction.html" title="class in net.minecraft.world.level.levelgen.structure.pools">JigsawJunction</a>&gt;&nbsp;junctions,
+ @Nullable <a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;affectedBox)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="forStructuresInChunk(net.minecraft.world.level.StructureManager,net.minecraft.world.level.ChunkPos)">
+<h3>forStructuresInChunk</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Beardifier.html" title="class in net.minecraft.world.level.levelgen">Beardifier</a></span>&nbsp;<span class="element-name">forStructuresInChunk</span><wbr><span class="parameters">(<a href="../StructureManager.html" title="class in net.minecraft.world.level">StructureManager</a>&nbsp;structureManager,
+ <a href="../ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="includeBoundingBox(net.minecraft.world.level.levelgen.structure.BoundingBox,net.minecraft.world.level.levelgen.structure.BoundingBox)">
+<h3>includeBoundingBox</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a></span>&nbsp;<span class="element-name">includeBoundingBox</span><wbr><span class="parameters">(@Nullable <a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;encompassingBox,
+ <a href="structure/BoundingBox.html" title="class in net.minecraft.world.level.levelgen.structure">BoundingBox</a>&nbsp;newBox)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fillArray(double[],net.minecraft.world.level.levelgen.DensityFunction.ContextProvider)">
+<h3>fillArray</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">fillArray</span><wbr><span class="parameters">(double[]&nbsp;output,
+ <a href="DensityFunction.ContextProvider.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.ContextProvider</a>&nbsp;contextProvider)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="DensityFunction.html#fillArray(double%5B%5D,net.minecraft.world.level.levelgen.DensityFunction.ContextProvider)">fillArray</a></code>&nbsp;in interface&nbsp;<code><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="DensityFunction.SimpleFunction.html#fillArray(double%5B%5D,net.minecraft.world.level.levelgen.DensityFunction.ContextProvider)">fillArray</a></code>&nbsp;in interface&nbsp;<code><a href="DensityFunction.SimpleFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.SimpleFunction</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)">
+<h3>compute</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">compute</span><wbr><span class="parameters">(<a href="DensityFunction.FunctionContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a>&nbsp;context)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="DensityFunction.html#compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)">compute</a></code>&nbsp;in interface&nbsp;<code><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="minValue()">
+<h3>minValue</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">minValue</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="DensityFunction.html#minValue()">minValue</a></code>&nbsp;in interface&nbsp;<code><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="maxValue()">
+<h3>maxValue</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">maxValue</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="DensityFunction.html#maxValue()">maxValue</a></code>&nbsp;in interface&nbsp;<code><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBuryContribution(double,double,double)">
+<h3>getBuryContribution</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getBuryContribution</span><wbr><span class="parameters">(double&nbsp;dx,
+ double&nbsp;dy,
+ double&nbsp;dz)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBeardContribution(int,int,int,int)">
+<h3>getBeardContribution</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getBeardContribution</span><wbr><span class="parameters">(int&nbsp;dx,
+ int&nbsp;dy,
+ int&nbsp;dz,
+ int&nbsp;yToGround)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isInKernelRange(int)">
+<h3>isInKernelRange</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isInKernelRange</span><wbr><span class="parameters">(int&nbsp;xi)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="computeBeardContribution(int,int,int)">
+<h3>computeBeardContribution</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">computeBeardContribution</span><wbr><span class="parameters">(int&nbsp;dx,
+ int&nbsp;dy,
+ int&nbsp;dz)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="computeBeardContribution(int,double,int)">
+<h3>computeBeardContribution</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">computeBeardContribution</span><wbr><span class="parameters">(int&nbsp;dx,
+ double&nbsp;dy,
+ int&nbsp;dz)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

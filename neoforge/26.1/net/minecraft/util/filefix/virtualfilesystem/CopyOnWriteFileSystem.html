@@ -1,0 +1,787 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>CopyOnWriteFileSystem (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.util.filefix.virtualfilesystem, class: CopyOnWriteFileSystem">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/CopyOnWriteFileSystem.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.util.filefix.virtualfilesystem</a></li>
+<li><a href="CopyOnWriteFileSystem.html" class="current-selection">CopyOnWriteFileSystem</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#FILE_ATTRIBUTE_VIEWS" tabindex="0">FILE_ATTRIBUTE_VIEWS</a></li>
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#store" tabindex="0">store</a></li>
+<li><a href="#provider" tabindex="0">provider</a></li>
+<li><a href="#baseDirectory" tabindex="0">baseDirectory</a></li>
+<li><a href="#skippedPaths" tabindex="0">skippedPaths</a></li>
+<li><a href="#tmpDirectory" tabindex="0">tmpDirectory</a></li>
+<li><a href="#rootPath" tabindex="0">rootPath</a></li>
+<li><a href="#tmpFileIndex" tabindex="0">tmpFileIndex</a></li>
+<li><a href="#fileTree" tabindex="0">fileTree</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(java.lang.String,java.nio.file.Path,java.nio.file.Path,java.nio.file.PathMatcher)" tabindex="0">CopyOnWriteFileSystem(String, Path, Path, PathMatcher)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#create(java.lang.String,java.nio.file.Path,java.nio.file.Path,java.nio.file.PathMatcher)" tabindex="0">create(String, Path, Path, PathMatcher)</a></li>
+<li><a href="#buildFileTreeFrom(java.nio.file.Path)" tabindex="0">buildFileTreeFrom(Path)</a></li>
+<li><a href="#resetFileTreeToBaseFolderContent()" tabindex="0">resetFileTreeToBaseFolderContent()</a></li>
+<li><a href="#provider()" tabindex="0">provider()</a></li>
+<li><a href="#close()" tabindex="0">close()</a></li>
+<li><a href="#isOpen()" tabindex="0">isOpen()</a></li>
+<li><a href="#isReadOnly()" tabindex="0">isReadOnly()</a></li>
+<li><a href="#getSeparator()" tabindex="0">getSeparator()</a></li>
+<li><a href="#getRootDirectories()" tabindex="0">getRootDirectories()</a></li>
+<li><a href="#getFileStores()" tabindex="0">getFileStores()</a></li>
+<li><a href="#supportedFileAttributeViews()" tabindex="0">supportedFileAttributeViews()</a></li>
+<li><a href="#getPath(java.lang.String,java.lang.String...)" tabindex="0">getPath(String, String...)</a></li>
+<li><a href="#getPathMatcher(java.lang.String)" tabindex="0">getPathMatcher(String)</a></li>
+<li><a href="#getUserPrincipalLookupService()" tabindex="0">getUserPrincipalLookupService()</a></li>
+<li><a href="#newWatchService()" tabindex="0">newWatchService()</a></li>
+<li><a href="#store()" tabindex="0">store()</a></li>
+<li><a href="#rootPath()" tabindex="0">rootPath()</a></li>
+<li><a href="#fileTree()" tabindex="0">fileTree()</a></li>
+<li><a href="#baseDirectory()" tabindex="0">baseDirectory()</a></li>
+<li><a href="#tmpDirectory()" tabindex="0">tmpDirectory()</a></li>
+<li><a href="#createTemporaryFilePath()" tabindex="0">createTemporaryFilePath()</a></li>
+<li><a href="#backingFileSystem()" tabindex="0">backingFileSystem()</a></li>
+<li><a href="#collectMoveOperations(java.nio.file.Path)" tabindex="0">collectMoveOperations(Path)</a></li>
+<li><a href="#collectMoveOperations(java.nio.file.Path,net.minecraft.util.filefix.virtualfilesystem.DirectoryNode,net.minecraft.util.filefix.virtualfilesystem.CopyOnWriteFileSystem.Moves)" tabindex="0">collectMoveOperations(Path, DirectoryNode, CopyOnWriteFileSystem.Moves)</a></li>
+<li><a href="#createDirectories(java.util.List)" tabindex="0">createDirectories(List)</a></li>
+<li><a href="#hardLinkFiles(java.util.List)" tabindex="0">hardLinkFiles(List)</a></li>
+<li><a href="#moveFiles(java.util.List)" tabindex="0">moveFiles(List)</a></li>
+<li><a href="#moveFilesWithRetry(java.util.List,java.nio.file.CopyOption...)" tabindex="0">moveFilesWithRetry(List, CopyOption...)</a></li>
+<li><a href="#tryRevertMoves(java.util.List,java.nio.file.CopyOption...)" tabindex="0">tryRevertMoves(List, CopyOption...)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class CopyOnWriteFileSystem" class="title">Class CopyOnWriteFileSystem</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">java.nio.file.FileSystem</a>
+<div class="inheritance">net.minecraft.util.filefix.virtualfilesystem.CopyOnWriteFileSystem</div>
+</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/Closeable.html" title="class or interface in java.io" class="external-link">Closeable</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">CopyOnWriteFileSystem</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="CopyOnWriteFileSystem.Moves.html" class="type-name-link" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileSystem.Moves</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color"><code><a href="#baseDirectory" class="member-name-link">baseDirectory</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#FILE_ATTRIBUTE_VIEWS" class="member-name-link">FILE_ATTRIBUTE_VIEWS</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private <a href="DirectoryNode.html" title="class in net.minecraft.util.filefix.virtualfilesystem">DirectoryNode</a></code></div>
+<div class="col-second even-row-color"><code><a href="#fileTree" class="member-name-link">fileTree</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second odd-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="CopyOnWriteFSProvider.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSProvider</a></code></div>
+<div class="col-second even-row-color"><code><a href="#provider" class="member-name-link">provider</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="CopyOnWriteFSPath.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSPath</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#rootPath" class="member-name-link">rootPath</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a></code></div>
+<div class="col-second even-row-color"><code><a href="#skippedPaths" class="member-name-link">skippedPaths</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="CopyOnWriteFileStore.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileStore</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#store" class="member-name-link">store</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color"><code><a href="#tmpDirectory" class="member-name-link">tmpDirectory</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicInteger</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#tmpFileIndex" class="member-name-link">tmpFileIndex</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private </code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.lang.String,java.nio.file.Path,java.nio.file.Path,java.nio.file.PathMatcher)" class="member-name-link">CopyOnWriteFileSystem</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;baseDirectory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;tmpDirectory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a>&nbsp;skippedPaths)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#backingFileSystem()" class="member-name-link">backingFileSystem</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#baseDirectory()" class="member-name-link">baseDirectory</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="DirectoryNode.html" title="class in net.minecraft.util.filefix.virtualfilesystem">DirectoryNode</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#buildFileTreeFrom(java.nio.file.Path)" class="member-name-link">buildFileTreeFrom</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;baseDirectory)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CopyOnWriteFileSystem.Moves.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileSystem.Moves</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#collectMoveOperations(java.nio.file.Path)" class="member-name-link">collectMoveOperations</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;outPath)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#collectMoveOperations(java.nio.file.Path,net.minecraft.util.filefix.virtualfilesystem.DirectoryNode,net.minecraft.util.filefix.virtualfilesystem.CopyOnWriteFileSystem.Moves)" class="member-name-link">collectMoveOperations</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;outPath,
+ <a href="DirectoryNode.html" title="class in net.minecraft.util.filefix.virtualfilesystem">DirectoryNode</a>&nbsp;folder,
+ <a href="CopyOnWriteFileSystem.Moves.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileSystem.Moves</a>&nbsp;result)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="CopyOnWriteFileSystem.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileSystem</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#create(java.lang.String,java.nio.file.Path,java.nio.file.Path,java.nio.file.PathMatcher)" class="member-name-link">create</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;baseDirectory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;tmpDirectory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a>&nbsp;skippedPaths)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createDirectories(java.util.List)" class="member-name-link">createDirectories</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;directories)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createTemporaryFilePath()" class="member-name-link">createTemporaryFilePath</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>(package private) <a href="DirectoryNode.html" title="class in net.minecraft.util.filefix.virtualfilesystem">DirectoryNode</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fileTree()" class="member-name-link">fileTree</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileStore.html" title="class or interface in java.nio.file" class="external-link">FileStore</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFileStores()" class="member-name-link">getFileStores</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CopyOnWriteFSPath.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSPath</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPath(java.lang.String,java.lang.String...)" class="member-name-link">getPath</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;first,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>...&nbsp;more)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPathMatcher(java.lang.String)" class="member-name-link">getPathMatcher</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;syntaxAndPattern)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRootDirectories()" class="member-name-link">getRootDirectories</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSeparator()" class="member-name-link">getSeparator</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/attribute/UserPrincipalLookupService.html" title="class or interface in java.nio.file.attribute" class="external-link">UserPrincipalLookupService</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUserPrincipalLookupService()" class="member-name-link">getUserPrincipalLookupService</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hardLinkFiles(java.util.List)" class="member-name-link">hardLinkFiles</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;&nbsp;moves)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isOpen()" class="member-name-link">isOpen</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isReadOnly()" class="member-name-link">isReadOnly</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#moveFiles(java.util.List)" class="member-name-link">moveFiles</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;&nbsp;moves)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#moveFilesWithRetry(java.util.List,java.nio.file.CopyOption...)" class="member-name-link">moveFilesWithRetry</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;&nbsp;moves,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/CopyOption.html" title="class or interface in java.nio.file" class="external-link">CopyOption</a>...&nbsp;options)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/WatchService.html" title="class or interface in java.nio.file" class="external-link">WatchService</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#newWatchService()" class="member-name-link">newWatchService</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CopyOnWriteFSProvider.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSProvider</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#provider()" class="member-name-link">provider</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#resetFileTreeToBaseFolderContent()" class="member-name-link">resetFileTreeToBaseFolderContent</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CopyOnWriteFSPath.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSPath</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#rootPath()" class="member-name-link">rootPath</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CopyOnWriteFileStore.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileStore</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#store()" class="member-name-link">store</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#supportedFileAttributeViews()" class="member-name-link">supportedFileAttributeViews</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tmpDirectory()" class="member-name-link">tmpDirectory</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#tryRevertMoves(java.util.List,java.nio.file.CopyOption...)" class="member-name-link">tryRevertMoves</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;&nbsp;moves,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/CopyOption.html" title="class or interface in java.nio.file" class="external-link">CopyOption</a>...&nbsp;options)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="FILE_ATTRIBUTE_VIEWS">
+<h3>FILE_ATTRIBUTE_VIEWS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">FILE_ATTRIBUTE_VIEWS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="store">
+<h3>store</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="CopyOnWriteFileStore.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileStore</a></span>&nbsp;<span class="element-name">store</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="provider">
+<h3>provider</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="CopyOnWriteFSProvider.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSProvider</a></span>&nbsp;<span class="element-name">provider</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="baseDirectory">
+<h3>baseDirectory</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">baseDirectory</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="skippedPaths">
+<h3>skippedPaths</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a></span>&nbsp;<span class="element-name">skippedPaths</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tmpDirectory">
+<h3>tmpDirectory</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">tmpDirectory</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="rootPath">
+<h3>rootPath</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="CopyOnWriteFSPath.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSPath</a></span>&nbsp;<span class="element-name">rootPath</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tmpFileIndex">
+<h3>tmpFileIndex</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicInteger.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicInteger</a></span>&nbsp;<span class="element-name">tmpFileIndex</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fileTree">
+<h3>fileTree</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="DirectoryNode.html" title="class in net.minecraft.util.filefix.virtualfilesystem">DirectoryNode</a></span>&nbsp;<span class="element-name">fileTree</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(java.lang.String,java.nio.file.Path,java.nio.file.Path,java.nio.file.PathMatcher)">
+<h3>CopyOnWriteFileSystem</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">CopyOnWriteFileSystem</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;baseDirectory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;tmpDirectory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a>&nbsp;skippedPaths)</span>
+                       throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="create(java.lang.String,java.nio.file.Path,java.nio.file.Path,java.nio.file.PathMatcher)">
+<h3>create</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="CopyOnWriteFileSystem.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileSystem</a></span>&nbsp;<span class="element-name">create</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;baseDirectory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;tmpDirectory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a>&nbsp;skippedPaths)</span>
+                                    throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="buildFileTreeFrom(java.nio.file.Path)">
+<h3>buildFileTreeFrom</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="DirectoryNode.html" title="class in net.minecraft.util.filefix.virtualfilesystem">DirectoryNode</a></span>&nbsp;<span class="element-name">buildFileTreeFrom</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;baseDirectory)</span>
+                                 throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="resetFileTreeToBaseFolderContent()">
+<h3>resetFileTreeToBaseFolderContent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">resetFileTreeToBaseFolderContent</span>()
+                                         throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="provider()">
+<h3>provider</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CopyOnWriteFSProvider.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSProvider</a></span>&nbsp;<span class="element-name">provider</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#provider()" title="class or interface in java.nio.file" class="external-link">provider</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="close()">
+<h3>close</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">close</span>()
+           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html#close()" title="class or interface in java.lang" class="external-link">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/Closeable.html#close()" title="class or interface in java.io" class="external-link">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/Closeable.html" title="class or interface in java.io" class="external-link">Closeable</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#close()" title="class or interface in java.nio.file" class="external-link">close</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isOpen()">
+<h3>isOpen</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isOpen</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#isOpen()" title="class or interface in java.nio.file" class="external-link">isOpen</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isReadOnly()">
+<h3>isReadOnly</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isReadOnly</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#isReadOnly()" title="class or interface in java.nio.file" class="external-link">isReadOnly</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSeparator()">
+<h3>getSeparator</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getSeparator</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#getSeparator()" title="class or interface in java.nio.file" class="external-link">getSeparator</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getRootDirectories()">
+<h3>getRootDirectories</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;</span>&nbsp;<span class="element-name">getRootDirectories</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#getRootDirectories()" title="class or interface in java.nio.file" class="external-link">getRootDirectories</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getFileStores()">
+<h3>getFileStores</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Iterable.html" title="class or interface in java.lang" class="external-link">Iterable</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileStore.html" title="class or interface in java.nio.file" class="external-link">FileStore</a>&gt;</span>&nbsp;<span class="element-name">getFileStores</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#getFileStores()" title="class or interface in java.nio.file" class="external-link">getFileStores</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="supportedFileAttributeViews()">
+<h3>supportedFileAttributeViews</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">supportedFileAttributeViews</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#supportedFileAttributeViews()" title="class or interface in java.nio.file" class="external-link">supportedFileAttributeViews</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getPath(java.lang.String,java.lang.String...)">
+<h3>getPath</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CopyOnWriteFSPath.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSPath</a></span>&nbsp;<span class="element-name">getPath</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;first,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>...&nbsp;more)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#getPath(java.lang.String,java.lang.String...)" title="class or interface in java.nio.file" class="external-link">getPath</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getPathMatcher(java.lang.String)">
+<h3>getPathMatcher</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a></span>&nbsp;<span class="element-name">getPathMatcher</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;syntaxAndPattern)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#getPathMatcher(java.lang.String)" title="class or interface in java.nio.file" class="external-link">getPathMatcher</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getUserPrincipalLookupService()">
+<h3>getUserPrincipalLookupService</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/attribute/UserPrincipalLookupService.html" title="class or interface in java.nio.file.attribute" class="external-link">UserPrincipalLookupService</a></span>&nbsp;<span class="element-name">getUserPrincipalLookupService</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#getUserPrincipalLookupService()" title="class or interface in java.nio.file" class="external-link">getUserPrincipalLookupService</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="newWatchService()">
+<h3>newWatchService</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/WatchService.html" title="class or interface in java.nio.file" class="external-link">WatchService</a></span>&nbsp;<span class="element-name">newWatchService</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html#newWatchService()" title="class or interface in java.nio.file" class="external-link">newWatchService</a></code>&nbsp;in class&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="store()">
+<h3>store</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CopyOnWriteFileStore.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileStore</a></span>&nbsp;<span class="element-name">store</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="rootPath()">
+<h3>rootPath</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CopyOnWriteFSPath.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFSPath</a></span>&nbsp;<span class="element-name">rootPath</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fileTree()">
+<h3>fileTree</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="DirectoryNode.html" title="class in net.minecraft.util.filefix.virtualfilesystem">DirectoryNode</a></span>&nbsp;<span class="element-name">fileTree</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="baseDirectory()">
+<h3>baseDirectory</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">baseDirectory</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tmpDirectory()">
+<h3>tmpDirectory</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">tmpDirectory</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createTemporaryFilePath()">
+<h3>createTemporaryFilePath</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">createTemporaryFilePath</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="backingFileSystem()">
+<h3>backingFileSystem</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/FileSystem.html" title="class or interface in java.nio.file" class="external-link">FileSystem</a></span>&nbsp;<span class="element-name">backingFileSystem</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="collectMoveOperations(java.nio.file.Path)">
+<h3>collectMoveOperations</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CopyOnWriteFileSystem.Moves.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileSystem.Moves</a></span>&nbsp;<span class="element-name">collectMoveOperations</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;outPath)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="collectMoveOperations(java.nio.file.Path,net.minecraft.util.filefix.virtualfilesystem.DirectoryNode,net.minecraft.util.filefix.virtualfilesystem.CopyOnWriteFileSystem.Moves)">
+<h3>collectMoveOperations</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">collectMoveOperations</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;outPath,
+ <a href="DirectoryNode.html" title="class in net.minecraft.util.filefix.virtualfilesystem">DirectoryNode</a>&nbsp;folder,
+ <a href="CopyOnWriteFileSystem.Moves.html" title="class in net.minecraft.util.filefix.virtualfilesystem">CopyOnWriteFileSystem.Moves</a>&nbsp;result)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createDirectories(java.util.List)">
+<h3>createDirectories</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">createDirectories</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&gt;&nbsp;directories)</span>
+                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hardLinkFiles(java.util.List)">
+<h3>hardLinkFiles</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">hardLinkFiles</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;&nbsp;moves)</span>
+                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="moveFiles(java.util.List)">
+<h3>moveFiles</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">moveFiles</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;&nbsp;moves)</span>
+                      throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="moveFilesWithRetry(java.util.List,java.nio.file.CopyOption...)">
+<h3>moveFilesWithRetry</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">moveFilesWithRetry</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;&nbsp;moves,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/CopyOption.html" title="class or interface in java.nio.file" class="external-link">CopyOption</a>...&nbsp;options)</span>
+                               throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tryRevertMoves(java.util.List,java.nio.file.CopyOption...)">
+<h3>tryRevertMoves</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;</span>&nbsp;<span class="element-name">tryRevertMoves</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="FileMove.html" title="class in net.minecraft.util.filefix.virtualfilesystem">FileMove</a>&gt;&nbsp;moves,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/CopyOption.html" title="class or interface in java.nio.file" class="external-link">CopyOption</a>...&nbsp;options)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

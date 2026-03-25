@@ -1,0 +1,466 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ToastManager (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.client.gui.components.toasts, class: ToastManager">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/ToastManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../../search.html">Search</a></li>
+<li><a href="../../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.client.gui.components.toasts</a></li>
+<li><a href="ToastManager.html" class="current-selection">ToastManager</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#SLOT_COUNT" tabindex="0">SLOT_COUNT</a></li>
+<li><a href="#ALL_SLOTS_OCCUPIED" tabindex="0">ALL_SLOTS_OCCUPIED</a></li>
+<li><a href="#minecraft" tabindex="0">minecraft</a></li>
+<li><a href="#visibleToasts" tabindex="0">visibleToasts</a></li>
+<li><a href="#occupiedSlots" tabindex="0">occupiedSlots</a></li>
+<li><a href="#queued" tabindex="0">queued</a></li>
+<li><a href="#playedToastSounds" tabindex="0">playedToastSounds</a></li>
+<li><a href="#nowPlayingToast" tabindex="0">nowPlayingToast</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.client.Minecraft,net.minecraft.client.Options)" tabindex="0">ToastManager(Minecraft, Options)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#update()" tabindex="0">update()</a></li>
+<li><a href="#extractRenderState(net.minecraft.client.gui.GuiGraphicsExtractor)" tabindex="0">extractRenderState(GuiGraphicsExtractor)</a></li>
+<li><a href="#findFreeSlotsIndex(int)" tabindex="0">findFreeSlotsIndex(int)</a></li>
+<li><a href="#freeSlotCount()" tabindex="0">freeSlotCount()</a></li>
+<li><a href="#getToast(java.lang.Class,java.lang.Object)" tabindex="0">getToast(Class, Object)</a></li>
+<li><a href="#clear()" tabindex="0">clear()</a></li>
+<li><a href="#addToast(net.minecraft.client.gui.components.toasts.Toast)" tabindex="0">addToast(Toast)</a></li>
+<li><a href="#showNowPlayingToast()" tabindex="0">showNowPlayingToast()</a></li>
+<li><a href="#hideNowPlayingToast()" tabindex="0">hideNowPlayingToast()</a></li>
+<li><a href="#getMinecraft()" tabindex="0">getMinecraft()</a></li>
+<li><a href="#getNotificationDisplayTimeMultiplier()" tabindex="0">getNotificationDisplayTimeMultiplier()</a></li>
+<li><a href="#initializeMusicToast(net.minecraft.client.MusicToastDisplayState)" tabindex="0">initializeMusicToast(MusicToastDisplayState)</a></li>
+<li><a href="#setMusicToastDisplayState(net.minecraft.client.MusicToastDisplayState)" tabindex="0">setMusicToastDisplayState(MusicToastDisplayState)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class ToastManager" class="title">Class ToastManager</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.client.gui.components.toasts.ToastManager</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ToastManager</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="ToastManager.ToastInstance.html" class="type-name-link" title="class in net.minecraft.client.gui.components.toasts">ToastManager.ToastInstance</a>&lt;<a href="ToastManager.ToastInstance.html#type-param-T" title="type parameter in ToastManager.ToastInstance">T</a> extends <a href="Toast.html" title="interface in net.minecraft.client.gui.components.toasts">Toast</a>&gt;</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#ALL_SLOTS_OCCUPIED" class="member-name-link">ALL_SLOTS_OCCUPIED</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#minecraft" class="member-name-link">minecraft</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="ToastManager.ToastInstance.html" title="class in net.minecraft.client.gui.components.toasts">ToastManager.ToastInstance</a><wbr>&lt;<a href="NowPlayingToast.html" title="class in net.minecraft.client.gui.components.toasts">NowPlayingToast</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#nowPlayingToast" class="member-name-link">nowPlayingToast</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/BitSet.html" title="class or interface in java.util" class="external-link">BitSet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#occupiedSlots" class="member-name-link">occupiedSlots</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="../../../../sounds/SoundEvent.html" title="class in net.minecraft.sounds">SoundEvent</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#playedToastSounds" class="member-name-link">playedToastSounds</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Deque.html" title="class or interface in java.util" class="external-link">Deque</a><wbr>&lt;<a href="Toast.html" title="interface in net.minecraft.client.gui.components.toasts">Toast</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#queued" class="member-name-link">queued</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#SLOT_COUNT" class="member-name-link">SLOT_COUNT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="ToastManager.ToastInstance.html" title="class in net.minecraft.client.gui.components.toasts">ToastManager.ToastInstance</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#visibleToasts" class="member-name-link">visibleToasts</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.Minecraft,net.minecraft.client.Options)" class="member-name-link">ToastManager</a><wbr>(<a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="../../../Options.html" title="class in net.minecraft.client">Options</a>&nbsp;options)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addToast(net.minecraft.client.gui.components.toasts.Toast)" class="member-name-link">addToast</a><wbr>(<a href="Toast.html" title="interface in net.minecraft.client.gui.components.toasts">Toast</a>&nbsp;toast)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clear()" class="member-name-link">clear</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#extractRenderState(net.minecraft.client.gui.GuiGraphicsExtractor)" class="member-name-link">extractRenderState</a><wbr>(<a href="../../GuiGraphicsExtractor.html" title="class in net.minecraft.client.gui">GuiGraphicsExtractor</a>&nbsp;graphics)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findFreeSlotsIndex(int)" class="member-name-link">findFreeSlotsIndex</a><wbr>(int&nbsp;requiredCount)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#freeSlotCount()" class="member-name-link">freeSlotCount</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMinecraft()" class="member-name-link">getMinecraft</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNotificationDisplayTimeMultiplier()" class="member-name-link">getNotificationDisplayTimeMultiplier</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="Toast.html" title="interface in net.minecraft.client.gui.components.toasts">Toast</a>&gt;<br>@Nullable T</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getToast(java.lang.Class,java.lang.Object)" class="member-name-link">getToast</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends T&gt;&nbsp;clazz,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;token)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hideNowPlayingToast()" class="member-name-link">hideNowPlayingToast</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initializeMusicToast(net.minecraft.client.MusicToastDisplayState)" class="member-name-link">initializeMusicToast</a><wbr>(<a href="../../../MusicToastDisplayState.html" title="enum class in net.minecraft.client">MusicToastDisplayState</a>&nbsp;state)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setMusicToastDisplayState(net.minecraft.client.MusicToastDisplayState)" class="member-name-link">setMusicToastDisplayState</a><wbr>(<a href="../../../MusicToastDisplayState.html" title="enum class in net.minecraft.client">MusicToastDisplayState</a>&nbsp;state)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#showNowPlayingToast()" class="member-name-link">showNowPlayingToast</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#update()" class="member-name-link">update</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="SLOT_COUNT">
+<h3>SLOT_COUNT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">SLOT_COUNT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../constant-values.html#net.minecraft.client.gui.components.toasts.ToastManager.SLOT_COUNT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ALL_SLOTS_OCCUPIED">
+<h3>ALL_SLOTS_OCCUPIED</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">ALL_SLOTS_OCCUPIED</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../../constant-values.html#net.minecraft.client.gui.components.toasts.ToastManager.ALL_SLOTS_OCCUPIED">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="minecraft">
+<h3>minecraft</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a></span>&nbsp;<span class="element-name">minecraft</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="visibleToasts">
+<h3>visibleToasts</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="ToastManager.ToastInstance.html" title="class in net.minecraft.client.gui.components.toasts">ToastManager.ToastInstance</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">visibleToasts</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="occupiedSlots">
+<h3>occupiedSlots</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/BitSet.html" title="class or interface in java.util" class="external-link">BitSet</a></span>&nbsp;<span class="element-name">occupiedSlots</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="queued">
+<h3>queued</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Deque.html" title="class or interface in java.util" class="external-link">Deque</a>&lt;<a href="Toast.html" title="interface in net.minecraft.client.gui.components.toasts">Toast</a>&gt;</span>&nbsp;<span class="element-name">queued</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="playedToastSounds">
+<h3>playedToastSounds</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../../../sounds/SoundEvent.html" title="class in net.minecraft.sounds">SoundEvent</a>&gt;</span>&nbsp;<span class="element-name">playedToastSounds</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="nowPlayingToast">
+<h3>nowPlayingToast</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="ToastManager.ToastInstance.html" title="class in net.minecraft.client.gui.components.toasts">ToastManager.ToastInstance</a>&lt;<a href="NowPlayingToast.html" title="class in net.minecraft.client.gui.components.toasts">NowPlayingToast</a>&gt;</span>&nbsp;<span class="element-name">nowPlayingToast</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.client.Minecraft,net.minecraft.client.Options)">
+<h3>ToastManager</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ToastManager</span><wbr><span class="parameters">(<a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a>&nbsp;minecraft,
+ <a href="../../../Options.html" title="class in net.minecraft.client">Options</a>&nbsp;options)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="update()">
+<h3>update</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">update</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="extractRenderState(net.minecraft.client.gui.GuiGraphicsExtractor)">
+<h3>extractRenderState</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">extractRenderState</span><wbr><span class="parameters">(<a href="../../GuiGraphicsExtractor.html" title="class in net.minecraft.client.gui">GuiGraphicsExtractor</a>&nbsp;graphics)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findFreeSlotsIndex(int)">
+<h3>findFreeSlotsIndex</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">findFreeSlotsIndex</span><wbr><span class="parameters">(int&nbsp;requiredCount)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="freeSlotCount()">
+<h3>freeSlotCount</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">freeSlotCount</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getToast(java.lang.Class,java.lang.Object)">
+<h3>getToast</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="Toast.html" title="interface in net.minecraft.client.gui.components.toasts">Toast</a>&gt;</span>&nbsp;<span class="return-type">@Nullable T</span>&nbsp;<span class="element-name">getToast</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends T&gt;&nbsp;clazz,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>&nbsp;token)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="clear()">
+<h3>clear</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">clear</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addToast(net.minecraft.client.gui.components.toasts.Toast)">
+<h3>addToast</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addToast</span><wbr><span class="parameters">(<a href="Toast.html" title="interface in net.minecraft.client.gui.components.toasts">Toast</a>&nbsp;toast)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="showNowPlayingToast()">
+<h3>showNowPlayingToast</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">showNowPlayingToast</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hideNowPlayingToast()">
+<h3>hideNowPlayingToast</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">hideNowPlayingToast</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getMinecraft()">
+<h3>getMinecraft</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../Minecraft.html" title="class in net.minecraft.client">Minecraft</a></span>&nbsp;<span class="element-name">getMinecraft</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getNotificationDisplayTimeMultiplier()">
+<h3>getNotificationDisplayTimeMultiplier</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">double</span>&nbsp;<span class="element-name">getNotificationDisplayTimeMultiplier</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initializeMusicToast(net.minecraft.client.MusicToastDisplayState)">
+<h3>initializeMusicToast</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">initializeMusicToast</span><wbr><span class="parameters">(<a href="../../../MusicToastDisplayState.html" title="enum class in net.minecraft.client">MusicToastDisplayState</a>&nbsp;state)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setMusicToastDisplayState(net.minecraft.client.MusicToastDisplayState)">
+<h3>setMusicToastDisplayState</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setMusicToastDisplayState</span><wbr><span class="parameters">(<a href="../../../MusicToastDisplayState.html" title="enum class in net.minecraft.client">MusicToastDisplayState</a>&nbsp;state)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,450 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ReloadableResourceManager (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.server.packs.resources, class: ReloadableResourceManager">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/ReloadableResourceManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.server.packs.resources</a></li>
+<li><a href="ReloadableResourceManager.html" class="current-selection">ReloadableResourceManager</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#resources" tabindex="0">resources</a></li>
+<li><a href="#listeners" tabindex="0">listeners</a></li>
+<li><a href="#type" tabindex="0">type</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.server.packs.PackType)" tabindex="0">ReloadableResourceManager(PackType)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#close()" tabindex="0">close()</a></li>
+<li><a href="#registerReloadListener(net.minecraft.server.packs.resources.PreparableReloadListener)" tabindex="0">registerReloadListener(PreparableReloadListener)</a></li>
+<li><a href="#createReload(java.util.concurrent.Executor,java.util.concurrent.Executor,java.util.concurrent.CompletableFuture,java.util.List)" tabindex="0">createReload(Executor, Executor, CompletableFuture, List)</a></li>
+<li><a href="#getResource(net.minecraft.resources.Identifier)" tabindex="0">getResource(Identifier)</a></li>
+<li><a href="#getNamespaces()" tabindex="0">getNamespaces()</a></li>
+<li><a href="#getResourceStack(net.minecraft.resources.Identifier)" tabindex="0">getResourceStack(Identifier)</a></li>
+<li><a href="#listResources(java.lang.String,java.util.function.Predicate)" tabindex="0">listResources(String, Predicate)</a></li>
+<li><a href="#listResourceStacks(java.lang.String,java.util.function.Predicate)" tabindex="0">listResourceStacks(String, Predicate)</a></li>
+<li><a href="#listPacks()" tabindex="0">listPacks()</a></li>
+<li><a href="#getListeners()" tabindex="0">getListeners()</a></li>
+<li><a href="#updateListenersFrom(net.neoforged.neoforge.event.SortedReloadListenerEvent)" tabindex="0">updateListenersFrom(SortedReloadListenerEvent)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class ReloadableResourceManager" class="title">Class ReloadableResourceManager</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.server.packs.resources.ReloadableResourceManager</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a>, <a href="ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>, <a href="ResourceProvider.html" title="interface in net.minecraft.server.packs.resources">ResourceProvider</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ReloadableResourceManager</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a>, <a href="ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-net.minecraft.server.packs.resources.ResourceManager">Nested classes/interfaces inherited from interface&nbsp;<a href="ResourceManager.html#nested-class-summary" title="interface in net.minecraft.server.packs.resources">ResourceManager</a></h3>
+<code><a href="ResourceManager.Empty.html" title="enum class in net.minecraft.server.packs.resources">ResourceManager.Empty</a></code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="PreparableReloadListener.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#listeners" class="member-name-link">listeners</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second odd-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private <a href="CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a></code></div>
+<div class="col-second even-row-color"><code><a href="#resources" class="member-name-link">resources</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../PackType.html" title="enum class in net.minecraft.server.packs">PackType</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#type" class="member-name-link">type</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.server.packs.resources.ResourceProvider">Fields inherited from interface&nbsp;<a href="ResourceProvider.html#field-summary" title="interface in net.minecraft.server.packs.resources">ResourceProvider</a></h3>
+<code><a href="ResourceProvider.html#EMPTY">EMPTY</a></code></div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.packs.PackType)" class="member-name-link">ReloadableResourceManager</a><wbr>(<a href="../PackType.html" title="enum class in net.minecraft.server.packs">PackType</a>&nbsp;type)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ReloadInstance.html" title="interface in net.minecraft.server.packs.resources">ReloadInstance</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createReload(java.util.concurrent.Executor,java.util.concurrent.Executor,java.util.concurrent.CompletableFuture,java.util.List)" class="member-name-link">createReload</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;backgroundExecutor,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;mainThreadExecutor,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../../util/Unit.html" title="enum class in net.minecraft.util">Unit</a>&gt;&nbsp;initialTask,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>&gt;&nbsp;resourcePacks)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="PreparableReloadListener.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getListeners()" class="member-name-link">getListeners</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Neo: Expose the reload listeners so they can be passed to the event.</div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNamespaces()" class="member-name-link">getNamespaces</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResource(net.minecraft.resources.Identifier)" class="member-name-link">getResource</a><wbr>(<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getResourceStack(net.minecraft.resources.Identifier)" class="member-name-link">getResourceStack</a><wbr>(<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#listPacks()" class="member-name-link">listPacks</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#listResources(java.lang.String,java.util.function.Predicate)" class="member-name-link">listResources</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;directory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&gt;&nbsp;filenameFilter)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#listResourceStacks(java.lang.String,java.util.function.Predicate)" class="member-name-link">listResourceStacks</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;directory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&gt;&nbsp;filter)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#registerReloadListener(net.minecraft.server.packs.resources.PreparableReloadListener)" class="member-name-link">registerReloadListener</a><wbr>(<a href="PreparableReloadListener.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a>&nbsp;listener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Neo: Use 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>net.neoforged.neoforge.client.event.AddClientReloadListenerEvent</code></pre>
+</details>
+.</div>
+</div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateListenersFrom(net.neoforged.neoforge.event.SortedReloadListenerEvent)" class="member-name-link">updateListenersFrom</a><wbr>(<a href="../../../../neoforged/neoforge/event/SortedReloadListenerEvent.html" title="class in net.neoforged.neoforge.event">SortedReloadListenerEvent</a>&nbsp;event)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">
+<div class="block">Neo: Updates the <a href="#listeners"><code>listeners</code></a> with the sorted list from the event.</div>
+</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.server.packs.resources.ResourceProvider">Methods inherited from interface&nbsp;<a href="ResourceProvider.html#method-summary" title="interface in net.minecraft.server.packs.resources">ResourceProvider</a></h3>
+<code><a href="ResourceProvider.html#getResourceOrThrow(net.minecraft.resources.Identifier)" title="getResourceOrThrow(Identifier)">getResourceOrThrow</a>, <a href="ResourceProvider.html#open(net.minecraft.resources.Identifier)" title="open(Identifier)">open</a>, <a href="ResourceProvider.html#openAsReader(net.minecraft.resources.Identifier)" title="openAsReader(Identifier)">openAsReader</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="resources">
+<h3>resources</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="CloseableResourceManager.html" title="interface in net.minecraft.server.packs.resources">CloseableResourceManager</a></span>&nbsp;<span class="element-name">resources</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="listeners">
+<h3>listeners</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="PreparableReloadListener.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a>&gt;</span>&nbsp;<span class="element-name">listeners</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="type">
+<h3>type</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../PackType.html" title="enum class in net.minecraft.server.packs">PackType</a></span>&nbsp;<span class="element-name">type</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.server.packs.PackType)">
+<h3>ReloadableResourceManager</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ReloadableResourceManager</span><wbr><span class="parameters">(<a href="../PackType.html" title="enum class in net.minecraft.server.packs">PackType</a>&nbsp;type)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="close()">
+<h3>close</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">close</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html#close()" title="class or interface in java.lang" class="external-link">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="registerReloadListener(net.minecraft.server.packs.resources.PreparableReloadListener)">
+<h3>registerReloadListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">registerReloadListener</span><wbr><span class="parameters">(<a href="PreparableReloadListener.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a>&nbsp;listener)</span></div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span>
+<div class="deprecation-comment">Neo: Use 
+<details class="invalid-tag">
+<summary>invalid reference</summary>
+<pre><code>net.neoforged.neoforge.client.event.AddClientReloadListenerEvent</code></pre>
+</details>
+.</div>
+</div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/UnsupportedOperationException.html" title="class or interface in java.lang" class="external-link">UnsupportedOperationException</a></code> - if called after the event has been fired.</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createReload(java.util.concurrent.Executor,java.util.concurrent.Executor,java.util.concurrent.CompletableFuture,java.util.List)">
+<h3>createReload</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ReloadInstance.html" title="interface in net.minecraft.server.packs.resources">ReloadInstance</a></span>&nbsp;<span class="element-name">createReload</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;backgroundExecutor,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/Executor.html" title="class or interface in java.util.concurrent" class="external-link">Executor</a>&nbsp;mainThreadExecutor,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="../../../util/Unit.html" title="enum class in net.minecraft.util">Unit</a>&gt;&nbsp;initialTask,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>&gt;&nbsp;resourcePacks)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getResource(net.minecraft.resources.Identifier)">
+<h3>getResource</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;</span>&nbsp;<span class="element-name">getResource</span><wbr><span class="parameters">(<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceProvider.html#getResource(net.minecraft.resources.Identifier)">getResource</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceProvider.html" title="interface in net.minecraft.server.packs.resources">ResourceProvider</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getNamespaces()">
+<h3>getNamespaces</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">getNamespaces</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceManager.html#getNamespaces()">getNamespaces</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getResourceStack(net.minecraft.resources.Identifier)">
+<h3>getResourceStack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;</span>&nbsp;<span class="element-name">getResourceStack</span><wbr><span class="parameters">(<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceManager.html#getResourceStack(net.minecraft.resources.Identifier)">getResourceStack</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="listResources(java.lang.String,java.util.function.Predicate)">
+<h3>listResources</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;</span>&nbsp;<span class="element-name">listResources</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;directory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&gt;&nbsp;filenameFilter)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceManager.html#listResources(java.lang.String,java.util.function.Predicate)">listResources</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="listResourceStacks(java.lang.String,java.util.function.Predicate)">
+<h3>listResourceStacks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;&gt;</span>&nbsp;<span class="element-name">listResourceStacks</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;directory,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&gt;&nbsp;filter)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceManager.html#listResourceStacks(java.lang.String,java.util.function.Predicate)">listResourceStacks</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="listPacks()">
+<h3>listPacks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a>&lt;<a href="../PackResources.html" title="interface in net.minecraft.server.packs">PackResources</a>&gt;</span>&nbsp;<span class="element-name">listPacks</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ResourceManager.html#listPacks()">listPacks</a></code>&nbsp;in interface&nbsp;<code><a href="ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getListeners()">
+<h3>getListeners</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="PreparableReloadListener.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a>&gt;</span>&nbsp;<span class="element-name">getListeners</span>()</div>
+<div class="block">Neo: Expose the reload listeners so they can be passed to the event.</div>
+<dl class="notes">
+<dt>Returns:</dt>
+<dd>The (immutable) list of reload listeners.</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="updateListenersFrom(net.neoforged.neoforge.event.SortedReloadListenerEvent)">
+<h3>updateListenersFrom</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations">@Internal
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateListenersFrom</span><wbr><span class="parameters">(<a href="../../../../neoforged/neoforge/event/SortedReloadListenerEvent.html" title="class in net.neoforged.neoforge.event">SortedReloadListenerEvent</a>&nbsp;event)</span></div>
+<div class="block">Neo: Updates the <a href="#listeners"><code>listeners</code></a> with the sorted list from the event.</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,378 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>AccountProfileKeyPairManager (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.client.multiplayer, class: AccountProfileKeyPairManager">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/AccountProfileKeyPairManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.client.multiplayer</a></li>
+<li><a href="AccountProfileKeyPairManager.html" class="current-selection">AccountProfileKeyPairManager</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#MINIMUM_PROFILE_KEY_REFRESH_INTERVAL" tabindex="0">MINIMUM_PROFILE_KEY_REFRESH_INTERVAL</a></li>
+<li><a href="#PROFILE_KEY_PAIR_DIR" tabindex="0">PROFILE_KEY_PAIR_DIR</a></li>
+<li><a href="#userApiService" tabindex="0">userApiService</a></li>
+<li><a href="#profileKeyPairPath" tabindex="0">profileKeyPairPath</a></li>
+<li><a href="#keyPair" tabindex="0">keyPair</a></li>
+<li><a href="#nextProfileKeyRefreshTime" tabindex="0">nextProfileKeyRefreshTime</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(com.mojang.authlib.minecraft.UserApiService,java.util.UUID,java.nio.file.Path)" tabindex="0">AccountProfileKeyPairManager(UserApiService, UUID, Path)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#prepareKeyPair()" tabindex="0">prepareKeyPair()</a></li>
+<li><a href="#shouldRefreshKeyPair()" tabindex="0">shouldRefreshKeyPair()</a></li>
+<li><a href="#readOrFetchProfileKeyPair(java.util.Optional)" tabindex="0">readOrFetchProfileKeyPair(Optional)</a></li>
+<li><a href="#readProfileKeyPair()" tabindex="0">readProfileKeyPair()</a></li>
+<li><a href="#writeProfileKeyPair(net.minecraft.world.entity.player.ProfileKeyPair)" tabindex="0">writeProfileKeyPair(ProfileKeyPair)</a></li>
+<li><a href="#fetchProfileKeyPair(com.mojang.authlib.minecraft.UserApiService)" tabindex="0">fetchProfileKeyPair(UserApiService)</a></li>
+<li><a href="#parsePublicKey(com.mojang.authlib.yggdrasil.response.KeyPairResponse)" tabindex="0">parsePublicKey(KeyPairResponse)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class AccountProfileKeyPairManager" class="title">Class AccountProfileKeyPairManager</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.client.multiplayer.AccountProfileKeyPairManager</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="ProfileKeyPairManager.html" title="interface in net.minecraft.client.multiplayer">ProfileKeyPairManager</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">AccountProfileKeyPairManager</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="ProfileKeyPairManager.html" title="interface in net.minecraft.client.multiplayer">ProfileKeyPairManager</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#keyPair" class="member-name-link">keyPair</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second odd-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a></code></div>
+<div class="col-second even-row-color"><code><a href="#MINIMUM_PROFILE_KEY_REFRESH_INTERVAL" class="member-name-link">MINIMUM_PROFILE_KEY_REFRESH_INTERVAL</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#nextProfileKeyRefreshTime" class="member-name-link">nextProfileKeyRefreshTime</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PROFILE_KEY_PAIR_DIR" class="member-name-link">PROFILE_KEY_PAIR_DIR</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#profileKeyPairPath" class="member-name-link">profileKeyPairPath</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final com.mojang.authlib.minecraft.UserApiService</code></div>
+<div class="col-second even-row-color"><code><a href="#userApiService" class="member-name-link">userApiService</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.client.multiplayer.ProfileKeyPairManager">Fields inherited from interface&nbsp;<a href="ProfileKeyPairManager.html#field-summary" title="interface in net.minecraft.client.multiplayer">ProfileKeyPairManager</a></h3>
+<code><a href="ProfileKeyPairManager.html#EMPTY_KEY_MANAGER">EMPTY_KEY_MANAGER</a></code></div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mojang.authlib.minecraft.UserApiService,java.util.UUID,java.nio.file.Path)" class="member-name-link">AccountProfileKeyPairManager</a><wbr>(com.mojang.authlib.minecraft.UserApiService&nbsp;userApiService,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;profileId,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;gameDirectory)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private @Nullable <a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fetchProfileKeyPair(com.mojang.authlib.minecraft.UserApiService)" class="member-name-link">fetchProfileKeyPair</a><wbr>(com.mojang.authlib.minecraft.UserApiService&nbsp;userApiService)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../world/entity/player/ProfilePublicKey.Data.html" title="class in net.minecraft.world.entity.player">ProfilePublicKey.Data</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parsePublicKey(com.mojang.authlib.yggdrasil.response.KeyPairResponse)" class="member-name-link">parsePublicKey</a><wbr>(com.mojang.authlib.yggdrasil.response.KeyPairResponse&nbsp;response)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepareKeyPair()" class="member-name-link">prepareKeyPair</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readOrFetchProfileKeyPair(java.util.Optional)" class="member-name-link">readOrFetchProfileKeyPair</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;&nbsp;cachedKeyPair)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a><wbr>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readProfileKeyPair()" class="member-name-link">readProfileKeyPair</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldRefreshKeyPair()" class="member-name-link">shouldRefreshKeyPair</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#writeProfileKeyPair(net.minecraft.world.entity.player.ProfileKeyPair)" class="member-name-link">writeProfileKeyPair</a><wbr>(@Nullable <a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&nbsp;profileKeyPair)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MINIMUM_PROFILE_KEY_REFRESH_INTERVAL">
+<h3>MINIMUM_PROFILE_KEY_REFRESH_INTERVAL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/Duration.html" title="class or interface in java.time" class="external-link">Duration</a></span>&nbsp;<span class="element-name">MINIMUM_PROFILE_KEY_REFRESH_INTERVAL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PROFILE_KEY_PAIR_DIR">
+<h3>PROFILE_KEY_PAIR_DIR</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">PROFILE_KEY_PAIR_DIR</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="userApiService">
+<h3>userApiService</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">com.mojang.authlib.minecraft.UserApiService</span>&nbsp;<span class="element-name">userApiService</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="profileKeyPairPath">
+<h3>profileKeyPairPath</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">profileKeyPairPath</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="keyPair">
+<h3>keyPair</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;&gt;</span>&nbsp;<span class="element-name">keyPair</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="nextProfileKeyRefreshTime">
+<h3>nextProfileKeyRefreshTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a></span>&nbsp;<span class="element-name">nextProfileKeyRefreshTime</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(com.mojang.authlib.minecraft.UserApiService,java.util.UUID,java.nio.file.Path)">
+<h3>AccountProfileKeyPairManager</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">AccountProfileKeyPairManager</span><wbr><span class="parameters">(com.mojang.authlib.minecraft.UserApiService&nbsp;userApiService,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&nbsp;profileId,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;gameDirectory)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="prepareKeyPair()">
+<h3>prepareKeyPair</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;&gt;</span>&nbsp;<span class="element-name">prepareKeyPair</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ProfileKeyPairManager.html#prepareKeyPair()">prepareKeyPair</a></code>&nbsp;in interface&nbsp;<code><a href="ProfileKeyPairManager.html" title="interface in net.minecraft.client.multiplayer">ProfileKeyPairManager</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shouldRefreshKeyPair()">
+<h3>shouldRefreshKeyPair</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldRefreshKeyPair</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="ProfileKeyPairManager.html#shouldRefreshKeyPair()">shouldRefreshKeyPair</a></code>&nbsp;in interface&nbsp;<code><a href="ProfileKeyPairManager.html" title="interface in net.minecraft.client.multiplayer">ProfileKeyPairManager</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readOrFetchProfileKeyPair(java.util.Optional)">
+<h3>readOrFetchProfileKeyPair</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;&gt;</span>&nbsp;<span class="element-name">readOrFetchProfileKeyPair</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;&nbsp;cachedKeyPair)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readProfileKeyPair()">
+<h3>readProfileKeyPair</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Optional.html" title="class or interface in java.util" class="external-link">Optional</a>&lt;<a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&gt;</span>&nbsp;<span class="element-name">readProfileKeyPair</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="writeProfileKeyPair(net.minecraft.world.entity.player.ProfileKeyPair)">
+<h3>writeProfileKeyPair</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">writeProfileKeyPair</span><wbr><span class="parameters">(@Nullable <a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a>&nbsp;profileKeyPair)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fetchProfileKeyPair(com.mojang.authlib.minecraft.UserApiService)">
+<h3>fetchProfileKeyPair</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="../../world/entity/player/ProfileKeyPair.html" title="class in net.minecraft.world.entity.player">ProfileKeyPair</a></span>&nbsp;<span class="element-name">fetchProfileKeyPair</span><wbr><span class="parameters">(com.mojang.authlib.minecraft.UserApiService&nbsp;userApiService)</span>
+                                              throws <span class="exceptions"><a href="../../util/CryptException.html" title="class in net.minecraft.util">CryptException</a>,
+<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="../../util/CryptException.html" title="class in net.minecraft.util">CryptException</a></code></dd>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="parsePublicKey(com.mojang.authlib.yggdrasil.response.KeyPairResponse)">
+<h3>parsePublicKey</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../world/entity/player/ProfilePublicKey.Data.html" title="class in net.minecraft.world.entity.player">ProfilePublicKey.Data</a></span>&nbsp;<span class="element-name">parsePublicKey</span><wbr><span class="parameters">(com.mojang.authlib.yggdrasil.response.KeyPairResponse&nbsp;response)</span>
+                                             throws <span class="exceptions"><a href="../../util/CryptException.html" title="class in net.minecraft.util">CryptException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="../../util/CryptException.html" title="class in net.minecraft.util">CryptException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,720 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>StreamCodec (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.network.codec, interface: StreamCodec">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/StreamCodec.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.network.codec</a></li>
+<li><a href="StreamCodec.html" class="current-selection">StreamCodec</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#of(net.minecraft.network.codec.StreamEncoder,net.minecraft.network.codec.StreamDecoder)" tabindex="0">of(StreamEncoder, StreamDecoder)</a></li>
+<li><a href="#ofMember(net.minecraft.network.codec.StreamMemberEncoder,net.minecraft.network.codec.StreamDecoder)" tabindex="0">ofMember(StreamMemberEncoder, StreamDecoder)</a></li>
+<li><a href="#unit(V)" tabindex="0">unit(V)</a></li>
+<li><a href="#apply(net.minecraft.network.codec.StreamCodec.CodecOperation)" tabindex="0">apply(StreamCodec.CodecOperation)</a></li>
+<li><a href="#map(java.util.function.Function,java.util.function.Function)" tabindex="0">map(Function, Function)</a></li>
+<li><a href="#mapStream(java.util.function.Function)" tabindex="0">mapStream(Function)</a></li>
+<li><a href="#dispatch(java.util.function.Function,java.util.function.Function)" tabindex="0">dispatch(Function, Function)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,java.util.function.Function)" tabindex="0">composite(StreamCodec, Function, Function)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,java.util.function.BiFunction)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, BiFunction)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function3)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function3)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function4)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function4)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function5)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function5)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function6)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function6)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function7)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function7)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function8)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function8)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function9)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function9)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function10)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function10)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function11)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function11)</a></li>
+<li><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function12)" tabindex="0">composite(StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, StreamCodec, Function, Function12)</a></li>
+<li><a href="#recursive(java.util.function.UnaryOperator)" tabindex="0">recursive(UnaryOperator)</a></li>
+<li><a href="#cast()" tabindex="0">cast()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Interface StreamCodec" class="title">Interface StreamCodec&lt;<span id="type-param-B">B</span>,<wbr><span id="type-param-V">V</span>&gt;</h1>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Superinterfaces:</dt>
+<dd><code><a href="StreamDecoder.html" title="interface in net.minecraft.network.codec">StreamDecoder</a>&lt;B,<wbr>V&gt;, <a href="StreamEncoder.html" title="interface in net.minecraft.network.codec">StreamEncoder</a>&lt;B,<wbr>V&gt;</code></dd>
+</dl>
+<dl class="notes">
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="IdDispatchCodec.html" title="class in net.minecraft.network.codec">IdDispatchCodec</a>, <a href="../../../neoforged/neoforge/network/codec/NeoForgeStreamCodecs.LazyStreamCodec.html" title="class in net.neoforged.neoforge.network.codec">NeoForgeStreamCodecs.LazyStreamCodec</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">StreamCodec&lt;B,<wbr>V&gt;</span><span class="extends-implements">
+extends <a href="StreamEncoder.html" title="interface in net.minecraft.network.codec">StreamEncoder</a>&lt;B,<wbr>V&gt;, <a href="StreamDecoder.html" title="interface in net.minecraft.network.codec">StreamDecoder</a>&lt;B,<wbr>V&gt;</span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Interface</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="StreamCodec.CodecOperation.html" class="type-name-link" title="interface in net.minecraft.network.codec">StreamCodec.CodecOperation</a>&lt;<a href="StreamCodec.CodecOperation.html#type-param-B" title="type parameter in StreamCodec.CodecOperation">B</a>,<wbr><a href="StreamCodec.CodecOperation.html#type-param-S" title="type parameter in StreamCodec.CodecOperation">S</a>,<wbr><a href="StreamCodec.CodecOperation.html#type-param-T" title="type parameter in StreamCodec.CodecOperation">T</a>&gt;</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;O&gt;&nbsp;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;<a href="#type-param-B" title="type parameter in StreamCodec">B</a>,<wbr>O&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#apply(net.minecraft.network.codec.StreamCodec.CodecOperation)" class="member-name-link">apply</a><wbr>(<a href="StreamCodec.CodecOperation.html" title="interface in net.minecraft.network.codec">StreamCodec.CodecOperation</a>&lt;<a href="#type-param-B" title="type parameter in StreamCodec">B</a>,<wbr><a href="#type-param-V" title="type parameter in StreamCodec">V</a>,<wbr>O&gt;&nbsp;operation)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;S extends <a href="#type-param-B" title="type parameter in StreamCodec">B</a>&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;S,<wbr><a href="#type-param-V" title="type parameter in StreamCodec">V</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#cast()" class="member-name-link">cast</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1&gt;&nbsp;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,java.util.function.Function)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;T1,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,java.util.function.BiFunction)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;T1,<wbr>T2,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function3)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ com.mojang.datafixers.util.Function3&lt;T1,<wbr>T2,<wbr>T3,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function4)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ com.mojang.datafixers.util.Function4&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function5)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ com.mojang.datafixers.util.Function5&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function6)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ com.mojang.datafixers.util.Function6&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function7)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ com.mojang.datafixers.util.Function7&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function8)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ com.mojang.datafixers.util.Function8&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function9)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T9&gt;&nbsp;codec9,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T9&gt;&nbsp;getter9,
+ com.mojang.datafixers.util.Function9&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function10)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T9&gt;&nbsp;codec9,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T9&gt;&nbsp;getter9,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T10&gt;&nbsp;codec10,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T10&gt;&nbsp;getter10,
+ com.mojang.datafixers.util.Function10&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>T11&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function11)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T9&gt;&nbsp;codec9,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T9&gt;&nbsp;getter9,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T10&gt;&nbsp;codec10,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T10&gt;&nbsp;getter10,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T11&gt;&nbsp;codec11,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T11&gt;&nbsp;getter11,
+ com.mojang.datafixers.util.Function11&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>T11,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>T11,<wbr>T12&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>C&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function12)" class="member-name-link">composite</a><wbr>(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T9&gt;&nbsp;codec9,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T9&gt;&nbsp;getter9,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T10&gt;&nbsp;codec10,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T10&gt;&nbsp;getter10,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T11&gt;&nbsp;codec11,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T11&gt;&nbsp;getter11,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T12&gt;&nbsp;codec12,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T12&gt;&nbsp;getter12,
+ com.mojang.datafixers.util.Function12&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>T11,<wbr>T12,<wbr>C&gt;&nbsp;constructor)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;U&gt;&nbsp;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;<a href="#type-param-B" title="type parameter in StreamCodec">B</a>,<wbr>U&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#dispatch(java.util.function.Function,java.util.function.Function)" class="member-name-link">dispatch</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super U, ? extends <a href="#type-param-V" title="type parameter in StreamCodec">V</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-V" title="type parameter in StreamCodec">V</a>, ? extends <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super <a href="#type-param-B" title="type parameter in StreamCodec">B</a>, ? extends U&gt;&gt;&nbsp;codec)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;O&gt;&nbsp;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;<a href="#type-param-B" title="type parameter in StreamCodec">B</a>,<wbr>O&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#map(java.util.function.Function,java.util.function.Function)" class="member-name-link">map</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-V" title="type parameter in StreamCodec">V</a>, ? extends O&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super O, ? extends <a href="#type-param-V" title="type parameter in StreamCodec">V</a>&gt;&nbsp;from)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default &lt;O extends io.netty.buffer.ByteBuf&gt;<br><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;O,<wbr><a href="#type-param-V" title="type parameter in StreamCodec">V</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#mapStream(java.util.function.Function)" class="member-name-link">mapStream</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;O, ? extends <a href="#type-param-B" title="type parameter in StreamCodec">B</a>&gt;&nbsp;operation)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>V&gt;&nbsp;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>V&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#of(net.minecraft.network.codec.StreamEncoder,net.minecraft.network.codec.StreamDecoder)" class="member-name-link">of</a><wbr>(<a href="StreamEncoder.html" title="interface in net.minecraft.network.codec">StreamEncoder</a>&lt;B,<wbr>V&gt;&nbsp;encoder,
+ <a href="StreamDecoder.html" title="interface in net.minecraft.network.codec">StreamDecoder</a>&lt;B,<wbr>V&gt;&nbsp;decoder)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>V&gt;&nbsp;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>V&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#ofMember(net.minecraft.network.codec.StreamMemberEncoder,net.minecraft.network.codec.StreamDecoder)" class="member-name-link">ofMember</a><wbr>(<a href="StreamMemberEncoder.html" title="interface in net.minecraft.network.codec">StreamMemberEncoder</a>&lt;B,<wbr>V&gt;&nbsp;encoder,
+ <a href="StreamDecoder.html" title="interface in net.minecraft.network.codec">StreamDecoder</a>&lt;B,<wbr>V&gt;&nbsp;decoder)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>T&gt;&nbsp;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1"><code><a href="#recursive(java.util.function.UnaryOperator)" class="member-name-link">recursive</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>T&gt;&gt;&nbsp;factory)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1"><code>static &lt;B,<wbr>V&gt;&nbsp;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a><wbr>&lt;B,<wbr>V&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1"><code><a href="#unit(V)" class="member-name-link">unit</a><wbr>(V&nbsp;instance)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.network.codec.StreamDecoder">Methods inherited from interface&nbsp;<a href="StreamDecoder.html#method-summary" title="interface in net.minecraft.network.codec">StreamDecoder</a></h3>
+<code><a href="StreamDecoder.html#decode(I)" title="decode(B)">decode</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.network.codec.StreamEncoder">Methods inherited from interface&nbsp;<a href="StreamEncoder.html#method-summary" title="interface in net.minecraft.network.codec">StreamEncoder</a></h3>
+<code><a href="StreamEncoder.html#encode(O,T)" title="encode(B, V)">encode</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="of(net.minecraft.network.codec.StreamEncoder,net.minecraft.network.codec.StreamDecoder)">
+<h3>of</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>V&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>V&gt;</span>&nbsp;<span class="element-name">of</span><wbr><span class="parameters">(<a href="StreamEncoder.html" title="interface in net.minecraft.network.codec">StreamEncoder</a>&lt;B,<wbr>V&gt;&nbsp;encoder,
+ <a href="StreamDecoder.html" title="interface in net.minecraft.network.codec">StreamDecoder</a>&lt;B,<wbr>V&gt;&nbsp;decoder)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ofMember(net.minecraft.network.codec.StreamMemberEncoder,net.minecraft.network.codec.StreamDecoder)">
+<h3>ofMember</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>V&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>V&gt;</span>&nbsp;<span class="element-name">ofMember</span><wbr><span class="parameters">(<a href="StreamMemberEncoder.html" title="interface in net.minecraft.network.codec">StreamMemberEncoder</a>&lt;B,<wbr>V&gt;&nbsp;encoder,
+ <a href="StreamDecoder.html" title="interface in net.minecraft.network.codec">StreamDecoder</a>&lt;B,<wbr>V&gt;&nbsp;decoder)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="unit(V)">
+<h3 id="unit(java.lang.Object)">unit</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>V&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>V&gt;</span>&nbsp;<span class="element-name">unit</span><wbr><span class="parameters">(V&nbsp;instance)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="apply(net.minecraft.network.codec.StreamCodec.CodecOperation)">
+<h3>apply</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;O&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;<a href="#type-param-B" title="type parameter in StreamCodec">B</a>,<wbr>O&gt;</span>&nbsp;<span class="element-name">apply</span><wbr><span class="parameters">(<a href="StreamCodec.CodecOperation.html" title="interface in net.minecraft.network.codec">StreamCodec.CodecOperation</a>&lt;<a href="#type-param-B" title="type parameter in StreamCodec">B</a>,<wbr><a href="#type-param-V" title="type parameter in StreamCodec">V</a>,<wbr>O&gt;&nbsp;operation)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="map(java.util.function.Function,java.util.function.Function)">
+<h3>map</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;O&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;<a href="#type-param-B" title="type parameter in StreamCodec">B</a>,<wbr>O&gt;</span>&nbsp;<span class="element-name">map</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-V" title="type parameter in StreamCodec">V</a>, ? extends O&gt;&nbsp;to,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super O, ? extends <a href="#type-param-V" title="type parameter in StreamCodec">V</a>&gt;&nbsp;from)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="mapStream(java.util.function.Function)">
+<h3>mapStream</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;O extends io.netty.buffer.ByteBuf&gt;</span>
+<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;O,<wbr><a href="#type-param-V" title="type parameter in StreamCodec">V</a>&gt;</span>&nbsp;<span class="element-name">mapStream</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;O, ? extends <a href="#type-param-B" title="type parameter in StreamCodec">B</a>&gt;&nbsp;operation)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dispatch(java.util.function.Function,java.util.function.Function)">
+<h3>dispatch</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;U&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;<a href="#type-param-B" title="type parameter in StreamCodec">B</a>,<wbr>U&gt;</span>&nbsp;<span class="element-name">dispatch</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super U, ? extends <a href="#type-param-V" title="type parameter in StreamCodec">V</a>&gt;&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;? super <a href="#type-param-V" title="type parameter in StreamCodec">V</a>, ? extends <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super <a href="#type-param-B" title="type parameter in StreamCodec">B</a>, ? extends U&gt;&gt;&nbsp;codec)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,java.util.function.Function)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;T1,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,java.util.function.BiFunction)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiFunction.html" title="class or interface in java.util.function" class="external-link">BiFunction</a>&lt;T1,<wbr>T2,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function3)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ com.mojang.datafixers.util.Function3&lt;T1,<wbr>T2,<wbr>T3,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function4)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ com.mojang.datafixers.util.Function4&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function5)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ com.mojang.datafixers.util.Function5&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function6)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ com.mojang.datafixers.util.Function6&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function7)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ com.mojang.datafixers.util.Function7&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function8)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8&gt;</span>
+<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ com.mojang.datafixers.util.Function8&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function9)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9&gt;</span>
+<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T9&gt;&nbsp;codec9,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T9&gt;&nbsp;getter9,
+ com.mojang.datafixers.util.Function9&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function10)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10&gt;</span>
+<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T9&gt;&nbsp;codec9,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T9&gt;&nbsp;getter9,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T10&gt;&nbsp;codec10,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T10&gt;&nbsp;getter10,
+ com.mojang.datafixers.util.Function10&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function11)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>T11&gt;</span>
+<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T9&gt;&nbsp;codec9,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T9&gt;&nbsp;getter9,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T10&gt;&nbsp;codec10,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T10&gt;&nbsp;getter10,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T11&gt;&nbsp;codec11,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T11&gt;&nbsp;getter11,
+ com.mojang.datafixers.util.Function11&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>T11,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="composite(net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,net.minecraft.network.codec.StreamCodec,java.util.function.Function,com.mojang.datafixers.util.Function12)">
+<h3>composite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>C,<wbr>T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>T11,<wbr>T12&gt;</span>
+<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>C&gt;</span>&nbsp;<span class="element-name">composite</span><wbr><span class="parameters">(<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T1&gt;&nbsp;codec1,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T1&gt;&nbsp;getter1,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T2&gt;&nbsp;codec2,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T2&gt;&nbsp;getter2,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T3&gt;&nbsp;codec3,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T3&gt;&nbsp;getter3,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T4&gt;&nbsp;codec4,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T4&gt;&nbsp;getter4,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T5&gt;&nbsp;codec5,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T5&gt;&nbsp;getter5,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T6&gt;&nbsp;codec6,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T6&gt;&nbsp;getter6,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T7&gt;&nbsp;codec7,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T7&gt;&nbsp;getter7,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T8&gt;&nbsp;codec8,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T8&gt;&nbsp;getter8,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T9&gt;&nbsp;codec9,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T9&gt;&nbsp;getter9,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T10&gt;&nbsp;codec10,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T10&gt;&nbsp;getter10,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T11&gt;&nbsp;codec11,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T11&gt;&nbsp;getter11,
+ <a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;? super B, T12&gt;&nbsp;codec12,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;C,<wbr>T12&gt;&nbsp;getter12,
+ com.mojang.datafixers.util.Function12&lt;T1,<wbr>T2,<wbr>T3,<wbr>T4,<wbr>T5,<wbr>T6,<wbr>T7,<wbr>T8,<wbr>T9,<wbr>T10,<wbr>T11,<wbr>T12,<wbr>C&gt;&nbsp;constructor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="recursive(java.util.function.UnaryOperator)">
+<h3>recursive</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static</span>&nbsp;<span class="type-parameters">&lt;B,<wbr>T&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>T&gt;</span>&nbsp;<span class="element-name">recursive</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;<a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;B,<wbr>T&gt;&gt;&nbsp;factory)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="cast()">
+<h3>cast</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="type-parameters">&lt;S extends <a href="#type-param-B" title="type parameter in StreamCodec">B</a>&gt;</span>&nbsp;<span class="return-type"><a href="StreamCodec.html" title="interface in net.minecraft.network.codec">StreamCodec</a>&lt;S,<wbr><a href="#type-param-V" title="type parameter in StreamCodec">V</a>&gt;</span>&nbsp;<span class="element-name">cast</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

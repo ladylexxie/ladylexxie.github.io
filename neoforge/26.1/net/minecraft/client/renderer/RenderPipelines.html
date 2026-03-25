@@ -1,0 +1,1571 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RenderPipelines (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.client.renderer, class: RenderPipelines">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/RenderPipelines.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.client.renderer</a></li>
+<li><a href="RenderPipelines.html" class="current-selection">RenderPipelines</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#PIPELINES_BY_LOCATION" tabindex="0">PIPELINES_BY_LOCATION</a></li>
+<li><a href="#MATRICES_PROJECTION_SNIPPET" tabindex="0">MATRICES_PROJECTION_SNIPPET</a></li>
+<li><a href="#FOG_SNIPPET" tabindex="0">FOG_SNIPPET</a></li>
+<li><a href="#GLOBALS_SNIPPET" tabindex="0">GLOBALS_SNIPPET</a></li>
+<li><a href="#MATRICES_FOG_SNIPPET" tabindex="0">MATRICES_FOG_SNIPPET</a></li>
+<li><a href="#MATRICES_FOG_LIGHT_DIR_SNIPPET" tabindex="0">MATRICES_FOG_LIGHT_DIR_SNIPPET</a></li>
+<li><a href="#GENERIC_BLOCKS_SNIPPET" tabindex="0">GENERIC_BLOCKS_SNIPPET</a></li>
+<li><a href="#TERRAIN_SNIPPET" tabindex="0">TERRAIN_SNIPPET</a></li>
+<li><a href="#BLOCK_SNIPPET" tabindex="0">BLOCK_SNIPPET</a></li>
+<li><a href="#ENTITY_SNIPPET" tabindex="0">ENTITY_SNIPPET</a></li>
+<li><a href="#ENTITY_EMISSIVE_SNIPPET" tabindex="0">ENTITY_EMISSIVE_SNIPPET</a></li>
+<li><a href="#BEACON_BEAM_SNIPPET" tabindex="0">BEACON_BEAM_SNIPPET</a></li>
+<li><a href="#ITEM_SNIPPET" tabindex="0">ITEM_SNIPPET</a></li>
+<li><a href="#TEXT_SNIPPET" tabindex="0">TEXT_SNIPPET</a></li>
+<li><a href="#END_PORTAL_SNIPPET" tabindex="0">END_PORTAL_SNIPPET</a></li>
+<li><a href="#CLOUDS_SNIPPET" tabindex="0">CLOUDS_SNIPPET</a></li>
+<li><a href="#LINES_SNIPPET" tabindex="0">LINES_SNIPPET</a></li>
+<li><a href="#DEBUG_FILLED_SNIPPET" tabindex="0">DEBUG_FILLED_SNIPPET</a></li>
+<li><a href="#PARTICLE_SNIPPET" tabindex="0">PARTICLE_SNIPPET</a></li>
+<li><a href="#WEATHER_SNIPPET" tabindex="0">WEATHER_SNIPPET</a></li>
+<li><a href="#GUI_SNIPPET" tabindex="0">GUI_SNIPPET</a></li>
+<li><a href="#GUI_TEXTURED_SNIPPET" tabindex="0">GUI_TEXTURED_SNIPPET</a></li>
+<li><a href="#GUI_TEXT_SNIPPET" tabindex="0">GUI_TEXT_SNIPPET</a></li>
+<li><a href="#OUTLINE_SNIPPET" tabindex="0">OUTLINE_SNIPPET</a></li>
+<li><a href="#POST_PROCESSING_SNIPPET" tabindex="0">POST_PROCESSING_SNIPPET</a></li>
+<li><a href="#SOLID_BLOCK" tabindex="0">SOLID_BLOCK</a></li>
+<li><a href="#SOLID_TERRAIN" tabindex="0">SOLID_TERRAIN</a></li>
+<li><a href="#WIREFRAME" tabindex="0">WIREFRAME</a></li>
+<li><a href="#CUTOUT_BLOCK" tabindex="0">CUTOUT_BLOCK</a></li>
+<li><a href="#CUTOUT_TERRAIN" tabindex="0">CUTOUT_TERRAIN</a></li>
+<li><a href="#TRANSLUCENT_TERRAIN" tabindex="0">TRANSLUCENT_TERRAIN</a></li>
+<li><a href="#TRANSLUCENT_BLOCK" tabindex="0">TRANSLUCENT_BLOCK</a></li>
+<li><a href="#ARMOR_CUTOUT_NO_CULL" tabindex="0">ARMOR_CUTOUT_NO_CULL</a></li>
+<li><a href="#ARMOR_DECAL_CUTOUT_NO_CULL" tabindex="0">ARMOR_DECAL_CUTOUT_NO_CULL</a></li>
+<li><a href="#ARMOR_TRANSLUCENT" tabindex="0">ARMOR_TRANSLUCENT</a></li>
+<li><a href="#ENTITY_SOLID" tabindex="0">ENTITY_SOLID</a></li>
+<li><a href="#ENTITY_SOLID_Z_OFFSET_FORWARD" tabindex="0">ENTITY_SOLID_Z_OFFSET_FORWARD</a></li>
+<li><a href="#ENTITY_CUTOUT_CULL" tabindex="0">ENTITY_CUTOUT_CULL</a></li>
+<li><a href="#ENTITY_CUTOUT" tabindex="0">ENTITY_CUTOUT</a></li>
+<li><a href="#ENTITY_CUTOUT_Z_OFFSET" tabindex="0">ENTITY_CUTOUT_Z_OFFSET</a></li>
+<li><a href="#ENTITY_CUTOUT_DISSOLVE" tabindex="0">ENTITY_CUTOUT_DISSOLVE</a></li>
+<li><a href="#ENTITY_TRANSLUCENT" tabindex="0">ENTITY_TRANSLUCENT</a></li>
+<li><a href="#ENTITY_TRANSLUCENT_EMISSIVE" tabindex="0">ENTITY_TRANSLUCENT_EMISSIVE</a></li>
+<li><a href="#ENTITY_TRANSLUCENT_CULL" tabindex="0">ENTITY_TRANSLUCENT_CULL</a></li>
+<li><a href="#END_CRYSTAL_BEAM" tabindex="0">END_CRYSTAL_BEAM</a></li>
+<li><a href="#BANNER_PATTERN" tabindex="0">BANNER_PATTERN</a></li>
+<li><a href="#BREEZE_WIND" tabindex="0">BREEZE_WIND</a></li>
+<li><a href="#ENERGY_SWIRL" tabindex="0">ENERGY_SWIRL</a></li>
+<li><a href="#EYES" tabindex="0">EYES</a></li>
+<li><a href="#ENTITY_SHADOW" tabindex="0">ENTITY_SHADOW</a></li>
+<li><a href="#ITEM_CUTOUT" tabindex="0">ITEM_CUTOUT</a></li>
+<li><a href="#ITEM_TRANSLUCENT" tabindex="0">ITEM_TRANSLUCENT</a></li>
+<li><a href="#BEACON_BEAM_OPAQUE" tabindex="0">BEACON_BEAM_OPAQUE</a></li>
+<li><a href="#BEACON_BEAM_TRANSLUCENT" tabindex="0">BEACON_BEAM_TRANSLUCENT</a></li>
+<li><a href="#LEASH" tabindex="0">LEASH</a></li>
+<li><a href="#WATER_MASK" tabindex="0">WATER_MASK</a></li>
+<li><a href="#GLINT" tabindex="0">GLINT</a></li>
+<li><a href="#CRUMBLING" tabindex="0">CRUMBLING</a></li>
+<li><a href="#TEXT" tabindex="0">TEXT</a></li>
+<li><a href="#GUI_TEXT" tabindex="0">GUI_TEXT</a></li>
+<li><a href="#TEXT_BACKGROUND" tabindex="0">TEXT_BACKGROUND</a></li>
+<li><a href="#TEXT_INTENSITY" tabindex="0">TEXT_INTENSITY</a></li>
+<li><a href="#GUI_TEXT_INTENSITY" tabindex="0">GUI_TEXT_INTENSITY</a></li>
+<li><a href="#TEXT_POLYGON_OFFSET" tabindex="0">TEXT_POLYGON_OFFSET</a></li>
+<li><a href="#TEXT_SEE_THROUGH" tabindex="0">TEXT_SEE_THROUGH</a></li>
+<li><a href="#TEXT_BACKGROUND_SEE_THROUGH" tabindex="0">TEXT_BACKGROUND_SEE_THROUGH</a></li>
+<li><a href="#TEXT_INTENSITY_SEE_THROUGH" tabindex="0">TEXT_INTENSITY_SEE_THROUGH</a></li>
+<li><a href="#LIGHTNING" tabindex="0">LIGHTNING</a></li>
+<li><a href="#DRAGON_RAYS" tabindex="0">DRAGON_RAYS</a></li>
+<li><a href="#DRAGON_RAYS_DEPTH" tabindex="0">DRAGON_RAYS_DEPTH</a></li>
+<li><a href="#END_PORTAL" tabindex="0">END_PORTAL</a></li>
+<li><a href="#END_GATEWAY" tabindex="0">END_GATEWAY</a></li>
+<li><a href="#FLAT_CLOUDS" tabindex="0">FLAT_CLOUDS</a></li>
+<li><a href="#CLOUDS" tabindex="0">CLOUDS</a></li>
+<li><a href="#LINES" tabindex="0">LINES</a></li>
+<li><a href="#LINES_TRANSLUCENT" tabindex="0">LINES_TRANSLUCENT</a></li>
+<li><a href="#LINES_DEPTH_BIAS" tabindex="0">LINES_DEPTH_BIAS</a></li>
+<li><a href="#SECONDARY_BLOCK_OUTLINE" tabindex="0">SECONDARY_BLOCK_OUTLINE</a></li>
+<li><a href="#DEBUG_POINTS" tabindex="0">DEBUG_POINTS</a></li>
+<li><a href="#DEBUG_FILLED_BOX" tabindex="0">DEBUG_FILLED_BOX</a></li>
+<li><a href="#DEBUG_QUADS" tabindex="0">DEBUG_QUADS</a></li>
+<li><a href="#DEBUG_TRIANGLE_FAN" tabindex="0">DEBUG_TRIANGLE_FAN</a></li>
+<li><a href="#WORLD_BORDER" tabindex="0">WORLD_BORDER</a></li>
+<li><a href="#OPAQUE_PARTICLE" tabindex="0">OPAQUE_PARTICLE</a></li>
+<li><a href="#TRANSLUCENT_PARTICLE" tabindex="0">TRANSLUCENT_PARTICLE</a></li>
+<li><a href="#WEATHER_DEPTH_WRITE" tabindex="0">WEATHER_DEPTH_WRITE</a></li>
+<li><a href="#WEATHER_NO_DEPTH_WRITE" tabindex="0">WEATHER_NO_DEPTH_WRITE</a></li>
+<li><a href="#SKY" tabindex="0">SKY</a></li>
+<li><a href="#END_SKY" tabindex="0">END_SKY</a></li>
+<li><a href="#SUNRISE_SUNSET" tabindex="0">SUNRISE_SUNSET</a></li>
+<li><a href="#STARS" tabindex="0">STARS</a></li>
+<li><a href="#CELESTIAL" tabindex="0">CELESTIAL</a></li>
+<li><a href="#GUI" tabindex="0">GUI</a></li>
+<li><a href="#GUI_INVERT" tabindex="0">GUI_INVERT</a></li>
+<li><a href="#GUI_TEXT_HIGHLIGHT" tabindex="0">GUI_TEXT_HIGHLIGHT</a></li>
+<li><a href="#GUI_TEXTURED" tabindex="0">GUI_TEXTURED</a></li>
+<li><a href="#GUI_TEXTURED_PREMULTIPLIED_ALPHA" tabindex="0">GUI_TEXTURED_PREMULTIPLIED_ALPHA</a></li>
+<li><a href="#BLOCK_SCREEN_EFFECT" tabindex="0">BLOCK_SCREEN_EFFECT</a></li>
+<li><a href="#FIRE_SCREEN_EFFECT" tabindex="0">FIRE_SCREEN_EFFECT</a></li>
+<li><a href="#GUI_OPAQUE_TEXTURED_BACKGROUND" tabindex="0">GUI_OPAQUE_TEXTURED_BACKGROUND</a></li>
+<li><a href="#GUI_NAUSEA_OVERLAY" tabindex="0">GUI_NAUSEA_OVERLAY</a></li>
+<li><a href="#VIGNETTE" tabindex="0">VIGNETTE</a></li>
+<li><a href="#CROSSHAIR" tabindex="0">CROSSHAIR</a></li>
+<li><a href="#MOJANG_LOGO" tabindex="0">MOJANG_LOGO</a></li>
+<li><a href="#ENTITY_OUTLINE_BLIT" tabindex="0">ENTITY_OUTLINE_BLIT</a></li>
+<li><a href="#TRACY_BLIT" tabindex="0">TRACY_BLIT</a></li>
+<li><a href="#PANORAMA" tabindex="0">PANORAMA</a></li>
+<li><a href="#OUTLINE_CULL" tabindex="0">OUTLINE_CULL</a></li>
+<li><a href="#OUTLINE_NO_CULL" tabindex="0">OUTLINE_NO_CULL</a></li>
+<li><a href="#LIGHTMAP" tabindex="0">LIGHTMAP</a></li>
+<li><a href="#ANIMATE_SPRITE_SNIPPET" tabindex="0">ANIMATE_SPRITE_SNIPPET</a></li>
+<li><a href="#ANIMATE_SPRITE_BLIT" tabindex="0">ANIMATE_SPRITE_BLIT</a></li>
+<li><a href="#ANIMATE_SPRITE_INTERPOLATE" tabindex="0">ANIMATE_SPRITE_INTERPOLATE</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">RenderPipelines()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#register(com.mojang.blaze3d.pipeline.RenderPipeline)" tabindex="0">register(RenderPipeline)</a></li>
+<li><a href="#getStaticPipelines()" tabindex="0">getStaticPipelines()</a></li>
+<li><a href="#registerCustomPipelines()" tabindex="0">registerCustomPipelines()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class RenderPipelines" class="title">Class RenderPipelines</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.client.renderer.RenderPipelines</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">RenderPipelines</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ANIMATE_SPRITE_BLIT" class="member-name-link">ANIMATE_SPRITE_BLIT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ANIMATE_SPRITE_INTERPOLATE" class="member-name-link">ANIMATE_SPRITE_INTERPOLATE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ANIMATE_SPRITE_SNIPPET" class="member-name-link">ANIMATE_SPRITE_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ARMOR_CUTOUT_NO_CULL" class="member-name-link">ARMOR_CUTOUT_NO_CULL</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ARMOR_DECAL_CUTOUT_NO_CULL" class="member-name-link">ARMOR_DECAL_CUTOUT_NO_CULL</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ARMOR_TRANSLUCENT" class="member-name-link">ARMOR_TRANSLUCENT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#BANNER_PATTERN" class="member-name-link">BANNER_PATTERN</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#BEACON_BEAM_OPAQUE" class="member-name-link">BEACON_BEAM_OPAQUE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#BEACON_BEAM_SNIPPET" class="member-name-link">BEACON_BEAM_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#BEACON_BEAM_TRANSLUCENT" class="member-name-link">BEACON_BEAM_TRANSLUCENT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#BLOCK_SCREEN_EFFECT" class="member-name-link">BLOCK_SCREEN_EFFECT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#BLOCK_SNIPPET" class="member-name-link">BLOCK_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#BREEZE_WIND" class="member-name-link">BREEZE_WIND</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#CELESTIAL" class="member-name-link">CELESTIAL</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CLOUDS" class="member-name-link">CLOUDS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#CLOUDS_SNIPPET" class="member-name-link">CLOUDS_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CROSSHAIR" class="member-name-link">CROSSHAIR</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#CRUMBLING" class="member-name-link">CRUMBLING</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#CUTOUT_BLOCK" class="member-name-link">CUTOUT_BLOCK</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#CUTOUT_TERRAIN" class="member-name-link">CUTOUT_TERRAIN</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DEBUG_FILLED_BOX" class="member-name-link">DEBUG_FILLED_BOX</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#DEBUG_FILLED_SNIPPET" class="member-name-link">DEBUG_FILLED_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DEBUG_POINTS" class="member-name-link">DEBUG_POINTS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#DEBUG_QUADS" class="member-name-link">DEBUG_QUADS</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DEBUG_TRIANGLE_FAN" class="member-name-link">DEBUG_TRIANGLE_FAN</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#DRAGON_RAYS" class="member-name-link">DRAGON_RAYS</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#DRAGON_RAYS_DEPTH" class="member-name-link">DRAGON_RAYS_DEPTH</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#END_CRYSTAL_BEAM" class="member-name-link">END_CRYSTAL_BEAM</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#END_GATEWAY" class="member-name-link">END_GATEWAY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#END_PORTAL" class="member-name-link">END_PORTAL</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#END_PORTAL_SNIPPET" class="member-name-link">END_PORTAL_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#END_SKY" class="member-name-link">END_SKY</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ENERGY_SWIRL" class="member-name-link">ENERGY_SWIRL</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ENTITY_CUTOUT" class="member-name-link">ENTITY_CUTOUT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ENTITY_CUTOUT_CULL" class="member-name-link">ENTITY_CUTOUT_CULL</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ENTITY_CUTOUT_DISSOLVE" class="member-name-link">ENTITY_CUTOUT_DISSOLVE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ENTITY_CUTOUT_Z_OFFSET" class="member-name-link">ENTITY_CUTOUT_Z_OFFSET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ENTITY_EMISSIVE_SNIPPET" class="member-name-link">ENTITY_EMISSIVE_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ENTITY_OUTLINE_BLIT" class="member-name-link">ENTITY_OUTLINE_BLIT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ENTITY_SHADOW" class="member-name-link">ENTITY_SHADOW</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ENTITY_SNIPPET" class="member-name-link">ENTITY_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ENTITY_SOLID" class="member-name-link">ENTITY_SOLID</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ENTITY_SOLID_Z_OFFSET_FORWARD" class="member-name-link">ENTITY_SOLID_Z_OFFSET_FORWARD</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ENTITY_TRANSLUCENT" class="member-name-link">ENTITY_TRANSLUCENT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ENTITY_TRANSLUCENT_CULL" class="member-name-link">ENTITY_TRANSLUCENT_CULL</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ENTITY_TRANSLUCENT_EMISSIVE" class="member-name-link">ENTITY_TRANSLUCENT_EMISSIVE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#EYES" class="member-name-link">EYES</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#FIRE_SCREEN_EFFECT" class="member-name-link">FIRE_SCREEN_EFFECT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#FLAT_CLOUDS" class="member-name-link">FLAT_CLOUDS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#FOG_SNIPPET" class="member-name-link">FOG_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#GENERIC_BLOCKS_SNIPPET" class="member-name-link">GENERIC_BLOCKS_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#GLINT" class="member-name-link">GLINT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#GLOBALS_SNIPPET" class="member-name-link">GLOBALS_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#GUI" class="member-name-link">GUI</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#GUI_INVERT" class="member-name-link">GUI_INVERT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#GUI_NAUSEA_OVERLAY" class="member-name-link">GUI_NAUSEA_OVERLAY</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#GUI_OPAQUE_TEXTURED_BACKGROUND" class="member-name-link">GUI_OPAQUE_TEXTURED_BACKGROUND</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#GUI_SNIPPET" class="member-name-link">GUI_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#GUI_TEXT" class="member-name-link">GUI_TEXT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#GUI_TEXT_HIGHLIGHT" class="member-name-link">GUI_TEXT_HIGHLIGHT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#GUI_TEXT_INTENSITY" class="member-name-link">GUI_TEXT_INTENSITY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#GUI_TEXT_SNIPPET" class="member-name-link">GUI_TEXT_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#GUI_TEXTURED" class="member-name-link">GUI_TEXTURED</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#GUI_TEXTURED_PREMULTIPLIED_ALPHA" class="member-name-link">GUI_TEXTURED_PREMULTIPLIED_ALPHA</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#GUI_TEXTURED_SNIPPET" class="member-name-link">GUI_TEXTURED_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ITEM_CUTOUT" class="member-name-link">ITEM_CUTOUT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ITEM_SNIPPET" class="member-name-link">ITEM_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ITEM_TRANSLUCENT" class="member-name-link">ITEM_TRANSLUCENT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#LEASH" class="member-name-link">LEASH</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#LIGHTMAP" class="member-name-link">LIGHTMAP</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#LIGHTNING" class="member-name-link">LIGHTNING</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#LINES" class="member-name-link">LINES</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#LINES_DEPTH_BIAS" class="member-name-link">LINES_DEPTH_BIAS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#LINES_SNIPPET" class="member-name-link">LINES_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#LINES_TRANSLUCENT" class="member-name-link">LINES_TRANSLUCENT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#MATRICES_FOG_LIGHT_DIR_SNIPPET" class="member-name-link">MATRICES_FOG_LIGHT_DIR_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#MATRICES_FOG_SNIPPET" class="member-name-link">MATRICES_FOG_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#MATRICES_PROJECTION_SNIPPET" class="member-name-link">MATRICES_PROJECTION_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#MOJANG_LOGO" class="member-name-link">MOJANG_LOGO</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#OPAQUE_PARTICLE" class="member-name-link">OPAQUE_PARTICLE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#OUTLINE_CULL" class="member-name-link">OUTLINE_CULL</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#OUTLINE_NO_CULL" class="member-name-link">OUTLINE_NO_CULL</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#OUTLINE_SNIPPET" class="member-name-link">OUTLINE_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#PANORAMA" class="member-name-link">PANORAMA</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#PARTICLE_SNIPPET" class="member-name-link">PARTICLE_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#PIPELINES_BY_LOCATION" class="member-name-link">PIPELINES_BY_LOCATION</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#POST_PROCESSING_SNIPPET" class="member-name-link">POST_PROCESSING_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#SECONDARY_BLOCK_OUTLINE" class="member-name-link">SECONDARY_BLOCK_OUTLINE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#SKY" class="member-name-link">SKY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#SOLID_BLOCK" class="member-name-link">SOLID_BLOCK</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#SOLID_TERRAIN" class="member-name-link">SOLID_TERRAIN</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#STARS" class="member-name-link">STARS</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#SUNRISE_SUNSET" class="member-name-link">SUNRISE_SUNSET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TERRAIN_SNIPPET" class="member-name-link">TERRAIN_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#TEXT" class="member-name-link">TEXT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TEXT_BACKGROUND" class="member-name-link">TEXT_BACKGROUND</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#TEXT_BACKGROUND_SEE_THROUGH" class="member-name-link">TEXT_BACKGROUND_SEE_THROUGH</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TEXT_INTENSITY" class="member-name-link">TEXT_INTENSITY</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#TEXT_INTENSITY_SEE_THROUGH" class="member-name-link">TEXT_INTENSITY_SEE_THROUGH</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TEXT_POLYGON_OFFSET" class="member-name-link">TEXT_POLYGON_OFFSET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#TEXT_SEE_THROUGH" class="member-name-link">TEXT_SEE_THROUGH</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TEXT_SNIPPET" class="member-name-link">TEXT_SNIPPET</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#TRACY_BLIT" class="member-name-link">TRACY_BLIT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TRANSLUCENT_BLOCK" class="member-name-link">TRANSLUCENT_BLOCK</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#TRANSLUCENT_PARTICLE" class="member-name-link">TRANSLUCENT_PARTICLE</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TRANSLUCENT_TERRAIN" class="member-name-link">TRANSLUCENT_TERRAIN</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#VIGNETTE" class="member-name-link">VIGNETTE</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#WATER_MASK" class="member-name-link">WATER_MASK</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#WEATHER_DEPTH_WRITE" class="member-name-link">WEATHER_DEPTH_WRITE</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#WEATHER_NO_DEPTH_WRITE" class="member-name-link">WEATHER_NO_DEPTH_WRITE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></code></div>
+<div class="col-second even-row-color"><code><a href="#WEATHER_SNIPPET" class="member-name-link">WEATHER_SNIPPET</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#WIREFRAME" class="member-name-link">WIREFRAME</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second even-row-color"><code><a href="#WORLD_BORDER" class="member-name-link">WORLD_BORDER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">RenderPipelines</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getStaticPipelines()" class="member-name-link">getStaticPipelines</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#register(com.mojang.blaze3d.pipeline.RenderPipeline)" class="member-name-link">register</a><wbr>(<a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#registerCustomPipelines()" class="member-name-link">registerCustomPipelines</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="PIPELINES_BY_LOCATION">
+<h3>PIPELINES_BY_LOCATION</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&gt;</span>&nbsp;<span class="element-name">PIPELINES_BY_LOCATION</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MATRICES_PROJECTION_SNIPPET">
+<h3>MATRICES_PROJECTION_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">MATRICES_PROJECTION_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="FOG_SNIPPET">
+<h3>FOG_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">FOG_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GLOBALS_SNIPPET">
+<h3>GLOBALS_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">GLOBALS_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MATRICES_FOG_SNIPPET">
+<h3>MATRICES_FOG_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">MATRICES_FOG_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MATRICES_FOG_LIGHT_DIR_SNIPPET">
+<h3>MATRICES_FOG_LIGHT_DIR_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">MATRICES_FOG_LIGHT_DIR_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GENERIC_BLOCKS_SNIPPET">
+<h3>GENERIC_BLOCKS_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">GENERIC_BLOCKS_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TERRAIN_SNIPPET">
+<h3>TERRAIN_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">TERRAIN_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BLOCK_SNIPPET">
+<h3>BLOCK_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">BLOCK_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_SNIPPET">
+<h3>ENTITY_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">ENTITY_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_EMISSIVE_SNIPPET">
+<h3>ENTITY_EMISSIVE_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">ENTITY_EMISSIVE_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BEACON_BEAM_SNIPPET">
+<h3>BEACON_BEAM_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">BEACON_BEAM_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ITEM_SNIPPET">
+<h3>ITEM_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">ITEM_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TEXT_SNIPPET">
+<h3>TEXT_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">TEXT_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="END_PORTAL_SNIPPET">
+<h3>END_PORTAL_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">END_PORTAL_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CLOUDS_SNIPPET">
+<h3>CLOUDS_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">CLOUDS_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LINES_SNIPPET">
+<h3>LINES_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">LINES_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DEBUG_FILLED_SNIPPET">
+<h3>DEBUG_FILLED_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">DEBUG_FILLED_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PARTICLE_SNIPPET">
+<h3>PARTICLE_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">PARTICLE_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="WEATHER_SNIPPET">
+<h3>WEATHER_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">WEATHER_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_SNIPPET">
+<h3>GUI_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">GUI_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_TEXTURED_SNIPPET">
+<h3>GUI_TEXTURED_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">GUI_TEXTURED_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_TEXT_SNIPPET">
+<h3>GUI_TEXT_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">GUI_TEXT_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="OUTLINE_SNIPPET">
+<h3>OUTLINE_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">OUTLINE_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="POST_PROCESSING_SNIPPET">
+<h3>POST_PROCESSING_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">POST_PROCESSING_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SOLID_BLOCK">
+<h3>SOLID_BLOCK</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">SOLID_BLOCK</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SOLID_TERRAIN">
+<h3>SOLID_TERRAIN</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">SOLID_TERRAIN</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="WIREFRAME">
+<h3>WIREFRAME</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">WIREFRAME</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CUTOUT_BLOCK">
+<h3>CUTOUT_BLOCK</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">CUTOUT_BLOCK</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CUTOUT_TERRAIN">
+<h3>CUTOUT_TERRAIN</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">CUTOUT_TERRAIN</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TRANSLUCENT_TERRAIN">
+<h3>TRANSLUCENT_TERRAIN</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TRANSLUCENT_TERRAIN</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TRANSLUCENT_BLOCK">
+<h3>TRANSLUCENT_BLOCK</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TRANSLUCENT_BLOCK</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ARMOR_CUTOUT_NO_CULL">
+<h3>ARMOR_CUTOUT_NO_CULL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ARMOR_CUTOUT_NO_CULL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ARMOR_DECAL_CUTOUT_NO_CULL">
+<h3>ARMOR_DECAL_CUTOUT_NO_CULL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ARMOR_DECAL_CUTOUT_NO_CULL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ARMOR_TRANSLUCENT">
+<h3>ARMOR_TRANSLUCENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ARMOR_TRANSLUCENT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_SOLID">
+<h3>ENTITY_SOLID</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_SOLID</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_SOLID_Z_OFFSET_FORWARD">
+<h3>ENTITY_SOLID_Z_OFFSET_FORWARD</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_SOLID_Z_OFFSET_FORWARD</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_CUTOUT_CULL">
+<h3>ENTITY_CUTOUT_CULL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_CUTOUT_CULL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_CUTOUT">
+<h3>ENTITY_CUTOUT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_CUTOUT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_CUTOUT_Z_OFFSET">
+<h3>ENTITY_CUTOUT_Z_OFFSET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_CUTOUT_Z_OFFSET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_CUTOUT_DISSOLVE">
+<h3>ENTITY_CUTOUT_DISSOLVE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_CUTOUT_DISSOLVE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_TRANSLUCENT">
+<h3>ENTITY_TRANSLUCENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_TRANSLUCENT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_TRANSLUCENT_EMISSIVE">
+<h3>ENTITY_TRANSLUCENT_EMISSIVE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_TRANSLUCENT_EMISSIVE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_TRANSLUCENT_CULL">
+<h3>ENTITY_TRANSLUCENT_CULL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_TRANSLUCENT_CULL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="END_CRYSTAL_BEAM">
+<h3>END_CRYSTAL_BEAM</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">END_CRYSTAL_BEAM</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BANNER_PATTERN">
+<h3>BANNER_PATTERN</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">BANNER_PATTERN</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BREEZE_WIND">
+<h3>BREEZE_WIND</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">BREEZE_WIND</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENERGY_SWIRL">
+<h3>ENERGY_SWIRL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENERGY_SWIRL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="EYES">
+<h3>EYES</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">EYES</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_SHADOW">
+<h3>ENTITY_SHADOW</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_SHADOW</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ITEM_CUTOUT">
+<h3>ITEM_CUTOUT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ITEM_CUTOUT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ITEM_TRANSLUCENT">
+<h3>ITEM_TRANSLUCENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ITEM_TRANSLUCENT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BEACON_BEAM_OPAQUE">
+<h3>BEACON_BEAM_OPAQUE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">BEACON_BEAM_OPAQUE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BEACON_BEAM_TRANSLUCENT">
+<h3>BEACON_BEAM_TRANSLUCENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">BEACON_BEAM_TRANSLUCENT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LEASH">
+<h3>LEASH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">LEASH</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="WATER_MASK">
+<h3>WATER_MASK</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">WATER_MASK</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GLINT">
+<h3>GLINT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GLINT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CRUMBLING">
+<h3>CRUMBLING</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">CRUMBLING</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TEXT">
+<h3>TEXT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TEXT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_TEXT">
+<h3>GUI_TEXT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GUI_TEXT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TEXT_BACKGROUND">
+<h3>TEXT_BACKGROUND</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TEXT_BACKGROUND</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TEXT_INTENSITY">
+<h3>TEXT_INTENSITY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TEXT_INTENSITY</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_TEXT_INTENSITY">
+<h3>GUI_TEXT_INTENSITY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GUI_TEXT_INTENSITY</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TEXT_POLYGON_OFFSET">
+<h3>TEXT_POLYGON_OFFSET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TEXT_POLYGON_OFFSET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TEXT_SEE_THROUGH">
+<h3>TEXT_SEE_THROUGH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TEXT_SEE_THROUGH</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TEXT_BACKGROUND_SEE_THROUGH">
+<h3>TEXT_BACKGROUND_SEE_THROUGH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TEXT_BACKGROUND_SEE_THROUGH</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TEXT_INTENSITY_SEE_THROUGH">
+<h3>TEXT_INTENSITY_SEE_THROUGH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TEXT_INTENSITY_SEE_THROUGH</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LIGHTNING">
+<h3>LIGHTNING</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">LIGHTNING</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DRAGON_RAYS">
+<h3>DRAGON_RAYS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">DRAGON_RAYS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DRAGON_RAYS_DEPTH">
+<h3>DRAGON_RAYS_DEPTH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">DRAGON_RAYS_DEPTH</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="END_PORTAL">
+<h3>END_PORTAL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">END_PORTAL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="END_GATEWAY">
+<h3>END_GATEWAY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">END_GATEWAY</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="FLAT_CLOUDS">
+<h3>FLAT_CLOUDS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">FLAT_CLOUDS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CLOUDS">
+<h3>CLOUDS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">CLOUDS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LINES">
+<h3>LINES</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">LINES</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LINES_TRANSLUCENT">
+<h3>LINES_TRANSLUCENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">LINES_TRANSLUCENT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LINES_DEPTH_BIAS">
+<h3>LINES_DEPTH_BIAS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">LINES_DEPTH_BIAS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SECONDARY_BLOCK_OUTLINE">
+<h3>SECONDARY_BLOCK_OUTLINE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">SECONDARY_BLOCK_OUTLINE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DEBUG_POINTS">
+<h3>DEBUG_POINTS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">DEBUG_POINTS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DEBUG_FILLED_BOX">
+<h3>DEBUG_FILLED_BOX</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">DEBUG_FILLED_BOX</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DEBUG_QUADS">
+<h3>DEBUG_QUADS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">DEBUG_QUADS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DEBUG_TRIANGLE_FAN">
+<h3>DEBUG_TRIANGLE_FAN</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">DEBUG_TRIANGLE_FAN</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="WORLD_BORDER">
+<h3>WORLD_BORDER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">WORLD_BORDER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="OPAQUE_PARTICLE">
+<h3>OPAQUE_PARTICLE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">OPAQUE_PARTICLE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TRANSLUCENT_PARTICLE">
+<h3>TRANSLUCENT_PARTICLE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TRANSLUCENT_PARTICLE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="WEATHER_DEPTH_WRITE">
+<h3>WEATHER_DEPTH_WRITE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">WEATHER_DEPTH_WRITE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="WEATHER_NO_DEPTH_WRITE">
+<h3>WEATHER_NO_DEPTH_WRITE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">WEATHER_NO_DEPTH_WRITE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SKY">
+<h3>SKY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">SKY</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="END_SKY">
+<h3>END_SKY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">END_SKY</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SUNRISE_SUNSET">
+<h3>SUNRISE_SUNSET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">SUNRISE_SUNSET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="STARS">
+<h3>STARS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">STARS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CELESTIAL">
+<h3>CELESTIAL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">CELESTIAL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI">
+<h3>GUI</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GUI</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_INVERT">
+<h3>GUI_INVERT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GUI_INVERT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_TEXT_HIGHLIGHT">
+<h3>GUI_TEXT_HIGHLIGHT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GUI_TEXT_HIGHLIGHT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_TEXTURED">
+<h3>GUI_TEXTURED</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GUI_TEXTURED</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_TEXTURED_PREMULTIPLIED_ALPHA">
+<h3>GUI_TEXTURED_PREMULTIPLIED_ALPHA</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GUI_TEXTURED_PREMULTIPLIED_ALPHA</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="BLOCK_SCREEN_EFFECT">
+<h3>BLOCK_SCREEN_EFFECT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">BLOCK_SCREEN_EFFECT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="FIRE_SCREEN_EFFECT">
+<h3>FIRE_SCREEN_EFFECT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">FIRE_SCREEN_EFFECT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_OPAQUE_TEXTURED_BACKGROUND">
+<h3>GUI_OPAQUE_TEXTURED_BACKGROUND</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GUI_OPAQUE_TEXTURED_BACKGROUND</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="GUI_NAUSEA_OVERLAY">
+<h3>GUI_NAUSEA_OVERLAY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">GUI_NAUSEA_OVERLAY</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="VIGNETTE">
+<h3>VIGNETTE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">VIGNETTE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CROSSHAIR">
+<h3>CROSSHAIR</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">CROSSHAIR</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MOJANG_LOGO">
+<h3>MOJANG_LOGO</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">MOJANG_LOGO</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ENTITY_OUTLINE_BLIT">
+<h3>ENTITY_OUTLINE_BLIT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ENTITY_OUTLINE_BLIT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TRACY_BLIT">
+<h3>TRACY_BLIT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">TRACY_BLIT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PANORAMA">
+<h3>PANORAMA</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">PANORAMA</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="OUTLINE_CULL">
+<h3>OUTLINE_CULL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">OUTLINE_CULL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="OUTLINE_NO_CULL">
+<h3>OUTLINE_NO_CULL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">OUTLINE_NO_CULL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LIGHTMAP">
+<h3>LIGHTMAP</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">LIGHTMAP</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ANIMATE_SPRITE_SNIPPET">
+<h3>ANIMATE_SPRITE_SNIPPET</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.Snippet.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline.Snippet</a></span>&nbsp;<span class="element-name">ANIMATE_SPRITE_SNIPPET</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ANIMATE_SPRITE_BLIT">
+<h3>ANIMATE_SPRITE_BLIT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ANIMATE_SPRITE_BLIT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ANIMATE_SPRITE_INTERPOLATE">
+<h3>ANIMATE_SPRITE_INTERPOLATE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">ANIMATE_SPRITE_INTERPOLATE</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>RenderPipelines</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">RenderPipelines</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="register(com.mojang.blaze3d.pipeline.RenderPipeline)">
+<h3>register</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a></span>&nbsp;<span class="element-name">register</span><wbr><span class="parameters">(<a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getStaticPipelines()">
+<h3>getStaticPipelines</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../../../com/mojang/blaze3d/pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&gt;</span>&nbsp;<span class="element-name">getStaticPipelines</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="registerCustomPipelines()">
+<h3>registerCustomPipelines</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations">@Internal
+</span><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">registerCustomPipelines</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

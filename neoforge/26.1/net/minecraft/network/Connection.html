@@ -1,0 +1,1321 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Connection (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.network, class: Connection">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/Connection.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../search.html">Search</a></li>
+<li><a href="../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.network</a></li>
+<li><a href="Connection.html" class="current-selection">Connection</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#AVERAGE_PACKETS_SMOOTHING" tabindex="0">AVERAGE_PACKETS_SMOOTHING</a></li>
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#ROOT_MARKER" tabindex="0">ROOT_MARKER</a></li>
+<li><a href="#PACKET_MARKER" tabindex="0">PACKET_MARKER</a></li>
+<li><a href="#PACKET_RECEIVED_MARKER" tabindex="0">PACKET_RECEIVED_MARKER</a></li>
+<li><a href="#PACKET_SENT_MARKER" tabindex="0">PACKET_SENT_MARKER</a></li>
+<li><a href="#INITIAL_PROTOCOL" tabindex="0">INITIAL_PROTOCOL</a></li>
+<li><a href="#receiving" tabindex="0">receiving</a></li>
+<li><a href="#sendLoginDisconnect" tabindex="0">sendLoginDisconnect</a></li>
+<li><a href="#pendingActions" tabindex="0">pendingActions</a></li>
+<li><a href="#channel" tabindex="0">channel</a></li>
+<li><a href="#address" tabindex="0">address</a></li>
+<li><a href="#disconnectListener" tabindex="0">disconnectListener</a></li>
+<li><a href="#packetListener" tabindex="0">packetListener</a></li>
+<li><a href="#disconnectionDetails" tabindex="0">disconnectionDetails</a></li>
+<li><a href="#encrypted" tabindex="0">encrypted</a></li>
+<li><a href="#disconnectionHandled" tabindex="0">disconnectionHandled</a></li>
+<li><a href="#receivedPackets" tabindex="0">receivedPackets</a></li>
+<li><a href="#sentPackets" tabindex="0">sentPackets</a></li>
+<li><a href="#averageReceivedPackets" tabindex="0">averageReceivedPackets</a></li>
+<li><a href="#averageSentPackets" tabindex="0">averageSentPackets</a></li>
+<li><a href="#tickCount" tabindex="0">tickCount</a></li>
+<li><a href="#handlingFault" tabindex="0">handlingFault</a></li>
+<li><a href="#delayedDisconnect" tabindex="0">delayedDisconnect</a></li>
+<li><a href="#bandwidthDebugMonitor" tabindex="0">bandwidthDebugMonitor</a></li>
+<li><a href="#inboundProtocol" tabindex="0">inboundProtocol</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.network.protocol.PacketFlow)" tabindex="0">Connection(PacketFlow)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#channelActive(io.netty.channel.ChannelHandlerContext)" tabindex="0">channelActive(ChannelHandlerContext)</a></li>
+<li><a href="#channelInactive(io.netty.channel.ChannelHandlerContext)" tabindex="0">channelInactive(ChannelHandlerContext)</a></li>
+<li><a href="#exceptionCaught(io.netty.channel.ChannelHandlerContext,java.lang.Throwable)" tabindex="0">exceptionCaught(ChannelHandlerContext, Throwable)</a></li>
+<li><a href="#channelRead0(io.netty.channel.ChannelHandlerContext,net.minecraft.network.protocol.Packet)" tabindex="0">channelRead0(ChannelHandlerContext, Packet)</a></li>
+<li><a href="#genericsFtw(net.minecraft.network.protocol.Packet,net.minecraft.network.PacketListener)" tabindex="0">genericsFtw(Packet, PacketListener)</a></li>
+<li><a href="#validateListener(net.minecraft.network.ProtocolInfo,net.minecraft.network.PacketListener)" tabindex="0">validateListener(ProtocolInfo, PacketListener)</a></li>
+<li><a href="#syncAfterConfigurationChange(io.netty.channel.ChannelFuture)" tabindex="0">syncAfterConfigurationChange(ChannelFuture)</a></li>
+<li><a href="#setupInboundProtocol(net.minecraft.network.ProtocolInfo,T)" tabindex="0">setupInboundProtocol(ProtocolInfo, T)</a></li>
+<li><a href="#setupOutboundProtocol(net.minecraft.network.ProtocolInfo)" tabindex="0">setupOutboundProtocol(ProtocolInfo)</a></li>
+<li><a href="#setListenerForServerboundHandshake(net.minecraft.network.PacketListener)" tabindex="0">setListenerForServerboundHandshake(PacketListener)</a></li>
+<li><a href="#initiateServerboundStatusConnection(java.lang.String,int,net.minecraft.network.protocol.status.ClientStatusPacketListener)" tabindex="0">initiateServerboundStatusConnection(String, int, ClientStatusPacketListener)</a></li>
+<li><a href="#initiateServerboundPlayConnection(java.lang.String,int,net.minecraft.network.protocol.login.ClientLoginPacketListener)" tabindex="0">initiateServerboundPlayConnection(String, int, ClientLoginPacketListener)</a></li>
+<li><a href="#initiateServerboundPlayConnection(java.lang.String,int,net.minecraft.network.ProtocolInfo,net.minecraft.network.ProtocolInfo,C,boolean)" tabindex="0">initiateServerboundPlayConnection(String, int, ProtocolInfo, ProtocolInfo, C, boolean)</a></li>
+<li><a href="#initiateServerboundConnection(java.lang.String,int,net.minecraft.network.ProtocolInfo,net.minecraft.network.ProtocolInfo,C,net.minecraft.network.protocol.handshake.ClientIntent)" tabindex="0">initiateServerboundConnection(String, int, ProtocolInfo, ProtocolInfo, C, ClientIntent)</a></li>
+<li><a href="#send(net.minecraft.network.protocol.Packet)" tabindex="0">send(Packet)</a></li>
+<li><a href="#send(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener)" tabindex="0">send(Packet, ChannelFutureListener)</a></li>
+<li><a href="#send(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener,boolean)" tabindex="0">send(Packet, ChannelFutureListener, boolean)</a></li>
+<li><a href="#runOnceConnected(java.util.function.Consumer)" tabindex="0">runOnceConnected(Consumer)</a></li>
+<li><a href="#sendPacket(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener,boolean)" tabindex="0">sendPacket(Packet, ChannelFutureListener, boolean)</a></li>
+<li><a href="#doSendPacket(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener,boolean)" tabindex="0">doSendPacket(Packet, ChannelFutureListener, boolean)</a></li>
+<li><a href="#flushChannel()" tabindex="0">flushChannel()</a></li>
+<li><a href="#flush()" tabindex="0">flush()</a></li>
+<li><a href="#flushQueue()" tabindex="0">flushQueue()</a></li>
+<li><a href="#tick()" tabindex="0">tick()</a></li>
+<li><a href="#tickSecond()" tabindex="0">tickSecond()</a></li>
+<li><a href="#getRemoteAddress()" tabindex="0">getRemoteAddress()</a></li>
+<li><a href="#getLoggableAddress(boolean)" tabindex="0">getLoggableAddress(boolean)</a></li>
+<li><a href="#disconnect(net.minecraft.network.chat.Component)" tabindex="0">disconnect(Component)</a></li>
+<li><a href="#disconnect(net.minecraft.network.DisconnectionDetails)" tabindex="0">disconnect(DisconnectionDetails)</a></li>
+<li><a href="#isMemoryConnection()" tabindex="0">isMemoryConnection()</a></li>
+<li><a href="#getReceiving()" tabindex="0">getReceiving()</a></li>
+<li><a href="#getSending()" tabindex="0">getSending()</a></li>
+<li><a href="#connectToServer(java.net.InetSocketAddress,net.minecraft.server.network.EventLoopGroupHolder,net.minecraft.util.debugchart.LocalSampleLogger)" tabindex="0">connectToServer(InetSocketAddress, EventLoopGroupHolder, LocalSampleLogger)</a></li>
+<li><a href="#connect(java.net.InetSocketAddress,net.minecraft.server.network.EventLoopGroupHolder,net.minecraft.network.Connection)" tabindex="0">connect(InetSocketAddress, EventLoopGroupHolder, Connection)</a></li>
+<li><a href="#outboundHandlerName(boolean)" tabindex="0">outboundHandlerName(boolean)</a></li>
+<li><a href="#inboundHandlerName(boolean)" tabindex="0">inboundHandlerName(boolean)</a></li>
+<li><a href="#configurePacketHandler(io.netty.channel.ChannelPipeline)" tabindex="0">configurePacketHandler(ChannelPipeline)</a></li>
+<li><a href="#configureSerialization(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow,boolean,net.minecraft.network.BandwidthDebugMonitor)" tabindex="0">configureSerialization(ChannelPipeline, PacketFlow, boolean, BandwidthDebugMonitor)</a></li>
+<li><a href="#createFrameEncoder(boolean)" tabindex="0">createFrameEncoder(boolean)</a></li>
+<li><a href="#createFrameDecoder(net.minecraft.network.BandwidthDebugMonitor,boolean)" tabindex="0">createFrameDecoder(BandwidthDebugMonitor, boolean)</a></li>
+<li><a href="#configureInMemoryPipeline(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow)" tabindex="0">configureInMemoryPipeline(ChannelPipeline, PacketFlow)</a></li>
+<li><a href="#connectToLocalServer(java.net.SocketAddress)" tabindex="0">connectToLocalServer(SocketAddress)</a></li>
+<li><a href="#setEncryptionKey(javax.crypto.Cipher,javax.crypto.Cipher)" tabindex="0">setEncryptionKey(Cipher, Cipher)</a></li>
+<li><a href="#isEncrypted()" tabindex="0">isEncrypted()</a></li>
+<li><a href="#isConnected()" tabindex="0">isConnected()</a></li>
+<li><a href="#isConnecting()" tabindex="0">isConnecting()</a></li>
+<li><a href="#getPacketListener()" tabindex="0">getPacketListener()</a></li>
+<li><a href="#getDisconnectionDetails()" tabindex="0">getDisconnectionDetails()</a></li>
+<li><a href="#setReadOnly()" tabindex="0">setReadOnly()</a></li>
+<li><a href="#setupCompression(int,boolean)" tabindex="0">setupCompression(int, boolean)</a></li>
+<li><a href="#handleDisconnection()" tabindex="0">handleDisconnection()</a></li>
+<li><a href="#getAverageReceivedPackets()" tabindex="0">getAverageReceivedPackets()</a></li>
+<li><a href="#getAverageSentPackets()" tabindex="0">getAverageSentPackets()</a></li>
+<li><a href="#setBandwidthLogger(net.minecraft.util.debugchart.LocalSampleLogger)" tabindex="0">setBandwidthLogger(LocalSampleLogger)</a></li>
+<li><a href="#channel()" tabindex="0">channel()</a></li>
+<li><a href="#getDirection()" tabindex="0">getDirection()</a></li>
+<li><a href="#getInboundProtocol()" tabindex="0">getInboundProtocol()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class Connection" class="title">Class Connection</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">io.netty.channel.ChannelHandlerAdapter
+<div class="inheritance">io.netty.channel.ChannelInboundHandlerAdapter
+<div class="inheritance">io.netty.channel.SimpleChannelInboundHandler&lt;<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&gt;
+<div class="inheritance">net.minecraft.network.Connection</div>
+</div>
+</div>
+</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code>io.netty.channel.ChannelHandler, io.netty.channel.ChannelInboundHandler</code></dd>
+</dl>
+<dl class="notes">
+<dt>Direct Known Subclasses:</dt>
+<dd><code><a href="../../neoforged/neoforge/common/util/FakePlayer.FakeConnection.html" title="class in net.neoforged.neoforge.common.util">FakePlayer.FakeConnection</a>, <a href="RateKickingConnection.html" title="class in net.minecraft.network">RateKickingConnection</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Connection</span>
+<span class="extends-implements">extends io.netty.channel.SimpleChannelInboundHandler&lt;<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&gt;</span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-io.netty.channel.ChannelHandler">Nested classes/interfaces inherited from interface&nbsp;io.netty.channel.ChannelHandler</h3>
+<code>io.netty.channel.ChannelHandler.Sharable</code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a></code></div>
+<div class="col-second even-row-color"><code><a href="#address" class="member-name-link">address</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final float</code></div>
+<div class="col-second odd-row-color"><code><a href="#AVERAGE_PACKETS_SMOOTHING" class="member-name-link">AVERAGE_PACKETS_SMOOTHING</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private float</code></div>
+<div class="col-second even-row-color"><code><a href="#averageReceivedPackets" class="member-name-link">averageReceivedPackets</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private float</code></div>
+<div class="col-second odd-row-color"><code><a href="#averageSentPackets" class="member-name-link">averageSentPackets</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="BandwidthDebugMonitor.html" title="class in net.minecraft.network">BandwidthDebugMonitor</a></code></div>
+<div class="col-second even-row-color"><code><a href="#bandwidthDebugMonitor" class="member-name-link">bandwidthDebugMonitor</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private io.netty.channel.Channel</code></div>
+<div class="col-second odd-row-color"><code><a href="#channel" class="member-name-link">channel</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a></code></div>
+<div class="col-second even-row-color"><code><a href="#delayedDisconnect" class="member-name-link">delayedDisconnect</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private @Nullable <a href="DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#disconnectionDetails" class="member-name-link">disconnectionDetails</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#disconnectionHandled" class="member-name-link">disconnectionHandled</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private @Nullable <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#disconnectListener" class="member-name-link">disconnectListener</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private boolean</code></div>
+<div class="col-second even-row-color"><code><a href="#encrypted" class="member-name-link">encrypted</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#handlingFault" class="member-name-link">handlingFault</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a><wbr>&lt;?&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#inboundProtocol" class="member-name-link">inboundProtocol</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a><wbr>&lt;<a href="protocol/handshake/ServerHandshakePacketListener.html" title="interface in net.minecraft.network.protocol.handshake">ServerHandshakePacketListener</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#INITIAL_PROTOCOL" class="member-name-link">INITIAL_PROTOCOL</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second even-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final org.slf4j.Marker</code></div>
+<div class="col-second odd-row-color"><code><a href="#PACKET_MARKER" class="member-name-link">PACKET_MARKER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final org.slf4j.Marker</code></div>
+<div class="col-second even-row-color"><code><a href="#PACKET_RECEIVED_MARKER" class="member-name-link">PACKET_RECEIVED_MARKER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final org.slf4j.Marker</code></div>
+<div class="col-second odd-row-color"><code><a href="#PACKET_SENT_MARKER" class="member-name-link">PACKET_SENT_MARKER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></code></div>
+<div class="col-second even-row-color"><code><a href="#packetListener" class="member-name-link">packetListener</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Queue.html" title="class or interface in java.util" class="external-link">Queue</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Connection.html" title="class in net.minecraft.network">Connection</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#pendingActions" class="member-name-link">pendingActions</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private int</code></div>
+<div class="col-second even-row-color"><code><a href="#receivedPackets" class="member-name-link">receivedPackets</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#receiving" class="member-name-link">receiving</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final org.slf4j.Marker</code></div>
+<div class="col-second even-row-color"><code><a href="#ROOT_MARKER" class="member-name-link">ROOT_MARKER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private boolean</code></div>
+<div class="col-second odd-row-color"><code><a href="#sendLoginDisconnect" class="member-name-link">sendLoginDisconnect</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private int</code></div>
+<div class="col-second even-row-color"><code><a href="#sentPackets" class="member-name-link">sentPackets</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private int</code></div>
+<div class="col-second odd-row-color"><code><a href="#tickCount" class="member-name-link">tickCount</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.network.protocol.PacketFlow)" class="member-name-link">Connection</a><wbr>(<a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;receiving)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>io.netty.channel.Channel</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#channel()" class="member-name-link">channel</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#channelActive(io.netty.channel.ChannelHandlerContext)" class="member-name-link">channelActive</a><wbr>(io.netty.channel.ChannelHandlerContext&nbsp;ctx)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#channelInactive(io.netty.channel.ChannelHandlerContext)" class="member-name-link">channelInactive</a><wbr>(io.netty.channel.ChannelHandlerContext&nbsp;ctx)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#channelRead0(io.netty.channel.ChannelHandlerContext,net.minecraft.network.protocol.Packet)" class="member-name-link">channelRead0</a><wbr>(io.netty.channel.ChannelHandlerContext&nbsp;ctx,
+ <a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#configureInMemoryPipeline(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow)" class="member-name-link">configureInMemoryPipeline</a><wbr>(io.netty.channel.ChannelPipeline&nbsp;pipeline,
+ <a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;packetFlow)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#configurePacketHandler(io.netty.channel.ChannelPipeline)" class="member-name-link">configurePacketHandler</a><wbr>(io.netty.channel.ChannelPipeline&nbsp;pipeline)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#configureSerialization(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow,boolean,net.minecraft.network.BandwidthDebugMonitor)" class="member-name-link">configureSerialization</a><wbr>(io.netty.channel.ChannelPipeline&nbsp;pipeline,
+ <a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;inboundDirection,
+ boolean&nbsp;local,
+ @Nullable <a href="BandwidthDebugMonitor.html" title="class in net.minecraft.network">BandwidthDebugMonitor</a>&nbsp;monitor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static io.netty.channel.ChannelFuture</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#connect(java.net.InetSocketAddress,net.minecraft.server.network.EventLoopGroupHolder,net.minecraft.network.Connection)" class="member-name-link">connect</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/InetSocketAddress.html" title="class or interface in java.net" class="external-link">InetSocketAddress</a>&nbsp;address,
+ <a href="../server/network/EventLoopGroupHolder.html" title="class in net.minecraft.server.network">EventLoopGroupHolder</a>&nbsp;eventLoopGroupHolder,
+ <a href="Connection.html" title="class in net.minecraft.network">Connection</a>&nbsp;connection)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Connection.html" title="class in net.minecraft.network">Connection</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#connectToLocalServer(java.net.SocketAddress)" class="member-name-link">connectToLocalServer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a>&nbsp;address)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="Connection.html" title="class in net.minecraft.network">Connection</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#connectToServer(java.net.InetSocketAddress,net.minecraft.server.network.EventLoopGroupHolder,net.minecraft.util.debugchart.LocalSampleLogger)" class="member-name-link">connectToServer</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/InetSocketAddress.html" title="class or interface in java.net" class="external-link">InetSocketAddress</a>&nbsp;address,
+ <a href="../server/network/EventLoopGroupHolder.html" title="class in net.minecraft.server.network">EventLoopGroupHolder</a>&nbsp;eventLoopGroupHolder,
+ @Nullable <a href="../util/debugchart/LocalSampleLogger.html" title="class in net.minecraft.util.debugchart">LocalSampleLogger</a>&nbsp;bandwidthLogger)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static io.netty.channel.ChannelInboundHandler</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFrameDecoder(net.minecraft.network.BandwidthDebugMonitor,boolean)" class="member-name-link">createFrameDecoder</a><wbr>(@Nullable <a href="BandwidthDebugMonitor.html" title="class in net.minecraft.network">BandwidthDebugMonitor</a>&nbsp;monitor,
+ boolean&nbsp;local)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static io.netty.channel.ChannelOutboundHandler</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createFrameEncoder(boolean)" class="member-name-link">createFrameEncoder</a><wbr>(boolean&nbsp;local)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#disconnect(net.minecraft.network.chat.Component)" class="member-name-link">disconnect</a><wbr>(<a href="chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;reason)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#disconnect(net.minecraft.network.DisconnectionDetails)" class="member-name-link">disconnect</a><wbr>(<a href="DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a>&nbsp;details)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#doSendPacket(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener,boolean)" class="member-name-link">doSendPacket</a><wbr>(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet,
+ @Nullable io.netty.channel.ChannelFutureListener&nbsp;listener,
+ boolean&nbsp;flush)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#exceptionCaught(io.netty.channel.ChannelHandlerContext,java.lang.Throwable)" class="member-name-link">exceptionCaught</a><wbr>(io.netty.channel.ChannelHandlerContext&nbsp;ctx,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#flush()" class="member-name-link">flush</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#flushChannel()" class="member-name-link">flushChannel</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#flushQueue()" class="member-name-link">flushQueue</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;T extends <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&gt;<br>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#genericsFtw(net.minecraft.network.protocol.Packet,net.minecraft.network.PacketListener)" class="member-name-link">genericsFtw</a><wbr>(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;T&gt;&nbsp;packet,
+ <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&nbsp;listener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAverageReceivedPackets()" class="member-name-link">getAverageReceivedPackets</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>float</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAverageSentPackets()" class="member-name-link">getAverageSentPackets</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDirection()" class="member-name-link">getDirection</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDisconnectionDetails()" class="member-name-link">getDisconnectionDetails</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a><wbr>&lt;?&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getInboundProtocol()" class="member-name-link">getInboundProtocol</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLoggableAddress(boolean)" class="member-name-link">getLoggableAddress</a><wbr>(boolean&nbsp;logIPs)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPacketListener()" class="member-name-link">getPacketListener</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getReceiving()" class="member-name-link">getReceiving</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRemoteAddress()" class="member-name-link">getRemoteAddress</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSending()" class="member-name-link">getSending</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#handleDisconnection()" class="member-name-link">handleDisconnection</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#inboundHandlerName(boolean)" class="member-name-link">inboundHandlerName</a><wbr>(boolean&nbsp;configureInbound)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private &lt;S extends <a href="ServerboundPacketListener.html" title="interface in net.minecraft.network">ServerboundPacketListener</a>, C extends <a href="ClientboundPacketListener.html" title="interface in net.minecraft.network">ClientboundPacketListener</a>&gt;<br>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initiateServerboundConnection(java.lang.String,int,net.minecraft.network.ProtocolInfo,net.minecraft.network.ProtocolInfo,C,net.minecraft.network.protocol.handshake.ClientIntent)" class="member-name-link">initiateServerboundConnection</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostName,
+ int&nbsp;port,
+ <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;S&gt;&nbsp;outbound,
+ <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;C&gt;&nbsp;inbound,
+ C&nbsp;listener,
+ <a href="protocol/handshake/ClientIntent.html" title="enum class in net.minecraft.network.protocol.handshake">ClientIntent</a>&nbsp;intent)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initiateServerboundPlayConnection(java.lang.String,int,net.minecraft.network.protocol.login.ClientLoginPacketListener)" class="member-name-link">initiateServerboundPlayConnection</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostName,
+ int&nbsp;port,
+ <a href="protocol/login/ClientLoginPacketListener.html" title="interface in net.minecraft.network.protocol.login">ClientLoginPacketListener</a>&nbsp;listener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;S extends <a href="ServerboundPacketListener.html" title="interface in net.minecraft.network">ServerboundPacketListener</a>, C extends <a href="ClientboundPacketListener.html" title="interface in net.minecraft.network">ClientboundPacketListener</a>&gt;<br>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initiateServerboundPlayConnection(java.lang.String,int,net.minecraft.network.ProtocolInfo,net.minecraft.network.ProtocolInfo,C,boolean)" class="member-name-link">initiateServerboundPlayConnection</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostName,
+ int&nbsp;port,
+ <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;S&gt;&nbsp;outbound,
+ <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;C&gt;&nbsp;inbound,
+ C&nbsp;listener,
+ boolean&nbsp;transfer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#initiateServerboundStatusConnection(java.lang.String,int,net.minecraft.network.protocol.status.ClientStatusPacketListener)" class="member-name-link">initiateServerboundStatusConnection</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostName,
+ int&nbsp;port,
+ <a href="protocol/status/ClientStatusPacketListener.html" title="interface in net.minecraft.network.protocol.status">ClientStatusPacketListener</a>&nbsp;listener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isConnected()" class="member-name-link">isConnected</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isConnecting()" class="member-name-link">isConnecting</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isEncrypted()" class="member-name-link">isEncrypted</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isMemoryConnection()" class="member-name-link">isMemoryConnection</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#outboundHandlerName(boolean)" class="member-name-link">outboundHandlerName</a><wbr>(boolean&nbsp;configureOutbound)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#runOnceConnected(java.util.function.Consumer)" class="member-name-link">runOnceConnected</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Connection.html" title="class in net.minecraft.network">Connection</a>&gt;&nbsp;action)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#send(net.minecraft.network.protocol.Packet)" class="member-name-link">send</a><wbr>(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#send(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener)" class="member-name-link">send</a><wbr>(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet,
+ @Nullable io.netty.channel.ChannelFutureListener&nbsp;listener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#send(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener,boolean)" class="member-name-link">send</a><wbr>(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet,
+ @Nullable io.netty.channel.ChannelFutureListener&nbsp;listener,
+ boolean&nbsp;flush)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendPacket(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener,boolean)" class="member-name-link">sendPacket</a><wbr>(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet,
+ @Nullable io.netty.channel.ChannelFutureListener&nbsp;listener,
+ boolean&nbsp;flush)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBandwidthLogger(net.minecraft.util.debugchart.LocalSampleLogger)" class="member-name-link">setBandwidthLogger</a><wbr>(<a href="../util/debugchart/LocalSampleLogger.html" title="class in net.minecraft.util.debugchart">LocalSampleLogger</a>&nbsp;bandwidthLogger)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setEncryptionKey(javax.crypto.Cipher,javax.crypto.Cipher)" class="member-name-link">setEncryptionKey</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/Cipher.html" title="class or interface in javax.crypto" class="external-link">Cipher</a>&nbsp;decryptCipher,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/Cipher.html" title="class or interface in javax.crypto" class="external-link">Cipher</a>&nbsp;encryptCipher)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setListenerForServerboundHandshake(net.minecraft.network.PacketListener)" class="member-name-link">setListenerForServerboundHandshake</a><wbr>(<a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&nbsp;packetListener)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setReadOnly()" class="member-name-link">setReadOnly</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupCompression(int,boolean)" class="member-name-link">setupCompression</a><wbr>(int&nbsp;threshold,
+ boolean&nbsp;validateDecompressed)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&gt;<br>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupInboundProtocol(net.minecraft.network.ProtocolInfo,T)" class="member-name-link">setupInboundProtocol</a><wbr>(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;T&gt;&nbsp;protocol,
+ T&nbsp;packetListener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupOutboundProtocol(net.minecraft.network.ProtocolInfo)" class="member-name-link">setupOutboundProtocol</a><wbr>(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;?&gt;&nbsp;protocol)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#syncAfterConfigurationChange(io.netty.channel.ChannelFuture)" class="member-name-link">syncAfterConfigurationChange</a><wbr>(io.netty.channel.ChannelFuture&nbsp;future)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tick()" class="member-name-link">tick</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tickSecond()" class="member-name-link">tickSecond</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateListener(net.minecraft.network.ProtocolInfo,net.minecraft.network.PacketListener)" class="member-name-link">validateListener</a><wbr>(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;?&gt;&nbsp;protocol,
+ <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&nbsp;packetListener)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.netty.channel.SimpleChannelInboundHandler">Methods inherited from class&nbsp;io.netty.channel.SimpleChannelInboundHandler</h3>
+<code>acceptInboundMessage, channelRead</code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.netty.channel.ChannelInboundHandlerAdapter">Methods inherited from class&nbsp;io.netty.channel.ChannelInboundHandlerAdapter</h3>
+<code>channelReadComplete, channelRegistered, channelUnregistered, channelWritabilityChanged, userEventTriggered</code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.netty.channel.ChannelHandlerAdapter">Methods inherited from class&nbsp;io.netty.channel.ChannelHandlerAdapter</h3>
+<code>ensureNotSharable, handlerAdded, handlerRemoved, isSharable</code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-io.netty.channel.ChannelHandler">Methods inherited from interface&nbsp;io.netty.channel.ChannelHandler</h3>
+<code>handlerAdded, handlerRemoved</code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="AVERAGE_PACKETS_SMOOTHING">
+<h3>AVERAGE_PACKETS_SMOOTHING</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">AVERAGE_PACKETS_SMOOTHING</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../constant-values.html#net.minecraft.network.Connection.AVERAGE_PACKETS_SMOOTHING">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ROOT_MARKER">
+<h3>ROOT_MARKER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">org.slf4j.Marker</span>&nbsp;<span class="element-name">ROOT_MARKER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PACKET_MARKER">
+<h3>PACKET_MARKER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">org.slf4j.Marker</span>&nbsp;<span class="element-name">PACKET_MARKER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PACKET_RECEIVED_MARKER">
+<h3>PACKET_RECEIVED_MARKER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">org.slf4j.Marker</span>&nbsp;<span class="element-name">PACKET_RECEIVED_MARKER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="PACKET_SENT_MARKER">
+<h3>PACKET_SENT_MARKER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">org.slf4j.Marker</span>&nbsp;<span class="element-name">PACKET_SENT_MARKER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="INITIAL_PROTOCOL">
+<h3>INITIAL_PROTOCOL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;<a href="protocol/handshake/ServerHandshakePacketListener.html" title="interface in net.minecraft.network.protocol.handshake">ServerHandshakePacketListener</a>&gt;</span>&nbsp;<span class="element-name">INITIAL_PROTOCOL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="receiving">
+<h3>receiving</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></span>&nbsp;<span class="element-name">receiving</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sendLoginDisconnect">
+<h3>sendLoginDisconnect</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">sendLoginDisconnect</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pendingActions">
+<h3>pendingActions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Queue.html" title="class or interface in java.util" class="external-link">Queue</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Connection.html" title="class in net.minecraft.network">Connection</a>&gt;&gt;</span>&nbsp;<span class="element-name">pendingActions</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="channel">
+<h3>channel</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">io.netty.channel.Channel</span>&nbsp;<span class="element-name">channel</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="address">
+<h3>address</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a></span>&nbsp;<span class="element-name">address</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="disconnectListener">
+<h3>disconnectListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">@Nullable <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></span>&nbsp;<span class="element-name">disconnectListener</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="packetListener">
+<h3>packetListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">@Nullable <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></span>&nbsp;<span class="element-name">packetListener</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="disconnectionDetails">
+<h3>disconnectionDetails</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a></span>&nbsp;<span class="element-name">disconnectionDetails</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="encrypted">
+<h3>encrypted</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">encrypted</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="disconnectionHandled">
+<h3>disconnectionHandled</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">disconnectionHandled</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="receivedPackets">
+<h3>receivedPackets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">receivedPackets</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sentPackets">
+<h3>sentPackets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">sentPackets</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="averageReceivedPackets">
+<h3>averageReceivedPackets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">averageReceivedPackets</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="averageSentPackets">
+<h3>averageSentPackets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">averageSentPackets</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tickCount">
+<h3>tickCount</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">tickCount</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handlingFault">
+<h3>handlingFault</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">handlingFault</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="delayedDisconnect">
+<h3>delayedDisconnect</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private volatile</span>&nbsp;<span class="return-type">@Nullable <a href="DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a></span>&nbsp;<span class="element-name">delayedDisconnect</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="bandwidthDebugMonitor">
+<h3>bandwidthDebugMonitor</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="BandwidthDebugMonitor.html" title="class in net.minecraft.network">BandwidthDebugMonitor</a></span>&nbsp;<span class="element-name">bandwidthDebugMonitor</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="inboundProtocol">
+<h3>inboundProtocol</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;?&gt;</span>&nbsp;<span class="element-name">inboundProtocol</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.network.protocol.PacketFlow)">
+<h3>Connection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Connection</span><wbr><span class="parameters">(<a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;receiving)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="channelActive(io.netty.channel.ChannelHandlerContext)">
+<h3>channelActive</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">channelActive</span><wbr><span class="parameters">(io.netty.channel.ChannelHandlerContext&nbsp;ctx)</span>
+                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>channelActive</code>&nbsp;in interface&nbsp;<code>io.netty.channel.ChannelInboundHandler</code></dd>
+<dt>Overrides:</dt>
+<dd><code>channelActive</code>&nbsp;in class&nbsp;<code>io.netty.channel.ChannelInboundHandlerAdapter</code></dd>
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="channelInactive(io.netty.channel.ChannelHandlerContext)">
+<h3>channelInactive</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">channelInactive</span><wbr><span class="parameters">(io.netty.channel.ChannelHandlerContext&nbsp;ctx)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>channelInactive</code>&nbsp;in interface&nbsp;<code>io.netty.channel.ChannelInboundHandler</code></dd>
+<dt>Overrides:</dt>
+<dd><code>channelInactive</code>&nbsp;in class&nbsp;<code>io.netty.channel.ChannelInboundHandlerAdapter</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="exceptionCaught(io.netty.channel.ChannelHandlerContext,java.lang.Throwable)">
+<h3>exceptionCaught</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">exceptionCaught</span><wbr><span class="parameters">(io.netty.channel.ChannelHandlerContext&nbsp;ctx,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Throwable.html" title="class or interface in java.lang" class="external-link">Throwable</a>&nbsp;cause)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>exceptionCaught</code>&nbsp;in interface&nbsp;<code>io.netty.channel.ChannelHandler</code></dd>
+<dt>Specified by:</dt>
+<dd><code>exceptionCaught</code>&nbsp;in interface&nbsp;<code>io.netty.channel.ChannelInboundHandler</code></dd>
+<dt>Overrides:</dt>
+<dd><code>exceptionCaught</code>&nbsp;in class&nbsp;<code>io.netty.channel.ChannelInboundHandlerAdapter</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="channelRead0(io.netty.channel.ChannelHandlerContext,net.minecraft.network.protocol.Packet)">
+<h3>channelRead0</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">channelRead0</span><wbr><span class="parameters">(io.netty.channel.ChannelHandlerContext&nbsp;ctx,
+ <a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code>channelRead0</code>&nbsp;in class&nbsp;<code>io.netty.channel.SimpleChannelInboundHandler&lt;<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="genericsFtw(net.minecraft.network.protocol.Packet,net.minecraft.network.PacketListener)">
+<h3>genericsFtw</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">genericsFtw</span><wbr><span class="parameters">(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;T&gt;&nbsp;packet,
+ <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&nbsp;listener)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="validateListener(net.minecraft.network.ProtocolInfo,net.minecraft.network.PacketListener)">
+<h3>validateListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">validateListener</span><wbr><span class="parameters">(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;?&gt;&nbsp;protocol,
+ <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&nbsp;packetListener)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="syncAfterConfigurationChange(io.netty.channel.ChannelFuture)">
+<h3>syncAfterConfigurationChange</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">syncAfterConfigurationChange</span><wbr><span class="parameters">(io.netty.channel.ChannelFuture&nbsp;future)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setupInboundProtocol(net.minecraft.network.ProtocolInfo,T)">
+<h3 id="setupInboundProtocol(net.minecraft.network.ProtocolInfo,net.minecraft.network.PacketListener)">setupInboundProtocol</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupInboundProtocol</span><wbr><span class="parameters">(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;T&gt;&nbsp;protocol,
+ T&nbsp;packetListener)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setupOutboundProtocol(net.minecraft.network.ProtocolInfo)">
+<h3>setupOutboundProtocol</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupOutboundProtocol</span><wbr><span class="parameters">(<a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;?&gt;&nbsp;protocol)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setListenerForServerboundHandshake(net.minecraft.network.PacketListener)">
+<h3>setListenerForServerboundHandshake</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setListenerForServerboundHandshake</span><wbr><span class="parameters">(<a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a>&nbsp;packetListener)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initiateServerboundStatusConnection(java.lang.String,int,net.minecraft.network.protocol.status.ClientStatusPacketListener)">
+<h3>initiateServerboundStatusConnection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">initiateServerboundStatusConnection</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostName,
+ int&nbsp;port,
+ <a href="protocol/status/ClientStatusPacketListener.html" title="interface in net.minecraft.network.protocol.status">ClientStatusPacketListener</a>&nbsp;listener)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initiateServerboundPlayConnection(java.lang.String,int,net.minecraft.network.protocol.login.ClientLoginPacketListener)">
+<h3>initiateServerboundPlayConnection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">initiateServerboundPlayConnection</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostName,
+ int&nbsp;port,
+ <a href="protocol/login/ClientLoginPacketListener.html" title="interface in net.minecraft.network.protocol.login">ClientLoginPacketListener</a>&nbsp;listener)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initiateServerboundPlayConnection(java.lang.String,int,net.minecraft.network.ProtocolInfo,net.minecraft.network.ProtocolInfo,C,boolean)">
+<h3 id="initiateServerboundPlayConnection(java.lang.String,int,net.minecraft.network.ProtocolInfo,net.minecraft.network.ProtocolInfo,net.minecraft.network.ClientboundPacketListener,boolean)">initiateServerboundPlayConnection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;S extends <a href="ServerboundPacketListener.html" title="interface in net.minecraft.network">ServerboundPacketListener</a>, C extends <a href="ClientboundPacketListener.html" title="interface in net.minecraft.network">ClientboundPacketListener</a>&gt;</span>
+<span class="return-type">void</span>&nbsp;<span class="element-name">initiateServerboundPlayConnection</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostName,
+ int&nbsp;port,
+ <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;S&gt;&nbsp;outbound,
+ <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;C&gt;&nbsp;inbound,
+ C&nbsp;listener,
+ boolean&nbsp;transfer)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="initiateServerboundConnection(java.lang.String,int,net.minecraft.network.ProtocolInfo,net.minecraft.network.ProtocolInfo,C,net.minecraft.network.protocol.handshake.ClientIntent)">
+<h3 id="initiateServerboundConnection(java.lang.String,int,net.minecraft.network.ProtocolInfo,net.minecraft.network.ProtocolInfo,net.minecraft.network.ClientboundPacketListener,net.minecraft.network.protocol.handshake.ClientIntent)">initiateServerboundConnection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="type-parameters">&lt;S extends <a href="ServerboundPacketListener.html" title="interface in net.minecraft.network">ServerboundPacketListener</a>, C extends <a href="ClientboundPacketListener.html" title="interface in net.minecraft.network">ClientboundPacketListener</a>&gt;</span>
+<span class="return-type">void</span>&nbsp;<span class="element-name">initiateServerboundConnection</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;hostName,
+ int&nbsp;port,
+ <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;S&gt;&nbsp;outbound,
+ <a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;C&gt;&nbsp;inbound,
+ C&nbsp;listener,
+ <a href="protocol/handshake/ClientIntent.html" title="enum class in net.minecraft.network.protocol.handshake">ClientIntent</a>&nbsp;intent)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="send(net.minecraft.network.protocol.Packet)">
+<h3>send</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="send(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener)">
+<h3>send</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet,
+ @Nullable io.netty.channel.ChannelFutureListener&nbsp;listener)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="send(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener,boolean)">
+<h3>send</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">send</span><wbr><span class="parameters">(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet,
+ @Nullable io.netty.channel.ChannelFutureListener&nbsp;listener,
+ boolean&nbsp;flush)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="runOnceConnected(java.util.function.Consumer)">
+<h3>runOnceConnected</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">runOnceConnected</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="Connection.html" title="class in net.minecraft.network">Connection</a>&gt;&nbsp;action)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sendPacket(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener,boolean)">
+<h3>sendPacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendPacket</span><wbr><span class="parameters">(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet,
+ @Nullable io.netty.channel.ChannelFutureListener&nbsp;listener,
+ boolean&nbsp;flush)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="doSendPacket(net.minecraft.network.protocol.Packet,io.netty.channel.ChannelFutureListener,boolean)">
+<h3>doSendPacket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">doSendPacket</span><wbr><span class="parameters">(<a href="protocol/Packet.html" title="interface in net.minecraft.network.protocol">Packet</a>&lt;?&gt;&nbsp;packet,
+ @Nullable io.netty.channel.ChannelFutureListener&nbsp;listener,
+ boolean&nbsp;flush)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="flushChannel()">
+<h3>flushChannel</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">flushChannel</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="flush()">
+<h3>flush</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">flush</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="flushQueue()">
+<h3>flushQueue</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">flushQueue</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tick()">
+<h3>tick</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tick</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tickSecond()">
+<h3>tickSecond</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tickSecond</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getRemoteAddress()">
+<h3>getRemoteAddress</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a></span>&nbsp;<span class="element-name">getRemoteAddress</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLoggableAddress(boolean)">
+<h3>getLoggableAddress</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getLoggableAddress</span><wbr><span class="parameters">(boolean&nbsp;logIPs)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="disconnect(net.minecraft.network.chat.Component)">
+<h3>disconnect</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">disconnect</span><wbr><span class="parameters">(<a href="chat/Component.html" title="interface in net.minecraft.network.chat">Component</a>&nbsp;reason)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="disconnect(net.minecraft.network.DisconnectionDetails)">
+<h3>disconnect</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">disconnect</span><wbr><span class="parameters">(<a href="DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a>&nbsp;details)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isMemoryConnection()">
+<h3>isMemoryConnection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isMemoryConnection</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getReceiving()">
+<h3>getReceiving</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></span>&nbsp;<span class="element-name">getReceiving</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSending()">
+<h3>getSending</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></span>&nbsp;<span class="element-name">getSending</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="connectToServer(java.net.InetSocketAddress,net.minecraft.server.network.EventLoopGroupHolder,net.minecraft.util.debugchart.LocalSampleLogger)">
+<h3>connectToServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Connection.html" title="class in net.minecraft.network">Connection</a></span>&nbsp;<span class="element-name">connectToServer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/InetSocketAddress.html" title="class or interface in java.net" class="external-link">InetSocketAddress</a>&nbsp;address,
+ <a href="../server/network/EventLoopGroupHolder.html" title="class in net.minecraft.server.network">EventLoopGroupHolder</a>&nbsp;eventLoopGroupHolder,
+ @Nullable <a href="../util/debugchart/LocalSampleLogger.html" title="class in net.minecraft.util.debugchart">LocalSampleLogger</a>&nbsp;bandwidthLogger)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="connect(java.net.InetSocketAddress,net.minecraft.server.network.EventLoopGroupHolder,net.minecraft.network.Connection)">
+<h3>connect</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">io.netty.channel.ChannelFuture</span>&nbsp;<span class="element-name">connect</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/InetSocketAddress.html" title="class or interface in java.net" class="external-link">InetSocketAddress</a>&nbsp;address,
+ <a href="../server/network/EventLoopGroupHolder.html" title="class in net.minecraft.server.network">EventLoopGroupHolder</a>&nbsp;eventLoopGroupHolder,
+ <a href="Connection.html" title="class in net.minecraft.network">Connection</a>&nbsp;connection)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="outboundHandlerName(boolean)">
+<h3>outboundHandlerName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">outboundHandlerName</span><wbr><span class="parameters">(boolean&nbsp;configureOutbound)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="inboundHandlerName(boolean)">
+<h3>inboundHandlerName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">inboundHandlerName</span><wbr><span class="parameters">(boolean&nbsp;configureInbound)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="configurePacketHandler(io.netty.channel.ChannelPipeline)">
+<h3>configurePacketHandler</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">configurePacketHandler</span><wbr><span class="parameters">(io.netty.channel.ChannelPipeline&nbsp;pipeline)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="configureSerialization(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow,boolean,net.minecraft.network.BandwidthDebugMonitor)">
+<h3>configureSerialization</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">configureSerialization</span><wbr><span class="parameters">(io.netty.channel.ChannelPipeline&nbsp;pipeline,
+ <a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;inboundDirection,
+ boolean&nbsp;local,
+ @Nullable <a href="BandwidthDebugMonitor.html" title="class in net.minecraft.network">BandwidthDebugMonitor</a>&nbsp;monitor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createFrameEncoder(boolean)">
+<h3>createFrameEncoder</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">io.netty.channel.ChannelOutboundHandler</span>&nbsp;<span class="element-name">createFrameEncoder</span><wbr><span class="parameters">(boolean&nbsp;local)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createFrameDecoder(net.minecraft.network.BandwidthDebugMonitor,boolean)">
+<h3>createFrameDecoder</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">io.netty.channel.ChannelInboundHandler</span>&nbsp;<span class="element-name">createFrameDecoder</span><wbr><span class="parameters">(@Nullable <a href="BandwidthDebugMonitor.html" title="class in net.minecraft.network">BandwidthDebugMonitor</a>&nbsp;monitor,
+ boolean&nbsp;local)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="configureInMemoryPipeline(io.netty.channel.ChannelPipeline,net.minecraft.network.protocol.PacketFlow)">
+<h3>configureInMemoryPipeline</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">configureInMemoryPipeline</span><wbr><span class="parameters">(io.netty.channel.ChannelPipeline&nbsp;pipeline,
+ <a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a>&nbsp;packetFlow)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="connectToLocalServer(java.net.SocketAddress)">
+<h3>connectToLocalServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="Connection.html" title="class in net.minecraft.network">Connection</a></span>&nbsp;<span class="element-name">connectToLocalServer</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a>&nbsp;address)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setEncryptionKey(javax.crypto.Cipher,javax.crypto.Cipher)">
+<h3>setEncryptionKey</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setEncryptionKey</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/Cipher.html" title="class or interface in javax.crypto" class="external-link">Cipher</a>&nbsp;decryptCipher,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/javax/crypto/Cipher.html" title="class or interface in javax.crypto" class="external-link">Cipher</a>&nbsp;encryptCipher)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isEncrypted()">
+<h3>isEncrypted</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isEncrypted</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isConnected()">
+<h3>isConnected</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isConnected</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isConnecting()">
+<h3>isConnecting</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isConnecting</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getPacketListener()">
+<h3>getPacketListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="PacketListener.html" title="interface in net.minecraft.network">PacketListener</a></span>&nbsp;<span class="element-name">getPacketListener</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getDisconnectionDetails()">
+<h3>getDisconnectionDetails</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="DisconnectionDetails.html" title="class in net.minecraft.network">DisconnectionDetails</a></span>&nbsp;<span class="element-name">getDisconnectionDetails</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setReadOnly()">
+<h3>setReadOnly</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setReadOnly</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setupCompression(int,boolean)">
+<h3>setupCompression</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupCompression</span><wbr><span class="parameters">(int&nbsp;threshold,
+ boolean&nbsp;validateDecompressed)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleDisconnection()">
+<h3>handleDisconnection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleDisconnection</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAverageReceivedPackets()">
+<h3>getAverageReceivedPackets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getAverageReceivedPackets</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAverageSentPackets()">
+<h3>getAverageSentPackets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">getAverageSentPackets</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setBandwidthLogger(net.minecraft.util.debugchart.LocalSampleLogger)">
+<h3>setBandwidthLogger</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setBandwidthLogger</span><wbr><span class="parameters">(<a href="../util/debugchart/LocalSampleLogger.html" title="class in net.minecraft.util.debugchart">LocalSampleLogger</a>&nbsp;bandwidthLogger)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="channel()">
+<h3>channel</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">io.netty.channel.Channel</span>&nbsp;<span class="element-name">channel</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getDirection()">
+<h3>getDirection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="protocol/PacketFlow.html" title="enum class in net.minecraft.network.protocol">PacketFlow</a></span>&nbsp;<span class="element-name">getDirection</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getInboundProtocol()">
+<h3>getInboundProtocol</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ProtocolInfo.html" title="interface in net.minecraft.network">ProtocolInfo</a>&lt;?&gt;</span>&nbsp;<span class="element-name">getInboundProtocol</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

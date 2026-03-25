@@ -1,0 +1,374 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ServerLifecycleHooks (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.neoforged.neoforge.server, class: ServerLifecycleHooks">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/ServerLifecycleHooks.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.neoforged.neoforge.server</a></li>
+<li><a href="ServerLifecycleHooks.html" class="current-selection">ServerLifecycleHooks</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#SERVERHOOKS" tabindex="0">SERVERHOOKS</a></li>
+<li><a href="#SERVERCONFIG" tabindex="0">SERVERCONFIG</a></li>
+<li><a href="#exitLatch" tabindex="0">exitLatch</a></li>
+<li><a href="#currentServer" tabindex="0">currentServer</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">ServerLifecycleHooks()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#getServerConfigPath(net.minecraft.server.MinecraftServer)" tabindex="0">getServerConfigPath(MinecraftServer)</a></li>
+<li><a href="#handleServerAboutToStart(net.minecraft.server.MinecraftServer)" tabindex="0">handleServerAboutToStart(MinecraftServer)</a></li>
+<li><a href="#handleServerStarting(net.minecraft.server.MinecraftServer)" tabindex="0">handleServerStarting(MinecraftServer)</a></li>
+<li><a href="#handleServerStarted(net.minecraft.server.MinecraftServer)" tabindex="0">handleServerStarted(MinecraftServer)</a></li>
+<li><a href="#handleServerStopping(net.minecraft.server.MinecraftServer)" tabindex="0">handleServerStopping(MinecraftServer)</a></li>
+<li><a href="#expectServerStopped()" tabindex="0">expectServerStopped()</a></li>
+<li><a href="#handleServerStopped(net.minecraft.server.MinecraftServer)" tabindex="0">handleServerStopped(MinecraftServer)</a></li>
+<li><a href="#getCurrentServer()" tabindex="0">getCurrentServer()</a></li>
+<li><a href="#handleExit(int)" tabindex="0">handleExit(int)</a></li>
+<li><a href="#ensureProperSync(boolean,net.minecraft.core.Holder.Reference,net.minecraft.core.Registry)" tabindex="0">ensureProperSync(boolean, Holder.Reference, Registry)</a></li>
+<li><a href="#runModifiers(net.minecraft.server.MinecraftServer)" tabindex="0">runModifiers(MinecraftServer)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class ServerLifecycleHooks" class="title">Class ServerLifecycleHooks</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.neoforged.neoforge.server.ServerLifecycleHooks</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ServerLifecycleHooks</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static @Nullable <a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></div>
+<div class="col-second even-row-color"><code><a href="#currentServer" class="member-name-link">currentServer</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CountDownLatch.html" title="class or interface in java.util.concurrent" class="external-link">CountDownLatch</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#exitLatch" class="member-name-link">exitLatch</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final org.apache.logging.log4j.Logger</code></div>
+<div class="col-second even-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="../../../minecraft/world/level/storage/LevelResource.html" title="class in net.minecraft.world.level.storage">LevelResource</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#SERVERCONFIG" class="member-name-link">SERVERCONFIG</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final org.apache.logging.log4j.Marker</code></div>
+<div class="col-second even-row-color"><code><a href="#SERVERHOOKS" class="member-name-link">SERVERHOOKS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">ServerLifecycleHooks</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;T&gt;&nbsp;void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#ensureProperSync(boolean,net.minecraft.core.Holder.Reference,net.minecraft.core.Registry)" class="member-name-link">ensureProperSync</a><wbr>(boolean&nbsp;modified,
+ <a href="../../../minecraft/core/Holder.Reference.html" title="class in net.minecraft.core">Holder.Reference</a>&lt;T&gt;&nbsp;holder,
+ <a href="../../../minecraft/core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;T&gt;&nbsp;registry)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#expectServerStopped()" class="member-name-link">expectServerStopped</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static @Nullable <a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getCurrentServer()" class="member-name-link">getCurrentServer</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getServerConfigPath(net.minecraft.server.MinecraftServer)" class="member-name-link">getServerConfigPath</a><wbr>(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handleExit(int)" class="member-name-link">handleExit</a><wbr>(int&nbsp;retVal)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handleServerAboutToStart(net.minecraft.server.MinecraftServer)" class="member-name-link">handleServerAboutToStart</a><wbr>(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handleServerStarted(net.minecraft.server.MinecraftServer)" class="member-name-link">handleServerStarted</a><wbr>(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handleServerStarting(net.minecraft.server.MinecraftServer)" class="member-name-link">handleServerStarting</a><wbr>(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handleServerStopped(net.minecraft.server.MinecraftServer)" class="member-name-link">handleServerStopped</a><wbr>(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#handleServerStopping(net.minecraft.server.MinecraftServer)" class="member-name-link">handleServerStopping</a><wbr>(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#runModifiers(net.minecraft.server.MinecraftServer)" class="member-name-link">runModifiers</a><wbr>(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.apache.logging.log4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SERVERHOOKS">
+<h3>SERVERHOOKS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.apache.logging.log4j.Marker</span>&nbsp;<span class="element-name">SERVERHOOKS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SERVERCONFIG">
+<h3>SERVERCONFIG</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../../minecraft/world/level/storage/LevelResource.html" title="class in net.minecraft.world.level.storage">LevelResource</a></span>&nbsp;<span class="element-name">SERVERCONFIG</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="exitLatch">
+<h3>exitLatch</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static volatile</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CountDownLatch.html" title="class or interface in java.util.concurrent" class="external-link">CountDownLatch</a></span>&nbsp;<span class="element-name">exitLatch</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="currentServer">
+<h3>currentServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></span>&nbsp;<span class="element-name">currentServer</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>ServerLifecycleHooks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ServerLifecycleHooks</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="getServerConfigPath(net.minecraft.server.MinecraftServer)">
+<h3>getServerConfigPath</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getServerConfigPath</span><wbr><span class="parameters">(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleServerAboutToStart(net.minecraft.server.MinecraftServer)">
+<h3>handleServerAboutToStart</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleServerAboutToStart</span><wbr><span class="parameters">(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleServerStarting(net.minecraft.server.MinecraftServer)">
+<h3>handleServerStarting</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleServerStarting</span><wbr><span class="parameters">(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleServerStarted(net.minecraft.server.MinecraftServer)">
+<h3>handleServerStarted</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleServerStarted</span><wbr><span class="parameters">(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleServerStopping(net.minecraft.server.MinecraftServer)">
+<h3>handleServerStopping</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleServerStopping</span><wbr><span class="parameters">(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="expectServerStopped()">
+<h3>expectServerStopped</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">expectServerStopped</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleServerStopped(net.minecraft.server.MinecraftServer)">
+<h3>handleServerStopped</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleServerStopped</span><wbr><span class="parameters">(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCurrentServer()">
+<h3>getCurrentServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">@Nullable <a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></span>&nbsp;<span class="element-name">getCurrentServer</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="handleExit(int)">
+<h3>handleExit</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">handleExit</span><wbr><span class="parameters">(int&nbsp;retVal)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ensureProperSync(boolean,net.minecraft.core.Holder.Reference,net.minecraft.core.Registry)">
+<h3>ensureProperSync</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">ensureProperSync</span><wbr><span class="parameters">(boolean&nbsp;modified,
+ <a href="../../../minecraft/core/Holder.Reference.html" title="class in net.minecraft.core">Holder.Reference</a>&lt;T&gt;&nbsp;holder,
+ <a href="../../../minecraft/core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;T&gt;&nbsp;registry)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="runModifiers(net.minecraft.server.MinecraftServer)">
+<h3>runModifiers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">runModifiers</span><wbr><span class="parameters">(<a href="../../../minecraft/server/MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a>&nbsp;server)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

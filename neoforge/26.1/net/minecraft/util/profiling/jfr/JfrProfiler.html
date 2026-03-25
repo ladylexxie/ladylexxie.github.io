@@ -1,0 +1,763 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>JfrProfiler (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.util.profiling.jfr, class: JfrProfiler">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/JfrProfiler.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.util.profiling.jfr</a></li>
+<li><a href="JfrProfiler.html" class="current-selection">JfrProfiler</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#ROOT_CATEGORY" tabindex="0">ROOT_CATEGORY</a></li>
+<li><a href="#WORLD_GEN_CATEGORY" tabindex="0">WORLD_GEN_CATEGORY</a></li>
+<li><a href="#TICK_CATEGORY" tabindex="0">TICK_CATEGORY</a></li>
+<li><a href="#NETWORK_CATEGORY" tabindex="0">NETWORK_CATEGORY</a></li>
+<li><a href="#STORAGE_CATEGORY" tabindex="0">STORAGE_CATEGORY</a></li>
+<li><a href="#CUSTOM_EVENTS" tabindex="0">CUSTOM_EVENTS</a></li>
+<li><a href="#FLIGHT_RECORDER_CONFIG" tabindex="0">FLIGHT_RECORDER_CONFIG</a></li>
+<li><a href="#DATE_TIME_FORMATTER" tabindex="0">DATE_TIME_FORMATTER</a></li>
+<li><a href="#INSTANCE" tabindex="0">INSTANCE</a></li>
+<li><a href="#recording" tabindex="0">recording</a></li>
+<li><a href="#currentFPS" tabindex="0">currentFPS</a></li>
+<li><a href="#currentAverageTickTimeServer" tabindex="0">currentAverageTickTimeServer</a></li>
+<li><a href="#networkTrafficByAddress" tabindex="0">networkTrafficByAddress</a></li>
+<li><a href="#periodicClientFps" tabindex="0">periodicClientFps</a></li>
+<li><a href="#periodicServerTickTime" tabindex="0">periodicServerTickTime</a></li>
+<li><a href="#periodicNetworkSummary" tabindex="0">periodicNetworkSummary</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">JfrProfiler()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#registerPeriodicEvents()" tabindex="0">registerPeriodicEvents()</a></li>
+<li><a href="#addPeriodicEvent(java.lang.Class,java.lang.Runnable)" tabindex="0">addPeriodicEvent(Class, Runnable)</a></li>
+<li><a href="#getInstance()" tabindex="0">getInstance()</a></li>
+<li><a href="#start(net.minecraft.util.profiling.jfr.Environment)" tabindex="0">start(Environment)</a></li>
+<li><a href="#stop()" tabindex="0">stop()</a></li>
+<li><a href="#isRunning()" tabindex="0">isRunning()</a></li>
+<li><a href="#isAvailable()" tabindex="0">isAvailable()</a></li>
+<li><a href="#start(java.io.Reader,net.minecraft.util.profiling.jfr.Environment)" tabindex="0">start(Reader, Environment)</a></li>
+<li><a href="#setupSummaryListener()" tabindex="0">setupSummaryListener()</a></li>
+<li><a href="#onClientTick(int)" tabindex="0">onClientTick(int)</a></li>
+<li><a href="#onServerTick(float)" tabindex="0">onServerTick(float)</a></li>
+<li><a href="#onPacketReceived(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketType,java.net.SocketAddress,int)" tabindex="0">onPacketReceived(ConnectionProtocol, PacketType, SocketAddress, int)</a></li>
+<li><a href="#onPacketSent(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketType,java.net.SocketAddress,int)" tabindex="0">onPacketSent(ConnectionProtocol, PacketType, SocketAddress, int)</a></li>
+<li><a href="#networkStatFor(java.net.SocketAddress)" tabindex="0">networkStatFor(SocketAddress)</a></li>
+<li><a href="#onRegionFileRead(net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionFileVersion,int)" tabindex="0">onRegionFileRead(RegionStorageInfo, ChunkPos, RegionFileVersion, int)</a></li>
+<li><a href="#onRegionFileWrite(net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionFileVersion,int)" tabindex="0">onRegionFileWrite(RegionStorageInfo, ChunkPos, RegionFileVersion, int)</a></li>
+<li><a href="#onWorldLoadedStarted()" tabindex="0">onWorldLoadedStarted()</a></li>
+<li><a href="#onChunkGenerate(net.minecraft.world.level.ChunkPos,net.minecraft.resources.ResourceKey,java.lang.String)" tabindex="0">onChunkGenerate(ChunkPos, ResourceKey, String)</a></li>
+<li><a href="#onStructureGenerate(net.minecraft.world.level.ChunkPos,net.minecraft.resources.ResourceKey,net.minecraft.core.Holder)" tabindex="0">onStructureGenerate(ChunkPos, ResourceKey, Holder)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class JfrProfiler" class="title">Class JfrProfiler</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.util.profiling.jfr.JfrProfiler</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">JfrProfiler</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-net.minecraft.util.profiling.jfr.JvmProfiler">Nested classes/interfaces inherited from interface&nbsp;<a href="JvmProfiler.html#nested-class-summary" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></h3>
+<code><a href="JvmProfiler.NoOpProfiler.html" title="class in net.minecraft.util.profiling.jfr">JvmProfiler.NoOpProfiler</a></code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private float</code></div>
+<div class="col-second even-row-color"><code><a href="#currentAverageTickTimeServer" class="member-name-link">currentAverageTickTimeServer</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private int</code></div>
+<div class="col-second odd-row-color"><code><a href="#currentFPS" class="member-name-link">currentFPS</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/jdk.jfr/jdk/jfr/Event.html" title="class or interface in jdk.jfr" class="external-link">Event</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#CUSTOM_EVENTS" class="member-name-link">CUSTOM_EVENTS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/format/DateTimeFormatter.html" title="class or interface in java.time.format" class="external-link">DateTimeFormatter</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#DATE_TIME_FORMATTER" class="member-name-link">DATE_TIME_FORMATTER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#FLIGHT_RECORDER_CONFIG" class="member-name-link">FLIGHT_RECORDER_CONFIG</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="JfrProfiler.html" title="class in net.minecraft.util.profiling.jfr">JfrProfiler</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#INSTANCE" class="member-name-link">INSTANCE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second even-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#NETWORK_CATEGORY" class="member-name-link">NETWORK_CATEGORY</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>, <a href="event/NetworkSummaryEvent.SumAggregation.html" title="class in net.minecraft.util.profiling.jfr.event">NetworkSummaryEvent.SumAggregation</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#networkTrafficByAddress" class="member-name-link">networkTrafficByAddress</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#periodicClientFps" class="member-name-link">periodicClientFps</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></code></div>
+<div class="col-second even-row-color"><code><a href="#periodicNetworkSummary" class="member-name-link">periodicNetworkSummary</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#periodicServerTickTime" class="member-name-link">periodicServerTickTime</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/jdk.jfr/jdk/jfr/Recording.html" title="class or interface in jdk.jfr" class="external-link">Recording</a></code></div>
+<div class="col-second even-row-color"><code><a href="#recording" class="member-name-link">recording</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#ROOT_CATEGORY" class="member-name-link">ROOT_CATEGORY</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#STORAGE_CATEGORY" class="member-name-link">STORAGE_CATEGORY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TICK_CATEGORY" class="member-name-link">TICK_CATEGORY</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#WORLD_GEN_CATEGORY" class="member-name-link">WORLD_GEN_CATEGORY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private </code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">JfrProfiler</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addPeriodicEvent(java.lang.Class,java.lang.Runnable)" class="member-name-link">addPeriodicEvent</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/jdk.jfr/jdk/jfr/Event.html" title="class or interface in jdk.jfr" class="external-link">Event</a>&gt;&nbsp;eventClass,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;runnable)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="JfrProfiler.html" title="class in net.minecraft.util.profiling.jfr">JfrProfiler</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getInstance()" class="member-name-link">getInstance</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isAvailable()" class="member-name-link">isAvailable</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isRunning()" class="member-name-link">isRunning</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="event/NetworkSummaryEvent.SumAggregation.html" title="class in net.minecraft.util.profiling.jfr.event">NetworkSummaryEvent.SumAggregation</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#networkStatFor(java.net.SocketAddress)" class="member-name-link">networkStatFor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a>&nbsp;remoteAddress)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="callback/ProfiledDuration.html" title="interface in net.minecraft.util.profiling.jfr.callback">ProfiledDuration</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onChunkGenerate(net.minecraft.world.level.ChunkPos,net.minecraft.resources.ResourceKey,java.lang.String)" class="member-name-link">onChunkGenerate</a><wbr>(<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ <a href="../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;dimension,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onClientTick(int)" class="member-name-link">onClientTick</a><wbr>(int&nbsp;fps)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onPacketReceived(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketType,java.net.SocketAddress,int)" class="member-name-link">onPacketReceived</a><wbr>(<a href="../../../network/ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a>&nbsp;protocol,
+ <a href="../../../network/protocol/PacketType.html" title="class in net.minecraft.network.protocol">PacketType</a>&lt;?&gt;&nbsp;packetId,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a>&nbsp;remoteAddress,
+ int&nbsp;readableBytes)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onPacketSent(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketType,java.net.SocketAddress,int)" class="member-name-link">onPacketSent</a><wbr>(<a href="../../../network/ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a>&nbsp;protocol,
+ <a href="../../../network/protocol/PacketType.html" title="class in net.minecraft.network.protocol">PacketType</a>&lt;?&gt;&nbsp;packetId,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a>&nbsp;remoteAddress,
+ int&nbsp;writtenBytes)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onRegionFileRead(net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionFileVersion,int)" class="member-name-link">onRegionFileRead</a><wbr>(<a href="../../../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ <a href="../../../world/level/chunk/storage/RegionFileVersion.html" title="class in net.minecraft.world.level.chunk.storage">RegionFileVersion</a>&nbsp;version,
+ int&nbsp;readBytes)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onRegionFileWrite(net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionFileVersion,int)" class="member-name-link">onRegionFileWrite</a><wbr>(<a href="../../../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ <a href="../../../world/level/chunk/storage/RegionFileVersion.html" title="class in net.minecraft.world.level.chunk.storage">RegionFileVersion</a>&nbsp;version,
+ int&nbsp;writtenBytes)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onServerTick(float)" class="member-name-link">onServerTick</a><wbr>(float&nbsp;currentAverageTickTime)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="callback/ProfiledDuration.html" title="interface in net.minecraft.util.profiling.jfr.callback">ProfiledDuration</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onStructureGenerate(net.minecraft.world.level.ChunkPos,net.minecraft.resources.ResourceKey,net.minecraft.core.Holder)" class="member-name-link">onStructureGenerate</a><wbr>(<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;sourceChunkPos,
+ <a href="../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;dimension,
+ <a href="../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../world/level/levelgen/structure/Structure.html" title="class in net.minecraft.world.level.levelgen.structure">Structure</a>&gt;&nbsp;structure)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="callback/ProfiledDuration.html" title="interface in net.minecraft.util.profiling.jfr.callback">ProfiledDuration</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#onWorldLoadedStarted()" class="member-name-link">onWorldLoadedStarted</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#registerPeriodicEvents()" class="member-name-link">registerPeriodicEvents</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setupSummaryListener()" class="member-name-link">setupSummaryListener</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#start(java.io.Reader,net.minecraft.util.profiling.jfr.Environment)" class="member-name-link">start</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/Reader.html" title="class or interface in java.io" class="external-link">Reader</a>&nbsp;configurationFile,
+ <a href="Environment.html" title="enum class in net.minecraft.util.profiling.jfr">Environment</a>&nbsp;environment)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#start(net.minecraft.util.profiling.jfr.Environment)" class="member-name-link">start</a><wbr>(<a href="Environment.html" title="enum class in net.minecraft.util.profiling.jfr">Environment</a>&nbsp;environment)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#stop()" class="member-name-link">stop</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ROOT_CATEGORY">
+<h3>ROOT_CATEGORY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">ROOT_CATEGORY</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.util.profiling.jfr.JfrProfiler.ROOT_CATEGORY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="WORLD_GEN_CATEGORY">
+<h3>WORLD_GEN_CATEGORY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">WORLD_GEN_CATEGORY</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.util.profiling.jfr.JfrProfiler.WORLD_GEN_CATEGORY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TICK_CATEGORY">
+<h3>TICK_CATEGORY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">TICK_CATEGORY</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.util.profiling.jfr.JfrProfiler.TICK_CATEGORY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="NETWORK_CATEGORY">
+<h3>NETWORK_CATEGORY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">NETWORK_CATEGORY</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.util.profiling.jfr.JfrProfiler.NETWORK_CATEGORY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="STORAGE_CATEGORY">
+<h3>STORAGE_CATEGORY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">STORAGE_CATEGORY</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.util.profiling.jfr.JfrProfiler.STORAGE_CATEGORY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CUSTOM_EVENTS">
+<h3>CUSTOM_EVENTS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/jdk.jfr/jdk/jfr/Event.html" title="class or interface in jdk.jfr" class="external-link">Event</a>&gt;&gt;</span>&nbsp;<span class="element-name">CUSTOM_EVENTS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="FLIGHT_RECORDER_CONFIG">
+<h3>FLIGHT_RECORDER_CONFIG</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">FLIGHT_RECORDER_CONFIG</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.util.profiling.jfr.JfrProfiler.FLIGHT_RECORDER_CONFIG">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DATE_TIME_FORMATTER">
+<h3>DATE_TIME_FORMATTER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/format/DateTimeFormatter.html" title="class or interface in java.time.format" class="external-link">DateTimeFormatter</a></span>&nbsp;<span class="element-name">DATE_TIME_FORMATTER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="INSTANCE">
+<h3>INSTANCE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="JfrProfiler.html" title="class in net.minecraft.util.profiling.jfr">JfrProfiler</a></span>&nbsp;<span class="element-name">INSTANCE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="recording">
+<h3>recording</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/jdk.jfr/jdk/jfr/Recording.html" title="class or interface in jdk.jfr" class="external-link">Recording</a></span>&nbsp;<span class="element-name">recording</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="currentFPS">
+<h3>currentFPS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">currentFPS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="currentAverageTickTimeServer">
+<h3>currentAverageTickTimeServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">float</span>&nbsp;<span class="element-name">currentAverageTickTimeServer</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="networkTrafficByAddress">
+<h3>networkTrafficByAddress</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>, <a href="event/NetworkSummaryEvent.SumAggregation.html" title="class in net.minecraft.util.profiling.jfr.event">NetworkSummaryEvent.SumAggregation</a>&gt;</span>&nbsp;<span class="element-name">networkTrafficByAddress</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="periodicClientFps">
+<h3>periodicClientFps</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></span>&nbsp;<span class="element-name">periodicClientFps</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="periodicServerTickTime">
+<h3>periodicServerTickTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></span>&nbsp;<span class="element-name">periodicServerTickTime</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="periodicNetworkSummary">
+<h3>periodicNetworkSummary</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a></span>&nbsp;<span class="element-name">periodicNetworkSummary</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>JfrProfiler</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">JfrProfiler</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="registerPeriodicEvents()">
+<h3>registerPeriodicEvents</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">registerPeriodicEvents</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addPeriodicEvent(java.lang.Class,java.lang.Runnable)">
+<h3>addPeriodicEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addPeriodicEvent</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Class.html" title="class or interface in java.lang" class="external-link">Class</a>&lt;? extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/jdk.jfr/jdk/jfr/Event.html" title="class or interface in jdk.jfr" class="external-link">Event</a>&gt;&nbsp;eventClass,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Runnable.html" title="class or interface in java.lang" class="external-link">Runnable</a>&nbsp;runnable)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getInstance()">
+<h3>getInstance</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="JfrProfiler.html" title="class in net.minecraft.util.profiling.jfr">JfrProfiler</a></span>&nbsp;<span class="element-name">getInstance</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="start(net.minecraft.util.profiling.jfr.Environment)">
+<h3>start</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">start</span><wbr><span class="parameters">(<a href="Environment.html" title="enum class in net.minecraft.util.profiling.jfr">Environment</a>&nbsp;environment)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#start(net.minecraft.util.profiling.jfr.Environment)">start</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="stop()">
+<h3>stop</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">stop</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#stop()">stop</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isRunning()">
+<h3>isRunning</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isRunning</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#isRunning()">isRunning</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isAvailable()">
+<h3>isAvailable</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isAvailable</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#isAvailable()">isAvailable</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="start(java.io.Reader,net.minecraft.util.profiling.jfr.Environment)">
+<h3>start</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">start</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/Reader.html" title="class or interface in java.io" class="external-link">Reader</a>&nbsp;configurationFile,
+ <a href="Environment.html" title="enum class in net.minecraft.util.profiling.jfr">Environment</a>&nbsp;environment)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setupSummaryListener()">
+<h3>setupSummaryListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setupSummaryListener</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onClientTick(int)">
+<h3>onClientTick</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onClientTick</span><wbr><span class="parameters">(int&nbsp;fps)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#onClientTick(int)">onClientTick</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onServerTick(float)">
+<h3>onServerTick</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onServerTick</span><wbr><span class="parameters">(float&nbsp;currentAverageTickTime)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#onServerTick(float)">onServerTick</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onPacketReceived(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketType,java.net.SocketAddress,int)">
+<h3>onPacketReceived</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onPacketReceived</span><wbr><span class="parameters">(<a href="../../../network/ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a>&nbsp;protocol,
+ <a href="../../../network/protocol/PacketType.html" title="class in net.minecraft.network.protocol">PacketType</a>&lt;?&gt;&nbsp;packetId,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a>&nbsp;remoteAddress,
+ int&nbsp;readableBytes)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#onPacketReceived(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketType,java.net.SocketAddress,int)">onPacketReceived</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onPacketSent(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketType,java.net.SocketAddress,int)">
+<h3>onPacketSent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onPacketSent</span><wbr><span class="parameters">(<a href="../../../network/ConnectionProtocol.html" title="enum class in net.minecraft.network">ConnectionProtocol</a>&nbsp;protocol,
+ <a href="../../../network/protocol/PacketType.html" title="class in net.minecraft.network.protocol">PacketType</a>&lt;?&gt;&nbsp;packetId,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a>&nbsp;remoteAddress,
+ int&nbsp;writtenBytes)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#onPacketSent(net.minecraft.network.ConnectionProtocol,net.minecraft.network.protocol.PacketType,java.net.SocketAddress,int)">onPacketSent</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="networkStatFor(java.net.SocketAddress)">
+<h3>networkStatFor</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="event/NetworkSummaryEvent.SumAggregation.html" title="class in net.minecraft.util.profiling.jfr.event">NetworkSummaryEvent.SumAggregation</a></span>&nbsp;<span class="element-name">networkStatFor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/net/SocketAddress.html" title="class or interface in java.net" class="external-link">SocketAddress</a>&nbsp;remoteAddress)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onRegionFileRead(net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionFileVersion,int)">
+<h3>onRegionFileRead</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onRegionFileRead</span><wbr><span class="parameters">(<a href="../../../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ <a href="../../../world/level/chunk/storage/RegionFileVersion.html" title="class in net.minecraft.world.level.chunk.storage">RegionFileVersion</a>&nbsp;version,
+ int&nbsp;readBytes)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#onRegionFileRead(net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionFileVersion,int)">onRegionFileRead</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onRegionFileWrite(net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionFileVersion,int)">
+<h3>onRegionFileWrite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">onRegionFileWrite</span><wbr><span class="parameters">(<a href="../../../world/level/chunk/storage/RegionStorageInfo.html" title="class in net.minecraft.world.level.chunk.storage">RegionStorageInfo</a>&nbsp;info,
+ <a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ <a href="../../../world/level/chunk/storage/RegionFileVersion.html" title="class in net.minecraft.world.level.chunk.storage">RegionFileVersion</a>&nbsp;version,
+ int&nbsp;writtenBytes)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#onRegionFileWrite(net.minecraft.world.level.chunk.storage.RegionStorageInfo,net.minecraft.world.level.ChunkPos,net.minecraft.world.level.chunk.storage.RegionFileVersion,int)">onRegionFileWrite</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onWorldLoadedStarted()">
+<h3>onWorldLoadedStarted</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="callback/ProfiledDuration.html" title="interface in net.minecraft.util.profiling.jfr.callback">ProfiledDuration</a></span>&nbsp;<span class="element-name">onWorldLoadedStarted</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#onWorldLoadedStarted()">onWorldLoadedStarted</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onChunkGenerate(net.minecraft.world.level.ChunkPos,net.minecraft.resources.ResourceKey,java.lang.String)">
+<h3>onChunkGenerate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="callback/ProfiledDuration.html" title="interface in net.minecraft.util.profiling.jfr.callback">ProfiledDuration</a></span>&nbsp;<span class="element-name">onChunkGenerate</span><wbr><span class="parameters">(<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ <a href="../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;dimension,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#onChunkGenerate(net.minecraft.world.level.ChunkPos,net.minecraft.resources.ResourceKey,java.lang.String)">onChunkGenerate</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onStructureGenerate(net.minecraft.world.level.ChunkPos,net.minecraft.resources.ResourceKey,net.minecraft.core.Holder)">
+<h3>onStructureGenerate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="callback/ProfiledDuration.html" title="interface in net.minecraft.util.profiling.jfr.callback">ProfiledDuration</a></span>&nbsp;<span class="element-name">onStructureGenerate</span><wbr><span class="parameters">(<a href="../../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;sourceChunkPos,
+ <a href="../../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../../world/level/Level.html" title="class in net.minecraft.world.level">Level</a>&gt;&nbsp;dimension,
+ <a href="../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../../world/level/levelgen/structure/Structure.html" title="class in net.minecraft.world.level.levelgen.structure">Structure</a>&gt;&nbsp;structure)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="JvmProfiler.html#onStructureGenerate(net.minecraft.world.level.ChunkPos,net.minecraft.resources.ResourceKey,net.minecraft.core.Holder)">onStructureGenerate</a></code>&nbsp;in interface&nbsp;<code><a href="JvmProfiler.html" title="interface in net.minecraft.util.profiling.jfr">JvmProfiler</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,840 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>TicketStorage (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.world.level, class: TicketStorage">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/TicketStorage.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.world.level</a></li>
+<li><a href="TicketStorage.html" class="current-selection">TicketStorage</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#INITIAL_TICKET_LIST_CAPACITY" tabindex="0">INITIAL_TICKET_LIST_CAPACITY</a></li>
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#TICKET_ENTRY" tabindex="0">TICKET_ENTRY</a></li>
+<li><a href="#CODEC" tabindex="0">CODEC</a></li>
+<li><a href="#TYPE" tabindex="0">TYPE</a></li>
+<li><a href="#tickets" tabindex="0">tickets</a></li>
+<li><a href="#deactivatedTickets" tabindex="0">deactivatedTickets</a></li>
+<li><a href="#chunksWithForcedTickets" tabindex="0">chunksWithForcedTickets</a></li>
+<li><a href="#loadingChunkUpdatedListener" tabindex="0">loadingChunkUpdatedListener</a></li>
+<li><a href="#simulationChunkUpdatedListener" tabindex="0">simulationChunkUpdatedListener</a></li>
+<li><a href="#blockForcedChunks" tabindex="0">blockForcedChunks</a></li>
+<li><a href="#entityForcedChunks" tabindex="0">entityForcedChunks</a></li>
+<li><a href="#chunksWithForceNaturalSpawning" tabindex="0">chunksWithForceNaturalSpawning</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap,it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap)" tabindex="0">TicketStorage(Long2ObjectOpenHashMap, Long2ObjectOpenHashMap)</a></li>
+<li><a href="#%3Cinit%3E()" tabindex="0">TicketStorage()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#fromPacked(java.util.List)" tabindex="0">fromPacked(List)</a></li>
+<li><a href="#packTickets()" tabindex="0">packTickets()</a></li>
+<li><a href="#forEachTicket(java.util.function.BiConsumer)" tabindex="0">forEachTicket(BiConsumer)</a></li>
+<li><a href="#forEachTicket(java.util.function.BiConsumer,it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap)" tabindex="0">forEachTicket(BiConsumer, Long2ObjectOpenHashMap)</a></li>
+<li><a href="#activateAllDeactivatedTickets()" tabindex="0">activateAllDeactivatedTickets()</a></li>
+<li><a href="#setLoadingChunkUpdatedListener(net.minecraft.world.level.TicketStorage.ChunkUpdated)" tabindex="0">setLoadingChunkUpdatedListener(TicketStorage.ChunkUpdated)</a></li>
+<li><a href="#setSimulationChunkUpdatedListener(net.minecraft.world.level.TicketStorage.ChunkUpdated)" tabindex="0">setSimulationChunkUpdatedListener(TicketStorage.ChunkUpdated)</a></li>
+<li><a href="#hasTickets()" tabindex="0">hasTickets()</a></li>
+<li><a href="#shouldKeepDimensionActive()" tabindex="0">shouldKeepDimensionActive()</a></li>
+<li><a href="#getTickets(long)" tabindex="0">getTickets(long)</a></li>
+<li><a href="#getOrCreateTickets(long)" tabindex="0">getOrCreateTickets(long)</a></li>
+<li><a href="#addTicketWithRadius(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int)" tabindex="0">addTicketWithRadius(TicketType, ChunkPos, int)</a></li>
+<li><a href="#addTicket(net.minecraft.server.level.Ticket,net.minecraft.world.level.ChunkPos)" tabindex="0">addTicket(Ticket, ChunkPos)</a></li>
+<li><a href="#addTicket(long,net.minecraft.server.level.Ticket)" tabindex="0">addTicket(long, Ticket)</a></li>
+<li><a href="#isTicketSameTypeAndLevel(net.minecraft.server.level.Ticket,net.minecraft.server.level.Ticket)" tabindex="0">isTicketSameTypeAndLevel(Ticket, Ticket)</a></li>
+<li><a href="#getTicketLevelAt(long,boolean)" tabindex="0">getTicketLevelAt(long, boolean)</a></li>
+<li><a href="#getTicketLevelAt(java.util.List,boolean)" tabindex="0">getTicketLevelAt(List, boolean)</a></li>
+<li><a href="#getLowestTicket(java.util.List,boolean)" tabindex="0">getLowestTicket(List, boolean)</a></li>
+<li><a href="#removeTicketWithRadius(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int)" tabindex="0">removeTicketWithRadius(TicketType, ChunkPos, int)</a></li>
+<li><a href="#removeTicket(net.minecraft.server.level.Ticket,net.minecraft.world.level.ChunkPos)" tabindex="0">removeTicket(Ticket, ChunkPos)</a></li>
+<li><a href="#removeTicket(long,net.minecraft.server.level.Ticket)" tabindex="0">removeTicket(long, Ticket)</a></li>
+<li><a href="#updateForcedChunks()" tabindex="0">updateForcedChunks()</a></li>
+<li><a href="#getTicketDebugString(long,boolean)" tabindex="0">getTicketDebugString(long, boolean)</a></li>
+<li><a href="#purgeStaleTickets(net.minecraft.server.level.ChunkMap)" tabindex="0">purgeStaleTickets(ChunkMap)</a></li>
+<li><a href="#canTicketExpire(net.minecraft.server.level.ChunkMap,net.minecraft.server.level.Ticket,long)" tabindex="0">canTicketExpire(ChunkMap, Ticket, long)</a></li>
+<li><a href="#deactivateTicketsOnClosing()" tabindex="0">deactivateTicketsOnClosing()</a></li>
+<li><a href="#removeTicketIf(net.minecraft.world.level.TicketStorage.TicketPredicate,it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap)" tabindex="0">removeTicketIf(TicketStorage.TicketPredicate, Long2ObjectOpenHashMap)</a></li>
+<li><a href="#replaceTicketLevelOfType(int,net.minecraft.server.level.TicketType)" tabindex="0">replaceTicketLevelOfType(int, TicketType)</a></li>
+<li><a href="#updateChunkForced(net.minecraft.world.level.ChunkPos,boolean)" tabindex="0">updateChunkForced(ChunkPos, boolean)</a></li>
+<li><a href="#getForceLoadedChunks()" tabindex="0">getForceLoadedChunks()</a></li>
+<li><a href="#getAllChunksWithTicketThat(java.util.function.Predicate)" tabindex="0">getAllChunksWithTicketThat(Predicate)</a></li>
+<li><a href="#getBlockForcedChunks()" tabindex="0">getBlockForcedChunks()</a></li>
+<li><a href="#getEntityForcedChunks()" tabindex="0">getEntityForcedChunks()</a></li>
+<li><a href="#updateForcedNaturalSpawning()" tabindex="0">updateForcedNaturalSpawning()</a></li>
+<li><a href="#shouldForceNaturalSpawning(net.minecraft.world.level.ChunkPos)" tabindex="0">shouldForceNaturalSpawning(ChunkPos)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class TicketStorage" class="title">Class TicketStorage</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance"><a href="saveddata/SavedData.html" title="class in net.minecraft.world.level.saveddata">net.minecraft.world.level.saveddata.SavedData</a>
+<div class="inheritance">net.minecraft.world.level.TicketStorage</div>
+</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">TicketStorage</span>
+<span class="extends-implements">extends <a href="saveddata/SavedData.html" title="class in net.minecraft.world.level.saveddata">SavedData</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="TicketStorage.ChunkUpdated.html" class="type-name-link" title="interface in net.minecraft.world.level">TicketStorage.ChunkUpdated</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="TicketStorage.TicketPredicate.html" class="type-name-link" title="interface in net.minecraft.world.level">TicketStorage.TicketPredicate</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="../../../neoforged/neoforge/common/world/chunk/ForcedChunkManager.TicketTracker.html" title="class in net.neoforged.neoforge.common.world.chunk">ForcedChunkManager.TicketTracker</a><wbr>&lt;<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#blockForcedChunks" class="member-name-link">blockForcedChunks</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private it.unimi.dsi.fastutil.longs.LongSet</code></div>
+<div class="col-second odd-row-color"><code><a href="#chunksWithForcedTickets" class="member-name-link">chunksWithForcedTickets</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private it.unimi.dsi.fastutil.longs.LongSet</code></div>
+<div class="col-second even-row-color"><code><a href="#chunksWithForceNaturalSpawning" class="member-name-link">chunksWithForceNaturalSpawning</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final com.mojang.serialization.Codec<wbr>&lt;<a href="TicketStorage.html" title="class in net.minecraft.world.level">TicketStorage</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#CODEC" class="member-name-link">CODEC</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap<wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#deactivatedTickets" class="member-name-link">deactivatedTickets</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../../neoforged/neoforge/common/world/chunk/ForcedChunkManager.TicketTracker.html" title="class in net.neoforged.neoforge.common.world.chunk">ForcedChunkManager.TicketTracker</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#entityForcedChunks" class="member-name-link">entityForcedChunks</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#INITIAL_TICKET_LIST_CAPACITY" class="member-name-link">INITIAL_TICKET_LIST_CAPACITY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private @Nullable <a href="TicketStorage.ChunkUpdated.html" title="interface in net.minecraft.world.level">TicketStorage.ChunkUpdated</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#loadingChunkUpdatedListener" class="member-name-link">loadingChunkUpdatedListener</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second even-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private @Nullable <a href="TicketStorage.ChunkUpdated.html" title="interface in net.minecraft.world.level">TicketStorage.ChunkUpdated</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#simulationChunkUpdatedListener" class="member-name-link">simulationChunkUpdatedListener</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final com.mojang.serialization.Codec<wbr>&lt;com.mojang.datafixers.util.Pair&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#TICKET_ENTRY" class="member-name-link">TICKET_ENTRY</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap<wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#tickets" class="member-name-link">tickets</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="saveddata/SavedDataType.html" title="class in net.minecraft.world.level.saveddata">SavedDataType</a><wbr>&lt;<a href="TicketStorage.html" title="class in net.minecraft.world.level">TicketStorage</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#TYPE" class="member-name-link">TYPE</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier</div>
+<div class="table-header col-second">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>&nbsp;</code></div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">TicketStorage</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private </code></div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap,it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap)" class="member-name-link">TicketStorage</a><wbr>(it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;tickets,
+ it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;deactivatedTickets)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#activateAllDeactivatedTickets()" class="member-name-link">activateAllDeactivatedTickets</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addTicket(long,net.minecraft.server.level.Ticket)" class="member-name-link">addTicket</a><wbr>(long&nbsp;key,
+ <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addTicket(net.minecraft.server.level.Ticket,net.minecraft.world.level.ChunkPos)" class="member-name-link">addTicket</a><wbr>(<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket,
+ <a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addTicketWithRadius(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int)" class="member-name-link">addTicketWithRadius</a><wbr>(<a href="../../server/level/TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&nbsp;type,
+ <a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ int&nbsp;radius)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#canTicketExpire(net.minecraft.server.level.ChunkMap,net.minecraft.server.level.Ticket,long)" class="member-name-link">canTicketExpire</a><wbr>(<a href="../../server/level/ChunkMap.html" title="class in net.minecraft.server.level">ChunkMap</a>&nbsp;chunkMap,
+ <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket,
+ long&nbsp;chunkPos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#deactivateTicketsOnClosing()" class="member-name-link">deactivateTicketsOnClosing</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#forEachTicket(java.util.function.BiConsumer)" class="member-name-link">forEachTicket</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;output)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#forEachTicket(java.util.function.BiConsumer,it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap)" class="member-name-link">forEachTicket</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;output,
+ it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;tickets)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="TicketStorage.html" title="class in net.minecraft.world.level">TicketStorage</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fromPacked(java.util.List)" class="member-name-link">fromPacked</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;com.mojang.datafixers.util.Pair&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;tickets)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private it.unimi.dsi.fastutil.longs.LongSet</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAllChunksWithTicketThat(java.util.function.Predicate)" class="member-name-link">getAllChunksWithTicketThat</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;ticketCheck)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../neoforged/neoforge/common/world/chunk/ForcedChunkManager.TicketTracker.html" title="class in net.neoforged.neoforge.common.world.chunk">ForcedChunkManager.TicketTracker</a><wbr>&lt;<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockForcedChunks()" class="member-name-link">getBlockForcedChunks</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../../neoforged/neoforge/common/world/chunk/ForcedChunkManager.TicketTracker.html" title="class in net.neoforged.neoforge.common.world.chunk">ForcedChunkManager.TicketTracker</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEntityForcedChunks()" class="member-name-link">getEntityForcedChunks</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>it.unimi.dsi.fastutil.longs.LongSet</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getForceLoadedChunks()" class="member-name-link">getForceLoadedChunks</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static @Nullable <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getLowestTicket(java.util.List,boolean)" class="member-name-link">getLowestTicket</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;tickets,
+ boolean&nbsp;simulation)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getOrCreateTickets(long)" class="member-name-link">getOrCreateTickets</a><wbr>(long&nbsp;key)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTicketDebugString(long,boolean)" class="member-name-link">getTicketDebugString</a><wbr>(long&nbsp;key,
+ boolean&nbsp;simulation)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTicketLevelAt(long,boolean)" class="member-name-link">getTicketLevelAt</a><wbr>(long&nbsp;key,
+ boolean&nbsp;simulation)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getTicketLevelAt(java.util.List,boolean)" class="member-name-link">getTicketLevelAt</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;tickets,
+ boolean&nbsp;simulation)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getTickets(long)" class="member-name-link">getTickets</a><wbr>(long&nbsp;key)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasTickets()" class="member-name-link">hasTickets</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isTicketSameTypeAndLevel(net.minecraft.server.level.Ticket,net.minecraft.server.level.Ticket)" class="member-name-link">isTicketSameTypeAndLevel</a><wbr>(<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket,
+ <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;t)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;com.mojang.datafixers.util.Pair&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#packTickets()" class="member-name-link">packTickets</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#purgeStaleTickets(net.minecraft.server.level.ChunkMap)" class="member-name-link">purgeStaleTickets</a><wbr>(<a href="../../server/level/ChunkMap.html" title="class in net.minecraft.server.level">ChunkMap</a>&nbsp;chunkMap)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeTicket(long,net.minecraft.server.level.Ticket)" class="member-name-link">removeTicket</a><wbr>(long&nbsp;key,
+ <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeTicket(net.minecraft.server.level.Ticket,net.minecraft.world.level.ChunkPos)" class="member-name-link">removeTicket</a><wbr>(<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket,
+ <a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeTicketIf(net.minecraft.world.level.TicketStorage.TicketPredicate,it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap)" class="member-name-link">removeTicketIf</a><wbr>(<a href="TicketStorage.TicketPredicate.html" title="interface in net.minecraft.world.level">TicketStorage.TicketPredicate</a>&nbsp;predicate,
+ @Nullable it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;removedTickets)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeTicketWithRadius(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int)" class="member-name-link">removeTicketWithRadius</a><wbr>(<a href="../../server/level/TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&nbsp;type,
+ <a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ int&nbsp;radius)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#replaceTicketLevelOfType(int,net.minecraft.server.level.TicketType)" class="member-name-link">replaceTicketLevelOfType</a><wbr>(int&nbsp;newLevel,
+ <a href="../../server/level/TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&nbsp;ticketType)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setLoadingChunkUpdatedListener(net.minecraft.world.level.TicketStorage.ChunkUpdated)" class="member-name-link">setLoadingChunkUpdatedListener</a><wbr>(@Nullable <a href="TicketStorage.ChunkUpdated.html" title="interface in net.minecraft.world.level">TicketStorage.ChunkUpdated</a>&nbsp;loadingChunkUpdatedListener)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setSimulationChunkUpdatedListener(net.minecraft.world.level.TicketStorage.ChunkUpdated)" class="member-name-link">setSimulationChunkUpdatedListener</a><wbr>(@Nullable <a href="TicketStorage.ChunkUpdated.html" title="interface in net.minecraft.world.level">TicketStorage.ChunkUpdated</a>&nbsp;simulationChunkUpdatedListener)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldForceNaturalSpawning(net.minecraft.world.level.ChunkPos)" class="member-name-link">shouldForceNaturalSpawning</a><wbr>(<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#shouldKeepDimensionActive()" class="member-name-link">shouldKeepDimensionActive</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateChunkForced(net.minecraft.world.level.ChunkPos,boolean)" class="member-name-link">updateChunkForced</a><wbr>(<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ boolean&nbsp;forced)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateForcedChunks()" class="member-name-link">updateForcedChunks</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#updateForcedNaturalSpawning()" class="member-name-link">updateForcedNaturalSpawning</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.saveddata.SavedData">Methods inherited from class&nbsp;<a href="saveddata/SavedData.html#method-summary" title="class in net.minecraft.world.level.saveddata">SavedData</a></h3>
+<code><a href="saveddata/SavedData.html#isDirty()" title="isDirty()">isDirty</a>, <a href="saveddata/SavedData.html#setDirty()" title="setDirty()">setDirty</a>, <a href="saveddata/SavedData.html#setDirty(boolean)" title="setDirty(boolean)">setDirty</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="INITIAL_TICKET_LIST_CAPACITY">
+<h3>INITIAL_TICKET_LIST_CAPACITY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">INITIAL_TICKET_LIST_CAPACITY</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.minecraft.world.level.TicketStorage.INITIAL_TICKET_LIST_CAPACITY">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TICKET_ENTRY">
+<h3>TICKET_ENTRY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">com.mojang.serialization.Codec&lt;com.mojang.datafixers.util.Pair&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;</span>&nbsp;<span class="element-name">TICKET_ENTRY</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CODEC">
+<h3>CODEC</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">com.mojang.serialization.Codec&lt;<a href="TicketStorage.html" title="class in net.minecraft.world.level">TicketStorage</a>&gt;</span>&nbsp;<span class="element-name">CODEC</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TYPE">
+<h3>TYPE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="saveddata/SavedDataType.html" title="class in net.minecraft.world.level.saveddata">SavedDataType</a>&lt;<a href="TicketStorage.html" title="class in net.minecraft.world.level">TicketStorage</a>&gt;</span>&nbsp;<span class="element-name">TYPE</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tickets">
+<h3>tickets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;</span>&nbsp;<span class="element-name">tickets</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="deactivatedTickets">
+<h3>deactivatedTickets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;</span>&nbsp;<span class="element-name">deactivatedTickets</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="chunksWithForcedTickets">
+<h3>chunksWithForcedTickets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.longs.LongSet</span>&nbsp;<span class="element-name">chunksWithForcedTickets</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="loadingChunkUpdatedListener">
+<h3>loadingChunkUpdatedListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="TicketStorage.ChunkUpdated.html" title="interface in net.minecraft.world.level">TicketStorage.ChunkUpdated</a></span>&nbsp;<span class="element-name">loadingChunkUpdatedListener</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="simulationChunkUpdatedListener">
+<h3>simulationChunkUpdatedListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="TicketStorage.ChunkUpdated.html" title="interface in net.minecraft.world.level">TicketStorage.ChunkUpdated</a></span>&nbsp;<span class="element-name">simulationChunkUpdatedListener</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="blockForcedChunks">
+<h3>blockForcedChunks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../neoforged/neoforge/common/world/chunk/ForcedChunkManager.TicketTracker.html" title="class in net.neoforged.neoforge.common.world.chunk">ForcedChunkManager.TicketTracker</a>&lt;<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;</span>&nbsp;<span class="element-name">blockForcedChunks</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="entityForcedChunks">
+<h3>entityForcedChunks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../neoforged/neoforge/common/world/chunk/ForcedChunkManager.TicketTracker.html" title="class in net.neoforged.neoforge.common.world.chunk">ForcedChunkManager.TicketTracker</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&gt;</span>&nbsp;<span class="element-name">entityForcedChunks</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="chunksWithForceNaturalSpawning">
+<h3>chunksWithForceNaturalSpawning</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.longs.LongSet</span>&nbsp;<span class="element-name">chunksWithForceNaturalSpawning</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap,it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap)">
+<h3>TicketStorage</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="element-name">TicketStorage</span><wbr><span class="parameters">(it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;tickets,
+ it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;deactivatedTickets)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>TicketStorage</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">TicketStorage</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="fromPacked(java.util.List)">
+<h3>fromPacked</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="TicketStorage.html" title="class in net.minecraft.world.level">TicketStorage</a></span>&nbsp;<span class="element-name">fromPacked</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;com.mojang.datafixers.util.Pair&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;tickets)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="packTickets()">
+<h3>packTickets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;com.mojang.datafixers.util.Pair&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;</span>&nbsp;<span class="element-name">packTickets</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="forEachTicket(java.util.function.BiConsumer)">
+<h3>forEachTicket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">forEachTicket</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;output)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="forEachTicket(java.util.function.BiConsumer,it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap)">
+<h3>forEachTicket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">forEachTicket</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>,<wbr><a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;output,
+ it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;tickets)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="activateAllDeactivatedTickets()">
+<h3>activateAllDeactivatedTickets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">activateAllDeactivatedTickets</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setLoadingChunkUpdatedListener(net.minecraft.world.level.TicketStorage.ChunkUpdated)">
+<h3>setLoadingChunkUpdatedListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setLoadingChunkUpdatedListener</span><wbr><span class="parameters">(@Nullable <a href="TicketStorage.ChunkUpdated.html" title="interface in net.minecraft.world.level">TicketStorage.ChunkUpdated</a>&nbsp;loadingChunkUpdatedListener)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setSimulationChunkUpdatedListener(net.minecraft.world.level.TicketStorage.ChunkUpdated)">
+<h3>setSimulationChunkUpdatedListener</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setSimulationChunkUpdatedListener</span><wbr><span class="parameters">(@Nullable <a href="TicketStorage.ChunkUpdated.html" title="interface in net.minecraft.world.level">TicketStorage.ChunkUpdated</a>&nbsp;simulationChunkUpdatedListener)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hasTickets()">
+<h3>hasTickets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasTickets</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shouldKeepDimensionActive()">
+<h3>shouldKeepDimensionActive</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldKeepDimensionActive</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getTickets(long)">
+<h3>getTickets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;</span>&nbsp;<span class="element-name">getTickets</span><wbr><span class="parameters">(long&nbsp;key)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getOrCreateTickets(long)">
+<h3>getOrCreateTickets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;</span>&nbsp;<span class="element-name">getOrCreateTickets</span><wbr><span class="parameters">(long&nbsp;key)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addTicketWithRadius(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int)">
+<h3>addTicketWithRadius</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addTicketWithRadius</span><wbr><span class="parameters">(<a href="../../server/level/TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&nbsp;type,
+ <a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ int&nbsp;radius)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addTicket(net.minecraft.server.level.Ticket,net.minecraft.world.level.ChunkPos)">
+<h3>addTicket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addTicket</span><wbr><span class="parameters">(<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket,
+ <a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addTicket(long,net.minecraft.server.level.Ticket)">
+<h3>addTicket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">addTicket</span><wbr><span class="parameters">(long&nbsp;key,
+ <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isTicketSameTypeAndLevel(net.minecraft.server.level.Ticket,net.minecraft.server.level.Ticket)">
+<h3>isTicketSameTypeAndLevel</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isTicketSameTypeAndLevel</span><wbr><span class="parameters">(<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket,
+ <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;t)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getTicketLevelAt(long,boolean)">
+<h3>getTicketLevelAt</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTicketLevelAt</span><wbr><span class="parameters">(long&nbsp;key,
+ boolean&nbsp;simulation)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getTicketLevelAt(java.util.List,boolean)">
+<h3>getTicketLevelAt</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getTicketLevelAt</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;tickets,
+ boolean&nbsp;simulation)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLowestTicket(java.util.List,boolean)">
+<h3>getLowestTicket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a></span>&nbsp;<span class="element-name">getLowestTicket</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;tickets,
+ boolean&nbsp;simulation)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="removeTicketWithRadius(net.minecraft.server.level.TicketType,net.minecraft.world.level.ChunkPos,int)">
+<h3>removeTicketWithRadius</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeTicketWithRadius</span><wbr><span class="parameters">(<a href="../../server/level/TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&nbsp;type,
+ <a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ int&nbsp;radius)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="removeTicket(net.minecraft.server.level.Ticket,net.minecraft.world.level.ChunkPos)">
+<h3>removeTicket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeTicket</span><wbr><span class="parameters">(<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket,
+ <a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="removeTicket(long,net.minecraft.server.level.Ticket)">
+<h3>removeTicket</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">removeTicket</span><wbr><span class="parameters">(long&nbsp;key,
+ <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="updateForcedChunks()">
+<h3>updateForcedChunks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateForcedChunks</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getTicketDebugString(long,boolean)">
+<h3>getTicketDebugString</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getTicketDebugString</span><wbr><span class="parameters">(long&nbsp;key,
+ boolean&nbsp;simulation)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="purgeStaleTickets(net.minecraft.server.level.ChunkMap)">
+<h3>purgeStaleTickets</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">purgeStaleTickets</span><wbr><span class="parameters">(<a href="../../server/level/ChunkMap.html" title="class in net.minecraft.server.level">ChunkMap</a>&nbsp;chunkMap)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="canTicketExpire(net.minecraft.server.level.ChunkMap,net.minecraft.server.level.Ticket,long)">
+<h3>canTicketExpire</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">canTicketExpire</span><wbr><span class="parameters">(<a href="../../server/level/ChunkMap.html" title="class in net.minecraft.server.level">ChunkMap</a>&nbsp;chunkMap,
+ <a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&nbsp;ticket,
+ long&nbsp;chunkPos)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="deactivateTicketsOnClosing()">
+<h3>deactivateTicketsOnClosing</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">deactivateTicketsOnClosing</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="removeTicketIf(net.minecraft.world.level.TicketStorage.TicketPredicate,it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap)">
+<h3>removeTicketIf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeTicketIf</span><wbr><span class="parameters">(<a href="TicketStorage.TicketPredicate.html" title="interface in net.minecraft.world.level">TicketStorage.TicketPredicate</a>&nbsp;predicate,
+ @Nullable it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&gt;&nbsp;removedTickets)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="replaceTicketLevelOfType(int,net.minecraft.server.level.TicketType)">
+<h3>replaceTicketLevelOfType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">replaceTicketLevelOfType</span><wbr><span class="parameters">(int&nbsp;newLevel,
+ <a href="../../server/level/TicketType.html" title="class in net.minecraft.server.level">TicketType</a>&nbsp;ticketType)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="updateChunkForced(net.minecraft.world.level.ChunkPos,boolean)">
+<h3>updateChunkForced</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">updateChunkForced</span><wbr><span class="parameters">(<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos,
+ boolean&nbsp;forced)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getForceLoadedChunks()">
+<h3>getForceLoadedChunks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.longs.LongSet</span>&nbsp;<span class="element-name">getForceLoadedChunks</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAllChunksWithTicketThat(java.util.function.Predicate)">
+<h3>getAllChunksWithTicketThat</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">it.unimi.dsi.fastutil.longs.LongSet</span>&nbsp;<span class="element-name">getAllChunksWithTicketThat</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../server/level/Ticket.html" title="class in net.minecraft.server.level">Ticket</a>&gt;&nbsp;ticketCheck)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBlockForcedChunks()">
+<h3>getBlockForcedChunks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../neoforged/neoforge/common/world/chunk/ForcedChunkManager.TicketTracker.html" title="class in net.neoforged.neoforge.common.world.chunk">ForcedChunkManager.TicketTracker</a>&lt;<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&gt;</span>&nbsp;<span class="element-name">getBlockForcedChunks</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getEntityForcedChunks()">
+<h3>getEntityForcedChunks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../../neoforged/neoforge/common/world/chunk/ForcedChunkManager.TicketTracker.html" title="class in net.neoforged.neoforge.common.world.chunk">ForcedChunkManager.TicketTracker</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/UUID.html" title="class or interface in java.util" class="external-link">UUID</a>&gt;</span>&nbsp;<span class="element-name">getEntityForcedChunks</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="updateForcedNaturalSpawning()">
+<h3>updateForcedNaturalSpawning</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">updateForcedNaturalSpawning</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="shouldForceNaturalSpawning(net.minecraft.world.level.ChunkPos)">
+<h3>shouldForceNaturalSpawning</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">shouldForceNaturalSpawning</span><wbr><span class="parameters">(<a href="ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;chunkPos)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

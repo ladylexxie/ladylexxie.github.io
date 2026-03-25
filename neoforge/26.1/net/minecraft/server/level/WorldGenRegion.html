@@ -1,0 +1,1292 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>WorldGenRegion (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.server.level, class: WorldGenRegion">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/WorldGenRegion.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.server.level</a></li>
+<li><a href="WorldGenRegion.html" class="current-selection">WorldGenRegion</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#cache" tabindex="0">cache</a></li>
+<li><a href="#center" tabindex="0">center</a></li>
+<li><a href="#level" tabindex="0">level</a></li>
+<li><a href="#seed" tabindex="0">seed</a></li>
+<li><a href="#levelData" tabindex="0">levelData</a></li>
+<li><a href="#random" tabindex="0">random</a></li>
+<li><a href="#dimensionType" tabindex="0">dimensionType</a></li>
+<li><a href="#blockTicks" tabindex="0">blockTicks</a></li>
+<li><a href="#fluidTicks" tabindex="0">fluidTicks</a></li>
+<li><a href="#biomeManager" tabindex="0">biomeManager</a></li>
+<li><a href="#generatingStep" tabindex="0">generatingStep</a></li>
+<li><a href="#currentlyGenerating" tabindex="0">currentlyGenerating</a></li>
+<li><a href="#subTickCount" tabindex="0">subTickCount</a></li>
+<li><a href="#WORLDGEN_REGION_RANDOM" tabindex="0">WORLDGEN_REGION_RANDOM</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.server.level.ServerLevel,net.minecraft.util.StaticCache2D,net.minecraft.world.level.chunk.status.ChunkStep,net.minecraft.world.level.chunk.ChunkAccess)" tabindex="0">WorldGenRegion(ServerLevel, StaticCache2D, ChunkStep, ChunkAccess)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#isOldChunkAround(net.minecraft.world.level.ChunkPos,int)" tabindex="0">isOldChunkAround(ChunkPos, int)</a></li>
+<li><a href="#getCenter()" tabindex="0">getCenter()</a></li>
+<li><a href="#setCurrentlyGenerating(java.util.function.Supplier)" tabindex="0">setCurrentlyGenerating(Supplier)</a></li>
+<li><a href="#getChunk(int,int)" tabindex="0">getChunk(int, int)</a></li>
+<li><a href="#getChunk(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)" tabindex="0">getChunk(int, int, ChunkStatus, boolean)</a></li>
+<li><a href="#hasChunk(int,int)" tabindex="0">hasChunk(int, int)</a></li>
+<li><a href="#getBlockState(net.minecraft.core.BlockPos)" tabindex="0">getBlockState(BlockPos)</a></li>
+<li><a href="#getFluidState(net.minecraft.core.BlockPos)" tabindex="0">getFluidState(BlockPos)</a></li>
+<li><a href="#getNearestPlayer(double,double,double,double,java.util.function.Predicate)" tabindex="0">getNearestPlayer(double, double, double, double, Predicate)</a></li>
+<li><a href="#getSkyDarken()" tabindex="0">getSkyDarken()</a></li>
+<li><a href="#getBiomeManager()" tabindex="0">getBiomeManager()</a></li>
+<li><a href="#getUncachedNoiseBiome(int,int,int)" tabindex="0">getUncachedNoiseBiome(int, int, int)</a></li>
+<li><a href="#getLightEngine()" tabindex="0">getLightEngine()</a></li>
+<li><a href="#destroyBlock(net.minecraft.core.BlockPos,boolean,net.minecraft.world.entity.Entity,int)" tabindex="0">destroyBlock(BlockPos, boolean, Entity, int)</a></li>
+<li><a href="#getBlockEntity(net.minecraft.core.BlockPos)" tabindex="0">getBlockEntity(BlockPos)</a></li>
+<li><a href="#ensureCanWrite(net.minecraft.core.BlockPos)" tabindex="0">ensureCanWrite(BlockPos)</a></li>
+<li><a href="#setBlock(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,int,int)" tabindex="0">setBlock(BlockPos, BlockState, int, int)</a></li>
+<li><a href="#markPosForPostprocessing(net.minecraft.core.BlockPos)" tabindex="0">markPosForPostprocessing(BlockPos)</a></li>
+<li><a href="#addFreshEntity(net.minecraft.world.entity.Entity)" tabindex="0">addFreshEntity(Entity)</a></li>
+<li><a href="#removeBlock(net.minecraft.core.BlockPos,boolean)" tabindex="0">removeBlock(BlockPos, boolean)</a></li>
+<li><a href="#getWorldBorder()" tabindex="0">getWorldBorder()</a></li>
+<li><a href="#isClientSide()" tabindex="0">isClientSide()</a></li>
+<li><a href="#getLevel()" tabindex="0">getLevel()</a></li>
+<li><a href="#registryAccess()" tabindex="0">registryAccess()</a></li>
+<li><a href="#enabledFeatures()" tabindex="0">enabledFeatures()</a></li>
+<li><a href="#getLevelData()" tabindex="0">getLevelData()</a></li>
+<li><a href="#getCurrentDifficultyAt(net.minecraft.core.BlockPos)" tabindex="0">getCurrentDifficultyAt(BlockPos)</a></li>
+<li><a href="#getServer()" tabindex="0">getServer()</a></li>
+<li><a href="#getChunkSource()" tabindex="0">getChunkSource()</a></li>
+<li><a href="#getSeed()" tabindex="0">getSeed()</a></li>
+<li><a href="#getBlockTicks()" tabindex="0">getBlockTicks()</a></li>
+<li><a href="#getFluidTicks()" tabindex="0">getFluidTicks()</a></li>
+<li><a href="#getSeaLevel()" tabindex="0">getSeaLevel()</a></li>
+<li><a href="#getRandom()" tabindex="0">getRandom()</a></li>
+<li><a href="#getHeight(net.minecraft.world.level.levelgen.Heightmap.Types,int,int)" tabindex="0">getHeight(Heightmap.Types, int, int)</a></li>
+<li><a href="#playSound(net.minecraft.world.entity.Entity,net.minecraft.core.BlockPos,net.minecraft.sounds.SoundEvent,net.minecraft.sounds.SoundSource,float,float)" tabindex="0">playSound(Entity, BlockPos, SoundEvent, SoundSource, float, float)</a></li>
+<li><a href="#addParticle(net.minecraft.core.particles.ParticleOptions,double,double,double,double,double,double)" tabindex="0">addParticle(ParticleOptions, double, double, double, double, double, double)</a></li>
+<li><a href="#levelEvent(net.minecraft.world.entity.Entity,int,net.minecraft.core.BlockPos,int)" tabindex="0">levelEvent(Entity, int, BlockPos, int)</a></li>
+<li><a href="#gameEvent(net.minecraft.core.Holder,net.minecraft.world.phys.Vec3,net.minecraft.world.level.gameevent.GameEvent.Context)" tabindex="0">gameEvent(Holder, Vec3, GameEvent.Context)</a></li>
+<li><a href="#dimensionType()" tabindex="0">dimensionType()</a></li>
+<li><a href="#isStateAtPosition(net.minecraft.core.BlockPos,java.util.function.Predicate)" tabindex="0">isStateAtPosition(BlockPos, Predicate)</a></li>
+<li><a href="#isFluidAtPosition(net.minecraft.core.BlockPos,java.util.function.Predicate)" tabindex="0">isFluidAtPosition(BlockPos, Predicate)</a></li>
+<li><a href="#getEntities(net.minecraft.world.level.entity.EntityTypeTest,net.minecraft.world.phys.AABB,java.util.function.Predicate)" tabindex="0">getEntities(EntityTypeTest, AABB, Predicate)</a></li>
+<li><a href="#getEntities(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB,java.util.function.Predicate)" tabindex="0">getEntities(Entity, AABB, Predicate)</a></li>
+<li><a href="#players()" tabindex="0">players()</a></li>
+<li><a href="#getMinY()" tabindex="0">getMinY()</a></li>
+<li><a href="#getHeight()" tabindex="0">getHeight()</a></li>
+<li><a href="#nextSubTickCount()" tabindex="0">nextSubTickCount()</a></li>
+<li><a href="#environmentAttributes()" tabindex="0">environmentAttributes()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class WorldGenRegion" class="title">Class WorldGenRegion</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.server.level.WorldGenRegion</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="../../world/level/biome/BiomeManager.NoiseBiomeSource.html" title="interface in net.minecraft.world.level.biome">BiomeManager.NoiseBiomeSource</a>, <a href="../../world/level/BlockAndLightGetter.html" title="interface in net.minecraft.world.level">BlockAndLightGetter</a>, <a href="../../world/level/BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a>, <a href="../../world/level/CollisionGetter.html" title="interface in net.minecraft.world.level">CollisionGetter</a>, <a href="../../world/level/CommonLevelAccessor.html" title="interface in net.minecraft.world.level">CommonLevelAccessor</a>, <a href="../../world/level/EntityGetter.html" title="interface in net.minecraft.world.level">EntityGetter</a>, <a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a>, <a href="../../world/level/LevelHeightAccessor.html" title="interface in net.minecraft.world.level">LevelHeightAccessor</a>, <a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a>, <a href="../../world/level/LevelSimulatedReader.html" title="interface in net.minecraft.world.level">LevelSimulatedReader</a>, <a href="../../world/level/LevelSimulatedRW.html" title="interface in net.minecraft.world.level">LevelSimulatedRW</a>, <a href="../../world/level/LevelWriter.html" title="interface in net.minecraft.world.level">LevelWriter</a>, <a href="../../world/level/ScheduledTickAccess.html" title="interface in net.minecraft.world.level">ScheduledTickAccess</a>, <a href="../../world/level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a>, <a href="../../world/level/SignalGetter.html" title="interface in net.minecraft.world.level">SignalGetter</a>, <a href="../../world/level/WorldGenLevel.html" title="interface in net.minecraft.world.level">WorldGenLevel</a>, <a href="../../../neoforged/neoforge/common/extensions/IBlockGetterExtension.html" title="interface in net.neoforged.neoforge.common.extensions">IBlockGetterExtension</a>, <a href="../../../neoforged/neoforge/common/extensions/ILevelReaderExtension.html" title="interface in net.neoforged.neoforge.common.extensions">ILevelReaderExtension</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">WorldGenRegion</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="../../world/level/WorldGenLevel.html" title="interface in net.minecraft.world.level">WorldGenLevel</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-net.minecraft.world.level.BlockGetter">Nested classes/interfaces inherited from interface&nbsp;<a href="../../world/level/BlockGetter.html#nested-class-summary" title="interface in net.minecraft.world.level">BlockGetter</a></h3>
+<code><a href="../../world/level/BlockGetter.BlockStepVisitor.html" title="interface in net.minecraft.world.level">BlockGetter.BlockStepVisitor</a></code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="../../world/level/biome/BiomeManager.html" title="class in net.minecraft.world.level.biome">BiomeManager</a></code></div>
+<div class="col-second even-row-color"><code><a href="#biomeManager" class="member-name-link">biomeManager</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../world/ticks/WorldGenTickAccess.html" title="class in net.minecraft.world.ticks">WorldGenTickAccess</a><wbr>&lt;<a href="../../world/level/block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#blockTicks" class="member-name-link">blockTicks</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="../../util/StaticCache2D.html" title="class in net.minecraft.util">StaticCache2D</a><wbr>&lt;<a href="GenerationChunkHolder.html" title="class in net.minecraft.server.level">GenerationChunkHolder</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#cache" class="member-name-link">cache</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#center" class="member-name-link">center</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#currentlyGenerating" class="member-name-link">currentlyGenerating</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../world/level/dimension/DimensionType.html" title="class in net.minecraft.world.level.dimension">DimensionType</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#dimensionType" class="member-name-link">dimensionType</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="../../world/ticks/WorldGenTickAccess.html" title="class in net.minecraft.world.ticks">WorldGenTickAccess</a><wbr>&lt;<a href="../../world/level/material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#fluidTicks" class="member-name-link">fluidTicks</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../world/level/chunk/status/ChunkStep.html" title="class in net.minecraft.world.level.chunk.status">ChunkStep</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#generatingStep" class="member-name-link">generatingStep</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a></code></div>
+<div class="col-second even-row-color"><code><a href="#level" class="member-name-link">level</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../world/level/storage/LevelData.html" title="interface in net.minecraft.world.level.storage">LevelData</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#levelData" class="member-name-link">levelData</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second even-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#random" class="member-name-link">random</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final long</code></div>
+<div class="col-second even-row-color"><code><a href="#seed" class="member-name-link">seed</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#subTickCount" class="member-name-link">subTickCount</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a></code></div>
+<div class="col-second even-row-color"><code><a href="#WORLDGEN_REGION_RANDOM" class="member-name-link">WORLDGEN_REGION_RANDOM</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="fields-inherited-from-class-net.minecraft.world.level.SignalGetter">Fields inherited from interface&nbsp;<a href="../../world/level/SignalGetter.html#field-summary" title="interface in net.minecraft.world.level">SignalGetter</a></h3>
+<code><a href="../../world/level/SignalGetter.html#DIRECTIONS">DIRECTIONS</a></code></div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.server.level.ServerLevel,net.minecraft.util.StaticCache2D,net.minecraft.world.level.chunk.status.ChunkStep,net.minecraft.world.level.chunk.ChunkAccess)" class="member-name-link">WorldGenRegion</a><wbr>(<a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../util/StaticCache2D.html" title="class in net.minecraft.util">StaticCache2D</a>&lt;<a href="GenerationChunkHolder.html" title="class in net.minecraft.server.level">GenerationChunkHolder</a>&gt;&nbsp;cache,
+ <a href="../../world/level/chunk/status/ChunkStep.html" title="class in net.minecraft.world.level.chunk.status">ChunkStep</a>&nbsp;generatingStep,
+ <a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&nbsp;center)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addFreshEntity(net.minecraft.world.entity.Entity)" class="member-name-link">addFreshEntity</a><wbr>(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#addParticle(net.minecraft.core.particles.ParticleOptions,double,double,double,double,double,double)" class="member-name-link">addParticle</a><wbr>(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;particle,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xd,
+ double&nbsp;yd,
+ double&nbsp;zd)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#destroyBlock(net.minecraft.core.BlockPos,boolean,net.minecraft.world.entity.Entity,int)" class="member-name-link">destroyBlock</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ boolean&nbsp;dropResources,
+ @Nullable <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;breaker,
+ int&nbsp;updateLimit)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/dimension/DimensionType.html" title="class in net.minecraft.world.level.dimension">DimensionType</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#dimensionType()" class="member-name-link">dimensionType</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#enabledFeatures()" class="member-name-link">enabledFeatures</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#ensureCanWrite(net.minecraft.core.BlockPos)" class="member-name-link">ensureCanWrite</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/attribute/EnvironmentAttributeReader.html" title="interface in net.minecraft.world.attribute">EnvironmentAttributeReader</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#environmentAttributes()" class="member-name-link">environmentAttributes</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#gameEvent(net.minecraft.core.Holder,net.minecraft.world.phys.Vec3,net.minecraft.world.level.gameevent.GameEvent.Context)" class="member-name-link">gameEvent</a><wbr>(<a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/level/gameevent/GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&gt;&nbsp;gameEvent,
+ <a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;position,
+ <a href="../../world/level/gameevent/GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;context)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/biome/BiomeManager.html" title="class in net.minecraft.world.level.biome">BiomeManager</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBiomeManager()" class="member-name-link">getBiomeManager</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockEntity(net.minecraft.core.BlockPos)" class="member-name-link">getBlockEntity</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockState(net.minecraft.core.BlockPos)" class="member-name-link">getBlockState</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/ticks/LevelTickAccess.html" title="interface in net.minecraft.world.ticks">LevelTickAccess</a><wbr>&lt;<a href="../../world/level/block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBlockTicks()" class="member-name-link">getBlockTicks</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCenter()" class="member-name-link">getCenter</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunk(int,int)" class="member-name-link">getChunk</a><wbr>(int&nbsp;chunkX,
+ int&nbsp;chunkZ)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunk(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)" class="member-name-link">getChunk</a><wbr>(int&nbsp;chunkX,
+ int&nbsp;chunkZ,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;targetStatus,
+ boolean&nbsp;loadOrGenerate)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/chunk/ChunkSource.html" title="class in net.minecraft.world.level.chunk">ChunkSource</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getChunkSource()" class="member-name-link">getChunkSource</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/DifficultyInstance.html" title="class in net.minecraft.world">DifficultyInstance</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getCurrentDifficultyAt(net.minecraft.core.BlockPos)" class="member-name-link">getCurrentDifficultyAt</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEntities(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB,java.util.function.Predicate)" class="member-name-link">getEntities</a><wbr>(@Nullable <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;except,
+ <a href="../../world/phys/AABB.html" title="class in net.minecraft.world.phys">AABB</a>&nbsp;bb,
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;? super <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&nbsp;selector)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>&lt;T extends <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;<br><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEntities(net.minecraft.world.level.entity.EntityTypeTest,net.minecraft.world.phys.AABB,java.util.function.Predicate)" class="member-name-link">getEntities</a><wbr>(<a href="../../world/level/entity/EntityTypeTest.html" title="interface in net.minecraft.world.level.entity">EntityTypeTest</a>&lt;<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>,<wbr>T&gt;&nbsp;type,
+ <a href="../../world/phys/AABB.html" title="class in net.minecraft.world.phys">AABB</a>&nbsp;bb,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;? super T&gt;&nbsp;selector)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/material/FluidState.html" title="class in net.minecraft.world.level.material">FluidState</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFluidState(net.minecraft.core.BlockPos)" class="member-name-link">getFluidState</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/ticks/LevelTickAccess.html" title="interface in net.minecraft.world.ticks">LevelTickAccess</a><wbr>&lt;<a href="../../world/level/material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getFluidTicks()" class="member-name-link">getFluidTicks</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHeight()" class="member-name-link">getHeight</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getHeight(net.minecraft.world.level.levelgen.Heightmap.Types,int,int)" class="member-name-link">getHeight</a><wbr>(<a href="../../world/level/levelgen/Heightmap.Types.html" title="enum class in net.minecraft.world.level.levelgen">Heightmap.Types</a>&nbsp;type,
+ int&nbsp;x,
+ int&nbsp;z)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#getLevel()" class="member-name-link">getLevel</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated.</span></div>
+</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/storage/LevelData.html" title="interface in net.minecraft.world.level.storage">LevelData</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLevelData()" class="member-name-link">getLevelData</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/lighting/LevelLightEngine.html" title="class in net.minecraft.world.level.lighting">LevelLightEngine</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLightEngine()" class="member-name-link">getLightEngine</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMinY()" class="member-name-link">getMinY</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getNearestPlayer(double,double,double,double,java.util.function.Predicate)" class="member-name-link">getNearestPlayer</a><wbr>(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;maxDist,
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&nbsp;predicate)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRandom()" class="member-name-link">getRandom</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSeaLevel()" class="member-name-link">getSeaLevel</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSeed()" class="member-name-link">getSeed</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getServer()" class="member-name-link">getServer</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getSkyDarken()" class="member-name-link">getSkyDarken</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a><wbr>&lt;<a href="../../world/level/biome/Biome.html" title="class in net.minecraft.world.level.biome">Biome</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUncachedNoiseBiome(int,int,int)" class="member-name-link">getUncachedNoiseBiome</a><wbr>(int&nbsp;quartX,
+ int&nbsp;quartY,
+ int&nbsp;quartZ)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../world/level/border/WorldBorder.html" title="class in net.minecraft.world.level.border">WorldBorder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWorldBorder()" class="member-name-link">getWorldBorder</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasChunk(int,int)" class="member-name-link">hasChunk</a><wbr>(int&nbsp;chunkX,
+ int&nbsp;chunkZ)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isClientSide()" class="member-name-link">isClientSide</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isFluidAtPosition(net.minecraft.core.BlockPos,java.util.function.Predicate)" class="member-name-link">isFluidAtPosition</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../world/level/material/FluidState.html" title="class in net.minecraft.world.level.material">FluidState</a>&gt;&nbsp;predicate)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isOldChunkAround(net.minecraft.world.level.ChunkPos,int)" class="member-name-link">isOldChunkAround</a><wbr>(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;range)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isStateAtPosition(net.minecraft.core.BlockPos,java.util.function.Predicate)" class="member-name-link">isStateAtPosition</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;predicate)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#levelEvent(net.minecraft.world.entity.Entity,int,net.minecraft.core.BlockPos,int)" class="member-name-link">levelEvent</a><wbr>(@Nullable <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;source,
+ int&nbsp;type,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;data)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#markPosForPostprocessing(net.minecraft.core.BlockPos)" class="member-name-link">markPosForPostprocessing</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;blockPos)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#nextSubTickCount()" class="member-name-link">nextSubTickCount</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#players()" class="member-name-link">players</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#playSound(net.minecraft.world.entity.Entity,net.minecraft.core.BlockPos,net.minecraft.sounds.SoundEvent,net.minecraft.sounds.SoundSource,float,float)" class="member-name-link">playSound</a><wbr>(@Nullable <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;except,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../sounds/SoundEvent.html" title="class in net.minecraft.sounds">SoundEvent</a>&nbsp;sound,
+ <a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;source,
+ float&nbsp;volume,
+ float&nbsp;pitch)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../../core/RegistryAccess.html" title="interface in net.minecraft.core">RegistryAccess</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#registryAccess()" class="member-name-link">registryAccess</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeBlock(net.minecraft.core.BlockPos,boolean)" class="member-name-link">removeBlock</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ boolean&nbsp;movedByPiston)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setBlock(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,int,int)" class="member-name-link">setBlock</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState,
+ int&nbsp;updateFlags,
+ int&nbsp;updateLimit)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setCurrentlyGenerating(java.util.function.Supplier)" class="member-name-link">setCurrentlyGenerating</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;currentlyGenerating)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.BlockAndLightGetter">Methods inherited from interface&nbsp;<a href="../../world/level/BlockAndLightGetter.html#method-summary" title="interface in net.minecraft.world.level">BlockAndLightGetter</a></h3>
+<code><a href="../../world/level/BlockAndLightGetter.html#canSeeSky(net.minecraft.core.BlockPos)" title="canSeeSky(BlockPos)">canSeeSky</a>, <a href="../../world/level/BlockAndLightGetter.html#getBrightness(net.minecraft.world.level.LightLayer,net.minecraft.core.BlockPos)" title="getBrightness(LightLayer, BlockPos)">getBrightness</a>, <a href="../../world/level/BlockAndLightGetter.html#getRawBrightness(net.minecraft.core.BlockPos,int)" title="getRawBrightness(BlockPos, int)">getRawBrightness</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.BlockGetter">Methods inherited from interface&nbsp;<a href="../../world/level/BlockGetter.html#method-summary" title="interface in net.minecraft.world.level">BlockGetter</a></h3>
+<code><a href="../../world/level/BlockGetter.html#clip(net.minecraft.world.level.ClipContext)" title="clip(ClipContext)">clip</a>, <a href="../../world/level/BlockGetter.html#clipWithInteractionOverride(net.minecraft.world.phys.Vec3,net.minecraft.world.phys.Vec3,net.minecraft.core.BlockPos,net.minecraft.world.phys.shapes.VoxelShape,net.minecraft.world.level.block.state.BlockState)" title="clipWithInteractionOverride(Vec3, Vec3, BlockPos, VoxelShape, BlockState)">clipWithInteractionOverride</a>, <a href="../../world/level/BlockGetter.html#getBlockFloorHeight(net.minecraft.core.BlockPos)" title="getBlockFloorHeight(BlockPos)">getBlockFloorHeight</a>, <a href="../../world/level/BlockGetter.html#getBlockFloorHeight(net.minecraft.world.phys.shapes.VoxelShape,java.util.function.Supplier)" title="getBlockFloorHeight(VoxelShape, Supplier)">getBlockFloorHeight</a>, <a href="../../world/level/BlockGetter.html#getBlockStates(net.minecraft.world.phys.AABB)" title="getBlockStates(AABB)">getBlockStates</a>, <a href="../../world/level/BlockGetter.html#getLightEmission(net.minecraft.core.BlockPos)" title="getLightEmission(BlockPos)">getLightEmission</a>, <a href="../../world/level/BlockGetter.html#isBlockInLine(net.minecraft.world.level.ClipBlockStateContext)" title="isBlockInLine(ClipBlockStateContext)">isBlockInLine</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.CollisionGetter">Methods inherited from interface&nbsp;<a href="../../world/level/CollisionGetter.html#method-summary" title="interface in net.minecraft.world.level">CollisionGetter</a></h3>
+<code><a href="../../world/level/CollisionGetter.html#clipIncludingBorder(net.minecraft.world.level.ClipContext)" title="clipIncludingBorder(ClipContext)">clipIncludingBorder</a>, <a href="../../world/level/CollisionGetter.html#collidesWithSuffocatingBlock(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="collidesWithSuffocatingBlock(Entity, AABB)">collidesWithSuffocatingBlock</a>, <a href="../../world/level/CollisionGetter.html#findFreePosition(net.minecraft.world.entity.Entity,net.minecraft.world.phys.shapes.VoxelShape,net.minecraft.world.phys.Vec3,double,double,double)" title="findFreePosition(Entity, VoxelShape, Vec3, double, double, double)">findFreePosition</a>, <a href="../../world/level/CollisionGetter.html#findSupportingBlock(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="findSupportingBlock(Entity, AABB)">findSupportingBlock</a>, <a href="../../world/level/CollisionGetter.html#getBlockAndLiquidCollisions(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="getBlockAndLiquidCollisions(Entity, AABB)">getBlockAndLiquidCollisions</a>, <a href="../../world/level/CollisionGetter.html#getBlockCollisions(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="getBlockCollisions(Entity, AABB)">getBlockCollisions</a>, <a href="../../world/level/CollisionGetter.html#getCollisions(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="getCollisions(Entity, AABB)">getCollisions</a>, <a href="../../world/level/CollisionGetter.html#getPreMoveCollisions(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB,net.minecraft.world.phys.Vec3)" title="getPreMoveCollisions(Entity, AABB, Vec3)">getPreMoveCollisions</a>, <a href="../../world/level/CollisionGetter.html#isUnobstructed(net.minecraft.world.entity.Entity)" title="isUnobstructed(Entity)">isUnobstructed</a>, <a href="../../world/level/CollisionGetter.html#isUnobstructed(net.minecraft.world.level.block.state.BlockState,net.minecraft.core.BlockPos,net.minecraft.world.phys.shapes.CollisionContext)" title="isUnobstructed(BlockState, BlockPos, CollisionContext)">isUnobstructed</a>, <a href="../../world/level/CollisionGetter.html#noBlockCollision(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="noBlockCollision(Entity, AABB)">noBlockCollision</a>, <a href="../../world/level/CollisionGetter.html#noBlockCollision(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB,boolean)" title="noBlockCollision(Entity, AABB, boolean)">noBlockCollision</a>, <a href="../../world/level/CollisionGetter.html#noBorderCollision(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="noBorderCollision(Entity, AABB)">noBorderCollision</a>, <a href="../../world/level/CollisionGetter.html#noCollision(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="noCollision(Entity, AABB)">noCollision</a>, <a href="../../world/level/CollisionGetter.html#noCollision(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB,boolean)" title="noCollision(Entity, AABB, boolean)">noCollision</a>, <a href="../../world/level/CollisionGetter.html#noCollision(net.minecraft.world.entity.Entity)" title="noCollision(Entity)">noCollision</a>, <a href="../../world/level/CollisionGetter.html#noCollision(net.minecraft.world.phys.AABB)" title="noCollision(AABB)">noCollision</a>, <a href="../../world/level/CollisionGetter.html#noEntityCollision(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="noEntityCollision(Entity, AABB)">noEntityCollision</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.CommonLevelAccessor">Methods inherited from interface&nbsp;<a href="../../world/level/CommonLevelAccessor.html#method-summary" title="interface in net.minecraft.world.level">CommonLevelAccessor</a></h3>
+<code><a href="../../world/level/CommonLevelAccessor.html#getBlockEntity(net.minecraft.core.BlockPos,net.minecraft.world.level.block.entity.BlockEntityType)" title="getBlockEntity(BlockPos, BlockEntityType)">getBlockEntity</a>, <a href="../../world/level/CommonLevelAccessor.html#getEntityCollisions(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="getEntityCollisions(Entity, AABB)">getEntityCollisions</a>, <a href="../../world/level/CommonLevelAccessor.html#getHeightmapPos(net.minecraft.world.level.levelgen.Heightmap.Types,net.minecraft.core.BlockPos)" title="getHeightmapPos(Heightmap.Types, BlockPos)">getHeightmapPos</a>, <a href="../../world/level/CommonLevelAccessor.html#isUnobstructed(net.minecraft.world.entity.Entity,net.minecraft.world.phys.shapes.VoxelShape)" title="isUnobstructed(Entity, VoxelShape)">isUnobstructed</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.EntityGetter">Methods inherited from interface&nbsp;<a href="../../world/level/EntityGetter.html#method-summary" title="interface in net.minecraft.world.level">EntityGetter</a></h3>
+<code><a href="../../world/level/EntityGetter.html#getEntities(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB)" title="getEntities(Entity, AABB)">getEntities</a>, <a href="../../world/level/EntityGetter.html#getEntitiesOfClass(java.lang.Class,net.minecraft.world.phys.AABB)" title="getEntitiesOfClass(Class, AABB)">getEntitiesOfClass</a>, <a href="../../world/level/EntityGetter.html#getEntitiesOfClass(java.lang.Class,net.minecraft.world.phys.AABB,java.util.function.Predicate)" title="getEntitiesOfClass(Class, AABB, Predicate)">getEntitiesOfClass</a>, <a href="../../world/level/EntityGetter.html#getNearestPlayer(double,double,double,double,boolean)" title="getNearestPlayer(double, double, double, double, boolean)">getNearestPlayer</a>, <a href="../../world/level/EntityGetter.html#getNearestPlayer(net.minecraft.world.entity.Entity,double)" title="getNearestPlayer(Entity, double)">getNearestPlayer</a>, <a href="../../world/level/EntityGetter.html#getPlayerByUUID(java.util.UUID)" title="getPlayerByUUID(UUID)">getPlayerByUUID</a>, <a href="../../world/level/EntityGetter.html#hasNearbyAlivePlayer(double,double,double,double)" title="hasNearbyAlivePlayer(double, double, double, double)">hasNearbyAlivePlayer</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.neoforged.neoforge.common.extensions.IBlockGetterExtension">Methods inherited from interface&nbsp;<a href="../../../neoforged/neoforge/common/extensions/IBlockGetterExtension.html#method-summary" title="interface in net.neoforged.neoforge.common.extensions">IBlockGetterExtension</a></h3>
+<code><a href="../../../neoforged/neoforge/common/extensions/IBlockGetterExtension.html#getAuxLightManager(net.minecraft.core.BlockPos)" title="getAuxLightManager(BlockPos)">getAuxLightManager</a>, <a href="../../../neoforged/neoforge/common/extensions/IBlockGetterExtension.html#getAuxLightManager(net.minecraft.world.level.ChunkPos)" title="getAuxLightManager(ChunkPos)">getAuxLightManager</a>, <a href="../../../neoforged/neoforge/common/extensions/IBlockGetterExtension.html#getModelData(net.minecraft.core.BlockPos)" title="getModelData(BlockPos)">getModelData</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.neoforged.neoforge.common.extensions.ILevelReaderExtension">Methods inherited from interface&nbsp;<a href="../../../neoforged/neoforge/common/extensions/ILevelReaderExtension.html#method-summary" title="interface in net.neoforged.neoforge.common.extensions">ILevelReaderExtension</a></h3>
+<code><a href="../../../neoforged/neoforge/common/extensions/ILevelReaderExtension.html#holder(net.minecraft.resources.ResourceKey)" title="holder(ResourceKey)">holder</a>, <a href="../../../neoforged/neoforge/common/extensions/ILevelReaderExtension.html#holderOrThrow(net.minecraft.resources.ResourceKey)" title="holderOrThrow(ResourceKey)">holderOrThrow</a>, <a href="../../../neoforged/neoforge/common/extensions/ILevelReaderExtension.html#isAreaLoaded(net.minecraft.core.BlockPos,int)" title="isAreaLoaded(BlockPos, int)">isAreaLoaded</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.LevelAccessor">Methods inherited from interface&nbsp;<a href="../../world/level/LevelAccessor.html#method-summary" title="interface in net.minecraft.world.level">LevelAccessor</a></h3>
+<code><a href="../../world/level/LevelAccessor.html#createTick(net.minecraft.core.BlockPos,T,int)" title="createTick(BlockPos, T, int)">createTick</a>, <a href="../../world/level/LevelAccessor.html#createTick(net.minecraft.core.BlockPos,T,int,net.minecraft.world.ticks.TickPriority)" title="createTick(BlockPos, T, int, TickPriority)">createTick</a>, <a href="../../world/level/LevelAccessor.html#gameEvent(net.minecraft.core.Holder,net.minecraft.core.BlockPos,net.minecraft.world.level.gameevent.GameEvent.Context)" title="gameEvent(Holder, BlockPos, GameEvent.Context)">gameEvent</a>, <a href="../../world/level/LevelAccessor.html#gameEvent(net.minecraft.resources.ResourceKey,net.minecraft.core.BlockPos,net.minecraft.world.level.gameevent.GameEvent.Context)" title="gameEvent(ResourceKey, BlockPos, GameEvent.Context)">gameEvent</a>, <a href="../../world/level/LevelAccessor.html#gameEvent(net.minecraft.world.entity.Entity,net.minecraft.core.Holder,net.minecraft.core.BlockPos)" title="gameEvent(Entity, Holder, BlockPos)">gameEvent</a>, <a href="../../world/level/LevelAccessor.html#gameEvent(net.minecraft.world.entity.Entity,net.minecraft.core.Holder,net.minecraft.world.phys.Vec3)" title="gameEvent(Entity, Holder, Vec3)">gameEvent</a>, <a href="../../world/level/LevelAccessor.html#getDifficulty()" title="getDifficulty()">getDifficulty</a>, <a href="../../world/level/LevelAccessor.html#getGameTime()" title="getGameTime()">getGameTime</a>, <a href="../../world/level/LevelAccessor.html#levelEvent(int,net.minecraft.core.BlockPos,int)" title="levelEvent(int, BlockPos, int)">levelEvent</a>, <a href="../../world/level/LevelAccessor.html#neighborShapeChanged(net.minecraft.core.Direction,net.minecraft.core.BlockPos,net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,int,int)" title="neighborShapeChanged(Direction, BlockPos, BlockPos, BlockState, int, int)">neighborShapeChanged</a>, <a href="../../world/level/LevelAccessor.html#playSound(net.minecraft.world.entity.Entity,net.minecraft.core.BlockPos,net.minecraft.sounds.SoundEvent,net.minecraft.sounds.SoundSource)" title="playSound(Entity, BlockPos, SoundEvent, SoundSource)">playSound</a>, <a href="../../world/level/LevelAccessor.html#updateNeighborsAt(net.minecraft.core.BlockPos,net.minecraft.world.level.block.Block)" title="updateNeighborsAt(BlockPos, Block)">updateNeighborsAt</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.LevelHeightAccessor">Methods inherited from interface&nbsp;<a href="../../world/level/LevelHeightAccessor.html#method-summary" title="interface in net.minecraft.world.level">LevelHeightAccessor</a></h3>
+<code><a href="../../world/level/LevelHeightAccessor.html#getMaxSectionY()" title="getMaxSectionY()">getMaxSectionY</a>, <a href="../../world/level/LevelHeightAccessor.html#getMaxY()" title="getMaxY()">getMaxY</a>, <a href="../../world/level/LevelHeightAccessor.html#getMinSectionY()" title="getMinSectionY()">getMinSectionY</a>, <a href="../../world/level/LevelHeightAccessor.html#getSectionIndex(int)" title="getSectionIndex(int)">getSectionIndex</a>, <a href="../../world/level/LevelHeightAccessor.html#getSectionIndexFromSectionY(int)" title="getSectionIndexFromSectionY(int)">getSectionIndexFromSectionY</a>, <a href="../../world/level/LevelHeightAccessor.html#getSectionsCount()" title="getSectionsCount()">getSectionsCount</a>, <a href="../../world/level/LevelHeightAccessor.html#getSectionYFromSectionIndex(int)" title="getSectionYFromSectionIndex(int)">getSectionYFromSectionIndex</a>, <a href="../../world/level/LevelHeightAccessor.html#isInsideBuildHeight(int)" title="isInsideBuildHeight(int)">isInsideBuildHeight</a>, <a href="../../world/level/LevelHeightAccessor.html#isInsideBuildHeight(net.minecraft.core.BlockPos)" title="isInsideBuildHeight(BlockPos)">isInsideBuildHeight</a>, <a href="../../world/level/LevelHeightAccessor.html#isOutsideBuildHeight(int)" title="isOutsideBuildHeight(int)">isOutsideBuildHeight</a>, <a href="../../world/level/LevelHeightAccessor.html#isOutsideBuildHeight(net.minecraft.core.BlockPos)" title="isOutsideBuildHeight(BlockPos)">isOutsideBuildHeight</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.LevelReader">Methods inherited from interface&nbsp;<a href="../../world/level/LevelReader.html#method-summary" title="interface in net.minecraft.world.level">LevelReader</a></h3>
+<code><a href="../../world/level/LevelReader.html#canSeeSkyFromBelowWater(net.minecraft.core.BlockPos)" title="canSeeSkyFromBelowWater(BlockPos)">canSeeSkyFromBelowWater</a>, <a href="../../world/level/LevelReader.html#containsAnyLiquid(net.minecraft.world.phys.AABB)" title="containsAnyLiquid(AABB)">containsAnyLiquid</a>, <a href="../../world/level/LevelReader.html#getBiome(net.minecraft.core.BlockPos)" title="getBiome(BlockPos)">getBiome</a>, <a href="../../world/level/LevelReader.html#getBlockStatesIfLoaded(net.minecraft.world.phys.AABB)" title="getBlockStatesIfLoaded(AABB)">getBlockStatesIfLoaded</a>, <a href="../../world/level/LevelReader.html#getChunk(int,int,net.minecraft.world.level.chunk.status.ChunkStatus)" title="getChunk(int, int, ChunkStatus)">getChunk</a>, <a href="../../world/level/LevelReader.html#getChunk(net.minecraft.core.BlockPos)" title="getChunk(BlockPos)">getChunk</a>, <a href="../../world/level/LevelReader.html#getChunkForCollisions(int,int)" title="getChunkForCollisions(int, int)">getChunkForCollisions</a>, <a href="../../world/level/LevelReader.html#getEffectiveSkyBrightness(net.minecraft.core.BlockPos)" title="getEffectiveSkyBrightness(BlockPos)">getEffectiveSkyBrightness</a>, <a href="../../world/level/LevelReader.html#getHeight(net.minecraft.world.level.levelgen.Heightmap.Types,net.minecraft.core.BlockPos)" title="getHeight(Heightmap.Types, BlockPos)">getHeight</a>, <a href="../../world/level/LevelReader.html#getLightLevelDependentMagicValue(net.minecraft.core.BlockPos)" title="getLightLevelDependentMagicValue(BlockPos)">getLightLevelDependentMagicValue</a>, <a href="../../world/level/LevelReader.html#getMaxLocalRawBrightness(net.minecraft.core.BlockPos)" title="getMaxLocalRawBrightness(BlockPos)">getMaxLocalRawBrightness</a>, <a href="../../world/level/LevelReader.html#getMaxLocalRawBrightness(net.minecraft.core.BlockPos,int)" title="getMaxLocalRawBrightness(BlockPos, int)">getMaxLocalRawBrightness</a>, <a href="../../world/level/LevelReader.html#getNoiseBiome(int,int,int)" title="getNoiseBiome(int, int, int)">getNoiseBiome</a>, <a href="../../world/level/LevelReader.html#getPathfindingCostFromLightLevels(net.minecraft.core.BlockPos)" title="getPathfindingCostFromLightLevels(BlockPos)">getPathfindingCostFromLightLevels</a>, <a href="../../world/level/LevelReader.html#hasChunkAt(int,int)" title="hasChunkAt(int, int)">hasChunkAt</a>, <a href="../../world/level/LevelReader.html#hasChunkAt(net.minecraft.core.BlockPos)" title="hasChunkAt(BlockPos)">hasChunkAt</a>, <a href="../../world/level/LevelReader.html#hasChunksAt(int,int,int,int)" title="hasChunksAt(int, int, int, int)">hasChunksAt</a>, <a href="../../world/level/LevelReader.html#hasChunksAt(int,int,int,int,int,int)" title="hasChunksAt(int, int, int, int, int, int)">hasChunksAt</a>, <a href="../../world/level/LevelReader.html#hasChunksAt(net.minecraft.core.BlockPos,net.minecraft.core.BlockPos)" title="hasChunksAt(BlockPos, BlockPos)">hasChunksAt</a>, <a href="../../world/level/LevelReader.html#holderLookup(net.minecraft.resources.ResourceKey)" title="holderLookup(ResourceKey)">holderLookup</a>, <a href="../../world/level/LevelReader.html#isEmptyBlock(net.minecraft.core.BlockPos)" title="isEmptyBlock(BlockPos)">isEmptyBlock</a>, <a href="../../world/level/LevelReader.html#isWaterAt(net.minecraft.core.BlockPos)" title="isWaterAt(BlockPos)">isWaterAt</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.LevelWriter">Methods inherited from interface&nbsp;<a href="../../world/level/LevelWriter.html#method-summary" title="interface in net.minecraft.world.level">LevelWriter</a></h3>
+<code><a href="../../world/level/LevelWriter.html#destroyBlock(net.minecraft.core.BlockPos,boolean)" title="destroyBlock(BlockPos, boolean)">destroyBlock</a>, <a href="../../world/level/LevelWriter.html#destroyBlock(net.minecraft.core.BlockPos,boolean,net.minecraft.world.entity.Entity)" title="destroyBlock(BlockPos, boolean, Entity)">destroyBlock</a>, <a href="../../world/level/LevelWriter.html#setBlock(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,int)" title="setBlock(BlockPos, BlockState, int)">setBlock</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.ScheduledTickAccess">Methods inherited from interface&nbsp;<a href="../../world/level/ScheduledTickAccess.html#method-summary" title="interface in net.minecraft.world.level">ScheduledTickAccess</a></h3>
+<code><a href="../../world/level/ScheduledTickAccess.html#scheduleTick(net.minecraft.core.BlockPos,net.minecraft.world.level.block.Block,int)" title="scheduleTick(BlockPos, Block, int)">scheduleTick</a>, <a href="../../world/level/ScheduledTickAccess.html#scheduleTick(net.minecraft.core.BlockPos,net.minecraft.world.level.block.Block,int,net.minecraft.world.ticks.TickPriority)" title="scheduleTick(BlockPos, Block, int, TickPriority)">scheduleTick</a>, <a href="../../world/level/ScheduledTickAccess.html#scheduleTick(net.minecraft.core.BlockPos,net.minecraft.world.level.material.Fluid,int)" title="scheduleTick(BlockPos, Fluid, int)">scheduleTick</a>, <a href="../../world/level/ScheduledTickAccess.html#scheduleTick(net.minecraft.core.BlockPos,net.minecraft.world.level.material.Fluid,int,net.minecraft.world.ticks.TickPriority)" title="scheduleTick(BlockPos, Fluid, int, TickPriority)">scheduleTick</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.ServerLevelAccessor">Methods inherited from interface&nbsp;<a href="../../world/level/ServerLevelAccessor.html#method-summary" title="interface in net.minecraft.world.level">ServerLevelAccessor</a></h3>
+<code><a href="../../world/level/ServerLevelAccessor.html#addFreshEntityWithPassengers(net.minecraft.world.entity.Entity)" title="addFreshEntityWithPassengers(Entity)">addFreshEntityWithPassengers</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.world.level.SignalGetter">Methods inherited from interface&nbsp;<a href="../../world/level/SignalGetter.html#method-summary" title="interface in net.minecraft.world.level">SignalGetter</a></h3>
+<code><a href="../../world/level/SignalGetter.html#getBestNeighborSignal(net.minecraft.core.BlockPos)" title="getBestNeighborSignal(BlockPos)">getBestNeighborSignal</a>, <a href="../../world/level/SignalGetter.html#getControlInputSignal(net.minecraft.core.BlockPos,net.minecraft.core.Direction,boolean)" title="getControlInputSignal(BlockPos, Direction, boolean)">getControlInputSignal</a>, <a href="../../world/level/SignalGetter.html#getDirectSignal(net.minecraft.core.BlockPos,net.minecraft.core.Direction)" title="getDirectSignal(BlockPos, Direction)">getDirectSignal</a>, <a href="../../world/level/SignalGetter.html#getDirectSignalTo(net.minecraft.core.BlockPos)" title="getDirectSignalTo(BlockPos)">getDirectSignalTo</a>, <a href="../../world/level/SignalGetter.html#getSignal(net.minecraft.core.BlockPos,net.minecraft.core.Direction)" title="getSignal(BlockPos, Direction)">getSignal</a>, <a href="../../world/level/SignalGetter.html#hasNeighborSignal(net.minecraft.core.BlockPos)" title="hasNeighborSignal(BlockPos)">hasNeighborSignal</a>, <a href="../../world/level/SignalGetter.html#hasSignal(net.minecraft.core.BlockPos,net.minecraft.core.Direction)" title="hasSignal(BlockPos, Direction)">hasSignal</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="cache">
+<h3>cache</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../util/StaticCache2D.html" title="class in net.minecraft.util">StaticCache2D</a>&lt;<a href="GenerationChunkHolder.html" title="class in net.minecraft.server.level">GenerationChunkHolder</a>&gt;</span>&nbsp;<span class="element-name">cache</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="center">
+<h3>center</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a></span>&nbsp;<span class="element-name">center</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="level">
+<h3>level</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a></span>&nbsp;<span class="element-name">level</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="seed">
+<h3>seed</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">seed</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="levelData">
+<h3>levelData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/level/storage/LevelData.html" title="interface in net.minecraft.world.level.storage">LevelData</a></span>&nbsp;<span class="element-name">levelData</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="random">
+<h3>random</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a></span>&nbsp;<span class="element-name">random</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dimensionType">
+<h3>dimensionType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/level/dimension/DimensionType.html" title="class in net.minecraft.world.level.dimension">DimensionType</a></span>&nbsp;<span class="element-name">dimensionType</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="blockTicks">
+<h3>blockTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/ticks/WorldGenTickAccess.html" title="class in net.minecraft.world.ticks">WorldGenTickAccess</a>&lt;<a href="../../world/level/block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;</span>&nbsp;<span class="element-name">blockTicks</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fluidTicks">
+<h3>fluidTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/ticks/WorldGenTickAccess.html" title="class in net.minecraft.world.ticks">WorldGenTickAccess</a>&lt;<a href="../../world/level/material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>&gt;</span>&nbsp;<span class="element-name">fluidTicks</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="biomeManager">
+<h3>biomeManager</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/level/biome/BiomeManager.html" title="class in net.minecraft.world.level.biome">BiomeManager</a></span>&nbsp;<span class="element-name">biomeManager</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="generatingStep">
+<h3>generatingStep</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/status/ChunkStep.html" title="class in net.minecraft.world.level.chunk.status">ChunkStep</a></span>&nbsp;<span class="element-name">generatingStep</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="currentlyGenerating">
+<h3>currentlyGenerating</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">currentlyGenerating</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="subTickCount">
+<h3>subTickCount</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/atomic/AtomicLong.html" title="class or interface in java.util.concurrent.atomic" class="external-link">AtomicLong</a></span>&nbsp;<span class="element-name">subTickCount</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="WORLDGEN_REGION_RANDOM">
+<h3>WORLDGEN_REGION_RANDOM</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a></span>&nbsp;<span class="element-name">WORLDGEN_REGION_RANDOM</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.server.level.ServerLevel,net.minecraft.util.StaticCache2D,net.minecraft.world.level.chunk.status.ChunkStep,net.minecraft.world.level.chunk.ChunkAccess)">
+<h3>WorldGenRegion</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">WorldGenRegion</span><wbr><span class="parameters">(<a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a>&nbsp;level,
+ <a href="../../util/StaticCache2D.html" title="class in net.minecraft.util">StaticCache2D</a>&lt;<a href="GenerationChunkHolder.html" title="class in net.minecraft.server.level">GenerationChunkHolder</a>&gt;&nbsp;cache,
+ <a href="../../world/level/chunk/status/ChunkStep.html" title="class in net.minecraft.world.level.chunk.status">ChunkStep</a>&nbsp;generatingStep,
+ <a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a>&nbsp;center)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="isOldChunkAround(net.minecraft.world.level.ChunkPos,int)">
+<h3>isOldChunkAround</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isOldChunkAround</span><wbr><span class="parameters">(<a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a>&nbsp;pos,
+ int&nbsp;range)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCenter()">
+<h3>getCenter</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/ChunkPos.html" title="class in net.minecraft.world.level">ChunkPos</a></span>&nbsp;<span class="element-name">getCenter</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setCurrentlyGenerating(java.util.function.Supplier)">
+<h3>setCurrentlyGenerating</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setCurrentlyGenerating</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;currentlyGenerating)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/WorldGenLevel.html#setCurrentlyGenerating(java.util.function.Supplier)">setCurrentlyGenerating</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/WorldGenLevel.html" title="interface in net.minecraft.world.level">WorldGenLevel</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getChunk(int,int)">
+<h3>getChunk</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a></span>&nbsp;<span class="element-name">getChunk</span><wbr><span class="parameters">(int&nbsp;chunkX,
+ int&nbsp;chunkZ)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#getChunk(int,int)">getChunk</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getChunk(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)">
+<h3>getChunk</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="../../world/level/chunk/ChunkAccess.html" title="class in net.minecraft.world.level.chunk">ChunkAccess</a></span>&nbsp;<span class="element-name">getChunk</span><wbr><span class="parameters">(int&nbsp;chunkX,
+ int&nbsp;chunkZ,
+ <a href="../../world/level/chunk/status/ChunkStatus.html" title="class in net.minecraft.world.level.chunk.status">ChunkStatus</a>&nbsp;targetStatus,
+ boolean&nbsp;loadOrGenerate)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#getChunk(int,int,net.minecraft.world.level.chunk.status.ChunkStatus,boolean)">getChunk</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hasChunk(int,int)">
+<h3>hasChunk</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasChunk</span><wbr><span class="parameters">(int&nbsp;chunkX,
+ int&nbsp;chunkZ)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#hasChunk(int,int)">hasChunk</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#hasChunk(int,int)">hasChunk</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBlockState(net.minecraft.core.BlockPos)">
+<h3>getBlockState</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a></span>&nbsp;<span class="element-name">getBlockState</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/BlockGetter.html#getBlockState(net.minecraft.core.BlockPos)">getBlockState</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getFluidState(net.minecraft.core.BlockPos)">
+<h3>getFluidState</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/material/FluidState.html" title="class in net.minecraft.world.level.material">FluidState</a></span>&nbsp;<span class="element-name">getFluidState</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/BlockGetter.html#getFluidState(net.minecraft.core.BlockPos)">getFluidState</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getNearestPlayer(double,double,double,double,java.util.function.Predicate)">
+<h3>getNearestPlayer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a></span>&nbsp;<span class="element-name">getNearestPlayer</span><wbr><span class="parameters">(double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;maxDist,
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&nbsp;predicate)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/EntityGetter.html#getNearestPlayer(double,double,double,double,java.util.function.Predicate)">getNearestPlayer</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/EntityGetter.html" title="interface in net.minecraft.world.level">EntityGetter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSkyDarken()">
+<h3>getSkyDarken</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSkyDarken</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#getSkyDarken()">getSkyDarken</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBiomeManager()">
+<h3>getBiomeManager</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/biome/BiomeManager.html" title="class in net.minecraft.world.level.biome">BiomeManager</a></span>&nbsp;<span class="element-name">getBiomeManager</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#getBiomeManager()">getBiomeManager</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getUncachedNoiseBiome(int,int,int)">
+<h3>getUncachedNoiseBiome</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/level/biome/Biome.html" title="class in net.minecraft.world.level.biome">Biome</a>&gt;</span>&nbsp;<span class="element-name">getUncachedNoiseBiome</span><wbr><span class="parameters">(int&nbsp;quartX,
+ int&nbsp;quartY,
+ int&nbsp;quartZ)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#getUncachedNoiseBiome(int,int,int)">getUncachedNoiseBiome</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLightEngine()">
+<h3>getLightEngine</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/lighting/LevelLightEngine.html" title="class in net.minecraft.world.level.lighting">LevelLightEngine</a></span>&nbsp;<span class="element-name">getLightEngine</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/BlockAndLightGetter.html#getLightEngine()">getLightEngine</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/BlockAndLightGetter.html" title="interface in net.minecraft.world.level">BlockAndLightGetter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="destroyBlock(net.minecraft.core.BlockPos,boolean,net.minecraft.world.entity.Entity,int)">
+<h3>destroyBlock</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">destroyBlock</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ boolean&nbsp;dropResources,
+ @Nullable <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;breaker,
+ int&nbsp;updateLimit)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelWriter.html#destroyBlock(net.minecraft.core.BlockPos,boolean,net.minecraft.world.entity.Entity,int)">destroyBlock</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelWriter.html" title="interface in net.minecraft.world.level">LevelWriter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBlockEntity(net.minecraft.core.BlockPos)">
+<h3>getBlockEntity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="../../world/level/block/entity/BlockEntity.html" title="class in net.minecraft.world.level.block.entity">BlockEntity</a></span>&nbsp;<span class="element-name">getBlockEntity</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/BlockGetter.html#getBlockEntity(net.minecraft.core.BlockPos)">getBlockEntity</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/BlockGetter.html" title="interface in net.minecraft.world.level">BlockGetter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ensureCanWrite(net.minecraft.core.BlockPos)">
+<h3>ensureCanWrite</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">ensureCanWrite</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/WorldGenLevel.html#ensureCanWrite(net.minecraft.core.BlockPos)">ensureCanWrite</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/WorldGenLevel.html" title="interface in net.minecraft.world.level">WorldGenLevel</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setBlock(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,int,int)">
+<h3>setBlock</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">setBlock</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&nbsp;blockState,
+ int&nbsp;updateFlags,
+ int&nbsp;updateLimit)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelWriter.html#setBlock(net.minecraft.core.BlockPos,net.minecraft.world.level.block.state.BlockState,int,int)">setBlock</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelWriter.html" title="interface in net.minecraft.world.level">LevelWriter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="markPosForPostprocessing(net.minecraft.core.BlockPos)">
+<h3>markPosForPostprocessing</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">markPosForPostprocessing</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;blockPos)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addFreshEntity(net.minecraft.world.entity.Entity)">
+<h3>addFreshEntity</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">addFreshEntity</span><wbr><span class="parameters">(<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;entity)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelWriter.html#addFreshEntity(net.minecraft.world.entity.Entity)">addFreshEntity</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelWriter.html" title="interface in net.minecraft.world.level">LevelWriter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="removeBlock(net.minecraft.core.BlockPos,boolean)">
+<h3>removeBlock</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">removeBlock</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ boolean&nbsp;movedByPiston)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelWriter.html#removeBlock(net.minecraft.core.BlockPos,boolean)">removeBlock</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelWriter.html" title="interface in net.minecraft.world.level">LevelWriter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getWorldBorder()">
+<h3>getWorldBorder</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/border/WorldBorder.html" title="class in net.minecraft.world.level.border">WorldBorder</a></span>&nbsp;<span class="element-name">getWorldBorder</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/CollisionGetter.html#getWorldBorder()">getWorldBorder</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/CollisionGetter.html" title="interface in net.minecraft.world.level">CollisionGetter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isClientSide()">
+<h3>isClientSide</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isClientSide</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#isClientSide()">isClientSide</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLevel()">
+<h3>getLevel</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ServerLevel.html" title="class in net.minecraft.server.level">ServerLevel</a></span>&nbsp;<span class="element-name">getLevel</span>()</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated.</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/ServerLevelAccessor.html#getLevel()">getLevel</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="registryAccess()">
+<h3>registryAccess</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../core/RegistryAccess.html" title="interface in net.minecraft.core">RegistryAccess</a></span>&nbsp;<span class="element-name">registryAccess</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#registryAccess()">registryAccess</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="enabledFeatures()">
+<h3>enabledFeatures</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a></span>&nbsp;<span class="element-name">enabledFeatures</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#enabledFeatures()">enabledFeatures</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLevelData()">
+<h3>getLevelData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/storage/LevelData.html" title="interface in net.minecraft.world.level.storage">LevelData</a></span>&nbsp;<span class="element-name">getLevelData</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#getLevelData()">getLevelData</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getCurrentDifficultyAt(net.minecraft.core.BlockPos)">
+<h3>getCurrentDifficultyAt</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/DifficultyInstance.html" title="class in net.minecraft.world">DifficultyInstance</a></span>&nbsp;<span class="element-name">getCurrentDifficultyAt</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/ServerLevelAccessor.html#getCurrentDifficultyAt(net.minecraft.core.BlockPos)">getCurrentDifficultyAt</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/ServerLevelAccessor.html" title="interface in net.minecraft.world.level">ServerLevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getServer()">
+<h3>getServer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="../MinecraftServer.html" title="class in net.minecraft.server">MinecraftServer</a></span>&nbsp;<span class="element-name">getServer</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#getServer()">getServer</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getChunkSource()">
+<h3>getChunkSource</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/chunk/ChunkSource.html" title="class in net.minecraft.world.level.chunk">ChunkSource</a></span>&nbsp;<span class="element-name">getChunkSource</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#getChunkSource()">getChunkSource</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSeed()">
+<h3>getSeed</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">getSeed</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/WorldGenLevel.html#getSeed()">getSeed</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/WorldGenLevel.html" title="interface in net.minecraft.world.level">WorldGenLevel</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBlockTicks()">
+<h3>getBlockTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/ticks/LevelTickAccess.html" title="interface in net.minecraft.world.ticks">LevelTickAccess</a>&lt;<a href="../../world/level/block/Block.html" title="class in net.minecraft.world.level.block">Block</a>&gt;</span>&nbsp;<span class="element-name">getBlockTicks</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/ScheduledTickAccess.html#getBlockTicks()">getBlockTicks</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/ScheduledTickAccess.html" title="interface in net.minecraft.world.level">ScheduledTickAccess</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getFluidTicks()">
+<h3>getFluidTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/ticks/LevelTickAccess.html" title="interface in net.minecraft.world.ticks">LevelTickAccess</a>&lt;<a href="../../world/level/material/Fluid.html" title="class in net.minecraft.world.level.material">Fluid</a>&gt;</span>&nbsp;<span class="element-name">getFluidTicks</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/ScheduledTickAccess.html#getFluidTicks()">getFluidTicks</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/ScheduledTickAccess.html" title="interface in net.minecraft.world.level">ScheduledTickAccess</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getSeaLevel()">
+<h3>getSeaLevel</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getSeaLevel</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#getSeaLevel()">getSeaLevel</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getRandom()">
+<h3>getRandom</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../util/RandomSource.html" title="interface in net.minecraft.util">RandomSource</a></span>&nbsp;<span class="element-name">getRandom</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#getRandom()">getRandom</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getHeight(net.minecraft.world.level.levelgen.Heightmap.Types,int,int)">
+<h3>getHeight</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getHeight</span><wbr><span class="parameters">(<a href="../../world/level/levelgen/Heightmap.Types.html" title="enum class in net.minecraft.world.level.levelgen">Heightmap.Types</a>&nbsp;type,
+ int&nbsp;x,
+ int&nbsp;z)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#getHeight(net.minecraft.world.level.levelgen.Heightmap.Types,int,int)">getHeight</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="playSound(net.minecraft.world.entity.Entity,net.minecraft.core.BlockPos,net.minecraft.sounds.SoundEvent,net.minecraft.sounds.SoundSource,float,float)">
+<h3>playSound</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">playSound</span><wbr><span class="parameters">(@Nullable <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;except,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="../../sounds/SoundEvent.html" title="class in net.minecraft.sounds">SoundEvent</a>&nbsp;sound,
+ <a href="../../sounds/SoundSource.html" title="enum class in net.minecraft.sounds">SoundSource</a>&nbsp;source,
+ float&nbsp;volume,
+ float&nbsp;pitch)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#playSound(net.minecraft.world.entity.Entity,net.minecraft.core.BlockPos,net.minecraft.sounds.SoundEvent,net.minecraft.sounds.SoundSource,float,float)">playSound</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addParticle(net.minecraft.core.particles.ParticleOptions,double,double,double,double,double,double)">
+<h3>addParticle</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">addParticle</span><wbr><span class="parameters">(<a href="../../core/particles/ParticleOptions.html" title="interface in net.minecraft.core.particles">ParticleOptions</a>&nbsp;particle,
+ double&nbsp;x,
+ double&nbsp;y,
+ double&nbsp;z,
+ double&nbsp;xd,
+ double&nbsp;yd,
+ double&nbsp;zd)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#addParticle(net.minecraft.core.particles.ParticleOptions,double,double,double,double,double,double)">addParticle</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="levelEvent(net.minecraft.world.entity.Entity,int,net.minecraft.core.BlockPos,int)">
+<h3>levelEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">levelEvent</span><wbr><span class="parameters">(@Nullable <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;source,
+ int&nbsp;type,
+ <a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ int&nbsp;data)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#levelEvent(net.minecraft.world.entity.Entity,int,net.minecraft.core.BlockPos,int)">levelEvent</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="gameEvent(net.minecraft.core.Holder,net.minecraft.world.phys.Vec3,net.minecraft.world.level.gameevent.GameEvent.Context)">
+<h3>gameEvent</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">gameEvent</span><wbr><span class="parameters">(<a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/level/gameevent/GameEvent.html" title="class in net.minecraft.world.level.gameevent">GameEvent</a>&gt;&nbsp;gameEvent,
+ <a href="../../world/phys/Vec3.html" title="class in net.minecraft.world.phys">Vec3</a>&nbsp;position,
+ <a href="../../world/level/gameevent/GameEvent.Context.html" title="class in net.minecraft.world.level.gameevent">GameEvent.Context</a>&nbsp;context)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#gameEvent(net.minecraft.core.Holder,net.minecraft.world.phys.Vec3,net.minecraft.world.level.gameevent.GameEvent.Context)">gameEvent</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dimensionType()">
+<h3>dimensionType</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/level/dimension/DimensionType.html" title="class in net.minecraft.world.level.dimension">DimensionType</a></span>&nbsp;<span class="element-name">dimensionType</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#dimensionType()">dimensionType</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isStateAtPosition(net.minecraft.core.BlockPos,java.util.function.Predicate)">
+<h3>isStateAtPosition</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isStateAtPosition</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../world/level/block/state/BlockState.html" title="class in net.minecraft.world.level.block.state">BlockState</a>&gt;&nbsp;predicate)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelSimulatedReader.html#isStateAtPosition(net.minecraft.core.BlockPos,java.util.function.Predicate)">isStateAtPosition</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelSimulatedReader.html" title="interface in net.minecraft.world.level">LevelSimulatedReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isFluidAtPosition(net.minecraft.core.BlockPos,java.util.function.Predicate)">
+<h3>isFluidAtPosition</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isFluidAtPosition</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="../../world/level/material/FluidState.html" title="class in net.minecraft.world.level.material">FluidState</a>&gt;&nbsp;predicate)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelSimulatedReader.html#isFluidAtPosition(net.minecraft.core.BlockPos,java.util.function.Predicate)">isFluidAtPosition</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelSimulatedReader.html" title="interface in net.minecraft.world.level">LevelSimulatedReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getEntities(net.minecraft.world.level.entity.EntityTypeTest,net.minecraft.world.phys.AABB,java.util.function.Predicate)">
+<h3>getEntities</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;T&gt;</span>&nbsp;<span class="element-name">getEntities</span><wbr><span class="parameters">(<a href="../../world/level/entity/EntityTypeTest.html" title="interface in net.minecraft.world.level.entity">EntityTypeTest</a>&lt;<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>,<wbr>T&gt;&nbsp;type,
+ <a href="../../world/phys/AABB.html" title="class in net.minecraft.world.phys">AABB</a>&nbsp;bb,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;? super T&gt;&nbsp;selector)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/EntityGetter.html#getEntities(net.minecraft.world.level.entity.EntityTypeTest,net.minecraft.world.phys.AABB,java.util.function.Predicate)">getEntities</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/EntityGetter.html" title="interface in net.minecraft.world.level">EntityGetter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getEntities(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB,java.util.function.Predicate)">
+<h3>getEntities</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;</span>&nbsp;<span class="element-name">getEntities</span><wbr><span class="parameters">(@Nullable <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&nbsp;except,
+ <a href="../../world/phys/AABB.html" title="class in net.minecraft.world.phys">AABB</a>&nbsp;bb,
+ @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;? super <a href="../../world/entity/Entity.html" title="class in net.minecraft.world.entity">Entity</a>&gt;&nbsp;selector)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/EntityGetter.html#getEntities(net.minecraft.world.entity.Entity,net.minecraft.world.phys.AABB,java.util.function.Predicate)">getEntities</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/EntityGetter.html" title="interface in net.minecraft.world.level">EntityGetter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="players()">
+<h3>players</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="../../world/entity/player/Player.html" title="class in net.minecraft.world.entity.player">Player</a>&gt;</span>&nbsp;<span class="element-name">players</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/EntityGetter.html#players()">players</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/EntityGetter.html" title="interface in net.minecraft.world.level">EntityGetter</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getMinY()">
+<h3>getMinY</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getMinY</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelHeightAccessor.html#getMinY()">getMinY</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelHeightAccessor.html" title="interface in net.minecraft.world.level">LevelHeightAccessor</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#getMinY()">getMinY</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getHeight()">
+<h3>getHeight</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getHeight</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelHeightAccessor.html#getHeight()">getHeight</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelHeightAccessor.html" title="interface in net.minecraft.world.level">LevelHeightAccessor</a></code></dd>
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#getHeight()">getHeight</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="nextSubTickCount()">
+<h3>nextSubTickCount</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">nextSubTickCount</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelAccessor.html#nextSubTickCount()">nextSubTickCount</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelAccessor.html" title="interface in net.minecraft.world.level">LevelAccessor</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="environmentAttributes()">
+<h3>environmentAttributes</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../../world/attribute/EnvironmentAttributeReader.html" title="interface in net.minecraft.world.attribute">EnvironmentAttributeReader</a></span>&nbsp;<span class="element-name">environmentAttributes</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../world/level/LevelReader.html#environmentAttributes()">environmentAttributes</a></code>&nbsp;in interface&nbsp;<code><a href="../../world/level/LevelReader.html" title="interface in net.minecraft.world.level">LevelReader</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

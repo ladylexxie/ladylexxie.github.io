@@ -1,0 +1,392 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>LevelChunkTicks (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.world.ticks, class: LevelChunkTicks">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/LevelChunkTicks.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.world.ticks</a></li>
+<li><a href="LevelChunkTicks.html" class="current-selection">LevelChunkTicks</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#tickQueue" tabindex="0">tickQueue</a></li>
+<li><a href="#pendingTicks" tabindex="0">pendingTicks</a></li>
+<li><a href="#ticksPerPosition" tabindex="0">ticksPerPosition</a></li>
+<li><a href="#onTickAdded" tabindex="0">onTickAdded</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">LevelChunkTicks()</a></li>
+<li><a href="#%3Cinit%3E(java.util.List)" tabindex="0">LevelChunkTicks(List)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#setOnTickAdded(java.util.function.BiConsumer)" tabindex="0">setOnTickAdded(BiConsumer)</a></li>
+<li><a href="#peek()" tabindex="0">peek()</a></li>
+<li><a href="#poll()" tabindex="0">poll()</a></li>
+<li><a href="#schedule(net.minecraft.world.ticks.ScheduledTick)" tabindex="0">schedule(ScheduledTick)</a></li>
+<li><a href="#scheduleUnchecked(net.minecraft.world.ticks.ScheduledTick)" tabindex="0">scheduleUnchecked(ScheduledTick)</a></li>
+<li><a href="#hasScheduledTick(net.minecraft.core.BlockPos,T)" tabindex="0">hasScheduledTick(BlockPos, T)</a></li>
+<li><a href="#removeIf(java.util.function.Predicate)" tabindex="0">removeIf(Predicate)</a></li>
+<li><a href="#getAll()" tabindex="0">getAll()</a></li>
+<li><a href="#count()" tabindex="0">count()</a></li>
+<li><a href="#pack(long)" tabindex="0">pack(long)</a></li>
+<li><a href="#unpack(long)" tabindex="0">unpack(long)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class LevelChunkTicks" class="title">Class LevelChunkTicks&lt;<span id="type-param-T">T</span>&gt;</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.world.ticks.LevelChunkTicks&lt;T&gt;</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="SerializableTickContainer.html" title="interface in net.minecraft.world.ticks">SerializableTickContainer</a>&lt;T&gt;, <a href="TickAccess.html" title="interface in net.minecraft.world.ticks">TickAccess</a>&lt;T&gt;, <a href="TickContainerAccess.html" title="interface in net.minecraft.world.ticks">TickContainerAccess</a>&lt;T&gt;</code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">LevelChunkTicks&lt;T&gt;</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a>
+implements <a href="TickContainerAccess.html" title="interface in net.minecraft.world.ticks">TickContainerAccess</a>&lt;T&gt;, <a href="SerializableTickContainer.html" title="interface in net.minecraft.world.ticks">SerializableTickContainer</a>&lt;T&gt;</span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a><wbr>&lt;<a href="LevelChunkTicks.html" title="class in net.minecraft.world.ticks">LevelChunkTicks</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;, <a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#onTickAdded" class="member-name-link">onTickAdded</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="SavedTick.html" title="class in net.minecraft.world.ticks">SavedTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#pendingTicks" class="member-name-link">pendingTicks</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Queue.html" title="class or interface in java.util" class="external-link">Queue</a><wbr>&lt;<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#tickQueue" class="member-name-link">tickQueue</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a><wbr>&lt;<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;?&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#ticksPerPosition" class="member-name-link">ticksPerPosition</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">LevelChunkTicks</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-constructor-name odd-row-color"><code><a href="#%3Cinit%3E(java.util.List)" class="member-name-link">LevelChunkTicks</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SavedTick.html" title="class in net.minecraft.world.ticks">SavedTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;&nbsp;pendingTicks)</code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#count()" class="member-name-link">count</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a><wbr>&lt;<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getAll()" class="member-name-link">getAll</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#hasScheduledTick(net.minecraft.core.BlockPos,T)" class="member-name-link">hasScheduledTick</a><wbr>(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&nbsp;type)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="SavedTick.html" title="class in net.minecraft.world.ticks">SavedTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#pack(long)" class="member-name-link">pack</a><wbr>(long&nbsp;currentTick)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a><wbr>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#peek()" class="member-name-link">peek</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a><wbr>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#poll()" class="member-name-link">poll</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#removeIf(java.util.function.Predicate)" class="member-name-link">removeIf</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;&nbsp;test)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#schedule(net.minecraft.world.ticks.ScheduledTick)" class="member-name-link">schedule</a><wbr>(<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&nbsp;tick)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#scheduleUnchecked(net.minecraft.world.ticks.ScheduledTick)" class="member-name-link">scheduleUnchecked</a><wbr>(<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&nbsp;tick)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setOnTickAdded(java.util.function.BiConsumer)" class="member-name-link">setOnTickAdded</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="LevelChunkTicks.html" title="class in net.minecraft.world.ticks">LevelChunkTicks</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;, <a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;&nbsp;onTickAdded)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#unpack(long)" class="member-name-link">unpack</a><wbr>(long&nbsp;currentTick)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="tickQueue">
+<h3>tickQueue</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Queue.html" title="class or interface in java.util" class="external-link">Queue</a>&lt;<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">tickQueue</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pendingTicks">
+<h3>pendingTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SavedTick.html" title="class in net.minecraft.world.ticks">SavedTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">pendingTicks</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ticksPerPosition">
+<h3>ticksPerPosition</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;?&gt;&gt;</span>&nbsp;<span class="element-name">ticksPerPosition</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="onTickAdded">
+<h3>onTickAdded</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="LevelChunkTicks.html" title="class in net.minecraft.world.ticks">LevelChunkTicks</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;, <a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">onTickAdded</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>LevelChunkTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LevelChunkTicks</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="&lt;init&gt;(java.util.List)">
+<h3>LevelChunkTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LevelChunkTicks</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SavedTick.html" title="class in net.minecraft.world.ticks">SavedTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;&nbsp;pendingTicks)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="setOnTickAdded(java.util.function.BiConsumer)">
+<h3>setOnTickAdded</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setOnTickAdded</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/BiConsumer.html" title="class or interface in java.util.function" class="external-link">BiConsumer</a>&lt;<a href="LevelChunkTicks.html" title="class in net.minecraft.world.ticks">LevelChunkTicks</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;, <a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;&nbsp;onTickAdded)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="peek()">
+<h3>peek</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;</span>&nbsp;<span class="element-name">peek</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="poll()">
+<h3>poll</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;</span>&nbsp;<span class="element-name">poll</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="schedule(net.minecraft.world.ticks.ScheduledTick)">
+<h3>schedule</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">schedule</span><wbr><span class="parameters">(<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&nbsp;tick)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="TickAccess.html#schedule(net.minecraft.world.ticks.ScheduledTick)">schedule</a></code>&nbsp;in interface&nbsp;<code><a href="TickAccess.html" title="interface in net.minecraft.world.ticks">TickAccess</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="scheduleUnchecked(net.minecraft.world.ticks.ScheduledTick)">
+<h3>scheduleUnchecked</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">scheduleUnchecked</span><wbr><span class="parameters">(<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&nbsp;tick)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hasScheduledTick(net.minecraft.core.BlockPos,T)">
+<h3 id="hasScheduledTick(net.minecraft.core.BlockPos,java.lang.Object)">hasScheduledTick</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">hasScheduledTick</span><wbr><span class="parameters">(<a href="../../core/BlockPos.html" title="class in net.minecraft.core">BlockPos</a>&nbsp;pos,
+ <a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&nbsp;type)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="TickAccess.html#hasScheduledTick(net.minecraft.core.BlockPos,T)">hasScheduledTick</a></code>&nbsp;in interface&nbsp;<code><a href="TickAccess.html" title="interface in net.minecraft.world.ticks">TickAccess</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="removeIf(java.util.function.Predicate)">
+<h3>removeIf</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">removeIf</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;&nbsp;test)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getAll()">
+<h3>getAll</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/stream/Stream.html" title="class or interface in java.util.stream" class="external-link">Stream</a>&lt;<a href="ScheduledTick.html" title="class in net.minecraft.world.ticks">ScheduledTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">getAll</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="count()">
+<h3>count</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">count</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="TickAccess.html#count()">count</a></code>&nbsp;in interface&nbsp;<code><a href="TickAccess.html" title="interface in net.minecraft.world.ticks">TickAccess</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="pack(long)">
+<h3>pack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="SavedTick.html" title="class in net.minecraft.world.ticks">SavedTick</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;&gt;</span>&nbsp;<span class="element-name">pack</span><wbr><span class="parameters">(long&nbsp;currentTick)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="SerializableTickContainer.html#pack(long)">pack</a></code>&nbsp;in interface&nbsp;<code><a href="SerializableTickContainer.html" title="interface in net.minecraft.world.ticks">SerializableTickContainer</a>&lt;<a href="#type-param-T" title="type parameter in LevelChunkTicks">T</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="unpack(long)">
+<h3>unpack</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">unpack</span><wbr><span class="parameters">(long&nbsp;currentTick)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

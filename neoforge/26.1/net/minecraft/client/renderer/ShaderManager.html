@@ -1,0 +1,542 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ShaderManager (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.client.renderer, class: ShaderManager">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/ShaderManager.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.client.renderer</a></li>
+<li><a href="ShaderManager.html" class="current-selection">ShaderManager</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#MAX_LOG_LENGTH" tabindex="0">MAX_LOG_LENGTH</a></li>
+<li><a href="#SHADER_PATH" tabindex="0">SHADER_PATH</a></li>
+<li><a href="#SHADER_INCLUDE_PATH" tabindex="0">SHADER_INCLUDE_PATH</a></li>
+<li><a href="#POST_CHAIN_ID_CONVERTER" tabindex="0">POST_CHAIN_ID_CONVERTER</a></li>
+<li><a href="#textureManager" tabindex="0">textureManager</a></li>
+<li><a href="#recoveryHandler" tabindex="0">recoveryHandler</a></li>
+<li><a href="#compilationCache" tabindex="0">compilationCache</a></li>
+<li><a href="#postChainProjection" tabindex="0">postChainProjection</a></li>
+<li><a href="#postChainProjectionMatrixBuffer" tabindex="0">postChainProjectionMatrixBuffer</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.client.renderer.texture.TextureManager,java.util.function.Consumer)" tabindex="0">ShaderManager(TextureManager, Consumer)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#prepare(net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)" tabindex="0">prepare(ResourceManager, ProfilerFiller)</a></li>
+<li><a href="#loadShader(net.minecraft.resources.Identifier,net.minecraft.server.packs.resources.Resource,com.mojang.blaze3d.shaders.ShaderType,java.util.Map,com.google.common.collect.ImmutableMap.Builder)" tabindex="0">loadShader(Identifier, Resource, ShaderType, Map, ImmutableMap.Builder)</a></li>
+<li><a href="#createPreprocessor(java.util.Map,net.minecraft.resources.Identifier)" tabindex="0">createPreprocessor(Map, Identifier)</a></li>
+<li><a href="#loadPostChain(net.minecraft.resources.Identifier,net.minecraft.server.packs.resources.Resource,com.google.common.collect.ImmutableMap.Builder)" tabindex="0">loadPostChain(Identifier, Resource, ImmutableMap.Builder)</a></li>
+<li><a href="#isShader(net.minecraft.resources.Identifier)" tabindex="0">isShader(Identifier)</a></li>
+<li><a href="#apply(net.minecraft.client.renderer.ShaderManager.Configs,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)" tabindex="0">apply(ShaderManager.Configs, ResourceManager, ProfilerFiller)</a></li>
+<li><a href="#getName()" tabindex="0">getName()</a></li>
+<li><a href="#tryTriggerRecovery(java.lang.Exception)" tabindex="0">tryTriggerRecovery(Exception)</a></li>
+<li><a href="#getPostChain(net.minecraft.resources.Identifier,java.util.Set)" tabindex="0">getPostChain(Identifier, Set)</a></li>
+<li><a href="#close()" tabindex="0">close()</a></li>
+<li><a href="#getShader(net.minecraft.resources.Identifier,com.mojang.blaze3d.shaders.ShaderType)" tabindex="0">getShader(Identifier, ShaderType)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class ShaderManager" class="title">Class ShaderManager</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance"><a href="../../../neoforged/neoforge/resource/ContextAwareReloadListener.html" title="class in net.neoforged.neoforge.resource">net.neoforged.neoforge.resource.ContextAwareReloadListener</a>
+<div class="inheritance"><a href="../../server/packs/resources/SimplePreparableReloadListener.html" title="class in net.minecraft.server.packs.resources">net.minecraft.server.packs.resources.SimplePreparableReloadListener</a>&lt;<a href="ShaderManager.Configs.html" title="class in net.minecraft.client.renderer">ShaderManager.Configs</a>&gt;
+<div class="inheritance">net.minecraft.client.renderer.ShaderManager</div>
+</div>
+</div>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Implemented Interfaces:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a>, <a href="../../server/packs/resources/PreparableReloadListener.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ShaderManager</span>
+<span class="extends-implements">extends <a href="../../server/packs/resources/SimplePreparableReloadListener.html" title="class in net.minecraft.server.packs.resources">SimplePreparableReloadListener</a>&lt;<a href="ShaderManager.Configs.html" title="class in net.minecraft.client.renderer">ShaderManager.Configs</a>&gt;
+implements <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="ShaderManager.CompilationCache.html" class="type-name-link" title="class in net.minecraft.client.renderer">ShaderManager.CompilationCache</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="ShaderManager.CompilationException.html" class="type-name-link" title="class in net.minecraft.client.renderer">ShaderManager.CompilationException</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="ShaderManager.Configs.html" class="type-name-link" title="class in net.minecraft.client.renderer">ShaderManager.Configs</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final record&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="ShaderManager.ShaderSourceKey.html" class="type-name-link" title="class in net.minecraft.client.renderer">ShaderManager.ShaderSourceKey</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+<div class="inherited-list">
+<h3 id="nested-classes-inherited-from-class-net.minecraft.server.packs.resources.PreparableReloadListener">Nested classes/interfaces inherited from interface&nbsp;<a href="../../server/packs/resources/PreparableReloadListener.html#nested-class-summary" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a></h3>
+<code><a href="../../server/packs/resources/PreparableReloadListener.PreparationBarrier.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener.PreparationBarrier</a>, <a href="../../server/packs/resources/PreparableReloadListener.SharedState.html" title="class in net.minecraft.server.packs.resources">PreparableReloadListener.SharedState</a>, <a href="../../server/packs/resources/PreparableReloadListener.StateKey.html" title="class in net.minecraft.server.packs.resources">PreparableReloadListener.StateKey</a>&lt;T&gt;</code></div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private <a href="ShaderManager.CompilationCache.html" title="class in net.minecraft.client.renderer">ShaderManager.CompilationCache</a></code></div>
+<div class="col-second even-row-color"><code><a href="#compilationCache" class="member-name-link">compilationCache</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second odd-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final int</code></div>
+<div class="col-second even-row-color"><code><a href="#MAX_LOG_LENGTH" class="member-name-link">MAX_LOG_LENGTH</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="../../resources/FileToIdConverter.html" title="class in net.minecraft.resources">FileToIdConverter</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#POST_CHAIN_ID_CONVERTER" class="member-name-link">POST_CHAIN_ID_CONVERTER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="Projection.html" title="class in net.minecraft.client.renderer">Projection</a></code></div>
+<div class="col-second even-row-color"><code><a href="#postChainProjection" class="member-name-link">postChainProjection</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="ProjectionMatrixBuffer.html" title="class in net.minecraft.client.renderer">ProjectionMatrixBuffer</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#postChainProjectionMatrixBuffer" class="member-name-link">postChainProjectionMatrixBuffer</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#recoveryHandler" class="member-name-link">recoveryHandler</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#SHADER_INCLUDE_PATH" class="member-name-link">SHADER_INCLUDE_PATH</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#SHADER_PATH" class="member-name-link">SHADER_PATH</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="texture/TextureManager.html" title="class in net.minecraft.client.renderer.texture">TextureManager</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#textureManager" class="member-name-link">textureManager</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.client.renderer.texture.TextureManager,java.util.function.Consumer)" class="member-name-link">ShaderManager</a><wbr>(<a href="texture/TextureManager.html" title="class in net.minecraft.client.renderer.texture">TextureManager</a>&nbsp;textureManager,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;recoveryHandler)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#apply(net.minecraft.client.renderer.ShaderManager.Configs,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)" class="member-name-link">apply</a><wbr>(<a href="ShaderManager.Configs.html" title="class in net.minecraft.client.renderer">ShaderManager.Configs</a>&nbsp;preparations,
+ <a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;manager,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../../../com/mojang/blaze3d/preprocessor/GlslPreprocessor.html" title="class in com.mojang.blaze3d.preprocessor">GlslPreprocessor</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createPreprocessor(java.util.Map,net.minecraft.resources.Identifier)" class="member-name-link">createPreprocessor</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="../../server/packs/resources/Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;&nbsp;files,
+ <a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="PostChain.html" title="class in net.minecraft.client.renderer">PostChain</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getPostChain(net.minecraft.resources.Identifier,java.util.Set)" class="member-name-link">getPostChain</a><wbr>(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;id,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&gt;&nbsp;allowedTargets)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getShader(net.minecraft.resources.Identifier,com.mojang.blaze3d.shaders.ShaderType)" class="member-name-link">getShader</a><wbr>(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;id,
+ <a href="../../../../com/mojang/blaze3d/shaders/ShaderType.html" title="enum class in com.mojang.blaze3d.shaders">ShaderType</a>&nbsp;type)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#isShader(net.minecraft.resources.Identifier)" class="member-name-link">isShader</a><wbr>(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#loadPostChain(net.minecraft.resources.Identifier,net.minecraft.server.packs.resources.Resource,com.google.common.collect.ImmutableMap.Builder)" class="member-name-link">loadPostChain</a><wbr>(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location,
+ <a href="../../server/packs/resources/Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&nbsp;resource,
+ com.google.common.collect.ImmutableMap.Builder&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="PostChainConfig.html" title="class in net.minecraft.client.renderer">PostChainConfig</a>&gt;&nbsp;output)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#loadShader(net.minecraft.resources.Identifier,net.minecraft.server.packs.resources.Resource,com.mojang.blaze3d.shaders.ShaderType,java.util.Map,com.google.common.collect.ImmutableMap.Builder)" class="member-name-link">loadShader</a><wbr>(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location,
+ <a href="../../server/packs/resources/Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&nbsp;resource,
+ <a href="../../../../com/mojang/blaze3d/shaders/ShaderType.html" title="enum class in com.mojang.blaze3d.shaders">ShaderType</a>&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="../../server/packs/resources/Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;&nbsp;files,
+ com.google.common.collect.ImmutableMap.Builder&lt;<a href="ShaderManager.ShaderSourceKey.html" title="class in net.minecraft.client.renderer">ShaderManager.ShaderSourceKey</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;output)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>protected <a href="ShaderManager.Configs.html" title="class in net.minecraft.client.renderer">ShaderManager.Configs</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#prepare(net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)" class="member-name-link">prepare</a><wbr>(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;manager,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#tryTriggerRecovery(java.lang.Exception)" class="member-name-link">tryTriggerRecovery</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&nbsp;exception)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.server.packs.resources.SimplePreparableReloadListener">Methods inherited from class&nbsp;<a href="../../server/packs/resources/SimplePreparableReloadListener.html#method-summary" title="class in net.minecraft.server.packs.resources">SimplePreparableReloadListener</a></h3>
+<code><a href="../../server/packs/resources/SimplePreparableReloadListener.html#reload(net.minecraft.server.packs.resources.PreparableReloadListener.SharedState,java.util.concurrent.Executor,net.minecraft.server.packs.resources.PreparableReloadListener.PreparationBarrier,java.util.concurrent.Executor)" title="reload(PreparableReloadListener.SharedState, Executor, PreparableReloadListener.PreparationBarrier, Executor)">reload</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.neoforged.neoforge.resource.ContextAwareReloadListener">Methods inherited from class&nbsp;<a href="../../../neoforged/neoforge/resource/ContextAwareReloadListener.html#method-summary" title="class in net.neoforged.neoforge.resource">ContextAwareReloadListener</a></h3>
+<code><a href="../../../neoforged/neoforge/resource/ContextAwareReloadListener.html#getContext()" title="getContext()">getContext</a>, <a href="../../../neoforged/neoforge/resource/ContextAwareReloadListener.html#getRegistryLookup()" title="getRegistryLookup()">getRegistryLookup</a>, <a href="../../../neoforged/neoforge/resource/ContextAwareReloadListener.html#injectContext(net.neoforged.neoforge.common.conditions.ICondition.IContext,net.minecraft.core.HolderLookup.Provider)" title="injectContext(ICondition.IContext, HolderLookup.Provider)">injectContext</a>, <a href="../../../neoforged/neoforge/resource/ContextAwareReloadListener.html#makeConditionalOps()" title="makeConditionalOps()">makeConditionalOps</a>, <a href="../../../neoforged/neoforge/resource/ContextAwareReloadListener.html#makeConditionalOps(com.mojang.serialization.DynamicOps)" title="makeConditionalOps(DynamicOps)">makeConditionalOps</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-net.minecraft.server.packs.resources.PreparableReloadListener">Methods inherited from interface&nbsp;<a href="../../server/packs/resources/PreparableReloadListener.html#method-summary" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a></h3>
+<code><a href="../../server/packs/resources/PreparableReloadListener.html#prepareSharedState(net.minecraft.server.packs.resources.PreparableReloadListener.SharedState)" title="prepareSharedState(PreparableReloadListener.SharedState)">prepareSharedState</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MAX_LOG_LENGTH">
+<h3>MAX_LOG_LENGTH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">MAX_LOG_LENGTH</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.minecraft.client.renderer.ShaderManager.MAX_LOG_LENGTH">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SHADER_PATH">
+<h3>SHADER_PATH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">SHADER_PATH</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.minecraft.client.renderer.ShaderManager.SHADER_PATH">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SHADER_INCLUDE_PATH">
+<h3>SHADER_INCLUDE_PATH</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">SHADER_INCLUDE_PATH</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.minecraft.client.renderer.ShaderManager.SHADER_INCLUDE_PATH">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="POST_CHAIN_ID_CONVERTER">
+<h3>POST_CHAIN_ID_CONVERTER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../../resources/FileToIdConverter.html" title="class in net.minecraft.resources">FileToIdConverter</a></span>&nbsp;<span class="element-name">POST_CHAIN_ID_CONVERTER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="textureManager">
+<h3>textureManager</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="texture/TextureManager.html" title="class in net.minecraft.client.renderer.texture">TextureManager</a></span>&nbsp;<span class="element-name">textureManager</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="recoveryHandler">
+<h3>recoveryHandler</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;</span>&nbsp;<span class="element-name">recoveryHandler</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="compilationCache">
+<h3>compilationCache</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="ShaderManager.CompilationCache.html" title="class in net.minecraft.client.renderer">ShaderManager.CompilationCache</a></span>&nbsp;<span class="element-name">compilationCache</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="postChainProjection">
+<h3>postChainProjection</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="Projection.html" title="class in net.minecraft.client.renderer">Projection</a></span>&nbsp;<span class="element-name">postChainProjection</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="postChainProjectionMatrixBuffer">
+<h3>postChainProjectionMatrixBuffer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="ProjectionMatrixBuffer.html" title="class in net.minecraft.client.renderer">ProjectionMatrixBuffer</a></span>&nbsp;<span class="element-name">postChainProjectionMatrixBuffer</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.client.renderer.texture.TextureManager,java.util.function.Consumer)">
+<h3>ShaderManager</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ShaderManager</span><wbr><span class="parameters">(<a href="texture/TextureManager.html" title="class in net.minecraft.client.renderer.texture">TextureManager</a>&nbsp;textureManager,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&gt;&nbsp;recoveryHandler)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="prepare(net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)">
+<h3>prepare</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type"><a href="ShaderManager.Configs.html" title="class in net.minecraft.client.renderer">ShaderManager.Configs</a></span>&nbsp;<span class="element-name">prepare</span><wbr><span class="parameters">(<a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;manager,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../server/packs/resources/SimplePreparableReloadListener.html#prepare(net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)">prepare</a></code>&nbsp;in class&nbsp;<code><a href="../../server/packs/resources/SimplePreparableReloadListener.html" title="class in net.minecraft.server.packs.resources">SimplePreparableReloadListener</a>&lt;<a href="ShaderManager.Configs.html" title="class in net.minecraft.client.renderer">ShaderManager.Configs</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="loadShader(net.minecraft.resources.Identifier,net.minecraft.server.packs.resources.Resource,com.mojang.blaze3d.shaders.ShaderType,java.util.Map,com.google.common.collect.ImmutableMap.Builder)">
+<h3>loadShader</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">loadShader</span><wbr><span class="parameters">(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location,
+ <a href="../../server/packs/resources/Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&nbsp;resource,
+ <a href="../../../../com/mojang/blaze3d/shaders/ShaderType.html" title="enum class in com.mojang.blaze3d.shaders">ShaderType</a>&nbsp;type,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="../../server/packs/resources/Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;&nbsp;files,
+ com.google.common.collect.ImmutableMap.Builder&lt;<a href="ShaderManager.ShaderSourceKey.html" title="class in net.minecraft.client.renderer">ShaderManager.ShaderSourceKey</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;output)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createPreprocessor(java.util.Map,net.minecraft.resources.Identifier)">
+<h3>createPreprocessor</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../../../com/mojang/blaze3d/preprocessor/GlslPreprocessor.html" title="class in com.mojang.blaze3d.preprocessor">GlslPreprocessor</a></span>&nbsp;<span class="element-name">createPreprocessor</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="../../server/packs/resources/Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&gt;&nbsp;files,
+ <a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="loadPostChain(net.minecraft.resources.Identifier,net.minecraft.server.packs.resources.Resource,com.google.common.collect.ImmutableMap.Builder)">
+<h3>loadPostChain</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">loadPostChain</span><wbr><span class="parameters">(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location,
+ <a href="../../server/packs/resources/Resource.html" title="class in net.minecraft.server.packs.resources">Resource</a>&nbsp;resource,
+ com.google.common.collect.ImmutableMap.Builder&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>, <a href="PostChainConfig.html" title="class in net.minecraft.client.renderer">PostChainConfig</a>&gt;&nbsp;output)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isShader(net.minecraft.resources.Identifier)">
+<h3>isShader</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isShader</span><wbr><span class="parameters">(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;location)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="apply(net.minecraft.client.renderer.ShaderManager.Configs,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)">
+<h3>apply</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">protected</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">apply</span><wbr><span class="parameters">(<a href="ShaderManager.Configs.html" title="class in net.minecraft.client.renderer">ShaderManager.Configs</a>&nbsp;preparations,
+ <a href="../../server/packs/resources/ResourceManager.html" title="interface in net.minecraft.server.packs.resources">ResourceManager</a>&nbsp;manager,
+ <a href="../../util/profiling/ProfilerFiller.html" title="interface in net.minecraft.util.profiling">ProfilerFiller</a>&nbsp;profiler)</span></div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../server/packs/resources/SimplePreparableReloadListener.html#apply(T,net.minecraft.server.packs.resources.ResourceManager,net.minecraft.util.profiling.ProfilerFiller)">apply</a></code>&nbsp;in class&nbsp;<code><a href="../../server/packs/resources/SimplePreparableReloadListener.html" title="class in net.minecraft.server.packs.resources">SimplePreparableReloadListener</a>&lt;<a href="ShaderManager.Configs.html" title="class in net.minecraft.client.renderer">ShaderManager.Configs</a>&gt;</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getName()">
+<h3>getName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getName</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="../../server/packs/resources/PreparableReloadListener.html#getName()">getName</a></code>&nbsp;in interface&nbsp;<code><a href="../../server/packs/resources/PreparableReloadListener.html" title="interface in net.minecraft.server.packs.resources">PreparableReloadListener</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tryTriggerRecovery(java.lang.Exception)">
+<h3>tryTriggerRecovery</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">tryTriggerRecovery</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Exception.html" title="class or interface in java.lang" class="external-link">Exception</a>&nbsp;exception)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getPostChain(net.minecraft.resources.Identifier,java.util.Set)">
+<h3>getPostChain</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="PostChain.html" title="class in net.minecraft.client.renderer">PostChain</a></span>&nbsp;<span class="element-name">getPostChain</span><wbr><span class="parameters">(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;id,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Set.html" title="class or interface in java.util" class="external-link">Set</a>&lt;<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&gt;&nbsp;allowedTargets)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="close()">
+<h3>close</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">close</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html#close()" title="class or interface in java.lang" class="external-link">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getShader(net.minecraft.resources.Identifier,com.mojang.blaze3d.shaders.ShaderType)">
+<h3>getShader</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getShader</span><wbr><span class="parameters">(<a href="../../resources/Identifier.html" title="class in net.minecraft.resources">Identifier</a>&nbsp;id,
+ <a href="../../../../com/mojang/blaze3d/shaders/ShaderType.html" title="enum class in com.mojang.blaze3d.shaders">ShaderType</a>&nbsp;type)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

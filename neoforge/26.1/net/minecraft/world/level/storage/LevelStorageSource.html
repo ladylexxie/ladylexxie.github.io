@@ -1,0 +1,757 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>LevelStorageSource (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.world.level.storage, class: LevelStorageSource">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/LevelStorageSource.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.world.level.storage</a></li>
+<li><a href="LevelStorageSource.html" class="current-selection">LevelStorageSource</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#TAG_DATA" tabindex="0">TAG_DATA</a></li>
+<li><a href="#NO_SYMLINKS_ALLOWED" tabindex="0">NO_SYMLINKS_ALLOWED</a></li>
+<li><a href="#ALLOWED_SYMLINKS_CONFIG_NAME" tabindex="0">ALLOWED_SYMLINKS_CONFIG_NAME</a></li>
+<li><a href="#DISK_SPACE_WARNING_THRESHOLD" tabindex="0">DISK_SPACE_WARNING_THRESHOLD</a></li>
+<li><a href="#baseDir" tabindex="0">baseDir</a></li>
+<li><a href="#backupDir" tabindex="0">backupDir</a></li>
+<li><a href="#fixerUpper" tabindex="0">fixerUpper</a></li>
+<li><a href="#worldDirValidator" tabindex="0">worldDirValidator</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(java.nio.file.Path,java.nio.file.Path,net.minecraft.world.level.validation.DirectoryValidator,com.mojang.datafixers.DataFixer)" tabindex="0">LevelStorageSource(Path, Path, DirectoryValidator, DataFixer)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#parseValidator(java.nio.file.Path)" tabindex="0">parseValidator(Path)</a></li>
+<li><a href="#createDefault(java.nio.file.Path)" tabindex="0">createDefault(Path)</a></li>
+<li><a href="#readDataConfig(com.mojang.serialization.Dynamic)" tabindex="0">readDataConfig(Dynamic)</a></li>
+<li><a href="#getPackConfig(com.mojang.serialization.Dynamic,net.minecraft.server.packs.repository.PackRepository,boolean)" tabindex="0">getPackConfig(Dynamic, PackRepository, boolean)</a></li>
+<li><a href="#getLevelDataAndDimensions(net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,com.mojang.serialization.Dynamic,net.minecraft.world.level.WorldDataConfiguration,net.minecraft.core.Registry,net.minecraft.core.HolderLookup.Provider)" tabindex="0">getLevelDataAndDimensions(LevelStorageSource.LevelStorageAccess, Dynamic, WorldDataConfiguration, Registry, HolderLookup.Provider)</a></li>
+<li><a href="#readExistingSavedData(net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,net.minecraft.core.HolderLookup.Provider,net.minecraft.world.level.saveddata.SavedDataType)" tabindex="0">readExistingSavedData(LevelStorageSource.LevelStorageAccess, HolderLookup.Provider, SavedDataType)</a></li>
+<li><a href="#writeGameRules(net.minecraft.world.level.storage.WorldData,java.nio.file.Path,net.minecraft.world.level.gamerules.GameRules)" tabindex="0">writeGameRules(WorldData, Path, GameRules)</a></li>
+<li><a href="#writeWorldGenSettings(net.minecraft.core.RegistryAccess,java.nio.file.Path,net.minecraft.world.level.levelgen.WorldGenSettings)" tabindex="0">writeWorldGenSettings(RegistryAccess, Path, WorldGenSettings)</a></li>
+<li><a href="#writeSavedData(java.nio.file.Path,com.mojang.serialization.DynamicOps,net.minecraft.world.level.saveddata.SavedDataType,com.mojang.serialization.Codec,T)" tabindex="0">writeSavedData(Path, DynamicOps, SavedDataType, Codec, T)</a></li>
+<li><a href="#getName()" tabindex="0">getName()</a></li>
+<li><a href="#findLevelCandidates()" tabindex="0">findLevelCandidates()</a></li>
+<li><a href="#loadLevelSummaries(net.minecraft.world.level.storage.LevelStorageSource.LevelCandidates)" tabindex="0">loadLevelSummaries(LevelStorageSource.LevelCandidates)</a></li>
+<li><a href="#getStorageVersion()" tabindex="0">getStorageVersion()</a></li>
+<li><a href="#readLevelDataTagRaw(java.nio.file.Path)" tabindex="0">readLevelDataTagRaw(Path)</a></li>
+<li><a href="#readLevelSummary(net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory,boolean)" tabindex="0">readLevelSummary(LevelStorageSource.LevelDirectory, boolean)</a></li>
+<li><a href="#getFileModificationTime(net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory)" tabindex="0">getFileModificationTime(LevelStorageSource.LevelDirectory)</a></li>
+<li><a href="#getFileModificationTime(java.nio.file.Path)" tabindex="0">getFileModificationTime(Path)</a></li>
+<li><a href="#makeLevelSummary(com.mojang.serialization.Dynamic,net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory,boolean,int)" tabindex="0">makeLevelSummary(Dynamic, LevelStorageSource.LevelDirectory, boolean, int)</a></li>
+<li><a href="#parseFeatureFlagsFromSummary(com.mojang.serialization.Dynamic)" tabindex="0">parseFeatureFlagsFromSummary(Dynamic)</a></li>
+<li><a href="#readLightweightData(java.nio.file.Path)" tabindex="0">readLightweightData(Path)</a></li>
+<li><a href="#isNewLevelIdAcceptable(java.lang.String)" tabindex="0">isNewLevelIdAcceptable(String)</a></li>
+<li><a href="#levelExists(java.lang.String)" tabindex="0">levelExists(String)</a></li>
+<li><a href="#getLevelPath(java.lang.String)" tabindex="0">getLevelPath(String)</a></li>
+<li><a href="#getBaseDir()" tabindex="0">getBaseDir()</a></li>
+<li><a href="#getBackupPath()" tabindex="0">getBackupPath()</a></li>
+<li><a href="#validateAndCreateAccess(java.lang.String)" tabindex="0">validateAndCreateAccess(String)</a></li>
+<li><a href="#createAccess(java.lang.String)" tabindex="0">createAccess(String)</a></li>
+<li><a href="#getWorldDirValidator()" tabindex="0">getWorldDirValidator()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class LevelStorageSource" class="title">Class LevelStorageSource</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.world.level.storage.LevelStorageSource</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">LevelStorageSource</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="LevelStorageSource.LevelCandidates.html" class="type-name-link" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelCandidates</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="LevelStorageSource.LevelDirectory.html" class="type-name-link" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelDirectory</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="LevelStorageSource.LevelStorageAccess.html" class="type-name-link" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color"><code><a href="#ALLOWED_SYMLINKS_CONFIG_NAME" class="member-name-link">ALLOWED_SYMLINKS_CONFIG_NAME</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#backupDir" class="member-name-link">backupDir</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color"><code><a href="#baseDir" class="member-name-link">baseDir</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#DISK_SPACE_WARNING_THRESHOLD" class="member-name-link">DISK_SPACE_WARNING_THRESHOLD</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final com.mojang.datafixers.DataFixer</code></div>
+<div class="col-second even-row-color"><code><a href="#fixerUpper" class="member-name-link">fixerUpper</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second odd-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a></code></div>
+<div class="col-second even-row-color"><code><a href="#NO_SYMLINKS_ALLOWED" class="member-name-link">NO_SYMLINKS_ALLOWED</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#TAG_DATA" class="member-name-link">TAG_DATA</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="../validation/DirectoryValidator.html" title="class in net.minecraft.world.level.validation">DirectoryValidator</a></code></div>
+<div class="col-second even-row-color"><code><a href="#worldDirValidator" class="member-name-link">worldDirValidator</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(java.nio.file.Path,java.nio.file.Path,net.minecraft.world.level.validation.DirectoryValidator,com.mojang.datafixers.DataFixer)" class="member-name-link">LevelStorageSource</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;baseDir,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;backupDir,
+ <a href="../validation/DirectoryValidator.html" title="class in net.minecraft.world.level.validation">DirectoryValidator</a>&nbsp;worldDirValidator,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createAccess(java.lang.String)" class="member-name-link">createAccess</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LevelStorageSource.html" title="class in net.minecraft.world.level.storage">LevelStorageSource</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createDefault(java.nio.file.Path)" class="member-name-link">createDefault</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="LevelStorageSource.LevelCandidates.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelCandidates</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#findLevelCandidates()" class="member-name-link">findLevelCandidates</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBackupPath()" class="member-name-link">getBackupPath</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBaseDir()" class="member-name-link">getBaseDir</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static @Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFileModificationTime(java.nio.file.Path)" class="member-name-link">getFileModificationTime</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static long</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getFileModificationTime(net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory)" class="member-name-link">getFileModificationTime</a><wbr>(<a href="LevelStorageSource.LevelDirectory.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelDirectory</a>&nbsp;level)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="LevelDataAndDimensions.html" title="class in net.minecraft.world.level.storage">LevelDataAndDimensions</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getLevelDataAndDimensions(net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,com.mojang.serialization.Dynamic,net.minecraft.world.level.WorldDataConfiguration,net.minecraft.core.Registry,net.minecraft.core.HolderLookup.Provider)" class="member-name-link">getLevelDataAndDimensions</a><wbr>(<a href="LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;worldAccess,
+ com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;levelDataTag,
+ <a href="../WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;dataConfiguration,
+ <a href="../../../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;<a href="../dimension/LevelStem.html" title="class in net.minecraft.world.level.dimension">LevelStem</a>&gt;&nbsp;datapackDimensions,
+ <a href="../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registryAccess)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLevelPath(java.lang.String)" class="member-name-link">getLevelPath</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getName()" class="member-name-link">getName</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../../../server/WorldLoader.PackConfig.html" title="class in net.minecraft.server">WorldLoader.PackConfig</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getPackConfig(com.mojang.serialization.Dynamic,net.minecraft.server.packs.repository.PackRepository,boolean)" class="member-name-link">getPackConfig</a><wbr>(com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;levelDataTag,
+ <a href="../../../server/packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ boolean&nbsp;safeMode)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getStorageVersion()" class="member-name-link">getStorageVersion</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../validation/DirectoryValidator.html" title="class in net.minecraft.world.level.validation">DirectoryValidator</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getWorldDirValidator()" class="member-name-link">getWorldDirValidator</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isNewLevelIdAcceptable(java.lang.String)" class="member-name-link">isNewLevelIdAcceptable</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#levelExists(java.lang.String)" class="member-name-link">levelExists</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="LevelSummary.html" title="class in net.minecraft.world.level.storage">LevelSummary</a>&gt;&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#loadLevelSummaries(net.minecraft.world.level.storage.LevelStorageSource.LevelCandidates)" class="member-name-link">loadLevelSummaries</a><wbr>(<a href="LevelStorageSource.LevelCandidates.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelCandidates</a>&nbsp;candidates)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="LevelSummary.html" title="class in net.minecraft.world.level.storage">LevelSummary</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#makeLevelSummary(com.mojang.serialization.Dynamic,net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory,boolean,int)" class="member-name-link">makeLevelSummary</a><wbr>(com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;dataTag,
+ <a href="LevelStorageSource.LevelDirectory.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelDirectory</a>&nbsp;levelDirectory,
+ boolean&nbsp;locked,
+ int&nbsp;dataVersion)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseFeatureFlagsFromSummary(com.mojang.serialization.Dynamic)" class="member-name-link">parseFeatureFlagsFromSummary</a><wbr>(com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;tag)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../validation/DirectoryValidator.html" title="class in net.minecraft.world.level.validation">DirectoryValidator</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#parseValidator(java.nio.file.Path)" class="member-name-link">parseValidator</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;configPath)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="../WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readDataConfig(com.mojang.serialization.Dynamic)" class="member-name-link">readDataConfig</a><wbr>(com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;levelData)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T extends <a href="../saveddata/SavedData.html" title="class in net.minecraft.world.level.saveddata">SavedData</a>&gt;<br>com.mojang.serialization.DataResult<wbr>&lt;T&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readExistingSavedData(net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,net.minecraft.core.HolderLookup.Provider,net.minecraft.world.level.saveddata.SavedDataType)" class="member-name-link">readExistingSavedData</a><wbr>(<a href="LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;access,
+ <a href="../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registryAccess,
+ <a href="../saveddata/SavedDataType.html" title="class in net.minecraft.world.level.saveddata">SavedDataType</a>&lt;T&gt;&nbsp;savedDataType)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readLevelDataTagRaw(java.nio.file.Path)" class="member-name-link">readLevelDataTagRaw</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;dataFile)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private <a href="LevelSummary.html" title="class in net.minecraft.world.level.storage">LevelSummary</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#readLevelSummary(net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory,boolean)" class="member-name-link">readLevelSummary</a><wbr>(<a href="LevelStorageSource.LevelDirectory.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelDirectory</a>&nbsp;level,
+ boolean&nbsp;locked)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static @Nullable <a href="../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#readLightweightData(java.nio.file.Path)" class="member-name-link">readLightweightData</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;dataFile)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#validateAndCreateAccess(java.lang.String)" class="member-name-link">validateAndCreateAccess</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeGameRules(net.minecraft.world.level.storage.WorldData,java.nio.file.Path,net.minecraft.world.level.gamerules.GameRules)" class="member-name-link">writeGameRules</a><wbr>(<a href="WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;worldFolder,
+ <a href="../gamerules/GameRules.html" title="class in net.minecraft.world.level.gamerules">GameRules</a>&nbsp;gameRules)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;T&gt;&nbsp;void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeSavedData(java.nio.file.Path,com.mojang.serialization.DynamicOps,net.minecraft.world.level.saveddata.SavedDataType,com.mojang.serialization.Codec,T)" class="member-name-link">writeSavedData</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;worldFolder,
+ com.mojang.serialization.DynamicOps&lt;<a href="../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;&nbsp;ops,
+ <a href="../saveddata/SavedDataType.html" title="class in net.minecraft.world.level.saveddata">SavedDataType</a>&lt;?&gt;&nbsp;type,
+ com.mojang.serialization.Codec&lt;T&gt;&nbsp;codec,
+ T&nbsp;data)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#writeWorldGenSettings(net.minecraft.core.RegistryAccess,java.nio.file.Path,net.minecraft.world.level.levelgen.WorldGenSettings)" class="member-name-link">writeWorldGenSettings</a><wbr>(<a href="../../../core/RegistryAccess.html" title="interface in net.minecraft.core">RegistryAccess</a>&nbsp;registryAccess,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;worldFolder,
+ <a href="../levelgen/WorldGenSettings.html" title="class in net.minecraft.world.level.levelgen">WorldGenSettings</a>&nbsp;worldGenSettings)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="TAG_DATA">
+<h3>TAG_DATA</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">TAG_DATA</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.world.level.storage.LevelStorageSource.TAG_DATA">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="NO_SYMLINKS_ALLOWED">
+<h3>NO_SYMLINKS_ALLOWED</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/PathMatcher.html" title="class or interface in java.nio.file" class="external-link">PathMatcher</a></span>&nbsp;<span class="element-name">NO_SYMLINKS_ALLOWED</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ALLOWED_SYMLINKS_CONFIG_NAME">
+<h3>ALLOWED_SYMLINKS_CONFIG_NAME</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">ALLOWED_SYMLINKS_CONFIG_NAME</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.world.level.storage.LevelStorageSource.ALLOWED_SYMLINKS_CONFIG_NAME">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="DISK_SPACE_WARNING_THRESHOLD">
+<h3>DISK_SPACE_WARNING_THRESHOLD</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">DISK_SPACE_WARNING_THRESHOLD</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.world.level.storage.LevelStorageSource.DISK_SPACE_WARNING_THRESHOLD">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="baseDir">
+<h3>baseDir</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">baseDir</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="backupDir">
+<h3>backupDir</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">backupDir</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fixerUpper">
+<h3>fixerUpper</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">com.mojang.datafixers.DataFixer</span>&nbsp;<span class="element-name">fixerUpper</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="worldDirValidator">
+<h3>worldDirValidator</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../validation/DirectoryValidator.html" title="class in net.minecraft.world.level.validation">DirectoryValidator</a></span>&nbsp;<span class="element-name">worldDirValidator</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(java.nio.file.Path,java.nio.file.Path,net.minecraft.world.level.validation.DirectoryValidator,com.mojang.datafixers.DataFixer)">
+<h3>LevelStorageSource</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">LevelStorageSource</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;baseDir,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;backupDir,
+ <a href="../validation/DirectoryValidator.html" title="class in net.minecraft.world.level.validation">DirectoryValidator</a>&nbsp;worldDirValidator,
+ com.mojang.datafixers.DataFixer&nbsp;fixerUpper)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="parseValidator(java.nio.file.Path)">
+<h3>parseValidator</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../validation/DirectoryValidator.html" title="class in net.minecraft.world.level.validation">DirectoryValidator</a></span>&nbsp;<span class="element-name">parseValidator</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;configPath)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createDefault(java.nio.file.Path)">
+<h3>createDefault</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LevelStorageSource.html" title="class in net.minecraft.world.level.storage">LevelStorageSource</a></span>&nbsp;<span class="element-name">createDefault</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readDataConfig(com.mojang.serialization.Dynamic)">
+<h3>readDataConfig</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a></span>&nbsp;<span class="element-name">readDataConfig</span><wbr><span class="parameters">(com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;levelData)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getPackConfig(com.mojang.serialization.Dynamic,net.minecraft.server.packs.repository.PackRepository,boolean)">
+<h3>getPackConfig</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="../../../server/WorldLoader.PackConfig.html" title="class in net.minecraft.server">WorldLoader.PackConfig</a></span>&nbsp;<span class="element-name">getPackConfig</span><wbr><span class="parameters">(com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;levelDataTag,
+ <a href="../../../server/packs/repository/PackRepository.html" title="class in net.minecraft.server.packs.repository">PackRepository</a>&nbsp;packRepository,
+ boolean&nbsp;safeMode)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLevelDataAndDimensions(net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,com.mojang.serialization.Dynamic,net.minecraft.world.level.WorldDataConfiguration,net.minecraft.core.Registry,net.minecraft.core.HolderLookup.Provider)">
+<h3>getLevelDataAndDimensions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="LevelDataAndDimensions.html" title="class in net.minecraft.world.level.storage">LevelDataAndDimensions</a></span>&nbsp;<span class="element-name">getLevelDataAndDimensions</span><wbr><span class="parameters">(<a href="LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;worldAccess,
+ com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;levelDataTag,
+ <a href="../WorldDataConfiguration.html" title="class in net.minecraft.world.level">WorldDataConfiguration</a>&nbsp;dataConfiguration,
+ <a href="../../../core/Registry.html" title="interface in net.minecraft.core">Registry</a>&lt;<a href="../dimension/LevelStem.html" title="class in net.minecraft.world.level.dimension">LevelStem</a>&gt;&nbsp;datapackDimensions,
+ <a href="../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registryAccess)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readExistingSavedData(net.minecraft.world.level.storage.LevelStorageSource.LevelStorageAccess,net.minecraft.core.HolderLookup.Provider,net.minecraft.world.level.saveddata.SavedDataType)">
+<h3>readExistingSavedData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../saveddata/SavedData.html" title="class in net.minecraft.world.level.saveddata">SavedData</a>&gt;</span>
+<span class="return-type">com.mojang.serialization.DataResult&lt;T&gt;</span>&nbsp;<span class="element-name">readExistingSavedData</span><wbr><span class="parameters">(<a href="LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a>&nbsp;access,
+ <a href="../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registryAccess,
+ <a href="../saveddata/SavedDataType.html" title="class in net.minecraft.world.level.saveddata">SavedDataType</a>&lt;T&gt;&nbsp;savedDataType)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="writeGameRules(net.minecraft.world.level.storage.WorldData,java.nio.file.Path,net.minecraft.world.level.gamerules.GameRules)">
+<h3>writeGameRules</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">writeGameRules</span><wbr><span class="parameters">(<a href="WorldData.html" title="interface in net.minecraft.world.level.storage">WorldData</a>&nbsp;worldData,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;worldFolder,
+ <a href="../gamerules/GameRules.html" title="class in net.minecraft.world.level.gamerules">GameRules</a>&nbsp;gameRules)</span>
+                           throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="writeWorldGenSettings(net.minecraft.core.RegistryAccess,java.nio.file.Path,net.minecraft.world.level.levelgen.WorldGenSettings)">
+<h3>writeWorldGenSettings</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">writeWorldGenSettings</span><wbr><span class="parameters">(<a href="../../../core/RegistryAccess.html" title="interface in net.minecraft.core">RegistryAccess</a>&nbsp;registryAccess,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;worldFolder,
+ <a href="../levelgen/WorldGenSettings.html" title="class in net.minecraft.world.level.levelgen">WorldGenSettings</a>&nbsp;worldGenSettings)</span>
+                                  throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="writeSavedData(java.nio.file.Path,com.mojang.serialization.DynamicOps,net.minecraft.world.level.saveddata.SavedDataType,com.mojang.serialization.Codec,T)">
+<h3 id="writeSavedData(java.nio.file.Path,com.mojang.serialization.DynamicOps,net.minecraft.world.level.saveddata.SavedDataType,com.mojang.serialization.Codec,java.lang.Object)">writeSavedData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">writeSavedData</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;worldFolder,
+ com.mojang.serialization.DynamicOps&lt;<a href="../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;&nbsp;ops,
+ <a href="../saveddata/SavedDataType.html" title="class in net.minecraft.world.level.saveddata">SavedDataType</a>&lt;?&gt;&nbsp;type,
+ com.mojang.serialization.Codec&lt;T&gt;&nbsp;codec,
+ T&nbsp;data)</span>
+                                throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getName()">
+<h3>getName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getName</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="findLevelCandidates()">
+<h3>findLevelCandidates</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="LevelStorageSource.LevelCandidates.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelCandidates</a></span>&nbsp;<span class="element-name">findLevelCandidates</span>()
+                                                       throws <span class="exceptions"><a href="LevelStorageException.html" title="class in net.minecraft.world.level.storage">LevelStorageException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="LevelStorageException.html" title="class in net.minecraft.world.level.storage">LevelStorageException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="loadLevelSummaries(net.minecraft.world.level.storage.LevelStorageSource.LevelCandidates)">
+<h3>loadLevelSummaries</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="LevelSummary.html" title="class in net.minecraft.world.level.storage">LevelSummary</a>&gt;&gt;</span>&nbsp;<span class="element-name">loadLevelSummaries</span><wbr><span class="parameters">(<a href="LevelStorageSource.LevelCandidates.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelCandidates</a>&nbsp;candidates)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getStorageVersion()">
+<h3>getStorageVersion</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getStorageVersion</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readLevelDataTagRaw(java.nio.file.Path)">
+<h3>readLevelDataTagRaw</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../../nbt/CompoundTag.html" title="class in net.minecraft.nbt">CompoundTag</a></span>&nbsp;<span class="element-name">readLevelDataTagRaw</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;dataFile)</span>
+                                        throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readLevelSummary(net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory,boolean)">
+<h3>readLevelSummary</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="LevelSummary.html" title="class in net.minecraft.world.level.storage">LevelSummary</a></span>&nbsp;<span class="element-name">readLevelSummary</span><wbr><span class="parameters">(<a href="LevelStorageSource.LevelDirectory.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelDirectory</a>&nbsp;level,
+ boolean&nbsp;locked)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getFileModificationTime(net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory)">
+<h3>getFileModificationTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">long</span>&nbsp;<span class="element-name">getFileModificationTime</span><wbr><span class="parameters">(<a href="LevelStorageSource.LevelDirectory.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelDirectory</a>&nbsp;level)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getFileModificationTime(java.nio.file.Path)">
+<h3>getFileModificationTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/time/Instant.html" title="class or interface in java.time" class="external-link">Instant</a></span>&nbsp;<span class="element-name">getFileModificationTime</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;path)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="makeLevelSummary(com.mojang.serialization.Dynamic,net.minecraft.world.level.storage.LevelStorageSource.LevelDirectory,boolean,int)">
+<h3>makeLevelSummary</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type"><a href="LevelSummary.html" title="class in net.minecraft.world.level.storage">LevelSummary</a></span>&nbsp;<span class="element-name">makeLevelSummary</span><wbr><span class="parameters">(com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;dataTag,
+ <a href="LevelStorageSource.LevelDirectory.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelDirectory</a>&nbsp;levelDirectory,
+ boolean&nbsp;locked,
+ int&nbsp;dataVersion)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="parseFeatureFlagsFromSummary(com.mojang.serialization.Dynamic)">
+<h3>parseFeatureFlagsFromSummary</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../flag/FeatureFlagSet.html" title="class in net.minecraft.world.flag">FeatureFlagSet</a></span>&nbsp;<span class="element-name">parseFeatureFlagsFromSummary</span><wbr><span class="parameters">(com.mojang.serialization.Dynamic&lt;?&gt;&nbsp;tag)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="readLightweightData(java.nio.file.Path)">
+<h3>readLightweightData</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable <a href="../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a></span>&nbsp;<span class="element-name">readLightweightData</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a>&nbsp;dataFile)</span>
+                                          throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isNewLevelIdAcceptable(java.lang.String)">
+<h3>isNewLevelIdAcceptable</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isNewLevelIdAcceptable</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="levelExists(java.lang.String)">
+<h3>levelExists</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">levelExists</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLevelPath(java.lang.String)">
+<h3>getLevelPath</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getLevelPath</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBaseDir()">
+<h3>getBaseDir</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getBaseDir</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBackupPath()">
+<h3>getBackupPath</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/file/Path.html" title="class or interface in java.nio.file" class="external-link">Path</a></span>&nbsp;<span class="element-name">getBackupPath</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="validateAndCreateAccess(java.lang.String)">
+<h3>validateAndCreateAccess</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a></span>&nbsp;<span class="element-name">validateAndCreateAccess</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</span>
+                                                              throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a>,
+<a href="../validation/ContentValidationException.html" title="class in net.minecraft.world.level.validation">ContentValidationException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+<dd><code><a href="../validation/ContentValidationException.html" title="class in net.minecraft.world.level.validation">ContentValidationException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createAccess(java.lang.String)">
+<h3>createAccess</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="LevelStorageSource.LevelStorageAccess.html" title="class in net.minecraft.world.level.storage">LevelStorageSource.LevelStorageAccess</a></span>&nbsp;<span class="element-name">createAccess</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;levelId)</span>
+                                                   throws <span class="exceptions"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/io/IOException.html" title="class or interface in java.io" class="external-link">IOException</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getWorldDirValidator()">
+<h3>getWorldDirValidator</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../validation/DirectoryValidator.html" title="class in net.minecraft.world.level.validation">DirectoryValidator</a></span>&nbsp;<span class="element-name">getWorldDirValidator</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>ItemParser (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.commands.arguments.item, class: ItemParser">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/ItemParser.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.commands.arguments.item</a></li>
+<li><a href="ItemParser.html" class="current-selection">ItemParser</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#ERROR_UNKNOWN_ITEM" tabindex="0">ERROR_UNKNOWN_ITEM</a></li>
+<li><a href="#ERROR_UNKNOWN_COMPONENT" tabindex="0">ERROR_UNKNOWN_COMPONENT</a></li>
+<li><a href="#ERROR_MALFORMED_COMPONENT" tabindex="0">ERROR_MALFORMED_COMPONENT</a></li>
+<li><a href="#ERROR_EXPECTED_COMPONENT" tabindex="0">ERROR_EXPECTED_COMPONENT</a></li>
+<li><a href="#ERROR_REPEATED_COMPONENT" tabindex="0">ERROR_REPEATED_COMPONENT</a></li>
+<li><a href="#SYNTAX_START_COMPONENTS" tabindex="0">SYNTAX_START_COMPONENTS</a></li>
+<li><a href="#SYNTAX_END_COMPONENTS" tabindex="0">SYNTAX_END_COMPONENTS</a></li>
+<li><a href="#SYNTAX_COMPONENT_SEPARATOR" tabindex="0">SYNTAX_COMPONENT_SEPARATOR</a></li>
+<li><a href="#SYNTAX_COMPONENT_ASSIGNMENT" tabindex="0">SYNTAX_COMPONENT_ASSIGNMENT</a></li>
+<li><a href="#SYNTAX_REMOVED_COMPONENT" tabindex="0">SYNTAX_REMOVED_COMPONENT</a></li>
+<li><a href="#SUGGEST_NOTHING" tabindex="0">SUGGEST_NOTHING</a></li>
+<li><a href="#items" tabindex="0">items</a></li>
+<li><a href="#registryOps" tabindex="0">registryOps</a></li>
+<li><a href="#tagParser" tabindex="0">tagParser</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.core.HolderLookup.Provider)" tabindex="0">ItemParser(HolderLookup.Provider)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#parse(com.mojang.brigadier.StringReader)" tabindex="0">parse(StringReader)</a></li>
+<li><a href="#parse(com.mojang.brigadier.StringReader,net.minecraft.commands.arguments.item.ItemParser.Visitor)" tabindex="0">parse(StringReader, ItemParser.Visitor)</a></li>
+<li><a href="#fillSuggestions(com.mojang.brigadier.suggestion.SuggestionsBuilder)" tabindex="0">fillSuggestions(SuggestionsBuilder)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class ItemParser" class="title">Class ItemParser</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.commands.arguments.item.ItemParser</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">ItemParser</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private class&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="ItemParser.State.html" class="type-name-link" title="class in net.minecraft.commands.arguments.item">ItemParser.State</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static class&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="ItemParser.SuggestionsVisitor.html" class="type-name-link" title="class in net.minecraft.commands.arguments.item">ItemParser.SuggestionsVisitor</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="ItemParser.Visitor.html" class="type-name-link" title="interface in net.minecraft.commands.arguments.item">ItemParser.Visitor</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static final com.mojang.brigadier.exceptions.SimpleCommandExceptionType</code></div>
+<div class="col-second even-row-color"><code><a href="#ERROR_EXPECTED_COMPONENT" class="member-name-link">ERROR_EXPECTED_COMPONENT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType</code></div>
+<div class="col-second odd-row-color"><code><a href="#ERROR_MALFORMED_COMPONENT" class="member-name-link">ERROR_MALFORMED_COMPONENT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final com.mojang.brigadier.exceptions.DynamicCommandExceptionType</code></div>
+<div class="col-second even-row-color"><code><a href="#ERROR_REPEATED_COMPONENT" class="member-name-link">ERROR_REPEATED_COMPONENT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final com.mojang.brigadier.exceptions.DynamicCommandExceptionType</code></div>
+<div class="col-second odd-row-color"><code><a href="#ERROR_UNKNOWN_COMPONENT" class="member-name-link">ERROR_UNKNOWN_COMPONENT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final com.mojang.brigadier.exceptions.DynamicCommandExceptionType</code></div>
+<div class="col-second even-row-color"><code><a href="#ERROR_UNKNOWN_ITEM" class="member-name-link">ERROR_UNKNOWN_ITEM</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../../core/HolderLookup.RegistryLookup.html" title="interface in net.minecraft.core">HolderLookup.RegistryLookup</a><wbr>&lt;<a href="../../../world/item/Item.html" title="class in net.minecraft.world.item">Item</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#items" class="member-name-link">items</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private final <a href="../../../resources/RegistryOps.html" title="class in net.minecraft.resources">RegistryOps</a><wbr>&lt;<a href="../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#registryOps" class="member-name-link">registryOps</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a><wbr>&lt;com.mojang.brigadier.suggestion.SuggestionsBuilder, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.mojang.brigadier.suggestion.Suggestions&gt;&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#SUGGEST_NOTHING" class="member-name-link">SUGGEST_NOTHING</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final char</code></div>
+<div class="col-second even-row-color"><code><a href="#SYNTAX_COMPONENT_ASSIGNMENT" class="member-name-link">SYNTAX_COMPONENT_ASSIGNMENT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final char</code></div>
+<div class="col-second odd-row-color"><code><a href="#SYNTAX_COMPONENT_SEPARATOR" class="member-name-link">SYNTAX_COMPONENT_SEPARATOR</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final char</code></div>
+<div class="col-second even-row-color"><code><a href="#SYNTAX_END_COMPONENTS" class="member-name-link">SYNTAX_END_COMPONENTS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final char</code></div>
+<div class="col-second odd-row-color"><code><a href="#SYNTAX_REMOVED_COMPONENT" class="member-name-link">SYNTAX_REMOVED_COMPONENT</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final char</code></div>
+<div class="col-second even-row-color"><code><a href="#SYNTAX_START_COMPONENTS" class="member-name-link">SYNTAX_START_COMPONENTS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final <a href="../../../nbt/TagParser.html" title="class in net.minecraft.nbt">TagParser</a><wbr>&lt;<a href="../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#tagParser" class="member-name-link">tagParser</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.core.HolderLookup.Provider)" class="member-name-link">ItemParser</a><wbr>(<a href="../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registries)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;com.mojang.brigadier.suggestion.Suggestions&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#fillSuggestions(com.mojang.brigadier.suggestion.SuggestionsBuilder)" class="member-name-link">fillSuggestions</a><wbr>(com.mojang.brigadier.suggestion.SuggestionsBuilder&nbsp;builder)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="ItemInput.html" title="class in net.minecraft.commands.arguments.item">ItemInput</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parse(com.mojang.brigadier.StringReader)" class="member-name-link">parse</a><wbr>(com.mojang.brigadier.StringReader&nbsp;reader)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#parse(com.mojang.brigadier.StringReader,net.minecraft.commands.arguments.item.ItemParser.Visitor)" class="member-name-link">parse</a><wbr>(com.mojang.brigadier.StringReader&nbsp;reader,
+ <a href="ItemParser.Visitor.html" title="interface in net.minecraft.commands.arguments.item">ItemParser.Visitor</a>&nbsp;visitor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="ERROR_UNKNOWN_ITEM">
+<h3>ERROR_UNKNOWN_ITEM</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">com.mojang.brigadier.exceptions.DynamicCommandExceptionType</span>&nbsp;<span class="element-name">ERROR_UNKNOWN_ITEM</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ERROR_UNKNOWN_COMPONENT">
+<h3>ERROR_UNKNOWN_COMPONENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">com.mojang.brigadier.exceptions.DynamicCommandExceptionType</span>&nbsp;<span class="element-name">ERROR_UNKNOWN_COMPONENT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ERROR_MALFORMED_COMPONENT">
+<h3>ERROR_MALFORMED_COMPONENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType</span>&nbsp;<span class="element-name">ERROR_MALFORMED_COMPONENT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ERROR_EXPECTED_COMPONENT">
+<h3>ERROR_EXPECTED_COMPONENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">com.mojang.brigadier.exceptions.SimpleCommandExceptionType</span>&nbsp;<span class="element-name">ERROR_EXPECTED_COMPONENT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ERROR_REPEATED_COMPONENT">
+<h3>ERROR_REPEATED_COMPONENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">com.mojang.brigadier.exceptions.DynamicCommandExceptionType</span>&nbsp;<span class="element-name">ERROR_REPEATED_COMPONENT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SYNTAX_START_COMPONENTS">
+<h3>SYNTAX_START_COMPONENTS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">char</span>&nbsp;<span class="element-name">SYNTAX_START_COMPONENTS</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.commands.arguments.item.ItemParser.SYNTAX_START_COMPONENTS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SYNTAX_END_COMPONENTS">
+<h3>SYNTAX_END_COMPONENTS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">char</span>&nbsp;<span class="element-name">SYNTAX_END_COMPONENTS</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.commands.arguments.item.ItemParser.SYNTAX_END_COMPONENTS">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SYNTAX_COMPONENT_SEPARATOR">
+<h3>SYNTAX_COMPONENT_SEPARATOR</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">char</span>&nbsp;<span class="element-name">SYNTAX_COMPONENT_SEPARATOR</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.commands.arguments.item.ItemParser.SYNTAX_COMPONENT_SEPARATOR">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SYNTAX_COMPONENT_ASSIGNMENT">
+<h3>SYNTAX_COMPONENT_ASSIGNMENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">char</span>&nbsp;<span class="element-name">SYNTAX_COMPONENT_ASSIGNMENT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.commands.arguments.item.ItemParser.SYNTAX_COMPONENT_ASSIGNMENT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SYNTAX_REMOVED_COMPONENT">
+<h3>SYNTAX_REMOVED_COMPONENT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type">char</span>&nbsp;<span class="element-name">SYNTAX_REMOVED_COMPONENT</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../../constant-values.html#net.minecraft.commands.arguments.item.ItemParser.SYNTAX_REMOVED_COMPONENT">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="SUGGEST_NOTHING">
+<h3>SUGGEST_NOTHING</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Function.html" title="class or interface in java.util.function" class="external-link">Function</a>&lt;com.mojang.brigadier.suggestion.SuggestionsBuilder, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.mojang.brigadier.suggestion.Suggestions&gt;&gt;</span>&nbsp;<span class="element-name">SUGGEST_NOTHING</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="items">
+<h3>items</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../core/HolderLookup.RegistryLookup.html" title="interface in net.minecraft.core">HolderLookup.RegistryLookup</a>&lt;<a href="../../../world/item/Item.html" title="class in net.minecraft.world.item">Item</a>&gt;</span>&nbsp;<span class="element-name">items</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="registryOps">
+<h3>registryOps</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../resources/RegistryOps.html" title="class in net.minecraft.resources">RegistryOps</a>&lt;<a href="../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;</span>&nbsp;<span class="element-name">registryOps</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="tagParser">
+<h3>tagParser</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="../../../nbt/TagParser.html" title="class in net.minecraft.nbt">TagParser</a>&lt;<a href="../../../nbt/Tag.html" title="interface in net.minecraft.nbt">Tag</a>&gt;</span>&nbsp;<span class="element-name">tagParser</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.core.HolderLookup.Provider)">
+<h3>ItemParser</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">ItemParser</span><wbr><span class="parameters">(<a href="../../../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registries)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="parse(com.mojang.brigadier.StringReader)">
+<h3>parse</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="ItemInput.html" title="class in net.minecraft.commands.arguments.item">ItemInput</a></span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(com.mojang.brigadier.StringReader&nbsp;reader)</span>
+                throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code>com.mojang.brigadier.exceptions.CommandSyntaxException</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="parse(com.mojang.brigadier.StringReader,net.minecraft.commands.arguments.item.ItemParser.Visitor)">
+<h3>parse</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">parse</span><wbr><span class="parameters">(com.mojang.brigadier.StringReader&nbsp;reader,
+ <a href="ItemParser.Visitor.html" title="interface in net.minecraft.commands.arguments.item">ItemParser.Visitor</a>&nbsp;visitor)</span>
+           throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code>com.mojang.brigadier.exceptions.CommandSyntaxException</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fillSuggestions(com.mojang.brigadier.suggestion.SuggestionsBuilder)">
+<h3>fillSuggestions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.mojang.brigadier.suggestion.Suggestions&gt;</span>&nbsp;<span class="element-name">fillSuggestions</span><wbr><span class="parameters">(com.mojang.brigadier.suggestion.SuggestionsBuilder&nbsp;builder)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

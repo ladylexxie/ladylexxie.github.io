@@ -1,0 +1,356 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>RenderPassBackend (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.mojang.blaze3d.systems, interface: RenderPassBackend">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/RenderPassBackend.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">com.mojang.blaze3d.systems</a></li>
+<li><a href="RenderPassBackend.html" class="current-selection">RenderPassBackend</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#pushDebugGroup(java.util.function.Supplier)" tabindex="0">pushDebugGroup(Supplier)</a></li>
+<li><a href="#popDebugGroup()" tabindex="0">popDebugGroup()</a></li>
+<li><a href="#setPipeline(com.mojang.blaze3d.pipeline.RenderPipeline)" tabindex="0">setPipeline(RenderPipeline)</a></li>
+<li><a href="#bindTexture(java.lang.String,com.mojang.blaze3d.textures.GpuTextureView,com.mojang.blaze3d.textures.GpuSampler)" tabindex="0">bindTexture(String, GpuTextureView, GpuSampler)</a></li>
+<li><a href="#setUniform(java.lang.String,com.mojang.blaze3d.buffers.GpuBuffer)" tabindex="0">setUniform(String, GpuBuffer)</a></li>
+<li><a href="#setUniform(java.lang.String,com.mojang.blaze3d.buffers.GpuBufferSlice)" tabindex="0">setUniform(String, GpuBufferSlice)</a></li>
+<li><a href="#setViewport(int,int,int,int)" tabindex="0">setViewport(int, int, int, int)</a></li>
+<li><a href="#enableScissor(int,int,int,int)" tabindex="0">enableScissor(int, int, int, int)</a></li>
+<li><a href="#disableScissor()" tabindex="0">disableScissor()</a></li>
+<li><a href="#setVertexBuffer(int,com.mojang.blaze3d.buffers.GpuBuffer)" tabindex="0">setVertexBuffer(int, GpuBuffer)</a></li>
+<li><a href="#setIndexBuffer(com.mojang.blaze3d.buffers.GpuBuffer,com.mojang.blaze3d.vertex.VertexFormat.IndexType)" tabindex="0">setIndexBuffer(GpuBuffer, VertexFormat.IndexType)</a></li>
+<li><a href="#drawIndexed(int,int,int,int)" tabindex="0">drawIndexed(int, int, int, int)</a></li>
+<li><a href="#drawMultipleIndexed(java.util.Collection,com.mojang.blaze3d.buffers.GpuBuffer,com.mojang.blaze3d.vertex.VertexFormat.IndexType,java.util.Collection,T)" tabindex="0">drawMultipleIndexed(Collection, GpuBuffer, VertexFormat.IndexType, Collection, T)</a></li>
+<li><a href="#draw(int,int)" tabindex="0">draw(int, int)</a></li>
+<li><a href="#close()" tabindex="0">close()</a></li>
+<li><a href="#isClosed()" tabindex="0">isClosed()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Interface RenderPassBackend" class="title">Interface RenderPassBackend</h1>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Superinterfaces:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code></dd>
+</dl>
+<dl class="notes">
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="../opengl/GlRenderPass.html" title="class in com.mojang.blaze3d.opengl">GlRenderPass</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">RenderPassBackend</span><span class="extends-implements">
+extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#bindTexture(java.lang.String,com.mojang.blaze3d.textures.GpuTextureView,com.mojang.blaze3d.textures.GpuSampler)" class="member-name-link">bindTexture</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ @Nullable <a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a>&nbsp;textureView,
+ @Nullable <a href="../textures/GpuSampler.html" title="class in com.mojang.blaze3d.textures">GpuSampler</a>&nbsp;sampler)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#disableScissor()" class="member-name-link">disableScissor</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#draw(int,int)" class="member-name-link">draw</a><wbr>(int&nbsp;firstVertex,
+ int&nbsp;vertexCount)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#drawIndexed(int,int,int,int)" class="member-name-link">drawIndexed</a><wbr>(int&nbsp;baseVertex,
+ int&nbsp;firstIndex,
+ int&nbsp;indexCount,
+ int&nbsp;instanceCount)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>&lt;T&gt;&nbsp;void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#drawMultipleIndexed(java.util.Collection,com.mojang.blaze3d.buffers.GpuBuffer,com.mojang.blaze3d.vertex.VertexFormat.IndexType,java.util.Collection,T)" class="member-name-link">drawMultipleIndexed</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="RenderPass.Draw.html" title="class in com.mojang.blaze3d.systems">RenderPass.Draw</a>&lt;T&gt;&gt;&nbsp;draws,
+ @Nullable <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;defaultIndexBuffer,
+ @Nullable <a href="../vertex/VertexFormat.IndexType.html" title="enum class in com.mojang.blaze3d.vertex">VertexFormat.IndexType</a>&nbsp;defaultIndexType,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;dynamicUniforms,
+ T&nbsp;uniformArgument)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#enableScissor(int,int,int,int)" class="member-name-link">enableScissor</a><wbr>(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;width,
+ int&nbsp;height)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#isClosed()" class="member-name-link">isClosed</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#popDebugGroup()" class="member-name-link">popDebugGroup</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#pushDebugGroup(java.util.function.Supplier)" class="member-name-link">pushDebugGroup</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;label)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setIndexBuffer(com.mojang.blaze3d.buffers.GpuBuffer,com.mojang.blaze3d.vertex.VertexFormat.IndexType)" class="member-name-link">setIndexBuffer</a><wbr>(<a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;indexBuffer,
+ <a href="../vertex/VertexFormat.IndexType.html" title="enum class in com.mojang.blaze3d.vertex">VertexFormat.IndexType</a>&nbsp;indexType)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setPipeline(com.mojang.blaze3d.pipeline.RenderPipeline)" class="member-name-link">setPipeline</a><wbr>(<a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setUniform(java.lang.String,com.mojang.blaze3d.buffers.GpuBuffer)" class="member-name-link">setUniform</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;value)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setUniform(java.lang.String,com.mojang.blaze3d.buffers.GpuBufferSlice)" class="member-name-link">setUniform</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a>&nbsp;value)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setVertexBuffer(int,com.mojang.blaze3d.buffers.GpuBuffer)" class="member-name-link">setVertexBuffer</a><wbr>(int&nbsp;slot,
+ <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;vertexBuffer)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#setViewport(int,int,int,int)" class="member-name-link">setViewport</a><wbr>(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;width,
+ int&nbsp;height)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+</div>
+</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="pushDebugGroup(java.util.function.Supplier)">
+<h3>pushDebugGroup</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">pushDebugGroup</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;label)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="popDebugGroup()">
+<h3>popDebugGroup</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">popDebugGroup</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setPipeline(com.mojang.blaze3d.pipeline.RenderPipeline)">
+<h3>setPipeline</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setPipeline</span><wbr><span class="parameters">(<a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="bindTexture(java.lang.String,com.mojang.blaze3d.textures.GpuTextureView,com.mojang.blaze3d.textures.GpuSampler)">
+<h3>bindTexture</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">bindTexture</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ @Nullable <a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a>&nbsp;textureView,
+ @Nullable <a href="../textures/GpuSampler.html" title="class in com.mojang.blaze3d.textures">GpuSampler</a>&nbsp;sampler)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setUniform(java.lang.String,com.mojang.blaze3d.buffers.GpuBuffer)">
+<h3>setUniform</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setUniform</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setUniform(java.lang.String,com.mojang.blaze3d.buffers.GpuBufferSlice)">
+<h3>setUniform</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setUniform</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ <a href="../buffers/GpuBufferSlice.html" title="class in com.mojang.blaze3d.buffers">GpuBufferSlice</a>&nbsp;value)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setViewport(int,int,int,int)">
+<h3>setViewport</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setViewport</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;width,
+ int&nbsp;height)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="enableScissor(int,int,int,int)">
+<h3>enableScissor</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">enableScissor</span><wbr><span class="parameters">(int&nbsp;x,
+ int&nbsp;y,
+ int&nbsp;width,
+ int&nbsp;height)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="disableScissor()">
+<h3>disableScissor</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">disableScissor</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setVertexBuffer(int,com.mojang.blaze3d.buffers.GpuBuffer)">
+<h3>setVertexBuffer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setVertexBuffer</span><wbr><span class="parameters">(int&nbsp;slot,
+ <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;vertexBuffer)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setIndexBuffer(com.mojang.blaze3d.buffers.GpuBuffer,com.mojang.blaze3d.vertex.VertexFormat.IndexType)">
+<h3>setIndexBuffer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">setIndexBuffer</span><wbr><span class="parameters">(<a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;indexBuffer,
+ <a href="../vertex/VertexFormat.IndexType.html" title="enum class in com.mojang.blaze3d.vertex">VertexFormat.IndexType</a>&nbsp;indexType)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="drawIndexed(int,int,int,int)">
+<h3>drawIndexed</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">drawIndexed</span><wbr><span class="parameters">(int&nbsp;baseVertex,
+ int&nbsp;firstIndex,
+ int&nbsp;indexCount,
+ int&nbsp;instanceCount)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="drawMultipleIndexed(java.util.Collection,com.mojang.blaze3d.buffers.GpuBuffer,com.mojang.blaze3d.vertex.VertexFormat.IndexType,java.util.Collection,T)">
+<h3 id="drawMultipleIndexed(java.util.Collection,com.mojang.blaze3d.buffers.GpuBuffer,com.mojang.blaze3d.vertex.VertexFormat.IndexType,java.util.Collection,java.lang.Object)">drawMultipleIndexed</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="type-parameters">&lt;T&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">drawMultipleIndexed</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="RenderPass.Draw.html" title="class in com.mojang.blaze3d.systems">RenderPass.Draw</a>&lt;T&gt;&gt;&nbsp;draws,
+ @Nullable <a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a>&nbsp;defaultIndexBuffer,
+ @Nullable <a href="../vertex/VertexFormat.IndexType.html" title="enum class in com.mojang.blaze3d.vertex">VertexFormat.IndexType</a>&nbsp;defaultIndexType,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Collection.html" title="class or interface in java.util" class="external-link">Collection</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;dynamicUniforms,
+ T&nbsp;uniformArgument)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="draw(int,int)">
+<h3>draw</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">draw</span><wbr><span class="parameters">(int&nbsp;firstVertex,
+ int&nbsp;vertexCount)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="close()">
+<h3>close</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">close</span>()</div>
+<dl class="notes">
+<dt>Specified by:</dt>
+<dd><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html#close()" title="class or interface in java.lang" class="external-link">close</a></code>&nbsp;in interface&nbsp;<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/AutoCloseable.html" title="class or interface in java.lang" class="external-link">AutoCloseable</a></code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isClosed()">
+<h3>isClosed</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">boolean</span>&nbsp;<span class="element-name">isClosed</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

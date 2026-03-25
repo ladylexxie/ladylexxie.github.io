@@ -1,0 +1,383 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>DensityFunction (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.world.level.levelgen, interface: DensityFunction">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/DensityFunction.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../../search.html">Search</a></li>
+<li><a href="../../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.world.level.levelgen</a></li>
+<li><a href="DensityFunction.html" class="current-selection">DensityFunction</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#DIRECT_CODEC" tabindex="0">DIRECT_CODEC</a></li>
+<li><a href="#CODEC" tabindex="0">CODEC</a></li>
+<li><a href="#HOLDER_HELPER_CODEC" tabindex="0">HOLDER_HELPER_CODEC</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)" tabindex="0">compute(DensityFunction.FunctionContext)</a></li>
+<li><a href="#fillArray(double%5B%5D,net.minecraft.world.level.levelgen.DensityFunction.ContextProvider)" tabindex="0">fillArray(double[], DensityFunction.ContextProvider)</a></li>
+<li><a href="#mapAll(net.minecraft.world.level.levelgen.DensityFunction.Visitor)" tabindex="0">mapAll(DensityFunction.Visitor)</a></li>
+<li><a href="#minValue()" tabindex="0">minValue()</a></li>
+<li><a href="#maxValue()" tabindex="0">maxValue()</a></li>
+<li><a href="#codec()" tabindex="0">codec()</a></li>
+<li><a href="#clamp(double,double)" tabindex="0">clamp(double, double)</a></li>
+<li><a href="#abs()" tabindex="0">abs()</a></li>
+<li><a href="#square()" tabindex="0">square()</a></li>
+<li><a href="#cube()" tabindex="0">cube()</a></li>
+<li><a href="#halfNegative()" tabindex="0">halfNegative()</a></li>
+<li><a href="#quarterNegative()" tabindex="0">quarterNegative()</a></li>
+<li><a href="#invert()" tabindex="0">invert()</a></li>
+<li><a href="#squeeze()" tabindex="0">squeeze()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Interface DensityFunction" class="title">Interface DensityFunction</h1>
+</div>
+<section class="class-description" id="class-description">
+<dl class="notes">
+<dt>All Known Subinterfaces:</dt>
+<dd><code><a href="DensityFunction.SimpleFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.SimpleFunction</a>, <a href="DensityFunctions.BeardifierOrMarker.html" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.BeardifierOrMarker</a>, <a href="DensityFunctions.MarkerOrMarked.html" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.MarkerOrMarked</a>, <a href="DensityFunctions.PureTransformer.html" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.PureTransformer</a>, <a href="DensityFunctions.ShiftNoise.html" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.ShiftNoise</a>, <a href="DensityFunctions.TransformerWithContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.TransformerWithContext</a>, <a href="DensityFunctions.TwoArgumentSimpleFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunctions.TwoArgumentSimpleFunction</a>, <a href="NoiseChunk.NoiseChunkDensityFunction.html" title="interface in net.minecraft.world.level.levelgen">NoiseChunk.NoiseChunkDensityFunction</a></code></dd>
+</dl>
+<dl class="notes">
+<dt>All Known Implementing Classes:</dt>
+<dd><code><a href="Beardifier.html" title="class in net.minecraft.world.level.levelgen">Beardifier</a>, <a href="synth/BlendedNoise.html" title="class in net.minecraft.world.level.levelgen.synth">BlendedNoise</a>, <a href="DensityFunctions.Ap2.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.Ap2</a>, <a href="DensityFunctions.BeardifierMarker.html" title="enum class in net.minecraft.world.level.levelgen">DensityFunctions.BeardifierMarker</a>, <a href="DensityFunctions.BlendAlpha.html" title="enum class in net.minecraft.world.level.levelgen">DensityFunctions.BlendAlpha</a>, <a href="DensityFunctions.BlendDensity.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.BlendDensity</a>, <a href="DensityFunctions.BlendOffset.html" title="enum class in net.minecraft.world.level.levelgen">DensityFunctions.BlendOffset</a>, <a href="DensityFunctions.Clamp.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.Clamp</a>, <a href="DensityFunctions.Constant.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.Constant</a>, <a href="DensityFunctions.EndIslandDensityFunction.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.EndIslandDensityFunction</a>, <a href="DensityFunctions.FindTopSurface.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.FindTopSurface</a>, <a href="DensityFunctions.HolderHolder.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.HolderHolder</a>, <a href="DensityFunctions.Mapped.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.Mapped</a>, <a href="DensityFunctions.Marker.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.Marker</a>, <a href="DensityFunctions.MulOrAdd.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.MulOrAdd</a>, <a href="DensityFunctions.Noise.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.Noise</a>, <a href="DensityFunctions.RangeChoice.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.RangeChoice</a>, <a href="DensityFunctions.Shift.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.Shift</a>, <a href="DensityFunctions.ShiftA.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.ShiftA</a>, <a href="DensityFunctions.ShiftB.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.ShiftB</a>, <a href="DensityFunctions.ShiftedNoise.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.ShiftedNoise</a>, <a href="DensityFunctions.Spline.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.Spline</a>, <a href="DensityFunctions.WeirdScaledSampler.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.WeirdScaledSampler</a>, <a href="DensityFunctions.YClampedGradient.html" title="class in net.minecraft.world.level.levelgen">DensityFunctions.YClampedGradient</a>, <a href="NoiseChunk.BlendAlpha.html" title="class in net.minecraft.world.level.levelgen">NoiseChunk.BlendAlpha</a>, <a href="NoiseChunk.BlendOffset.html" title="class in net.minecraft.world.level.levelgen">NoiseChunk.BlendOffset</a>, <a href="NoiseChunk.Cache2D.html" title="class in net.minecraft.world.level.levelgen">NoiseChunk.Cache2D</a>, <a href="NoiseChunk.CacheAllInCell.html" title="class in net.minecraft.world.level.levelgen">NoiseChunk.CacheAllInCell</a>, <a href="NoiseChunk.CacheOnce.html" title="class in net.minecraft.world.level.levelgen">NoiseChunk.CacheOnce</a>, <a href="NoiseChunk.FlatCache.html" title="class in net.minecraft.world.level.levelgen">NoiseChunk.FlatCache</a>, <a href="NoiseChunk.NoiseInterpolator.html" title="class in net.minecraft.world.level.levelgen">NoiseChunk.NoiseInterpolator</a></code></dd>
+</dl>
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public interface </span><span class="element-name type-name-label">DensityFunction</span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Interface</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="DensityFunction.ContextProvider.html" class="type-name-link" title="interface in net.minecraft.world.level.levelgen">DensityFunction.ContextProvider</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="DensityFunction.FunctionContext.html" class="type-name-link" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="DensityFunction.NoiseHolder.html" class="type-name-link" title="class in net.minecraft.world.level.levelgen">DensityFunction.NoiseHolder</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="DensityFunction.SimpleFunction.html" class="type-name-link" title="interface in net.minecraft.world.level.levelgen">DensityFunction.SimpleFunction</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final record&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="DensityFunction.SinglePointContext.html" class="type-name-link" title="class in net.minecraft.world.level.levelgen">DensityFunction.SinglePointContext</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="DensityFunction.Visitor.html" class="type-name-link" title="interface in net.minecraft.world.level.levelgen">DensityFunction.Visitor</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static final com.mojang.serialization.Codec<wbr>&lt;<a href="../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#CODEC" class="member-name-link">CODEC</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final com.mojang.serialization.Codec<wbr>&lt;<a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#DIRECT_CODEC" class="member-name-link">DIRECT_CODEC</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final com.mojang.serialization.Codec<wbr>&lt;<a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#HOLDER_HELPER_CODEC" class="member-name-link">HOLDER_HELPER_CODEC</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab3" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab3', 3)" class="table-tab">Abstract Methods</button><button id="method-summary-table-tab5" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab5', 3)" class="table-tab">Default Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#abs()" class="member-name-link">abs</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#clamp(double,double)" class="member-name-link">clamp</a><wbr>(double&nbsp;min,
+ double&nbsp;max)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="../../../util/KeyDispatchDataCodec.html" title="class in net.minecraft.util">KeyDispatchDataCodec</a><wbr>&lt;? extends <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#codec()" class="member-name-link">codec</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>double</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)" class="member-name-link">compute</a><wbr>(<a href="DensityFunction.FunctionContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a>&nbsp;context)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#cube()" class="member-name-link">cube</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#fillArray(double%5B%5D,net.minecraft.world.level.levelgen.DensityFunction.ContextProvider)" class="member-name-link">fillArray</a><wbr>(double[]&nbsp;output,
+ <a href="DensityFunction.ContextProvider.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.ContextProvider</a>&nbsp;contextProvider)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#halfNegative()" class="member-name-link">halfNegative</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#invert()" class="member-name-link">invert</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#mapAll(net.minecraft.world.level.levelgen.DensityFunction.Visitor)" class="member-name-link">mapAll</a><wbr>(<a href="DensityFunction.Visitor.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.Visitor</a>&nbsp;visitor)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>double</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#maxValue()" class="member-name-link">maxValue</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code>double</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3"><code><a href="#minValue()" class="member-name-link">minValue</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab3">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#quarterNegative()" class="member-name-link">quarterNegative</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#square()" class="member-name-link">square</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code>default <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5"><code><a href="#squeeze()" class="member-name-link">squeeze</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab5">&nbsp;</div>
+</div>
+</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="DIRECT_CODEC">
+<h3>DIRECT_CODEC</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">com.mojang.serialization.Codec&lt;<a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a>&gt;</span>&nbsp;<span class="element-name">DIRECT_CODEC</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CODEC">
+<h3>CODEC</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">com.mojang.serialization.Codec&lt;<a href="../../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a>&gt;&gt;</span>&nbsp;<span class="element-name">CODEC</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="HOLDER_HELPER_CODEC">
+<h3>HOLDER_HELPER_CODEC</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">static final</span>&nbsp;<span class="return-type">com.mojang.serialization.Codec&lt;<a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a>&gt;</span>&nbsp;<span class="element-name">HOLDER_HELPER_CODEC</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="compute(net.minecraft.world.level.levelgen.DensityFunction.FunctionContext)">
+<h3>compute</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">double</span>&nbsp;<span class="element-name">compute</span><wbr><span class="parameters">(<a href="DensityFunction.FunctionContext.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.FunctionContext</a>&nbsp;context)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fillArray(double[],net.minecraft.world.level.levelgen.DensityFunction.ContextProvider)">
+<h3>fillArray</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">void</span>&nbsp;<span class="element-name">fillArray</span><wbr><span class="parameters">(double[]&nbsp;output,
+ <a href="DensityFunction.ContextProvider.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.ContextProvider</a>&nbsp;contextProvider)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="mapAll(net.minecraft.world.level.levelgen.DensityFunction.Visitor)">
+<h3>mapAll</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></span>&nbsp;<span class="element-name">mapAll</span><wbr><span class="parameters">(<a href="DensityFunction.Visitor.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction.Visitor</a>&nbsp;visitor)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="minValue()">
+<h3>minValue</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">double</span>&nbsp;<span class="element-name">minValue</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="maxValue()">
+<h3>maxValue</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type">double</span>&nbsp;<span class="element-name">maxValue</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="codec()">
+<h3>codec</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="return-type"><a href="../../../util/KeyDispatchDataCodec.html" title="class in net.minecraft.util">KeyDispatchDataCodec</a>&lt;? extends <a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a>&gt;</span>&nbsp;<span class="element-name">codec</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="clamp(double,double)">
+<h3>clamp</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></span>&nbsp;<span class="element-name">clamp</span><wbr><span class="parameters">(double&nbsp;min,
+ double&nbsp;max)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="abs()">
+<h3>abs</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></span>&nbsp;<span class="element-name">abs</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="square()">
+<h3>square</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></span>&nbsp;<span class="element-name">square</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="cube()">
+<h3>cube</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></span>&nbsp;<span class="element-name">cube</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="halfNegative()">
+<h3>halfNegative</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></span>&nbsp;<span class="element-name">halfNegative</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="quarterNegative()">
+<h3>quarterNegative</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></span>&nbsp;<span class="element-name">quarterNegative</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="invert()">
+<h3>invert</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></span>&nbsp;<span class="element-name">invert</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="squeeze()">
+<h3>squeeze</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">default</span>&nbsp;<span class="return-type"><a href="DensityFunction.html" title="interface in net.minecraft.world.level.levelgen">DensityFunction</a></span>&nbsp;<span class="element-name">squeeze</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>TimeCommand (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.server.commands, class: TimeCommand">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/TimeCommand.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.server.commands</a></li>
+<li><a href="TimeCommand.html" class="current-selection">TimeCommand</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#ERROR_NO_DEFAULT_CLOCK" tabindex="0">ERROR_NO_DEFAULT_CLOCK</a></li>
+<li><a href="#ERROR_NO_TIME_MARKER_FOUND" tabindex="0">ERROR_NO_TIME_MARKER_FOUND</a></li>
+<li><a href="#ERROR_WRONG_TIMELINE_FOR_CLOCK" tabindex="0">ERROR_WRONG_TIMELINE_FOR_CLOCK</a></li>
+<li><a href="#MAX_CLOCK_RATE" tabindex="0">MAX_CLOCK_RATE</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E()" tabindex="0">TimeCommand()</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#register(com.mojang.brigadier.CommandDispatcher,net.minecraft.commands.CommandBuildContext)" tabindex="0">register(CommandDispatcher, CommandBuildContext)</a></li>
+<li><a href="#addClockNodes(net.minecraft.commands.CommandBuildContext,A,net.minecraft.server.commands.TimeCommand.ClockGetter)" tabindex="0">addClockNodes(CommandBuildContext, A, TimeCommand.ClockGetter)</a></li>
+<li><a href="#suggestTimeMarkers(net.minecraft.commands.CommandSourceStack,com.mojang.brigadier.suggestion.SuggestionsBuilder,net.minecraft.core.Holder)" tabindex="0">suggestTimeMarkers(CommandSourceStack, SuggestionsBuilder, Holder)</a></li>
+<li><a href="#suggestTimelines(net.minecraft.commands.CommandSourceStack,com.mojang.brigadier.suggestion.SuggestionsBuilder,net.minecraft.core.Holder)" tabindex="0">suggestTimelines(CommandSourceStack, SuggestionsBuilder, Holder)</a></li>
+<li><a href="#queryGameTime(net.minecraft.commands.CommandSourceStack)" tabindex="0">queryGameTime(CommandSourceStack)</a></li>
+<li><a href="#queryTime(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder)" tabindex="0">queryTime(CommandSourceStack, Holder)</a></li>
+<li><a href="#queryTimelineTicks(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,net.minecraft.core.Holder)" tabindex="0">queryTimelineTicks(CommandSourceStack, Holder, Holder)</a></li>
+<li><a href="#queryTimelineRepetitions(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,net.minecraft.core.Holder)" tabindex="0">queryTimelineRepetitions(CommandSourceStack, Holder, Holder)</a></li>
+<li><a href="#setTotalTicks(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,int)" tabindex="0">setTotalTicks(CommandSourceStack, Holder, int)</a></li>
+<li><a href="#addTime(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,int)" tabindex="0">addTime(CommandSourceStack, Holder, int)</a></li>
+<li><a href="#setTimeToTimeMarker(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,net.minecraft.resources.ResourceKey)" tabindex="0">setTimeToTimeMarker(CommandSourceStack, Holder, ResourceKey)</a></li>
+<li><a href="#setPaused(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,boolean)" tabindex="0">setPaused(CommandSourceStack, Holder, boolean)</a></li>
+<li><a href="#setRate(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,float)" tabindex="0">setRate(CommandSourceStack, Holder, float)</a></li>
+<li><a href="#wrapTime(long)" tabindex="0">wrapTime(long)</a></li>
+<li><a href="#getDefaultClock(net.minecraft.commands.CommandSourceStack)" tabindex="0">getDefaultClock(CommandSourceStack)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class TimeCommand" class="title">Class TimeCommand</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.server.commands.TimeCommand</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">TimeCommand</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static interface&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="TimeCommand.ClockGetter.html" class="type-name-link" title="interface in net.minecraft.server.commands">TimeCommand.ClockGetter</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static final com.mojang.brigadier.exceptions.DynamicCommandExceptionType</code></div>
+<div class="col-second even-row-color"><code><a href="#ERROR_NO_DEFAULT_CLOCK" class="member-name-link">ERROR_NO_DEFAULT_CLOCK</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType</code></div>
+<div class="col-second odd-row-color"><code><a href="#ERROR_NO_TIME_MARKER_FOUND" class="member-name-link">ERROR_NO_TIME_MARKER_FOUND</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType</code></div>
+<div class="col-second even-row-color"><code><a href="#ERROR_WRONG_TIMELINE_FOR_CLOCK" class="member-name-link">ERROR_WRONG_TIMELINE_FOR_CLOCK</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final int</code></div>
+<div class="col-second odd-row-color"><code><a href="#MAX_CLOCK_RATE" class="member-name-link">MAX_CLOCK_RATE</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E()" class="member-name-link">TimeCommand</a>()</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;A extends com.mojang.brigadier.builder.ArgumentBuilder&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>, A&gt;&gt;<br>A</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addClockNodes(net.minecraft.commands.CommandBuildContext,A,net.minecraft.server.commands.TimeCommand.ClockGetter)" class="member-name-link">addClockNodes</a><wbr>(<a href="../../commands/CommandBuildContext.html" title="interface in net.minecraft.commands">CommandBuildContext</a>&nbsp;context,
+ A&nbsp;node,
+ <a href="TimeCommand.ClockGetter.html" title="interface in net.minecraft.server.commands">TimeCommand.ClockGetter</a>&nbsp;clockGetter)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#addTime(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,int)" class="member-name-link">addTime</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ int&nbsp;time)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a><wbr>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getDefaultClock(net.minecraft.commands.CommandSourceStack)" class="member-name-link">getDefaultClock</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queryGameTime(net.minecraft.commands.CommandSourceStack)" class="member-name-link">queryGameTime</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queryTime(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder)" class="member-name-link">queryTime</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queryTimelineRepetitions(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,net.minecraft.core.Holder)" class="member-name-link">queryTimelineRepetitions</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/timeline/Timeline.html" title="class in net.minecraft.world.timeline">Timeline</a>&gt;&nbsp;timeline)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#queryTimelineTicks(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,net.minecraft.core.Holder)" class="member-name-link">queryTimelineTicks</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/timeline/Timeline.html" title="class in net.minecraft.world.timeline">Timeline</a>&gt;&nbsp;timeline)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#register(com.mojang.brigadier.CommandDispatcher,net.minecraft.commands.CommandBuildContext)" class="member-name-link">register</a><wbr>(com.mojang.brigadier.CommandDispatcher&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;dispatcher,
+ <a href="../../commands/CommandBuildContext.html" title="interface in net.minecraft.commands">CommandBuildContext</a>&nbsp;context)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setPaused(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,boolean)" class="member-name-link">setPaused</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ boolean&nbsp;paused)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setRate(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,float)" class="member-name-link">setRate</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ float&nbsp;rate)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setTimeToTimeMarker(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,net.minecraft.resources.ResourceKey)" class="member-name-link">setTimeToTimeMarker</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ <a href="../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../world/clock/ClockTimeMarker.html" title="class in net.minecraft.world.clock">ClockTimeMarker</a>&gt;&nbsp;timeMarkerId)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#setTotalTicks(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,int)" class="member-name-link">setTotalTicks</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ int&nbsp;totalTicks)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;com.mojang.brigadier.suggestion.Suggestions&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#suggestTimelines(net.minecraft.commands.CommandSourceStack,com.mojang.brigadier.suggestion.SuggestionsBuilder,net.minecraft.core.Holder)" class="member-name-link">suggestTimelines</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ com.mojang.brigadier.suggestion.SuggestionsBuilder&nbsp;builder,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a><wbr>&lt;com.mojang.brigadier.suggestion.Suggestions&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#suggestTimeMarkers(net.minecraft.commands.CommandSourceStack,com.mojang.brigadier.suggestion.SuggestionsBuilder,net.minecraft.core.Holder)" class="member-name-link">suggestTimeMarkers</a><wbr>(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ com.mojang.brigadier.suggestion.SuggestionsBuilder&nbsp;builder,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#wrapTime(long)" class="member-name-link">wrapTime</a><wbr>(long&nbsp;ticks)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="ERROR_NO_DEFAULT_CLOCK">
+<h3>ERROR_NO_DEFAULT_CLOCK</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">com.mojang.brigadier.exceptions.DynamicCommandExceptionType</span>&nbsp;<span class="element-name">ERROR_NO_DEFAULT_CLOCK</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ERROR_NO_TIME_MARKER_FOUND">
+<h3>ERROR_NO_TIME_MARKER_FOUND</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType</span>&nbsp;<span class="element-name">ERROR_NO_TIME_MARKER_FOUND</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="ERROR_WRONG_TIMELINE_FOR_CLOCK">
+<h3>ERROR_WRONG_TIMELINE_FOR_CLOCK</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">com.mojang.brigadier.exceptions.Dynamic2CommandExceptionType</span>&nbsp;<span class="element-name">ERROR_WRONG_TIMELINE_FOR_CLOCK</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="MAX_CLOCK_RATE">
+<h3>MAX_CLOCK_RATE</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">MAX_CLOCK_RATE</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../../constant-values.html#net.minecraft.server.commands.TimeCommand.MAX_CLOCK_RATE">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;()">
+<h3>TimeCommand</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">TimeCommand</span>()</div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="register(com.mojang.brigadier.CommandDispatcher,net.minecraft.commands.CommandBuildContext)">
+<h3>register</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">register</span><wbr><span class="parameters">(com.mojang.brigadier.CommandDispatcher&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;dispatcher,
+ <a href="../../commands/CommandBuildContext.html" title="interface in net.minecraft.commands">CommandBuildContext</a>&nbsp;context)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addClockNodes(net.minecraft.commands.CommandBuildContext,A,net.minecraft.server.commands.TimeCommand.ClockGetter)">
+<h3 id="addClockNodes(net.minecraft.commands.CommandBuildContext,com.mojang.brigadier.builder.ArgumentBuilder,net.minecraft.server.commands.TimeCommand.ClockGetter)">addClockNodes</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;A extends com.mojang.brigadier.builder.ArgumentBuilder&lt;<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>, A&gt;&gt;</span>
+<span class="return-type">A</span>&nbsp;<span class="element-name">addClockNodes</span><wbr><span class="parameters">(<a href="../../commands/CommandBuildContext.html" title="interface in net.minecraft.commands">CommandBuildContext</a>&nbsp;context,
+ A&nbsp;node,
+ <a href="TimeCommand.ClockGetter.html" title="interface in net.minecraft.server.commands">TimeCommand.ClockGetter</a>&nbsp;clockGetter)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="suggestTimeMarkers(net.minecraft.commands.CommandSourceStack,com.mojang.brigadier.suggestion.SuggestionsBuilder,net.minecraft.core.Holder)">
+<h3>suggestTimeMarkers</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.mojang.brigadier.suggestion.Suggestions&gt;</span>&nbsp;<span class="element-name">suggestTimeMarkers</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ com.mojang.brigadier.suggestion.SuggestionsBuilder&nbsp;builder,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="suggestTimelines(net.minecraft.commands.CommandSourceStack,com.mojang.brigadier.suggestion.SuggestionsBuilder,net.minecraft.core.Holder)">
+<h3>suggestTimelines</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/concurrent/CompletableFuture.html" title="class or interface in java.util.concurrent" class="external-link">CompletableFuture</a>&lt;com.mojang.brigadier.suggestion.Suggestions&gt;</span>&nbsp;<span class="element-name">suggestTimelines</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ com.mojang.brigadier.suggestion.SuggestionsBuilder&nbsp;builder,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="queryGameTime(net.minecraft.commands.CommandSourceStack)">
+<h3>queryGameTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">queryGameTime</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="queryTime(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder)">
+<h3>queryTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">queryTime</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="queryTimelineTicks(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,net.minecraft.core.Holder)">
+<h3>queryTimelineTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">queryTimelineTicks</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/timeline/Timeline.html" title="class in net.minecraft.world.timeline">Timeline</a>&gt;&nbsp;timeline)</span>
+                               throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code>com.mojang.brigadier.exceptions.CommandSyntaxException</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="queryTimelineRepetitions(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,net.minecraft.core.Holder)">
+<h3>queryTimelineRepetitions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">queryTimelineRepetitions</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/timeline/Timeline.html" title="class in net.minecraft.world.timeline">Timeline</a>&gt;&nbsp;timeline)</span>
+                                     throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code>com.mojang.brigadier.exceptions.CommandSyntaxException</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setTotalTicks(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,int)">
+<h3>setTotalTicks</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">setTotalTicks</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ int&nbsp;totalTicks)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="addTime(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,int)">
+<h3>addTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">addTime</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ int&nbsp;time)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setTimeToTimeMarker(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,net.minecraft.resources.ResourceKey)">
+<h3>setTimeToTimeMarker</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">setTimeToTimeMarker</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ <a href="../../resources/ResourceKey.html" title="class in net.minecraft.resources">ResourceKey</a>&lt;<a href="../../world/clock/ClockTimeMarker.html" title="class in net.minecraft.world.clock">ClockTimeMarker</a>&gt;&nbsp;timeMarkerId)</span>
+                                throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code>com.mojang.brigadier.exceptions.CommandSyntaxException</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setPaused(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,boolean)">
+<h3>setPaused</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">setPaused</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ boolean&nbsp;paused)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setRate(net.minecraft.commands.CommandSourceStack,net.minecraft.core.Holder,float)">
+<h3>setRate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">setRate</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source,
+ <a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;&nbsp;clock,
+ float&nbsp;rate)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="wrapTime(long)">
+<h3>wrapTime</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">wrapTime</span><wbr><span class="parameters">(long&nbsp;ticks)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getDefaultClock(net.minecraft.commands.CommandSourceStack)">
+<h3>getDefaultClock</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type"><a href="../../core/Holder.html" title="interface in net.minecraft.core">Holder</a>&lt;<a href="../../world/clock/WorldClock.html" title="class in net.minecraft.world.clock">WorldClock</a>&gt;</span>&nbsp;<span class="element-name">getDefaultClock</span><wbr><span class="parameters">(<a href="../../commands/CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;source)</span>
+                                           throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code>com.mojang.brigadier.exceptions.CommandSyntaxException</code></dd>
+</dl>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

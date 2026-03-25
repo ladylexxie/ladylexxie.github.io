@@ -1,0 +1,603 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>GpuDevice (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: com.mojang.blaze3d.systems, class: GpuDevice">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/GpuDevice.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../../search.html">Search</a></li>
+<li><a href="../../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">com.mojang.blaze3d.systems</a></li>
+<li><a href="GpuDevice.html" class="current-selection">GpuDevice</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#backend" tabindex="0">backend</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(com.mojang.blaze3d.systems.GpuDeviceBackend)" tabindex="0">GpuDevice(GpuDeviceBackend)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#createCommandEncoder()" tabindex="0">createCommandEncoder()</a></li>
+<li><a href="#createSampler(com.mojang.blaze3d.textures.AddressMode,com.mojang.blaze3d.textures.AddressMode,com.mojang.blaze3d.textures.FilterMode,com.mojang.blaze3d.textures.FilterMode,int,java.util.OptionalDouble)" tabindex="0">createSampler(AddressMode, AddressMode, FilterMode, FilterMode, int, OptionalDouble)</a></li>
+<li><a href="#createTexture(java.util.function.Supplier,int,com.mojang.blaze3d.textures.TextureFormat,int,int,int,int)" tabindex="0">createTexture(Supplier, int, TextureFormat, int, int, int, int)</a></li>
+<li><a href="#createTexture(java.lang.String,int,com.mojang.blaze3d.textures.TextureFormat,int,int,int,int)" tabindex="0">createTexture(String, int, TextureFormat, int, int, int, int)</a></li>
+<li><a href="#verifyTextureCreationArgs(int,int,int,int,int)" tabindex="0">verifyTextureCreationArgs(int, int, int, int, int)</a></li>
+<li><a href="#createTextureView(com.mojang.blaze3d.textures.GpuTexture)" tabindex="0">createTextureView(GpuTexture)</a></li>
+<li><a href="#createTextureView(com.mojang.blaze3d.textures.GpuTexture,int,int)" tabindex="0">createTextureView(GpuTexture, int, int)</a></li>
+<li><a href="#verifyTextureViewCreationArgs(com.mojang.blaze3d.textures.GpuTexture,int,int)" tabindex="0">verifyTextureViewCreationArgs(GpuTexture, int, int)</a></li>
+<li><a href="#createBuffer(java.util.function.Supplier,int,long)" tabindex="0">createBuffer(Supplier, int, long)</a></li>
+<li><a href="#createBuffer(java.util.function.Supplier,int,java.nio.ByteBuffer)" tabindex="0">createBuffer(Supplier, int, ByteBuffer)</a></li>
+<li><a href="#getImplementationInformation()" tabindex="0">getImplementationInformation()</a></li>
+<li><a href="#getLastDebugMessages()" tabindex="0">getLastDebugMessages()</a></li>
+<li><a href="#isDebuggingEnabled()" tabindex="0">isDebuggingEnabled()</a></li>
+<li><a href="#getVendor()" tabindex="0">getVendor()</a></li>
+<li><a href="#getBackendName()" tabindex="0">getBackendName()</a></li>
+<li><a href="#getVersion()" tabindex="0">getVersion()</a></li>
+<li><a href="#getRenderer()" tabindex="0">getRenderer()</a></li>
+<li><a href="#getMaxTextureSize()" tabindex="0">getMaxTextureSize()</a></li>
+<li><a href="#getUniformOffsetAlignment()" tabindex="0">getUniformOffsetAlignment()</a></li>
+<li><a href="#precompilePipeline(com.mojang.blaze3d.pipeline.RenderPipeline)" tabindex="0">precompilePipeline(RenderPipeline)</a></li>
+<li><a href="#precompilePipeline(com.mojang.blaze3d.pipeline.RenderPipeline,com.mojang.blaze3d.shaders.ShaderSource)" tabindex="0">precompilePipeline(RenderPipeline, ShaderSource)</a></li>
+<li><a href="#clearPipelineCache()" tabindex="0">clearPipelineCache()</a></li>
+<li><a href="#getEnabledExtensions()" tabindex="0">getEnabledExtensions()</a></li>
+<li><a href="#getMaxSupportedAnisotropy()" tabindex="0">getMaxSupportedAnisotropy()</a></li>
+<li><a href="#close()" tabindex="0">close()</a></li>
+<li><a href="#setVsync(boolean)" tabindex="0">setVsync(boolean)</a></li>
+<li><a href="#presentFrame()" tabindex="0">presentFrame()</a></li>
+<li><a href="#isZZeroToOne()" tabindex="0">isZZeroToOne()</a></li>
+<li><a href="#getBackend()" tabindex="0">getBackend()</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class GpuDevice" class="title">Class GpuDevice</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">com.mojang.blaze3d.systems.GpuDevice</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">GpuDevice</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private final <a href="GpuDeviceBackend.html" title="interface in com.mojang.blaze3d.systems">GpuDeviceBackend</a></code></div>
+<div class="col-second even-row-color"><code><a href="#backend" class="member-name-link">backend</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(com.mojang.blaze3d.systems.GpuDeviceBackend)" class="member-name-link">GpuDevice</a><wbr>(<a href="GpuDeviceBackend.html" title="interface in com.mojang.blaze3d.systems">GpuDeviceBackend</a>&nbsp;backend)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button><button id="method-summary-table-tab6" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab6', 3)" class="table-tab">Deprecated Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#clearPipelineCache()" class="member-name-link">clearPipelineCache</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#close()" class="member-name-link">close</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createBuffer(java.util.function.Supplier,int,long)" class="member-name-link">createBuffer</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;label,
+ int&nbsp;usage,
+ long&nbsp;size)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createBuffer(java.util.function.Supplier,int,java.nio.ByteBuffer)" class="member-name-link">createBuffer</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;label,
+ int&nbsp;usage,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;data)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="CommandEncoder.html" title="class in com.mojang.blaze3d.systems">CommandEncoder</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createCommandEncoder()" class="member-name-link">createCommandEncoder</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../textures/GpuSampler.html" title="class in com.mojang.blaze3d.textures">GpuSampler</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createSampler(com.mojang.blaze3d.textures.AddressMode,com.mojang.blaze3d.textures.AddressMode,com.mojang.blaze3d.textures.FilterMode,com.mojang.blaze3d.textures.FilterMode,int,java.util.OptionalDouble)" class="member-name-link">createSampler</a><wbr>(<a href="../textures/AddressMode.html" title="enum class in com.mojang.blaze3d.textures">AddressMode</a>&nbsp;addressModeU,
+ <a href="../textures/AddressMode.html" title="enum class in com.mojang.blaze3d.textures">AddressMode</a>&nbsp;addressModeV,
+ <a href="../textures/FilterMode.html" title="enum class in com.mojang.blaze3d.textures">FilterMode</a>&nbsp;minFilter,
+ <a href="../textures/FilterMode.html" title="enum class in com.mojang.blaze3d.textures">FilterMode</a>&nbsp;magFilter,
+ int&nbsp;maxAnisotropy,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/OptionalDouble.html" title="class or interface in java.util" class="external-link">OptionalDouble</a>&nbsp;maxLod)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createTexture(java.lang.String,int,com.mojang.blaze3d.textures.TextureFormat,int,int,int,int)" class="member-name-link">createTexture</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;label,
+ int&nbsp;usage,
+ <a href="../textures/TextureFormat.html" title="enum class in com.mojang.blaze3d.textures">TextureFormat</a>&nbsp;format,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;depthOrLayers,
+ int&nbsp;mipLevels)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createTexture(java.util.function.Supplier,int,com.mojang.blaze3d.textures.TextureFormat,int,int,int,int)" class="member-name-link">createTexture</a><wbr>(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;label,
+ int&nbsp;usage,
+ <a href="../textures/TextureFormat.html" title="enum class in com.mojang.blaze3d.textures">TextureFormat</a>&nbsp;format,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;depthOrLayers,
+ int&nbsp;mipLevels)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createTextureView(com.mojang.blaze3d.textures.GpuTexture)" class="member-name-link">createTextureView</a><wbr>(<a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a>&nbsp;texture)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#createTextureView(com.mojang.blaze3d.textures.GpuTexture,int,int)" class="member-name-link">createTextureView</a><wbr>(<a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a>&nbsp;texture,
+ int&nbsp;baseMipLevel,
+ int&nbsp;mipLevels)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="GpuDeviceBackend.html" title="interface in com.mojang.blaze3d.systems">GpuDeviceBackend</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6"><code><a href="#getBackend()" class="member-name-link">getBackend</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4 method-summary-table-tab6">
+<div class="block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getBackendName()" class="member-name-link">getBackendName</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getEnabledExtensions()" class="member-name-link">getEnabledExtensions</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getImplementationInformation()" class="member-name-link">getImplementationInformation</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getLastDebugMessages()" class="member-name-link">getLastDebugMessages</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxSupportedAnisotropy()" class="member-name-link">getMaxSupportedAnisotropy</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getMaxTextureSize()" class="member-name-link">getMaxTextureSize</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getRenderer()" class="member-name-link">getRenderer</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>int</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getUniformOffsetAlignment()" class="member-name-link">getUniformOffsetAlignment</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVendor()" class="member-name-link">getVendor</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getVersion()" class="member-name-link">getVersion</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isDebuggingEnabled()" class="member-name-link">isDebuggingEnabled</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>boolean</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#isZZeroToOne()" class="member-name-link">isZZeroToOne</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../pipeline/CompiledRenderPipeline.html" title="interface in com.mojang.blaze3d.pipeline">CompiledRenderPipeline</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#precompilePipeline(com.mojang.blaze3d.pipeline.RenderPipeline)" class="member-name-link">precompilePipeline</a><wbr>(<a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="../pipeline/CompiledRenderPipeline.html" title="interface in com.mojang.blaze3d.pipeline">CompiledRenderPipeline</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#precompilePipeline(com.mojang.blaze3d.pipeline.RenderPipeline,com.mojang.blaze3d.shaders.ShaderSource)" class="member-name-link">precompilePipeline</a><wbr>(<a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline,
+ @Nullable <a href="../shaders/ShaderSource.html" title="interface in com.mojang.blaze3d.shaders">ShaderSource</a>&nbsp;shaderSource)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#presentFrame()" class="member-name-link">presentFrame</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#setVsync(boolean)" class="member-name-link">setVsync</a><wbr>(boolean&nbsp;enabled)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#verifyTextureCreationArgs(int,int,int,int,int)" class="member-name-link">verifyTextureCreationArgs</a><wbr>(int&nbsp;usage,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;depthOrLayers,
+ int&nbsp;mipLevels)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>private void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#verifyTextureViewCreationArgs(com.mojang.blaze3d.textures.GpuTexture,int,int)" class="member-name-link">verifyTextureViewCreationArgs</a><wbr>(<a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a>&nbsp;texture,
+ int&nbsp;baseMipLevel,
+ int&nbsp;mipLevels)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="backend">
+<h3>backend</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type"><a href="GpuDeviceBackend.html" title="interface in com.mojang.blaze3d.systems">GpuDeviceBackend</a></span>&nbsp;<span class="element-name">backend</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(com.mojang.blaze3d.systems.GpuDeviceBackend)">
+<h3>GpuDevice</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">GpuDevice</span><wbr><span class="parameters">(<a href="GpuDeviceBackend.html" title="interface in com.mojang.blaze3d.systems">GpuDeviceBackend</a>&nbsp;backend)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="createCommandEncoder()">
+<h3>createCommandEncoder</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="CommandEncoder.html" title="class in com.mojang.blaze3d.systems">CommandEncoder</a></span>&nbsp;<span class="element-name">createCommandEncoder</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createSampler(com.mojang.blaze3d.textures.AddressMode,com.mojang.blaze3d.textures.AddressMode,com.mojang.blaze3d.textures.FilterMode,com.mojang.blaze3d.textures.FilterMode,int,java.util.OptionalDouble)">
+<h3>createSampler</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../textures/GpuSampler.html" title="class in com.mojang.blaze3d.textures">GpuSampler</a></span>&nbsp;<span class="element-name">createSampler</span><wbr><span class="parameters">(<a href="../textures/AddressMode.html" title="enum class in com.mojang.blaze3d.textures">AddressMode</a>&nbsp;addressModeU,
+ <a href="../textures/AddressMode.html" title="enum class in com.mojang.blaze3d.textures">AddressMode</a>&nbsp;addressModeV,
+ <a href="../textures/FilterMode.html" title="enum class in com.mojang.blaze3d.textures">FilterMode</a>&nbsp;minFilter,
+ <a href="../textures/FilterMode.html" title="enum class in com.mojang.blaze3d.textures">FilterMode</a>&nbsp;magFilter,
+ int&nbsp;maxAnisotropy,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/OptionalDouble.html" title="class or interface in java.util" class="external-link">OptionalDouble</a>&nbsp;maxLod)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createTexture(java.util.function.Supplier,int,com.mojang.blaze3d.textures.TextureFormat,int,int,int,int)">
+<h3>createTexture</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a></span>&nbsp;<span class="element-name">createTexture</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;label,
+ int&nbsp;usage,
+ <a href="../textures/TextureFormat.html" title="enum class in com.mojang.blaze3d.textures">TextureFormat</a>&nbsp;format,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;depthOrLayers,
+ int&nbsp;mipLevels)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createTexture(java.lang.String,int,com.mojang.blaze3d.textures.TextureFormat,int,int,int,int)">
+<h3>createTexture</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a></span>&nbsp;<span class="element-name">createTexture</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;label,
+ int&nbsp;usage,
+ <a href="../textures/TextureFormat.html" title="enum class in com.mojang.blaze3d.textures">TextureFormat</a>&nbsp;format,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;depthOrLayers,
+ int&nbsp;mipLevels)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="verifyTextureCreationArgs(int,int,int,int,int)">
+<h3>verifyTextureCreationArgs</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">verifyTextureCreationArgs</span><wbr><span class="parameters">(int&nbsp;usage,
+ int&nbsp;width,
+ int&nbsp;height,
+ int&nbsp;depthOrLayers,
+ int&nbsp;mipLevels)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createTextureView(com.mojang.blaze3d.textures.GpuTexture)">
+<h3>createTextureView</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a></span>&nbsp;<span class="element-name">createTextureView</span><wbr><span class="parameters">(<a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a>&nbsp;texture)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createTextureView(com.mojang.blaze3d.textures.GpuTexture,int,int)">
+<h3>createTextureView</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../textures/GpuTextureView.html" title="class in com.mojang.blaze3d.textures">GpuTextureView</a></span>&nbsp;<span class="element-name">createTextureView</span><wbr><span class="parameters">(<a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a>&nbsp;texture,
+ int&nbsp;baseMipLevel,
+ int&nbsp;mipLevels)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="verifyTextureViewCreationArgs(com.mojang.blaze3d.textures.GpuTexture,int,int)">
+<h3>verifyTextureViewCreationArgs</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">verifyTextureViewCreationArgs</span><wbr><span class="parameters">(<a href="../textures/GpuTexture.html" title="class in com.mojang.blaze3d.textures">GpuTexture</a>&nbsp;texture,
+ int&nbsp;baseMipLevel,
+ int&nbsp;mipLevels)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createBuffer(java.util.function.Supplier,int,long)">
+<h3>createBuffer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a></span>&nbsp;<span class="element-name">createBuffer</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;label,
+ int&nbsp;usage,
+ long&nbsp;size)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createBuffer(java.util.function.Supplier,int,java.nio.ByteBuffer)">
+<h3>createBuffer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../buffers/GpuBuffer.html" title="class in com.mojang.blaze3d.buffers">GpuBuffer</a></span>&nbsp;<span class="element-name">createBuffer</span><wbr><span class="parameters">(@Nullable <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Supplier.html" title="class or interface in java.util.function" class="external-link">Supplier</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;&nbsp;label,
+ int&nbsp;usage,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/nio/ByteBuffer.html" title="class or interface in java.nio" class="external-link">ByteBuffer</a>&nbsp;data)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getImplementationInformation()">
+<h3>getImplementationInformation</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getImplementationInformation</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getLastDebugMessages()">
+<h3>getLastDebugMessages</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">getLastDebugMessages</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isDebuggingEnabled()">
+<h3>isDebuggingEnabled</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isDebuggingEnabled</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getVendor()">
+<h3>getVendor</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getVendor</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBackendName()">
+<h3>getBackendName</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getBackendName</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getVersion()">
+<h3>getVersion</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getVersion</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getRenderer()">
+<h3>getRenderer</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">getRenderer</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getMaxTextureSize()">
+<h3>getMaxTextureSize</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getMaxTextureSize</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getUniformOffsetAlignment()">
+<h3>getUniformOffsetAlignment</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getUniformOffsetAlignment</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="precompilePipeline(com.mojang.blaze3d.pipeline.RenderPipeline)">
+<h3>precompilePipeline</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../pipeline/CompiledRenderPipeline.html" title="interface in com.mojang.blaze3d.pipeline">CompiledRenderPipeline</a></span>&nbsp;<span class="element-name">precompilePipeline</span><wbr><span class="parameters">(<a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="precompilePipeline(com.mojang.blaze3d.pipeline.RenderPipeline,com.mojang.blaze3d.shaders.ShaderSource)">
+<h3>precompilePipeline</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="../pipeline/CompiledRenderPipeline.html" title="interface in com.mojang.blaze3d.pipeline">CompiledRenderPipeline</a></span>&nbsp;<span class="element-name">precompilePipeline</span><wbr><span class="parameters">(<a href="../pipeline/RenderPipeline.html" title="class in com.mojang.blaze3d.pipeline">RenderPipeline</a>&nbsp;pipeline,
+ @Nullable <a href="../shaders/ShaderSource.html" title="interface in com.mojang.blaze3d.shaders">ShaderSource</a>&nbsp;shaderSource)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="clearPipelineCache()">
+<h3>clearPipelineCache</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">clearPipelineCache</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getEnabledExtensions()">
+<h3>getEnabledExtensions</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/List.html" title="class or interface in java.util" class="external-link">List</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">getEnabledExtensions</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getMaxSupportedAnisotropy()">
+<h3>getMaxSupportedAnisotropy</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">int</span>&nbsp;<span class="element-name">getMaxSupportedAnisotropy</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="close()">
+<h3>close</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">close</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="setVsync(boolean)">
+<h3>setVsync</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">setVsync</span><wbr><span class="parameters">(boolean&nbsp;enabled)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="presentFrame()">
+<h3>presentFrame</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">presentFrame</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="isZZeroToOne()">
+<h3>isZZeroToOne</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">boolean</span>&nbsp;<span class="element-name">isZZeroToOne</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getBackend()">
+<h3>getBackend</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="annotations"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Deprecated.html" title="class or interface in java.lang" class="external-link">@Deprecated</a>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Deprecated.html#forRemoval()" title="class or interface in java.lang" class="external-link">forRemoval</a>=true)
+@Internal
+</span><span class="modifiers">public</span>&nbsp;<span class="return-type"><a href="GpuDeviceBackend.html" title="interface in com.mojang.blaze3d.systems">GpuDeviceBackend</a></span>&nbsp;<span class="element-name">getBackend</span>()</div>
+<div class="deprecation-block"><span class="deprecated-label">Deprecated, for removal: This API element is subject to removal in a future version.</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>

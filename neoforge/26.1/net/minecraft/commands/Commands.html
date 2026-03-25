@@ -1,0 +1,572 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+<title>Commands (NeoForge 26.1)</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="description" content="declaration: package: net.minecraft.commands, class: Commands">
+<meta name="generator" content="javadoc/ClassWriter">
+<link rel="stylesheet" type="text/css" href="../../../resource-files/jquery-ui.min.css">
+<link rel="stylesheet" type="text/css" href="../../../resource-files/stylesheet.css">
+<script type="text/javascript" src="../../../script-files/script.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-3.7.1.min.js"></script>
+<script type="text/javascript" src="../../../script-files/jquery-ui.min.js"></script>
+</head>
+<body class="class-declaration-page">
+<script type="text/javascript">const pathtoroot = "../../../";
+loadScripts(document, 'script');</script>
+<noscript>
+<div>JavaScript is disabled on your browser.</div>
+</noscript>
+<header role="banner">
+<nav role="navigation">
+<!-- ========= START OF TOP NAVBAR ======= -->
+<div class="top-nav" id="navbar-top">
+<div class="nav-content">
+<div class="nav-menu-button"><button id="navbar-toggle-button" aria-controls="navbar-top" aria-expanded="false" aria-label="Toggle navigation links"><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span><span class="nav-bar-toggle-icon">&nbsp;</span></button></div>
+<div class="skip-nav"><a href="#skip-navbar-top" title="Skip navigation links">Skip navigation links</a></div>
+<ul id="navbar-top-firstrow" class="nav-list" title="Navigation">
+<li><a href="../../../index.html">Overview</a></li>
+<li class="nav-bar-cell1-rev">Class</li>
+<li><a href="class-use/Commands.html">Use</a></li>
+<li><a href="package-tree.html">Tree</a></li>
+<li><a href="../../../deprecated-list.html">Deprecated</a></li>
+<li><a href="../../../index-files/index-1.html">Index</a></li>
+<li><a href="../../../search.html">Search</a></li>
+<li><a href="../../../help-doc.html#class">Help</a></li>
+</ul>
+</div>
+</div>
+<div class="sub-nav">
+<div class="nav-content">
+<ol class="sub-nav-list">
+<li><a href="package-summary.html">net.minecraft.commands</a></li>
+<li><a href="Commands.html" class="current-selection">Commands</a></li>
+</ol>
+<div class="nav-list-search"><input type="text" id="search-input" disabled placeholder="Search documentation (type /)" aria-label="Search in documentation" autocomplete="off" spellcheck="false"><input type="reset" id="reset-search" disabled value="Reset"></div>
+</div>
+</div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<span class="skip-nav" id="skip-navbar-top"></span></nav>
+</header>
+<div class="main-grid">
+<nav role="navigation" class="toc" aria-label="Table of contents">
+<div class="toc-header">Contents&nbsp;<input type="text" class="filter-input" disabled placeholder="Filter contents (type .)" aria-label="Filter table of contents" autocomplete="off" spellcheck="false"><input type="reset" class="reset-filter" disabled tabindex="-1" value="Reset"></div>
+<ol class="toc-list" tabindex="-1">
+<li><a href="#" tabindex="0">Description</a></li>
+<li><a href="#nested-class-summary" tabindex="0">Nested Class Summary</a></li>
+<li><a href="#field-summary" tabindex="0">Field Summary</a></li>
+<li><a href="#constructor-summary" tabindex="0">Constructor Summary</a></li>
+<li><a href="#method-summary" tabindex="0">Method Summary</a></li>
+<li><a href="#field-detail" tabindex="0">Field Details</a>
+<ol class="toc-list">
+<li><a href="#COMMAND_PREFIX" tabindex="0">COMMAND_PREFIX</a></li>
+<li><a href="#CURRENT_EXECUTION_CONTEXT" tabindex="0">CURRENT_EXECUTION_CONTEXT</a></li>
+<li><a href="#LOGGER" tabindex="0">LOGGER</a></li>
+<li><a href="#LEVEL_ALL" tabindex="0">LEVEL_ALL</a></li>
+<li><a href="#LEVEL_MODERATORS" tabindex="0">LEVEL_MODERATORS</a></li>
+<li><a href="#LEVEL_GAMEMASTERS" tabindex="0">LEVEL_GAMEMASTERS</a></li>
+<li><a href="#LEVEL_ADMINS" tabindex="0">LEVEL_ADMINS</a></li>
+<li><a href="#LEVEL_OWNERS" tabindex="0">LEVEL_OWNERS</a></li>
+<li><a href="#COMMAND_NODE_INSPECTOR" tabindex="0">COMMAND_NODE_INSPECTOR</a></li>
+<li><a href="#dispatcher" tabindex="0">dispatcher</a></li>
+</ol>
+</li>
+<li><a href="#constructor-detail" tabindex="0">Constructor Details</a>
+<ol class="toc-list">
+<li><a href="#%3Cinit%3E(net.minecraft.commands.Commands.CommandSelection,net.minecraft.commands.CommandBuildContext)" tabindex="0">Commands(Commands.CommandSelection, CommandBuildContext)</a></li>
+</ol>
+</li>
+<li><a href="#method-detail" tabindex="0">Method Details</a>
+<ol class="toc-list">
+<li><a href="#mapSource(com.mojang.brigadier.ParseResults,java.util.function.UnaryOperator)" tabindex="0">mapSource(ParseResults, UnaryOperator)</a></li>
+<li><a href="#performPrefixedCommand(net.minecraft.commands.CommandSourceStack,java.lang.String)" tabindex="0">performPrefixedCommand(CommandSourceStack, String)</a></li>
+<li><a href="#trimOptionalPrefix(java.lang.String)" tabindex="0">trimOptionalPrefix(String)</a></li>
+<li><a href="#performCommand(com.mojang.brigadier.ParseResults,java.lang.String)" tabindex="0">performCommand(ParseResults, String)</a></li>
+<li><a href="#finishParsing(com.mojang.brigadier.ParseResults,java.lang.String,net.minecraft.commands.CommandSourceStack)" tabindex="0">finishParsing(ParseResults, String, CommandSourceStack)</a></li>
+<li><a href="#executeCommandInContext(net.minecraft.commands.CommandSourceStack,java.util.function.Consumer)" tabindex="0">executeCommandInContext(CommandSourceStack, Consumer)</a></li>
+<li><a href="#sendCommands(net.minecraft.server.level.ServerPlayer)" tabindex="0">sendCommands(ServerPlayer)</a></li>
+<li><a href="#fillUsableCommands(com.mojang.brigadier.tree.CommandNode,com.mojang.brigadier.tree.CommandNode,S,java.util.Map)" tabindex="0">fillUsableCommands(CommandNode, CommandNode, S, Map)</a></li>
+<li><a href="#literal(java.lang.String)" tabindex="0">literal(String)</a></li>
+<li><a href="#argument(java.lang.String,com.mojang.brigadier.arguments.ArgumentType)" tabindex="0">argument(String, ArgumentType)</a></li>
+<li><a href="#createValidator(net.minecraft.commands.Commands.ParseFunction)" tabindex="0">createValidator(Commands.ParseFunction)</a></li>
+<li><a href="#getDispatcher()" tabindex="0">getDispatcher()</a></li>
+<li><a href="#validateParseResults(com.mojang.brigadier.ParseResults)" tabindex="0">validateParseResults(ParseResults)</a></li>
+<li><a href="#getParseException(com.mojang.brigadier.ParseResults)" tabindex="0">getParseException(ParseResults)</a></li>
+<li><a href="#createValidationContext(net.minecraft.core.HolderLookup.Provider)" tabindex="0">createValidationContext(HolderLookup.Provider)</a></li>
+<li><a href="#validate()" tabindex="0">validate()</a></li>
+<li><a href="#hasPermission(net.minecraft.server.permissions.PermissionCheck)" tabindex="0">hasPermission(PermissionCheck)</a></li>
+<li><a href="#createCompilationContext(net.minecraft.server.permissions.PermissionSet)" tabindex="0">createCompilationContext(PermissionSet)</a></li>
+</ol>
+</li>
+</ol>
+<button class="hide-sidebar"><span>Hide sidebar&nbsp;</span><img src="../../../resource-files/left.svg" alt="Hide sidebar"></button><button class="show-sidebar"><img src="../../../resource-files/right.svg" alt="Show sidebar"><span>&nbsp;Show sidebar</span></button></nav>
+<main role="main">
+<!-- ======== START OF CLASS DATA ======== -->
+<div class="header">
+<h1 title="Class Commands" class="title">Class Commands</h1>
+</div>
+<div class="inheritance" title="Inheritance Tree"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">java.lang.Object</a>
+<div class="inheritance">net.minecraft.commands.Commands</div>
+</div>
+<section class="class-description" id="class-description">
+<hr>
+<div class="horizontal-scroll">
+<div class="type-signature"><span class="modifiers">public class </span><span class="element-name type-name-label">Commands</span>
+<span class="extends-implements">extends <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html" title="class or interface in java.lang" class="external-link">Object</a></span></div>
+</div>
+</section>
+<section class="summary">
+<ul class="summary-list">
+<!-- ======== NESTED CLASS SUMMARY ======== -->
+<li>
+<section class="nested-class-summary" id="nested-class-summary">
+<h2>Nested Class Summary</h2>
+<div class="caption"><span>Nested Classes</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Class</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>static enum&nbsp;</code></div>
+<div class="col-second even-row-color"><code><a href="Commands.CommandSelection.html" class="type-name-link" title="enum class in net.minecraft.commands">Commands.CommandSelection</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static interface&nbsp;</code></div>
+<div class="col-second odd-row-color"><code><a href="Commands.ParseFunction.html" class="type-name-link" title="interface in net.minecraft.commands">Commands.ParseFunction</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- =========== FIELD SUMMARY =========== -->
+<li>
+<section class="field-summary" id="field-summary">
+<h2>Field Summary</h2>
+<div class="caption"><span>Fields</span></div>
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Field</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color"><code>private static final <a href="../network/protocol/game/ClientboundCommandsPacket.NodeInspector.html" title="interface in net.minecraft.network.protocol.game">ClientboundCommandsPacket.NodeInspector</a><wbr>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#COMMAND_NODE_INSPECTOR" class="member-name-link">COMMAND_NODE_INSPECTOR</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#COMMAND_PREFIX" class="member-name-link">COMMAND_PREFIX</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>private static final <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ThreadLocal.html" title="class or interface in java.lang" class="external-link">ThreadLocal</a><wbr>&lt;@Nullable <a href="execution/ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&gt;</code></div>
+<div class="col-second even-row-color"><code><a href="#CURRENT_EXECUTION_CONTEXT" class="member-name-link">CURRENT_EXECUTION_CONTEXT</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private final com.mojang.brigadier.CommandDispatcher<wbr>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</code></div>
+<div class="col-second odd-row-color"><code><a href="#dispatcher" class="member-name-link">dispatcher</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></code></div>
+<div class="col-second even-row-color"><code><a href="#LEVEL_ADMINS" class="member-name-link">LEVEL_ADMINS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#LEVEL_ALL" class="member-name-link">LEVEL_ALL</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></code></div>
+<div class="col-second even-row-color"><code><a href="#LEVEL_GAMEMASTERS" class="member-name-link">LEVEL_GAMEMASTERS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>static final <a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></code></div>
+<div class="col-second odd-row-color"><code><a href="#LEVEL_MODERATORS" class="member-name-link">LEVEL_MODERATORS</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+<div class="col-first even-row-color"><code>static final <a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></code></div>
+<div class="col-second even-row-color"><code><a href="#LEVEL_OWNERS" class="member-name-link">LEVEL_OWNERS</a></code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+<div class="col-first odd-row-color"><code>private static final org.slf4j.Logger</code></div>
+<div class="col-second odd-row-color"><code><a href="#LOGGER" class="member-name-link">LOGGER</a></code></div>
+<div class="col-last odd-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ======== CONSTRUCTOR SUMMARY ======== -->
+<li>
+<section class="constructor-summary" id="constructor-summary">
+<h2>Constructor Summary</h2>
+<div class="caption"><span>Constructors</span></div>
+<div class="summary-table two-column-summary">
+<div class="table-header col-first">Constructor</div>
+<div class="table-header col-last">Description</div>
+<div class="col-constructor-name even-row-color"><code><a href="#%3Cinit%3E(net.minecraft.commands.Commands.CommandSelection,net.minecraft.commands.CommandBuildContext)" class="member-name-link">Commands</a><wbr>(<a href="Commands.CommandSelection.html" title="enum class in net.minecraft.commands">Commands.CommandSelection</a>&nbsp;commandSelection,
+ <a href="CommandBuildContext.html" title="interface in net.minecraft.commands">CommandBuildContext</a>&nbsp;context)</code></div>
+<div class="col-last even-row-color">&nbsp;</div>
+</div>
+</section>
+</li>
+<!-- ========== METHOD SUMMARY =========== -->
+<li>
+<section class="method-summary" id="method-summary">
+<h2>Method Summary</h2>
+<div id="method-summary-table">
+<div class="table-tabs" role="tablist" aria-orientation="horizontal"><button id="method-summary-table-tab0" role="tab" aria-selected="true" aria-controls="method-summary-table.tabpanel" tabindex="0" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table', 3)" class="active-table-tab">All Methods</button><button id="method-summary-table-tab1" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab1', 3)" class="table-tab">Static Methods</button><button id="method-summary-table-tab2" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab2', 3)" class="table-tab">Instance Methods</button><button id="method-summary-table-tab4" role="tab" aria-selected="false" aria-controls="method-summary-table.tabpanel" tabindex="-1" onkeydown="switchTab(event)" onclick="show('method-summary-table', 'method-summary-table-tab4', 3)" class="table-tab">Concrete Methods</button></div>
+<div id="method-summary-table.tabpanel" role="tabpanel" aria-labelledby="method-summary-table-tab0">
+<div class="summary-table three-column-summary">
+<div class="table-header col-first">Modifier and Type</div>
+<div class="table-header col-second">Method</div>
+<div class="table-header col-last">Description</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T&gt;&nbsp;com.mojang.brigadier.builder.RequiredArgumentBuilder<wbr>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>, T&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#argument(java.lang.String,com.mojang.brigadier.arguments.ArgumentType)" class="member-name-link">argument</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ com.mojang.brigadier.arguments.ArgumentType&lt;T&gt;&nbsp;type)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createCompilationContext(net.minecraft.server.permissions.PermissionSet)" class="member-name-link">createCompilationContext</a><wbr>(<a href="../server/permissions/PermissionSet.html" title="interface in net.minecraft.server.permissions">PermissionSet</a>&nbsp;compilationPermissions)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="CommandBuildContext.html" title="interface in net.minecraft.commands">CommandBuildContext</a></code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createValidationContext(net.minecraft.core.HolderLookup.Provider)" class="member-name-link">createValidationContext</a><wbr>(<a href="../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registries)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a><wbr>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#createValidator(net.minecraft.commands.Commands.ParseFunction)" class="member-name-link">createValidator</a><wbr>(<a href="Commands.ParseFunction.html" title="interface in net.minecraft.commands">Commands.ParseFunction</a>&nbsp;parser)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#executeCommandInContext(net.minecraft.commands.CommandSourceStack,java.util.function.Consumer)" class="member-name-link">executeCommandInContext</a><wbr>(<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;context,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="execution/ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&gt;&nbsp;config)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static &lt;S&gt;&nbsp;void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#fillUsableCommands(com.mojang.brigadier.tree.CommandNode,com.mojang.brigadier.tree.CommandNode,S,java.util.Map)" class="member-name-link">fillUsableCommands</a><wbr>(com.mojang.brigadier.tree.CommandNode&lt;S&gt;&nbsp;source,
+ com.mojang.brigadier.tree.CommandNode&lt;S&gt;&nbsp;target,
+ S&nbsp;commandFilter,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;com.mojang.brigadier.tree.CommandNode&lt;S&gt;, com.mojang.brigadier.tree.CommandNode&lt;S&gt;&gt;&nbsp;converted)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>private static @Nullable com.mojang.brigadier.context.ContextChain<wbr>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#finishParsing(com.mojang.brigadier.ParseResults,java.lang.String,net.minecraft.commands.CommandSourceStack)" class="member-name-link">finishParsing</a><wbr>(com.mojang.brigadier.ParseResults&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;command,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;commandString,
+ <a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;sender)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>com.mojang.brigadier.CommandDispatcher<wbr>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#getDispatcher()" class="member-name-link">getDispatcher</a>()</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S&gt;&nbsp;@Nullable com.mojang.brigadier.exceptions.CommandSyntaxException</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#getParseException(com.mojang.brigadier.ParseResults)" class="member-name-link">getParseException</a><wbr>(com.mojang.brigadier.ParseResults&lt;S&gt;&nbsp;parse)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;T extends <a href="../server/permissions/PermissionSetSupplier.html" title="interface in net.minecraft.server.permissions">PermissionSetSupplier</a>&gt;<br><a href="../server/permissions/PermissionProviderCheck.html" title="class in net.minecraft.server.permissions">PermissionProviderCheck</a><wbr>&lt;T&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#hasPermission(net.minecraft.server.permissions.PermissionCheck)" class="member-name-link">hasPermission</a><wbr>(<a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a>&nbsp;permission)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static com.mojang.brigadier.builder.LiteralArgumentBuilder<wbr>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#literal(java.lang.String)" class="member-name-link">literal</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;literal)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S&gt;&nbsp;com.mojang.brigadier.ParseResults<wbr>&lt;S&gt;</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#mapSource(com.mojang.brigadier.ParseResults,java.util.function.UnaryOperator)" class="member-name-link">mapSource</a><wbr>(com.mojang.brigadier.ParseResults&lt;S&gt;&nbsp;parse,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;S&gt;&nbsp;sourceOperator)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#performCommand(com.mojang.brigadier.ParseResults,java.lang.String)" class="member-name-link">performCommand</a><wbr>(com.mojang.brigadier.ParseResults&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;command,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;commandString)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#performPrefixedCommand(net.minecraft.commands.CommandSourceStack,java.lang.String)" class="member-name-link">performPrefixedCommand</a><wbr>(<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;sender,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;command)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code>void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4"><code><a href="#sendCommands(net.minecraft.server.level.ServerPlayer)" class="member-name-link">sendCommands</a><wbr>(<a href="../server/level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab2 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#trimOptionalPrefix(java.lang.String)" class="member-name-link">trimOptionalPrefix</a><wbr>(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;command)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static void</code></div>
+<div class="col-second even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validate()" class="member-name-link">validate</a>()</code></div>
+<div class="col-last even-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+<div class="col-first odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code>static &lt;S&gt;&nbsp;void</code></div>
+<div class="col-second odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4"><code><a href="#validateParseResults(com.mojang.brigadier.ParseResults)" class="member-name-link">validateParseResults</a><wbr>(com.mojang.brigadier.ParseResults&lt;S&gt;&nbsp;command)</code></div>
+<div class="col-last odd-row-color method-summary-table method-summary-table-tab1 method-summary-table-tab4">&nbsp;</div>
+</div>
+</div>
+</div>
+<div class="inherited-list">
+<h3 id="methods-inherited-from-class-java.lang.Object">Methods inherited from class&nbsp;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#method-summary" title="class or interface in java.lang" class="external-link">Object</a></h3>
+<code><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#clone()" title="class or interface in java.lang" class="external-link">clone</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#equals(java.lang.Object)" title="class or interface in java.lang" class="external-link">equals</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#finalize()" title="class or interface in java.lang" class="external-link">finalize</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#getClass()" title="class or interface in java.lang" class="external-link">getClass</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#hashCode()" title="class or interface in java.lang" class="external-link">hashCode</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notify()" title="class or interface in java.lang" class="external-link">notify</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#notifyAll()" title="class or interface in java.lang" class="external-link">notifyAll</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#toString()" title="class or interface in java.lang" class="external-link">toString</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait()" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long)" title="class or interface in java.lang" class="external-link">wait</a>, <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/Object.html#wait(long,int)" title="class or interface in java.lang" class="external-link">wait</a></code></div>
+</section>
+</li>
+</ul>
+</section>
+<section class="details">
+<ul class="details-list">
+<!-- ============ FIELD DETAIL =========== -->
+<li>
+<section class="field-details" id="field-detail">
+<h2>Field Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="COMMAND_PREFIX">
+<h3>COMMAND_PREFIX</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">COMMAND_PREFIX</span></div>
+<dl class="notes">
+<dt>See Also:</dt>
+<dd>
+<ul class="tag-list">
+<li><a href="../../../constant-values.html#net.minecraft.commands.Commands.COMMAND_PREFIX">Constant Field Values</a></li>
+</ul>
+</dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="CURRENT_EXECUTION_CONTEXT">
+<h3>CURRENT_EXECUTION_CONTEXT</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/ThreadLocal.html" title="class or interface in java.lang" class="external-link">ThreadLocal</a>&lt;@Nullable <a href="execution/ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&gt;</span>&nbsp;<span class="element-name">CURRENT_EXECUTION_CONTEXT</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LOGGER">
+<h3>LOGGER</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type">org.slf4j.Logger</span>&nbsp;<span class="element-name">LOGGER</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LEVEL_ALL">
+<h3>LEVEL_ALL</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></span>&nbsp;<span class="element-name">LEVEL_ALL</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LEVEL_MODERATORS">
+<h3>LEVEL_MODERATORS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></span>&nbsp;<span class="element-name">LEVEL_MODERATORS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LEVEL_GAMEMASTERS">
+<h3>LEVEL_GAMEMASTERS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></span>&nbsp;<span class="element-name">LEVEL_GAMEMASTERS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LEVEL_ADMINS">
+<h3>LEVEL_ADMINS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></span>&nbsp;<span class="element-name">LEVEL_ADMINS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="LEVEL_OWNERS">
+<h3>LEVEL_OWNERS</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static final</span>&nbsp;<span class="return-type"><a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a></span>&nbsp;<span class="element-name">LEVEL_OWNERS</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="COMMAND_NODE_INSPECTOR">
+<h3>COMMAND_NODE_INSPECTOR</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static final</span>&nbsp;<span class="return-type"><a href="../network/protocol/game/ClientboundCommandsPacket.NodeInspector.html" title="interface in net.minecraft.network.protocol.game">ClientboundCommandsPacket.NodeInspector</a>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</span>&nbsp;<span class="element-name">COMMAND_NODE_INSPECTOR</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="dispatcher">
+<h3>dispatcher</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private final</span>&nbsp;<span class="return-type">com.mojang.brigadier.CommandDispatcher&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</span>&nbsp;<span class="element-name">dispatcher</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ========= CONSTRUCTOR DETAIL ======== -->
+<li>
+<section class="constructor-details" id="constructor-detail">
+<h2>Constructor Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="&lt;init&gt;(net.minecraft.commands.Commands.CommandSelection,net.minecraft.commands.CommandBuildContext)">
+<h3>Commands</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="element-name">Commands</span><wbr><span class="parameters">(<a href="Commands.CommandSelection.html" title="enum class in net.minecraft.commands">Commands.CommandSelection</a>&nbsp;commandSelection,
+ <a href="CommandBuildContext.html" title="interface in net.minecraft.commands">CommandBuildContext</a>&nbsp;context)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+<!-- ============ METHOD DETAIL ========== -->
+<li>
+<section class="method-details" id="method-detail">
+<h2>Method Details</h2>
+<ul class="member-list">
+<li>
+<section class="detail" id="mapSource(com.mojang.brigadier.ParseResults,java.util.function.UnaryOperator)">
+<h3>mapSource</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S&gt;</span>
+<span class="return-type">com.mojang.brigadier.ParseResults&lt;S&gt;</span>&nbsp;<span class="element-name">mapSource</span><wbr><span class="parameters">(com.mojang.brigadier.ParseResults&lt;S&gt;&nbsp;parse,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/UnaryOperator.html" title="class or interface in java.util.function" class="external-link">UnaryOperator</a>&lt;S&gt;&nbsp;sourceOperator)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="performPrefixedCommand(net.minecraft.commands.CommandSourceStack,java.lang.String)">
+<h3>performPrefixedCommand</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">performPrefixedCommand</span><wbr><span class="parameters">(<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;sender,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;command)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="trimOptionalPrefix(java.lang.String)">
+<h3>trimOptionalPrefix</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a></span>&nbsp;<span class="element-name">trimOptionalPrefix</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;command)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="performCommand(com.mojang.brigadier.ParseResults,java.lang.String)">
+<h3>performCommand</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">performCommand</span><wbr><span class="parameters">(com.mojang.brigadier.ParseResults&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;command,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;commandString)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="finishParsing(com.mojang.brigadier.ParseResults,java.lang.String,net.minecraft.commands.CommandSourceStack)">
+<h3>finishParsing</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="return-type">@Nullable com.mojang.brigadier.context.ContextChain&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</span>&nbsp;<span class="element-name">finishParsing</span><wbr><span class="parameters">(com.mojang.brigadier.ParseResults&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&nbsp;command,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;commandString,
+ <a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;sender)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="executeCommandInContext(net.minecraft.commands.CommandSourceStack,java.util.function.Consumer)">
+<h3>executeCommandInContext</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">executeCommandInContext</span><wbr><span class="parameters">(<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&nbsp;context,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Consumer.html" title="class or interface in java.util.function" class="external-link">Consumer</a>&lt;<a href="execution/ExecutionContext.html" title="class in net.minecraft.commands.execution">ExecutionContext</a>&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;&gt;&nbsp;config)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="sendCommands(net.minecraft.server.level.ServerPlayer)">
+<h3>sendCommands</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">sendCommands</span><wbr><span class="parameters">(<a href="../server/level/ServerPlayer.html" title="class in net.minecraft.server.level">ServerPlayer</a>&nbsp;player)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="fillUsableCommands(com.mojang.brigadier.tree.CommandNode,com.mojang.brigadier.tree.CommandNode,S,java.util.Map)">
+<h3 id="fillUsableCommands(com.mojang.brigadier.tree.CommandNode,com.mojang.brigadier.tree.CommandNode,java.lang.Object,java.util.Map)">fillUsableCommands</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">private static</span>&nbsp;<span class="type-parameters">&lt;S&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">fillUsableCommands</span><wbr><span class="parameters">(com.mojang.brigadier.tree.CommandNode&lt;S&gt;&nbsp;source,
+ com.mojang.brigadier.tree.CommandNode&lt;S&gt;&nbsp;target,
+ S&nbsp;commandFilter,
+ <a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/Map.html" title="class or interface in java.util" class="external-link">Map</a>&lt;com.mojang.brigadier.tree.CommandNode&lt;S&gt;, com.mojang.brigadier.tree.CommandNode&lt;S&gt;&gt;&nbsp;converted)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="literal(java.lang.String)">
+<h3>literal</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">com.mojang.brigadier.builder.LiteralArgumentBuilder&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</span>&nbsp;<span class="element-name">literal</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;literal)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="argument(java.lang.String,com.mojang.brigadier.arguments.ArgumentType)">
+<h3>argument</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T&gt;</span>
+<span class="return-type">com.mojang.brigadier.builder.RequiredArgumentBuilder&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>, T&gt;</span>&nbsp;<span class="element-name">argument</span><wbr><span class="parameters">(<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&nbsp;name,
+ com.mojang.brigadier.arguments.ArgumentType&lt;T&gt;&nbsp;type)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createValidator(net.minecraft.commands.Commands.ParseFunction)">
+<h3>createValidator</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/util/function/Predicate.html" title="class or interface in java.util.function" class="external-link">Predicate</a>&lt;<a href="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/lang/String.html" title="class or interface in java.lang" class="external-link">String</a>&gt;</span>&nbsp;<span class="element-name">createValidator</span><wbr><span class="parameters">(<a href="Commands.ParseFunction.html" title="interface in net.minecraft.commands">Commands.ParseFunction</a>&nbsp;parser)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getDispatcher()">
+<h3>getDispatcher</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public</span>&nbsp;<span class="return-type">com.mojang.brigadier.CommandDispatcher&lt;<a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a>&gt;</span>&nbsp;<span class="element-name">getDispatcher</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="validateParseResults(com.mojang.brigadier.ParseResults)">
+<h3>validateParseResults</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S&gt;</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">validateParseResults</span><wbr><span class="parameters">(com.mojang.brigadier.ParseResults&lt;S&gt;&nbsp;command)</span>
+                                     throws <span class="exceptions">com.mojang.brigadier.exceptions.CommandSyntaxException</span></div>
+<dl class="notes">
+<dt>Throws:</dt>
+<dd><code>com.mojang.brigadier.exceptions.CommandSyntaxException</code></dd>
+</dl>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="getParseException(com.mojang.brigadier.ParseResults)">
+<h3>getParseException</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;S&gt;</span>
+<span class="return-type">@Nullable com.mojang.brigadier.exceptions.CommandSyntaxException</span>&nbsp;<span class="element-name">getParseException</span><wbr><span class="parameters">(com.mojang.brigadier.ParseResults&lt;S&gt;&nbsp;parse)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createValidationContext(net.minecraft.core.HolderLookup.Provider)">
+<h3>createValidationContext</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="CommandBuildContext.html" title="interface in net.minecraft.commands">CommandBuildContext</a></span>&nbsp;<span class="element-name">createValidationContext</span><wbr><span class="parameters">(<a href="../core/HolderLookup.Provider.html" title="interface in net.minecraft.core">HolderLookup.Provider</a>&nbsp;registries)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="validate()">
+<h3>validate</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type">void</span>&nbsp;<span class="element-name">validate</span>()</div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="hasPermission(net.minecraft.server.permissions.PermissionCheck)">
+<h3>hasPermission</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="type-parameters">&lt;T extends <a href="../server/permissions/PermissionSetSupplier.html" title="interface in net.minecraft.server.permissions">PermissionSetSupplier</a>&gt;</span>
+<span class="return-type"><a href="../server/permissions/PermissionProviderCheck.html" title="class in net.minecraft.server.permissions">PermissionProviderCheck</a>&lt;T&gt;</span>&nbsp;<span class="element-name">hasPermission</span><wbr><span class="parameters">(<a href="../server/permissions/PermissionCheck.html" title="interface in net.minecraft.server.permissions">PermissionCheck</a>&nbsp;permission)</span></div>
+</div>
+</section>
+</li>
+<li>
+<section class="detail" id="createCompilationContext(net.minecraft.server.permissions.PermissionSet)">
+<h3>createCompilationContext</h3>
+<div class="horizontal-scroll">
+<div class="member-signature"><span class="modifiers">public static</span>&nbsp;<span class="return-type"><a href="CommandSourceStack.html" title="class in net.minecraft.commands">CommandSourceStack</a></span>&nbsp;<span class="element-name">createCompilationContext</span><wbr><span class="parameters">(<a href="../server/permissions/PermissionSet.html" title="interface in net.minecraft.server.permissions">PermissionSet</a>&nbsp;compilationPermissions)</span></div>
+</div>
+</section>
+</li>
+</ul>
+</section>
+</li>
+</ul>
+</section>
+<!-- ========= END OF CLASS DATA ========= -->
+</main>
+</div>
+</body>
+</html>
